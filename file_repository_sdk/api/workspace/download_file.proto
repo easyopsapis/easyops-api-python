@@ -1,0 +1,30 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DownloadFile请求
+*/
+message DownloadFileRequest {
+    /*
+    要操作的文件、目录路径,上传时path是指存储的目录
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 2 ;
+    /*
+    文件操作类型包括：下载 -> download
+    */
+    string op = 3 ;
+    /*
+    包Id
+    */
+    string packageId = 4 ;
+}
+

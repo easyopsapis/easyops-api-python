@@ -1,0 +1,291 @@
+syntax = "proto3";
+package deploy;
+
+
+
+
+import "model/easy_flow/deploy_label.proto";
+import "model/easy_flow/deploy_batch_target.proto";
+import "model/cmdb/cluster_info.proto";
+import "model/file_repository/diff.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+message Batches {
+    /*
+    批次主机列表
+    */
+    repeated easy_flow.DeployBatchTarget targets = 1 ;
+}
+        
+message InstanceInfo {
+    /*
+    版本名
+    */
+    string versionName = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+    /*
+    版本Id
+    */
+    string versionId = 4 ;
+}
+        
+message VersionInfo {
+message SourceDecode {
+    /*
+    源服务名字
+    */
+    string ensName = 1 ;
+    /*
+    源域名
+    */
+    string host = 2 ;
+    /*
+    源类型
+    */
+    string type = 3 ;
+    /*
+    http源的ip
+    */
+    string ip = 4 ;
+    /*
+    http源的port
+    */
+    int32 port = 5 ;
+}
+        
+    
+    /*
+    包存储源信息
+    */
+    SourceDecode sourceDecode = 1 ;
+    /*
+    包存储源序列化信息
+    */
+    string source = 2 ;
+    /*
+    包diff信息
+    */
+    repeated file_repository.Diff diff = 3 ;
+    /*
+    包名称
+    */
+    string name = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+    /*
+    包Id
+    */
+    string packageId = 6 ;
+    /*
+    组织id
+    */
+    int32 org = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    版本备注
+    */
+    string memo = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    修改时间
+    */
+    string mtime = 11 ;
+    /*
+    包文件的md5检验值
+    */
+    google.protobuf.Struct sign = 12 ;
+    /*
+    包存储服务版本
+    */
+    string sourceType = 13 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 14 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 15 ;
+}
+        
+message PackageList {
+    /*
+    集群
+    */
+    cmdb.ClusterInfo cluster = 1 ;
+    /*
+    目标版本
+    */
+    string targetVersion = 2 ;
+    /*
+    是否提前暂停
+    */
+    string preStop = 3 ;
+    /*
+    是否发布重启
+    */
+    string postRestart = 4 ;
+    /*
+    是否自动运行
+    */
+    string autoStart = 5 ;
+    /*
+    是否需要用户检查
+    */
+    string userCheck = 6 ;
+    /*
+    是否完全更新
+    */
+    string fullUpdate = 7 ;
+    /*
+    强制更新
+    */
+    string force = 8 ;
+    /*
+    强制安装
+    */
+    string forceInstall = 9 ;
+    /*
+    包Id
+    */
+    string packageId = 10 ;
+    /*
+    包名称
+    */
+    string name = 11 ;
+    /*
+    安装路径
+    */
+    string installPath = 12 ;
+    /*
+    版本类型 1 程序包,  2 配置包,  4 文件包
+    */
+    int32 type = 13 ;
+    /*
+    平台
+    */
+    string platform = 14 ;
+}
+        
+    
+    /*
+    是否需要通知
+    */
+    string needNotify = 1 ;
+    /*
+    标签
+    */
+    easy_flow.DeployLabel labels = 2 ;
+    /*
+    应用Id
+    */
+    string appId = 3 ;
+    /*
+    应用名称
+    */
+    string appName = 4 ;
+    /*
+    集群Id
+    */
+    string clusterId = 5 ;
+    /*
+    集群类型
+    */
+    string clusterType = 6 ;
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 7 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 8 ;
+    /*
+    分批详情
+    */
+    repeated Batches batches = 9 ;
+    /*
+    是否失败暂停
+    */
+    string failedStop = 10 ;
+    /*
+    目标设备Id
+    */
+    string targetId = 11 ;
+    /*
+    目标设备名称
+    */
+    string targetName = 12 ;
+    /*
+    实例Id
+    */
+    string instanceId = 13 ;
+    /*
+    集群列表
+    */
+    cmdb.ClusterInfo cluster = 14 ;
+    /*
+    目标设备上次成功部署的实例信息
+    */
+    repeated InstanceInfo instanceInfo = 15 ;
+    /*
+    包版本信息
+    */
+    VersionInfo versionInfo = 16 ;
+    /*
+    部署包信息
+    */
+    PackageList packageList = 17 ;
+}
+
+/*
+Create返回
+*/
+message CreateResponse {
+    /*
+    任务Id
+    */
+    string taskId = 1 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    deploy.CreateResponse data = 4 ;
+}
+

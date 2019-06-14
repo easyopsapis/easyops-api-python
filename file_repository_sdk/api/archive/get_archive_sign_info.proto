@@ -1,0 +1,54 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetSign请求
+*/
+message GetSignRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+GetSign返回
+*/
+message GetSignResponse {
+    /*
+    包文件的md5检验值
+    */
+    google.protobuf.Struct sign = 1 ;
+}
+
+/*
+GetSignApi返回
+*/
+message GetSignResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.GetSignResponse data = 4 ;
+}
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DownloadArchive请求
+*/
+message DownloadArchiveRequest {
+    /*
+    单独下载指定的文件
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+    /*
+    版本Id
+    */
+    string versionId = 4 ;
+}
+

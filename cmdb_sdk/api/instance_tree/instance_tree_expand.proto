@@ -1,0 +1,53 @@
+syntax = "proto3";
+package instance_tree;
+
+
+
+
+import "model/cmdb/instance_tree_root_node.proto";
+import "google/protobuf/struct.proto";
+
+/*
+InstanceTreeExpand请求
+*/
+message InstanceTreeExpandRequest {
+    /*
+    树定义
+    */
+    cmdb.InstanceTreeRootNode tree = 1 ;
+    /*
+    全局忽略与父级无关联实例,默认false
+    */
+    bool ignore_single = 2 ;
+    /*
+    模型Id,不传则展开首层
+    */
+    string object_id = 3 ;
+    /*
+    实例Id
+    */
+    string instanceId = 4 ;
+}
+
+/*
+InstanceTreeExpandApi返回
+*/
+message InstanceTreeExpandResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

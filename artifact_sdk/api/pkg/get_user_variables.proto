@@ -1,0 +1,43 @@
+syntax = "proto3";
+package pkg;
+
+
+
+
+
+/*
+GetUserVariables返回
+*/
+message GetUserVariablesResponse {
+    /*
+    变量key
+    */
+    string key = 1 ;
+    /*
+    变量Value
+    */
+    string value = 2 ;
+}
+
+/*
+GetUserVariablesApi返回
+*/
+message GetUserVariablesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated pkg.GetUserVariablesResponse data = 4 ;
+}
+

@@ -1,0 +1,43 @@
+syntax = "proto3";
+package strategy;
+
+
+
+
+import "model/easy_flow/deploy_batch_target.proto";
+import "model/cmdb/cluster_info.proto";
+import "model/easy_flow/target_info.proto";
+import "model/easy_flow/deploy_strategy.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    策略Id
+    */
+    string strategyID = 1 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_flow.DeployStrategy data = 4 ;
+}
+

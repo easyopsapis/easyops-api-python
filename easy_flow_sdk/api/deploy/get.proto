@@ -1,0 +1,42 @@
+syntax = "proto3";
+package deploy;
+
+
+
+
+import "model/easy_flow/target_result.proto";
+import "model/easy_flow/deploy_label.proto";
+import "model/easy_flow/deploy_ret.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    任务Id
+    */
+    string taskId = 1 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_flow.DeployRet data = 4 ;
+}
+

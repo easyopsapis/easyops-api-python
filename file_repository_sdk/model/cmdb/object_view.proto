@@ -1,0 +1,40 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+模型视图设置
+*/
+message ObjectView {
+    /*
+    是否可见
+    */
+    bool visible = 1 ;
+    /*
+    展示隐藏的属性
+    */
+    bool showHideAttrs = 2 ;
+    /*
+    设置隐藏属性，e.g.: ['appId', '_updatable']
+    */
+    repeated string hide_columns = 3 ;
+    /*
+    定义如何展示关系，e.g.: { business: ['name'], tester: ['name'] }
+    */
+    google.protobuf.Struct relation_view = 4 ;
+    /*
+    展示时的属性顺序
+    */
+    repeated string attr_order = 5 ;
+    /*
+    模型属性列表，用来组成显示实例别名
+    */
+    repeated string show_key = 6 ;
+}
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+实施日志
+*/
+message ProgressLog {
+    /*
+    实时id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    监控指标
+    */
+    string metrics = 2 ;
+    /*
+    日志
+    */
+    repeated string logs = 3 ;
+}
+

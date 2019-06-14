@@ -1,0 +1,52 @@
+syntax = "proto3";
+package instance_relation;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+Set请求
+*/
+message SetRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    关系sideId
+    */
+    string relationSideId = 2 ;
+    /*
+    模型的实例ID列表
+    */
+    repeated string instance_ids = 3 ;
+    /*
+    关联的实例ID列表
+    */
+    repeated string related_instance_ids = 4 ;
+}
+
+/*
+SetApi返回
+*/
+message SetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

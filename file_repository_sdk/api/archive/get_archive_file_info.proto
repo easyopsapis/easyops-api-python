@@ -1,0 +1,93 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+
+/*
+GetFileInfo请求
+*/
+message GetFileInfoRequest {
+    /*
+    文件路径
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+    /*
+    版本Id
+    */
+    string versionId = 4 ;
+}
+
+/*
+GetFileInfo返回
+*/
+message GetFileInfoResponse {
+    /*
+    文件名
+    */
+    string name = 1 ;
+    /*
+    文件类型
+    */
+    string type = 2 ;
+    /*
+    文件大小
+    */
+    int64 size = 3 ;
+    /*
+    文件权限
+    */
+    string perm = 4 ;
+    /*
+    文件修改时间
+    */
+    string mtime = 5 ;
+    /*
+    文件创建时间
+    */
+    string ctime = 6 ;
+    /*
+    如果type=link，link为链接地址
+    */
+    string link = 7 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 8 ;
+    /*
+    文件hash
+    */
+    string md5 = 9 ;
+}
+
+/*
+GetFileInfoApi返回
+*/
+message GetFileInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.GetFileInfoResponse data = 4 ;
+}
+

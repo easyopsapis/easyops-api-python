@@ -1,0 +1,48 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+Create返回
+*/
+message CreateResponse {
+    /*
+    版本Id
+    */
+    string versionId = 1 ;
+    /*
+    包文件的md5检验值
+    */
+    google.protobuf.Struct sign = 2 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 3 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.CreateResponse data = 4 ;
+}
+

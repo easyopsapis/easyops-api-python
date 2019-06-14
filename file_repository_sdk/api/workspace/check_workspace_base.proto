@@ -1,0 +1,53 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+CheckWorkspaceBase请求
+*/
+message CheckWorkspaceBaseRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    工作区基础版本Id
+    */
+    string workspaceBaseId = 2 ;
+}
+
+/*
+CheckWorkspaceBase返回
+*/
+message CheckWorkspaceBaseResponse {
+    /*
+    成功时，返回工作区关联版本ID
+    */
+    string workspaceBaseId = 1 ;
+}
+
+/*
+CheckWorkspaceBaseApi返回
+*/
+message CheckWorkspaceBaseResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.CheckWorkspaceBaseResponse data = 4 ;
+}
+

@@ -1,0 +1,61 @@
+syntax = "proto3";
+package instance_relation;
+
+
+
+
+
+/*
+CountRelationInstance请求
+*/
+message CountRelationInstanceRequest {
+    /*
+    关系Id
+    */
+    string relationId = 1 ;
+}
+
+/*
+CountRelationInstance返回
+*/
+message CountRelationInstanceResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    总数
+    */
+    int32 data = 4 ;
+}
+
+/*
+CountRelationInstanceApi返回
+*/
+message CountRelationInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance_relation.CountRelationInstanceResponse data = 4 ;
+}
+

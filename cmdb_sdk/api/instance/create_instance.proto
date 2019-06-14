@@ -1,0 +1,44 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+CreateInstance请求
+*/
+message CreateInstanceRequest {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+    /*
+    创建实例
+    */
+    google.protobuf.Struct instance = 2 ;
+}
+
+/*
+CreateInstanceApi返回
+*/
+message CreateInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

@@ -1,0 +1,109 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+
+/*
+Listdir请求
+*/
+message ListdirRequest {
+    /*
+    目录路径,相当于ls path
+    */
+    string path = 1 ;
+    /*
+    程序包Id
+    */
+    string packageId = 2 ;
+    /*
+    版本Id
+    */
+    string versionId = 3 ;
+}
+
+/*
+Listdir返回
+*/
+message ListdirResponse {
+message List {
+    /*
+    文件名
+    */
+    string name = 1 ;
+    /*
+    文件类型
+    */
+    string type = 2 ;
+    /*
+    文件大小
+    */
+    int64 size = 3 ;
+    /*
+    文件权限
+    */
+    string perm = 4 ;
+    /*
+    文件修改时间
+    */
+    string mtime = 5 ;
+    /*
+    文件创建时间
+    */
+    string ctime = 6 ;
+    /*
+    如果type=link，link为链接地址
+    */
+    string link = 7 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 8 ;
+    /*
+    文件hash
+    */
+    string md5 = 9 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListdirApi返回
+*/
+message ListdirResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.ListdirResponse data = 4 ;
+}
+

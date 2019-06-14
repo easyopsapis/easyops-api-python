@@ -1,0 +1,101 @@
+syntax = "proto3";
+package version;
+
+
+
+
+import "model/artifact/version.proto";
+import "google/protobuf/struct.proto";
+
+/*
+CreateVersionWithSign请求
+*/
+message CreateVersionWithSignRequest {
+message Source {
+    /*
+    源服务名字
+    */
+    string ensName = 1 ;
+    /*
+    源域名
+    */
+    string host = 2 ;
+    /*
+    源类型
+    */
+    string type = 3 ;
+    /*
+    http源的ip
+    */
+    string ip = 4 ;
+    /*
+    http源的port
+    */
+    int32 port = 5 ;
+}
+        
+    
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+    /*
+    包名称
+    */
+    string name = 3 ;
+    /*
+    版本备注
+    */
+    string memo = 4 ;
+    /*
+    包文件的md5检验值
+    */
+    google.protobuf.Struct sign = 5 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 6 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 7 ;
+    /*
+    基础Docker镜像Id
+    */
+    string baseImageId = 8 ;
+    /*
+    工作区基础版本Id
+    */
+    string workspaceBaseId = 9 ;
+    /*
+    包存储源信息
+    */
+    Source source = 10 ;
+}
+
+/*
+CreateVersionWithSignApi返回
+*/
+message CreateVersionWithSignResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    artifact.Version data = 4 ;
+}
+

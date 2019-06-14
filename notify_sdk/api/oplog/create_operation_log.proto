@@ -1,0 +1,40 @@
+syntax = "proto3";
+package oplog;
+
+
+
+
+import "model/notify/operation_log.proto";
+
+/*
+CreateOperationLog返回
+*/
+message CreateOperationLogResponse {
+    /*
+    消息id
+    */
+    string event_id = 1 ;
+}
+
+/*
+CreateOperationLogApi返回
+*/
+message CreateOperationLogResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    oplog.CreateOperationLogResponse data = 4 ;
+}
+

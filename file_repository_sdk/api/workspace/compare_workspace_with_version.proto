@@ -1,0 +1,101 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+CompareWorkspaceWithVersion请求
+*/
+message CompareWorkspaceWithVersionRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+CompareWorkspaceWithVersion返回
+*/
+message CompareWorkspaceWithVersionResponse {
+message Detail {
+    /*
+    操作类型
+    */
+    string op = 1 ;
+    /*
+    文件路径
+    */
+    string file = 2 ;
+    /*
+    文件类型
+    */
+    string type = 3 ;
+    /*
+    文件权限
+    */
+    string perm = 4 ;
+    /*
+    新的检验值
+    */
+    string newMd5 = 5 ;
+    /*
+    旧的检验值
+    */
+    string oldMd5 = 6 ;
+    /*
+    文件原本大小
+    */
+    int64 oldSize = 7 ;
+    /*
+    文件新的大小
+    */
+    int64 newSize = 8 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 9 ;
+}
+        
+    
+    /*
+    版本来源
+    */
+    string fromVersion = 1 ;
+    /*
+    版本去向
+    */
+    string toVersion = 2 ;
+    /*
+    差异详情
+    */
+    repeated Detail detail = 3 ;
+}
+
+/*
+CompareWorkspaceWithVersionApi返回
+*/
+message CompareWorkspaceWithVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.CompareWorkspaceWithVersionResponse data = 4 ;
+}
+

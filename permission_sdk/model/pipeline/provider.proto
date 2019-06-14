@@ -1,0 +1,75 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+Git Provider
+*/
+message Provider {
+message Auth {
+    /*
+    鉴权方式, 目前只支持 basic
+    */
+    string type = 1 ;
+    /*
+    gitlab personal access token. https://docs.gitlab.com/ee/api/README.html#personal-access-tokens
+    */
+    string token = 2 ;
+    /*
+    auth2类型的app_id
+    */
+    string app_id = 3 ;
+    /*
+    auth2类型的secret
+    */
+    string app_secret = 4 ;
+    /*
+    auth2是否可以访问私有仓库
+    */
+    string acess_private_repos = 5 ;
+}
+        
+    
+    /*
+    实例id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    名称， 不能修改
+    */
+    string name = 2 ;
+    /*
+    Provider类型, 目前只支持gitlab, 不能修改
+    */
+    string type = 3 ;
+    /*
+    gitlab v4 api url.
+    */
+    string api_url = 4 ;
+    /*
+    鉴权方式
+    */
+    Auth auth = 5 ;
+    /*
+    是否为默认provider
+    */
+    string default = 6 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 7 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 8 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 9 ;
+}
+

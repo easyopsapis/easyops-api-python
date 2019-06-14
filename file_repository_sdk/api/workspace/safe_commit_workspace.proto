@@ -1,0 +1,105 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+SafeCommitWorkspace请求
+*/
+message SafeCommitWorkspaceRequest {
+message Source {
+    /*
+    源服务名字
+    */
+    string ensName = 1 ;
+    /*
+    源域名
+    */
+    string host = 2 ;
+    /*
+    源类型
+    */
+    string type = 3 ;
+    /*
+    http源的ip
+    */
+    string ip = 4 ;
+    /*
+    http源的port
+    */
+    int32 port = 5 ;
+}
+        
+    
+    /*
+    版本备注信息
+    */
+    string message = 1 ;
+    /*
+    程序包Id
+    */
+    string packageId = 2 ;
+    /*
+    版本Id
+    */
+    string versionId = 3 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 4 ;
+    /*
+    包存储源信息
+    */
+    Source source = 5 ;
+    /*
+    包名称
+    */
+    string name = 6 ;
+}
+
+/*
+SafeCommitWorkspace返回
+*/
+message SafeCommitWorkspaceResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    string data = 4 ;
+}
+
+/*
+SafeCommitWorkspaceApi返回
+*/
+message SafeCommitWorkspaceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.SafeCommitWorkspaceResponse data = 4 ;
+}
+

@@ -1,0 +1,72 @@
+syntax = "proto3";
+package pkg;
+
+
+
+
+import "model/artifact/package.proto";
+
+/*
+Update请求
+*/
+message UpdateRequest {
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    包名称
+    */
+    string name = 2 ;
+    /*
+    包分类
+    */
+    int32 cId = 3 ;
+    /*
+    包文件源
+    */
+    string source = 4 ;
+    /*
+    备注说明
+    */
+    string memo = 5 ;
+    /*
+    包分类标签
+    */
+    string category = 6 ;
+    /*
+    包图标
+    */
+    string icon = 7 ;
+    /*
+    包图标样式(颜色)
+    */
+    string style = 8 ;
+    /*
+    安装路径
+    */
+    string installPath = 9 ;
+}
+
+/*
+UpdateApi返回
+*/
+message UpdateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    artifact.Package data = 4 ;
+}
+
