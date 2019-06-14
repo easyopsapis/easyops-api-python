@@ -1,0 +1,31 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+构建状态
+*/
+message BuildStatus {
+    /*
+    构建状态
+    */
+    string state = 1 ;
+    /*
+    开始时间
+    */
+    int32 started = 2 ;
+    /*
+    更新时间
+    */
+    int32 updated = 3 ;
+    /*
+    完成时间
+    */
+    int32 finished = 4 ;
+}
+

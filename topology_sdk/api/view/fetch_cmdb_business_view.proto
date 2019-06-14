@@ -1,0 +1,44 @@
+syntax = "proto3";
+package view;
+
+
+
+
+import "model/topology/node.proto";
+import "model/topology/link.proto";
+import "model/topology/area.proto";
+import "model/topology/note.proto";
+import "model/topology/view.proto";
+
+/*
+FetchCmdbBusinessView请求
+*/
+message FetchCmdbBusinessViewRequest {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+FetchCmdbBusinessViewApi返回
+*/
+message FetchCmdbBusinessViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topology.View data = 4 ;
+}
+

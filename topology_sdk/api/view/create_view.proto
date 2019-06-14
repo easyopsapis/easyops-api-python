@@ -1,0 +1,109 @@
+syntax = "proto3";
+package view;
+
+
+
+
+import "model/topology/node.proto";
+import "model/topology/link.proto";
+import "model/topology/area.proto";
+import "model/topology/note.proto";
+
+/*
+CreateView请求
+*/
+message CreateViewRequest {
+message Diff {
+    /*
+    新增节点
+    */
+    repeated topology.Node addNodes = 1 ;
+    /*
+    已删除节点
+    */
+    repeated topology.Node removeNodes = 2 ;
+    /*
+    新增线
+    */
+    repeated topology.Link addLinks = 3 ;
+    /*
+    已删除线
+    */
+    repeated topology.Link removeLinks = 4 ;
+}
+        
+    
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    允许可读用户
+    */
+    repeated string readAuthorizers = 2 ;
+    /*
+    允许可写用户
+    */
+    repeated string writeAuthorizers = 3 ;
+    /*
+    版本
+    */
+    string version = 4 ;
+    /*
+    根节点
+    */
+    topology.Node rootNode = 5 ;
+    /*
+    节点
+    */
+    repeated topology.Node nodes = 6 ;
+    /*
+    线
+    */
+    repeated topology.Link links = 7 ;
+    /*
+    区域
+    */
+    repeated topology.Area areas = 8 ;
+    /*
+    标注
+    */
+    repeated topology.Note notes = 9 ;
+    /*
+    差异
+    */
+    Diff diff = 10 ;
+}
+
+/*
+CreateView返回
+*/
+message CreateViewResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+CreateViewApi返回
+*/
+message CreateViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    view.CreateViewResponse data = 4 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package container;
+
+
+
+
+
+/*
+DeleteContainer请求
+*/
+message DeleteContainerRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteContainer返回
+*/
+message DeleteContainerResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteContainerApi返回
+*/
+message DeleteContainerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.DeleteContainerResponse data = 4 ;
+}
+

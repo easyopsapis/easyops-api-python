@@ -1,0 +1,62 @@
+syntax = "proto3";
+package view;
+
+
+
+
+import "model/topology/relation.proto";
+import "model/topology/hideLink.proto";
+import "model/topology/node.proto";
+import "model/topology/link.proto";
+import "model/topology/area.proto";
+import "model/topology/note.proto";
+import "model/topology/view.proto";
+
+/*
+FetchOriginView请求
+*/
+message FetchOriginViewRequest {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID
+    */
+    string instanceId = 2 ;
+    /*
+    相关关系字段
+    */
+    repeated topology.Relation relations = 3 ;
+    /*
+    数据源
+    */
+    string dataSource = 4 ;
+    /*
+    隐藏关系
+    */
+    repeated topology.HideLink hideLinks = 5 ;
+}
+
+/*
+FetchOriginViewApi返回
+*/
+message FetchOriginViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topology.View data = 4 ;
+}
+

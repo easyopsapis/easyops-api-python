@@ -1,0 +1,70 @@
+syntax = "proto3";
+package view;
+
+
+
+
+import "model/topology/view.proto";
+
+/*
+ListView请求
+*/
+message ListViewRequest {
+    /*
+    根据视图名称进行过滤
+    */
+    string q = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页数据量
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+ListView返回
+*/
+message ListViewResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated topology.View list = 4 ;
+}
+
+/*
+ListViewApi返回
+*/
+message ListViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    view.ListViewResponse data = 4 ;
+}
+
