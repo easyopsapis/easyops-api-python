@@ -1,0 +1,40 @@
+syntax = "proto3";
+package provider;
+
+
+
+
+import "model/pipeline/provider.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    实例id，服务端自动生成
+    */
+    string id = 1 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.Provider data = 4 ;
+}
+

@@ -1,0 +1,59 @@
+syntax = "proto3";
+package project;
+
+
+
+
+import "model/pipeline/project.proto";
+import "model/pipeline/provider.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    关联的provider id
+    */
+    string provider_id = 1 ;
+    /*
+    代码项目
+    */
+    pipeline.Project project = 2 ;
+}
+
+/*
+Create返回
+*/
+message CreateResponse {
+    /*
+    代码项目
+    */
+    pipeline.Project project = 1 ;
+    /*
+    project关联的provider信息
+    */
+    pipeline.Provider provider = 2 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    project.CreateResponse data = 4 ;
+}
+

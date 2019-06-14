@@ -1,0 +1,44 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "model/pipeline/stage_status.proto";
+
+/*
+CreateStageStatus请求
+*/
+message CreateStageStatusRequest {
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+    /*
+    stage状态
+    */
+    pipeline.StageStatus status = 2 ;
+}
+
+/*
+CreateStageStatusApi返回
+*/
+message CreateStageStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.StageStatus data = 4 ;
+}
+

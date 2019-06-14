@@ -1,0 +1,45 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "model/pipeline/build_status.proto";
+import "model/pipeline/build.proto";
+
+/*
+UpdateBuildStatus请求
+*/
+message UpdateBuildStatusRequest {
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+    /*
+    构建状态
+    */
+    pipeline.BuildStatus status = 2 ;
+}
+
+/*
+UpdateBuildStatusApi返回
+*/
+message UpdateBuildStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.Build data = 4 ;
+}
+

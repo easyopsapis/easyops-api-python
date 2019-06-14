@@ -1,0 +1,53 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+
+/*
+Trigger请求
+*/
+message TriggerRequest {
+    /*
+    关联的project id
+    */
+    string project_id = 1 ;
+    /*
+    要执行的pipeline id
+    */
+    string pipeline_id = 2 ;
+}
+
+/*
+Trigger返回
+*/
+message TriggerResponse {
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 1 ;
+}
+
+/*
+TriggerApi返回
+*/
+message TriggerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.TriggerResponse data = 4 ;
+}
+

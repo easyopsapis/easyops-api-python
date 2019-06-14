@@ -1,0 +1,32 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+树子节点定义
+*/
+message InstanceTreeChildNode {
+    /*
+    关系字段ID
+    */
+    string relation_field_id = 1 ;
+    /*
+    过滤的字段列表, 留空代表返回所有字段(true: 表示指定获取字段, false: 表示指定不获取的字段)
+    */
+    google.protobuf.Struct fields = 2 ;
+    /*
+    忽略与父级无关联实例, 默认false
+    */
+    bool ignore_single = 3 ;
+    /*
+    子节点列表
+    */
+    repeated cmdb.InstanceTreeChildNode child = 4 ;
+}
+

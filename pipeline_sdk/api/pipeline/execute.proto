@@ -1,0 +1,57 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+
+/*
+Execute请求
+*/
+message ExecuteRequest {
+    /*
+    关联的project id
+    */
+    string project_id = 1 ;
+    /*
+    要执行的pipeline id
+    */
+    string pipeline_id = 2 ;
+    /*
+    代码分支
+    */
+    string branch = 3 ;
+}
+
+/*
+Execute返回
+*/
+message ExecuteResponse {
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 1 ;
+}
+
+/*
+ExecuteApi返回
+*/
+message ExecuteResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.ExecuteResponse data = 4 ;
+}
+

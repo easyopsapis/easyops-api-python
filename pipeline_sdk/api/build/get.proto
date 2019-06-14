@@ -1,0 +1,128 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "model/pipeline/pipeline.proto";
+import "model/pipeline/stage_status.proto";
+import "model/pipeline/build_status.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+message GitMeta {
+    /*
+    git事件
+    */
+    string event = 1 ;
+    /*
+    前一个commit sha
+    */
+    string before = 2 ;
+    /*
+    当前commit sha
+    */
+    string after = 3 ;
+    /*
+    提交者图像
+    */
+    string author_avatar = 4 ;
+    /*
+    提交者邮箱
+    */
+    string author_email = 5 ;
+    /*
+    提交者
+    */
+    string author_name = 6 ;
+    /*
+    提交信息
+    */
+    string message = 7 ;
+    /*
+    引用
+    */
+    string ref = 8 ;
+    /*
+    源分支
+    */
+    string source = 9 ;
+    /*
+    目标分支
+    */
+    string target = 10 ;
+}
+        
+    
+    /*
+    流水线
+    */
+    pipeline.Pipeline pipeline = 1 ;
+    /*
+    stages执行状态
+    */
+    repeated pipeline.StageStatus stages = 2 ;
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 3 ;
+    /*
+    git信息, 创建的时候传入，不能修改
+    */
+    GitMeta git_meta = 4 ;
+    /*
+    触发者，创建的时候传入，不能修改
+    */
+    string sender = 5 ;
+    /*
+    创建时间，创建的时候传入，不能修改
+    */
+    int32 created = 6 ;
+    /*
+    workflow定义
+    */
+    string yaml_string = 7 ;
+    /*
+    执行状态
+    */
+    pipeline.BuildStatus status = 8 ;
+    /*
+    编号
+    */
+    string number = 9 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    build.GetResponse data = 4 ;
+}
+

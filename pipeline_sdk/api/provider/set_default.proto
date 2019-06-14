@@ -1,0 +1,40 @@
+syntax = "proto3";
+package provider;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+SetDefaultProvider请求
+*/
+message SetDefaultProviderRequest {
+    /*
+    实例id，服务端自动生成
+    */
+    string id = 1 ;
+}
+
+/*
+SetDefaultProviderApi返回
+*/
+message SetDefaultProviderResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,85 @@
+syntax = "proto3";
+package project;
+
+
+
+
+
+/*
+ListBranch请求
+*/
+message ListBranchRequest {
+    /*
+    项目id
+    */
+    string project_id = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 3 ;
+}
+
+/*
+ListBranch返回
+*/
+message ListBranchResponse {
+message List {
+    /*
+    分支名称
+    */
+    string name = 1 ;
+    /*
+    是否为受保护的分支
+    */
+    bool protected = 2 ;
+    /*
+    是否为默认分支
+    */
+    bool default = 3 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListBranchApi返回
+*/
+message ListBranchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    project.ListBranchResponse data = 4 ;
+}
+

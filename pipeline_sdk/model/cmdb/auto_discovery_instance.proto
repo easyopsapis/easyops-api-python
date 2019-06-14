@@ -1,0 +1,31 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+关系自动发现接口响应 - 关联的实例详情
+*/
+message AutoDiscoveryInstance {
+    /*
+    左侧实例id
+    */
+    string instanceId = 1 ;
+    /*
+    右侧实例id
+    */
+    string _object_id = 2 ;
+    /*
+    [废弃字段] 实例名称
+    */
+    string name = 3 ;
+    /*
+    [废弃字段] 主机实例名称
+    */
+    string hostname = 4 ;
+}
+
