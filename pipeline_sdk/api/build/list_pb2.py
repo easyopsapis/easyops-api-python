@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 
 from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
 from model.pipeline import stage_status_pb2 as model_dot_pipeline_dot_stage__status__pb2
+from model.pipeline import git_meta_pb2 as model_dot_pipeline_dot_git__meta__pb2
 from model.pipeline import build_status_pb2 as model_dot_pipeline_dot_build__status__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='build',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x05\x62uild\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a!model/pipeline/build_status.proto\x1a\x1cgoogle/protobuf/struct.proto\"}\n\x0bPOSTRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12&\n\x05query\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12%\n\x04sort\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x8c\x05\n\x0cPOSTResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.build.POSTResponse.Data\x1a\xa5\x04\n\x04\x44\x61ta\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12+\n\x04list\x18\x04 \x03(\x0b\x32\x1d.build.POSTResponse.Data.List\x1a\xbf\x03\n\x04List\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x02 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x03 \x01(\t\x12\x37\n\x08git_meta\x18\x04 \x01(\x0b\x32%.build.POSTResponse.Data.List.GitMeta\x12\x0e\n\x06sender\x18\x05 \x01(\t\x12\x0f\n\x07\x63reated\x18\x06 \x01(\x05\x12\x13\n\x0byaml_string\x18\x07 \x01(\t\x12%\n\x06status\x18\x08 \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\t \x01(\t\x1a\xb7\x01\n\x07GitMeta\x12\r\n\x05\x65vent\x18\x01 \x01(\t\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\t\x12\r\n\x05\x61\x66ter\x18\x03 \x01(\t\x12\x15\n\rauthor_avatar\x18\x04 \x01(\t\x12\x14\n\x0c\x61uthor_email\x18\x05 \x01(\t\x12\x13\n\x0b\x61uthor_name\x18\x06 \x01(\t\x12\x0f\n\x07message\x18\x07 \x01(\t\x12\x0b\n\x03ref\x18\x08 \x01(\t\x12\x0e\n\x06source\x18\t \x01(\t\x12\x0e\n\x06target\x18\n \x01(\t\"j\n\x13POSTResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12!\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x13.build.POSTResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x05\x62uild\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a\x1dmodel/pipeline/git_meta.proto\x1a!model/pipeline/build_status.proto\x1a\x1cgoogle/protobuf/struct.proto\"}\n\x0bPOSTRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12&\n\x05query\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12%\n\x04sort\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\"\xbe\x03\n\x0cPOSTResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.build.POSTResponse.Data\x1a\xd7\x02\n\x04\x44\x61ta\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12+\n\x04list\x18\x04 \x03(\x0b\x32\x1d.build.POSTResponse.Data.List\x1a\xf1\x01\n\x04List\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x02 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x03 \x01(\t\x12#\n\x08git_meta\x18\x04 \x01(\x0b\x32\x11.pipeline.GitMeta\x12\x0e\n\x06sender\x18\x05 \x01(\t\x12\x0f\n\x07\x63reated\x18\x06 \x01(\x05\x12\x13\n\x0byaml_string\x18\x07 \x01(\t\x12%\n\x06status\x18\x08 \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\t \x01(\t\"j\n\x13POSTResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12!\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x13.build.POSTResponseb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_git__meta__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -77,103 +78,10 @@ _POSTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=152,
-  serialized_end=277,
+  serialized_start=183,
+  serialized_end=308,
 )
 
-
-_POSTRESPONSE_DATA_LIST_GITMETA = _descriptor.Descriptor(
-  name='GitMeta',
-  full_name='build.POSTResponse.Data.List.GitMeta',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='event', full_name='build.POSTResponse.Data.List.GitMeta.event', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='before', full_name='build.POSTResponse.Data.List.GitMeta.before', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='after', full_name='build.POSTResponse.Data.List.GitMeta.after', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_avatar', full_name='build.POSTResponse.Data.List.GitMeta.author_avatar', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_email', full_name='build.POSTResponse.Data.List.GitMeta.author_email', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_name', full_name='build.POSTResponse.Data.List.GitMeta.author_name', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='build.POSTResponse.Data.List.GitMeta.message', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ref', full_name='build.POSTResponse.Data.List.GitMeta.ref', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='source', full_name='build.POSTResponse.Data.List.GitMeta.source', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='target', full_name='build.POSTResponse.Data.List.GitMeta.target', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=749,
-  serialized_end=932,
-)
 
 _POSTRESPONSE_DATA_LIST = _descriptor.Descriptor(
   name='List',
@@ -248,7 +156,7 @@ _POSTRESPONSE_DATA_LIST = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_POSTRESPONSE_DATA_LIST_GITMETA, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -257,8 +165,8 @@ _POSTRESPONSE_DATA_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=485,
-  serialized_end=932,
+  serialized_start=516,
+  serialized_end=757,
 )
 
 _POSTRESPONSE_DATA = _descriptor.Descriptor(
@@ -308,8 +216,8 @@ _POSTRESPONSE_DATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=383,
-  serialized_end=932,
+  serialized_start=414,
+  serialized_end=757,
 )
 
 _POSTRESPONSE = _descriptor.Descriptor(
@@ -359,8 +267,8 @@ _POSTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=280,
-  serialized_end=932,
+  serialized_start=311,
+  serialized_end=757,
 )
 
 
@@ -411,16 +319,15 @@ _POSTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=934,
-  serialized_end=1040,
+  serialized_start=759,
+  serialized_end=865,
 )
 
 _POSTREQUEST.fields_by_name['query'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _POSTREQUEST.fields_by_name['sort'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_POSTRESPONSE_DATA_LIST_GITMETA.containing_type = _POSTRESPONSE_DATA_LIST
 _POSTRESPONSE_DATA_LIST.fields_by_name['pipeline'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
 _POSTRESPONSE_DATA_LIST.fields_by_name['stages'].message_type = model_dot_pipeline_dot_stage__status__pb2._STAGESTATUS
-_POSTRESPONSE_DATA_LIST.fields_by_name['git_meta'].message_type = _POSTRESPONSE_DATA_LIST_GITMETA
+_POSTRESPONSE_DATA_LIST.fields_by_name['git_meta'].message_type = model_dot_pipeline_dot_git__meta__pb2._GITMETA
 _POSTRESPONSE_DATA_LIST.fields_by_name['status'].message_type = model_dot_pipeline_dot_build__status__pb2._BUILDSTATUS
 _POSTRESPONSE_DATA_LIST.containing_type = _POSTRESPONSE_DATA
 _POSTRESPONSE_DATA.fields_by_name['list'].message_type = _POSTRESPONSE_DATA_LIST
@@ -444,13 +351,6 @@ POSTResponse = _reflection.GeneratedProtocolMessageType('POSTResponse', (_messag
   Data = _reflection.GeneratedProtocolMessageType('Data', (_message.Message,), dict(
 
     List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
-
-      GitMeta = _reflection.GeneratedProtocolMessageType('GitMeta', (_message.Message,), dict(
-        DESCRIPTOR = _POSTRESPONSE_DATA_LIST_GITMETA,
-        __module__ = 'list_pb2'
-        # @@protoc_insertion_point(class_scope:build.POSTResponse.Data.List.GitMeta)
-        ))
-      ,
       DESCRIPTOR = _POSTRESPONSE_DATA_LIST,
       __module__ = 'list_pb2'
       # @@protoc_insertion_point(class_scope:build.POSTResponse.Data.List)
@@ -468,7 +368,6 @@ POSTResponse = _reflection.GeneratedProtocolMessageType('POSTResponse', (_messag
 _sym_db.RegisterMessage(POSTResponse)
 _sym_db.RegisterMessage(POSTResponse.Data)
 _sym_db.RegisterMessage(POSTResponse.Data.List)
-_sym_db.RegisterMessage(POSTResponse.Data.List.GitMeta)
 
 POSTResponseWrapper = _reflection.GeneratedProtocolMessageType('POSTResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _POSTRESPONSEWRAPPER,

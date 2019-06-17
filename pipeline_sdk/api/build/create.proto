@@ -5,6 +5,7 @@ package build;
 
 
 import "model/pipeline/build.proto";
+import "model/pipeline/git_meta.proto";
 import "model/pipeline/build_status.proto";
 
 /*

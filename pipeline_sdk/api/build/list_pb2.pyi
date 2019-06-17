@@ -16,6 +16,10 @@ from model.pipeline.build_status_pb2 import (
     BuildStatus as model___pipeline___build_status_pb2___BuildStatus,
 )
 
+from model.pipeline.git_meta_pb2 import (
+    GitMeta as model___pipeline___git_meta_pb2___GitMeta,
+)
+
 from model.pipeline.pipeline_pb2 import (
     Pipeline as model___pipeline___pipeline_pb2___Pipeline,
 )
@@ -65,39 +69,6 @@ class POSTRequest(google___protobuf___message___Message):
 class POSTResponse(google___protobuf___message___Message):
     class Data(google___protobuf___message___Message):
         class List(google___protobuf___message___Message):
-            class GitMeta(google___protobuf___message___Message):
-                event = ... # type: typing___Text
-                before = ... # type: typing___Text
-                after = ... # type: typing___Text
-                author_avatar = ... # type: typing___Text
-                author_email = ... # type: typing___Text
-                author_name = ... # type: typing___Text
-                message = ... # type: typing___Text
-                ref = ... # type: typing___Text
-                source = ... # type: typing___Text
-                target = ... # type: typing___Text
-
-                def __init__(self,
-                    event : typing___Optional[typing___Text] = None,
-                    before : typing___Optional[typing___Text] = None,
-                    after : typing___Optional[typing___Text] = None,
-                    author_avatar : typing___Optional[typing___Text] = None,
-                    author_email : typing___Optional[typing___Text] = None,
-                    author_name : typing___Optional[typing___Text] = None,
-                    message : typing___Optional[typing___Text] = None,
-                    ref : typing___Optional[typing___Text] = None,
-                    source : typing___Optional[typing___Text] = None,
-                    target : typing___Optional[typing___Text] = None,
-                    ) -> None: ...
-                @classmethod
-                def FromString(cls, s: bytes) -> POSTResponse.Data.List.GitMeta: ...
-                def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-                def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-                if sys.version_info >= (3,):
-                    def ClearField(self, field_name: typing_extensions___Literal[u"after",u"author_avatar",u"author_email",u"author_name",u"before",u"event",u"message",u"ref",u"source",u"target"]) -> None: ...
-                else:
-                    def ClearField(self, field_name: typing_extensions___Literal[b"after",b"author_avatar",b"author_email",b"author_name",b"before",b"event",b"message",b"ref",b"source",b"target"]) -> None: ...
-
             id = ... # type: typing___Text
             sender = ... # type: typing___Text
             created = ... # type: int
@@ -111,7 +82,7 @@ class POSTResponse(google___protobuf___message___Message):
             def stages(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___pipeline___stage_status_pb2___StageStatus]: ...
 
             @property
-            def git_meta(self) -> POSTResponse.Data.List.GitMeta: ...
+            def git_meta(self) -> model___pipeline___git_meta_pb2___GitMeta: ...
 
             @property
             def status(self) -> model___pipeline___build_status_pb2___BuildStatus: ...
@@ -120,7 +91,7 @@ class POSTResponse(google___protobuf___message___Message):
                 pipeline : typing___Optional[model___pipeline___pipeline_pb2___Pipeline] = None,
                 stages : typing___Optional[typing___Iterable[model___pipeline___stage_status_pb2___StageStatus]] = None,
                 id : typing___Optional[typing___Text] = None,
-                git_meta : typing___Optional[POSTResponse.Data.List.GitMeta] = None,
+                git_meta : typing___Optional[model___pipeline___git_meta_pb2___GitMeta] = None,
                 sender : typing___Optional[typing___Text] = None,
                 created : typing___Optional[int] = None,
                 yaml_string : typing___Optional[typing___Text] = None,

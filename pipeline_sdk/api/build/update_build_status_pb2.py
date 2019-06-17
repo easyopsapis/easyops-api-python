@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from model.pipeline import build_status_pb2 as model_dot_pipeline_dot_build__status__pb2
+from model.pipeline import git_meta_pb2 as model_dot_pipeline_dot_git__meta__pb2
 from model.pipeline import build_pb2 as model_dot_pipeline_dot_build__pb2
 
 
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='build',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x19update_build_status.proto\x12\x05\x62uild\x1a!model/pipeline/build_status.proto\x1a\x1amodel/pipeline/build.proto\"S\n\x18UpdateBuildStatusRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\x12%\n\x06status\x18\x02 \x01(\x0b\x32\x15.pipeline.BuildStatus\"s\n UpdateBuildStatusResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1d\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x0f.pipeline.Buildb\x06proto3')
+  serialized_pb=_b('\n\x19update_build_status.proto\x12\x05\x62uild\x1a!model/pipeline/build_status.proto\x1a\x1dmodel/pipeline/git_meta.proto\x1a\x1amodel/pipeline/build.proto\"S\n\x18UpdateBuildStatusRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\x12%\n\x06status\x18\x02 \x01(\x0b\x32\x15.pipeline.BuildStatus\"s\n UpdateBuildStatusResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1d\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x0f.pipeline.Buildb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_git__meta__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__pb2.DESCRIPTOR,])
 
 
 
@@ -61,8 +62,8 @@ _UPDATEBUILDSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=99,
-  serialized_end=182,
+  serialized_start=130,
+  serialized_end=213,
 )
 
 
@@ -113,8 +114,8 @@ _UPDATEBUILDSTATUSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=184,
-  serialized_end=299,
+  serialized_start=215,
+  serialized_end=330,
 )
 
 _UPDATEBUILDSTATUSREQUEST.fields_by_name['status'].message_type = model_dot_pipeline_dot_build__status__pb2._BUILDSTATUS

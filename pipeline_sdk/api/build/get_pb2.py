@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 
 from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
 from model.pipeline import stage_status_pb2 as model_dot_pipeline_dot_stage__status__pb2
+from model.pipeline import git_meta_pb2 as model_dot_pipeline_dot_git__meta__pb2
 from model.pipeline import build_status_pb2 as model_dot_pipeline_dot_build__status__pb2
 
 
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='build',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\x05\x62uild\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a!model/pipeline/build_status.proto\"\x1e\n\nGetRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\"\xbb\x03\n\x0bGetResponse\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x02 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x03 \x01(\t\x12,\n\x08git_meta\x18\x04 \x01(\x0b\x32\x1a.build.GetResponse.GitMeta\x12\x0e\n\x06sender\x18\x05 \x01(\t\x12\x0f\n\x07\x63reated\x18\x06 \x01(\x05\x12\x13\n\x0byaml_string\x18\x07 \x01(\t\x12%\n\x06status\x18\x08 \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\t \x01(\t\x1a\xb7\x01\n\x07GitMeta\x12\r\n\x05\x65vent\x18\x01 \x01(\t\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\t\x12\r\n\x05\x61\x66ter\x18\x03 \x01(\t\x12\x15\n\rauthor_avatar\x18\x04 \x01(\t\x12\x14\n\x0c\x61uthor_email\x18\x05 \x01(\t\x12\x13\n\x0b\x61uthor_name\x18\x06 \x01(\t\x12\x0f\n\x07message\x18\x07 \x01(\t\x12\x0b\n\x03ref\x18\x08 \x01(\t\x12\x0e\n\x06source\x18\t \x01(\t\x12\x0e\n\x06target\x18\n \x01(\t\"h\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.build.GetResponseb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\x05\x62uild\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a\x1dmodel/pipeline/git_meta.proto\x1a!model/pipeline/build_status.proto\"\x1e\n\nGetRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\"\xf8\x01\n\x0bGetResponse\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x02 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x03 \x01(\t\x12#\n\x08git_meta\x18\x04 \x01(\x0b\x32\x11.pipeline.GitMeta\x12\x0e\n\x06sender\x18\x05 \x01(\t\x12\x0f\n\x07\x63reated\x18\x06 \x01(\x05\x12\x13\n\x0byaml_string\x18\x07 \x01(\t\x12%\n\x06status\x18\x08 \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\t \x01(\t\"h\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.build.GetResponseb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_git__meta__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,])
 
 
 
@@ -55,103 +56,10 @@ _GETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=121,
-  serialized_end=151,
+  serialized_start=152,
+  serialized_end=182,
 )
 
-
-_GETRESPONSE_GITMETA = _descriptor.Descriptor(
-  name='GitMeta',
-  full_name='build.GetResponse.GitMeta',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='event', full_name='build.GetResponse.GitMeta.event', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='before', full_name='build.GetResponse.GitMeta.before', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='after', full_name='build.GetResponse.GitMeta.after', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_avatar', full_name='build.GetResponse.GitMeta.author_avatar', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_email', full_name='build.GetResponse.GitMeta.author_email', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='author_name', full_name='build.GetResponse.GitMeta.author_name', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='build.GetResponse.GitMeta.message', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ref', full_name='build.GetResponse.GitMeta.ref', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='source', full_name='build.GetResponse.GitMeta.source', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='target', full_name='build.GetResponse.GitMeta.target', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=414,
-  serialized_end=597,
-)
 
 _GETRESPONSE = _descriptor.Descriptor(
   name='GetResponse',
@@ -226,7 +134,7 @@ _GETRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GETRESPONSE_GITMETA, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -235,8 +143,8 @@ _GETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=154,
-  serialized_end=597,
+  serialized_start=185,
+  serialized_end=433,
 )
 
 
@@ -287,14 +195,13 @@ _GETRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=599,
-  serialized_end=703,
+  serialized_start=435,
+  serialized_end=539,
 )
 
-_GETRESPONSE_GITMETA.containing_type = _GETRESPONSE
 _GETRESPONSE.fields_by_name['pipeline'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
 _GETRESPONSE.fields_by_name['stages'].message_type = model_dot_pipeline_dot_stage__status__pb2._STAGESTATUS
-_GETRESPONSE.fields_by_name['git_meta'].message_type = _GETRESPONSE_GITMETA
+_GETRESPONSE.fields_by_name['git_meta'].message_type = model_dot_pipeline_dot_git__meta__pb2._GITMETA
 _GETRESPONSE.fields_by_name['status'].message_type = model_dot_pipeline_dot_build__status__pb2._BUILDSTATUS
 _GETRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETRESPONSE
 DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
@@ -310,19 +217,11 @@ GetRequest = _reflection.GeneratedProtocolMessageType('GetRequest', (_message.Me
 _sym_db.RegisterMessage(GetRequest)
 
 GetResponse = _reflection.GeneratedProtocolMessageType('GetResponse', (_message.Message,), dict(
-
-  GitMeta = _reflection.GeneratedProtocolMessageType('GitMeta', (_message.Message,), dict(
-    DESCRIPTOR = _GETRESPONSE_GITMETA,
-    __module__ = 'get_pb2'
-    # @@protoc_insertion_point(class_scope:build.GetResponse.GitMeta)
-    ))
-  ,
   DESCRIPTOR = _GETRESPONSE,
   __module__ = 'get_pb2'
   # @@protoc_insertion_point(class_scope:build.GetResponse)
   ))
 _sym_db.RegisterMessage(GetResponse)
-_sym_db.RegisterMessage(GetResponse.GitMeta)
 
 GetResponseWrapper = _reflection.GeneratedProtocolMessageType('GetResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETRESPONSEWRAPPER,

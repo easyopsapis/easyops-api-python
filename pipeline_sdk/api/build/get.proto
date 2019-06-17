@@ -6,6 +6,7 @@ package build;
 
 import "model/pipeline/pipeline.proto";
 import "model/pipeline/stage_status.proto";
+import "model/pipeline/git_meta.proto";
 import "model/pipeline/build_status.proto";
 
 /*
@@ -22,50 +23,6 @@ message GetRequest {
 Get返回
 */
 message GetResponse {
-message GitMeta {
-    /*
-    git事件
-    */
-    string event = 1 ;
-    /*
-    前一个commit sha
-    */
-    string before = 2 ;
-    /*
-    当前commit sha
-    */
-    string after = 3 ;
-    /*
-    提交者图像
-    */
-    string author_avatar = 4 ;
-    /*
-    提交者邮箱
-    */
-    string author_email = 5 ;
-    /*
-    提交者
-    */
-    string author_name = 6 ;
-    /*
-    提交信息
-    */
-    string message = 7 ;
-    /*
-    引用
-    */
-    string ref = 8 ;
-    /*
-    源分支
-    */
-    string source = 9 ;
-    /*
-    目标分支
-    */
-    string target = 10 ;
-}
-        
-    
     /*
     流水线
     */
@@ -81,7 +38,7 @@ message GitMeta {
     /*
     git信息, 创建的时候传入，不能修改
     */
-    GitMeta git_meta = 4 ;
+    pipeline.GitMeta git_meta = 4 ;
     /*
     触发者，创建的时候传入，不能修改
     */
