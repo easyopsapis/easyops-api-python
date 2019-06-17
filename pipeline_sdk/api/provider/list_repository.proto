@@ -14,6 +14,10 @@ message ListRepositoryRequest {
     根据provider id查找代码项目
     */
     string provider_id = 1 ;
+    /*
+    搜索关键字
+    */
+    string search = 2 ;
 }
 
 /*

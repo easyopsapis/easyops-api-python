@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='provider',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15list_repository.proto\x12\x08provider\x1a\x1fmodel/pipeline/repository.proto\",\n\x15ListRepositoryRequest\x12\x13\n\x0bprovider_id\x18\x01 \x01(\t\"l\n\x16ListRepositoryResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\"\n\x04list\x18\x04 \x03(\x0b\x32\x14.pipeline.Repository\"\x81\x01\n\x1dListRepositoryResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .provider.ListRepositoryResponseb\x06proto3')
+  serialized_pb=_b('\n\x15list_repository.proto\x12\x08provider\x1a\x1fmodel/pipeline/repository.proto\"<\n\x15ListRepositoryRequest\x12\x13\n\x0bprovider_id\x18\x01 \x01(\t\x12\x0e\n\x06search\x18\x02 \x01(\t\"l\n\x16ListRepositoryResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\"\n\x04list\x18\x04 \x03(\x0b\x32\x14.pipeline.Repository\"\x81\x01\n\x1dListRepositoryResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .provider.ListRepositoryResponseb\x06proto3')
   ,
   dependencies=[model_dot_pipeline_dot_repository__pb2.DESCRIPTOR,])
 
@@ -41,6 +41,13 @@ _LISTREPOSITORYREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='search', full_name='provider.ListRepositoryRequest.search', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -54,7 +61,7 @@ _LISTREPOSITORYREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=68,
-  serialized_end=112,
+  serialized_end=128,
 )
 
 
@@ -105,8 +112,8 @@ _LISTREPOSITORYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=114,
-  serialized_end=222,
+  serialized_start=130,
+  serialized_end=238,
 )
 
 
@@ -157,8 +164,8 @@ _LISTREPOSITORYRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=225,
-  serialized_end=354,
+  serialized_start=241,
+  serialized_end=370,
 )
 
 _LISTREPOSITORYRESPONSE.fields_by_name['list'].message_type = model_dot_pipeline_dot_repository__pb2._REPOSITORY
