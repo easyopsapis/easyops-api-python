@@ -4,24 +4,7 @@ package org;
 
 
 
-
-/*
-Register返回
-*/
-message RegisterResponse {
-    /*
-    返回状态码
-    */
-    int32 code = 1 ;
-    /*
-    错误信息
-    */
-    string error = 2 ;
-    /*
-    返回消息
-    */
-    string message = 3 ;
-}
+import "google/protobuf/empty.proto";
 
 /*
 RegisterApi返回
@@ -42,6 +25,6 @@ message RegisterResponseWrapper {
     /*
     返回数据
     */
-    org.RegisterResponse data = 4 ;
+    google.protobuf.Empty data = 4 ;
 }
 
