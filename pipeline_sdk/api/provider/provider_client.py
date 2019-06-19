@@ -70,7 +70,7 @@ class ProviderClient(object):
         return rsp
     
     def delete_provider(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteProviderResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (delete_pb2.DeleteProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除 Git Provider
         :param request: delete_provider请求
@@ -86,7 +86,7 @@ class ProviderClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.provider.DeleteProvider"
-        uri = "/api/pipeline/v1/providers/:id".format(
+        uri = "/api/pipeline/v1/providers/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -111,7 +111,7 @@ class ProviderClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> model.pipeline.provider_pb2.Provider
+        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.provider_pb2.Provider
         """
         获取单个Git Provider详情
         :param request: get请求
@@ -127,7 +127,7 @@ class ProviderClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.provider.Get"
-        uri = "/api/pipeline/v1/providers/:id".format(
+        uri = "/api/pipeline/v1/providers/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -192,7 +192,7 @@ class ProviderClient(object):
         return rsp
     
     def list_repository(self, request, org, user, timeout=10):
-        # type: (list_repository_pb2.ListRepositoryResponse, int, str, int) -> list_repository_pb2.ListRepositoryResponse
+        # type: (list_repository_pb2.ListRepositoryRequest, int, str, int) -> list_repository_pb2.ListRepositoryResponse
         """
         根据provider拉取所有git项目列表
         :param request: list_repository请求
@@ -208,7 +208,7 @@ class ProviderClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.provider.ListRepository"
-        uri = "/api/pipeline/v1/provider/:provider_id/repositories".format(
+        uri = "/api/pipeline/v1/provider/{provider_id}/repositories".format(
             provider_id=request.provider_id,
         )
         requestParam = request
@@ -233,7 +233,7 @@ class ProviderClient(object):
         return rsp
     
     def set_default_provider(self, request, org, user, timeout=10):
-        # type: (set_default_pb2.SetDefaultProviderResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (set_default_pb2.SetDefaultProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         设置默认provider
         :param request: set_default_provider请求
@@ -249,7 +249,7 @@ class ProviderClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.provider.SetDefaultProvider"
-        uri = "/api/pipeline/v1/providers/:id/default".format(
+        uri = "/api/pipeline/v1/providers/{id}/default".format(
             id=request.id,
         )
         requestParam = request
@@ -290,7 +290,7 @@ class ProviderClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.provider.Update"
-        uri = "/api/pipeline/v1/providers/:id".format(
+        uri = "/api/pipeline/v1/providers/{id}".format(
             id=request.id,
         )
         requestParam = request

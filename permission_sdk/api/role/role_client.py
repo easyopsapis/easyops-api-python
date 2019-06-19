@@ -26,7 +26,7 @@ class RoleClient(object):
 
     
     def get_permission_role_list(self, request, org, user, timeout=10):
-        # type: (get_permission_role_list_pb2.GetPermissionRoleListResponse, int, str, int) -> get_permission_role_list_pb2.GetPermissionRoleListResponse
+        # type: (get_permission_role_list_pb2.GetPermissionRoleListRequest, int, str, int) -> get_permission_role_list_pb2.GetPermissionRoleListResponse
         """
         获取角色权限配置列表
         :param request: get_permission_role_list请求
@@ -66,7 +66,7 @@ class RoleClient(object):
         return rsp
     
     def get_user_role(self, request, org, user, timeout=10):
-        # type: (get_user_role_pb2.GetUserRoleResponse, int, str, int) -> get_user_role_pb2.GetUserRoleResponse
+        # type: (get_user_role_pb2.GetUserRoleRequest, int, str, int) -> get_user_role_pb2.GetUserRoleResponse
         """
         获取用户及用户所在用户组所属角色
         :param request: get_user_role请求
@@ -82,7 +82,7 @@ class RoleClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.permission.role.GetUserRole"
-        uri = "/api/v1/permission_role/user_role/:user".format(
+        uri = "/api/v1/permission_role/user_role/{user}".format(
             user=request.user,
         )
         requestParam = request

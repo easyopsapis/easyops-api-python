@@ -66,7 +66,7 @@ class OplogClient(object):
         return rsp
     
     def list_operation_log(self, request, org, user, timeout=10):
-        # type: (list_operation_log_pb2.ListOperationLogResponse, int, str, int) -> list_operation_log_pb2.ListOperationLogResponse
+        # type: (list_operation_log_pb2.ListOperationLogRequest, int, str, int) -> list_operation_log_pb2.ListOperationLogResponse
         """
         获取通知日志信息
         :param request: list_operation_log请求

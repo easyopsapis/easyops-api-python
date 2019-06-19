@@ -42,7 +42,7 @@ class ArchiveClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> create_pb2.CreateResponse
+        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
         """
         创建归档
         :param request: create请求
@@ -82,7 +82,7 @@ class ArchiveClient(object):
         return rsp
     
     def create_and_register(self, request, org, user, timeout=10):
-        # type: (create_and_register_pb2.CreateAndRegisterResponse, int, str, int) -> create_and_register_pb2.CreateAndRegisterResponse
+        # type: (create_and_register_pb2.CreateAndRegisterRequest, int, str, int) -> create_and_register_pb2.CreateAndRegisterResponse
         """
         创建归档并注册版本
         :param request: create_and_register请求
@@ -122,7 +122,7 @@ class ArchiveClient(object):
         return rsp
     
     def delete_archive(self, request, org, user, timeout=10):
-        # type: (delete_archive_pb2.DeleteArchiveResponse, int, str, int) -> delete_archive_pb2.DeleteArchiveResponse
+        # type: (delete_archive_pb2.DeleteArchiveRequest, int, str, int) -> delete_archive_pb2.DeleteArchiveResponse
         """
         删除归档版本
         :param request: delete_archive请求
@@ -138,7 +138,7 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.DeleteArchive"
-        uri = "/archive/:packageId/:versionId".format(
+        uri = "/archive/{packageId}/{versionId}".format(
             packageId=request.packageId,
             versionId=request.versionId,
         )
@@ -164,7 +164,7 @@ class ArchiveClient(object):
         return rsp
     
     def delete_archive_v_2(self, request, org, user, timeout=10):
-        # type: (delete_archive_v2_pb2.DeleteArchiveV2Response, int, str, int) -> delete_archive_v2_pb2.DeleteArchiveV2Response
+        # type: (delete_archive_v2_pb2.DeleteArchiveV2Request, int, str, int) -> delete_archive_v2_pb2.DeleteArchiveV2Response
         """
         删除归档版本，并且删除版本元数据
         :param request: delete_archive_v_2请求
@@ -180,7 +180,7 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.DeleteArchiveV2"
-        uri = "/v2/archive/:packageId/:versionId".format(
+        uri = "/v2/archive/{packageId}/{versionId}".format(
             packageId=request.packageId,
             versionId=request.versionId,
         )
@@ -206,7 +206,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_diff_size(self, request, org, user, timeout=10):
-        # type: (get_archive_diff_size_pb2.GetDiffSizeResponse, int, str, int) -> get_archive_diff_size_pb2.GetDiffSizeResponse
+        # type: (get_archive_diff_size_pb2.GetDiffSizeRequest, int, str, int) -> get_archive_diff_size_pb2.GetDiffSizeResponse
         """
         获取版本差异大小
         :param request: get_diff_size请求
@@ -246,7 +246,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_file_info(self, request, org, user, timeout=10):
-        # type: (get_archive_file_info_pb2.GetFileInfoResponse, int, str, int) -> get_archive_file_info_pb2.GetFileInfoResponse
+        # type: (get_archive_file_info_pb2.GetFileInfoRequest, int, str, int) -> get_archive_file_info_pb2.GetFileInfoResponse
         """
         获取归档版本文件信息
         :param request: get_file_info请求
@@ -286,7 +286,7 @@ class ArchiveClient(object):
         return rsp
     
     def listdir(self, request, org, user, timeout=10):
-        # type: (get_archive_list_pb2.ListdirResponse, int, str, int) -> get_archive_list_pb2.ListdirResponse
+        # type: (get_archive_list_pb2.ListdirRequest, int, str, int) -> get_archive_list_pb2.ListdirResponse
         """
         获取文件列表
         :param request: listdir请求
@@ -326,7 +326,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_sign(self, request, org, user, timeout=10):
-        # type: (get_archive_sign_info_pb2.GetSignResponse, int, str, int) -> get_archive_sign_info_pb2.GetSignResponse
+        # type: (get_archive_sign_info_pb2.GetSignRequest, int, str, int) -> get_archive_sign_info_pb2.GetSignResponse
         """
         获取归档版本签名信息
         :param request: get_sign请求
@@ -366,7 +366,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_size(self, request, org, user, timeout=10):
-        # type: (get_archive_size_pb2.GetSizeResponse, int, str, int) -> get_archive_size_pb2.GetSizeResponse
+        # type: (get_archive_size_pb2.GetSizeRequest, int, str, int) -> get_archive_size_pb2.GetSizeResponse
         """
         获取版本大小
         :param request: get_size请求
@@ -406,7 +406,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_difference(self, request, org, user, timeout=10):
-        # type: (get_difference_pb2.GetDifferenceResponse, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (get_difference_pb2.GetDifferenceRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
         """
         获取版本差异列表
         :param request: get_difference请求
@@ -422,7 +422,7 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.GetDifference"
-        uri = "/archive/difference/:packageId".format(
+        uri = "/archive/difference/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -447,7 +447,7 @@ class ArchiveClient(object):
         return rsp
     
     def get_package_difference(self, request, org, user, timeout=10):
-        # type: (get_package_difference_pb2.GetPackageDifferenceResponse, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (get_package_difference_pb2.GetPackageDifferenceRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
         """
         获取不同包的版本差异列表
         :param request: get_package_difference请求

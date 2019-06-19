@@ -32,7 +32,7 @@ class PipelineClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (create_pb2.CreateRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         创建流水线
         :param request: create请求
@@ -48,7 +48,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.Create"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines".format(
             project_id=request.project_id,
         )
         requestParam = request.pipeline
@@ -73,7 +73,7 @@ class PipelineClient(object):
         return rsp
     
     def delete_pipeline(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeletePipelineResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (delete_pb2.DeletePipelineRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除流水线
         :param request: delete_pipeline请求
@@ -89,7 +89,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.DeletePipeline"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines/:pipeline_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines/{pipeline_id}".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
         )
@@ -115,7 +115,7 @@ class PipelineClient(object):
         return rsp
     
     def execute(self, request, org, user, timeout=10):
-        # type: (execute_pb2.ExecuteResponse, int, str, int) -> execute_pb2.ExecuteResponse
+        # type: (execute_pb2.ExecuteRequest, int, str, int) -> execute_pb2.ExecuteResponse
         """
         手动触发执行流水线
         :param request: execute请求
@@ -131,7 +131,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.Execute"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines/:pipeline_id/execute".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines/{pipeline_id}/execute".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
         )
@@ -157,7 +157,7 @@ class PipelineClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         获取流水线详情
         :param request: get请求
@@ -173,7 +173,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.Get"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines/:pipeline_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines/{pipeline_id}".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
         )
@@ -199,7 +199,7 @@ class PipelineClient(object):
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         流水线列表
         :param request: list请求
@@ -215,7 +215,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.List"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines".format(
             project_id=request.project_id,
         )
         requestParam = request
@@ -240,7 +240,7 @@ class PipelineClient(object):
         return rsp
     
     def trigger(self, request, org, user, timeout=10):
-        # type: (trigger_pb2.TriggerResponse, int, str, int) -> trigger_pb2.TriggerResponse
+        # type: (trigger_pb2.TriggerRequest, int, str, int) -> trigger_pb2.TriggerResponse
         """
         webhook触发执行流水线
         :param request: trigger请求
@@ -256,7 +256,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.Trigger"
-        uri = "/api/pipeline/v1/project/:project_id/pipelines/:pipeline_id/hook".format(
+        uri = "/api/pipeline/v1/project/{project_id}/pipelines/{pipeline_id}/hook".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
         )
@@ -282,7 +282,7 @@ class PipelineClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (update_pb2.UpdateRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         修改流水线
         :param request: update请求
@@ -298,7 +298,7 @@ class PipelineClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.pipeline.Update"
-        uri = "/api/pipeline/v1/projects/:project_id/pipelines/:pipeline_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/pipelines/{pipeline_id}".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
         )

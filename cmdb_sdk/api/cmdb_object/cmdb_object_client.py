@@ -26,7 +26,7 @@ class CmdbObjectClient(object):
 
     
     def get_detail(self, request, org, user, timeout=10):
-        # type: (get_detail_pb2.GetDetailResponse, int, str, int) -> model.cmdb.cmdb_object_pb2.CmdbObject
+        # type: (get_detail_pb2.GetDetailRequest, int, str, int) -> model.cmdb.cmdb_object_pb2.CmdbObject
         """
         获取模型详情
         :param request: get_detail请求
@@ -42,7 +42,7 @@ class CmdbObjectClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.cmdb.cmdb_object.GetDetail"
-        uri = "/object/:objectId".format(
+        uri = "/object/{objectId}".format(
             objectId=request.objectId,
         )
         requestParam = request

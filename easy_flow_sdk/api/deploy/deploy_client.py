@@ -70,7 +70,7 @@ class DeployClient(object):
         return rsp
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> create_pb2.CreateResponse
+        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
         """
         启动装包任务
         :param request: create请求
@@ -110,7 +110,7 @@ class DeployClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> model.easy_flow.deploy_ret_pb2.DeployRet
+        # type: (get_pb2.GetRequest, int, str, int) -> model.easy_flow.deploy_ret_pb2.DeployRet
         """
         查询装包任务
         :param request: get请求
@@ -126,7 +126,7 @@ class DeployClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_flow.deploy.Get"
-        uri = "/deployTask/:taskId".format(
+        uri = "/deployTask/{taskId}".format(
             taskId=request.taskId,
         )
         requestParam = request
@@ -151,7 +151,7 @@ class DeployClient(object):
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         批量查询装包任务
         :param request: list请求
@@ -167,7 +167,7 @@ class DeployClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_flow.deploy.List"
-        uri = "/deployTaskList/:taskIdList".format(
+        uri = "/deployTaskList/{taskIdList}".format(
             taskIdList=request.taskIdList,
         )
         requestParam = request

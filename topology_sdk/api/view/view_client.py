@@ -32,7 +32,7 @@ class ViewClient(object):
 
     
     def create_view(self, request, org, user, timeout=10):
-        # type: (create_view_pb2.CreateViewResponse, int, str, int) -> create_view_pb2.CreateViewResponse
+        # type: (create_view_pb2.CreateViewRequest, int, str, int) -> create_view_pb2.CreateViewResponse
         """
         创建视图
         :param request: create_view请求
@@ -72,7 +72,7 @@ class ViewClient(object):
         return rsp
     
     def delete_view(self, request, org, user, timeout=10):
-        # type: (delete_view_pb2.DeleteViewResponse, int, str, int) -> delete_view_pb2.DeleteViewResponse
+        # type: (delete_view_pb2.DeleteViewRequest, int, str, int) -> delete_view_pb2.DeleteViewResponse
         """
         删除视图
         :param request: delete_view请求
@@ -88,7 +88,7 @@ class ViewClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.view.DeleteView"
-        uri = "/api/v1/view/:id".format(
+        uri = "/api/v1/view/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -113,7 +113,7 @@ class ViewClient(object):
         return rsp
     
     def fetch_cmdb_business_view(self, request, org, user, timeout=10):
-        # type: (fetch_cmdb_business_view_pb2.FetchCmdbBusinessViewResponse, int, str, int) -> model.topology.view_pb2.View
+        # type: (fetch_cmdb_business_view_pb2.FetchCmdbBusinessViewRequest, int, str, int) -> model.topology.view_pb2.View
         """
         基于业务源点的特殊拓扑数据
         :param request: fetch_cmdb_business_view请求
@@ -153,7 +153,7 @@ class ViewClient(object):
         return rsp
     
     def fetch_origin_view(self, request, org, user, timeout=10):
-        # type: (fetch_origin_view_pb2.FetchOriginViewResponse, int, str, int) -> model.topology.view_pb2.View
+        # type: (fetch_origin_view_pb2.FetchOriginViewRequest, int, str, int) -> model.topology.view_pb2.View
         """
         基于源点的拓扑数据
         :param request: fetch_origin_view请求
@@ -193,7 +193,7 @@ class ViewClient(object):
         return rsp
     
     def get_view(self, request, org, user, timeout=10):
-        # type: (get_view_pb2.GetViewResponse, int, str, int) -> model.topology.view_pb2.View
+        # type: (get_view_pb2.GetViewRequest, int, str, int) -> model.topology.view_pb2.View
         """
         获取视图详细数据
         :param request: get_view请求
@@ -209,7 +209,7 @@ class ViewClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.view.GetView"
-        uri = "/api/v1/view/:id".format(
+        uri = "/api/v1/view/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -234,7 +234,7 @@ class ViewClient(object):
         return rsp
     
     def list_view(self, request, org, user, timeout=10):
-        # type: (list_view_pb2.ListViewResponse, int, str, int) -> list_view_pb2.ListViewResponse
+        # type: (list_view_pb2.ListViewRequest, int, str, int) -> list_view_pb2.ListViewResponse
         """
         获取视图列表
         :param request: list_view请求
@@ -274,7 +274,7 @@ class ViewClient(object):
         return rsp
     
     def update_view(self, request, org, user, timeout=10):
-        # type: (update_view_pb2.UpdateViewResponse, int, str, int) -> update_view_pb2.UpdateViewResponse
+        # type: (update_view_pb2.UpdateViewRequest, int, str, int) -> update_view_pb2.UpdateViewResponse
         """
         更新视图
         :param request: update_view请求
@@ -290,7 +290,7 @@ class ViewClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.view.UpdateView"
-        uri = "/api/v1/view/:id".format(
+        uri = "/api/v1/view/{id}".format(
             id=request.id,
         )
         requestParam = request

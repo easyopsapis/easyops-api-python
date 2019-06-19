@@ -48,7 +48,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.AppendProgressLog"
-        uri = "/api/pipeline/v1/progress_log/:id/append".format(
+        uri = "/api/pipeline/v1/progress_log/{id}/append".format(
             id=request.id,
         )
         requestParam = request
@@ -73,7 +73,7 @@ class BuildClient(object):
         return rsp
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> model.pipeline.build_pb2.Build
+        # type: (create_pb2.CreateRequest, int, str, int) -> model.pipeline.build_pb2.Build
         """
         创建构建任务记录
         :param request: create请求
@@ -153,7 +153,7 @@ class BuildClient(object):
         return rsp
     
     def create_stage_status(self, request, org, user, timeout=10):
-        # type: (create_stage_status_pb2.CreateStageStatusResponse, int, str, int) -> model.pipeline.stage_status_pb2.StageStatus
+        # type: (create_stage_status_pb2.CreateStageStatusRequest, int, str, int) -> model.pipeline.stage_status_pb2.StageStatus
         """
         创建构建stage记录
         :param request: create_stage_status请求
@@ -193,7 +193,7 @@ class BuildClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> get_pb2.GetResponse
+        # type: (get_pb2.GetRequest, int, str, int) -> get_pb2.GetResponse
         """
         获取单个流水线任务详情
         :param request: get请求
@@ -209,7 +209,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.Get"
-        uri = "/api/pipeline/v1/builds/:build_id".format(
+        uri = "/api/pipeline/v1/builds/{build_id}".format(
             build_id=request.build_id,
         )
         requestParam = request
@@ -234,7 +234,7 @@ class BuildClient(object):
         return rsp
     
     def get_progress_log(self, request, org, user, timeout=10):
-        # type: (get_progress_log_pb2.GetProgressLogResponse, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
+        # type: (get_progress_log_pb2.GetProgressLogRequest, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
         """
         获取实时日志
         :param request: get_progress_log请求
@@ -250,7 +250,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.GetProgressLog"
-        uri = "/api/pipeline/v1/progress_log/:id".format(
+        uri = "/api/pipeline/v1/progress_log/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -275,7 +275,7 @@ class BuildClient(object):
         return rsp
     
     def post(self, request, org, user, timeout=10):
-        # type: (list_pb2.POSTResponse, int, str, int) -> list_pb2.POSTResponse
+        # type: (list_pb2.POSTRequest, int, str, int) -> list_pb2.POSTResponse
         """
         获取流水线任务列表
         :param request: post请求
@@ -315,7 +315,7 @@ class BuildClient(object):
         return rsp
     
     def update_build_status(self, request, org, user, timeout=10):
-        # type: (update_build_status_pb2.UpdateBuildStatusResponse, int, str, int) -> model.pipeline.build_pb2.Build
+        # type: (update_build_status_pb2.UpdateBuildStatusRequest, int, str, int) -> model.pipeline.build_pb2.Build
         """
         修改构建任务记录
         :param request: update_build_status请求
@@ -331,7 +331,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.UpdateBuildStatus"
-        uri = "/api/pipeline/v1/builds/:build_id".format(
+        uri = "/api/pipeline/v1/builds/{build_id}".format(
             build_id=request.build_id,
         )
         requestParam = request
@@ -372,7 +372,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.UpdateProgressLog"
-        uri = "/api/pipeline/v1/progress_log/:id".format(
+        uri = "/api/pipeline/v1/progress_log/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -413,7 +413,7 @@ class BuildClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.build.UpdateStageStatus"
-        uri = "/api/pipeline/v1/stage_status/:id".format(
+        uri = "/api/pipeline/v1/stage_status/{id}".format(
             id=request.id,
         )
         requestParam = request

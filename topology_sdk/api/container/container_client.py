@@ -32,7 +32,7 @@ class ContainerClient(object):
 
     
     def create_container(self, request, org, user, timeout=10):
-        # type: (create_container_pb2.CreateContainerResponse, int, str, int) -> create_container_pb2.CreateContainerResponse
+        # type: (create_container_pb2.CreateContainerRequest, int, str, int) -> create_container_pb2.CreateContainerResponse
         """
         创建容器
         :param request: create_container请求
@@ -72,7 +72,7 @@ class ContainerClient(object):
         return rsp
     
     def delete_container(self, request, org, user, timeout=10):
-        # type: (delete_container_pb2.DeleteContainerResponse, int, str, int) -> delete_container_pb2.DeleteContainerResponse
+        # type: (delete_container_pb2.DeleteContainerRequest, int, str, int) -> delete_container_pb2.DeleteContainerResponse
         """
         删除容器
         :param request: delete_container请求
@@ -88,7 +88,7 @@ class ContainerClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.container.DeleteContainer"
-        uri = "/api/v1/container/:id".format(
+        uri = "/api/v1/container/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -113,7 +113,7 @@ class ContainerClient(object):
         return rsp
     
     def get_container(self, request, org, user, timeout=10):
-        # type: (get_container_pb2.GetContainerResponse, int, str, int) -> model.topology.container_pb2.Container
+        # type: (get_container_pb2.GetContainerRequest, int, str, int) -> model.topology.container_pb2.Container
         """
         获取容器详细数据
         :param request: get_container请求
@@ -129,7 +129,7 @@ class ContainerClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.container.GetContainer"
-        uri = "/api/v1/container/:id".format(
+        uri = "/api/v1/container/{id}".format(
             id=request.id,
         )
         requestParam = request
@@ -154,7 +154,7 @@ class ContainerClient(object):
         return rsp
     
     def list_container(self, request, org, user, timeout=10):
-        # type: (list_container_pb2.ListContainerResponse, int, str, int) -> list_container_pb2.ListContainerResponse
+        # type: (list_container_pb2.ListContainerRequest, int, str, int) -> list_container_pb2.ListContainerResponse
         """
         获取容器列表
         :param request: list_container请求
@@ -194,7 +194,7 @@ class ContainerClient(object):
         return rsp
     
     def update_container(self, request, org, user, timeout=10):
-        # type: (update_container_pb2.UpdateContainerResponse, int, str, int) -> update_container_pb2.UpdateContainerResponse
+        # type: (update_container_pb2.UpdateContainerRequest, int, str, int) -> update_container_pb2.UpdateContainerResponse
         """
         更新容器
         :param request: update_container请求
@@ -210,7 +210,7 @@ class ContainerClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.topology.container.UpdateContainer"
-        uri = "/api/v1/container/:id".format(
+        uri = "/api/v1/container/{id}".format(
             id=request.id,
         )
         requestParam = request

@@ -24,7 +24,7 @@ class InstanceGraphClient(object):
 
     
     def traverse_graph(self, request, org, user, timeout=10):
-        # type: (traverse_graph_pb2.TraverseGraphResponse, int, str, int) -> traverse_graph_pb2.TraverseGraphResponse
+        # type: (traverse_graph_pb2.TraverseGraphRequest, int, str, int) -> traverse_graph_pb2.TraverseGraphResponse
         """
         图遍历查询
         :param request: traverse_graph请求

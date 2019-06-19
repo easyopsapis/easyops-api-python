@@ -24,7 +24,7 @@ class PermissionClient(object):
 
     
     def get_permission_list(self, request, org, user, timeout=10):
-        # type: (get_permission_list_pb2.GetPermissionListResponse, int, str, int) -> get_permission_list_pb2.GetPermissionListResponse
+        # type: (get_permission_list_pb2.GetPermissionListRequest, int, str, int) -> get_permission_list_pb2.GetPermissionListResponse
         """
         获取权限点列表
         :param request: get_permission_list请求

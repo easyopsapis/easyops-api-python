@@ -34,7 +34,7 @@ class ProjectClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> create_pb2.CreateResponse
+        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
         """
         创建代码项目
         :param request: create请求
@@ -74,7 +74,7 @@ class ProjectClient(object):
         return rsp
     
     def delete_project(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteProjectResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (delete_pb2.DeleteProjectRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除代码项目
         :param request: delete_project请求
@@ -90,7 +90,7 @@ class ProjectClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.project.DeleteProject"
-        uri = "/api/pipeline/v1/projects/:project_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}".format(
             project_id=request.project_id,
         )
         requestParam = request
@@ -115,7 +115,7 @@ class ProjectClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> get_pb2.GetResponse
+        # type: (get_pb2.GetRequest, int, str, int) -> get_pb2.GetResponse
         """
         获取单个代码项目详情
         :param request: get请求
@@ -131,7 +131,7 @@ class ProjectClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.project.Get"
-        uri = "/api/pipeline/v1/projects/:project_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}".format(
             project_id=request.project_id,
         )
         requestParam = request
@@ -156,7 +156,7 @@ class ProjectClient(object):
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         查询代码项目列表
         :param request: list请求
@@ -196,7 +196,7 @@ class ProjectClient(object):
         return rsp
     
     def list_branch(self, request, org, user, timeout=10):
-        # type: (list_branch_pb2.ListBranchResponse, int, str, int) -> list_branch_pb2.ListBranchResponse
+        # type: (list_branch_pb2.ListBranchRequest, int, str, int) -> list_branch_pb2.ListBranchResponse
         """
         查询分支列表
         :param request: list_branch请求
@@ -212,7 +212,7 @@ class ProjectClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.project.ListBranch"
-        uri = "/api/pipeline/v1/projects/:project_id/branches".format(
+        uri = "/api/pipeline/v1/projects/{project_id}/branches".format(
             project_id=request.project_id,
         )
         requestParam = request
@@ -237,7 +237,7 @@ class ProjectClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateResponse, int, str, int) -> model.pipeline.project_pb2.Project
+        # type: (update_pb2.UpdateRequest, int, str, int) -> model.pipeline.project_pb2.Project
         """
         修改代码项目
         :param request: update请求
@@ -253,7 +253,7 @@ class ProjectClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.pipeline.project.Update"
-        uri = "/api/pipeline/v1/projects/:project_id".format(
+        uri = "/api/pipeline/v1/projects/{project_id}".format(
             project_id=request.project_id,
         )
         requestParam = request.project

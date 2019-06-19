@@ -26,7 +26,7 @@ class InstanceClient(object):
 
     
     def post_search(self, request, org, user, timeout=10):
-        # type: (search_by_get_pb2.PostSearchResponse, int, str, int) -> search_by_get_pb2.PostSearchResponse
+        # type: (search_by_get_pb2.PostSearchRequest, int, str, int) -> search_by_get_pb2.PostSearchResponse
         """
         查询实例信息
         :param request: post_search请求
@@ -66,7 +66,7 @@ class InstanceClient(object):
         return rsp
     
     def get_search(self, request, org, user, timeout=10):
-        # type: (search_by_post_pb2.GetSearchResponse, int, str, int) -> search_by_post_pb2.GetSearchResponse
+        # type: (search_by_post_pb2.GetSearchRequest, int, str, int) -> search_by_post_pb2.GetSearchResponse
         """
         查询实例信息
         :param request: get_search请求

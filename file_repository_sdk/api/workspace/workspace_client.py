@@ -42,7 +42,7 @@ class WorkspaceClient(object):
 
     
     def check_workspace_base(self, request, org, user, timeout=10):
-        # type: (check_workspace_base_pb2.CheckWorkspaceBaseResponse, int, str, int) -> check_workspace_base_pb2.CheckWorkspaceBaseResponse
+        # type: (check_workspace_base_pb2.CheckWorkspaceBaseRequest, int, str, int) -> check_workspace_base_pb2.CheckWorkspaceBaseResponse
         """
         检查工作区baseId
         :param request: check_workspace_base请求
@@ -82,7 +82,7 @@ class WorkspaceClient(object):
         return rsp
     
     def clear(self, request, org, user, timeout=10):
-        # type: (clear_workspace_pb2.ClearResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (clear_workspace_pb2.ClearRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         清空工作区
         :param request: clear请求
@@ -122,7 +122,7 @@ class WorkspaceClient(object):
         return rsp
     
     def commit_workspace(self, request, org, user, timeout=10):
-        # type: (commit_worksapce_pb2.CommitWorkspaceResponse, int, str, int) -> commit_worksapce_pb2.CommitWorkspaceResponse
+        # type: (commit_worksapce_pb2.CommitWorkspaceRequest, int, str, int) -> commit_worksapce_pb2.CommitWorkspaceResponse
         """
         提交工作区创建新归档版本
         :param request: commit_workspace请求
@@ -138,7 +138,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.CommitWorkspace"
-        uri = "/workspace/:packageId".format(
+        uri = "/workspace/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -163,7 +163,7 @@ class WorkspaceClient(object):
         return rsp
     
     def file_compare(self, request, org, user, timeout=10):
-        # type: (compare_workspace_pb2.FileCompareResponse, int, str, int) -> compare_workspace_pb2.FileCompareResponse
+        # type: (compare_workspace_pb2.FileCompareRequest, int, str, int) -> compare_workspace_pb2.FileCompareResponse
         """
         比较工作区文件
         :param request: file_compare请求
@@ -203,7 +203,7 @@ class WorkspaceClient(object):
         return rsp
     
     def compare_workspace_with_version(self, request, org, user, timeout=10):
-        # type: (compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse, int, str, int) -> compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
+        # type: (compare_workspace_with_version_pb2.CompareWorkspaceWithVersionRequest, int, str, int) -> compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
         """
         工作区与版本比较
         :param request: compare_workspace_with_version请求
@@ -243,7 +243,7 @@ class WorkspaceClient(object):
         return rsp
     
     def get_file_info(self, request, org, user, timeout=10):
-        # type: (get_file_info_pb2.GetFileInfoResponse, int, str, int) -> get_file_info_pb2.GetFileInfoResponse
+        # type: (get_file_info_pb2.GetFileInfoRequest, int, str, int) -> get_file_info_pb2.GetFileInfoResponse
         """
         获取工作区文件信息
         :param request: get_file_info请求
@@ -259,7 +259,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.GetFileInfo"
-        uri = "/v2/workspace/:packageId/file".format(
+        uri = "/v2/workspace/{packageId}/file".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -284,7 +284,7 @@ class WorkspaceClient(object):
         return rsp
     
     def get_file_list(self, request, org, user, timeout=10):
-        # type: (get_file_list_pb2.GetFileListResponse, int, str, int) -> get_file_list_pb2.GetFileListResponse
+        # type: (get_file_list_pb2.GetFileListRequest, int, str, int) -> get_file_list_pb2.GetFileListResponse
         """
         获取工作区文件列表
         :param request: get_file_list请求
@@ -300,7 +300,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.GetFileList"
-        uri = "/v2/workspace/:packageId/file".format(
+        uri = "/v2/workspace/{packageId}/file".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -325,7 +325,7 @@ class WorkspaceClient(object):
         return rsp
     
     def status(self, request, org, user, timeout=10):
-        # type: (get_workspace_status_pb2.StatusResponse, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (get_workspace_status_pb2.StatusRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
         """
         查询工作区状态
         :param request: status请求
@@ -365,7 +365,7 @@ class WorkspaceClient(object):
         return rsp
     
     def init(self, request, org, user, timeout=10):
-        # type: (init_workspace_pb2.InitResponse, int, str, int) -> init_workspace_pb2.InitResponse
+        # type: (init_workspace_pb2.InitRequest, int, str, int) -> init_workspace_pb2.InitResponse
         """
         初始化工作区
         :param request: init请求
@@ -405,7 +405,7 @@ class WorkspaceClient(object):
         return rsp
     
     def safe_commit_workspace(self, request, org, user, timeout=10):
-        # type: (safe_commit_workspace_pb2.SafeCommitWorkspaceResponse, int, str, int) -> safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
+        # type: (safe_commit_workspace_pb2.SafeCommitWorkspaceRequest, int, str, int) -> safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
         """
         提交工作区创建新归档版本v2
         :param request: safe_commit_workspace请求
@@ -421,7 +421,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.SafeCommitWorkspace"
-        uri = "/v2/workspace/:packageId".format(
+        uri = "/v2/workspace/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -446,7 +446,7 @@ class WorkspaceClient(object):
         return rsp
     
     def update_file(self, request, org, user, timeout=10):
-        # type: (update_file_pb2.UpdateFileResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (update_file_pb2.UpdateFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         工作区文件修改
         :param request: update_file请求
@@ -462,7 +462,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.UpdateFile"
-        uri = "/v2/workspace/:packageId/file".format(
+        uri = "/v2/workspace/{packageId}/file".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -487,7 +487,7 @@ class WorkspaceClient(object):
         return rsp
     
     def upload_file(self, request, org, user, timeout=10):
-        # type: (upload_file_pb2.UploadFileResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (upload_file_pb2.UploadFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         上传文件
         :param request: upload_file请求
@@ -503,7 +503,7 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.UploadFile"
-        uri = "/workspace/:packageId/upload".format(
+        uri = "/workspace/{packageId}/upload".format(
             packageId=request.packageId,
         )
         requestParam = request

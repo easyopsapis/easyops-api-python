@@ -28,7 +28,7 @@ class StrategyClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
+        # type: (create_pb2.CreateRequest, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
         """
         新建部署策略
         :param request: create请求
@@ -68,7 +68,7 @@ class StrategyClient(object):
         return rsp
     
     def delete_strategy(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteStrategyResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (delete_pb2.DeleteStrategyRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除部署策略
         :param request: delete_strategy请求
@@ -84,7 +84,7 @@ class StrategyClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_flow.strategy.DeleteStrategy"
-        uri = "/deployStrategy/:strategyID".format(
+        uri = "/deployStrategy/{strategyID}".format(
             strategyID=request.strategyID,
         )
         requestParam = request
@@ -109,7 +109,7 @@ class StrategyClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetResponse, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
+        # type: (get_pb2.GetRequest, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
         """
         获取部署策略参数
         :param request: get请求
@@ -125,7 +125,7 @@ class StrategyClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_flow.strategy.Get"
-        uri = "/deployStrategy/:strategyID".format(
+        uri = "/deployStrategy/{strategyID}".format(
             strategyID=request.strategyID,
         )
         requestParam = request
@@ -150,7 +150,7 @@ class StrategyClient(object):
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         获取部署策略列表
         :param request: list请求
@@ -190,7 +190,7 @@ class StrategyClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateResponse, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
+        # type: (update_pb2.UpdateRequest, int, str, int) -> model.easy_flow.deploy_strategy_pb2.DeployStrategy
         """
         修改部署策略
         :param request: update请求
@@ -206,7 +206,7 @@ class StrategyClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_flow.strategy.Update"
-        uri = "/deployStrategy/:strategyID".format(
+        uri = "/deployStrategy/{strategyID}".format(
             strategyID=request.strategyID,
         )
         requestParam = request

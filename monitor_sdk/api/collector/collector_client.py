@@ -24,7 +24,7 @@ class CollectorClient(object):
 
     
     def get_list(self, request, org, user, timeout=10):
-        # type: (get_list_pb2.GetListResponse, int, str, int) -> get_list_pb2.GetListResponse
+        # type: (get_list_pb2.GetListRequest, int, str, int) -> get_list_pb2.GetListResponse
         """
         获取指标数据
         :param request: get_list请求
@@ -40,7 +40,7 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.monitor.collector.GetList"
-        uri = "/api/v1/collector/list/:table".format(
+        uri = "/api/v1/collector/list/{table}".format(
             table=request.table,
         )
         requestParam = request

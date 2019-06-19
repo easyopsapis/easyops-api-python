@@ -38,7 +38,7 @@ class PkgClient(object):
 
     
     def batch_update_package_permission(self, request, org, user, timeout=10):
-        # type: (batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse, int, str, int) -> batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
+        # type: (batch_update_package_permission_pb2.BatchUpdatePackagePermissionRequest, int, str, int) -> batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
         """
         批量修改包权限信息
         :param request: batch_update_package_permission请求
@@ -78,7 +78,7 @@ class PkgClient(object):
         return rsp
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateResponse, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (create_pb2.CreateRequest, int, str, int) -> model.artifact.package_pb2.Package
         """
         创建包
         :param request: create请求
@@ -118,7 +118,7 @@ class PkgClient(object):
         return rsp
     
     def delete_package(self, request, org, user, timeout=10):
-        # type: (delete_package_pb2.DeletePackageResponse, int, str, int) -> delete_package_pb2.DeletePackageResponse
+        # type: (delete_package_pb2.DeletePackageRequest, int, str, int) -> delete_package_pb2.DeletePackageResponse
         """
         删除包
         :param request: delete_package请求
@@ -134,7 +134,7 @@ class PkgClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.artifact.pkg.DeletePackage"
-        uri = "/package/package/:packageId".format(
+        uri = "/package/package/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -159,7 +159,7 @@ class PkgClient(object):
         return rsp
     
     def get_package_detail(self, request, org, user, timeout=10):
-        # type: (get_package_detail_pb2.GetPackageDetailResponse, int, str, int) -> get_package_detail_pb2.GetPackageDetailResponse
+        # type: (get_package_detail_pb2.GetPackageDetailRequest, int, str, int) -> get_package_detail_pb2.GetPackageDetailResponse
         """
         获取包详情信息
         :param request: get_package_detail请求
@@ -175,7 +175,7 @@ class PkgClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.artifact.pkg.GetPackageDetail"
-        uri = "/package/:packageId".format(
+        uri = "/package/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -240,7 +240,7 @@ class PkgClient(object):
         return rsp
     
     def get_package_permission(self, request, org, user, timeout=10):
-        # type: (get_package_permission_pb2.GetPackagePermissionResponse, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (get_package_permission_pb2.GetPackagePermissionRequest, int, str, int) -> model.artifact.package_pb2.Package
         """
         获取包权限信息
         :param request: get_package_permission请求
@@ -256,7 +256,7 @@ class PkgClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.artifact.pkg.GetPackagePermission"
-        uri = "/permission/package/:packageId".format(
+        uri = "/permission/package/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -361,7 +361,7 @@ class PkgClient(object):
         return rsp
     
     def search(self, request, org, user, timeout=10):
-        # type: (search_pb2.SearchResponse, int, str, int) -> search_pb2.SearchResponse
+        # type: (search_pb2.SearchRequest, int, str, int) -> search_pb2.SearchResponse
         """
         搜索包
         :param request: search请求
@@ -401,7 +401,7 @@ class PkgClient(object):
         return rsp
     
     def up_insert_global_variables(self, request, org, user, timeout=10):
-        # type: (up_insert_global_variables_pb2.UpInsertGlobalVariablesResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (up_insert_global_variables_pb2.UpInsertGlobalVariablesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改全局变量
         :param request: up_insert_global_variables请求
@@ -441,7 +441,7 @@ class PkgClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateResponse, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (update_pb2.UpdateRequest, int, str, int) -> model.artifact.package_pb2.Package
         """
         更新包信息
         :param request: update请求
@@ -457,7 +457,7 @@ class PkgClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.artifact.pkg.Update"
-        uri = "/package/:packageId".format(
+        uri = "/package/{packageId}".format(
             packageId=request.packageId,
         )
         requestParam = request
@@ -482,7 +482,7 @@ class PkgClient(object):
         return rsp
     
     def update_package_permission(self, request, org, user, timeout=10):
-        # type: (update_package_permission_pb2.UpdatePackagePermissionResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (update_package_permission_pb2.UpdatePackagePermissionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改包权限信息
         :param request: update_package_permission请求

@@ -24,7 +24,7 @@ class BusinessInstanceClient(object):
 
     
     def get_business_tree_list(self, request, org, user, timeout=10):
-        # type: (business_tree_list_pb2.GetBusinessTreeListResponse, int, str, int) -> business_tree_list_pb2.GetBusinessTreeListResponse
+        # type: (business_tree_list_pb2.GetBusinessTreeListRequest, int, str, int) -> business_tree_list_pb2.GetBusinessTreeListResponse
         """
         批量获取业务业务树全路径
         :param request: get_business_tree_list请求
