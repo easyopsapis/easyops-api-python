@@ -37,7 +37,8 @@ class PkgClient(object):
         self._host = host
 
     
-    def batch_update_package_permission(self, request, org, user, host="", timeout=10):
+    def batch_update_package_permission(self, request, org, user, timeout=10):
+        # type: (batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse, int, str, int) -> batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
         """
         批量修改包权限信息
         :param request: batch_update_package_permission请求
@@ -63,7 +64,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -76,7 +77,8 @@ class PkgClient(object):
         
         return rsp
     
-    def create(self, request, org, user, host="", timeout=10):
+    def create(self, request, org, user, timeout=10):
+        # type: (create_pb2.CreateResponse, int, str, int) -> model.artifact.package_pb2.Package
         """
         创建包
         :param request: create请求
@@ -102,7 +104,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -115,7 +117,8 @@ class PkgClient(object):
         
         return rsp
     
-    def delete_package(self, request, org, user, host="", timeout=10):
+    def delete_package(self, request, org, user, timeout=10):
+        # type: (delete_package_pb2.DeletePackageResponse, int, str, int) -> delete_package_pb2.DeletePackageResponse
         """
         删除包
         :param request: delete_package请求
@@ -142,7 +145,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -155,7 +158,8 @@ class PkgClient(object):
         
         return rsp
     
-    def get_package_detail(self, request, org, user, host="", timeout=10):
+    def get_package_detail(self, request, org, user, timeout=10):
+        # type: (get_package_detail_pb2.GetPackageDetailResponse, int, str, int) -> get_package_detail_pb2.GetPackageDetailResponse
         """
         获取包详情信息
         :param request: get_package_detail请求
@@ -182,7 +186,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -195,7 +199,8 @@ class PkgClient(object):
         
         return rsp
     
-    def get_package_list(self, request, org, user, host="", timeout=10):
+    def get_package_list(self, request, org, user, timeout=10):
+        # type: (, int, str, int) -> get_package_list_pb2.GetPackageListResponse
         """
         批量获取包信息
         :param request: get_package_list请求
@@ -221,7 +226,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -234,7 +239,8 @@ class PkgClient(object):
         
         return rsp
     
-    def get_package_permission(self, request, org, user, host="", timeout=10):
+    def get_package_permission(self, request, org, user, timeout=10):
+        # type: (get_package_permission_pb2.GetPackagePermissionResponse, int, str, int) -> model.artifact.package_pb2.Package
         """
         获取包权限信息
         :param request: get_package_permission请求
@@ -261,7 +267,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -274,7 +280,8 @@ class PkgClient(object):
         
         return rsp
     
-    def get_user_variables(self, request, org, user, host="", timeout=10):
+    def get_user_variables(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_user_variables_pb2.GetUserVariablesResponse
         """
         获取程序包的用户变量
         :param request: get_user_variables请求
@@ -300,7 +307,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -313,7 +320,8 @@ class PkgClient(object):
         
         return rsp
     
-    def init_package_permission(self, request, org, user, host="", timeout=10):
+    def init_package_permission(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         初始化包权限
         :param request: init_package_permission请求
@@ -339,7 +347,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -352,7 +360,8 @@ class PkgClient(object):
         
         return rsp
     
-    def search(self, request, org, user, host="", timeout=10):
+    def search(self, request, org, user, timeout=10):
+        # type: (search_pb2.SearchResponse, int, str, int) -> search_pb2.SearchResponse
         """
         搜索包
         :param request: search请求
@@ -378,7 +387,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -391,7 +400,8 @@ class PkgClient(object):
         
         return rsp
     
-    def up_insert_global_variables(self, request, org, user, host="", timeout=10):
+    def up_insert_global_variables(self, request, org, user, timeout=10):
+        # type: (up_insert_global_variables_pb2.UpInsertGlobalVariablesResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改全局变量
         :param request: up_insert_global_variables请求
@@ -417,7 +427,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -430,7 +440,8 @@ class PkgClient(object):
         
         return rsp
     
-    def update(self, request, org, user, host="", timeout=10):
+    def update(self, request, org, user, timeout=10):
+        # type: (update_pb2.UpdateResponse, int, str, int) -> model.artifact.package_pb2.Package
         """
         更新包信息
         :param request: update请求
@@ -457,7 +468,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -470,7 +481,8 @@ class PkgClient(object):
         
         return rsp
     
-    def update_package_permission(self, request, org, user, host="", timeout=10):
+    def update_package_permission(self, request, org, user, timeout=10):
+        # type: (update_package_permission_pb2.UpdatePackagePermissionResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改包权限信息
         :param request: update_package_permission请求
@@ -496,7 +508,7 @@ class PkgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

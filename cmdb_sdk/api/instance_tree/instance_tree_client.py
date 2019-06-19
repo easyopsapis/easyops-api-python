@@ -23,7 +23,8 @@ class InstanceTreeClient(object):
         self._host = host
 
     
-    def instance_tree(self, request, org, user, host="", timeout=10):
+    def instance_tree(self, request, org, user, timeout=10):
+        # type: (instance_tree_pb2.InstanceTreeResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取实例树完整数据
         :param request: instance_tree请求
@@ -49,7 +50,7 @@ class InstanceTreeClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -62,7 +63,8 @@ class InstanceTreeClient(object):
         
         return rsp
     
-    def instance_tree_anchor(self, request, org, user, host="", timeout=10):
+    def instance_tree_anchor(self, request, org, user, timeout=10):
+        # type: (instance_tree_anchor_pb2.InstanceTreeAnchorResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         实例树定位
         :param request: instance_tree_anchor请求
@@ -88,7 +90,7 @@ class InstanceTreeClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -101,7 +103,8 @@ class InstanceTreeClient(object):
         
         return rsp
     
-    def instance_tree_expand(self, request, org, user, host="", timeout=10):
+    def instance_tree_expand(self, request, org, user, timeout=10):
+        # type: (instance_tree_expand_pb2.InstanceTreeExpandResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         展开实例树某一级
         :param request: instance_tree_expand请求
@@ -127,7 +130,7 @@ class InstanceTreeClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -140,7 +143,8 @@ class InstanceTreeClient(object):
         
         return rsp
     
-    def instance_tree_search(self, request, org, user, host="", timeout=10):
+    def instance_tree_search(self, request, org, user, timeout=10):
+        # type: (instance_tree_search_pb2.InstanceTreeSearchResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         整树搜索
         :param request: instance_tree_search请求
@@ -166,7 +170,7 @@ class InstanceTreeClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

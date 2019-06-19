@@ -31,7 +31,8 @@ class ViewClient(object):
         self._host = host
 
     
-    def create_view(self, request, org, user, host="", timeout=10):
+    def create_view(self, request, org, user, timeout=10):
+        # type: (create_view_pb2.CreateViewResponse, int, str, int) -> create_view_pb2.CreateViewResponse
         """
         创建视图
         :param request: create_view请求
@@ -57,7 +58,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -70,7 +71,8 @@ class ViewClient(object):
         
         return rsp
     
-    def delete_view(self, request, org, user, host="", timeout=10):
+    def delete_view(self, request, org, user, timeout=10):
+        # type: (delete_view_pb2.DeleteViewResponse, int, str, int) -> delete_view_pb2.DeleteViewResponse
         """
         删除视图
         :param request: delete_view请求
@@ -97,7 +99,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -110,7 +112,8 @@ class ViewClient(object):
         
         return rsp
     
-    def fetch_cmdb_business_view(self, request, org, user, host="", timeout=10):
+    def fetch_cmdb_business_view(self, request, org, user, timeout=10):
+        # type: (fetch_cmdb_business_view_pb2.FetchCmdbBusinessViewResponse, int, str, int) -> model.topology.view_pb2.View
         """
         基于业务源点的特殊拓扑数据
         :param request: fetch_cmdb_business_view请求
@@ -136,7 +139,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -149,7 +152,8 @@ class ViewClient(object):
         
         return rsp
     
-    def fetch_origin_view(self, request, org, user, host="", timeout=10):
+    def fetch_origin_view(self, request, org, user, timeout=10):
+        # type: (fetch_origin_view_pb2.FetchOriginViewResponse, int, str, int) -> model.topology.view_pb2.View
         """
         基于源点的拓扑数据
         :param request: fetch_origin_view请求
@@ -175,7 +179,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -188,7 +192,8 @@ class ViewClient(object):
         
         return rsp
     
-    def get_view(self, request, org, user, host="", timeout=10):
+    def get_view(self, request, org, user, timeout=10):
+        # type: (get_view_pb2.GetViewResponse, int, str, int) -> model.topology.view_pb2.View
         """
         获取视图详细数据
         :param request: get_view请求
@@ -215,7 +220,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -228,7 +233,8 @@ class ViewClient(object):
         
         return rsp
     
-    def list_view(self, request, org, user, host="", timeout=10):
+    def list_view(self, request, org, user, timeout=10):
+        # type: (list_view_pb2.ListViewResponse, int, str, int) -> list_view_pb2.ListViewResponse
         """
         获取视图列表
         :param request: list_view请求
@@ -254,7 +260,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -267,7 +273,8 @@ class ViewClient(object):
         
         return rsp
     
-    def update_view(self, request, org, user, host="", timeout=10):
+    def update_view(self, request, org, user, timeout=10):
+        # type: (update_view_pb2.UpdateViewResponse, int, str, int) -> update_view_pb2.UpdateViewResponse
         """
         更新视图
         :param request: update_view请求
@@ -294,7 +301,7 @@ class ViewClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

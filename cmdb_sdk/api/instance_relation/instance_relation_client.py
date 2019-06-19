@@ -27,7 +27,8 @@ class InstanceRelationClient(object):
         self._host = host
 
     
-    def append(self, request, org, user, host="", timeout=10):
+    def append(self, request, org, user, timeout=10):
+        # type: (append_pb2.AppendResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量添加关系
         :param request: append请求
@@ -55,7 +56,7 @@ class InstanceRelationClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -68,7 +69,8 @@ class InstanceRelationClient(object):
         
         return rsp
     
-    def count_relation_instance(self, request, org, user, host="", timeout=10):
+    def count_relation_instance(self, request, org, user, timeout=10):
+        # type: (count_relation_instance_pb2.CountRelationInstanceResponse, int, str, int) -> count_relation_instance_pb2.CountRelationInstanceResponse
         """
         统计关系实例数量
         :param request: count_relation_instance请求
@@ -95,7 +97,7 @@ class InstanceRelationClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -108,7 +110,8 @@ class InstanceRelationClient(object):
         
         return rsp
     
-    def discovery(self, request, org, user, host="", timeout=10):
+    def discovery(self, request, org, user, timeout=10):
+        # type: (discovery_pb2.DiscoveryResponse, int, str, int) -> discovery_pb2.DiscoveryResponse
         """
         实例关系发现
         :param request: discovery请求
@@ -135,7 +138,7 @@ class InstanceRelationClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -148,7 +151,8 @@ class InstanceRelationClient(object):
         
         return rsp
     
-    def remove(self, request, org, user, host="", timeout=10):
+    def remove(self, request, org, user, timeout=10):
+        # type: (remove_pb2.RemoveResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量移除关系
         :param request: remove请求
@@ -176,7 +180,7 @@ class InstanceRelationClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -189,7 +193,8 @@ class InstanceRelationClient(object):
         
         return rsp
     
-    def set(self, request, org, user, host="", timeout=10):
+    def set(self, request, org, user, timeout=10):
+        # type: (set_pb2.SetResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量设置关系
         :param request: set请求
@@ -217,7 +222,7 @@ class InstanceRelationClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

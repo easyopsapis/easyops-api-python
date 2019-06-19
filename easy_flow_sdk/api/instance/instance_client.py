@@ -25,7 +25,8 @@ class InstanceClient(object):
         self._host = host
 
     
-    def post_search(self, request, org, user, host="", timeout=10):
+    def post_search(self, request, org, user, timeout=10):
+        # type: (search_by_get_pb2.PostSearchResponse, int, str, int) -> search_by_get_pb2.PostSearchResponse
         """
         查询实例信息
         :param request: post_search请求
@@ -51,7 +52,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -64,7 +65,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def get_search(self, request, org, user, host="", timeout=10):
+    def get_search(self, request, org, user, timeout=10):
+        # type: (search_by_post_pb2.GetSearchResponse, int, str, int) -> search_by_post_pb2.GetSearchResponse
         """
         查询实例信息
         :param request: get_search请求
@@ -90,7 +92,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

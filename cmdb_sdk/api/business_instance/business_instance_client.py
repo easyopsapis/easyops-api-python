@@ -23,7 +23,8 @@ class BusinessInstanceClient(object):
         self._host = host
 
     
-    def get_business_tree_list(self, request, org, user, host="", timeout=10):
+    def get_business_tree_list(self, request, org, user, timeout=10):
+        # type: (business_tree_list_pb2.GetBusinessTreeListResponse, int, str, int) -> business_tree_list_pb2.GetBusinessTreeListResponse
         """
         批量获取业务业务树全路径
         :param request: get_business_tree_list请求
@@ -49,7 +50,7 @@ class BusinessInstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

@@ -23,7 +23,8 @@ class InstanceGraphClient(object):
         self._host = host
 
     
-    def traverse_graph(self, request, org, user, host="", timeout=10):
+    def traverse_graph(self, request, org, user, timeout=10):
+        # type: (traverse_graph_pb2.TraverseGraphResponse, int, str, int) -> traverse_graph_pb2.TraverseGraphResponse
         """
         图遍历查询
         :param request: traverse_graph请求
@@ -49,7 +50,7 @@ class InstanceGraphClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

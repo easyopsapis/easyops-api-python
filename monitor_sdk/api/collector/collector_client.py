@@ -23,7 +23,8 @@ class CollectorClient(object):
         self._host = host
 
     
-    def get_list(self, request, org, user, host="", timeout=10):
+    def get_list(self, request, org, user, timeout=10):
+        # type: (get_list_pb2.GetListResponse, int, str, int) -> get_list_pb2.GetListResponse
         """
         获取指标数据
         :param request: get_list请求
@@ -50,7 +51,7 @@ class CollectorClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

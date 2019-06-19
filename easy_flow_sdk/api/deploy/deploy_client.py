@@ -29,7 +29,8 @@ class DeployClient(object):
         self._host = host
 
     
-    def callback(self, request, org, user, host="", timeout=10):
+    def callback(self, request, org, user, timeout=10):
+        # type: (model.easy_flow.task_ret_pb2.TaskRet, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         部署任务回调
         :param request: callback请求
@@ -55,7 +56,7 @@ class DeployClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -68,7 +69,8 @@ class DeployClient(object):
         
         return rsp
     
-    def create(self, request, org, user, host="", timeout=10):
+    def create(self, request, org, user, timeout=10):
+        # type: (create_pb2.CreateResponse, int, str, int) -> create_pb2.CreateResponse
         """
         启动装包任务
         :param request: create请求
@@ -94,7 +96,7 @@ class DeployClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -107,7 +109,8 @@ class DeployClient(object):
         
         return rsp
     
-    def get(self, request, org, user, host="", timeout=10):
+    def get(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetResponse, int, str, int) -> model.easy_flow.deploy_ret_pb2.DeployRet
         """
         查询装包任务
         :param request: get请求
@@ -134,7 +137,7 @@ class DeployClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -147,7 +150,8 @@ class DeployClient(object):
         
         return rsp
     
-    def list(self, request, org, user, host="", timeout=10):
+    def list(self, request, org, user, timeout=10):
+        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
         """
         批量查询装包任务
         :param request: list请求
@@ -174,7 +178,7 @@ class DeployClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

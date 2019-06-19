@@ -31,7 +31,8 @@ class PipelineClient(object):
         self._host = host
 
     
-    def create(self, request, org, user, host="", timeout=10):
+    def create(self, request, org, user, timeout=10):
+        # type: (create_pb2.CreateResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         创建流水线
         :param request: create请求
@@ -58,7 +59,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -71,7 +72,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def delete_pipeline(self, request, org, user, host="", timeout=10):
+    def delete_pipeline(self, request, org, user, timeout=10):
+        # type: (delete_pb2.DeletePipelineResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除流水线
         :param request: delete_pipeline请求
@@ -99,7 +101,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -112,7 +114,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def execute(self, request, org, user, host="", timeout=10):
+    def execute(self, request, org, user, timeout=10):
+        # type: (execute_pb2.ExecuteResponse, int, str, int) -> execute_pb2.ExecuteResponse
         """
         手动触发执行流水线
         :param request: execute请求
@@ -140,7 +143,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -153,7 +156,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def get(self, request, org, user, host="", timeout=10):
+    def get(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         获取流水线详情
         :param request: get请求
@@ -181,7 +185,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -194,7 +198,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def list(self, request, org, user, host="", timeout=10):
+    def list(self, request, org, user, timeout=10):
+        # type: (list_pb2.ListResponse, int, str, int) -> list_pb2.ListResponse
         """
         流水线列表
         :param request: list请求
@@ -221,7 +226,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -234,7 +239,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def trigger(self, request, org, user, host="", timeout=10):
+    def trigger(self, request, org, user, timeout=10):
+        # type: (trigger_pb2.TriggerResponse, int, str, int) -> trigger_pb2.TriggerResponse
         """
         webhook触发执行流水线
         :param request: trigger请求
@@ -262,7 +268,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -275,7 +281,8 @@ class PipelineClient(object):
         
         return rsp
     
-    def update(self, request, org, user, host="", timeout=10):
+    def update(self, request, org, user, timeout=10):
+        # type: (update_pb2.UpdateResponse, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         修改流水线
         :param request: update请求
@@ -303,7 +310,7 @@ class PipelineClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

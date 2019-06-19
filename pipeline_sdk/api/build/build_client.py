@@ -31,7 +31,8 @@ class BuildClient(object):
         self._host = host
 
     
-    def append_progress_log(self, request, org, user, host="", timeout=10):
+    def append_progress_log(self, request, org, user, timeout=10):
+        # type: (model.pipeline.progress_log_pb2.ProgressLog, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
         """
         追加实时日志
         :param request: append_progress_log请求
@@ -58,7 +59,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -71,7 +72,8 @@ class BuildClient(object):
         
         return rsp
     
-    def create(self, request, org, user, host="", timeout=10):
+    def create(self, request, org, user, timeout=10):
+        # type: (create_pb2.CreateResponse, int, str, int) -> model.pipeline.build_pb2.Build
         """
         创建构建任务记录
         :param request: create请求
@@ -97,7 +99,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -110,7 +112,8 @@ class BuildClient(object):
         
         return rsp
     
-    def create_progress_log(self, request, org, user, host="", timeout=10):
+    def create_progress_log(self, request, org, user, timeout=10):
+        # type: (model.pipeline.progress_log_pb2.ProgressLog, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
         """
         创建实时日志
         :param request: create_progress_log请求
@@ -136,7 +139,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -149,7 +152,8 @@ class BuildClient(object):
         
         return rsp
     
-    def create_stage_status(self, request, org, user, host="", timeout=10):
+    def create_stage_status(self, request, org, user, timeout=10):
+        # type: (create_stage_status_pb2.CreateStageStatusResponse, int, str, int) -> model.pipeline.stage_status_pb2.StageStatus
         """
         创建构建stage记录
         :param request: create_stage_status请求
@@ -175,7 +179,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -188,7 +192,8 @@ class BuildClient(object):
         
         return rsp
     
-    def get(self, request, org, user, host="", timeout=10):
+    def get(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetResponse, int, str, int) -> get_pb2.GetResponse
         """
         获取单个流水线任务详情
         :param request: get请求
@@ -215,7 +220,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -228,7 +233,8 @@ class BuildClient(object):
         
         return rsp
     
-    def get_progress_log(self, request, org, user, host="", timeout=10):
+    def get_progress_log(self, request, org, user, timeout=10):
+        # type: (get_progress_log_pb2.GetProgressLogResponse, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
         """
         获取实时日志
         :param request: get_progress_log请求
@@ -255,7 +261,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -268,7 +274,8 @@ class BuildClient(object):
         
         return rsp
     
-    def post(self, request, org, user, host="", timeout=10):
+    def post(self, request, org, user, timeout=10):
+        # type: (list_pb2.POSTResponse, int, str, int) -> list_pb2.POSTResponse
         """
         获取流水线任务列表
         :param request: post请求
@@ -294,7 +301,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -307,7 +314,8 @@ class BuildClient(object):
         
         return rsp
     
-    def update_build_status(self, request, org, user, host="", timeout=10):
+    def update_build_status(self, request, org, user, timeout=10):
+        # type: (update_build_status_pb2.UpdateBuildStatusResponse, int, str, int) -> model.pipeline.build_pb2.Build
         """
         修改构建任务记录
         :param request: update_build_status请求
@@ -334,7 +342,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -347,7 +355,8 @@ class BuildClient(object):
         
         return rsp
     
-    def update_progress_log(self, request, org, user, host="", timeout=10):
+    def update_progress_log(self, request, org, user, timeout=10):
+        # type: (model.pipeline.progress_log_pb2.ProgressLog, int, str, int) -> model.pipeline.progress_log_pb2.ProgressLog
         """
         修改实时日志
         :param request: update_progress_log请求
@@ -374,7 +383,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -387,7 +396,8 @@ class BuildClient(object):
         
         return rsp
     
-    def update_stage_status(self, request, org, user, host="", timeout=10):
+    def update_stage_status(self, request, org, user, timeout=10):
+        # type: (model.pipeline.stage_status_pb2.StageStatus, int, str, int) -> model.pipeline.stage_status_pb2.StageStatus
         """
         创建构建stage记录
         :param request: update_stage_status请求
@@ -414,7 +424,7 @@ class BuildClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

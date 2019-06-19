@@ -25,7 +25,8 @@ class OplogClient(object):
         self._host = host
 
     
-    def create_operation_log(self, request, org, user, host="", timeout=10):
+    def create_operation_log(self, request, org, user, timeout=10):
+        # type: (model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> create_operation_log_pb2.CreateOperationLogResponse
         """
         获取通知日志信息
         :param request: create_operation_log请求
@@ -51,7 +52,7 @@ class OplogClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -64,7 +65,8 @@ class OplogClient(object):
         
         return rsp
     
-    def list_operation_log(self, request, org, user, host="", timeout=10):
+    def list_operation_log(self, request, org, user, timeout=10):
+        # type: (list_operation_log_pb2.ListOperationLogResponse, int, str, int) -> list_operation_log_pb2.ListOperationLogResponse
         """
         获取通知日志信息
         :param request: list_operation_log请求
@@ -90,7 +92,7 @@ class OplogClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

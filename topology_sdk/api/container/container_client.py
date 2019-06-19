@@ -31,7 +31,8 @@ class ContainerClient(object):
         self._host = host
 
     
-    def create_container(self, request, org, user, host="", timeout=10):
+    def create_container(self, request, org, user, timeout=10):
+        # type: (create_container_pb2.CreateContainerResponse, int, str, int) -> create_container_pb2.CreateContainerResponse
         """
         创建容器
         :param request: create_container请求
@@ -57,7 +58,7 @@ class ContainerClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -70,7 +71,8 @@ class ContainerClient(object):
         
         return rsp
     
-    def delete_container(self, request, org, user, host="", timeout=10):
+    def delete_container(self, request, org, user, timeout=10):
+        # type: (delete_container_pb2.DeleteContainerResponse, int, str, int) -> delete_container_pb2.DeleteContainerResponse
         """
         删除容器
         :param request: delete_container请求
@@ -97,7 +99,7 @@ class ContainerClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -110,7 +112,8 @@ class ContainerClient(object):
         
         return rsp
     
-    def get_container(self, request, org, user, host="", timeout=10):
+    def get_container(self, request, org, user, timeout=10):
+        # type: (get_container_pb2.GetContainerResponse, int, str, int) -> model.topology.container_pb2.Container
         """
         获取容器详细数据
         :param request: get_container请求
@@ -137,7 +140,7 @@ class ContainerClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -150,7 +153,8 @@ class ContainerClient(object):
         
         return rsp
     
-    def list_container(self, request, org, user, host="", timeout=10):
+    def list_container(self, request, org, user, timeout=10):
+        # type: (list_container_pb2.ListContainerResponse, int, str, int) -> list_container_pb2.ListContainerResponse
         """
         获取容器列表
         :param request: list_container请求
@@ -176,7 +180,7 @@ class ContainerClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -189,7 +193,8 @@ class ContainerClient(object):
         
         return rsp
     
-    def update_container(self, request, org, user, host="", timeout=10):
+    def update_container(self, request, org, user, timeout=10):
+        # type: (update_container_pb2.UpdateContainerResponse, int, str, int) -> update_container_pb2.UpdateContainerResponse
         """
         更新容器
         :param request: update_container请求
@@ -216,7 +221,7 @@ class ContainerClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

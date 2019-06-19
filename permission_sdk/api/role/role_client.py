@@ -25,7 +25,8 @@ class RoleClient(object):
         self._host = host
 
     
-    def get_permission_role_list(self, request, org, user, host="", timeout=10):
+    def get_permission_role_list(self, request, org, user, timeout=10):
+        # type: (get_permission_role_list_pb2.GetPermissionRoleListResponse, int, str, int) -> get_permission_role_list_pb2.GetPermissionRoleListResponse
         """
         获取角色权限配置列表
         :param request: get_permission_role_list请求
@@ -51,7 +52,7 @@ class RoleClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -64,7 +65,8 @@ class RoleClient(object):
         
         return rsp
     
-    def get_user_role(self, request, org, user, host="", timeout=10):
+    def get_user_role(self, request, org, user, timeout=10):
+        # type: (get_user_role_pb2.GetUserRoleResponse, int, str, int) -> get_user_role_pb2.GetUserRoleResponse
         """
         获取用户及用户所在用户组所属角色
         :param request: get_user_role请求
@@ -91,7 +93,7 @@ class RoleClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

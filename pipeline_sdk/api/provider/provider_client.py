@@ -29,7 +29,8 @@ class ProviderClient(object):
         self._host = host
 
     
-    def create(self, request, org, user, host="", timeout=10):
+    def create(self, request, org, user, timeout=10):
+        # type: (model.pipeline.provider_pb2.Provider, int, str, int) -> model.pipeline.provider_pb2.Provider
         """
         创建 Git Provider
         :param request: create请求
@@ -55,7 +56,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -68,7 +69,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def delete_provider(self, request, org, user, host="", timeout=10):
+    def delete_provider(self, request, org, user, timeout=10):
+        # type: (delete_pb2.DeleteProviderResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除 Git Provider
         :param request: delete_provider请求
@@ -95,7 +97,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -108,7 +110,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def get(self, request, org, user, host="", timeout=10):
+    def get(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetResponse, int, str, int) -> model.pipeline.provider_pb2.Provider
         """
         获取单个Git Provider详情
         :param request: get请求
@@ -135,7 +138,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -148,7 +151,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def list(self, request, org, user, host="", timeout=10):
+    def list(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_pb2.ListResponse
         """
         查询 Git Provider 列表
         :param request: list请求
@@ -174,7 +178,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -187,7 +191,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def list_repository(self, request, org, user, host="", timeout=10):
+    def list_repository(self, request, org, user, timeout=10):
+        # type: (list_repository_pb2.ListRepositoryResponse, int, str, int) -> list_repository_pb2.ListRepositoryResponse
         """
         根据provider拉取所有git项目列表
         :param request: list_repository请求
@@ -214,7 +219,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -227,7 +232,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def set_default_provider(self, request, org, user, host="", timeout=10):
+    def set_default_provider(self, request, org, user, timeout=10):
+        # type: (set_default_pb2.SetDefaultProviderResponse, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         设置默认provider
         :param request: set_default_provider请求
@@ -254,7 +260,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -267,7 +273,8 @@ class ProviderClient(object):
         
         return rsp
     
-    def update(self, request, org, user, host="", timeout=10):
+    def update(self, request, org, user, timeout=10):
+        # type: (model.pipeline.provider_pb2.Provider, int, str, int) -> model.pipeline.provider_pb2.Provider
         """
         修改 Git Provider
         :param request: update请求
@@ -294,7 +301,7 @@ class ProviderClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

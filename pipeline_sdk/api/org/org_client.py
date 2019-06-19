@@ -23,7 +23,8 @@ class OrgClient(object):
         self._host = host
 
     
-    def register(self, request, org, user, host="", timeout=10):
+    def register(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         注册
         :param request: register请求
@@ -49,7 +50,7 @@ class OrgClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),

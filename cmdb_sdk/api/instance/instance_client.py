@@ -41,7 +41,8 @@ class InstanceClient(object):
         self._host = host
 
     
-    def add_str_to_array(self, request, org, user, host="", timeout=10):
+    def add_str_to_array(self, request, org, user, timeout=10):
+        # type: (add_str_to_array_pb2.AddStrToArrayResponse, int, str, int) -> add_str_to_array_pb2.AddStrToArrayResponse
         """
         append数据到实例arr属性内
         :param request: add_str_to_array请求
@@ -68,7 +69,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -81,7 +82,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def add_str_to_set(self, request, org, user, host="", timeout=10):
+    def add_str_to_set(self, request, org, user, timeout=10):
+        # type: (add_str_to_set_pb2.AddStrToSetResponse, int, str, int) -> add_str_to_set_pb2.AddStrToSetResponse
         """
         append数据到实例arr属性内(set)
         :param request: add_str_to_set请求
@@ -108,7 +110,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -121,7 +123,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def aggregate_count(self, request, org, user, host="", timeout=10):
+    def aggregate_count(self, request, org, user, timeout=10):
+        # type: (aggregate_total_pb2.AggregateCountResponse, int, str, int) -> aggregate_total_pb2.AggregateCountResponse
         """
         实例计数统计
         :param request: aggregate_count请求
@@ -149,7 +152,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -162,7 +165,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def aggregate_count_v_2(self, request, org, user, host="", timeout=10):
+    def aggregate_count_v_2(self, request, org, user, timeout=10):
+        # type: (aggregate_total_v2_pb2.AggregateCountV2Response, int, str, int) -> aggregate_total_v2_pb2.AggregateCountV2Response
         """
         实例计数统计接口v2
         :param request: aggregate_count_v_2请求
@@ -190,7 +194,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -203,7 +207,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def create_instance(self, request, org, user, host="", timeout=10):
+    def create_instance(self, request, org, user, timeout=10):
+        # type: (create_instance_pb2.CreateInstanceResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         创建实例
         :param request: create_instance请求
@@ -230,7 +235,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -243,7 +248,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def delete_instance(self, request, org, user, host="", timeout=10):
+    def delete_instance(self, request, org, user, timeout=10):
+        # type: (delete_instance_pb2.DeleteInstanceResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         删除实例
         :param request: delete_instance请求
@@ -271,7 +277,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -284,7 +290,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def delete_instance_batch(self, request, org, user, host="", timeout=10):
+    def delete_instance_batch(self, request, org, user, timeout=10):
+        # type: (delete_instance_batch_pb2.DeleteInstanceBatchResponse, int, str, int) -> delete_instance_batch_pb2.DeleteInstanceBatchResponse
         """
         批量删除实例
         :param request: delete_instance_batch请求
@@ -311,7 +318,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -324,7 +331,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def get_default_value_template(self, request, org, user, host="", timeout=10):
+    def get_default_value_template(self, request, org, user, timeout=10):
+        # type: (get_default_value_template_pb2.GetDefaultValueTemplateResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取实例默认值模板
         :param request: get_default_value_template请求
@@ -351,7 +359,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -364,7 +372,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def get_detail(self, request, org, user, host="", timeout=10):
+    def get_detail(self, request, org, user, timeout=10):
+        # type: (get_detail_pb2.GetDetailResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取实例详情
         :param request: get_detail请求
@@ -392,7 +401,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -405,7 +414,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def import_instance(self, request, org, user, host="", timeout=10):
+    def import_instance(self, request, org, user, timeout=10):
+        # type: (import_instance_pb2.ImportInstanceResponse, int, str, int) -> import_instance_pb2.ImportInstanceResponse
         """
         批量编辑/新增实例
         :param request: import_instance请求
@@ -432,7 +442,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -445,7 +455,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def post_search(self, request, org, user, host="", timeout=10):
+    def post_search(self, request, org, user, timeout=10):
+        # type: (post_search_pb2.PostSearchResponse, int, str, int) -> post_search_pb2.PostSearchResponse
         """
         搜索实例
         :param request: post_search请求
@@ -472,7 +483,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -485,7 +496,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def search_total(self, request, org, user, host="", timeout=10):
+    def search_total(self, request, org, user, timeout=10):
+        # type: (search_total_pb2.SearchTotalResponse, int, str, int) -> search_total_pb2.SearchTotalResponse
         """
         搜索总数
         :param request: search_total请求
@@ -512,7 +524,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -525,7 +537,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def update_instance(self, request, org, user, host="", timeout=10):
+    def update_instance(self, request, org, user, timeout=10):
+        # type: (update_instance_pb2.UpdateInstanceResponse, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         更新实例
         :param request: update_instance请求
@@ -553,7 +566,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
@@ -566,7 +579,8 @@ class InstanceClient(object):
         
         return rsp
     
-    def update_permission_batch(self, request, org, user, host="", timeout=10):
+    def update_permission_batch(self, request, org, user, timeout=10):
+        # type: (update_permission_batch_pb2.UpdatePermissionBatchResponse, int, str, int) -> update_permission_batch_pb2.UpdatePermissionBatchResponse
         """
         批量修改实例权限
         :param request: update_permission_batch请求
@@ -593,7 +607,7 @@ class InstanceClient(object):
             dst_name=route_name,
             server_ip=server_ip,
             server_port=self._server_port,
-            host=host,
+            host=self._host,
             uri=uri,
             params=google.protobuf.json_format.MessageToDict(
                 requestParam, preserving_proto_field_name=True),
