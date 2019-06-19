@@ -24,11 +24,42 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cmdb_object',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10get_detail.proto\x12\x0b\x63mdb_object\x1a\x1cmodel/cmdb/object_attr.proto\x1a model/cmdb/object_relation.proto\x1a&model/cmdb/object_relation_group.proto\x1a\x1cmodel/cmdb/object_view.proto\x1a\x1cmodel/cmdb/cmdb_object.proto\"l\n\x18GetDetailResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1e\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x10.cmdb.CmdbObjectb\x06proto3')
+  serialized_pb=_b('\n\x10get_detail.proto\x12\x0b\x63mdb_object\x1a\x1cmodel/cmdb/object_attr.proto\x1a model/cmdb/object_relation.proto\x1a&model/cmdb/object_relation_group.proto\x1a\x1cmodel/cmdb/object_view.proto\x1a\x1cmodel/cmdb/cmdb_object.proto\"$\n\x10GetDetailRequest\x12\x10\n\x08objectId\x18\x01 \x01(\t\"l\n\x18GetDetailResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1e\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x10.cmdb.CmdbObjectb\x06proto3')
   ,
   dependencies=[model_dot_cmdb_dot_object__attr__pb2.DESCRIPTOR,model_dot_cmdb_dot_object__relation__pb2.DESCRIPTOR,model_dot_cmdb_dot_object__relation__group__pb2.DESCRIPTOR,model_dot_cmdb_dot_object__view__pb2.DESCRIPTOR,model_dot_cmdb_dot_cmdb__object__pb2.DESCRIPTOR,])
 
 
+
+
+_GETDETAILREQUEST = _descriptor.Descriptor(
+  name='GetDetailRequest',
+  full_name='cmdb_object.GetDetailRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='objectId', full_name='cmdb_object.GetDetailRequest.objectId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=197,
+  serialized_end=233,
+)
 
 
 _GETDETAILRESPONSEWRAPPER = _descriptor.Descriptor(
@@ -78,13 +109,21 @@ _GETDETAILRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=197,
-  serialized_end=305,
+  serialized_start=235,
+  serialized_end=343,
 )
 
 _GETDETAILRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_cmdb_dot_cmdb__object__pb2._CMDBOBJECT
+DESCRIPTOR.message_types_by_name['GetDetailRequest'] = _GETDETAILREQUEST
 DESCRIPTOR.message_types_by_name['GetDetailResponseWrapper'] = _GETDETAILRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+GetDetailRequest = _reflection.GeneratedProtocolMessageType('GetDetailRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETDETAILREQUEST,
+  __module__ = 'get_detail_pb2'
+  # @@protoc_insertion_point(class_scope:cmdb_object.GetDetailRequest)
+  ))
+_sym_db.RegisterMessage(GetDetailRequest)
 
 GetDetailResponseWrapper = _reflection.GeneratedProtocolMessageType('GetDetailResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETDETAILRESPONSEWRAPPER,

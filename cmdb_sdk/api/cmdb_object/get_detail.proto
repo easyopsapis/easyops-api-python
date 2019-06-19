@@ -11,6 +11,16 @@ import "model/cmdb/object_view.proto";
 import "model/cmdb/cmdb_object.proto";
 
 /*
+GetDetail请求
+*/
+message GetDetailRequest {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+}
+
+/*
 GetDetailApi返回
 */
 message GetDetailResponseWrapper {

@@ -18,6 +18,21 @@ from typing_extensions import (
 )
 
 
+class GetDetailRequest(google___protobuf___message___Message):
+    objectId = ... # type: typing___Text
+
+    def __init__(self,
+        objectId : typing___Optional[typing___Text] = None,
+        ) -> None: ...
+    @classmethod
+    def FromString(cls, s: bytes) -> GetDetailRequest: ...
+    def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    if sys.version_info >= (3,):
+        def ClearField(self, field_name: typing_extensions___Literal[u"objectId"]) -> None: ...
+    else:
+        def ClearField(self, field_name: typing_extensions___Literal[b"objectId"]) -> None: ...
+
 class GetDetailResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int
     codeExplain = ... # type: typing___Text
