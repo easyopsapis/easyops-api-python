@@ -2,6 +2,8 @@
 
 import model.cmdb.cmdb_object_pb2
 
+import list_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -70,7 +72,7 @@ class CmdbObjectClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb.cmdb_object_pb2.CmdbObject
+        :return: list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -96,7 +98,7 @@ class CmdbObjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb.cmdb_object_pb2.CmdbObject()
+        rsp = list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

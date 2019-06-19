@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import model.easy_flow.instance_info_pb2
+import search_by_get_pb2
 
 import search_by_post_pb2
 
@@ -32,7 +32,7 @@ class InstanceClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.easy_flow.instance_info_pb2.InstanceInfo
+        :return: search_by_get_pb2.PostSearchResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -58,7 +58,7 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.easy_flow.instance_info_pb2.InstanceInfo()
+        rsp = search_by_get_pb2.PostSearchResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

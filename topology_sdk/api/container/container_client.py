@@ -6,6 +6,8 @@ import delete_container_pb2
 
 import model.topology.container_pb2
 
+import list_container_pb2
+
 import update_container_pb2
 
 import utils.http_util
@@ -155,7 +157,7 @@ class ContainerClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.container_pb2.Container
+        :return: list_container_pb2.ListContainerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -181,7 +183,7 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.container_pb2.Container()
+        rsp = list_container_pb2.ListContainerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

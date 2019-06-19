@@ -14,6 +14,8 @@ import get_user_variables_pb2
 
 import google.protobuf.empty_pb2
 
+import search_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -357,7 +359,7 @@ class PkgClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.artifact.package_pb2.Package
+        :return: search_pb2.SearchResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -383,7 +385,7 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.artifact.package_pb2.Package()
+        rsp = search_pb2.SearchResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

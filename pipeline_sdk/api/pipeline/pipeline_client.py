@@ -6,6 +6,8 @@ import google.protobuf.empty_pb2
 
 import execute_pb2
 
+import list_pb2
+
 import trigger_pb2
 
 import utils.http_util
@@ -199,7 +201,7 @@ class PipelineClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.pipeline_pb2.Pipeline
+        :return: list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -226,7 +228,7 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.pipeline_pb2.Pipeline()
+        rsp = list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

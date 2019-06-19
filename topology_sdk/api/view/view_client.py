@@ -6,6 +6,8 @@ import delete_view_pb2
 
 import model.topology.view_pb2
 
+import list_view_pb2
+
 import update_view_pb2
 
 import utils.http_util
@@ -233,7 +235,7 @@ class ViewClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.view_pb2.View
+        :return: list_view_pb2.ListViewResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -259,7 +261,7 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.view_pb2.View()
+        rsp = list_view_pb2.ListViewResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

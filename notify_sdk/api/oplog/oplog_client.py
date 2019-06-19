@@ -2,7 +2,7 @@
 
 import create_operation_log_pb2
 
-import model.notify.operation_log_pb2
+import list_operation_log_pb2
 
 import utils.http_util
 import google.protobuf.json_format
@@ -71,7 +71,7 @@ class OplogClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.notify.operation_log_pb2.OperationLog
+        :return: list_operation_log_pb2.ListOperationLogResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -97,7 +97,7 @@ class OplogClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.notify.operation_log_pb2.OperationLog()
+        rsp = list_operation_log_pb2.ListOperationLogResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

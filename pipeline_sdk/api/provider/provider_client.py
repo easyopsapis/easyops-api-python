@@ -4,7 +4,9 @@ import model.pipeline.provider_pb2
 
 import google.protobuf.empty_pb2
 
-import model.pipeline.repository_pb2
+import list_pb2
+
+import list_repository_pb2
 
 import utils.http_util
 import google.protobuf.json_format
@@ -153,7 +155,7 @@ class ProviderClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.provider_pb2.Provider
+        :return: list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -179,7 +181,7 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.provider_pb2.Provider()
+        rsp = list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -192,7 +194,7 @@ class ProviderClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.repository_pb2.Repository
+        :return: list_repository_pb2.ListRepositoryResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -219,7 +221,7 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.repository_pb2.Repository()
+        rsp = list_repository_pb2.ListRepositoryResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

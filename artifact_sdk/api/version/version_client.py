@@ -4,6 +4,8 @@ import model.artifact.version_pb2
 
 import delete_version_pb2
 
+import get_version_list_pb2
+
 import model.artifact.white_permission_user_pb2
 
 import google.protobuf.empty_pb2
@@ -156,7 +158,7 @@ class VersionClient(object):
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.artifact.version_pb2.Version
+        :return: get_version_list_pb2.GetVersionListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -182,7 +184,7 @@ class VersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.artifact.version_pb2.Version()
+        rsp = get_version_list_pb2.GetVersionListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
