@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='instance',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15\x61ggregate_total.proto\x12\x08instance\x1a\x1cgoogle/protobuf/struct.proto\"Z\n\x15\x41ggregateCountRequest\x12\x10\n\x08objectId\x18\x01 \x01(\t\x12\x0e\n\x06\x61ttrId\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x11\n\tpage_size\x18\x04 \x01(\x05\"N\n\x16\x41ggregateCountResponse\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\x12%\n\x04\x61ttr\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x81\x01\n\x1d\x41ggregateCountResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32 .instance.AggregateCountResponseb\x06proto3')
+  serialized_pb=_b('\n\x15\x61ggregate_total.proto\x12\x08instance\x1a\x1cgoogle/protobuf/struct.proto\"Z\n\x15\x41ggregateCountRequest\x12\x10\n\x08objectId\x18\x01 \x01(\t\x12\x0e\n\x06\x61ttrId\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x11\n\tpage_size\x18\x04 \x01(\x05\"\xbb\x01\n\x16\x41ggregateCountResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x33\n\x04list\x18\x04 \x03(\x0b\x32%.instance.AggregateCountResponse.List\x1a<\n\x04List\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\x12%\n\x04\x61ttr\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x81\x01\n\x1d\x41ggregateCountResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .instance.AggregateCountResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -79,22 +79,22 @@ _AGGREGATECOUNTREQUEST = _descriptor.Descriptor(
 )
 
 
-_AGGREGATECOUNTRESPONSE = _descriptor.Descriptor(
-  name='AggregateCountResponse',
-  full_name='instance.AggregateCountResponse',
+_AGGREGATECOUNTRESPONSE_LIST = _descriptor.Descriptor(
+  name='List',
+  full_name='instance.AggregateCountResponse.List',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='count', full_name='instance.AggregateCountResponse.count', index=0,
+      name='count', full_name='instance.AggregateCountResponse.List.count', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='attr', full_name='instance.AggregateCountResponse.attr', index=1,
+      name='attr', full_name='instance.AggregateCountResponse.List.attr', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -112,8 +112,59 @@ _AGGREGATECOUNTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=157,
-  serialized_end=235,
+  serialized_start=285,
+  serialized_end=345,
+)
+
+_AGGREGATECOUNTRESPONSE = _descriptor.Descriptor(
+  name='AggregateCountResponse',
+  full_name='instance.AggregateCountResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page', full_name='instance.AggregateCountResponse.page', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='instance.AggregateCountResponse.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='total', full_name='instance.AggregateCountResponse.total', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='list', full_name='instance.AggregateCountResponse.list', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_AGGREGATECOUNTRESPONSE_LIST, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=158,
+  serialized_end=345,
 )
 
 
@@ -147,8 +198,8 @@ _AGGREGATECOUNTRESPONSEWRAPPER = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='instance.AggregateCountResponseWrapper.data', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -164,11 +215,13 @@ _AGGREGATECOUNTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=238,
-  serialized_end=367,
+  serialized_start=348,
+  serialized_end=477,
 )
 
-_AGGREGATECOUNTRESPONSE.fields_by_name['attr'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_AGGREGATECOUNTRESPONSE_LIST.fields_by_name['attr'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_AGGREGATECOUNTRESPONSE_LIST.containing_type = _AGGREGATECOUNTRESPONSE
+_AGGREGATECOUNTRESPONSE.fields_by_name['list'].message_type = _AGGREGATECOUNTRESPONSE_LIST
 _AGGREGATECOUNTRESPONSEWRAPPER.fields_by_name['data'].message_type = _AGGREGATECOUNTRESPONSE
 DESCRIPTOR.message_types_by_name['AggregateCountRequest'] = _AGGREGATECOUNTREQUEST
 DESCRIPTOR.message_types_by_name['AggregateCountResponse'] = _AGGREGATECOUNTRESPONSE
@@ -183,11 +236,19 @@ AggregateCountRequest = _reflection.GeneratedProtocolMessageType('AggregateCount
 _sym_db.RegisterMessage(AggregateCountRequest)
 
 AggregateCountResponse = _reflection.GeneratedProtocolMessageType('AggregateCountResponse', (_message.Message,), dict(
+
+  List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
+    DESCRIPTOR = _AGGREGATECOUNTRESPONSE_LIST,
+    __module__ = 'aggregate_total_pb2'
+    # @@protoc_insertion_point(class_scope:instance.AggregateCountResponse.List)
+    ))
+  ,
   DESCRIPTOR = _AGGREGATECOUNTRESPONSE,
   __module__ = 'aggregate_total_pb2'
   # @@protoc_insertion_point(class_scope:instance.AggregateCountResponse)
   ))
 _sym_db.RegisterMessage(AggregateCountResponse)
+_sym_db.RegisterMessage(AggregateCountResponse.List)
 
 AggregateCountResponseWrapper = _reflection.GeneratedProtocolMessageType('AggregateCountResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _AGGREGATECOUNTRESPONSEWRAPPER,

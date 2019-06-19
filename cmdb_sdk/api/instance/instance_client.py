@@ -2,7 +2,11 @@
 
 import add_str_to_array_pb2
 
+import add_str_to_set_pb2
+
 import aggregate_total_pb2
+
+import aggregate_total_v2_pb2
 
 import google.protobuf.struct_pb2
 
@@ -77,6 +81,46 @@ class InstanceClient(object):
         
         return rsp
     
+    def add_str_to_set(self, request, org, user, host="", timeout=10):
+        """
+        append数据到实例arr属性内(set)
+        :param request: add_str_to_set请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: add_str_to_set_pb2.AddStrToSetResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance.AddStrToSet"
+        uri = "/object/:objectId/instance/add_str_to_set".format(
+            objectId=request.objectId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = add_str_to_set_pb2.AddStrToSetResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def aggregate_count(self, request, org, user, host="", timeout=10):
         """
         实例计数统计
@@ -113,6 +157,47 @@ class InstanceClient(object):
             timeout=timeout,
         )
         rsp = aggregate_total_pb2.AggregateCountResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def aggregate_count_v_2(self, request, org, user, host="", timeout=10):
+        """
+        实例计数统计接口v2
+        :param request: aggregate_count_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: aggregate_total_v2_pb2.AggregateCountV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance.AggregateCountV2"
+        uri = "/v2/object/:objectId/instance_aggregate/count/:attrId".format(
+            objectId=request.objectId,
+            attrId=request.attrId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = aggregate_total_v2_pb2.AggregateCountV2Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

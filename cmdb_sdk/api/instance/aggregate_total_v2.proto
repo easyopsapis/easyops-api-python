@@ -7,9 +7,9 @@ package instance;
 import "google/protobuf/struct.proto";
 
 /*
-AggregateCount请求
+AggregateCountV2请求
 */
-message AggregateCountRequest {
+message AggregateCountV2Request {
     /*
     URL中资源模型ID
     */
@@ -19,20 +19,15 @@ message AggregateCountRequest {
     */
     string attrId = 2 ;
     /*
-    页码
+    top n, 默认300, 为0则获取所有, top n+1以后的属性值将会聚合追加到最后,属性值为'-'
     */
-    int32 page = 3 ;
-    /*
-    页大小
-    */
-    int32 page_size = 4 ;
+    int32 top = 3 ;
 }
 
 /*
-AggregateCount返回
+AggregateCountV2返回
 */
-message AggregateCountResponse {
-message List {
+message AggregateCountV2Response {
     /*
     个数
     */
@@ -42,30 +37,11 @@ message List {
     */
     google.protobuf.Struct attr = 2 ;
 }
-        
-    
-    /*
-    页数
-    */
-    int32 page = 1 ;
-    /*
-    页大小
-    */
-    int32 page_size = 2 ;
-    /*
-    总数
-    */
-    int32 total = 3 ;
-    /*
-    数据列表
-    */
-    repeated List list = 4 ;
-}
 
 /*
-AggregateCountApi返回
+AggregateCountV2Api返回
 */
-message AggregateCountResponseWrapper {
+message AggregateCountV2ResponseWrapper {
     /*
     返回码
     */
@@ -81,6 +57,6 @@ message AggregateCountResponseWrapper {
     /*
     返回数据
     */
-    instance.AggregateCountResponse data = 4 ;
+    repeated instance.AggregateCountV2Response data = 4 ;
 }
 
