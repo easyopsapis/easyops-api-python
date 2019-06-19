@@ -18,7 +18,11 @@ import get_archive_sign_info_pb2
 
 import get_archive_size_pb2
 
+import get_difference_pb2
+
 import model.file_repository.diff_pb2
+
+import get_package_difference_pb2
 
 import utils.http_util
 import google.protobuf.json_format

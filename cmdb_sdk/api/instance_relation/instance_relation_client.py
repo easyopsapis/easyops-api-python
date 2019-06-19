@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 
+import append_pb2
+
 import google.protobuf.empty_pb2
 
 import count_relation_instance_pb2
 
 import discovery_pb2
+
+import remove_pb2
+
+import set_pb2
 
 import utils.http_util
 import google.protobuf.json_format

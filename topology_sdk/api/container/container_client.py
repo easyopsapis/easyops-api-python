@@ -4,6 +4,8 @@ import create_container_pb2
 
 import delete_container_pb2
 
+import get_container_pb2
+
 import model.topology.container_pb2
 
 import list_container_pb2

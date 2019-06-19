@@ -8,15 +8,25 @@ import aggregate_total_pb2
 
 import aggregate_total_v2_pb2
 
+import create_instance_pb2
+
 import google.protobuf.struct_pb2
 
+import delete_instance_pb2
+
 import delete_instance_batch_pb2
+
+import get_default_value_template_pb2
+
+import get_detail_pb2
 
 import import_instance_pb2
 
 import post_search_pb2
 
 import search_total_pb2
+
+import update_instance_pb2
 
 import update_permission_batch_pb2
 

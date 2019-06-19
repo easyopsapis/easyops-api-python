@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import instance_tree_pb2
+
 import google.protobuf.struct_pb2
+
+import instance_tree_anchor_pb2
+
+import instance_tree_expand_pb2
+
+import instance_tree_search_pb2
 
 import utils.http_util
 import google.protobuf.json_format

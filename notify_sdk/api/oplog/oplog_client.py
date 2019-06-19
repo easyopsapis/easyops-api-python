@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import model.notify.operation_log_with_meta_pb2
+
 import create_operation_log_pb2
 
 import list_operation_log_pb2

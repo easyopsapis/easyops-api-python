@@ -2,11 +2,17 @@
 
 import model.pipeline.provider_pb2
 
+import delete_pb2
+
 import google.protobuf.empty_pb2
+
+import get_pb2
 
 import list_pb2
 
 import list_repository_pb2
+
+import set_default_pb2
 
 import utils.http_util
 import google.protobuf.json_format

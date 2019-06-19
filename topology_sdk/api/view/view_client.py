@@ -4,7 +4,13 @@ import create_view_pb2
 
 import delete_view_pb2
 
+import fetch_cmdb_business_view_pb2
+
 import model.topology.view_pb2
+
+import fetch_origin_view_pb2
+
+import get_view_pb2
 
 import list_view_pb2
 

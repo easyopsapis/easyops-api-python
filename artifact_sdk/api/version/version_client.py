@@ -1,12 +1,24 @@
 # -*- coding: utf-8 -*-
 
+import create_version_with_sign_pb2
+
 import model.artifact.version_pb2
 
 import delete_version_pb2
 
+import get_version_detail_pb2
+
 import get_version_list_pb2
 
+import get_version_permission_info_pb2
+
 import model.artifact.white_permission_user_pb2
+
+import update_pb2
+
+import update_version_env_type_pb2
+
+import update_version_permission_users_pb2
 
 import google.protobuf.empty_pb2
 

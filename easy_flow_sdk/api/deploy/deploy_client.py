@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import model.easy_flow.task_ret_pb2
+
 import google.protobuf.empty_pb2
 
 import create_pb2
+
+import get_pb2
 
 import model.easy_flow.deploy_ret_pb2
 

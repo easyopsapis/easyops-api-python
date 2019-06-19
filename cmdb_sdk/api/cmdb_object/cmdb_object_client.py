@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import get_detail_pb2
+
 import model.cmdb.cmdb_object_pb2
+
+import google.protobuf.empty_pb2
 
 import list_pb2
 

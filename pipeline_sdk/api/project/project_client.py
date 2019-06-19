@@ -2,6 +2,8 @@
 
 import create_pb2
 
+import delete_pb2
+
 import google.protobuf.empty_pb2
 
 import get_pb2
@@ -9,6 +11,8 @@ import get_pb2
 import list_pb2
 
 import list_branch_pb2
+
+import update_pb2
 
 import model.pipeline.project_pb2
 

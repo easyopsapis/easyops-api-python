@@ -2,6 +2,8 @@
 
 import check_workspace_base_pb2
 
+import clear_workspace_pb2
+
 import google.protobuf.empty_pb2
 
 import commit_worksapce_pb2
@@ -14,11 +16,17 @@ import get_file_info_pb2
 
 import get_file_list_pb2
 
+import get_workspace_status_pb2
+
 import model.file_repository.diff_pb2
 
 import init_workspace_pb2
 
 import safe_commit_workspace_pb2
+
+import update_file_pb2
+
+import upload_file_pb2
 
 import utils.http_util
 import google.protobuf.json_format

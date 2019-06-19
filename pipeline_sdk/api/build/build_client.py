@@ -2,13 +2,21 @@
 
 import model.pipeline.progress_log_pb2
 
+import create_pb2
+
 import model.pipeline.build_pb2
+
+import create_stage_status_pb2
 
 import model.pipeline.stage_status_pb2
 
 import get_pb2
 
+import get_progress_log_pb2
+
 import list_pb2
+
+import update_build_status_pb2
 
 import utils.http_util
 import google.protobuf.json_format
