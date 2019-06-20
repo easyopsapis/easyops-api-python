@@ -1,0 +1,49 @@
+syntax = "proto3";
+package desktop;
+
+
+
+
+
+/*
+InstallApp请求
+*/
+message InstallAppRequest {
+    /*
+    小产品id
+    */
+    string appId = 1 ;
+}
+
+/*
+InstallApp返回
+*/
+message InstallAppResponse {
+    /*
+    任务id
+    */
+    string taskId = 1 ;
+}
+
+/*
+InstallAppApi返回
+*/
+message InstallAppResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    desktop.InstallAppResponse data = 4 ;
+}
+
