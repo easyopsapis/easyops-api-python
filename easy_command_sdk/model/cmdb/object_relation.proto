@@ -1,0 +1,107 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+模型关系
+*/
+message ObjectRelation {
+    /*
+    关系名称, 不是必填, 而且在引入了 left_description 和 right_description 之后这个字段几乎处于废弃状态
+    */
+    string name = 1 ;
+    /*
+    true 内置关系
+    */
+    bool protected = 2 ;
+    /*
+    必须全局唯一: 新添加的关系ID字段建议增加下划线前缀
+    */
+    string relation_id = 3 ;
+    /*
+    关系右端模型中表达左端模型实例的别名字段: 比如应用的负责人需要在应用的实例中表达出一个字段; 对已有模型添加关系时这个ID需要加下划线前缀避免冲突
+    */
+    string right_id = 4 ;
+    /*
+    是与 right_id 对应的含义, 但仅用于前端展示
+    */
+    string right_name = 5 ;
+    /*
+    是与 right_id 相反的含义, 但仅用于前端展示 (p.s.: 关系右端模型的描述)
+    */
+    string right_description = 6 ;
+    /*
+    关系在右端模型的哪些分组里
+    */
+    repeated string right_groups = 7 ;
+    /*
+    关系右端标签
+    */
+    repeated string right_tags = 8 ;
+    /*
+    关系右端的资源模型实例最多包含多少数量的关系: 有数据库级别的索引支持, 一般情况填 1 或者 -1, -1表示无限多
+    */
+    int32 right_max = 9 ;
+    /*
+    关系右端的资源模型实例至少包含多少数量的关系: 目前来说这个字段是过度设计的字段, 一般填 0 就好了
+    */
+    int32 right_min = 10 ;
+    /*
+    关系右端的模型ID
+    */
+    string right_object_id = 11 ;
+    /*
+    关系左端模型中表达右端模型实例的别名字段: 比如应用的负责人需要在应用的实例中表达出一个字段; 对已有模型添加关系时这个ID需要加下划线前缀避免冲突
+    */
+    string left_id = 12 ;
+    /*
+    是与 left_id 对应的含义, 但仅用于前端展示
+    */
+    string left_name = 13 ;
+    /*
+    是与 left_id 相反的含义, 但仅用于前端展示 (p.s.: 关系左端模型的描述)
+    */
+    string left_description = 14 ;
+    /*
+    关系在左端模型的哪些分组里
+    */
+    repeated string left_groups = 15 ;
+    /*
+    关系左端标签
+    */
+    repeated string left_tags = 16 ;
+    /*
+    关系左端的资源模型实例最多包含多少数量的关系: 有数据库级别的索引支持, 一般情况填1 或者 -1, -1表示无限多
+    */
+    int32 left_max = 17 ;
+    /*
+    关系左端的资源模型实例至少包含多少数量的关系: 目前来说这个字段是过度设计的字段, 一般填0就好了
+    */
+    int32 left_min = 18 ;
+    /*
+    关系左端的模型ID
+    */
+    string left_object_id = 19 ;
+    /*
+    创建者
+    */
+    string creator = 20 ;
+    /*
+    创建时间
+    */
+    string ctime = 21 ;
+    /*
+    创建时间的时间截
+    */
+    int32 _ts = 22 ;
+    /*
+    版本
+    */
+    int32 _version = 23 ;
+}
+

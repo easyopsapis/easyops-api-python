@@ -9,7 +9,7 @@ from google.protobuf.message import (
 )
 
 from google.protobuf.struct_pb2 import (
-    Struct as google___protobuf___struct_pb2___Struct,
+    Value as google___protobuf___struct_pb2___Value,
 )
 
 from typing import (
@@ -31,13 +31,13 @@ class ObjectView(google___protobuf___message___Message):
     show_key = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
 
     @property
-    def relation_view(self) -> google___protobuf___struct_pb2___Struct: ...
+    def relation_view(self) -> google___protobuf___struct_pb2___Value: ...
 
     def __init__(self,
         visible : typing___Optional[bool] = None,
         showHideAttrs : typing___Optional[bool] = None,
         hide_columns : typing___Optional[typing___Iterable[typing___Text]] = None,
-        relation_view : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        relation_view : typing___Optional[google___protobuf___struct_pb2___Value] = None,
         attr_order : typing___Optional[typing___Iterable[typing___Text]] = None,
         show_key : typing___Optional[typing___Iterable[typing___Text]] = None,
         ) -> None: ...

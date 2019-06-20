@@ -25,9 +25,9 @@ message ObjectView {
     */
     repeated string hide_columns = 3 ;
     /*
-    定义如何展示关系，e.g.: { business: ['name'], tester: ['name'] }
+    定义如何展示关系，e.g.: { business: ['name'], tester: ['name'] }, 当relation_view为空时，会返回一个空数组
     */
-    google.protobuf.Struct relation_view = 4 ;
+    google.protobuf.Value relation_view = 4 ;
     /*
     展示时的属性顺序
     */

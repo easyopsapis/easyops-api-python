@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cmdb',
   syntax='proto3',
   serialized_options=_b('Z>go.easyops.local/contracts/protorepo-models/easyops/model/cmdb'),
-  serialized_pb=_b('\n\x11object_view.proto\x12\x04\x63mdb\x1a\x1cgoogle/protobuf/struct.proto\"\xa0\x01\n\nObjectView\x12\x0f\n\x07visible\x18\x01 \x01(\x08\x12\x15\n\rshowHideAttrs\x18\x02 \x01(\x08\x12\x14\n\x0chide_columns\x18\x03 \x03(\t\x12.\n\rrelation_view\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x12\n\nattr_order\x18\x05 \x03(\t\x12\x10\n\x08show_key\x18\x06 \x03(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/cmdbb\x06proto3')
+  serialized_pb=_b('\n\x11object_view.proto\x12\x04\x63mdb\x1a\x1cgoogle/protobuf/struct.proto\"\x9f\x01\n\nObjectView\x12\x0f\n\x07visible\x18\x01 \x01(\x08\x12\x15\n\rshowHideAttrs\x18\x02 \x01(\x08\x12\x14\n\x0chide_columns\x18\x03 \x03(\t\x12-\n\rrelation_view\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12\x12\n\nattr_order\x18\x05 \x03(\t\x12\x10\n\x08show_key\x18\x06 \x03(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/cmdbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -89,10 +89,10 @@ _OBJECTVIEW = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=58,
-  serialized_end=218,
+  serialized_end=217,
 )
 
-_OBJECTVIEW.fields_by_name['relation_view'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_OBJECTVIEW.fields_by_name['relation_view'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
 DESCRIPTOR.message_types_by_name['ObjectView'] = _OBJECTVIEW
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

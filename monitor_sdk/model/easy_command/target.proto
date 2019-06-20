@@ -1,0 +1,23 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+
+/*
+任务目标机器
+*/
+message Target {
+    /*
+    目标机器ID (cmdb系统的instanceId)
+    */
+    string targetId = 1 ;
+    /*
+    目标机器名称
+    */
+    string targetName = 2 ;
+}
+

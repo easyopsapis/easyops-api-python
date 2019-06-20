@@ -1,0 +1,31 @@
+syntax = "proto3";
+package permission;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/permission";
+
+
+
+
+
+/*
+权限点
+*/
+message Permission {
+    /*
+    权限点id
+    */
+    string id = 1 ;
+    /*
+    系统名
+    */
+    string system = 2 ;
+    /*
+    需要鉴权的动作, 全局唯一
+    */
+    string action = 3 ;
+    /*
+    权限备注
+    */
+    string remark = 4 ;
+}
+
