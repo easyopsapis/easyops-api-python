@@ -1,0 +1,100 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+部署任务实例
+*/
+message Task {
+message ConfigList {
+message Configs {
+message Items {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    路径
+    */
+    string path = 2 ;
+}
+        
+    
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    选项列表
+    */
+    repeated Items items = 2 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    配置信息
+    */
+    repeated Configs configs = 2 ;
+}
+        
+    
+    /*
+    应用Id
+    */
+    string appId = 1 ;
+    /*
+    应用名称
+    */
+    string appName = 2 ;
+    /*
+    集群Id
+    */
+    string clusterId = 3 ;
+    /*
+    集群类型
+    */
+    string clusterType = 4 ;
+    /*
+    操作人
+    */
+    string operator = 5 ;
+    /*
+    组织
+    */
+    int32 org = 6 ;
+    /*
+    配置列表
+    */
+    ConfigList configList = 7 ;
+    /*
+    任务时间戳
+    */
+    string taskTimeStamp = 8 ;
+    /*
+    配置版本
+    */
+    string configVersion = 9 ;
+    /*
+    配置包Id
+    */
+    string configPackageId = 10 ;
+    /*
+    标签
+    */
+    google.protobuf.Struct labels = 11 ;
+    /*
+    配置变更信息
+    */
+    string configDiff = 12 ;
+}
+

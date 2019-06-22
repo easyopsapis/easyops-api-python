@@ -1,0 +1,57 @@
+syntax = "proto3";
+package service_manage;
+
+
+
+
+
+/*
+CreateServiceTask请求
+*/
+message CreateServiceTaskRequest {
+    /*
+    任务名称（vnode：虚拟节点采集，topology：服务拓扑发现）
+    */
+    string task = 1 ;
+    /*
+    执行命令（check：检查任务执行状态， execute：立即执行任务）
+    */
+    string command = 2 ;
+}
+
+/*
+CreateServiceTask返回
+*/
+message CreateServiceTaskResponse {
+    /*
+    任务名称
+    */
+    string task = 1 ;
+    /*
+    任务运行状态
+    */
+    string status = 2 ;
+}
+
+/*
+CreateServiceTaskApi返回
+*/
+message CreateServiceTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    service_manage.CreateServiceTaskResponse data = 4 ;
+}
+
