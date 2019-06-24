@@ -1,0 +1,50 @@
+syntax = "proto3";
+package cmdb_approve;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetHistoryApproverList请求
+*/
+message GetHistoryApproverListRequest {
+    /*
+    查询条件、类似mongodb
+    */
+    google.protobuf.Struct query = 1 ;
+}
+
+/*
+GetHistoryApproverList返回
+*/
+message GetHistoryApproverListResponse {
+    /*
+    审批者列表(name)
+    */
+    repeated string userList = 1 ;
+}
+
+/*
+GetHistoryApproverListApi返回
+*/
+message GetHistoryApproverListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_approve.GetHistoryApproverListResponse data = 4 ;
+}
+
