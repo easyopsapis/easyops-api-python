@@ -1,0 +1,43 @@
+syntax = "proto3";
+package micro_app;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/micro_app";
+
+
+
+
+
+/*
+小产品
+*/
+message MicroApp {
+    /*
+    小产品名称
+    */
+    string name = 1 ;
+    /*
+    小产品id
+    */
+    string id = 2 ;
+    /*
+    图标url
+    */
+    string icon = 3 ;
+    /*
+    storyboard内容
+    */
+    string storyboard = 4 ;
+    /*
+    小产品概要介绍
+    */
+    string intro = 5 ;
+    /*
+    标签
+    */
+    repeated string tags = 6 ;
+    /*
+    当前版本
+    */
+    string version = 7 ;
+}
+

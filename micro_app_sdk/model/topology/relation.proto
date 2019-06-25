@@ -1,0 +1,23 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+关系字段
+*/
+message Relation {
+    /*
+    字段名
+    */
+    string name = 1 ;
+    /*
+    深度
+    */
+    int32 depth = 2 ;
+}
+

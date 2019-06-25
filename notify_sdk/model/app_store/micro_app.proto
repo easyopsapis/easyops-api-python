@@ -1,0 +1,31 @@
+syntax = "proto3";
+package app_store;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/app_store";
+
+
+
+
+
+/*
+小产品包
+*/
+message AppStoreMicroApp {
+    /*
+    小产品名称
+    */
+    string name = 1 ;
+    /*
+    小产品id
+    */
+    string id = 2 ;
+    /*
+    图标url
+    */
+    string icon = 3 ;
+    /*
+    小产品概要介绍
+    */
+    string intro = 4 ;
+}
+
