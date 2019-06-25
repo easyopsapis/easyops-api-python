@@ -11,13 +11,17 @@ CreateTrigger请求
 */
 message CreateTriggerRequest {
     /*
+    project id
+    */
+    string project_id = 1 ;
+    /*
     pipeline id
     */
-    string pipeline_id = 1 ;
+    string pipeline_id = 2 ;
     /*
     trigger 配置
     */
-    pipeline.Trigger trigger = 2 ;
+    pipeline.Trigger trigger = 3 ;
 }
 
 /*
