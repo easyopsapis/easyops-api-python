@@ -4,19 +4,31 @@ import create_pb2
 
 import model.pipeline.pipeline_pb2
 
+import create_trigger_pb2
+
+import model.pipeline.trigger_pb2
+
 import delete_pb2
 
 import google.protobuf.empty_pb2
+
+import delete_trigger_pb2
 
 import execute_pb2
 
 import get_pb2
 
+import get_trigger_pb2
+
+import handle_hook_pb2
+
 import list_pb2
 
-import trigger_pb2
+import list_trigger_pb2
 
 import update_pb2
+
+import update_trigger_pb2
 
 import utils.http_util
 import google.protobuf.json_format
@@ -80,6 +92,46 @@ class PipelineClient(object):
         
         return rsp
     
+    def create_trigger(self, request, org, user, timeout=10):
+        # type: (create_trigger_pb2.CreateTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        """
+        创建流水线钩子
+        :param request: create_trigger请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: model.pipeline.trigger_pb2.Trigger
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.CreateTrigger"
+        uri = "/api/pipeline/v1/triggers"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = model.pipeline.trigger_pb2.Trigger()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def delete_pipeline(self, request, org, user, timeout=10):
         # type: (delete_pb2.DeletePipelineRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
@@ -100,6 +152,47 @@ class PipelineClient(object):
         uri = "/api/pipeline/v1/projects/{project_id}/pipelines/{pipeline_id}".format(
             project_id=request.project_id,
             pipeline_id=request.pipeline_id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="DELETE",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def delete_trigger(self, request, org, user, timeout=10):
+        # type: (delete_trigger_pb2.DeleteTriggerRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        删除流水线钩子
+        :param request: delete_trigger请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.DeleteTrigger"
+        uri = "/api/pipeline/v1/triggers/{id}".format(
+            id=request.id,
         )
         requestParam = request
         
@@ -206,6 +299,89 @@ class PipelineClient(object):
         
         return rsp
     
+    def get_trigger(self, request, org, user, timeout=10):
+        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        """
+        获取钩子详情
+        :param request: get_trigger请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: model.pipeline.trigger_pb2.Trigger
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.GetTrigger"
+        uri = "/api/pipeline/v1/triggers/{id}".format(
+            id=request.id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = model.pipeline.trigger_pb2.Trigger()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def handle_hook(self, request, org, user, timeout=10):
+        # type: (handle_hook_pb2.HandleHookRequest, int, str, int) -> handle_hook_pb2.HandleHookResponse
+        """
+        webhook触发执行流水线
+        :param request: handle_hook请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: handle_hook_pb2.HandleHookResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.HandleHook"
+        uri = "/api/pipeline/v1/webhook/{provider}/hook/{token}".format(
+            provider=request.provider,
+            token=request.token,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = handle_hook_pb2.HandleHookResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def list(self, request, org, user, timeout=10):
         # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
@@ -247,15 +423,15 @@ class PipelineClient(object):
         
         return rsp
     
-    def trigger(self, request, org, user, timeout=10):
-        # type: (trigger_pb2.TriggerRequest, int, str, int) -> trigger_pb2.TriggerResponse
+    def list_trigger(self, request, org, user, timeout=10):
+        # type: (list_trigger_pb2.ListTriggerRequest, int, str, int) -> list_trigger_pb2.ListTriggerResponse
         """
-        webhook触发执行流水线
-        :param request: trigger请求
+        钩子列表
+        :param request: list_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: trigger_pb2.TriggerResponse
+        :return: list_trigger_pb2.ListTriggerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -263,15 +439,13 @@ class PipelineClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.pipeline.pipeline.Trigger"
-        uri = "/api/pipeline/v1/project/{project_id}/pipelines/{pipeline_id}/hook".format(
-            project_id=request.project_id,
-            pipeline_id=request.pipeline_id,
-        )
+            route_name = "easyops.api.pipeline.pipeline.ListTrigger"
+        uri = "/api/pipeline/v1/triggers"
+        
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="POST",
+            method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
             server_ip=server_ip,
@@ -283,7 +457,7 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = trigger_pb2.TriggerResponse()
+        rsp = list_trigger_pb2.ListTriggerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -326,6 +500,47 @@ class PipelineClient(object):
             timeout=timeout,
         )
         rsp = model.pipeline.pipeline_pb2.Pipeline()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def update_trigger(self, request, org, user, timeout=10):
+        # type: (update_trigger_pb2.UpdateTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        """
+        更新流水线钩子
+        :param request: update_trigger请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: model.pipeline.trigger_pb2.Trigger
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.UpdateTrigger"
+        uri = "/api/pipeline/v1/triggers/{id}".format(
+            id=request.id,
+        )
+        requestParam = request.trigger
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="PUT",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = model.pipeline.trigger_pb2.Trigger()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

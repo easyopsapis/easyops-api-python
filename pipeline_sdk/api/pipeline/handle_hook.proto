@@ -6,23 +6,23 @@ package pipeline;
 
 
 /*
-Trigger请求
+HandleHook请求
 */
-message TriggerRequest {
+message HandleHookRequest {
     /*
-    关联的project id
+    provider: gitlab
     */
-    string project_id = 1 ;
+    string provider = 1 ;
     /*
-    要执行的pipeline id
+    token
     */
-    string pipeline_id = 2 ;
+    string token = 2 ;
 }
 
 /*
-Trigger返回
+HandleHook返回
 */
-message TriggerResponse {
+message HandleHookResponse {
     /*
     任务id, 服务端自动生成
     */
@@ -30,9 +30,9 @@ message TriggerResponse {
 }
 
 /*
-TriggerApi返回
+HandleHookApi返回
 */
-message TriggerResponseWrapper {
+message HandleHookResponseWrapper {
     /*
     返回码
     */
@@ -48,6 +48,6 @@ message TriggerResponseWrapper {
     /*
     返回数据
     */
-    pipeline.TriggerResponse data = 4 ;
+    pipeline.HandleHookResponse data = 4 ;
 }
 

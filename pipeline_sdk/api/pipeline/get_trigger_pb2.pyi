@@ -4,6 +4,10 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
+from model.pipeline.trigger_pb2 import (
+    Trigger as model___pipeline___trigger_pb2___Trigger,
+)
+
 from typing import (
     Optional as typing___Optional,
     Text as typing___Text,
@@ -14,31 +18,14 @@ from typing_extensions import (
 )
 
 
-class TriggerRequest(google___protobuf___message___Message):
-    project_id = ... # type: typing___Text
-    pipeline_id = ... # type: typing___Text
-
-    def __init__(self,
-        project_id : typing___Optional[typing___Text] = None,
-        pipeline_id : typing___Optional[typing___Text] = None,
-        ) -> None: ...
-    @classmethod
-    def FromString(cls, s: bytes) -> TriggerRequest: ...
-    def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-    def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-    if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"pipeline_id",u"project_id"]) -> None: ...
-    else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"pipeline_id",b"project_id"]) -> None: ...
-
-class TriggerResponse(google___protobuf___message___Message):
+class GetTriggerRequest(google___protobuf___message___Message):
     id = ... # type: typing___Text
 
     def __init__(self,
         id : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
-    def FromString(cls, s: bytes) -> TriggerResponse: ...
+    def FromString(cls, s: bytes) -> GetTriggerRequest: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
@@ -46,22 +33,22 @@ class TriggerResponse(google___protobuf___message___Message):
     else:
         def ClearField(self, field_name: typing_extensions___Literal[b"id"]) -> None: ...
 
-class TriggerResponseWrapper(google___protobuf___message___Message):
+class GetTriggerResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int
     codeExplain = ... # type: typing___Text
     error = ... # type: typing___Text
 
     @property
-    def data(self) -> TriggerResponse: ...
+    def data(self) -> model___pipeline___trigger_pb2___Trigger: ...
 
     def __init__(self,
         code : typing___Optional[int] = None,
         codeExplain : typing___Optional[typing___Text] = None,
         error : typing___Optional[typing___Text] = None,
-        data : typing___Optional[TriggerResponse] = None,
+        data : typing___Optional[model___pipeline___trigger_pb2___Trigger] = None,
         ) -> None: ...
     @classmethod
-    def FromString(cls, s: bytes) -> TriggerResponseWrapper: ...
+    def FromString(cls, s: bytes) -> GetTriggerResponseWrapper: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):

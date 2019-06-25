@@ -1,0 +1,27 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+trigger信息
+*/
+message Trigger {
+    /*
+    事件
+    */
+    string event = 1 ;
+    /*
+    链接
+    */
+    string link = 2 ;
+    /*
+    branch 正则
+    */
+    string branch_name = 3 ;
+}
+

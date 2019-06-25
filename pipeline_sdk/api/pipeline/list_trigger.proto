@@ -1,0 +1,62 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/pipeline/trigger.proto";
+
+/*
+ListTrigger请求
+*/
+message ListTriggerRequest {
+    /*
+    按pipeline id过滤
+    */
+    string pipeline_id = 1 ;
+}
+
+/*
+ListTrigger返回
+*/
+message ListTriggerResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated pipeline.Trigger list = 4 ;
+}
+
+/*
+ListTriggerApi返回
+*/
+message ListTriggerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.ListTriggerResponse data = 4 ;
+}
+
