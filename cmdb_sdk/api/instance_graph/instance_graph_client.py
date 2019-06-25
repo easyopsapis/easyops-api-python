@@ -2,6 +2,8 @@
 
 import traverse_graph_pb2
 
+import traverse_graph_count_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -58,6 +60,46 @@ class InstanceGraphClient(object):
             timeout=timeout,
         )
         rsp = traverse_graph_pb2.TraverseGraphResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def traverse_graph_count(self, request, org, user, timeout=10):
+        # type: (traverse_graph_count_pb2.TraverseGraphCountRequest, int, str, int) -> traverse_graph_count_pb2.TraverseGraphCountResponse
+        """
+        图遍历查询叶子节点个数统计
+        :param request: traverse_graph_count请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: traverse_graph_count_pb2.TraverseGraphCountResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance_graph.TraverseGraphCount"
+        uri = "/instance/traverse/count"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = traverse_graph_count_pb2.TraverseGraphCountResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
