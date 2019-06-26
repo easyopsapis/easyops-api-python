@@ -16,9 +16,9 @@ message Trigger {
     */
     string id = 1 ;
     /*
-    事件
+    git 事件
     */
-    string event = 2 ;
+    repeated string events = 2 ;
     /*
     链接
     */
@@ -28,16 +28,24 @@ message Trigger {
     */
     string branch_name = 4 ;
     /*
+    类型
+    */
+    string type = 5 ;
+    /*
+    gitlab, github...
+    */
+    string provider = 6 ;
+    /*
     创建者, 服务端自动生成
     */
-    string creator = 5 ;
+    string creator = 7 ;
     /*
     创建时间, 服务端自动生成
     */
-    string ctime = 6 ;
+    string ctime = 8 ;
     /*
     修改时间, 服务端自动生成
     */
-    string mtime = 7 ;
+    string mtime = 9 ;
 }
 

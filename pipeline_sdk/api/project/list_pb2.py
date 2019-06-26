@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='project',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x07project\x1a\x1cmodel/pipeline/project.proto\x1a\x1dmodel/pipeline/provider.proto\x1a\x1dmodel/pipeline/pipeline.proto\".\n\x0bListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\"\xe0\x01\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12(\n\x04list\x18\x04 \x03(\x0b\x32\x1a.project.ListResponse.List\x1av\n\x04List\x12\"\n\x07project\x18\x01 \x01(\x0b\x32\x11.pipeline.Project\x12$\n\x08provider\x18\x02 \x01(\x0b\x32\x12.pipeline.Provider\x12$\n\x08pipeline\x18\x03 \x03(\x0b\x32\x12.pipeline.Pipeline\"l\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12#\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x15.project.ListResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x07project\x1a\x1cmodel/pipeline/project.proto\x1a\x1dmodel/pipeline/provider.proto\x1a\x1dmodel/pipeline/pipeline.proto\"C\n\x0bListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x13\n\x0bpipeline_id\x18\x03 \x01(\t\"\xe0\x01\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12(\n\x04list\x18\x04 \x03(\x0b\x32\x1a.project.ListResponse.List\x1av\n\x04List\x12\"\n\x07project\x18\x01 \x01(\x0b\x32\x11.pipeline.Project\x12$\n\x08provider\x18\x02 \x01(\x0b\x32\x12.pipeline.Provider\x12$\n\x08pipeline\x18\x03 \x03(\x0b\x32\x12.pipeline.Pipeline\"l\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12#\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x15.project.ListResponseb\x06proto3')
   ,
   dependencies=[model_dot_pipeline_dot_project__pb2.DESCRIPTOR,model_dot_pipeline_dot_provider__pb2.DESCRIPTOR,model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,])
 
@@ -50,6 +50,13 @@ _LISTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pipeline_id', full_name='project.ListRequest.pipeline_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -63,7 +70,7 @@ _LISTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=115,
-  serialized_end=161,
+  serialized_end=182,
 )
 
 
@@ -107,8 +114,8 @@ _LISTRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=270,
-  serialized_end=388,
+  serialized_start=291,
+  serialized_end=409,
 )
 
 _LISTRESPONSE = _descriptor.Descriptor(
@@ -158,8 +165,8 @@ _LISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=388,
+  serialized_start=185,
+  serialized_end=409,
 )
 
 
@@ -210,8 +217,8 @@ _LISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=390,
-  serialized_end=498,
+  serialized_start=411,
+  serialized_end=519,
 )
 
 _LISTRESPONSE_LIST.fields_by_name['project'].message_type = model_dot_pipeline_dot_project__pb2._PROJECT

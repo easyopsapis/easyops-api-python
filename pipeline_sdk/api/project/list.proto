@@ -20,6 +20,10 @@ message ListRequest {
     每页大小
     */
     int32 page_size = 2 ;
+    /*
+    流水线 id
+    */
+    string pipeline_id = 3 ;
 }
 
 /*
