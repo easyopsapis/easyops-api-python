@@ -1,0 +1,51 @@
+syntax = "proto3";
+package invitation_code;
+
+
+
+
+
+/*
+GetInvitationCode返回
+*/
+message GetInvitationCodeResponse {
+    /*
+    邀请码
+    */
+    string code = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+    /*
+    过期时间
+    */
+    string expires = 3 ;
+    /*
+    是否可用
+    */
+    string state = 4 ;
+}
+
+/*
+GetInvitationCodeApi返回
+*/
+message GetInvitationCodeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    invitation_code.GetInvitationCodeResponse data = 4 ;
+}
+

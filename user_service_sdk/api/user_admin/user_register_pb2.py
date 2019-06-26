@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='user_admin',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x13user_register.proto\x12\nuser_admin\"T\n\x13UserRegisterRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0e\n\x06invite\x18\x04 \x01(\t\"@\n\x14UserRegisterResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\x05\"\x7f\n\x1bUserRegisterResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .user_admin.UserRegisterResponseb\x06proto3')
+  serialized_pb=_b('\n\x13user_register.proto\x12\nuser_admin\"Q\n\x13UserRegisterRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0b\n\x03org\x18\x04 \x01(\x05\"@\n\x14UserRegisterResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\x05\"\x7f\n\x1bUserRegisterResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .user_admin.UserRegisterResponseb\x06proto3')
 )
 
 
@@ -54,9 +54,9 @@ _USERREGISTERREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='invite', full_name='user_admin.UserRegisterRequest.invite', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='org', full_name='user_admin.UserRegisterRequest.org', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -73,7 +73,7 @@ _USERREGISTERREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=35,
-  serialized_end=119,
+  serialized_end=116,
 )
 
 
@@ -117,8 +117,8 @@ _USERREGISTERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=121,
-  serialized_end=185,
+  serialized_start=118,
+  serialized_end=182,
 )
 
 
@@ -169,8 +169,8 @@ _USERREGISTERRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=314,
+  serialized_start=184,
+  serialized_end=311,
 )
 
 _USERREGISTERRESPONSEWRAPPER.fields_by_name['data'].message_type = _USERREGISTERRESPONSE

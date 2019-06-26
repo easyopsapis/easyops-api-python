@@ -26,7 +26,7 @@ class UserAdminClient(object):
     def user_register(self, request, org, user, timeout=10):
         # type: (user_register_pb2.UserRegisterRequest, int, str, int) -> user_register_pb2.UserRegisterResponse
         """
-        用户注册
+        用户注册[内部]
         :param request: user_register请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
@@ -40,7 +40,7 @@ class UserAdminClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.user_service.user_admin.UserRegister"
-        uri = "/users/register"
+        uri = "/api/v1/users/register"
         
         requestParam = request
         

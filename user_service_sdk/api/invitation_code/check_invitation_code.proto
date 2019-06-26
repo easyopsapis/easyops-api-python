@@ -1,0 +1,53 @@
+syntax = "proto3";
+package invitation_code;
+
+
+
+
+
+/*
+CheckInvitationCode请求
+*/
+message CheckInvitationCodeRequest {
+    /*
+    邀请码
+    */
+    string code = 1 ;
+}
+
+/*
+CheckInvitationCode返回
+*/
+message CheckInvitationCodeResponse {
+    /*
+    邀请码
+    */
+    string code = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+}
+
+/*
+CheckInvitationCodeApi返回
+*/
+message CheckInvitationCodeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    invitation_code.CheckInvitationCodeResponse data = 4 ;
+}
+

@@ -22,9 +22,9 @@ message UserRegisterRequest {
     */
     string email = 3 ;
     /*
-    邀请码
+    org
     */
-    string invite = 4 ;
+    int32 org = 4 ;
 }
 
 /*
