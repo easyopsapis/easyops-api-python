@@ -12,16 +12,32 @@ trigger信息
 */
 message Trigger {
     /*
+    实例id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
     事件
     */
-    string event = 1 ;
+    string event = 2 ;
     /*
     链接
     */
-    string link = 2 ;
+    string link = 3 ;
     /*
     branch 正则
     */
-    string branch_name = 3 ;
+    string branch_name = 4 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 5 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 6 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 7 ;
 }
 
