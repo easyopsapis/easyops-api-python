@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import get_approve_count_pb2
+
+import get_approve_object_list_pb2
+
 import get_history_approver_list_pb2
 
 import get_history_object_list_pb2
@@ -24,6 +28,86 @@ class CmdbApproveClient(object):
         self._service_name = service_name
         self._host = host
 
+    
+    def get_approve_count(self, request, org, user, timeout=10):
+        # type: (get_approve_count_pb2.GetApproveCountRequest, int, str, int) -> get_approve_count_pb2.GetApproveCountResponse
+        """
+        获取待审批所有模型
+        :param request: get_approve_count请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_approve_count_pb2.GetApproveCountResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.cmdb_approve.GetApproveCount"
+        uri = "/api/v1/approve/count"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_approve_count_pb2.GetApproveCountResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_approve_object_list(self, request, org, user, timeout=10):
+        # type: (get_approve_object_list_pb2.GetApproveObjectListRequest, int, str, int) -> get_approve_object_list_pb2.GetApproveObjectListResponse
+        """
+        获取待审批所有模型
+        :param request: get_approve_object_list请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_approve_object_list_pb2.GetApproveObjectListResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.cmdb_approve.GetApproveObjectList"
+        uri = "/api/v1/approve/object/list"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_approve_object_list_pb2.GetApproveObjectListResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
     
     def get_history_approver_list(self, request, org, user, timeout=10):
         # type: (get_history_approver_list_pb2.GetHistoryApproverListRequest, int, str, int) -> get_history_approver_list_pb2.GetHistoryApproverListResponse

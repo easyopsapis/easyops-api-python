@@ -1,0 +1,53 @@
+syntax = "proto3";
+package cmdb_approve;
+
+
+
+
+
+/*
+GetApproveCount请求
+*/
+message GetApproveCountRequest {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID
+    */
+    string instanceId = 2 ;
+}
+
+/*
+GetApproveCount返回
+*/
+message GetApproveCountResponse {
+    /*
+    待审批实例个数
+    */
+    int32 approveCount = 1 ;
+}
+
+/*
+GetApproveCountApi返回
+*/
+message GetApproveCountResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_approve.GetApproveCountResponse data = 4 ;
+}
+

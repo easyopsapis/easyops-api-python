@@ -1,0 +1,50 @@
+syntax = "proto3";
+package cmdb_approve;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetApproveObjectList请求
+*/
+message GetApproveObjectListRequest {
+    /*
+    查询条件、类似mongodb
+    */
+    google.protobuf.Struct query = 1 ;
+}
+
+/*
+GetApproveObjectList返回
+*/
+message GetApproveObjectListResponse {
+    /*
+    模型id列表
+    */
+    repeated string objectIdList = 1 ;
+}
+
+/*
+GetApproveObjectListApi返回
+*/
+message GetApproveObjectListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_approve.GetApproveObjectListResponse data = 4 ;
+}
+
