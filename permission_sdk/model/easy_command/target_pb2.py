@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.easy_command import action_param_custom_pb2 as model_dot_easy__command_dot_action__param__custom__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='easy_command',
   syntax='proto3',
   serialized_options=_b('ZFgo.easyops.local/contracts/protorepo-models/easyops/model/easy_command'),
-  serialized_pb=_b('\n\x0ctarget.proto\x12\x0c\x65\x61sy_command\".\n\x06Target\x12\x10\n\x08targetId\x18\x01 \x01(\t\x12\x12\n\ntargetName\x18\x02 \x01(\tBHZFgo.easyops.local/contracts/protorepo-models/easyops/model/easy_commandb\x06proto3')
-)
+  serialized_pb=_b('\n\x0ctarget.proto\x12\x0c\x65\x61sy_command\x1a,model/easy_command/action_param_custom.proto\"e\n\x06Target\x12\x10\n\x08targetId\x18\x01 \x01(\t\x12\x12\n\ntargetName\x18\x02 \x01(\t\x12\x35\n\x0c\x61\x63tionParams\x18\x03 \x03(\x0b\x32\x1f.easy_command.ActionParamCustomBHZFgo.easyops.local/contracts/protorepo-models/easyops/model/easy_commandb\x06proto3')
+  ,
+  dependencies=[model_dot_easy__command_dot_action__param__custom__pb2.DESCRIPTOR,])
 
 
 
@@ -46,6 +48,13 @@ _TARGET = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='actionParams', full_name='easy_command.Target.actionParams', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -58,10 +67,11 @@ _TARGET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30,
-  serialized_end=76,
+  serialized_start=76,
+  serialized_end=177,
 )
 
+_TARGET.fields_by_name['actionParams'].message_type = model_dot_easy__command_dot_action__param__custom__pb2._ACTIONPARAMCUSTOM
 DESCRIPTOR.message_types_by_name['Target'] = _TARGET
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
