@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='app_store',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_store'),
-  serialized_pb=_b('\n\x0fmicro_app.proto\x12\tapp_store\"I\n\x10\x41ppStoreMicroApp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\r\n\x05intro\x18\x04 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_storeb\x06proto3')
+  serialized_pb=_b('\n\x0fmicro_app.proto\x12\tapp_store\"n\n\x10\x41ppStoreMicroApp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04icon\x18\x03 \x01(\t\x12\r\n\x05intro\x18\x04 \x01(\t\x12\x12\n\nnewFeature\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_storeb\x06proto3')
 )
 
 
@@ -60,6 +60,20 @@ _APPSTOREMICROAPP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='newFeature', full_name='app_store.AppStoreMicroApp.newFeature', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='preview', full_name='app_store.AppStoreMicroApp.preview', index=5,
+      number=6, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -73,7 +87,7 @@ _APPSTOREMICROAPP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=30,
-  serialized_end=103,
+  serialized_end=140,
 )
 
 DESCRIPTOR.message_types_by_name['AppStoreMicroApp'] = _APPSTOREMICROAPP

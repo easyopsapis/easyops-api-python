@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='micro_app',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0csearch.proto\x12\tmicro_app\x1a\x1fmodel/app_store/micro_app.proto\x1a!model/app_store/app_version.proto\"M\n\x1dSearchAppStoreMicroAppRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0b\n\x03key\x18\x03 \x01(\t\"z\n\x1eSearchAppStoreMicroAppResponse\x12-\n\x08microApp\x18\x01 \x01(\x0b\x32\x1b.app_store.AppStoreMicroApp\x12)\n\ncurVersion\x18\x02 \x01(\x0b\x32\x15.app_store.AppVersion\"\x92\x01\n%SearchAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x37\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32).micro_app.SearchAppStoreMicroAppResponseb\x06proto3')
+  serialized_pb=_b('\n\x0csearch.proto\x12\tmicro_app\x1a\x1fmodel/app_store/micro_app.proto\x1a!model/app_store/app_version.proto\"Q\n\x1dSearchAppStoreMicroAppRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0f\n\x07keyword\x18\x03 \x01(\t\"\xf0\x01\n\x1eSearchAppStoreMicroAppResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12<\n\x04list\x18\x04 \x03(\x0b\x32..micro_app.SearchAppStoreMicroAppResponse.List\x1a`\n\x04List\x12-\n\x08microApp\x18\x01 \x01(\x0b\x32\x1b.app_store.AppStoreMicroApp\x12)\n\ncurVersion\x18\x02 \x01(\x0b\x32\x15.app_store.AppVersion\"\x92\x01\n%SearchAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x37\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32).micro_app.SearchAppStoreMicroAppResponseb\x06proto3')
   ,
   dependencies=[model_dot_app__store_dot_micro__app__pb2.DESCRIPTOR,model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,])
 
@@ -50,7 +50,7 @@ _SEARCHAPPSTOREMICROAPPREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='key', full_name='micro_app.SearchAppStoreMicroAppRequest.key', index=2,
+      name='keyword', full_name='micro_app.SearchAppStoreMicroAppRequest.keyword', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -69,26 +69,26 @@ _SEARCHAPPSTOREMICROAPPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=95,
-  serialized_end=172,
+  serialized_end=176,
 )
 
 
-_SEARCHAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
-  name='SearchAppStoreMicroAppResponse',
-  full_name='micro_app.SearchAppStoreMicroAppResponse',
+_SEARCHAPPSTOREMICROAPPRESPONSE_LIST = _descriptor.Descriptor(
+  name='List',
+  full_name='micro_app.SearchAppStoreMicroAppResponse.List',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='microApp', full_name='micro_app.SearchAppStoreMicroAppResponse.microApp', index=0,
+      name='microApp', full_name='micro_app.SearchAppStoreMicroAppResponse.List.microApp', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='curVersion', full_name='micro_app.SearchAppStoreMicroAppResponse.curVersion', index=1,
+      name='curVersion', full_name='micro_app.SearchAppStoreMicroAppResponse.List.curVersion', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -106,8 +106,59 @@ _SEARCHAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=296,
+  serialized_start=323,
+  serialized_end=419,
+)
+
+_SEARCHAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
+  name='SearchAppStoreMicroAppResponse',
+  full_name='micro_app.SearchAppStoreMicroAppResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page', full_name='micro_app.SearchAppStoreMicroAppResponse.page', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='micro_app.SearchAppStoreMicroAppResponse.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='total', full_name='micro_app.SearchAppStoreMicroAppResponse.total', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='list', full_name='micro_app.SearchAppStoreMicroAppResponse.list', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SEARCHAPPSTOREMICROAPPRESPONSE_LIST, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=179,
+  serialized_end=419,
 )
 
 
@@ -158,12 +209,14 @@ _SEARCHAPPSTOREMICROAPPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=299,
-  serialized_end=445,
+  serialized_start=422,
+  serialized_end=568,
 )
 
-_SEARCHAPPSTOREMICROAPPRESPONSE.fields_by_name['microApp'].message_type = model_dot_app__store_dot_micro__app__pb2._APPSTOREMICROAPP
-_SEARCHAPPSTOREMICROAPPRESPONSE.fields_by_name['curVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
+_SEARCHAPPSTOREMICROAPPRESPONSE_LIST.fields_by_name['microApp'].message_type = model_dot_app__store_dot_micro__app__pb2._APPSTOREMICROAPP
+_SEARCHAPPSTOREMICROAPPRESPONSE_LIST.fields_by_name['curVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
+_SEARCHAPPSTOREMICROAPPRESPONSE_LIST.containing_type = _SEARCHAPPSTOREMICROAPPRESPONSE
+_SEARCHAPPSTOREMICROAPPRESPONSE.fields_by_name['list'].message_type = _SEARCHAPPSTOREMICROAPPRESPONSE_LIST
 _SEARCHAPPSTOREMICROAPPRESPONSEWRAPPER.fields_by_name['data'].message_type = _SEARCHAPPSTOREMICROAPPRESPONSE
 DESCRIPTOR.message_types_by_name['SearchAppStoreMicroAppRequest'] = _SEARCHAPPSTOREMICROAPPREQUEST
 DESCRIPTOR.message_types_by_name['SearchAppStoreMicroAppResponse'] = _SEARCHAPPSTOREMICROAPPRESPONSE
@@ -178,11 +231,19 @@ SearchAppStoreMicroAppRequest = _reflection.GeneratedProtocolMessageType('Search
 _sym_db.RegisterMessage(SearchAppStoreMicroAppRequest)
 
 SearchAppStoreMicroAppResponse = _reflection.GeneratedProtocolMessageType('SearchAppStoreMicroAppResponse', (_message.Message,), dict(
+
+  List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
+    DESCRIPTOR = _SEARCHAPPSTOREMICROAPPRESPONSE_LIST,
+    __module__ = 'search_pb2'
+    # @@protoc_insertion_point(class_scope:micro_app.SearchAppStoreMicroAppResponse.List)
+    ))
+  ,
   DESCRIPTOR = _SEARCHAPPSTOREMICROAPPRESPONSE,
   __module__ = 'search_pb2'
   # @@protoc_insertion_point(class_scope:micro_app.SearchAppStoreMicroAppResponse)
   ))
 _sym_db.RegisterMessage(SearchAppStoreMicroAppResponse)
+_sym_db.RegisterMessage(SearchAppStoreMicroAppResponse.List)
 
 SearchAppStoreMicroAppResponseWrapper = _reflection.GeneratedProtocolMessageType('SearchAppStoreMicroAppResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _SEARCHAPPSTOREMICROAPPRESPONSEWRAPPER,

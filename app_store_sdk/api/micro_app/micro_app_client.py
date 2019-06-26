@@ -131,7 +131,7 @@ class MicroAppClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.app_store.micro_app.GetAppStoreMicroApp"
-        uri = "/api/app_store/v1/micro_app/{app_id}".format(
+        uri = "/api/app_store/v1/micro_app/app_id/{app_id}".format(
             app_id=request.app_id,
         )
         requestParam = request
@@ -212,8 +212,9 @@ class MicroAppClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.app_store.micro_app.SearchAppStoreMicroApp"
-        uri = "/api/app_store/v1/micro_app"
-        
+        uri = "/api/app_store/v1/micro_app/keyword/{keyword}".format(
+            keyword=request.keyword,
+        )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(

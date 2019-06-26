@@ -22,13 +22,14 @@ message SearchAppStoreMicroAppRequest {
     /*
     搜索字符串
     */
-    string key = 3 ;
+    string keyword = 3 ;
 }
 
 /*
 SearchAppStoreMicroApp返回
 */
 message SearchAppStoreMicroAppResponse {
+message List {
     /*
     小产品信息
     */
@@ -37,6 +38,25 @@ message SearchAppStoreMicroAppResponse {
     当前版本
     */
     app_store.AppVersion curVersion = 2 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
 }
 
 /*
