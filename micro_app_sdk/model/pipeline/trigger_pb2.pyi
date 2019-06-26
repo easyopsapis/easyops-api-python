@@ -25,6 +25,7 @@ class Trigger(google___protobuf___message___Message):
     link = ... # type: typing___Text
     branch_name = ... # type: typing___Text
     type = ... # type: typing___Text
+    hook_id = ... # type: typing___Text
     provider = ... # type: typing___Text
     creator = ... # type: typing___Text
     ctime = ... # type: typing___Text
@@ -36,6 +37,7 @@ class Trigger(google___protobuf___message___Message):
         link : typing___Optional[typing___Text] = None,
         branch_name : typing___Optional[typing___Text] = None,
         type : typing___Optional[typing___Text] = None,
+        hook_id : typing___Optional[typing___Text] = None,
         provider : typing___Optional[typing___Text] = None,
         creator : typing___Optional[typing___Text] = None,
         ctime : typing___Optional[typing___Text] = None,
@@ -46,6 +48,6 @@ class Trigger(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"branch_name",u"creator",u"ctime",u"events",u"id",u"link",u"mtime",u"provider",u"type"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"branch_name",u"creator",u"ctime",u"events",u"hook_id",u"id",u"link",u"mtime",u"provider",u"type"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"branch_name",b"creator",b"ctime",b"events",b"id",b"link",b"mtime",b"provider",b"type"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"branch_name",b"creator",b"ctime",b"events",b"hook_id",b"id",b"link",b"mtime",b"provider",b"type"]) -> None: ...

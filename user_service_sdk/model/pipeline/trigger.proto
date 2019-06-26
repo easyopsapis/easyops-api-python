@@ -32,20 +32,24 @@ message Trigger {
     */
     string type = 5 ;
     /*
+    git hook id
+    */
+    string hook_id = 6 ;
+    /*
     gitlab, github...
     */
-    string provider = 6 ;
+    string provider = 7 ;
     /*
     创建者, 服务端自动生成
     */
-    string creator = 7 ;
+    string creator = 8 ;
     /*
     创建时间, 服务端自动生成
     */
-    string ctime = 8 ;
+    string ctime = 9 ;
     /*
     修改时间, 服务端自动生成
     */
-    string mtime = 9 ;
+    string mtime = 10 ;
 }
 

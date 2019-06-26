@@ -12,7 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
+from model.pipeline import project_pb2 as model_dot_pipeline_dot_project__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x08pipeline\x1a\x1dmodel/pipeline/pipeline.proto\"B\n\x0bListRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"`\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12 \n\x04list\x18\x04 \x03(\x0b\x32\x12.pipeline.Pipeline\"m\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.pipeline.ListResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x08pipeline\x1a\x1cmodel/pipeline/project.proto\"B\n\x0bListRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"\x99\x03\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.pipeline.ListResponse.List\x1a\xad\x02\n\x04List\x12\"\n\x07project\x18\x01 \x01(\x0b\x32\x11.pipeline.Project\x12\n\n\x02id\x18\x02 \x01(\t\x12\x12\n\nalias_name\x18\x03 \x01(\t\x12\x15\n\rworkflow_type\x18\x04 \x01(\t\x12\x11\n\tyaml_path\x18\x05 \x01(\t\x12\x13\n\x0byaml_string\x18\x06 \x01(\t\x12\x10\n\x08yaml_url\x18\x07 \x01(\t\x12\x38\n\tvariables\x18\x08 \x03(\x0b\x32%.pipeline.ListResponse.List.Variables\x12\x0f\n\x07\x63reator\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x1a\'\n\tVariables\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"m\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.pipeline.ListResponseb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_project__pb2.DESCRIPTOR,])
 
 
 
@@ -67,10 +67,147 @@ _LISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=55,
-  serialized_end=121,
+  serialized_start=54,
+  serialized_end=120,
 )
 
+
+_LISTRESPONSE_LIST_VARIABLES = _descriptor.Descriptor(
+  name='Variables',
+  full_name='pipeline.ListResponse.List.Variables',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='pipeline.ListResponse.List.Variables.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='pipeline.ListResponse.List.Variables.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=493,
+  serialized_end=532,
+)
+
+_LISTRESPONSE_LIST = _descriptor.Descriptor(
+  name='List',
+  full_name='pipeline.ListResponse.List',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='project', full_name='pipeline.ListResponse.List.project', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='pipeline.ListResponse.List.id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='alias_name', full_name='pipeline.ListResponse.List.alias_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='workflow_type', full_name='pipeline.ListResponse.List.workflow_type', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='yaml_path', full_name='pipeline.ListResponse.List.yaml_path', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='yaml_string', full_name='pipeline.ListResponse.List.yaml_string', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='yaml_url', full_name='pipeline.ListResponse.List.yaml_url', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='variables', full_name='pipeline.ListResponse.List.variables', index=7,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='creator', full_name='pipeline.ListResponse.List.creator', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ctime', full_name='pipeline.ListResponse.List.ctime', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mtime', full_name='pipeline.ListResponse.List.mtime', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_LISTRESPONSE_LIST_VARIABLES, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=231,
+  serialized_end=532,
+)
 
 _LISTRESPONSE = _descriptor.Descriptor(
   name='ListResponse',
@@ -110,7 +247,7 @@ _LISTRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_LISTRESPONSE_LIST, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -120,7 +257,7 @@ _LISTRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=123,
-  serialized_end=219,
+  serialized_end=532,
 )
 
 
@@ -171,11 +308,15 @@ _LISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=221,
-  serialized_end=330,
+  serialized_start=534,
+  serialized_end=643,
 )
 
-_LISTRESPONSE.fields_by_name['list'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
+_LISTRESPONSE_LIST_VARIABLES.containing_type = _LISTRESPONSE_LIST
+_LISTRESPONSE_LIST.fields_by_name['project'].message_type = model_dot_pipeline_dot_project__pb2._PROJECT
+_LISTRESPONSE_LIST.fields_by_name['variables'].message_type = _LISTRESPONSE_LIST_VARIABLES
+_LISTRESPONSE_LIST.containing_type = _LISTRESPONSE
+_LISTRESPONSE.fields_by_name['list'].message_type = _LISTRESPONSE_LIST
 _LISTRESPONSEWRAPPER.fields_by_name['data'].message_type = _LISTRESPONSE
 DESCRIPTOR.message_types_by_name['ListRequest'] = _LISTREQUEST
 DESCRIPTOR.message_types_by_name['ListResponse'] = _LISTRESPONSE
@@ -190,11 +331,27 @@ ListRequest = _reflection.GeneratedProtocolMessageType('ListRequest', (_message.
 _sym_db.RegisterMessage(ListRequest)
 
 ListResponse = _reflection.GeneratedProtocolMessageType('ListResponse', (_message.Message,), dict(
+
+  List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
+
+    Variables = _reflection.GeneratedProtocolMessageType('Variables', (_message.Message,), dict(
+      DESCRIPTOR = _LISTRESPONSE_LIST_VARIABLES,
+      __module__ = 'list_pb2'
+      # @@protoc_insertion_point(class_scope:pipeline.ListResponse.List.Variables)
+      ))
+    ,
+    DESCRIPTOR = _LISTRESPONSE_LIST,
+    __module__ = 'list_pb2'
+    # @@protoc_insertion_point(class_scope:pipeline.ListResponse.List)
+    ))
+  ,
   DESCRIPTOR = _LISTRESPONSE,
   __module__ = 'list_pb2'
   # @@protoc_insertion_point(class_scope:pipeline.ListResponse)
   ))
 _sym_db.RegisterMessage(ListResponse)
+_sym_db.RegisterMessage(ListResponse.List)
+_sym_db.RegisterMessage(ListResponse.List.Variables)
 
 ListResponseWrapper = _reflection.GeneratedProtocolMessageType('ListResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _LISTRESPONSEWRAPPER,

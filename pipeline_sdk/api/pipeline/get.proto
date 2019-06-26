@@ -4,7 +4,7 @@ package pipeline;
 
 
 
-import "model/pipeline/pipeline.proto";
+import "model/pipeline/project.proto";
 
 /*
 Get请求
@@ -18,6 +18,68 @@ message GetRequest {
     要获取的pipeline id
     */
     string pipeline_id = 2 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+message Variables {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    代码项目
+    */
+    pipeline.Project project = 1 ;
+    /*
+    流水线id，服务端自动生成
+    */
+    string id = 2 ;
+    /*
+    流水线名称
+    */
+    string alias_name = 3 ;
+    /*
+    yaml文件内容
+    */
+    string workflow_type = 4 ;
+    /*
+    workflow yaml存放位置
+    */
+    string yaml_path = 5 ;
+    /*
+    workflow定义字符串
+    */
+    string yaml_string = 6 ;
+    /*
+    workflow定义url
+    */
+    string yaml_url = 7 ;
+    /*
+    流水线全局变量
+    */
+    repeated Variables variables = 8 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 9 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 10 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 11 ;
 }
 
 /*
@@ -39,6 +101,6 @@ message GetResponseWrapper {
     /*
     返回数据
     */
-    pipeline.Pipeline data = 4 ;
+    pipeline.GetResponse data = 4 ;
 }
 

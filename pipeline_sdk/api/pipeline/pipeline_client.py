@@ -258,14 +258,14 @@ class PipelineClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (get_pb2.GetRequest, int, str, int) -> get_pb2.GetResponse
         """
         获取流水线详情
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.pipeline_pb2.Pipeline
+        :return: get_pb2.GetResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -293,21 +293,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.pipeline_pb2.Pipeline()
+        rsp = get_pb2.GetResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_trigger(self, request, org, user, timeout=10):
-        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> get_trigger_pb2.GetTriggerResponse
         """
         获取钩子详情
         :param request: get_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.trigger_pb2.Trigger
+        :return: get_trigger_pb2.GetTriggerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -334,7 +334,7 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.trigger_pb2.Trigger()
+        rsp = get_trigger_pb2.GetTriggerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
