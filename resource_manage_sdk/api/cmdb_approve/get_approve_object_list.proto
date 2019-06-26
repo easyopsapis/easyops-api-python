@@ -14,6 +14,10 @@ message GetApproveObjectListRequest {
     查询条件、类似mongodb
     */
     google.protobuf.Struct query = 1 ;
+    /*
+    获取待审批的或我提交的记录
+    */
+    string type = 2 ;
 }
 
 /*

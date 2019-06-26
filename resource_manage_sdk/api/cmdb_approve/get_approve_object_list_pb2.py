@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cmdb_approve',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1dget_approve_object_list.proto\x12\x0c\x63mdb_approve\x1a\x1cgoogle/protobuf/struct.proto\"E\n\x1bGetApproveObjectListRequest\x12&\n\x05query\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\"4\n\x1cGetApproveObjectListResponse\x12\x14\n\x0cobjectIdList\x18\x01 \x03(\t\"\x91\x01\n#GetApproveObjectListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x38\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32*.cmdb_approve.GetApproveObjectListResponseb\x06proto3')
+  serialized_pb=_b('\n\x1dget_approve_object_list.proto\x12\x0c\x63mdb_approve\x1a\x1cgoogle/protobuf/struct.proto\"S\n\x1bGetApproveObjectListRequest\x12&\n\x05query\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04type\x18\x02 \x01(\t\"4\n\x1cGetApproveObjectListResponse\x12\x14\n\x0cobjectIdList\x18\x01 \x03(\t\"\x91\x01\n#GetApproveObjectListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x38\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32*.cmdb_approve.GetApproveObjectListResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -41,6 +41,13 @@ _GETAPPROVEOBJECTLISTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='cmdb_approve.GetApproveObjectListRequest.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -54,7 +61,7 @@ _GETAPPROVEOBJECTLISTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=77,
-  serialized_end=146,
+  serialized_end=160,
 )
 
 
@@ -84,8 +91,8 @@ _GETAPPROVEOBJECTLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=148,
-  serialized_end=200,
+  serialized_start=162,
+  serialized_end=214,
 )
 
 
@@ -136,8 +143,8 @@ _GETAPPROVEOBJECTLISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=203,
-  serialized_end=348,
+  serialized_start=217,
+  serialized_end=362,
 )
 
 _GETAPPROVEOBJECTLISTREQUEST.fields_by_name['query'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
