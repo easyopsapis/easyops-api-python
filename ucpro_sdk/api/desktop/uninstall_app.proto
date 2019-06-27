@@ -6,9 +6,9 @@ package desktop;
 
 
 /*
-InstallApp请求
+UninstallApp请求
 */
-message InstallAppRequest {
+message UninstallAppRequest {
     /*
     小产品id
     */
@@ -20,9 +20,9 @@ message InstallAppRequest {
 }
 
 /*
-InstallApp返回
+UninstallApp返回
 */
-message InstallAppResponse {
+message UninstallAppResponse {
     /*
     任务id
     */
@@ -30,9 +30,9 @@ message InstallAppResponse {
 }
 
 /*
-InstallAppApi返回
+UninstallAppApi返回
 */
-message InstallAppResponseWrapper {
+message UninstallAppResponseWrapper {
     /*
     返回码
     */
@@ -48,6 +48,6 @@ message InstallAppResponseWrapper {
     /*
     返回数据
     */
-    desktop.InstallAppResponse data = 4 ;
+    desktop.UninstallAppResponse data = 4 ;
 }
 
