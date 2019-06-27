@@ -12,7 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.pipeline import project_pb2 as model_dot_pipeline_dot_project__pb2
+from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\x08pipeline\x1a\x1cmodel/pipeline/project.proto\"5\n\nGetRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x13\n\x0bpipeline_id\x18\x02 \x01(\t\"\xae\x02\n\x0bGetResponse\x12\"\n\x07project\x18\x01 \x01(\x0b\x32\x11.pipeline.Project\x12\n\n\x02id\x18\x02 \x01(\t\x12\x12\n\nalias_name\x18\x03 \x01(\t\x12\x15\n\rworkflow_type\x18\x04 \x01(\t\x12\x11\n\tyaml_path\x18\x05 \x01(\t\x12\x13\n\x0byaml_string\x18\x06 \x01(\t\x12\x10\n\x08yaml_url\x18\x07 \x01(\t\x12\x32\n\tvariables\x18\x08 \x03(\x0b\x32\x1f.pipeline.GetResponse.Variables\x12\x0f\n\x07\x63reator\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x1a\'\n\tVariables\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"k\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12#\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x15.pipeline.GetResponseb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\x08pipeline\x1a\x1dmodel/pipeline/pipeline.proto\"5\n\nGetRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x13\n\x0bpipeline_id\x18\x02 \x01(\t\"h\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.pipeline.Pipelineb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_project__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,])
 
 
 
@@ -60,146 +60,8 @@ _GETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=53,
-  serialized_end=106,
-)
-
-
-_GETRESPONSE_VARIABLES = _descriptor.Descriptor(
-  name='Variables',
-  full_name='pipeline.GetResponse.Variables',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='pipeline.GetResponse.Variables.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='pipeline.GetResponse.Variables.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=372,
-  serialized_end=411,
-)
-
-_GETRESPONSE = _descriptor.Descriptor(
-  name='GetResponse',
-  full_name='pipeline.GetResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='project', full_name='pipeline.GetResponse.project', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='id', full_name='pipeline.GetResponse.id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='alias_name', full_name='pipeline.GetResponse.alias_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='workflow_type', full_name='pipeline.GetResponse.workflow_type', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='yaml_path', full_name='pipeline.GetResponse.yaml_path', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='yaml_string', full_name='pipeline.GetResponse.yaml_string', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='yaml_url', full_name='pipeline.GetResponse.yaml_url', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='variables', full_name='pipeline.GetResponse.variables', index=7,
-      number=8, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='creator', full_name='pipeline.GetResponse.creator', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ctime', full_name='pipeline.GetResponse.ctime', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtime', full_name='pipeline.GetResponse.mtime', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_GETRESPONSE_VARIABLES, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=109,
-  serialized_end=411,
+  serialized_start=54,
+  serialized_end=107,
 )
 
 
@@ -250,16 +112,12 @@ _GETRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=520,
+  serialized_start=109,
+  serialized_end=213,
 )
 
-_GETRESPONSE_VARIABLES.containing_type = _GETRESPONSE
-_GETRESPONSE.fields_by_name['project'].message_type = model_dot_pipeline_dot_project__pb2._PROJECT
-_GETRESPONSE.fields_by_name['variables'].message_type = _GETRESPONSE_VARIABLES
-_GETRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETRESPONSE
+_GETRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
 DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
-DESCRIPTOR.message_types_by_name['GetResponse'] = _GETRESPONSE
 DESCRIPTOR.message_types_by_name['GetResponseWrapper'] = _GETRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -269,21 +127,6 @@ GetRequest = _reflection.GeneratedProtocolMessageType('GetRequest', (_message.Me
   # @@protoc_insertion_point(class_scope:pipeline.GetRequest)
   ))
 _sym_db.RegisterMessage(GetRequest)
-
-GetResponse = _reflection.GeneratedProtocolMessageType('GetResponse', (_message.Message,), dict(
-
-  Variables = _reflection.GeneratedProtocolMessageType('Variables', (_message.Message,), dict(
-    DESCRIPTOR = _GETRESPONSE_VARIABLES,
-    __module__ = 'get_pb2'
-    # @@protoc_insertion_point(class_scope:pipeline.GetResponse.Variables)
-    ))
-  ,
-  DESCRIPTOR = _GETRESPONSE,
-  __module__ = 'get_pb2'
-  # @@protoc_insertion_point(class_scope:pipeline.GetResponse)
-  ))
-_sym_db.RegisterMessage(GetResponse)
-_sym_db.RegisterMessage(GetResponse.Variables)
 
 GetResponseWrapper = _reflection.GeneratedProtocolMessageType('GetResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETRESPONSEWRAPPER,

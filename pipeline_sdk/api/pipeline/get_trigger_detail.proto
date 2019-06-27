@@ -1,0 +1,65 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/pipeline/trigger.proto";
+import "model/pipeline/project.proto";
+import "model/pipeline/provider.proto";
+import "model/pipeline/pipeline.proto";
+
+/*
+GetTriggerDetail请求
+*/
+message GetTriggerDetailRequest {
+    /*
+    trigger id
+    */
+    string id = 1 ;
+}
+
+/*
+GetTriggerDetail返回
+*/
+message GetTriggerDetailResponse {
+    /*
+    trigger
+    */
+    pipeline.Trigger trigger = 1 ;
+    /*
+    代码项目
+    */
+    pipeline.Project project = 2 ;
+    /*
+    project关联的provider信息
+    */
+    pipeline.Provider provider = 3 ;
+    /*
+    project关联的pipeline信息
+    */
+    pipeline.Pipeline pipeline = 4 ;
+}
+
+/*
+GetTriggerDetailApi返回
+*/
+message GetTriggerDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.GetTriggerDetailResponse data = 4 ;
+}
+

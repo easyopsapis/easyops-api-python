@@ -12,7 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
+from model.pipeline import trigger_pb2 as model_dot_pipeline_dot_trigger__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11get_trigger.proto\x12\x08pipeline\x1a\x1dmodel/pipeline/pipeline.proto\"\x1f\n\x11GetTriggerRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\xd9\x01\n\x12GetTriggerResponse\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0e\n\x06\x65vents\x18\x03 \x03(\t\x12\x0c\n\x04link\x18\x04 \x01(\t\x12\x13\n\x0b\x62ranch_name\x18\x05 \x01(\t\x12\x0c\n\x04type\x18\x06 \x01(\t\x12\x0f\n\x07hook_id\x18\x07 \x01(\t\x12\x10\n\x08provider\x18\x08 \x01(\t\x12\x0f\n\x07\x63reator\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\"y\n\x19GetTriggerResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1c.pipeline.GetTriggerResponseb\x06proto3')
+  serialized_pb=_b('\n\x11get_trigger.proto\x12\x08pipeline\x1a\x1cmodel/pipeline/trigger.proto\"\x1f\n\x11GetTriggerRequest\x12\n\n\x02id\x18\x01 \x01(\t\"n\n\x19GetTriggerResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x11.pipeline.Triggerb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_trigger__pb2.DESCRIPTOR,])
 
 
 
@@ -53,109 +53,8 @@ _GETTRIGGERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=62,
-  serialized_end=93,
-)
-
-
-_GETTRIGGERRESPONSE = _descriptor.Descriptor(
-  name='GetTriggerResponse',
-  full_name='pipeline.GetTriggerResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pipeline', full_name='pipeline.GetTriggerResponse.pipeline', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='id', full_name='pipeline.GetTriggerResponse.id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='events', full_name='pipeline.GetTriggerResponse.events', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='link', full_name='pipeline.GetTriggerResponse.link', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='branch_name', full_name='pipeline.GetTriggerResponse.branch_name', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='pipeline.GetTriggerResponse.type', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='hook_id', full_name='pipeline.GetTriggerResponse.hook_id', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='provider', full_name='pipeline.GetTriggerResponse.provider', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='creator', full_name='pipeline.GetTriggerResponse.creator', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ctime', full_name='pipeline.GetTriggerResponse.ctime', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mtime', full_name='pipeline.GetTriggerResponse.mtime', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=96,
-  serialized_end=313,
+  serialized_start=61,
+  serialized_end=92,
 )
 
 
@@ -206,14 +105,12 @@ _GETTRIGGERRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=315,
-  serialized_end=436,
+  serialized_start=94,
+  serialized_end=204,
 )
 
-_GETTRIGGERRESPONSE.fields_by_name['pipeline'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
-_GETTRIGGERRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETTRIGGERRESPONSE
+_GETTRIGGERRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_pipeline_dot_trigger__pb2._TRIGGER
 DESCRIPTOR.message_types_by_name['GetTriggerRequest'] = _GETTRIGGERREQUEST
-DESCRIPTOR.message_types_by_name['GetTriggerResponse'] = _GETTRIGGERRESPONSE
 DESCRIPTOR.message_types_by_name['GetTriggerResponseWrapper'] = _GETTRIGGERRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -223,13 +120,6 @@ GetTriggerRequest = _reflection.GeneratedProtocolMessageType('GetTriggerRequest'
   # @@protoc_insertion_point(class_scope:pipeline.GetTriggerRequest)
   ))
 _sym_db.RegisterMessage(GetTriggerRequest)
-
-GetTriggerResponse = _reflection.GeneratedProtocolMessageType('GetTriggerResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETTRIGGERRESPONSE,
-  __module__ = 'get_trigger_pb2'
-  # @@protoc_insertion_point(class_scope:pipeline.GetTriggerResponse)
-  ))
-_sym_db.RegisterMessage(GetTriggerResponse)
 
 GetTriggerResponseWrapper = _reflection.GeneratedProtocolMessageType('GetTriggerResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETTRIGGERRESPONSEWRAPPER,

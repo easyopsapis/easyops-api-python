@@ -20,6 +20,8 @@ import get_pb2
 
 import get_trigger_pb2
 
+import get_trigger_detail_pb2
+
 import handle_hook_pb2
 
 import list_pb2
@@ -258,14 +260,14 @@ class PipelineClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> get_pb2.GetResponse
+        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
         """
         获取流水线详情
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetResponse
+        :return: model.pipeline.pipeline_pb2.Pipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -293,21 +295,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetResponse()
+        rsp = model.pipeline.pipeline_pb2.Pipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_trigger(self, request, org, user, timeout=10):
-        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> get_trigger_pb2.GetTriggerResponse
+        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
         """
         获取钩子详情
         :param request: get_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_trigger_pb2.GetTriggerResponse
+        :return: model.pipeline.trigger_pb2.Trigger
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -334,7 +336,48 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_trigger_pb2.GetTriggerResponse()
+        rsp = model.pipeline.trigger_pb2.Trigger()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_trigger_detail(self, request, org, user, timeout=10):
+        # type: (get_trigger_detail_pb2.GetTriggerDetailRequest, int, str, int) -> get_trigger_detail_pb2.GetTriggerDetailResponse
+        """
+        获取钩子相关信息
+        :param request: get_trigger_detail请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_trigger_detail_pb2.GetTriggerDetailResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.GetTriggerDetail"
+        uri = "/api/pipeline/v1/triggers/{id}/detail".format(
+            id=request.id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_trigger_detail_pb2.GetTriggerDetailResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

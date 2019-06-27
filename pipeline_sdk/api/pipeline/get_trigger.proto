@@ -4,7 +4,7 @@ package pipeline;
 
 
 
-import "model/pipeline/pipeline.proto";
+import "model/pipeline/trigger.proto";
 
 /*
 GetTrigger请求
@@ -14,56 +14,6 @@ message GetTriggerRequest {
     trigger id
     */
     string id = 1 ;
-}
-
-/*
-GetTrigger返回
-*/
-message GetTriggerResponse {
-    /*
-    代码项目
-    */
-    pipeline.Pipeline pipeline = 1 ;
-    /*
-    实例id，服务端自动生成
-    */
-    string id = 2 ;
-    /*
-    git 事件
-    */
-    repeated string events = 3 ;
-    /*
-    链接
-    */
-    string link = 4 ;
-    /*
-    branch 正则
-    */
-    string branch_name = 5 ;
-    /*
-    类型
-    */
-    string type = 6 ;
-    /*
-    git hook id
-    */
-    string hook_id = 7 ;
-    /*
-    gitlab, github...
-    */
-    string provider = 8 ;
-    /*
-    创建者, 服务端自动生成
-    */
-    string creator = 9 ;
-    /*
-    创建时间, 服务端自动生成
-    */
-    string ctime = 10 ;
-    /*
-    修改时间, 服务端自动生成
-    */
-    string mtime = 11 ;
 }
 
 /*
@@ -85,6 +35,6 @@ message GetTriggerResponseWrapper {
     /*
     返回数据
     */
-    pipeline.GetTriggerResponse data = 4 ;
+    pipeline.Trigger data = 4 ;
 }
 
