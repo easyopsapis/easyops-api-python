@@ -84,8 +84,9 @@ class TaskClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_command.task.GetTaskDetail"
-        uri = "/cmd/task"
-        
+        uri = "/cmd/detail/{taskId}".format(
+            taskId=request.taskId,
+        )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
