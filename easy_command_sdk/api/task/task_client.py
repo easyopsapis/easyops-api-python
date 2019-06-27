@@ -70,7 +70,7 @@ class TaskClient(object):
     def get_task_detail(self, request, org, user, timeout=10):
         # type: (get_detail_pb2.GetTaskDetailRequest, int, str, int) -> model.easy_command.task_detail_pb2.TaskDetail
         """
-        创建同步任务
+        获取任务详情
         :param request: get_task_detail请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
@@ -84,9 +84,8 @@ class TaskClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.easy_command.task.GetTaskDetail"
-        uri = "/cmd/task/{taskId}".format(
-            taskId=request.taskId,
-        )
+        uri = "/cmd/task"
+        
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
