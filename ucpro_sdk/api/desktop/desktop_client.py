@@ -4,8 +4,6 @@ import get_task_status_pb2
 
 import install_app_pb2
 
-import google.protobuf.empty_pb2
-
 import running_apps_pb2
 
 import uninstall_app_pb2
@@ -115,7 +113,7 @@ class DesktopClient(object):
         return rsp
     
     def running_apps(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> running_apps_pb2.RunningAppsResponse
+        # type: (running_apps_pb2.RunningAppsRequest, int, str, int) -> running_apps_pb2.RunningAppsResponse
         """
         正在安装或卸载的小产品
         :param request: running_apps请求

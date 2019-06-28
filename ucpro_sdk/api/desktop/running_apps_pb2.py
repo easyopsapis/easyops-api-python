@@ -19,10 +19,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='desktop',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x12running_apps.proto\x12\x07\x64\x65sktop\"F\n\x13RunningAppsResponse\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x12\x0e\n\x06taskId\x18\x02 \x01(\t\x12\x10\n\x08taskType\x18\x03 \x01(\t\"z\n\x1aRunningAppsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\x1c.desktop.RunningAppsResponseb\x06proto3')
+  serialized_pb=_b('\n\x12running_apps.proto\x12\x07\x64\x65sktop\"&\n\x12RunningAppsRequest\x12\x10\n\x08taskType\x18\x01 \x01(\t\"4\n\x13RunningAppsResponse\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x12\x0e\n\x06taskId\x18\x02 \x01(\t\"z\n\x1aRunningAppsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\x1c.desktop.RunningAppsResponseb\x06proto3')
 )
 
 
+
+
+_RUNNINGAPPSREQUEST = _descriptor.Descriptor(
+  name='RunningAppsRequest',
+  full_name='desktop.RunningAppsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='taskType', full_name='desktop.RunningAppsRequest.taskType', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=31,
+  serialized_end=69,
+)
 
 
 _RUNNINGAPPSRESPONSE = _descriptor.Descriptor(
@@ -46,13 +77,6 @@ _RUNNINGAPPSRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='taskType', full_name='desktop.RunningAppsResponse.taskType', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -65,8 +89,8 @@ _RUNNINGAPPSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=31,
-  serialized_end=101,
+  serialized_start=71,
+  serialized_end=123,
 )
 
 
@@ -117,14 +141,22 @@ _RUNNINGAPPSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=103,
-  serialized_end=225,
+  serialized_start=125,
+  serialized_end=247,
 )
 
 _RUNNINGAPPSRESPONSEWRAPPER.fields_by_name['data'].message_type = _RUNNINGAPPSRESPONSE
+DESCRIPTOR.message_types_by_name['RunningAppsRequest'] = _RUNNINGAPPSREQUEST
 DESCRIPTOR.message_types_by_name['RunningAppsResponse'] = _RUNNINGAPPSRESPONSE
 DESCRIPTOR.message_types_by_name['RunningAppsResponseWrapper'] = _RUNNINGAPPSRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+RunningAppsRequest = _reflection.GeneratedProtocolMessageType('RunningAppsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _RUNNINGAPPSREQUEST,
+  __module__ = 'running_apps_pb2'
+  # @@protoc_insertion_point(class_scope:desktop.RunningAppsRequest)
+  ))
+_sym_db.RegisterMessage(RunningAppsRequest)
 
 RunningAppsResponse = _reflection.GeneratedProtocolMessageType('RunningAppsResponse', (_message.Message,), dict(
   DESCRIPTOR = _RUNNINGAPPSRESPONSE,
