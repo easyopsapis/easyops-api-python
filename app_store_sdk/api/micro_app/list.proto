@@ -11,6 +11,25 @@ import "model/app_store/app_version.proto";
 ListAppStoreMicroApp请求
 */
 message ListAppStoreMicroAppRequest {
+message Query {
+    /*
+    按name搜索,%xx%:模糊匹配,xx%:前缀匹配
+    */
+    string name = 1 ;
+    /*
+    按id列表查询
+    */
+    repeated string id = 2 ;
+}
+        
+message Sort {
+    /*
+    按name排序，1为升序，-1为降序
+    */
+    int32 name = 1 ;
+}
+        
+    
     /*
     页码
     */
@@ -19,6 +38,14 @@ message ListAppStoreMicroAppRequest {
     每页大小
     */
     int32 page_size = 2 ;
+    /*
+    查询条件
+    */
+    Query query = 3 ;
+    /*
+    条件查询：按照字段正/倒序 :1表示升序, -1表示降序
+    */
+    Sort sort = 4 ;
 }
 
 /*
@@ -38,17 +65,17 @@ message List {
         
     
     /*
+    返回总数
+    */
+    int32 total = 1 ;
+    /*
     页数
     */
-    int32 page = 1 ;
+    int32 page = 2 ;
     /*
-    页大小
+    该页大小
     */
-    int32 page_size = 2 ;
-    /*
-    总数
-    */
-    int32 total = 3 ;
+    int32 page_size = 3 ;
     /*
     数据列表
     */

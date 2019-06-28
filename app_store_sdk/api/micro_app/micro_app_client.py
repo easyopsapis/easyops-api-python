@@ -10,8 +10,6 @@ import get_pb2
 
 import list_pb2
 
-import search_pb2
-
 import utils.http_util
 import google.protobuf.json_format
 
@@ -90,7 +88,7 @@ class MicroAppClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.app_store.micro_app.DeleteAppStoreMicroApp"
-        uri = "/api/app_store/v1/micro_app/{app_id}".format(
+        uri = "/api/app_store/v1/micro_app/app_id/{app_id}".format(
             app_id=request.app_id,
         )
         requestParam = request
@@ -172,12 +170,12 @@ class MicroAppClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.app_store.micro_app.ListAppStoreMicroApp"
-        uri = "/api/app_store/v1/micro_app"
+        uri = "/api/app_store/v1/micro_app/search"
         
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="GET",
+            method="POST",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
             server_ip=server_ip,
@@ -190,47 +188,6 @@ class MicroAppClient(object):
             timeout=timeout,
         )
         rsp = list_pb2.ListAppStoreMicroAppResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
-    def search_app_store_micro_app(self, request, org, user, timeout=10):
-        # type: (search_pb2.SearchAppStoreMicroAppRequest, int, str, int) -> search_pb2.SearchAppStoreMicroAppResponse
-        """
-        搜索
-        :param request: search_app_store_micro_app请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: search_pb2.SearchAppStoreMicroAppResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.app_store.micro_app.SearchAppStoreMicroApp"
-        uri = "/api/app_store/v1/micro_app/keyword/{keyword}".format(
-            keyword=request.keyword,
-        )
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="GET",
-            src_name="logic.app_store_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = search_pb2.SearchAppStoreMicroAppResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

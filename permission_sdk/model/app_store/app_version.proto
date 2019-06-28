@@ -12,16 +12,24 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/a
 */
 message AppVersion {
     /*
+    版本实例id
+    */
+    string versionId = 1 ;
+    /*
     小产品名称+版本组合的唯一id
     */
-    string name = 1 ;
+    string name = 2 ;
     /*
     版本名称
     */
-    string versionName = 2 ;
+    string versionName = 3 ;
     /*
     版本变更记录
     */
-    string changeLog = 3 ;
+    string changeLog = 4 ;
+    /*
+    版本发布时间
+    */
+    string releaseTime = 5 ;
 }
 

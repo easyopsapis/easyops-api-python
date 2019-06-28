@@ -1,0 +1,82 @@
+syntax = "proto3";
+package version;
+
+
+
+
+import "model/app_store/app_version.proto";
+
+/*
+ListAppVersion请求
+*/
+message ListAppVersionRequest {
+message Sort {
+    /*
+    按ctime排序，1为升序，-1为降序
+    */
+    int32 ctime = 1 ;
+}
+        
+    
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    小产品id
+    */
+    string app_id = 3 ;
+    /*
+    条件查询：按照字段正/倒序 :1表示升序, -1表示降序
+    */
+    Sort sort = 4 ;
+}
+
+/*
+ListAppVersion返回
+*/
+message ListAppVersionResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated app_store.AppVersion list = 4 ;
+}
+
+/*
+ListAppVersionApi返回
+*/
+message ListAppVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    version.ListAppVersionResponse data = 4 ;
+}
+

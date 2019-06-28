@@ -2,6 +2,7 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
+    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
@@ -28,21 +29,63 @@ from typing_extensions import (
 
 
 class ListAppStoreMicroAppRequest(google___protobuf___message___Message):
+    class Query(google___protobuf___message___Message):
+        name = ... # type: typing___Text
+        id = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+
+        def __init__(self,
+            name : typing___Optional[typing___Text] = None,
+            id : typing___Optional[typing___Iterable[typing___Text]] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> ListAppStoreMicroAppRequest.Query: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name"]) -> None: ...
+
+    class Sort(google___protobuf___message___Message):
+        name = ... # type: int
+
+        def __init__(self,
+            name : typing___Optional[int] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> ListAppStoreMicroAppRequest.Sort: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"name"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"name"]) -> None: ...
+
     page = ... # type: int
     page_size = ... # type: int
+
+    @property
+    def query(self) -> ListAppStoreMicroAppRequest.Query: ...
+
+    @property
+    def sort(self) -> ListAppStoreMicroAppRequest.Sort: ...
 
     def __init__(self,
         page : typing___Optional[int] = None,
         page_size : typing___Optional[int] = None,
+        query : typing___Optional[ListAppStoreMicroAppRequest.Query] = None,
+        sort : typing___Optional[ListAppStoreMicroAppRequest.Sort] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> ListAppStoreMicroAppRequest: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"page",u"page_size"]) -> None: ...
+        def HasField(self, field_name: typing_extensions___Literal[u"query",u"sort"]) -> bool: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"page",u"page_size",u"query",u"sort"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"page",b"page_size"]) -> None: ...
+        def HasField(self, field_name: typing_extensions___Literal[u"query",b"query",u"sort",b"sort"]) -> bool: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"page",b"page_size",b"query",b"sort"]) -> None: ...
 
 class ListAppStoreMicroAppResponse(google___protobuf___message___Message):
     class List(google___protobuf___message___Message):
@@ -68,17 +111,17 @@ class ListAppStoreMicroAppResponse(google___protobuf___message___Message):
             def HasField(self, field_name: typing_extensions___Literal[u"curVersion",b"curVersion",u"microApp",b"microApp"]) -> bool: ...
             def ClearField(self, field_name: typing_extensions___Literal[b"curVersion",b"microApp"]) -> None: ...
 
+    total = ... # type: int
     page = ... # type: int
     page_size = ... # type: int
-    total = ... # type: int
 
     @property
     def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ListAppStoreMicroAppResponse.List]: ...
 
     def __init__(self,
+        total : typing___Optional[int] = None,
         page : typing___Optional[int] = None,
         page_size : typing___Optional[int] = None,
-        total : typing___Optional[int] = None,
         list : typing___Optional[typing___Iterable[ListAppStoreMicroAppResponse.List]] = None,
         ) -> None: ...
     @classmethod
