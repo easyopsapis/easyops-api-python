@@ -10,7 +10,7 @@ GetTaskStatus请求
 */
 message GetTaskStatusRequest {
     /*
-    安装任务id
+    部署任务id
     */
     string taskId = 1 ;
 }
@@ -20,7 +20,7 @@ GetTaskStatus返回
 */
 message GetTaskStatusResponse {
     /*
-    安装任务id
+    部署任务id
     */
     string taskId = 1 ;
     /*
@@ -28,9 +28,13 @@ message GetTaskStatusResponse {
     */
     string status = 2 ;
     /*
-    安装信息
+    任务类型， install-安装， uninstall-卸载
     */
-    string msg = 3 ;
+    string taskType = 3 ;
+    /*
+    部署信息
+    */
+    string msg = 4 ;
 }
 
 /*

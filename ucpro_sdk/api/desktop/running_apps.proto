@@ -6,9 +6,9 @@ package desktop;
 
 
 /*
-RunningInstallApp返回
+RunningApps返回
 */
-message RunningInstallAppResponse {
+message RunningAppsResponse {
     /*
     appId
     */
@@ -17,12 +17,16 @@ message RunningInstallAppResponse {
     任务Id
     */
     string taskId = 2 ;
+    /*
+    任务类型， install-安装， uninstall-卸载
+    */
+    string taskType = 3 ;
 }
 
 /*
-RunningInstallAppApi返回
+RunningAppsApi返回
 */
-message RunningInstallAppResponseWrapper {
+message RunningAppsResponseWrapper {
     /*
     返回码
     */
@@ -38,6 +42,6 @@ message RunningInstallAppResponseWrapper {
     /*
     返回数据
     */
-    repeated desktop.RunningInstallAppResponse data = 4 ;
+    repeated desktop.RunningAppsResponse data = 4 ;
 }
 
