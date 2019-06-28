@@ -15,13 +15,9 @@ message UpdateTriggerRequest {
     */
     string id = 1 ;
     /*
-    project id
-    */
-    string project_id = 2 ;
-    /*
     trigger 配置
     */
-    pipeline.Trigger trigger = 3 ;
+    pipeline.Trigger trigger = 2 ;
 }
 
 /*

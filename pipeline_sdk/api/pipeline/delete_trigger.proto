@@ -14,10 +14,6 @@ message DeleteTriggerRequest {
     trigger id
     */
     string id = 1 ;
-    /*
-    project id
-    */
-    string project_id = 2 ;
 }
 
 /*
