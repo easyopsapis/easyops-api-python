@@ -40,7 +40,7 @@ class Project(google___protobuf___message___Message):
 
     id = ... # type: typing___Text
     name = ... # type: typing___Text
-    favorite = ... # type: bool
+    favorite = ... # type: typing___Text
     tags = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     creator = ... # type: typing___Text
     ctime = ... # type: typing___Text
@@ -60,7 +60,7 @@ class Project(google___protobuf___message___Message):
     def __init__(self,
         id : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
-        favorite : typing___Optional[bool] = None,
+        favorite : typing___Optional[typing___Text] = None,
         tags : typing___Optional[typing___Iterable[typing___Text]] = None,
         variables : typing___Optional[typing___Iterable[Project.Variables]] = None,
         creator : typing___Optional[typing___Text] = None,

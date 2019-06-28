@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=_b('ZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipeline'),
-  serialized_pb=_b('\n\rproject.proto\x12\x08pipeline\"\xfa\x02\n\x07Project\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x66\x61vorite\x18\x03 \x01(\x08\x12\x0c\n\x04tags\x18\x04 \x03(\t\x12.\n\tvariables\x18\x05 \x03(\x0b\x32\x1b.pipeline.Project.Variables\x12\x0f\n\x07\x63reator\x18\x06 \x01(\t\x12\r\n\x05\x63time\x18\x07 \x01(\t\x12\r\n\x05mtime\x18\x08 \x01(\t\x12\x11\n\trepo_name\x18\t \x01(\t\x12\x0f\n\x07repo_id\x18\n \x01(\x05\x12\x1b\n\x13name_with_namespace\x18\x0b \x01(\t\x12\x1b\n\x13path_with_namespace\x18\x0c \x01(\t\x12\x13\n\x0bgit_ssh_url\x18\r \x01(\t\x12\x14\n\x0cgit_http_url\x18\x0e \x01(\t\x12\x0c\n\x04link\x18\x0f \x01(\t\x12\x16\n\x0e\x64\x65\x66\x61ult_branch\x18\x10 \x01(\t\x1a\'\n\tVariables\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\tBDZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
+  serialized_pb=_b('\n\rproject.proto\x12\x08pipeline\"\xfa\x02\n\x07Project\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x66\x61vorite\x18\x03 \x01(\t\x12\x0c\n\x04tags\x18\x04 \x03(\t\x12.\n\tvariables\x18\x05 \x03(\x0b\x32\x1b.pipeline.Project.Variables\x12\x0f\n\x07\x63reator\x18\x06 \x01(\t\x12\r\n\x05\x63time\x18\x07 \x01(\t\x12\r\n\x05mtime\x18\x08 \x01(\t\x12\x11\n\trepo_name\x18\t \x01(\t\x12\x0f\n\x07repo_id\x18\n \x01(\x05\x12\x1b\n\x13name_with_namespace\x18\x0b \x01(\t\x12\x1b\n\x13path_with_namespace\x18\x0c \x01(\t\x12\x13\n\x0bgit_ssh_url\x18\r \x01(\t\x12\x14\n\x0cgit_http_url\x18\x0e \x01(\t\x12\x0c\n\x04link\x18\x0f \x01(\t\x12\x16\n\x0e\x64\x65\x66\x61ult_branch\x18\x10 \x01(\t\x1a\'\n\tVariables\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\tBDZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
 )
 
 
@@ -85,8 +85,8 @@ _PROJECT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='favorite', full_name='pipeline.Project.favorite', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
