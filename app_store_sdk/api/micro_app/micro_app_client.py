@@ -8,6 +8,8 @@ import google.protobuf.empty_pb2
 
 import get_pb2
 
+import get_packages_pb2
+
 import list_pb2
 
 import utils.http_util
@@ -148,6 +150,47 @@ class MicroAppClient(object):
             timeout=timeout,
         )
         rsp = get_pb2.GetAppStoreMicroAppResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_related_packages(self, request, org, user, timeout=10):
+        # type: (get_packages_pb2.GetRelatedPackagesRequest, int, str, int) -> get_packages_pb2.GetRelatedPackagesResponse
+        """
+        根据app_id获取关联制品包
+        :param request: get_related_packages请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_packages_pb2.GetRelatedPackagesResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.app_store.micro_app.GetRelatedPackages"
+        uri = "/api/app_store/v1/related_packages/app_id/{app_id}".format(
+            app_id=request.app_id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.app_store_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_packages_pb2.GetRelatedPackagesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

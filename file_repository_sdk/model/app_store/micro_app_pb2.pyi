@@ -24,7 +24,6 @@ class AppStoreMicroApp(google___protobuf___message___Message):
     id = ... # type: typing___Text
     icon = ... # type: typing___Text
     intro = ... # type: typing___Text
-    newFeature = ... # type: typing___Text
     preview = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     description = ... # type: typing___Text
 
@@ -33,7 +32,6 @@ class AppStoreMicroApp(google___protobuf___message___Message):
         id : typing___Optional[typing___Text] = None,
         icon : typing___Optional[typing___Text] = None,
         intro : typing___Optional[typing___Text] = None,
-        newFeature : typing___Optional[typing___Text] = None,
         preview : typing___Optional[typing___Iterable[typing___Text]] = None,
         description : typing___Optional[typing___Text] = None,
         ) -> None: ...
@@ -42,6 +40,6 @@ class AppStoreMicroApp(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"description",u"icon",u"id",u"intro",u"name",u"newFeature",u"preview"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"description",u"icon",u"id",u"intro",u"name",u"preview"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"description",b"icon",b"id",b"intro",b"name",b"newFeature",b"preview"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"description",b"icon",b"id",b"intro",b"name",b"preview"]) -> None: ...

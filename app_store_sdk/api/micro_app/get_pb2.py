@@ -12,9 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.app_store import micro_app_pb2 as model_dot_app__store_dot_micro__app__pb2
 from model.app_store import app_version_pb2 as model_dot_app__store_dot_app__version__pb2
-from model.app_store import release_package_pb2 as model_dot_app__store_dot_release__package__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='micro_app',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\tmicro_app\x1a\x1fmodel/app_store/micro_app.proto\x1a!model/app_store/app_version.proto\x1a%model/app_store/release_package.proto\",\n\x1aGetAppStoreMicroAppRequest\x12\x0e\n\x06\x61pp_id\x18\x01 \x01(\t\"\xa7\x01\n\x1bGetAppStoreMicroAppResponse\x12-\n\x08microApp\x18\x01 \x01(\x0b\x32\x1b.app_store.AppStoreMicroApp\x12)\n\ncurVersion\x18\x02 \x01(\x0b\x32\x15.app_store.AppVersion\x12.\n\x0bpackageList\x18\x03 \x03(\x0b\x32\x19.app_store.ReleasePackage\"\x8c\x01\n\"GetAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.micro_app.GetAppStoreMicroAppResponseb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\tmicro_app\x1a!model/app_store/app_version.proto\",\n\x1aGetAppStoreMicroAppRequest\x12\x0e\n\x06\x61pp_id\x18\x01 \x01(\t\"\xa9\x01\n\x1bGetAppStoreMicroAppResponse\x12-\n\x0e\x63urrentVersion\x18\x01 \x01(\x0b\x32\x15.app_store.AppVersion\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\r\n\x05intro\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\"\x8c\x01\n\"GetAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.micro_app.GetAppStoreMicroAppResponseb\x06proto3')
   ,
-  dependencies=[model_dot_app__store_dot_micro__app__pb2.DESCRIPTOR,model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,model_dot_app__store_dot_release__package__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,])
 
 
 
@@ -55,8 +53,8 @@ _GETAPPSTOREMICROAPPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=131,
-  serialized_end=175,
+  serialized_start=59,
+  serialized_end=103,
 )
 
 
@@ -68,23 +66,51 @@ _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='microApp', full_name='micro_app.GetAppStoreMicroAppResponse.microApp', index=0,
+      name='currentVersion', full_name='micro_app.GetAppStoreMicroAppResponse.currentVersion', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='curVersion', full_name='micro_app.GetAppStoreMicroAppResponse.curVersion', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='name', full_name='micro_app.GetAppStoreMicroAppResponse.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='packageList', full_name='micro_app.GetAppStoreMicroAppResponse.packageList', index=2,
-      number=3, type=11, cpp_type=10, label=3,
+      name='id', full_name='micro_app.GetAppStoreMicroAppResponse.id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='icon', full_name='micro_app.GetAppStoreMicroAppResponse.icon', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='intro', full_name='micro_app.GetAppStoreMicroAppResponse.intro', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='preview', full_name='micro_app.GetAppStoreMicroAppResponse.preview', index=5,
+      number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='micro_app.GetAppStoreMicroAppResponse.description', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -100,8 +126,8 @@ _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=178,
-  serialized_end=345,
+  serialized_start=106,
+  serialized_end=275,
 )
 
 
@@ -152,13 +178,11 @@ _GETAPPSTOREMICROAPPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=348,
-  serialized_end=488,
+  serialized_start=278,
+  serialized_end=418,
 )
 
-_GETAPPSTOREMICROAPPRESPONSE.fields_by_name['microApp'].message_type = model_dot_app__store_dot_micro__app__pb2._APPSTOREMICROAPP
-_GETAPPSTOREMICROAPPRESPONSE.fields_by_name['curVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
-_GETAPPSTOREMICROAPPRESPONSE.fields_by_name['packageList'].message_type = model_dot_app__store_dot_release__package__pb2._RELEASEPACKAGE
+_GETAPPSTOREMICROAPPRESPONSE.fields_by_name['currentVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
 _GETAPPSTOREMICROAPPRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETAPPSTOREMICROAPPRESPONSE
 DESCRIPTOR.message_types_by_name['GetAppStoreMicroAppRequest'] = _GETAPPSTOREMICROAPPREQUEST
 DESCRIPTOR.message_types_by_name['GetAppStoreMicroAppResponse'] = _GETAPPSTOREMICROAPPRESPONSE

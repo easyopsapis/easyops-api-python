@@ -4,7 +4,6 @@ package micro_app;
 
 
 
-import "model/app_store/micro_app.proto";
 import "model/app_store/app_version.proto";
 
 /*
@@ -54,13 +53,33 @@ ListAppStoreMicroApp返回
 message ListAppStoreMicroAppResponse {
 message List {
     /*
-    小产品信息
-    */
-    app_store.AppStoreMicroApp microApp = 1 ;
-    /*
     当前版本
     */
-    app_store.AppVersion curVersion = 2 ;
+    app_store.AppVersion currentVersion = 1 ;
+    /*
+    小产品名称
+    */
+    string name = 2 ;
+    /*
+    小产品id
+    */
+    string id = 3 ;
+    /*
+    图标url
+    */
+    string icon = 4 ;
+    /*
+    小产品概要介绍
+    */
+    string intro = 5 ;
+    /*
+    功能预览
+    */
+    repeated string preview = 6 ;
+    /*
+    功能详细介绍
+    */
+    string description = 7 ;
 }
         
     

@@ -28,16 +28,12 @@ message AppStoreMicroApp {
     */
     string intro = 4 ;
     /*
-    新功能
-    */
-    string newFeature = 5 ;
-    /*
     功能预览
     */
-    repeated string preview = 6 ;
+    repeated string preview = 5 ;
     /*
     功能详细介绍
     */
-    string description = 7 ;
+    string description = 6 ;
 }
 

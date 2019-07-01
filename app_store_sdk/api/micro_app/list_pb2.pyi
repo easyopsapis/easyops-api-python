@@ -13,10 +13,6 @@ from model.app_store.app_version_pb2 import (
     AppVersion as model___app_store___app_version_pb2___AppVersion,
 )
 
-from model.app_store.micro_app_pb2 import (
-    AppStoreMicroApp as model___app_store___micro_app_pb2___AppStoreMicroApp,
-)
-
 from typing import (
     Iterable as typing___Iterable,
     Optional as typing___Optional,
@@ -89,27 +85,35 @@ class ListAppStoreMicroAppRequest(google___protobuf___message___Message):
 
 class ListAppStoreMicroAppResponse(google___protobuf___message___Message):
     class List(google___protobuf___message___Message):
+        name = ... # type: typing___Text
+        id = ... # type: typing___Text
+        icon = ... # type: typing___Text
+        intro = ... # type: typing___Text
+        preview = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+        description = ... # type: typing___Text
 
         @property
-        def microApp(self) -> model___app_store___micro_app_pb2___AppStoreMicroApp: ...
-
-        @property
-        def curVersion(self) -> model___app_store___app_version_pb2___AppVersion: ...
+        def currentVersion(self) -> model___app_store___app_version_pb2___AppVersion: ...
 
         def __init__(self,
-            microApp : typing___Optional[model___app_store___micro_app_pb2___AppStoreMicroApp] = None,
-            curVersion : typing___Optional[model___app_store___app_version_pb2___AppVersion] = None,
+            currentVersion : typing___Optional[model___app_store___app_version_pb2___AppVersion] = None,
+            name : typing___Optional[typing___Text] = None,
+            id : typing___Optional[typing___Text] = None,
+            icon : typing___Optional[typing___Text] = None,
+            intro : typing___Optional[typing___Text] = None,
+            preview : typing___Optional[typing___Iterable[typing___Text]] = None,
+            description : typing___Optional[typing___Text] = None,
             ) -> None: ...
         @classmethod
         def FromString(cls, s: bytes) -> ListAppStoreMicroAppResponse.List: ...
         def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
         def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
         if sys.version_info >= (3,):
-            def HasField(self, field_name: typing_extensions___Literal[u"curVersion",u"microApp"]) -> bool: ...
-            def ClearField(self, field_name: typing_extensions___Literal[u"curVersion",u"microApp"]) -> None: ...
+            def HasField(self, field_name: typing_extensions___Literal[u"currentVersion"]) -> bool: ...
+            def ClearField(self, field_name: typing_extensions___Literal[u"currentVersion",u"description",u"icon",u"id",u"intro",u"name",u"preview"]) -> None: ...
         else:
-            def HasField(self, field_name: typing_extensions___Literal[u"curVersion",b"curVersion",u"microApp",b"microApp"]) -> bool: ...
-            def ClearField(self, field_name: typing_extensions___Literal[b"curVersion",b"microApp"]) -> None: ...
+            def HasField(self, field_name: typing_extensions___Literal[u"currentVersion",b"currentVersion"]) -> bool: ...
+            def ClearField(self, field_name: typing_extensions___Literal[b"currentVersion",b"description",b"icon",b"id",b"intro",b"name",b"preview"]) -> None: ...
 
     total = ... # type: int
     page = ... # type: int
