@@ -89,10 +89,8 @@ class DesktopClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ucpro.desktop.InstallApp"
-        uri = "/api/v1/desktop/install/{appId}/{version}".format(
-            appId=request.appId,
-            version=request.version,
-        )
+        uri = "/api/v1/desktop/install-app"
+        
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
@@ -171,10 +169,8 @@ class DesktopClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ucpro.desktop.UninstallApp"
-        uri = "/api/v1/desktop/uninstall/{appId}/{version}".format(
-            appId=request.appId,
-            version=request.version,
-        )
+        uri = "/api/v1/desktop/uninstall-app"
+        
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
