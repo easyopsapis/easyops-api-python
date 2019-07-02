@@ -6,9 +6,9 @@ package desktop;
 
 
 /*
-RunningApps返回
+RunningTasks返回
 */
-message RunningAppsResponse {
+message RunningTasksResponse {
     /*
     appId
     */
@@ -24,9 +24,9 @@ message RunningAppsResponse {
 }
 
 /*
-RunningAppsApi返回
+RunningTasksApi返回
 */
-message RunningAppsResponseWrapper {
+message RunningTasksResponseWrapper {
     /*
     返回码
     */
@@ -42,6 +42,6 @@ message RunningAppsResponseWrapper {
     /*
     返回数据
     */
-    repeated desktop.RunningAppsResponse data = 4 ;
+    repeated desktop.RunningTasksResponse data = 4 ;
 }
 

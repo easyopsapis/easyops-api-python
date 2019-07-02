@@ -6,7 +6,7 @@ import install_app_pb2
 
 import google.protobuf.empty_pb2
 
-import running_apps_pb2
+import running_tasks_pb2
 
 import uninstall_app_pb2
 
@@ -114,15 +114,15 @@ class DesktopClient(object):
         
         return rsp
     
-    def running_apps(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> running_apps_pb2.RunningAppsResponse
+    def running_tasks(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> running_tasks_pb2.RunningTasksResponse
         """
-        正在安装或卸载的小产品
-        :param request: running_apps请求
+        正在安装或卸载的小产品任务
+        :param request: running_tasks请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: running_apps_pb2.RunningAppsResponse
+        :return: running_tasks_pb2.RunningTasksResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -130,8 +130,8 @@ class DesktopClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.ucpro.desktop.RunningApps"
-        uri = "/api/v1/desktop/running"
+            route_name = "easyops.api.ucpro.desktop.RunningTasks"
+        uri = "/api/v1/desktop/task"
         
         requestParam = request
         
@@ -148,7 +148,7 @@ class DesktopClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = running_apps_pb2.RunningAppsResponse()
+        rsp = running_tasks_pb2.RunningTasksResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

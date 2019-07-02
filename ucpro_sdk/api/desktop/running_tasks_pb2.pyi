@@ -19,7 +19,7 @@ from typing_extensions import (
 )
 
 
-class RunningAppsResponse(google___protobuf___message___Message):
+class RunningTasksResponse(google___protobuf___message___Message):
     appId = ... # type: typing___Text
     taskId = ... # type: typing___Text
     taskType = ... # type: typing___Text
@@ -30,7 +30,7 @@ class RunningAppsResponse(google___protobuf___message___Message):
         taskType : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
-    def FromString(cls, s: bytes) -> RunningAppsResponse: ...
+    def FromString(cls, s: bytes) -> RunningTasksResponse: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
@@ -38,22 +38,22 @@ class RunningAppsResponse(google___protobuf___message___Message):
     else:
         def ClearField(self, field_name: typing_extensions___Literal[b"appId",b"taskId",b"taskType"]) -> None: ...
 
-class RunningAppsResponseWrapper(google___protobuf___message___Message):
+class RunningTasksResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int
     codeExplain = ... # type: typing___Text
     error = ... # type: typing___Text
 
     @property
-    def data(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[RunningAppsResponse]: ...
+    def data(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[RunningTasksResponse]: ...
 
     def __init__(self,
         code : typing___Optional[int] = None,
         codeExplain : typing___Optional[typing___Text] = None,
         error : typing___Optional[typing___Text] = None,
-        data : typing___Optional[typing___Iterable[RunningAppsResponse]] = None,
+        data : typing___Optional[typing___Iterable[RunningTasksResponse]] = None,
         ) -> None: ...
     @classmethod
-    def FromString(cls, s: bytes) -> RunningAppsResponseWrapper: ...
+    def FromString(cls, s: bytes) -> RunningTasksResponseWrapper: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
