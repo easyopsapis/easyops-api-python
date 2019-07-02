@@ -5,6 +5,7 @@ package pipeline;
 
 
 import "model/pipeline/pipeline.proto";
+import "model/pipeline/trigger.proto";
 
 /*
 Create请求
@@ -18,6 +19,10 @@ message CreateRequest {
     流水线
     */
     pipeline.Pipeline pipeline = 2 ;
+    /*
+    初始化trigger
+    */
+    pipeline.Trigger trigger = 3 ;
 }
 
 /*

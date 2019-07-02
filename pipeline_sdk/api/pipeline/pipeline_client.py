@@ -73,7 +73,7 @@ class PipelineClient(object):
         uri = "/api/pipeline/v1/projects/{project_id}/pipelines".format(
             project_id=request.project_id,
         )
-        requestParam = request.pipeline
+        requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
             method="POST",

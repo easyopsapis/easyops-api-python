@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
+from model.pipeline import trigger_pb2 as model_dot_pipeline_dot_trigger__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x08pipeline\x1a\x1dmodel/pipeline/pipeline.proto\"I\n\rCreateRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12$\n\x08pipeline\x18\x02 \x01(\x0b\x32\x12.pipeline.Pipeline\"k\n\x15\x43reateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.pipeline.Pipelineb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x08pipeline\x1a\x1dmodel/pipeline/pipeline.proto\x1a\x1cmodel/pipeline/trigger.proto\"m\n\rCreateRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12$\n\x08pipeline\x18\x02 \x01(\x0b\x32\x12.pipeline.Pipeline\x12\"\n\x07trigger\x18\x03 \x01(\x0b\x32\x11.pipeline.Trigger\"k\n\x15\x43reateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.pipeline.Pipelineb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_trigger__pb2.DESCRIPTOR,])
 
 
 
@@ -48,6 +49,13 @@ _CREATEREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='trigger', full_name='pipeline.CreateRequest.trigger', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -60,8 +68,8 @@ _CREATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=57,
-  serialized_end=130,
+  serialized_start=87,
+  serialized_end=196,
 )
 
 
@@ -112,11 +120,12 @@ _CREATERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=239,
+  serialized_start=198,
+  serialized_end=305,
 )
 
 _CREATEREQUEST.fields_by_name['pipeline'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
+_CREATEREQUEST.fields_by_name['trigger'].message_type = model_dot_pipeline_dot_trigger__pb2._TRIGGER
 _CREATERESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
 DESCRIPTOR.message_types_by_name['CreateRequest'] = _CREATEREQUEST
 DESCRIPTOR.message_types_by_name['CreateResponseWrapper'] = _CREATERESPONSEWRAPPER
