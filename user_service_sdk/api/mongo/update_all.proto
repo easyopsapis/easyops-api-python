@@ -1,0 +1,58 @@
+syntax = "proto3";
+package mongo;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdateAll请求
+*/
+message UpdateAllRequest {
+    /*
+    表名
+    */
+    string collection = 1 ;
+    /*
+    更新条件
+    */
+    google.protobuf.Struct selector = 2 ;
+    /*
+    更新的值
+    */
+    google.protobuf.Struct update = 3 ;
+}
+
+/*
+UpdateAll返回
+*/
+message UpdateAllResponse {
+    /*
+    更新总数
+    */
+    int32 updated = 1 ;
+}
+
+/*
+UpdateAllApi返回
+*/
+message UpdateAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    mongo.UpdateAllResponse data = 4 ;
+}
+
