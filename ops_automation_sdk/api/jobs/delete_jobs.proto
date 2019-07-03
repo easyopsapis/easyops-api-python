@@ -1,0 +1,49 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+
+/*
+DeleteJobs请求
+*/
+message DeleteJobsRequest {
+    /*
+    作业id
+    */
+    string jobId = 1 ;
+}
+
+/*
+DeleteJobs返回
+*/
+message DeleteJobsResponse {
+    /*
+    作业id
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteJobsApi返回
+*/
+message DeleteJobsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    jobs.DeleteJobsResponse data = 4 ;
+}
+

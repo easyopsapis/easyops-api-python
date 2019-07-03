@@ -1,0 +1,65 @@
+syntax = "proto3";
+package service_event;
+
+
+
+
+
+/*
+CreateServiceEvent请求
+*/
+message CreateServiceEventRequest {
+message Data {
+    /*
+    org
+    */
+    int32 id = 1 ;
+}
+        
+    
+    /*
+    notify system
+    */
+    string system = 1 ;
+    /*
+    notify topic
+    */
+    string topic = 2 ;
+    /*
+    org 
+    */
+    Data data = 3 ;
+}
+
+/*
+CreateServiceEvent返回
+*/
+message CreateServiceEventResponse {
+    /*
+    创建结果
+    */
+    string status = 1 ;
+}
+
+/*
+CreateServiceEventApi返回
+*/
+message CreateServiceEventResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    service_event.CreateServiceEventResponse data = 4 ;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package app_store;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/app_store";
+
+
+
+
+
+/*
+小产品版本
+*/
+message AppVersion {
+    /*
+    版本实例id
+    */
+    string versionId = 1 ;
+    /*
+    小产品名称+版本组合的唯一id
+    */
+    string name = 2 ;
+    /*
+    版本名称
+    */
+    string versionName = 3 ;
+    /*
+    版本变更记录
+    */
+    string changeLog = 4 ;
+    /*
+    新功能
+    */
+    string newFeature = 5 ;
+    /*
+    版本发布时间
+    */
+    string releaseTime = 6 ;
+}
+

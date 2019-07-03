@@ -1,0 +1,18 @@
+syntax = "proto3";
+package job_export;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetJobTableExportExcel请求
+*/
+message GetJobTableExportExcelRequest {
+    /*
+    job Task id
+    */
+    string jobTaskId = 1 ;
+}
+

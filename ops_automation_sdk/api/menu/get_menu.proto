@@ -1,0 +1,85 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+
+/*
+GetMenu请求
+*/
+message GetMenuRequest {
+    /*
+    菜单id
+    */
+    string menusId = 1 ;
+}
+
+/*
+GetMenu返回
+*/
+message GetMenuResponse {
+    /*
+    菜单id
+    */
+    string id = 1 ;
+    /*
+    创建时间 2019-07-01 18:29:25.40459800
+    */
+    string createTime = 2 ;
+    /*
+    更新时间 2019-07-01 18:29:25.40459800
+    */
+    string updateTime = 3 ;
+    /*
+    创建者 easyops
+    */
+    string creator = 4 ;
+    /*
+    org
+    */
+    int32 org = 5 ;
+    /*
+    菜单名称
+    */
+    string name = 6 ;
+    /*
+    菜单图标
+    */
+    string icon = 7 ;
+    /*
+    菜单分类
+    */
+    string category = 8 ;
+    /*
+    访问白名单 [easyops, test_uesr]
+    */
+    repeated string visitors = 9 ;
+    /*
+    管理白名单 [easyops, test_uesr]
+    */
+    repeated string managers = 10 ;
+}
+
+/*
+GetMenuApi返回
+*/
+message GetMenuResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.GetMenuResponse data = 4 ;
+}
+

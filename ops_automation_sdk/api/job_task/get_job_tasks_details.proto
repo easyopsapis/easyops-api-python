@@ -1,0 +1,126 @@
+syntax = "proto3";
+package job_task;
+
+
+
+
+import "model/ops_automation/mail_info.proto";
+
+/*
+GetJobTasksDetail请求
+*/
+message GetJobTasksDetailRequest {
+    /*
+    job Task Id
+    */
+    string jobTaskId = 1 ;
+}
+
+/*
+GetJobTasksDetail返回
+*/
+message GetJobTasksDetailResponse {
+    /*
+    任务名称
+    */
+    string jobName = 1 ;
+    /*
+    菜单名称
+    */
+    string menuName = 2 ;
+    /*
+    easy command id
+    */
+    string execId = 3 ;
+    /*
+    工具类型
+    */
+    string resourceType = 4 ;
+    /*
+    easy command id
+    */
+    string resourceId = 5 ;
+    /*
+    工具版本ID
+    */
+    string resourceVId = 6 ;
+    /*
+    工具版本名称
+    */
+    string resourceVName = 7 ;
+    /*
+    执行主机列表
+    */
+    repeated string hosts = 8 ;
+    /*
+    通知邮件
+    */
+    ops_automation.MailInfo mail = 9 ;
+    /*
+    作业创建时间 2019-07-02 11:38:59.09199400
+    */
+    string createTime = 10 ;
+    /*
+    作业更新时间 2019-07-02 11:39:08.68835900
+    */
+    string updateTime = 11 ;
+    /*
+    作业创建者
+    */
+    string creator = 12 ;
+    /*
+    org
+    */
+    int32 org = 13 ;
+    /*
+    job task id
+    */
+    string id = 14 ;
+    /*
+    job id
+    */
+    string jobId = 15 ;
+    /*
+    执行触发器
+    */
+    string trigger = 16 ;
+    /*
+    工具执行用户
+    */
+    string execUser = 17 ;
+    /*
+    工具结果状态
+    */
+    string status = 18 ;
+    /*
+    作业成功率。success agents / all agents
+    */
+    float successRate = 19 ;
+    /*
+    工具报错信息
+    */
+    string error = 20 ;
+}
+
+/*
+GetJobTasksDetailApi返回
+*/
+message GetJobTasksDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    job_task.GetJobTasksDetailResponse data = 4 ;
+}
+

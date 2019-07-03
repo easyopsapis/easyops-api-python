@@ -1,0 +1,61 @@
+syntax = "proto3";
+package job_export;
+
+
+
+
+
+/*
+GetJobExport请求
+*/
+message GetJobExportRequest {
+    /*
+    menu id
+    */
+    string menuId = 1 ;
+}
+
+/*
+GetJobExport返回
+*/
+message GetJobExportResponse {
+    /*
+    changelog的 version，只能为 int
+    */
+    int32 version = 1 ;
+    /*
+    创建者
+    */
+    string creator = 2 ;
+    /*
+    导出时间 2019-07-01 20:34:45.54878400
+    */
+    string time = 3 ;
+    /*
+    导出内容
+    */
+    string content = 4 ;
+}
+
+/*
+GetJobExportApi返回
+*/
+message GetJobExportResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    job_export.GetJobExportResponse data = 4 ;
+}
+

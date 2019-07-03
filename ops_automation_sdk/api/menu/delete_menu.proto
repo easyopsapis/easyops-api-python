@@ -1,0 +1,49 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+
+/*
+DeleteMenu请求
+*/
+message DeleteMenuRequest {
+    /*
+    菜单id
+    */
+    string menuId = 1 ;
+}
+
+/*
+DeleteMenu返回
+*/
+message DeleteMenuResponse {
+    /*
+    菜单id
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteMenuApi返回
+*/
+message DeleteMenuResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.DeleteMenuResponse data = 4 ;
+}
+

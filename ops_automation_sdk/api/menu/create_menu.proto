@@ -1,0 +1,39 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+
+/*
+CreateMenu返回
+*/
+message CreateMenuResponse {
+    /*
+    菜单 id
+    */
+    string id = 1 ;
+}
+
+/*
+CreateMenuApi返回
+*/
+message CreateMenuResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.CreateMenuResponse data = 4 ;
+}
+
