@@ -136,8 +136,8 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.DeleteMenu"
-        uri = "/menus/{menuId}".format(
-            menuId=request.menuId,
+        uri = "/menus/{menusId}".format(
+            menusId=request.menusId,
         )
         requestParam = request
         

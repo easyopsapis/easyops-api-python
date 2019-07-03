@@ -12,7 +12,7 @@ message DeleteMenuRequest {
     /*
     菜单id
     */
-    string menuId = 1 ;
+    string menusId = 1 ;
 }
 
 /*

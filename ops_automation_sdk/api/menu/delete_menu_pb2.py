@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='menu',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11\x64\x65lete_menu.proto\x12\x04menu\"#\n\x11\x44\x65leteMenuRequest\x12\x0e\n\x06menuId\x18\x01 \x01(\t\" \n\x12\x44\x65leteMenuResponse\x12\n\n\x02id\x18\x01 \x01(\t\"u\n\x19\x44\x65leteMenuResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.menu.DeleteMenuResponseb\x06proto3')
+  serialized_pb=_b('\n\x11\x64\x65lete_menu.proto\x12\x04menu\"$\n\x11\x44\x65leteMenuRequest\x12\x0f\n\x07menusId\x18\x01 \x01(\t\" \n\x12\x44\x65leteMenuResponse\x12\n\n\x02id\x18\x01 \x01(\t\"u\n\x19\x44\x65leteMenuResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.menu.DeleteMenuResponseb\x06proto3')
 )
 
 
@@ -33,7 +33,7 @@ _DELETEMENUREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='menuId', full_name='menu.DeleteMenuRequest.menuId', index=0,
+      name='menusId', full_name='menu.DeleteMenuRequest.menusId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -52,7 +52,7 @@ _DELETEMENUREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=27,
-  serialized_end=62,
+  serialized_end=63,
 )
 
 
@@ -82,8 +82,8 @@ _DELETEMENURESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=96,
+  serialized_start=65,
+  serialized_end=97,
 )
 
 
@@ -134,8 +134,8 @@ _DELETEMENURESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=98,
-  serialized_end=215,
+  serialized_start=99,
+  serialized_end=216,
 )
 
 _DELETEMENURESPONSEWRAPPER.fields_by_name['data'].message_type = _DELETEMENURESPONSE
