@@ -25,7 +25,7 @@ from typing_extensions import (
 
 class ListJobTasksRequest(google___protobuf___message___Message):
     page = ... # type: int
-    page_size = ... # type: int
+    pageSize = ... # type: int
     jobId = ... # type: typing___Text
     trigger = ... # type: typing___Text
     taskId = ... # type: typing___Text
@@ -35,7 +35,7 @@ class ListJobTasksRequest(google___protobuf___message___Message):
 
     def __init__(self,
         page : typing___Optional[int] = None,
-        page_size : typing___Optional[int] = None,
+        pageSize : typing___Optional[int] = None,
         jobId : typing___Optional[typing___Text] = None,
         trigger : typing___Optional[typing___Text] = None,
         taskId : typing___Optional[typing___Text] = None,
@@ -48,9 +48,9 @@ class ListJobTasksRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"execUser",u"jobId",u"page",u"page_size",u"status",u"taskId",u"taskType",u"trigger"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"execUser",u"jobId",u"page",u"pageSize",u"status",u"taskId",u"taskType",u"trigger"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"execUser",b"jobId",b"page",b"page_size",b"status",b"taskId",b"taskType",b"trigger"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"execUser",b"jobId",b"page",b"pageSize",b"status",b"taskId",b"taskType",b"trigger"]) -> None: ...
 
 class ListJobTasksResponse(google___protobuf___message___Message):
     page = ... # type: int

@@ -4,9 +4,15 @@ import model.ops_automation.menu_pb2
 
 import create_menu_pb2
 
+import create_menu_tree_pb2
+
 import delete_menu_pb2
 
 import get_menu_pb2
+
+import google.protobuf.empty_pb2
+
+import google.protobuf.struct_pb2
 
 import list_menus_pb2
 
@@ -68,6 +74,46 @@ class MenuClient(object):
             timeout=timeout,
         )
         rsp = create_menu_pb2.CreateMenuResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def create_menu_tree(self, request, org, user, timeout=10):
+        # type: (create_menu_tree_pb2.CreateMenuTreeRequest, int, str, int) -> create_menu_tree_pb2.CreateMenuTreeResponse
+        """
+        创建菜单树
+        :param request: create_menu_tree请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: create_menu_tree_pb2.CreateMenuTreeResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ops_automation.menu.CreateMenuTree"
+        uri = "/menuTree"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.ops_automation_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = create_menu_tree_pb2.CreateMenuTreeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -150,6 +196,46 @@ class MenuClient(object):
             timeout=timeout,
         )
         rsp = get_menu_pb2.GetMenuResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_menu_tree(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.struct_pb2.Struct
+        """
+        获取菜单树详情
+        :param request: get_menu_tree请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.struct_pb2.Struct
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ops_automation.menu.GetMenuTree"
+        uri = "/menuTree"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.ops_automation_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.struct_pb2.Struct()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

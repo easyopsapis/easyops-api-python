@@ -1,0 +1,50 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+CreateMenuTree请求
+*/
+message CreateMenuTreeRequest {
+    /*
+    菜单树 menuTree:{menu_name: [menu_id1, menu_id2]}
+    */
+    google.protobuf.Struct menuTree = 1 ;
+}
+
+/*
+CreateMenuTree返回
+*/
+message CreateMenuTreeResponse {
+    /*
+    菜单树 menuTree:{menu_name: [menu_id1, menu_id2]}
+    */
+    google.protobuf.Struct menuTree = 1 ;
+}
+
+/*
+CreateMenuTreeApi返回
+*/
+message CreateMenuTreeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.CreateMenuTreeResponse data = 4 ;
+}
+

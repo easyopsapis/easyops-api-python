@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='jobs',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0flist_jobs.proto\x12\x04jobs\x1a$model/ops_automation/scheduler.proto\"2\n\x0fListJobsRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\"\xdd\x01\n\x10ListJobsResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.jobs.ListJobsResponse.List\x1an\n\x04List\x12,\n\tscheduler\x18\x01 \x01(\x0b\x32\x19.ops_automation.Scheduler\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x05 \x01(\t\"q\n\x17ListJobsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.jobs.ListJobsResponseb\x06proto3')
+  serialized_pb=_b('\n\x0flist_jobs.proto\x12\x04jobs\x1a$model/ops_automation/scheduler.proto\"1\n\x0fListJobsRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\"\xdd\x01\n\x10ListJobsResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.jobs.ListJobsResponse.List\x1an\n\x04List\x12,\n\tscheduler\x18\x01 \x01(\x0b\x32\x19.ops_automation.Scheduler\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x05 \x01(\t\"q\n\x17ListJobsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.jobs.ListJobsResponseb\x06proto3')
   ,
   dependencies=[model_dot_ops__automation_dot_scheduler__pb2.DESCRIPTOR,])
 
@@ -42,7 +42,7 @@ _LISTJOBSREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='page_size', full_name='jobs.ListJobsRequest.page_size', index=1,
+      name='pageSize', full_name='jobs.ListJobsRequest.pageSize', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -61,7 +61,7 @@ _LISTJOBSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=63,
-  serialized_end=113,
+  serialized_end=112,
 )
 
 
@@ -119,8 +119,8 @@ _LISTJOBSRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=337,
+  serialized_start=226,
+  serialized_end=336,
 )
 
 _LISTJOBSRESPONSE = _descriptor.Descriptor(
@@ -170,8 +170,8 @@ _LISTJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=116,
-  serialized_end=337,
+  serialized_start=115,
+  serialized_end=336,
 )
 
 
@@ -222,8 +222,8 @@ _LISTJOBSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=339,
-  serialized_end=452,
+  serialized_start=338,
+  serialized_end=451,
 )
 
 _LISTJOBSRESPONSE_LIST.fields_by_name['scheduler'].message_type = model_dot_ops__automation_dot_scheduler__pb2._SCHEDULER

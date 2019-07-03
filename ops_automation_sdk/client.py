@@ -8,6 +8,8 @@ import api.jobs.jobs_client
 
 import api.menu.menu_client
 
+import api.org.org_client
+
 import api.service_event.service_event_client
 
 
@@ -22,6 +24,8 @@ class Client(object):
         self.jobs = api.jobs.jobs_client.JobsClient(server_ip, server_port, service_name)
         
         self.menu = api.menu.menu_client.MenuClient(server_ip, server_port, service_name)
+        
+        self.org = api.org.org_client.OrgClient(server_ip, server_port, service_name)
         
         self.service_event = api.service_event.service_event_client.ServiceEventClient(server_ip, server_port, service_name)
         

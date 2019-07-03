@@ -16,7 +16,7 @@ message ListMenusRequest {
     /*
     每页大小
     */
-    int32 page_size = 2 ;
+    int32 pageSize = 2 ;
     /*
     菜单的分类
     */

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='menu',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10list_menus.proto\x12\x04menu\"d\n\x10ListMenusRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07keyword\x18\x05 \x01(\t\"\xc2\x01\n\x11ListMenusResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12*\n\x04list\x18\x04 \x03(\x0b\x32\x1c.menu.ListMenusResponse.List\x1aQ\n\x04List\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x0f\n\x07\x63reator\x18\x05 \x01(\t\"s\n\x18ListMenusResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12%\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x17.menu.ListMenusResponseb\x06proto3')
+  serialized_pb=_b('\n\x10list_menus.proto\x12\x04menu\"c\n\x10ListMenusRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07keyword\x18\x05 \x01(\t\"\xc2\x01\n\x11ListMenusResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12*\n\x04list\x18\x04 \x03(\x0b\x32\x1c.menu.ListMenusResponse.List\x1aQ\n\x04List\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x0f\n\x07\x63reator\x18\x05 \x01(\t\"s\n\x18ListMenusResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12%\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x17.menu.ListMenusResponseb\x06proto3')
 )
 
 
@@ -40,7 +40,7 @@ _LISTMENUSREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='page_size', full_name='menu.ListMenusRequest.page_size', index=1,
+      name='pageSize', full_name='menu.ListMenusRequest.pageSize', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -80,7 +80,7 @@ _LISTMENUSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=126,
+  serialized_end=125,
 )
 
 
@@ -138,8 +138,8 @@ _LISTMENUSRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=242,
-  serialized_end=323,
+  serialized_start=241,
+  serialized_end=322,
 )
 
 _LISTMENUSRESPONSE = _descriptor.Descriptor(
@@ -189,8 +189,8 @@ _LISTMENUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=129,
-  serialized_end=323,
+  serialized_start=128,
+  serialized_end=322,
 )
 
 
@@ -241,8 +241,8 @@ _LISTMENUSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=325,
-  serialized_end=440,
+  serialized_start=324,
+  serialized_end=439,
 )
 
 _LISTMENUSRESPONSE_LIST.containing_type = _LISTMENUSRESPONSE

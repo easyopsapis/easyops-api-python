@@ -17,7 +17,7 @@ message ListJobTasksRequest {
     /*
     每页大小
     */
-    int32 page_size = 2 ;
+    int32 pageSize = 2 ;
     /*
     job id
     */

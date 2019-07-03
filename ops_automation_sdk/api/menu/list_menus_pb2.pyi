@@ -21,14 +21,14 @@ from typing_extensions import (
 
 class ListMenusRequest(google___protobuf___message___Message):
     page = ... # type: int
-    page_size = ... # type: int
+    pageSize = ... # type: int
     category = ... # type: typing___Text
     name = ... # type: typing___Text
     keyword = ... # type: typing___Text
 
     def __init__(self,
         page : typing___Optional[int] = None,
-        page_size : typing___Optional[int] = None,
+        pageSize : typing___Optional[int] = None,
         category : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         keyword : typing___Optional[typing___Text] = None,
@@ -38,9 +38,9 @@ class ListMenusRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"category",u"keyword",u"name",u"page",u"page_size"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"category",u"keyword",u"name",u"page",u"pageSize"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"category",b"keyword",b"name",b"page",b"page_size"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"category",b"keyword",b"name",b"page",b"pageSize"]) -> None: ...
 
 class ListMenusResponse(google___protobuf___message___Message):
     class List(google___protobuf___message___Message):
