@@ -1,0 +1,44 @@
+syntax = "proto3";
+package installed_micro_app;
+
+
+
+
+import "model/micro_app/installed_micro_app.proto";
+
+/*
+UpdateInstalledMicroApp请求
+*/
+message UpdateInstalledMicroAppRequest {
+    /*
+    小产品id
+    */
+    string app_id = 1 ;
+    /*
+    要更新的小产品信息
+    */
+    micro_app.InstalledMicroApp micro_app = 2 ;
+}
+
+/*
+UpdateInstalledMicroAppApi返回
+*/
+message UpdateInstalledMicroAppResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    micro_app.InstalledMicroApp data = 4 ;
+}
+

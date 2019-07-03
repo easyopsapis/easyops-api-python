@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='app_store',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_store'),
-  serialized_pb=_b('\n\x11\x61pp_version.proto\x12\tapp_store\"~\n\nAppVersion\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bversionName\x18\x03 \x01(\t\x12\x11\n\tchangeLog\x18\x04 \x01(\t\x12\x12\n\nnewFeature\x18\x05 \x01(\t\x12\x13\n\x0breleaseTime\x18\x06 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_storeb\x06proto3')
+  serialized_pb=_b('\n\x11\x61pp_version.proto\x12\tapp_store\"j\n\nAppVersion\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bversionName\x18\x03 \x01(\t\x12\x11\n\tchangeLog\x18\x04 \x01(\t\x12\x13\n\x0breleaseTime\x18\x05 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/app_storeb\x06proto3')
 )
 
 
@@ -61,15 +61,8 @@ _APPVERSION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='newFeature', full_name='app_store.AppVersion.newFeature', index=4,
+      name='releaseTime', full_name='app_store.AppVersion.releaseTime', index=4,
       number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='releaseTime', full_name='app_store.AppVersion.releaseTime', index=5,
-      number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -87,7 +80,7 @@ _APPVERSION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=32,
-  serialized_end=158,
+  serialized_end=138,
 )
 
 DESCRIPTOR.message_types_by_name['AppVersion'] = _APPVERSION
