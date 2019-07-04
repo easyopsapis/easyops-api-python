@@ -51,5 +51,17 @@ message GitMeta {
     目标分支
     */
     string target = 10 ;
+    /*
+    触发方式
+    */
+    string trigger = 11 ;
+    /*
+    动作
+    */
+    string action = 12 ;
+    /*
+    链接
+    */
+    string link = 13 ;
 }
 

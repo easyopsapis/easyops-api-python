@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.pipeline import project_pb2 as model_dot_pipeline_dot_project__pb2
 from model.pipeline import pipeline_pb2 as model_dot_pipeline_dot_pipeline__pb2
 from model.pipeline import stage_status_pb2 as model_dot_pipeline_dot_stage__status__pb2
 from model.pipeline import git_meta_pb2 as model_dot_pipeline_dot_git__meta__pb2
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='build',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\x05\x62uild\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a\x1dmodel/pipeline/git_meta.proto\x1a!model/pipeline/build_status.proto\"\x1e\n\nGetRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\"\xf8\x01\n\x0bGetResponse\x12$\n\x08pipeline\x18\x01 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x02 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x03 \x01(\t\x12#\n\x08git_meta\x18\x04 \x01(\x0b\x32\x11.pipeline.GitMeta\x12\x0e\n\x06sender\x18\x05 \x01(\t\x12\x0f\n\x07\x63reated\x18\x06 \x01(\x05\x12\x13\n\x0byaml_string\x18\x07 \x01(\t\x12%\n\x06status\x18\x08 \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\t \x01(\t\"h\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.build.GetResponseb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\x05\x62uild\x1a\x1cmodel/pipeline/project.proto\x1a\x1dmodel/pipeline/pipeline.proto\x1a!model/pipeline/stage_status.proto\x1a\x1dmodel/pipeline/git_meta.proto\x1a!model/pipeline/build_status.proto\"\x1e\n\nGetRequest\x12\x10\n\x08\x62uild_id\x18\x01 \x01(\t\"\x9c\x02\n\x0bGetResponse\x12\"\n\x07project\x18\x01 \x01(\x0b\x32\x11.pipeline.Project\x12$\n\x08pipeline\x18\x02 \x01(\x0b\x32\x12.pipeline.Pipeline\x12%\n\x06stages\x18\x03 \x03(\x0b\x32\x15.pipeline.StageStatus\x12\n\n\x02id\x18\x04 \x01(\t\x12#\n\x08git_meta\x18\x05 \x01(\x0b\x32\x11.pipeline.GitMeta\x12\x0e\n\x06sender\x18\x06 \x01(\t\x12\x0f\n\x07\x63reated\x18\x07 \x01(\x05\x12\x13\n\x0byaml_string\x18\x08 \x01(\t\x12%\n\x06status\x18\t \x01(\x0b\x32\x15.pipeline.BuildStatus\x12\x0e\n\x06number\x18\n \x01(\t\"h\n\x12GetResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12 \n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x12.build.GetResponseb\x06proto3')
   ,
-  dependencies=[model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_git__meta__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_pipeline_dot_project__pb2.DESCRIPTOR,model_dot_pipeline_dot_pipeline__pb2.DESCRIPTOR,model_dot_pipeline_dot_stage__status__pb2.DESCRIPTOR,model_dot_pipeline_dot_git__meta__pb2.DESCRIPTOR,model_dot_pipeline_dot_build__status__pb2.DESCRIPTOR,])
 
 
 
@@ -56,8 +57,8 @@ _GETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=152,
-  serialized_end=182,
+  serialized_start=182,
+  serialized_end=212,
 )
 
 
@@ -69,64 +70,71 @@ _GETRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pipeline', full_name='build.GetResponse.pipeline', index=0,
+      name='project', full_name='build.GetResponse.project', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='stages', full_name='build.GetResponse.stages', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='pipeline', full_name='build.GetResponse.pipeline', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stages', full_name='build.GetResponse.stages', index=2,
+      number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='id', full_name='build.GetResponse.id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='id', full_name='build.GetResponse.id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='git_meta', full_name='build.GetResponse.git_meta', index=3,
-      number=4, type=11, cpp_type=10, label=1,
+      name='git_meta', full_name='build.GetResponse.git_meta', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='sender', full_name='build.GetResponse.sender', index=4,
-      number=5, type=9, cpp_type=9, label=1,
+      name='sender', full_name='build.GetResponse.sender', index=5,
+      number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='created', full_name='build.GetResponse.created', index=5,
-      number=6, type=5, cpp_type=1, label=1,
+      name='created', full_name='build.GetResponse.created', index=6,
+      number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='yaml_string', full_name='build.GetResponse.yaml_string', index=6,
-      number=7, type=9, cpp_type=9, label=1,
+      name='yaml_string', full_name='build.GetResponse.yaml_string', index=7,
+      number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='status', full_name='build.GetResponse.status', index=7,
-      number=8, type=11, cpp_type=10, label=1,
+      name='status', full_name='build.GetResponse.status', index=8,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='number', full_name='build.GetResponse.number', index=8,
-      number=9, type=9, cpp_type=9, label=1,
+      name='number', full_name='build.GetResponse.number', index=9,
+      number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -143,8 +151,8 @@ _GETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=185,
-  serialized_end=433,
+  serialized_start=215,
+  serialized_end=499,
 )
 
 
@@ -195,10 +203,11 @@ _GETRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=435,
-  serialized_end=539,
+  serialized_start=501,
+  serialized_end=605,
 )
 
+_GETRESPONSE.fields_by_name['project'].message_type = model_dot_pipeline_dot_project__pb2._PROJECT
 _GETRESPONSE.fields_by_name['pipeline'].message_type = model_dot_pipeline_dot_pipeline__pb2._PIPELINE
 _GETRESPONSE.fields_by_name['stages'].message_type = model_dot_pipeline_dot_stage__status__pb2._STAGESTATUS
 _GETRESPONSE.fields_by_name['git_meta'].message_type = model_dot_pipeline_dot_git__meta__pb2._GITMETA

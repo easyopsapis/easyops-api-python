@@ -4,6 +4,7 @@ package build;
 
 
 
+import "model/pipeline/project.proto";
 import "model/pipeline/pipeline.proto";
 import "model/pipeline/stage_status.proto";
 import "model/pipeline/git_meta.proto";
@@ -39,41 +40,45 @@ message POSTResponse {
 message Data {
 message List {
     /*
+    项目
+    */
+    pipeline.Project project = 1 ;
+    /*
     流水线
     */
-    pipeline.Pipeline pipeline = 1 ;
+    pipeline.Pipeline pipeline = 2 ;
     /*
     stages执行状态
     */
-    repeated pipeline.StageStatus stages = 2 ;
+    repeated pipeline.StageStatus stages = 3 ;
     /*
     任务id, 服务端自动生成
     */
-    string id = 3 ;
+    string id = 4 ;
     /*
     git信息, 创建的时候传入，不能修改
     */
-    pipeline.GitMeta git_meta = 4 ;
+    pipeline.GitMeta git_meta = 5 ;
     /*
     触发者，创建的时候传入，不能修改
     */
-    string sender = 5 ;
+    string sender = 6 ;
     /*
     创建时间，创建的时候传入，不能修改
     */
-    int32 created = 6 ;
+    int32 created = 7 ;
     /*
     workflow定义
     */
-    string yaml_string = 7 ;
+    string yaml_string = 8 ;
     /*
     执行状态
     */
-    pipeline.BuildStatus status = 8 ;
+    pipeline.BuildStatus status = 9 ;
     /*
     编号
     */
-    string number = 9 ;
+    string number = 10 ;
 }
         
     

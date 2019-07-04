@@ -13,13 +13,17 @@ Create请求
 */
 message CreateRequest {
     /*
+    项目id
+    */
+    string project_id = 1 ;
+    /*
     流水线id
     */
-    string pipeline_id = 1 ;
+    string pipeline_id = 2 ;
     /*
     构建任务
     */
-    pipeline.Build build = 2 ;
+    pipeline.Build build = 3 ;
 }
 
 /*

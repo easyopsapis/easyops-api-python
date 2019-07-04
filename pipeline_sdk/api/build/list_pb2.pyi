@@ -24,6 +24,10 @@ from model.pipeline.pipeline_pb2 import (
     Pipeline as model___pipeline___pipeline_pb2___Pipeline,
 )
 
+from model.pipeline.project_pb2 import (
+    Project as model___pipeline___project_pb2___Project,
+)
+
 from model.pipeline.stage_status_pb2 import (
     StageStatus as model___pipeline___stage_status_pb2___StageStatus,
 )
@@ -76,6 +80,9 @@ class POSTResponse(google___protobuf___message___Message):
             number = ... # type: typing___Text
 
             @property
+            def project(self) -> model___pipeline___project_pb2___Project: ...
+
+            @property
             def pipeline(self) -> model___pipeline___pipeline_pb2___Pipeline: ...
 
             @property
@@ -88,6 +95,7 @@ class POSTResponse(google___protobuf___message___Message):
             def status(self) -> model___pipeline___build_status_pb2___BuildStatus: ...
 
             def __init__(self,
+                project : typing___Optional[model___pipeline___project_pb2___Project] = None,
                 pipeline : typing___Optional[model___pipeline___pipeline_pb2___Pipeline] = None,
                 stages : typing___Optional[typing___Iterable[model___pipeline___stage_status_pb2___StageStatus]] = None,
                 id : typing___Optional[typing___Text] = None,
@@ -103,11 +111,11 @@ class POSTResponse(google___protobuf___message___Message):
             def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
             def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
             if sys.version_info >= (3,):
-                def HasField(self, field_name: typing_extensions___Literal[u"git_meta",u"pipeline",u"status"]) -> bool: ...
-                def ClearField(self, field_name: typing_extensions___Literal[u"created",u"git_meta",u"id",u"number",u"pipeline",u"sender",u"stages",u"status",u"yaml_string"]) -> None: ...
+                def HasField(self, field_name: typing_extensions___Literal[u"git_meta",u"pipeline",u"project",u"status"]) -> bool: ...
+                def ClearField(self, field_name: typing_extensions___Literal[u"created",u"git_meta",u"id",u"number",u"pipeline",u"project",u"sender",u"stages",u"status",u"yaml_string"]) -> None: ...
             else:
-                def HasField(self, field_name: typing_extensions___Literal[u"git_meta",b"git_meta",u"pipeline",b"pipeline",u"status",b"status"]) -> bool: ...
-                def ClearField(self, field_name: typing_extensions___Literal[b"created",b"git_meta",b"id",b"number",b"pipeline",b"sender",b"stages",b"status",b"yaml_string"]) -> None: ...
+                def HasField(self, field_name: typing_extensions___Literal[u"git_meta",b"git_meta",u"pipeline",b"pipeline",u"project",b"project",u"status",b"status"]) -> bool: ...
+                def ClearField(self, field_name: typing_extensions___Literal[b"created",b"git_meta",b"id",b"number",b"pipeline",b"project",b"sender",b"stages",b"status",b"yaml_string"]) -> None: ...
 
         total = ... # type: int
         page = ... # type: int

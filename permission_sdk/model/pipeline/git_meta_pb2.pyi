@@ -25,6 +25,9 @@ class GitMeta(google___protobuf___message___Message):
     ref = ... # type: typing___Text
     source = ... # type: typing___Text
     target = ... # type: typing___Text
+    trigger = ... # type: typing___Text
+    action = ... # type: typing___Text
+    link = ... # type: typing___Text
 
     def __init__(self,
         event : typing___Optional[typing___Text] = None,
@@ -37,12 +40,15 @@ class GitMeta(google___protobuf___message___Message):
         ref : typing___Optional[typing___Text] = None,
         source : typing___Optional[typing___Text] = None,
         target : typing___Optional[typing___Text] = None,
+        trigger : typing___Optional[typing___Text] = None,
+        action : typing___Optional[typing___Text] = None,
+        link : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> GitMeta: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"after",u"author_avatar",u"author_email",u"author_name",u"before",u"event",u"message",u"ref",u"source",u"target"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"action",u"after",u"author_avatar",u"author_email",u"author_name",u"before",u"event",u"link",u"message",u"ref",u"source",u"target",u"trigger"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"after",b"author_avatar",b"author_email",b"author_name",b"before",b"event",b"message",b"ref",b"source",b"target"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"action",b"after",b"author_avatar",b"author_email",b"author_name",b"before",b"event",b"link",b"message",b"ref",b"source",b"target",b"trigger"]) -> None: ...

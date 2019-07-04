@@ -1,0 +1,49 @@
+syntax = "proto3";
+package build;
+
+
+
+
+
+/*
+Retry请求
+*/
+message RetryRequest {
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+}
+
+/*
+Retry返回
+*/
+message RetryResponse {
+    /*
+    build id
+    */
+    string id = 1 ;
+}
+
+/*
+RetryApi返回
+*/
+message RetryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    build.RetryResponse data = 4 ;
+}
+

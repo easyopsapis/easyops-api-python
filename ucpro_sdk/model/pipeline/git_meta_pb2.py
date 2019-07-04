@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=_b('ZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipeline'),
-  serialized_pb=_b('\n\x0egit_meta.proto\x12\x08pipeline\"\xb7\x01\n\x07GitMeta\x12\r\n\x05\x65vent\x18\x01 \x01(\t\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\t\x12\r\n\x05\x61\x66ter\x18\x03 \x01(\t\x12\x15\n\rauthor_avatar\x18\x04 \x01(\t\x12\x14\n\x0c\x61uthor_email\x18\x05 \x01(\t\x12\x13\n\x0b\x61uthor_name\x18\x06 \x01(\t\x12\x0f\n\x07message\x18\x07 \x01(\t\x12\x0b\n\x03ref\x18\x08 \x01(\t\x12\x0e\n\x06source\x18\t \x01(\t\x12\x0e\n\x06target\x18\n \x01(\tBDZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
+  serialized_pb=_b('\n\x0egit_meta.proto\x12\x08pipeline\"\xe6\x01\n\x07GitMeta\x12\r\n\x05\x65vent\x18\x01 \x01(\t\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\t\x12\r\n\x05\x61\x66ter\x18\x03 \x01(\t\x12\x15\n\rauthor_avatar\x18\x04 \x01(\t\x12\x14\n\x0c\x61uthor_email\x18\x05 \x01(\t\x12\x13\n\x0b\x61uthor_name\x18\x06 \x01(\t\x12\x0f\n\x07message\x18\x07 \x01(\t\x12\x0b\n\x03ref\x18\x08 \x01(\t\x12\x0e\n\x06source\x18\t \x01(\t\x12\x0e\n\x06target\x18\n \x01(\t\x12\x0f\n\x07trigger\x18\x0b \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x0c \x01(\t\x12\x0c\n\x04link\x18\r \x01(\tBDZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
 )
 
 
@@ -102,6 +102,27 @@ _GITMETA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='trigger', full_name='pipeline.GitMeta.trigger', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='action', full_name='pipeline.GitMeta.action', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='link', full_name='pipeline.GitMeta.link', index=12,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -115,7 +136,7 @@ _GITMETA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=29,
-  serialized_end=212,
+  serialized_end=259,
 )
 
 DESCRIPTOR.message_types_by_name['GitMeta'] = _GITMETA

@@ -35,5 +35,9 @@ message ReleasePackage {
     下载地址
     */
     string downloadUrl = 6 ;
+    /*
+    程序包所属分组
+    */
+    string group = 7 ;
 }
 

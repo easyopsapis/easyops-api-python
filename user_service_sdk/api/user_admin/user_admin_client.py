@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import alter_password_pb2
+
+import google.protobuf.empty_pb2
+
 import user_register_pb2
 
 import utils.http_util
@@ -22,6 +26,46 @@ class UserAdminClient(object):
         self._service_name = service_name
         self._host = host
 
+    
+    def alter_password(self, request, org, user, timeout=10):
+        # type: (alter_password_pb2.AlterPasswordRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        修改密码[内部]
+        :param request: alter_password请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.AlterPassword"
+        uri = "/api/v1/users/alter_password"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
     
     def user_register(self, request, org, user, timeout=10):
         # type: (user_register_pb2.UserRegisterRequest, int, str, int) -> user_register_pb2.UserRegisterResponse
