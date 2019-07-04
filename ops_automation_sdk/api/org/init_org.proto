@@ -7,9 +7,9 @@ package org;
 import "google/protobuf/empty.proto";
 
 /*
-RegisterApi返回
+InitOrgApi返回
 */
-message RegisterResponseWrapper {
+message InitOrgResponseWrapper {
     /*
     返回码
     */

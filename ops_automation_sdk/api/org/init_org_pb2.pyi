@@ -18,7 +18,7 @@ from typing_extensions import (
 )
 
 
-class RegisterResponseWrapper(google___protobuf___message___Message):
+class InitOrgResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int
     codeExplain = ... # type: typing___Text
     error = ... # type: typing___Text
@@ -33,7 +33,7 @@ class RegisterResponseWrapper(google___protobuf___message___Message):
         data : typing___Optional[google___protobuf___empty_pb2___Empty] = None,
         ) -> None: ...
     @classmethod
-    def FromString(cls, s: bytes) -> RegisterResponseWrapper: ...
+    def FromString(cls, s: bytes) -> InitOrgResponseWrapper: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
