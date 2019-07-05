@@ -1,0 +1,27 @@
+syntax = "proto3";
+package msgsender;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/msgsender";
+
+
+
+
+
+/*
+通知的接收者
+*/
+message MessageReceiver {
+    /*
+    用户名
+    */
+    string user = 1 ;
+    /*
+    用户组名
+    */
+    string user_group = 2 ;
+    /*
+    通知方式
+    */
+    string method = 3 ;
+}
+

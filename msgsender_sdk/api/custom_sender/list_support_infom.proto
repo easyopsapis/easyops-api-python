@@ -1,0 +1,30 @@
+syntax = "proto3";
+package custom_sender;
+
+
+
+
+import "model/msgsender/support_inform.proto";
+
+/*
+ListSupportInformApi返回
+*/
+message ListSupportInformResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated msgsender.SupportInform data = 4 ;
+}
+
