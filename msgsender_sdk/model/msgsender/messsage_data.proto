@@ -16,8 +16,12 @@ message MessageData {
     */
     string content = 1 ;
     /*
+    通知标题(邮件通知方式用)
+    */
+    string subject = 2 ;
+    /*
     邮件发送者的邮箱地址
     */
-    string cc_addr = 2 ;
+    string cc_addr = 3 ;
 }
 

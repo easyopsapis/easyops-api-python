@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='msgsender',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/msgsender'),
-  serialized_pb=_b('\n\x13messsage_data.proto\x12\tmsgsender\"/\n\x0bMessageData\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x0f\n\x07\x63\x63_addr\x18\x02 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/msgsenderb\x06proto3')
+  serialized_pb=_b('\n\x13messsage_data.proto\x12\tmsgsender\"@\n\x0bMessageData\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x0f\n\x07subject\x18\x02 \x01(\t\x12\x0f\n\x07\x63\x63_addr\x18\x03 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/msgsenderb\x06proto3')
 )
 
 
@@ -40,8 +40,15 @@ _MESSAGEDATA = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cc_addr', full_name='msgsender.MessageData.cc_addr', index=1,
+      name='subject', full_name='msgsender.MessageData.subject', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cc_addr', full_name='msgsender.MessageData.cc_addr', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -59,7 +66,7 @@ _MESSAGEDATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=34,
-  serialized_end=81,
+  serialized_end=98,
 )
 
 DESCRIPTOR.message_types_by_name['MessageData'] = _MESSAGEDATA
