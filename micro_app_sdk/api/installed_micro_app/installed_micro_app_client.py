@@ -215,7 +215,7 @@ class InstalledMicroAppClient(object):
         uri = "/api/micro_app/v1/installed_micro_app/{app_id}".format(
             app_id=request.app_id,
         )
-        requestParam = request
+        requestParam = request.micro_app
         
         rsp_obj = utils.http_util.do_api_request(
             method="PUT",
