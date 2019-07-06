@@ -4,6 +4,12 @@ import alter_password_pb2
 
 import google.protobuf.empty_pb2
 
+import alter_self_password_pb2
+
+import forgot_password_pb2
+
+import reset_password_pb2
+
 import user_register_pb2
 
 import utils.http_util
@@ -45,6 +51,126 @@ class UserAdminClient(object):
         elif self._server_ip != "":
             route_name = "easyops.api.user_service.user_admin.AlterPassword"
         uri = "/api/v1/users/alter_password"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def alter_self_password(self, request, org, user, timeout=10):
+        # type: (alter_self_password_pb2.AlterSelfPasswordRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        修改自己密码
+        :param request: alter_self_password请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.AlterSelfPassword"
+        uri = "/api/v1/users/password"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def forgot_password(self, request, org, user, timeout=10):
+        # type: (forgot_password_pb2.ForgotPasswordRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        用户忘记密码
+        :param request: forgot_password请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.ForgotPassword"
+        uri = "/api/v1/users/password/forgot"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def reset_password(self, request, org, user, timeout=10):
+        # type: (reset_password_pb2.ResetPasswordRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        用户重置密码
+        :param request: reset_password请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.ResetPassword"
+        uri = "/api/v1/users/password/reset"
         
         requestParam = request
         
