@@ -37,10 +37,12 @@ class InstalledMicroApp(google___protobuf___message___Message):
 
     name = ... # type: typing___Text
     appId = ... # type: typing___Text
-    storyboard = ... # type: typing___Text
+    storyboardJson = ... # type: typing___Text
     tags = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     currentVersion = ... # type: typing___Text
     installStatus = ... # type: typing___Text
+    homepage = ... # type: typing___Text
+    internal = ... # type: typing___Text
 
     @property
     def icons(self) -> InstalledMicroApp.Icons: ...
@@ -49,10 +51,12 @@ class InstalledMicroApp(google___protobuf___message___Message):
         name : typing___Optional[typing___Text] = None,
         appId : typing___Optional[typing___Text] = None,
         icons : typing___Optional[InstalledMicroApp.Icons] = None,
-        storyboard : typing___Optional[typing___Text] = None,
+        storyboardJson : typing___Optional[typing___Text] = None,
         tags : typing___Optional[typing___Iterable[typing___Text]] = None,
         currentVersion : typing___Optional[typing___Text] = None,
         installStatus : typing___Optional[typing___Text] = None,
+        homepage : typing___Optional[typing___Text] = None,
+        internal : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> InstalledMicroApp: ...
@@ -60,7 +64,7 @@ class InstalledMicroApp(google___protobuf___message___Message):
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
         def HasField(self, field_name: typing_extensions___Literal[u"icons"]) -> bool: ...
-        def ClearField(self, field_name: typing_extensions___Literal[u"appId",u"currentVersion",u"icons",u"installStatus",u"name",u"storyboard",u"tags"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"appId",u"currentVersion",u"homepage",u"icons",u"installStatus",u"internal",u"name",u"storyboardJson",u"tags"]) -> None: ...
     else:
         def HasField(self, field_name: typing_extensions___Literal[u"icons",b"icons"]) -> bool: ...
-        def ClearField(self, field_name: typing_extensions___Literal[b"appId",b"currentVersion",b"icons",b"installStatus",b"name",b"storyboard",b"tags"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"appId",b"currentVersion",b"homepage",b"icons",b"installStatus",b"internal",b"name",b"storyboardJson",b"tags"]) -> None: ...

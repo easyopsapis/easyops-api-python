@@ -32,9 +32,9 @@ message Icons {
     */
     Icons icons = 3 ;
     /*
-    storyboard内容
+    小产品配置
     */
-    string storyboard = 4 ;
+    string storyboardJson = 4 ;
     /*
     标签
     */
@@ -47,5 +47,13 @@ message Icons {
     安装状态， ok-成功, running-正在安装
     */
     string installStatus = 7 ;
+    /*
+    首页
+    */
+    string homepage = 8 ;
+    /*
+    内部应用, true or false
+    */
+    string internal = 9 ;
 }
 

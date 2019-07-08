@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='micro_app',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/micro_app'),
-  serialized_pb=_b('\n\x19installed_micro_app.proto\x12\tmicro_app\"\xcc\x01\n\x11InstalledMicroApp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x61ppId\x18\x02 \x01(\t\x12\x31\n\x05icons\x18\x03 \x01(\x0b\x32\".micro_app.InstalledMicroApp.Icons\x12\x12\n\nstoryboard\x18\x04 \x01(\t\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12\x16\n\x0e\x63urrentVersion\x18\x06 \x01(\t\x12\x15\n\rinstallStatus\x18\x07 \x01(\t\x1a\x16\n\x05Icons\x12\r\n\x05large\x18\x01 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/micro_appb\x06proto3')
+  serialized_pb=_b('\n\x19installed_micro_app.proto\x12\tmicro_app\"\xf4\x01\n\x11InstalledMicroApp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x61ppId\x18\x02 \x01(\t\x12\x31\n\x05icons\x18\x03 \x01(\x0b\x32\".micro_app.InstalledMicroApp.Icons\x12\x16\n\x0estoryboardJson\x18\x04 \x01(\t\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12\x16\n\x0e\x63urrentVersion\x18\x06 \x01(\t\x12\x15\n\rinstallStatus\x18\x07 \x01(\t\x12\x10\n\x08homepage\x18\x08 \x01(\t\x12\x10\n\x08internal\x18\t \x01(\t\x1a\x16\n\x05Icons\x12\r\n\x05large\x18\x01 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/micro_appb\x06proto3')
 )
 
 
@@ -51,8 +51,8 @@ _INSTALLEDMICROAPP_ICONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=223,
-  serialized_end=245,
+  serialized_start=263,
+  serialized_end=285,
 )
 
 _INSTALLEDMICROAPP = _descriptor.Descriptor(
@@ -84,7 +84,7 @@ _INSTALLEDMICROAPP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='storyboard', full_name='micro_app.InstalledMicroApp.storyboard', index=3,
+      name='storyboardJson', full_name='micro_app.InstalledMicroApp.storyboardJson', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -111,6 +111,20 @@ _INSTALLEDMICROAPP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='homepage', full_name='micro_app.InstalledMicroApp.homepage', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='internal', full_name='micro_app.InstalledMicroApp.internal', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -124,7 +138,7 @@ _INSTALLEDMICROAPP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=41,
-  serialized_end=245,
+  serialized_end=285,
 )
 
 _INSTALLEDMICROAPP_ICONS.containing_type = _INSTALLEDMICROAPP
