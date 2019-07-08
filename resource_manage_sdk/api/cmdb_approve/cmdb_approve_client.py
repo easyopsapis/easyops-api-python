@@ -8,6 +8,10 @@ import get_history_approver_list_pb2
 
 import get_history_object_list_pb2
 
+import instance_relation_edit_pb2
+
+import google.protobuf.empty_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -186,6 +190,49 @@ class CmdbApproveClient(object):
         rsp = get_history_object_list_pb2.GetHistoryObjectListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def instance_relation_edit(self, request, org, user, timeout=10):
+        # type: (instance_relation_edit_pb2.InstanceRelationEditRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        实例关系变更
+        :param request: instance_relation_edit请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.cmdb_approve.InstanceRelationEdit"
+        uri = "/object/{object_id}/relation/{relation_side_id}/{operation}".format(
+            object_id=request.object_id,
+            relation_side_id=request.relation_side_id,
+            operation=request.operation,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

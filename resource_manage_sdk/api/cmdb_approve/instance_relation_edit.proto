@@ -1,0 +1,56 @@
+syntax = "proto3";
+package cmdb_approve;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+InstanceRelationEdit请求
+*/
+message InstanceRelationEditRequest {
+    /*
+    模型id
+    */
+    string object_id = 1 ;
+    /*
+    关系sideId
+    */
+    string relation_side_id = 2 ;
+    /*
+    操作类型
+    */
+    string operation = 3 ;
+    /*
+    模型的实例ID列表
+    */
+    repeated string instance_ids = 4 ;
+    /*
+    关联的实例ID列表
+    */
+    repeated string related_instance_ids = 5 ;
+}
+
+/*
+InstanceRelationEditApi返回
+*/
+message InstanceRelationEditResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+
