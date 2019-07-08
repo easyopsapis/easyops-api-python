@@ -56,7 +56,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.CreateMenu"
-        uri = "/menus"
+        uri = "/api/ops_automation/v1/menus"
         
         requestParam = request
         
@@ -96,7 +96,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.CreateMenuTree"
-        uri = "/menuTree"
+        uri = "/api/ops_automation/v1/menuTree"
         
         requestParam = request
         
@@ -136,7 +136,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.DeleteMenu"
-        uri = "/menus/{menusId}".format(
+        uri = "/api/ops_automation/v1/menus/{menusId}".format(
             menusId=request.menusId,
         )
         requestParam = request
@@ -177,7 +177,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.GetMenu"
-        uri = "/menus/{menusId}".format(
+        uri = "/api/ops_automation/v1/menus/{menusId}".format(
             menusId=request.menusId,
         )
         requestParam = request
@@ -218,7 +218,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.GetMenuTree"
-        uri = "/menuTree"
+        uri = "/api/ops_automation/v1/menuTree"
         
         requestParam = request
         
@@ -258,7 +258,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.ListMenus"
-        uri = "/menus"
+        uri = "/api/ops_automation/v1/menus"
         
         requestParam = request
         
@@ -298,7 +298,7 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.UpdateMenu"
-        uri = "/menus/{menusId}".format(
+        uri = "/api/ops_automation/v1/menus/{menusId}".format(
             menusId=request.menusId,
         )
         requestParam = request

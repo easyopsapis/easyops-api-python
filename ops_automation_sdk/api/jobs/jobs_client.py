@@ -56,7 +56,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.CreateJobsExcution"
-        uri = "/jobs/execution"
+        uri = "/api/ops_automation/v1/jobs/execution"
         
         requestParam = request
         
@@ -96,7 +96,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.CreateJobs"
-        uri = "/jobs"
+        uri = "/api/ops_automation/v1/jobs"
         
         requestParam = request
         
@@ -136,7 +136,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.DeleteJobs"
-        uri = "/jobs/{jobId}".format(
+        uri = "/api/ops_automation/v1/jobs/{jobId}".format(
             jobId=request.jobId,
         )
         requestParam = request
@@ -177,7 +177,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.GetJobs"
-        uri = "/jobs/{jobId}".format(
+        uri = "/api/ops_automation/v1/jobs/{jobId}".format(
             jobId=request.jobId,
         )
         requestParam = request
@@ -218,7 +218,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.GetJobChangeLog"
-        uri = "/jobs/@jobId/changeLog"
+        uri = "/api/ops_automation/v1/jobs/@jobId/changeLog"
         
         requestParam = request
         
@@ -258,7 +258,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.ListJobs"
-        uri = "/jobs"
+        uri = "/api/ops_automation/v1/jobs"
         
         requestParam = request
         
@@ -298,7 +298,7 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.UpdateJobs"
-        uri = "/jobs/{jobId}".format(
+        uri = "/api/ops_automation/v1/jobs/{jobId}".format(
             jobId=request.jobId,
         )
         requestParam = request
