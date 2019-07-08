@@ -2,6 +2,8 @@
 
 import create_service_task_pb2
 
+import create_service_topology_task_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -58,6 +60,46 @@ class ServiceManageClient(object):
             timeout=timeout,
         )
         rsp = create_service_task_pb2.CreateServiceTaskResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def create_service_topology_task(self, request, org, user, timeout=10):
+        # type: (create_service_topology_task_pb2.CreateServiceTopologyTaskRequest, int, str, int) -> create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
+        """
+        创建服务拓扑任务
+        :param request: create_service_topology_task请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.service_manage.CreateServiceTopologyTask"
+        uri = "/api/v2/service/task/topology"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = create_service_topology_task_pb2.CreateServiceTopologyTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
