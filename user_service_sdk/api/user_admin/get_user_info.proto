@@ -1,0 +1,40 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetUserInfo请求
+*/
+message GetUserInfoRequest {
+    /*
+    用户名
+    */
+    string username = 1 ;
+}
+
+/*
+GetUserInfoApi返回
+*/
+message GetUserInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

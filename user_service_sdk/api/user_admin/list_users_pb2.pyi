@@ -25,11 +25,13 @@ from typing_extensions import (
 
 class ListUsersInfoRequest(google___protobuf___message___Message):
     state = ... # type: typing___Text
+    name = ... # type: typing___Text
     page = ... # type: int
     pageSize = ... # type: int
 
     def __init__(self,
         state : typing___Optional[typing___Text] = None,
+        name : typing___Optional[typing___Text] = None,
         page : typing___Optional[int] = None,
         pageSize : typing___Optional[int] = None,
         ) -> None: ...
@@ -38,9 +40,9 @@ class ListUsersInfoRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"page",u"pageSize",u"state"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"name",u"page",u"pageSize",u"state"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"page",b"pageSize",b"state"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"name",b"page",b"pageSize",b"state"]) -> None: ...
 
 class ListUsersInfoResponse(google___protobuf___message___Message):
     page = ... # type: int

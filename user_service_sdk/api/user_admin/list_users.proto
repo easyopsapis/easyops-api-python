@@ -15,13 +15,17 @@ message ListUsersInfoRequest {
     */
     string state = 1 ;
     /*
+    查询的name列表,使用逗号分隔
+    */
+    string name = 2 ;
+    /*
     页码
     */
-    int32 page = 2 ;
+    int32 page = 3 ;
     /*
     页大小
     */
-    int32 pageSize = 3 ;
+    int32 pageSize = 4 ;
 }
 
 /*
