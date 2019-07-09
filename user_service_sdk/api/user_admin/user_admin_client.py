@@ -12,7 +12,9 @@ import list_groups_id_name_pb2
 
 import google.protobuf.struct_pb2
 
-import list_user_id_nick_pb2
+import list_users_pb2
+
+import list_users_id_nick_pb2
 
 import reset_password_pb2
 
@@ -199,8 +201,48 @@ class UserAdminClient(object):
         
         return rsp
     
+    def list_users_info(self, request, org, user, timeout=10):
+        # type: (list_users_pb2.ListUsersInfoRequest, int, str, int) -> list_users_pb2.ListUsersInfoResponse
+        """
+        获取用户信息列表
+        :param request: list_users_info请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: list_users_pb2.ListUsersInfoResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.ListUsersInfo"
+        uri = "/api/v1/users"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = list_users_pb2.ListUsersInfoResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def list_users_id_nick(self, request, org, user, timeout=10):
-        # type: (list_user_id_nick_pb2.ListUsersIdNickRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (list_users_id_nick_pb2.ListUsersIdNickRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取用户name与昵称映射
         :param request: list_users_id_nick请求
