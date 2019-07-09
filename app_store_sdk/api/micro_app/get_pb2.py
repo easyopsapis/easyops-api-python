@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='micro_app',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\tmicro_app\x1a!model/app_store/app_version.proto\",\n\x1aGetAppStoreMicroAppRequest\x12\x0e\n\x06\x61pp_id\x18\x01 \x01(\t\"\xa9\x01\n\x1bGetAppStoreMicroAppResponse\x12-\n\x0e\x63urrentVersion\x18\x01 \x01(\x0b\x32\x15.app_store.AppVersion\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\r\n\x05intro\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\"\x8c\x01\n\"GetAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.micro_app.GetAppStoreMicroAppResponseb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\tmicro_app\x1a!model/app_store/app_version.proto\",\n\x1aGetAppStoreMicroAppRequest\x12\x0e\n\x06\x61pp_id\x18\x01 \x01(\t\"\x82\x02\n\x1bGetAppStoreMicroAppResponse\x12-\n\x0e\x63urrentVersion\x18\x01 \x01(\x0b\x32\x15.app_store.AppVersion\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12;\n\x05icons\x18\x04 \x01(\x0b\x32,.micro_app.GetAppStoreMicroAppResponse.Icons\x12\r\n\x05intro\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\x12\x10\n\x08homepage\x18\x08 \x01(\t\x1a\x16\n\x05Icons\x12\r\n\x05large\x18\x01 \x01(\t\"\x8c\x01\n\"GetAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.micro_app.GetAppStoreMicroAppResponseb\x06proto3')
   ,
   dependencies=[model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,])
 
@@ -58,6 +58,36 @@ _GETAPPSTOREMICROAPPREQUEST = _descriptor.Descriptor(
 )
 
 
+_GETAPPSTOREMICROAPPRESPONSE_ICONS = _descriptor.Descriptor(
+  name='Icons',
+  full_name='micro_app.GetAppStoreMicroAppResponse.Icons',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='large', full_name='micro_app.GetAppStoreMicroAppResponse.Icons.large', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=342,
+  serialized_end=364,
+)
+
 _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   name='GetAppStoreMicroAppResponse',
   full_name='micro_app.GetAppStoreMicroAppResponse',
@@ -87,9 +117,9 @@ _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='icon', full_name='micro_app.GetAppStoreMicroAppResponse.icon', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='icons', full_name='micro_app.GetAppStoreMicroAppResponse.icons', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -114,10 +144,17 @@ _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='homepage', full_name='micro_app.GetAppStoreMicroAppResponse.homepage', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_GETAPPSTOREMICROAPPRESPONSE_ICONS, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -127,7 +164,7 @@ _GETAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=106,
-  serialized_end=275,
+  serialized_end=364,
 )
 
 
@@ -178,11 +215,13 @@ _GETAPPSTOREMICROAPPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=278,
-  serialized_end=418,
+  serialized_start=367,
+  serialized_end=507,
 )
 
+_GETAPPSTOREMICROAPPRESPONSE_ICONS.containing_type = _GETAPPSTOREMICROAPPRESPONSE
 _GETAPPSTOREMICROAPPRESPONSE.fields_by_name['currentVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
+_GETAPPSTOREMICROAPPRESPONSE.fields_by_name['icons'].message_type = _GETAPPSTOREMICROAPPRESPONSE_ICONS
 _GETAPPSTOREMICROAPPRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETAPPSTOREMICROAPPRESPONSE
 DESCRIPTOR.message_types_by_name['GetAppStoreMicroAppRequest'] = _GETAPPSTOREMICROAPPREQUEST
 DESCRIPTOR.message_types_by_name['GetAppStoreMicroAppResponse'] = _GETAPPSTOREMICROAPPRESPONSE
@@ -197,11 +236,19 @@ GetAppStoreMicroAppRequest = _reflection.GeneratedProtocolMessageType('GetAppSto
 _sym_db.RegisterMessage(GetAppStoreMicroAppRequest)
 
 GetAppStoreMicroAppResponse = _reflection.GeneratedProtocolMessageType('GetAppStoreMicroAppResponse', (_message.Message,), dict(
+
+  Icons = _reflection.GeneratedProtocolMessageType('Icons', (_message.Message,), dict(
+    DESCRIPTOR = _GETAPPSTOREMICROAPPRESPONSE_ICONS,
+    __module__ = 'get_pb2'
+    # @@protoc_insertion_point(class_scope:micro_app.GetAppStoreMicroAppResponse.Icons)
+    ))
+  ,
   DESCRIPTOR = _GETAPPSTOREMICROAPPRESPONSE,
   __module__ = 'get_pb2'
   # @@protoc_insertion_point(class_scope:micro_app.GetAppStoreMicroAppResponse)
   ))
 _sym_db.RegisterMessage(GetAppStoreMicroAppResponse)
+_sym_db.RegisterMessage(GetAppStoreMicroAppResponse.Icons)
 
 GetAppStoreMicroAppResponseWrapper = _reflection.GeneratedProtocolMessageType('GetAppStoreMicroAppResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETAPPSTOREMICROAPPRESPONSEWRAPPER,

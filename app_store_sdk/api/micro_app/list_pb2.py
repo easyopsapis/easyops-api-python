@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='micro_app',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\tmicro_app\x1a!model/app_store/app_version.proto\"\xef\x01\n\x1bListAppStoreMicroAppRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12;\n\x05query\x18\x03 \x01(\x0b\x32,.micro_app.ListAppStoreMicroAppRequest.Query\x12\x39\n\x04sort\x18\x04 \x01(\x0b\x32+.micro_app.ListAppStoreMicroAppRequest.Sort\x1a!\n\x05Query\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x03(\t\x1a\x14\n\x04Sort\x12\x0c\n\x04name\x18\x01 \x01(\x05\"\x9f\x02\n\x1cListAppStoreMicroAppResponse\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12:\n\x04list\x18\x04 \x03(\x0b\x32,.micro_app.ListAppStoreMicroAppResponse.List\x1a\x92\x01\n\x04List\x12-\n\x0e\x63urrentVersion\x18\x01 \x01(\x0b\x32\x15.app_store.AppVersion\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\r\n\x05intro\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\"\x8e\x01\n#ListAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x35\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\'.micro_app.ListAppStoreMicroAppResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\tmicro_app\x1a!model/app_store/app_version.proto\"\xef\x01\n\x1bListAppStoreMicroAppRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12;\n\x05query\x18\x03 \x01(\x0b\x32,.micro_app.ListAppStoreMicroAppRequest.Query\x12\x39\n\x04sort\x18\x04 \x01(\x0b\x32+.micro_app.ListAppStoreMicroAppRequest.Sort\x1a!\n\x05Query\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x03(\t\x1a\x14\n\x04Sort\x12\x0c\n\x04name\x18\x01 \x01(\x05\"\xfe\x02\n\x1cListAppStoreMicroAppResponse\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12:\n\x04list\x18\x04 \x03(\x0b\x32,.micro_app.ListAppStoreMicroAppResponse.List\x1a\xf1\x01\n\x04List\x12-\n\x0e\x63urrentVersion\x18\x01 \x01(\x0b\x32\x15.app_store.AppVersion\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\n\n\x02id\x18\x03 \x01(\t\x12\x41\n\x05icons\x18\x04 \x01(\x0b\x32\x32.micro_app.ListAppStoreMicroAppResponse.List.Icons\x12\r\n\x05intro\x18\x05 \x01(\t\x12\x0f\n\x07preview\x18\x06 \x03(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\x12\x10\n\x08homepage\x18\x08 \x01(\t\x1a\x16\n\x05Icons\x12\r\n\x05large\x18\x01 \x01(\t\"\x8e\x01\n#ListAppStoreMicroAppResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x35\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\'.micro_app.ListAppStoreMicroAppResponseb\x06proto3')
   ,
   dependencies=[model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,])
 
@@ -146,6 +146,36 @@ _LISTAPPSTOREMICROAPPREQUEST = _descriptor.Descriptor(
 )
 
 
+_LISTAPPSTOREMICROAPPRESPONSE_LIST_ICONS = _descriptor.Descriptor(
+  name='Icons',
+  full_name='micro_app.ListAppStoreMicroAppResponse.List.Icons',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='large', full_name='micro_app.ListAppStoreMicroAppResponse.List.Icons.large', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=663,
+  serialized_end=685,
+)
+
 _LISTAPPSTOREMICROAPPRESPONSE_LIST = _descriptor.Descriptor(
   name='List',
   full_name='micro_app.ListAppStoreMicroAppResponse.List',
@@ -175,9 +205,9 @@ _LISTAPPSTOREMICROAPPRESPONSE_LIST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='icon', full_name='micro_app.ListAppStoreMicroAppResponse.List.icon', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='icons', full_name='micro_app.ListAppStoreMicroAppResponse.List.icons', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -202,10 +232,17 @@ _LISTAPPSTOREMICROAPPRESPONSE_LIST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='homepage', full_name='micro_app.ListAppStoreMicroAppResponse.List.homepage', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_LISTAPPSTOREMICROAPPRESPONSE_LIST_ICONS, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -215,7 +252,7 @@ _LISTAPPSTOREMICROAPPRESPONSE_LIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=444,
-  serialized_end=590,
+  serialized_end=685,
 )
 
 _LISTAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
@@ -266,7 +303,7 @@ _LISTAPPSTOREMICROAPPRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=303,
-  serialized_end=590,
+  serialized_end=685,
 )
 
 
@@ -317,15 +354,17 @@ _LISTAPPSTOREMICROAPPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=593,
-  serialized_end=735,
+  serialized_start=688,
+  serialized_end=830,
 )
 
 _LISTAPPSTOREMICROAPPREQUEST_QUERY.containing_type = _LISTAPPSTOREMICROAPPREQUEST
 _LISTAPPSTOREMICROAPPREQUEST_SORT.containing_type = _LISTAPPSTOREMICROAPPREQUEST
 _LISTAPPSTOREMICROAPPREQUEST.fields_by_name['query'].message_type = _LISTAPPSTOREMICROAPPREQUEST_QUERY
 _LISTAPPSTOREMICROAPPREQUEST.fields_by_name['sort'].message_type = _LISTAPPSTOREMICROAPPREQUEST_SORT
+_LISTAPPSTOREMICROAPPRESPONSE_LIST_ICONS.containing_type = _LISTAPPSTOREMICROAPPRESPONSE_LIST
 _LISTAPPSTOREMICROAPPRESPONSE_LIST.fields_by_name['currentVersion'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
+_LISTAPPSTOREMICROAPPRESPONSE_LIST.fields_by_name['icons'].message_type = _LISTAPPSTOREMICROAPPRESPONSE_LIST_ICONS
 _LISTAPPSTOREMICROAPPRESPONSE_LIST.containing_type = _LISTAPPSTOREMICROAPPRESPONSE
 _LISTAPPSTOREMICROAPPRESPONSE.fields_by_name['list'].message_type = _LISTAPPSTOREMICROAPPRESPONSE_LIST
 _LISTAPPSTOREMICROAPPRESPONSEWRAPPER.fields_by_name['data'].message_type = _LISTAPPSTOREMICROAPPRESPONSE
@@ -360,6 +399,13 @@ _sym_db.RegisterMessage(ListAppStoreMicroAppRequest.Sort)
 ListAppStoreMicroAppResponse = _reflection.GeneratedProtocolMessageType('ListAppStoreMicroAppResponse', (_message.Message,), dict(
 
   List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
+
+    Icons = _reflection.GeneratedProtocolMessageType('Icons', (_message.Message,), dict(
+      DESCRIPTOR = _LISTAPPSTOREMICROAPPRESPONSE_LIST_ICONS,
+      __module__ = 'list_pb2'
+      # @@protoc_insertion_point(class_scope:micro_app.ListAppStoreMicroAppResponse.List.Icons)
+      ))
+    ,
     DESCRIPTOR = _LISTAPPSTOREMICROAPPRESPONSE_LIST,
     __module__ = 'list_pb2'
     # @@protoc_insertion_point(class_scope:micro_app.ListAppStoreMicroAppResponse.List)
@@ -371,6 +417,7 @@ ListAppStoreMicroAppResponse = _reflection.GeneratedProtocolMessageType('ListApp
   ))
 _sym_db.RegisterMessage(ListAppStoreMicroAppResponse)
 _sym_db.RegisterMessage(ListAppStoreMicroAppResponse.List)
+_sym_db.RegisterMessage(ListAppStoreMicroAppResponse.List.Icons)
 
 ListAppStoreMicroAppResponseWrapper = _reflection.GeneratedProtocolMessageType('ListAppStoreMicroAppResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _LISTAPPSTOREMICROAPPRESPONSEWRAPPER,

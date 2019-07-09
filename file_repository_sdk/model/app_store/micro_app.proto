@@ -11,6 +11,14 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/a
 小产品包
 */
 message AppStoreMicroApp {
+message Icons {
+    /*
+    图标url
+    */
+    string large = 1 ;
+}
+        
+    
     /*
     小产品名称
     */
@@ -22,7 +30,7 @@ message AppStoreMicroApp {
     /*
     图标url
     */
-    string icon = 3 ;
+    Icons icons = 3 ;
     /*
     小产品概要介绍
     */
@@ -35,5 +43,9 @@ message AppStoreMicroApp {
     功能详细介绍
     */
     string description = 6 ;
+    /*
+    首页路径
+    */
+    string homepage = 7 ;
 }
 

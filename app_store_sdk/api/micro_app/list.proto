@@ -52,6 +52,14 @@ ListAppStoreMicroApp返回
 */
 message ListAppStoreMicroAppResponse {
 message List {
+message Icons {
+    /*
+    图标url
+    */
+    string large = 1 ;
+}
+        
+    
     /*
     当前版本
     */
@@ -67,7 +75,7 @@ message List {
     /*
     图标url
     */
-    string icon = 4 ;
+    Icons icons = 4 ;
     /*
     小产品概要介绍
     */
@@ -80,6 +88,10 @@ message List {
     功能详细介绍
     */
     string description = 7 ;
+    /*
+    首页路径
+    */
+    string homepage = 8 ;
 }
         
     

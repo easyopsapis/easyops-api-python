@@ -48,12 +48,16 @@ message Icons {
     */
     string installStatus = 7 ;
     /*
-    首页
+    小产品首页
     */
     string homepage = 8 ;
     /*
-    内部应用, true or false
+    表示该应用是内部的，不出现在 launchpad 和 app store 中
     */
     string internal = 9 ;
+    /*
+    私有安装应用, true or false
+    */
+    string private = 10 ;
 }
 
