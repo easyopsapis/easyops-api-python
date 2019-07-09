@@ -30,7 +30,7 @@ class OplogClient(object):
     def create_operation_log(self, request, org, user, timeout=10):
         # type: (model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> create_operation_log_pb2.CreateOperationLogResponse
         """
-        获取通知日志信息
+        创建通知日志信息
         :param request: create_operation_log请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
