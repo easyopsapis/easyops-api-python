@@ -8,6 +8,12 @@ import alter_self_password_pb2
 
 import forgot_password_pb2
 
+import list_groups_id_name_pb2
+
+import google.protobuf.struct_pb2
+
+import list_user_id_nick_pb2
+
 import reset_password_pb2
 
 import user_register_pb2
@@ -150,6 +156,86 @@ class UserAdminClient(object):
         rsp = google.protobuf.empty_pb2.Empty()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_groups_id_name(self, request, org, user, timeout=10):
+        # type: (list_groups_id_name_pb2.ListGroupsIdNameRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        """
+        获取用户Id与name映射
+        :param request: list_groups_id_name请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.struct_pb2.Struct
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.ListGroupsIdName"
+        uri = "/api/v1/groups/id_map_name"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.struct_pb2.Struct()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_users_id_nick(self, request, org, user, timeout=10):
+        # type: (list_user_id_nick_pb2.ListUsersIdNickRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        """
+        获取用户name与昵称映射
+        :param request: list_users_id_nick请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.struct_pb2.Struct
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.ListUsersIdNick"
+        uri = "/api/v1/users/id_map_nickname"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.struct_pb2.Struct()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
