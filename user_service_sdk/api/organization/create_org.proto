@@ -25,6 +25,10 @@ message CreateOrgRequest {
     备注
     */
     string memo = 4 ;
+    /*
+    是否是社区版
+    */
+    bool is_community = 5 ;
 }
 
 /*
