@@ -23,11 +23,11 @@ class OrgClient(object):
         self._host = host
 
     
-    def register(self, request, org, user, timeout=10):
+    def register_org(self, request, org, user, timeout=10):
         # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         org注册
-        :param request: register请求
+        :param request: register_org请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
@@ -39,7 +39,7 @@ class OrgClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.ucpro.org.Register"
+            route_name = "easyops.api.ucpro.org.RegisterOrg"
         uri = "/api/v1/org/register"
         
         requestParam = request
