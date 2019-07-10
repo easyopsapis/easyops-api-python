@@ -4,6 +4,8 @@ import api.business_instance.business_instance_client
 
 import api.cmdb_object.cmdb_object_client
 
+import api.initialization.initialization_client
+
 import api.instance.instance_client
 
 import api.instance_graph.instance_graph_client
@@ -20,6 +22,8 @@ class Client(object):
         self.business_instance = api.business_instance.business_instance_client.BusinessInstanceClient(server_ip, server_port, service_name)
         
         self.cmdb_object = api.cmdb_object.cmdb_object_client.CmdbObjectClient(server_ip, server_port, service_name)
+        
+        self.initialization = api.initialization.initialization_client.InitializationClient(server_ip, server_port, service_name)
         
         self.instance = api.instance.instance_client.InstanceClient(server_ip, server_port, service_name)
         
