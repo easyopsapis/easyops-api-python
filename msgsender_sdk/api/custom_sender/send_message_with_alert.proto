@@ -4,8 +4,25 @@ package custom_sender;
 
 
 
-import "model/msgsender/send_message_response.proto";
 import "google/protobuf/struct.proto";
+
+/*
+SendMessageForAlert返回
+*/
+message SendMessageForAlertResponse {
+    /*
+    请求结果数据 e.g.: {"email": ["test@qq.com"], "phone": ["test@qq.com"]}
+    */
+    google.protobuf.Struct data = 1 ;
+    /*
+    请求错误信息
+    */
+    string msg = 2 ;
+    /*
+    请求返回码
+    */
+    int32 code = 3 ;
+}
 
 /*
 SendMessageForAlertApi返回
@@ -26,6 +43,6 @@ message SendMessageForAlertResponseWrapper {
     /*
     返回数据
     */
-    msgsender.SendMessageResponse data = 4 ;
+    custom_sender.SendMessageForAlertResponse data = 4 ;
 }
 

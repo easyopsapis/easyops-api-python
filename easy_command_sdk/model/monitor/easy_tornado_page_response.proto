@@ -1,0 +1,35 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+
+/*
+easy_tornado 返回通用页码字段
+*/
+message EasyTornadoCommonPageResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页记录数
+    */
+    int32 page_size = 2 ;
+    /*
+    记录总数
+    */
+    int32 tatal = 3 ;
+    /*
+    请求错误信息
+    */
+    string msg = 4 ;
+    /*
+    请求返回码
+    */
+    int32 code = 5 ;
+}
+

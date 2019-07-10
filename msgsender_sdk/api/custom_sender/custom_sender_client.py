@@ -2,15 +2,19 @@
 
 import google.protobuf.empty_pb2
 
-import model.msgsender.support_inform_pb2
+import list_support_infom_pb2
 
 import model.msgsender.send_message_request_pb2
 
-import model.msgsender.send_message_response_pb2
+import send_message_pb2
 
 import model.msgsender.send_message_for_alert_request_pb2
 
+import send_message_with_alert_pb2
+
 import model.msgsender.send_message_with_appendix_request_pb2
+
+import send_message_with_appendix_pb2
 
 import utils.http_util
 import google.protobuf.json_format
@@ -34,14 +38,14 @@ class CustomSenderClient(object):
 
     
     def list_support_inform(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> model.msgsender.support_inform_pb2.SupportInform
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_support_infom_pb2.ListSupportInformResponse
         """
         获取消息通道目前支持的通知方式
         :param request: list_support_inform请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.msgsender.support_inform_pb2.SupportInform
+        :return: list_support_infom_pb2.ListSupportInformResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -67,21 +71,21 @@ class CustomSenderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.msgsender.support_inform_pb2.SupportInform()
+        rsp = list_support_infom_pb2.ListSupportInformResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def send_message(self, request, org, user, timeout=10):
-        # type: (model.msgsender.send_message_request_pb2.SendMessageRequest, int, str, int) -> model.msgsender.send_message_response_pb2.SendMessageResponse
+        # type: (model.msgsender.send_message_request_pb2.SendMessageRequest, int, str, int) -> send_message_pb2.SendMessageResponse
         """
         发送通知消息
         :param request: send_message请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.msgsender.send_message_response_pb2.SendMessageResponse
+        :return: send_message_pb2.SendMessageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -107,21 +111,21 @@ class CustomSenderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.msgsender.send_message_response_pb2.SendMessageResponse()
+        rsp = send_message_pb2.SendMessageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def send_message_for_alert(self, request, org, user, timeout=10):
-        # type: (model.msgsender.send_message_for_alert_request_pb2.SendMessageForAlertRequest, int, str, int) -> model.msgsender.send_message_response_pb2.SendMessageResponse
+        # type: (model.msgsender.send_message_for_alert_request_pb2.SendMessageForAlertRequest, int, str, int) -> send_message_with_alert_pb2.SendMessageForAlertResponse
         """
         处理告警通知消息
         :param request: send_message_for_alert请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.msgsender.send_message_response_pb2.SendMessageResponse
+        :return: send_message_with_alert_pb2.SendMessageForAlertResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -147,21 +151,21 @@ class CustomSenderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.msgsender.send_message_response_pb2.SendMessageResponse()
+        rsp = send_message_with_alert_pb2.SendMessageForAlertResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def send_message_with_appendix(self, request, org, user, timeout=10):
-        # type: (model.msgsender.send_message_with_appendix_request_pb2.SendMessageWithAppendixRequest, int, str, int) -> model.msgsender.send_message_response_pb2.SendMessageResponse
+        # type: (model.msgsender.send_message_with_appendix_request_pb2.SendMessageWithAppendixRequest, int, str, int) -> send_message_with_appendix_pb2.SendMessageWithAppendixResponse
         """
         处理带附件的通知消息
         :param request: send_message_with_appendix请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.msgsender.send_message_response_pb2.SendMessageResponse
+        :return: send_message_with_appendix_pb2.SendMessageWithAppendixResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -187,7 +191,7 @@ class CustomSenderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.msgsender.send_message_response_pb2.SendMessageResponse()
+        rsp = send_message_with_appendix_pb2.SendMessageWithAppendixResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

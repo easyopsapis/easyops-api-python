@@ -5,8 +5,25 @@ package custom_sender;
 
 
 import "model/msgsender/send_message_request_data.proto";
-import "model/msgsender/send_message_response.proto";
 import "google/protobuf/struct.proto";
+
+/*
+SendMessage返回
+*/
+message SendMessageResponse {
+    /*
+    请求结果数据 e.g.: {"email": ["test@qq.com"], "phone": ["test@qq.com"]}
+    */
+    google.protobuf.Struct data = 1 ;
+    /*
+    请求错误信息
+    */
+    string msg = 2 ;
+    /*
+    请求返回码
+    */
+    int32 code = 3 ;
+}
 
 /*
 SendMessageApi返回
@@ -27,6 +44,6 @@ message SendMessageResponseWrapper {
     /*
     返回数据
     */
-    msgsender.SendMessageResponse data = 4 ;
+    custom_sender.SendMessageResponse data = 4 ;
 }
 
