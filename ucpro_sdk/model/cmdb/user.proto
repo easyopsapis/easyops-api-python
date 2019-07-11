@@ -1,0 +1,67 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+用户信息
+*/
+message User {
+    /*
+    用户ID
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    名称
+    */
+    string nickname = 3 ;
+    /*
+    邮箱
+    */
+    string user_email = 4 ;
+    /*
+    电话号码
+    */
+    string user_tel = 5 ;
+    /*
+    企业微信账号
+    */
+    string wework_userid = 6 ;
+    /*
+    状态
+    */
+    string state = 7 ;
+    /*
+    备注
+    */
+    string user_memo = 8 ;
+    /*
+    自动发现用户
+    */
+    string _is_auto_descovery = 9 ;
+    /*
+    员工姓名
+    */
+    string code = 10 ;
+    /*
+    用户手机
+    */
+    string user_phone = 11 ;
+    /*
+    用户类型
+    */
+    string user_type = 12 ;
+    /*
+    微信
+    */
+    string user_wechat = 13 ;
+}
+

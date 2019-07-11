@@ -1,0 +1,51 @@
+syntax = "proto3";
+package database_delivery;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/database_delivery";
+
+
+
+
+
+/*
+数据库实例
+*/
+message DBInstance {
+    /*
+    数据库实例ID,自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    数据库名/服务名
+    */
+    string dbName = 3 ;
+    /*
+    ip
+    */
+    string ip = 4 ;
+    /*
+    端口
+    */
+    int32 port = 5 ;
+    /*
+    连接串
+    */
+    string connURL = 6 ;
+    /*
+    默认用户
+    */
+    string userName = 7 ;
+    /*
+    默认密码
+    */
+    string password = 8 ;
+    /*
+    是否有效
+    */
+    string isValid = 9 ;
+}
+

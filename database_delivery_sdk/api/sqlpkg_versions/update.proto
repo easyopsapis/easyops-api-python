@@ -1,0 +1,133 @@
+syntax = "proto3";
+package sqlpkg_versions;
+
+
+
+
+
+/*
+UpdateSQLPackageVersion请求
+*/
+message UpdateSQLPackageVersionRequest {
+message UpdateSqlPkgVersion {
+    /*
+    备注
+    */
+    string memo = 1 ;
+    /*
+    程序包版本ID
+    */
+    string appVersionId = 2 ;
+}
+        
+    
+    /*
+    SQL包ID
+    */
+    string pkgId = 1 ;
+    /*
+    SQL包版本ID
+    */
+    string versionId = 2 ;
+    /*
+    变更的SQL包版本信息
+    */
+    UpdateSqlPkgVersion updateSqlPkgVersion = 3 ;
+}
+
+/*
+UpdateSQLPackageVersion返回
+*/
+message UpdateSQLPackageVersionResponse {
+message SqlPackage {
+    /*
+    SQL包ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    描述
+    */
+    string memo = 3 ;
+    /*
+    文件仓库包ID
+    */
+    string repoPackageId = 4 ;
+    /*
+    创建者
+    */
+    string creator = 5 ;
+    /*
+    mtime
+    */
+    int64 mtime = 6 ;
+}
+        
+    
+    /*
+    所属的SQL包
+    */
+    SqlPackage sqlPackage = 1 ;
+    /*
+    版本ID
+    */
+    string id = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    仓库版本ID
+    */
+    string repoVersionId = 4 ;
+    /*
+    程序包版本ID
+    */
+    string appVersionId = 5 ;
+    /*
+    版本名称
+    */
+    string versionName = 6 ;
+    /*
+    备注
+    */
+    string memo = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 9 ;
+    /*
+    修改时间
+    */
+    int64 mtime = 10 ;
+}
+
+/*
+UpdateSQLPackageVersionApi返回
+*/
+message UpdateSQLPackageVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    sqlpkg_versions.UpdateSQLPackageVersionResponse data = 4 ;
+}
+

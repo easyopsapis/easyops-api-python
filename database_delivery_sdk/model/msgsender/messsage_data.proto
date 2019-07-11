@@ -1,0 +1,31 @@
+syntax = "proto3";
+package msgsender;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/msgsender";
+
+
+
+
+
+/*
+消息的内容
+*/
+message MessageData {
+    /*
+    通知的内容(正文)
+    */
+    string content = 1 ;
+    /*
+    通知标题(邮件通知方式用)
+    */
+    string subject = 2 ;
+    /*
+    邮件发送者的邮箱地址
+    */
+    string cc_addr = 3 ;
+    /*
+    邮件内容类型(选填plain|html)
+    */
+    string msg_type = 4 ;
+}
+

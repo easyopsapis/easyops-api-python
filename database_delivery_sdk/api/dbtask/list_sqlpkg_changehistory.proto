@@ -1,0 +1,70 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+import "model/database_delivery/sqlpkg_dbtask_history.proto";
+
+/*
+ListSQLPackageChangeHistory请求
+*/
+message ListSQLPackageChangeHistoryRequest {
+    /*
+    数据库服务ID
+    */
+    string pkgId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页面大小
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+ListSQLPackageChangeHistory返回
+*/
+message ListSQLPackageChangeHistoryResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated database_delivery.SQLPackageDBTaskChangeHistory list = 4 ;
+}
+
+/*
+ListSQLPackageChangeHistoryApi返回
+*/
+message ListSQLPackageChangeHistoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.ListSQLPackageChangeHistoryResponse data = 4 ;
+}
+

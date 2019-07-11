@@ -1,0 +1,97 @@
+syntax = "proto3";
+package database_delivery;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/database_delivery";
+
+
+
+
+
+/*
+SQL包变更任务变更历史
+*/
+message SQLPackageDBTaskChangeHistory {
+message BackupResult {
+    /*
+    状态
+    */
+    string status = 1 ;
+    /*
+    主机ID
+    */
+    string hostId = 2 ;
+    /*
+    主机IP
+    */
+    string hostIp = 3 ;
+    /*
+    备份任务脚本名称列表
+    */
+    repeated string scriptNameList = 4 ;
+}
+        
+message CheckResult {
+    /*
+    状态
+    */
+    string status = 1 ;
+    /*
+    更新对象个数
+    */
+    int32 updatedNum = 2 ;
+    /*
+    未更新对象个数
+    */
+    int32 unUpdatedNum = 3 ;
+}
+        
+message SqlpkgChangeResult {
+    /*
+    状态
+    */
+    string status = 1 ;
+    /*
+    数据库实例名称列表
+    */
+    repeated string dbInstanceNameList = 2 ;
+}
+        
+    
+    /*
+    sql变更记录ID
+    */
+    string id = 1 ;
+    /*
+    变更类型，执行update、回滚rollback
+    */
+    string state = 2 ;
+    /*
+    状态
+    */
+    string status = 3 ;
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 4 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 5 ;
+    /*
+    更新时间
+    */
+    int64 mtime = 6 ;
+    /*
+    备份执行结果
+    */
+    BackupResult backupResult = 7 ;
+    /*
+    检查执行结果
+    */
+    CheckResult checkResult = 8 ;
+    /*
+    SQL变更执行结果
+    */
+    SqlpkgChangeResult sqlpkgChangeResult = 9 ;
+}
+

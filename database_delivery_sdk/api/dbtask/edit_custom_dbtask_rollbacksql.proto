@@ -1,0 +1,60 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+EditCustomDBTaskRollbackSQL请求
+*/
+message EditCustomDBTaskRollbackSQLRequest {
+message EditParams {
+    /*
+    任务实体ID
+    */
+    string entityTaskId = 1 ;
+    /*
+    变更集ID
+    */
+    string changesetId = 2 ;
+    /*
+    回退SQL
+    */
+    string rollbackSql = 3 ;
+}
+        
+    
+    /*
+    任务ID
+    */
+    string dbTaskId = 1 ;
+    /*
+    变更参数
+    */
+    EditParams editParams = 2 ;
+}
+
+/*
+EditCustomDBTaskRollbackSQLApi返回
+*/
+message EditCustomDBTaskRollbackSQLResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

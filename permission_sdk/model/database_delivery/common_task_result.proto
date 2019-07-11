@@ -1,0 +1,31 @@
+syntax = "proto3";
+package database_delivery;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/database_delivery";
+
+
+
+
+
+/*
+任务变更结果
+*/
+message CommonTaskResult {
+    /*
+    结果状态
+    */
+    string status = 1 ;
+    /*
+    结果日志
+    */
+    string msg = 2 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 3 ;
+    /*
+    结束时间
+    */
+    int64 etime = 4 ;
+}
+

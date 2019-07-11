@@ -1,0 +1,44 @@
+syntax = "proto3";
+package sqlpkg_versions;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteSQLPackageVersion请求
+*/
+message DeleteSQLPackageVersionRequest {
+    /*
+    SQL包ID
+    */
+    string pkgId = 1 ;
+    /*
+    SQL包版本ID
+    */
+    string versionId = 2 ;
+}
+
+/*
+DeleteSQLPackageVersionApi返回
+*/
+message DeleteSQLPackageVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

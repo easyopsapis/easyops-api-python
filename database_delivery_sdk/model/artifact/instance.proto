@@ -1,0 +1,87 @@
+syntax = "proto3";
+package artifact;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/artifact";
+
+
+
+
+
+/*
+程序包实例
+*/
+message Instance {
+    /*
+    所属应用Id
+    */
+    string appId = 1 ;
+    /*
+    所属集群Id
+    */
+    string clusterId = 2 ;
+    /*
+    创建者
+    */
+    string creator = 3 ;
+    /*
+    创建时间
+    */
+    string ctime = 4 ;
+    /*
+    设备Id
+    */
+    string deviceId = 5 ;
+    /*
+    设备IP
+    */
+    string deviceIp = 6 ;
+    /*
+    安装路径
+    */
+    string installPath = 7 ;
+    /*
+    安装时间
+    */
+    string installTime = 8 ;
+    /*
+    实例Id
+    */
+    string instanceId = 9 ;
+    /*
+    最近一次操作时间
+    */
+    string lastOperation = 10 ;
+    /*
+    修改时间
+    */
+    string mtime = 11 ;
+    /*
+    组织Id
+    */
+    int32 org = 12 ;
+    /*
+    所属程序包Id
+    */
+    string packageId = 13 ;
+    /*
+    所属包名称
+    */
+    string packageName = 14 ;
+    /*
+    包类型
+    */
+    string packageType = 15 ;
+    /*
+    更新时间
+    */
+    string updateTime = 16 ;
+    /*
+    所属版本Id
+    */
+    string versionId = 17 ;
+    /*
+    所属版本名
+    */
+    string versionName = 18 ;
+}
+

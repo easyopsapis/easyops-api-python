@@ -1,0 +1,97 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+ListDBVersion请求
+*/
+message ListDBVersionRequest {
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页面大小
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+ListDBVersion返回
+*/
+message ListDBVersionResponse {
+message List {
+    /*
+    变更记录ID
+    */
+    string id = 1 ;
+    /*
+    数据库服务ID
+    */
+    string dbserviceId = 2 ;
+    /*
+    数据库实例ID
+    */
+    string dbinstanceId = 3 ;
+    /*
+    变更任务ID
+    */
+    string dbtaskId = 4 ;
+    /*
+    变更集名称
+    */
+    string changesetName = 5 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 6 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListDBVersionApi返回
+*/
+message ListDBVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.ListDBVersionResponse data = 4 ;
+}
+

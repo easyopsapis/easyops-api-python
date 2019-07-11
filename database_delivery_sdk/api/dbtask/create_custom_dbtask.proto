@@ -1,0 +1,81 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+CreateCustomDBTask请求
+*/
+message CreateCustomDBTaskRequest {
+message DbTask {
+message ChangeCfg {
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
+    /*
+    额外的用户名（字段似乎已无必要除掉）
+    */
+    string username = 2 ;
+    /*
+    额外的密码
+    */
+    string password = 3 ;
+    /*
+    SQL文本
+    */
+    string sqlText = 4 ;
+}
+        
+    
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 1 ;
+    /*
+    变更任务的SQL集列表
+    */
+    repeated ChangeCfg changeCfg = 2 ;
+}
+        
+    
+    /*
+    创建变更任务body
+    */
+    DbTask dbTask = 1 ;
+}
+
+/*
+CreateCustomDBTask返回
+*/
+message CreateCustomDBTaskResponse {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+CreateCustomDBTaskApi返回
+*/
+message CreateCustomDBTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.CreateCustomDBTaskResponse data = 4 ;
+}
+
