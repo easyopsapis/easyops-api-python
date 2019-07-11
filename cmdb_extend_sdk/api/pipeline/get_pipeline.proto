@@ -1,0 +1,45 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/cmdb_extend/app_pipeline.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetPipeline请求
+*/
+message GetPipelineRequest {
+    /*
+    应用Id
+    */
+    string appId = 1 ;
+    /*
+    流水线Id
+    */
+    string flowId = 2 ;
+}
+
+/*
+GetPipelineApi返回
+*/
+message GetPipelineResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_extend.AppPipeline data = 4 ;
+}
+
