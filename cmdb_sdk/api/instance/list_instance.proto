@@ -1,0 +1,78 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListInstance请求
+*/
+message ListInstanceRequest {
+    /*
+    实例所属的模型ID
+    */
+    string object_id = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    对于关联的实例数据是否只获取relation_view中指定的属性
+    */
+    bool only_relation_view = 4 ;
+    /*
+    需要返回的关系，多个用逗号分隔
+    */
+    string select_relations = 5 ;
+}
+
+/*
+ListInstance返回
+*/
+message ListInstanceResponse {
+    /*
+    instance list
+    */
+    repeated google.protobuf.Struct list = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+ListInstanceApi返回
+*/
+message ListInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.ListInstanceResponse data = 4 ;
+}
+

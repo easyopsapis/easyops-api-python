@@ -22,6 +22,8 @@ import get_detail_pb2
 
 import import_instance_pb2
 
+import list_instance_pb2
+
 import post_search_pb2
 
 import search_total_pb2
@@ -460,6 +462,47 @@ class InstanceClient(object):
             timeout=timeout,
         )
         rsp = import_instance_pb2.ImportInstanceResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_instance(self, request, org, user, timeout=10):
+        # type: (list_instance_pb2.ListInstanceRequest, int, str, int) -> list_instance_pb2.ListInstanceResponse
+        """
+        实例分页列表查询
+        :param request: list_instance请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: list_instance_pb2.ListInstanceResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance.ListInstance"
+        uri = "/object/{object_id}/instance".format(
+            object_id=request.object_id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = list_instance_pb2.ListInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
