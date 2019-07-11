@@ -166,7 +166,7 @@ class UserAdminClient(object):
     def get_user_info(self, request, org, user, timeout=10):
         # type: (get_user_info_pb2.GetUserInfoRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
-        获取用户信息[内部]
+        获取用户信息
         :param request: get_user_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
@@ -180,7 +180,7 @@ class UserAdminClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.user_service.user_admin.GetUserInfo"
-        uri = "/api/v1/user/{username}".format(
+        uri = "/api/v1/users/detail/{username}".format(
             username=request.username,
         )
         requestParam = request
