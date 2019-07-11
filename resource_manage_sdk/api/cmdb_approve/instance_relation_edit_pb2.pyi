@@ -27,6 +27,7 @@ class InstanceRelationEditRequest(google___protobuf___message___Message):
     object_id = ... # type: typing___Text
     relation_side_id = ... # type: typing___Text
     operation = ... # type: typing___Text
+    source = ... # type: typing___Text
     instance_ids = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     related_instance_ids = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
 
@@ -34,6 +35,7 @@ class InstanceRelationEditRequest(google___protobuf___message___Message):
         object_id : typing___Optional[typing___Text] = None,
         relation_side_id : typing___Optional[typing___Text] = None,
         operation : typing___Optional[typing___Text] = None,
+        source : typing___Optional[typing___Text] = None,
         instance_ids : typing___Optional[typing___Iterable[typing___Text]] = None,
         related_instance_ids : typing___Optional[typing___Iterable[typing___Text]] = None,
         ) -> None: ...
@@ -42,9 +44,9 @@ class InstanceRelationEditRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"instance_ids",u"object_id",u"operation",u"related_instance_ids",u"relation_side_id"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"instance_ids",u"object_id",u"operation",u"related_instance_ids",u"relation_side_id",u"source"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"instance_ids",b"object_id",b"operation",b"related_instance_ids",b"relation_side_id"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"instance_ids",b"object_id",b"operation",b"related_instance_ids",b"relation_side_id",b"source"]) -> None: ...
 
 class InstanceRelationEditResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

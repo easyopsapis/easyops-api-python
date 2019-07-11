@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cmdb_approve',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1cinstance_relation_edit.proto\x12\x0c\x63mdb_approve\x1a\x1bgoogle/protobuf/empty.proto\"\x91\x01\n\x1bInstanceRelationEditRequest\x12\x11\n\tobject_id\x18\x01 \x01(\t\x12\x18\n\x10relation_side_id\x18\x02 \x01(\t\x12\x11\n\toperation\x18\x03 \x01(\t\x12\x14\n\x0cinstance_ids\x18\x04 \x03(\t\x12\x1c\n\x14related_instance_ids\x18\x05 \x03(\t\"}\n#InstanceRelationEditResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Emptyb\x06proto3')
+  serialized_pb=_b('\n\x1cinstance_relation_edit.proto\x12\x0c\x63mdb_approve\x1a\x1bgoogle/protobuf/empty.proto\"\xa1\x01\n\x1bInstanceRelationEditRequest\x12\x11\n\tobject_id\x18\x01 \x01(\t\x12\x18\n\x10relation_side_id\x18\x02 \x01(\t\x12\x11\n\toperation\x18\x03 \x01(\t\x12\x0e\n\x06source\x18\x04 \x01(\t\x12\x14\n\x0cinstance_ids\x18\x05 \x03(\t\x12\x1c\n\x14related_instance_ids\x18\x06 \x03(\t\"}\n#InstanceRelationEditResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Emptyb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -56,15 +56,22 @@ _INSTANCERELATIONEDITREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='instance_ids', full_name='cmdb_approve.InstanceRelationEditRequest.instance_ids', index=3,
-      number=4, type=9, cpp_type=9, label=3,
+      name='source', full_name='cmdb_approve.InstanceRelationEditRequest.source', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_ids', full_name='cmdb_approve.InstanceRelationEditRequest.instance_ids', index=4,
+      number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='related_instance_ids', full_name='cmdb_approve.InstanceRelationEditRequest.related_instance_ids', index=4,
-      number=5, type=9, cpp_type=9, label=3,
+      name='related_instance_ids', full_name='cmdb_approve.InstanceRelationEditRequest.related_instance_ids', index=5,
+      number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -82,7 +89,7 @@ _INSTANCERELATIONEDITREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=76,
-  serialized_end=221,
+  serialized_end=237,
 )
 
 
@@ -133,8 +140,8 @@ _INSTANCERELATIONEDITRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=223,
-  serialized_end=348,
+  serialized_start=239,
+  serialized_end=364,
 )
 
 _INSTANCERELATIONEDITRESPONSEWRAPPER.fields_by_name['data'].message_type = google_dot_protobuf_dot_empty__pb2._EMPTY

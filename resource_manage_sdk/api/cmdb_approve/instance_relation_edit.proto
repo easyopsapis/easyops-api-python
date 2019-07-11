@@ -23,13 +23,17 @@ message InstanceRelationEditRequest {
     */
     string operation = 3 ;
     /*
+    调用来源
+    */
+    string source = 4 ;
+    /*
     模型的实例ID列表
     */
-    repeated string instance_ids = 4 ;
+    repeated string instance_ids = 5 ;
     /*
     关联的实例ID列表
     */
-    repeated string related_instance_ids = 5 ;
+    repeated string related_instance_ids = 6 ;
 }
 
 /*
