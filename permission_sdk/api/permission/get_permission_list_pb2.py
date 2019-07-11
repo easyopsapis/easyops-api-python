@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.permission import permission_pb2 as model_dot_permission_dot_permission__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='permission',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x19get_permission_list.proto\x12\npermission\"_\n\x18GetPermissionListRequest\x12\x12\n\naction__in\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x0e\n\x06\x61\x63tion\x18\x04 \x01(\t\"\xd7\x01\n\x19GetPermissionListResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x38\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32*.permission.GetPermissionListResponse.Data\x1aQ\n\x04\x44\x61ta\x12\r\n\x05roles\x18\x01 \x03(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0e\n\x06system\x18\x03 \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x04 \x01(\t\x12\x0e\n\x06remark\x18\x05 \x01(\t\"\x89\x01\n GetPermissionListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x33\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32%.permission.GetPermissionListResponseb\x06proto3')
-)
+  serialized_pb=_b('\n\x19get_permission_list.proto\x12\npermission\x1a!model/permission/permission.proto\"_\n\x18GetPermissionListRequest\x12\x12\n\naction__in\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x0e\n\x06\x61\x63tion\x18\x04 \x01(\t\"p\n\x19GetPermissionListResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12$\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\x16.permission.Permission\"\x89\x01\n GetPermissionListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x33\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32%.permission.GetPermissionListResponseb\x06proto3')
+  ,
+  dependencies=[model_dot_permission_dot_permission__pb2.DESCRIPTOR,])
 
 
 
@@ -72,68 +74,10 @@ _GETPERMISSIONLISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=136,
+  serialized_start=76,
+  serialized_end=171,
 )
 
-
-_GETPERMISSIONLISTRESPONSE_DATA = _descriptor.Descriptor(
-  name='Data',
-  full_name='permission.GetPermissionListResponse.Data',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='roles', full_name='permission.GetPermissionListResponse.Data.roles', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='id', full_name='permission.GetPermissionListResponse.Data.id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='system', full_name='permission.GetPermissionListResponse.Data.system', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='action', full_name='permission.GetPermissionListResponse.Data.action', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='remark', full_name='permission.GetPermissionListResponse.Data.remark', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=273,
-  serialized_end=354,
-)
 
 _GETPERMISSIONLISTRESPONSE = _descriptor.Descriptor(
   name='GetPermissionListResponse',
@@ -173,7 +117,7 @@ _GETPERMISSIONLISTRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GETPERMISSIONLISTRESPONSE_DATA, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -182,8 +126,8 @@ _GETPERMISSIONLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=139,
-  serialized_end=354,
+  serialized_start=173,
+  serialized_end=285,
 )
 
 
@@ -234,12 +178,11 @@ _GETPERMISSIONLISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=357,
-  serialized_end=494,
+  serialized_start=288,
+  serialized_end=425,
 )
 
-_GETPERMISSIONLISTRESPONSE_DATA.containing_type = _GETPERMISSIONLISTRESPONSE
-_GETPERMISSIONLISTRESPONSE.fields_by_name['data'].message_type = _GETPERMISSIONLISTRESPONSE_DATA
+_GETPERMISSIONLISTRESPONSE.fields_by_name['data'].message_type = model_dot_permission_dot_permission__pb2._PERMISSION
 _GETPERMISSIONLISTRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETPERMISSIONLISTRESPONSE
 DESCRIPTOR.message_types_by_name['GetPermissionListRequest'] = _GETPERMISSIONLISTREQUEST
 DESCRIPTOR.message_types_by_name['GetPermissionListResponse'] = _GETPERMISSIONLISTRESPONSE
@@ -254,19 +197,11 @@ GetPermissionListRequest = _reflection.GeneratedProtocolMessageType('GetPermissi
 _sym_db.RegisterMessage(GetPermissionListRequest)
 
 GetPermissionListResponse = _reflection.GeneratedProtocolMessageType('GetPermissionListResponse', (_message.Message,), dict(
-
-  Data = _reflection.GeneratedProtocolMessageType('Data', (_message.Message,), dict(
-    DESCRIPTOR = _GETPERMISSIONLISTRESPONSE_DATA,
-    __module__ = 'get_permission_list_pb2'
-    # @@protoc_insertion_point(class_scope:permission.GetPermissionListResponse.Data)
-    ))
-  ,
   DESCRIPTOR = _GETPERMISSIONLISTRESPONSE,
   __module__ = 'get_permission_list_pb2'
   # @@protoc_insertion_point(class_scope:permission.GetPermissionListResponse)
   ))
 _sym_db.RegisterMessage(GetPermissionListResponse)
-_sym_db.RegisterMessage(GetPermissionListResponse.Data)
 
 GetPermissionListResponseWrapper = _reflection.GeneratedProtocolMessageType('GetPermissionListResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETPERMISSIONLISTRESPONSEWRAPPER,

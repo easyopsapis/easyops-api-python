@@ -24,7 +24,7 @@ message MessageData {
     */
     string cc_addr = 3 ;
     /*
-    邮件内容类型(选填plain|html)
+    邮件内容类型
     */
     string msg_type = 4 ;
 }

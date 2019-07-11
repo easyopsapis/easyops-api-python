@@ -6,6 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/p
 
 
 
+import "google/protobuf/struct.proto";
 
 /*
 权限点
@@ -27,5 +28,13 @@ message Permission {
     权限备注
     */
     string remark = 4 ;
+    /*
+    权限角色
+    */
+    repeated string roles = 5 ;
+    /*
+    单个资源结构参考PermissionResource. 如果依赖多个资源，资源间判定逻辑条件用%and或者%or来扩住。 比如： { "%or":[ { "system":"flow", "condition":{ "executeAuthorizers":"%user" }, "name":"flow" }, { "system":"tool", "condition":{ "executeAuthorizers":"%user" }, "name":"tool" } ] } 表示这个权限点依赖流程的执行授权白名单和工具的执行授权白名单才能鉴权成功。
+    */
+    google.protobuf.Value resource = 6 ;
 }
 

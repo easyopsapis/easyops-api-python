@@ -4,6 +4,7 @@ package permission;
 
 
 
+import "model/permission/permission.proto";
 
 /*
 GetPermissionList请求
@@ -31,30 +32,6 @@ message GetPermissionListRequest {
 GetPermissionList返回
 */
 message GetPermissionListResponse {
-message Data {
-    /*
-    角色名称列表
-    */
-    repeated string roles = 1 ;
-    /*
-    权限点id
-    */
-    string id = 2 ;
-    /*
-    系统名
-    */
-    string system = 3 ;
-    /*
-    需要鉴权的动作, 全局唯一
-    */
-    string action = 4 ;
-    /*
-    权限备注
-    */
-    string remark = 5 ;
-}
-        
-    
     /*
     返回码
     */
@@ -70,7 +47,7 @@ message Data {
     /*
     数据
     */
-    repeated Data data = 4 ;
+    repeated permission.Permission data = 4 ;
 }
 
 /*

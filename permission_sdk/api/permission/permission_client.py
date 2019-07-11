@@ -2,6 +2,12 @@
 
 import get_permission_list_pb2
 
+import google.protobuf.empty_pb2
+
+import model.permission.permission_pb2
+
+import save_permission_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -58,6 +64,86 @@ class PermissionClient(object):
             timeout=timeout,
         )
         rsp = get_permission_list_pb2.GetPermissionListResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def org_register(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        org注册permission
+        :param request: org_register请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.permission.permission.OrgRegister"
+        uri = "/api/v1/org/register"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.permission_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def save_permission(self, request, org, user, timeout=10):
+        # type: (model.permission.permission_pb2.Permission, int, str, int) -> save_permission_pb2.SavePermissionResponse
+        """
+        保存权限配置(已存在权限点则更新)
+        :param request: save_permission请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: save_permission_pb2.SavePermissionResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.permission.permission.SavePermission"
+        uri = "/api/v1/permission/save"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.permission_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = save_permission_pb2.SavePermissionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

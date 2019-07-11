@@ -2,11 +2,14 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
-    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
     Message as google___protobuf___message___Message,
+)
+
+from model.permission.permission_pb2 import (
+    Permission as model___permission___permission_pb2___Permission,
 )
 
 from typing import (
@@ -42,41 +45,18 @@ class GetPermissionListRequest(google___protobuf___message___Message):
         def ClearField(self, field_name: typing_extensions___Literal[b"action",b"action__in",b"page",b"page_size"]) -> None: ...
 
 class GetPermissionListResponse(google___protobuf___message___Message):
-    class Data(google___protobuf___message___Message):
-        roles = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-        id = ... # type: typing___Text
-        system = ... # type: typing___Text
-        action = ... # type: typing___Text
-        remark = ... # type: typing___Text
-
-        def __init__(self,
-            roles : typing___Optional[typing___Iterable[typing___Text]] = None,
-            id : typing___Optional[typing___Text] = None,
-            system : typing___Optional[typing___Text] = None,
-            action : typing___Optional[typing___Text] = None,
-            remark : typing___Optional[typing___Text] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> GetPermissionListResponse.Data: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"action",u"id",u"remark",u"roles",u"system"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"action",b"id",b"remark",b"roles",b"system"]) -> None: ...
-
     code = ... # type: int
     page = ... # type: int
     page_size = ... # type: int
 
     @property
-    def data(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[GetPermissionListResponse.Data]: ...
+    def data(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___permission___permission_pb2___Permission]: ...
 
     def __init__(self,
         code : typing___Optional[int] = None,
         page : typing___Optional[int] = None,
         page_size : typing___Optional[int] = None,
-        data : typing___Optional[typing___Iterable[GetPermissionListResponse.Data]] = None,
+        data : typing___Optional[typing___Iterable[model___permission___permission_pb2___Permission]] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> GetPermissionListResponse: ...
