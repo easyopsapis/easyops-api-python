@@ -1,30 +1,25 @@
 syntax = "proto3";
-package mongo;
+package organization;
 
 
 
 
-import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 
 /*
-Insert请求
+DisableOrg请求
 */
-message InsertRequest {
+message DisableOrgRequest {
     /*
-    表名
+    org
     */
-    string collection = 1 ;
-    /*
-    待插入的记录列表
-    */
-    repeated google.protobuf.Struct docList = 2 ;
+    string id = 1 ;
 }
 
 /*
-InsertApi返回
+DisableOrgApi返回
 */
-message InsertResponseWrapper {
+message DisableOrgResponseWrapper {
     /*
     返回码
     */

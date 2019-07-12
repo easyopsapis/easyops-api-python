@@ -1,34 +1,25 @@
 syntax = "proto3";
-package mongo;
+package apikey;
 
 
 
 
-import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 
 /*
-Update请求
+EnableApiKey请求
 */
-message UpdateRequest {
+message EnableApiKeyRequest {
     /*
-    表名
+    access_key
     */
-    string collection = 1 ;
-    /*
-    更新条件
-    */
-    google.protobuf.Struct selector = 2 ;
-    /*
-    更新的值
-    */
-    google.protobuf.Struct update = 3 ;
+    string access_key = 1 ;
 }
 
 /*
-UpdateApi返回
+EnableApiKeyApi返回
 */
-message UpdateResponseWrapper {
+message EnableApiKeyResponseWrapper {
     /*
     返回码
     */

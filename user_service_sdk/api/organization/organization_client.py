@@ -2,7 +2,11 @@
 
 import create_org_pb2
 
+import disable_org_pb2
+
 import google.protobuf.empty_pb2
+
+import enable_org_pb2
 
 import list_org_pb2
 
@@ -66,6 +70,88 @@ class OrganizationClient(object):
         rsp = create_org_pb2.CreateOrgResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def disable_org(self, request, org, user, timeout=10):
+        # type: (disable_org_pb2.DisableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        禁用Org[内部]
+        :param request: disable_org请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.organization.DisableOrg"
+        uri = "/api/v1/org/{id}/disable".format(
+            id=request.id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="PUT",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def enable_org(self, request, org, user, timeout=10):
+        # type: (enable_org_pb2.EnableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        启用Org[内部]
+        :param request: enable_org请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.organization.EnableOrg"
+        uri = "/api/v1/org/{id}/enable".format(
+            id=request.id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="PUT",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

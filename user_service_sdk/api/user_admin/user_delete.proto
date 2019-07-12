@@ -1,0 +1,40 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UserDelete请求
+*/
+message UserDeleteRequest {
+    /*
+    用户名
+    */
+    string username = 1 ;
+}
+
+/*
+UserDeleteApi返回
+*/
+message UserDeleteResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

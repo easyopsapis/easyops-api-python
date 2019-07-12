@@ -1,30 +1,25 @@
 syntax = "proto3";
-package mongo;
+package organization;
 
 
 
 
-import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 
 /*
-Remove请求
+EnableOrg请求
 */
-message RemoveRequest {
+message EnableOrgRequest {
     /*
-    表名
+    org
     */
-    string collection = 1 ;
-    /*
-    删除条件
-    */
-    google.protobuf.Struct selector = 2 ;
+    string id = 1 ;
 }
 
 /*
-RemoveApi返回
+EnableOrgApi返回
 */
-message RemoveResponseWrapper {
+message EnableOrgResponseWrapper {
     /*
     返回码
     */

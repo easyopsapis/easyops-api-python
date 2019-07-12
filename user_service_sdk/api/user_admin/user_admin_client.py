@@ -20,6 +20,8 @@ import list_users_id_nick_pb2
 
 import reset_password_pb2
 
+import user_delete_pb2
+
 import user_register_pb2
 
 import utils.http_util
@@ -347,6 +349,47 @@ class UserAdminClient(object):
         
         rsp_obj = utils.http_util.do_api_request(
             method="POST",
+            src_name="logic.user_service_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def user_delete(self, request, org, user, timeout=10):
+        # type: (user_delete_pb2.UserDeleteRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        用户注册[内部]
+        :param request: user_delete请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.user_service.user_admin.UserDelete"
+        uri = "/api/v1/users/{username}".format(
+            username=request.username,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="DELETE",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
             server_ip=server_ip,
