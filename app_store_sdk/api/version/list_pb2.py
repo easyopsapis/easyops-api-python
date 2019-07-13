@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.app_store import app_version_pb2 as model_dot_app__store_dot_app__version__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='version',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x07version\x1a!model/app_store/app_version.proto\"\x92\x01\n\x15ListAppVersionRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0e\n\x06\x61pp_id\x18\x03 \x01(\t\x12\x31\n\x04sort\x18\x04 \x01(\x0b\x32#.version.ListAppVersionRequest.Sort\x1a\x15\n\x04Sort\x12\r\n\x05\x63time\x18\x01 \x01(\x05\"m\n\x16ListAppVersionResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12#\n\x04list\x18\x04 \x03(\x0b\x32\x15.app_store.AppVersion\"\x80\x01\n\x1dListAppVersionResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.ListAppVersionResponseb\x06proto3')
-  ,
-  dependencies=[model_dot_app__store_dot_app__version__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\nlist.proto\x12\x07version\"\x92\x01\n\x15ListAppVersionRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0e\n\x06\x61pp_id\x18\x03 \x01(\t\x12\x31\n\x04sort\x18\x04 \x01(\x0b\x32#.version.ListAppVersionRequest.Sort\x1a\x15\n\x04Sort\x12\r\n\x05\x63time\x18\x01 \x01(\x05\"\xe2\x01\n\x16ListAppVersionResponse\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x32\n\x04list\x18\x04 \x03(\x0b\x32$.version.ListAppVersionResponse.List\x1a\x64\n\x04List\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bversionName\x18\x03 \x01(\t\x12\x11\n\tchangeLog\x18\x04 \x01(\t\x12\x13\n\x0breleaseTime\x18\x05 \x01(\t\"\x80\x01\n\x1dListAppVersionResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.ListAppVersionResponseb\x06proto3')
+)
 
 
 
@@ -53,8 +51,8 @@ _LISTAPPVERSIONREQUEST_SORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=184,
-  serialized_end=205,
+  serialized_start=149,
+  serialized_end=170,
 )
 
 _LISTAPPVERSIONREQUEST = _descriptor.Descriptor(
@@ -104,43 +102,50 @@ _LISTAPPVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=59,
-  serialized_end=205,
+  serialized_start=24,
+  serialized_end=170,
 )
 
 
-_LISTAPPVERSIONRESPONSE = _descriptor.Descriptor(
-  name='ListAppVersionResponse',
-  full_name='version.ListAppVersionResponse',
+_LISTAPPVERSIONRESPONSE_LIST = _descriptor.Descriptor(
+  name='List',
+  full_name='version.ListAppVersionResponse.List',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='page', full_name='version.ListAppVersionResponse.page', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='versionId', full_name='version.ListAppVersionResponse.List.versionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='page_size', full_name='version.ListAppVersionResponse.page_size', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='name', full_name='version.ListAppVersionResponse.List.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='total', full_name='version.ListAppVersionResponse.total', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='versionName', full_name='version.ListAppVersionResponse.List.versionName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='list', full_name='version.ListAppVersionResponse.list', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='changeLog', full_name='version.ListAppVersionResponse.List.changeLog', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='releaseTime', full_name='version.ListAppVersionResponse.List.releaseTime', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -156,8 +161,59 @@ _LISTAPPVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=316,
+  serialized_start=299,
+  serialized_end=399,
+)
+
+_LISTAPPVERSIONRESPONSE = _descriptor.Descriptor(
+  name='ListAppVersionResponse',
+  full_name='version.ListAppVersionResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='total', full_name='version.ListAppVersionResponse.total', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page', full_name='version.ListAppVersionResponse.page', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='version.ListAppVersionResponse.page_size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='list', full_name='version.ListAppVersionResponse.list', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_LISTAPPVERSIONRESPONSE_LIST, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=173,
+  serialized_end=399,
 )
 
 
@@ -208,13 +264,14 @@ _LISTAPPVERSIONRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=319,
-  serialized_end=447,
+  serialized_start=402,
+  serialized_end=530,
 )
 
 _LISTAPPVERSIONREQUEST_SORT.containing_type = _LISTAPPVERSIONREQUEST
 _LISTAPPVERSIONREQUEST.fields_by_name['sort'].message_type = _LISTAPPVERSIONREQUEST_SORT
-_LISTAPPVERSIONRESPONSE.fields_by_name['list'].message_type = model_dot_app__store_dot_app__version__pb2._APPVERSION
+_LISTAPPVERSIONRESPONSE_LIST.containing_type = _LISTAPPVERSIONRESPONSE
+_LISTAPPVERSIONRESPONSE.fields_by_name['list'].message_type = _LISTAPPVERSIONRESPONSE_LIST
 _LISTAPPVERSIONRESPONSEWRAPPER.fields_by_name['data'].message_type = _LISTAPPVERSIONRESPONSE
 DESCRIPTOR.message_types_by_name['ListAppVersionRequest'] = _LISTAPPVERSIONREQUEST
 DESCRIPTOR.message_types_by_name['ListAppVersionResponse'] = _LISTAPPVERSIONRESPONSE
@@ -237,11 +294,19 @@ _sym_db.RegisterMessage(ListAppVersionRequest)
 _sym_db.RegisterMessage(ListAppVersionRequest.Sort)
 
 ListAppVersionResponse = _reflection.GeneratedProtocolMessageType('ListAppVersionResponse', (_message.Message,), dict(
+
+  List = _reflection.GeneratedProtocolMessageType('List', (_message.Message,), dict(
+    DESCRIPTOR = _LISTAPPVERSIONRESPONSE_LIST,
+    __module__ = 'list_pb2'
+    # @@protoc_insertion_point(class_scope:version.ListAppVersionResponse.List)
+    ))
+  ,
   DESCRIPTOR = _LISTAPPVERSIONRESPONSE,
   __module__ = 'list_pb2'
   # @@protoc_insertion_point(class_scope:version.ListAppVersionResponse)
   ))
 _sym_db.RegisterMessage(ListAppVersionResponse)
+_sym_db.RegisterMessage(ListAppVersionResponse.List)
 
 ListAppVersionResponseWrapper = _reflection.GeneratedProtocolMessageType('ListAppVersionResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _LISTAPPVERSIONRESPONSEWRAPPER,

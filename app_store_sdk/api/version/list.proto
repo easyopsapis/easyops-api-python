@@ -4,7 +4,6 @@ package version;
 
 
 
-import "model/app_store/app_version.proto";
 
 /*
 ListAppVersion请求
@@ -40,22 +39,46 @@ message Sort {
 ListAppVersion返回
 */
 message ListAppVersionResponse {
+message List {
+    /*
+    版本实例id
+    */
+    string versionId = 1 ;
+    /*
+    小产品名称+版本组合的唯一id
+    */
+    string name = 2 ;
+    /*
+    版本名称
+    */
+    string versionName = 3 ;
+    /*
+    版本变更记录
+    */
+    string changeLog = 4 ;
+    /*
+    版本发布时间
+    */
+    string releaseTime = 5 ;
+}
+        
+    
+    /*
+    返回总数
+    */
+    int32 total = 1 ;
     /*
     页数
     */
-    int32 page = 1 ;
+    int32 page = 2 ;
     /*
-    页大小
+    该页大小
     */
-    int32 page_size = 2 ;
-    /*
-    总数
-    */
-    int32 total = 3 ;
+    int32 page_size = 3 ;
     /*
     数据列表
     */
-    repeated app_store.AppVersion list = 4 ;
+    repeated List list = 4 ;
 }
 
 /*

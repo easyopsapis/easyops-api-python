@@ -8,10 +8,6 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
-from model.app_store.app_version_pb2 import (
-    AppVersion as model___app_store___app_version_pb2___AppVersion,
-)
-
 from typing import (
     Iterable as typing___Iterable,
     Optional as typing___Optional,
@@ -64,18 +60,41 @@ class ListAppVersionRequest(google___protobuf___message___Message):
         def ClearField(self, field_name: typing_extensions___Literal[b"app_id",b"page",b"page_size",b"sort"]) -> None: ...
 
 class ListAppVersionResponse(google___protobuf___message___Message):
+    class List(google___protobuf___message___Message):
+        versionId = ... # type: typing___Text
+        name = ... # type: typing___Text
+        versionName = ... # type: typing___Text
+        changeLog = ... # type: typing___Text
+        releaseTime = ... # type: typing___Text
+
+        def __init__(self,
+            versionId : typing___Optional[typing___Text] = None,
+            name : typing___Optional[typing___Text] = None,
+            versionName : typing___Optional[typing___Text] = None,
+            changeLog : typing___Optional[typing___Text] = None,
+            releaseTime : typing___Optional[typing___Text] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> ListAppVersionResponse.List: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"changeLog",u"name",u"releaseTime",u"versionId",u"versionName"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"changeLog",b"name",b"releaseTime",b"versionId",b"versionName"]) -> None: ...
+
+    total = ... # type: int
     page = ... # type: int
     page_size = ... # type: int
-    total = ... # type: int
 
     @property
-    def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___app_store___app_version_pb2___AppVersion]: ...
+    def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ListAppVersionResponse.List]: ...
 
     def __init__(self,
+        total : typing___Optional[int] = None,
         page : typing___Optional[int] = None,
         page_size : typing___Optional[int] = None,
-        total : typing___Optional[int] = None,
-        list : typing___Optional[typing___Iterable[model___app_store___app_version_pb2___AppVersion]] = None,
+        list : typing___Optional[typing___Iterable[ListAppVersionResponse.List]] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> ListAppVersionResponse: ...

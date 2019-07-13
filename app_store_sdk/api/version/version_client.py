@@ -127,13 +127,12 @@ class VersionClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.app_store.version.ListAppVersion"
-        uri = "/api/app_store/v1/app_version/app_id/{app_id}".format(
-            app_id=request.app_id,
-        )
+        uri = "/api/app_store/v1/app_version/search"
+        
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="GET",
+            method="POST",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
             server_ip=server_ip,
