@@ -42,7 +42,7 @@ class JobTaskClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.job_task.GetJobTasksDetail"
-        uri = "/jobTasks/{jobTaskId}".format(
+        uri = "/api/ops_automation/v1/jobTasks/{jobTaskId}".format(
             jobTaskId=request.jobTaskId,
         )
         requestParam = request
@@ -83,7 +83,7 @@ class JobTaskClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.job_task.ListJobTasks"
-        uri = "/jobTasks"
+        uri = "/api/ops_automation/v1/jobTasks"
         
         requestParam = request
         
