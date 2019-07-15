@@ -1,0 +1,97 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+
+/*
+InstallPluginTaskV1请求
+*/
+message InstallPluginTaskV1Request {
+message DeployInfoList {
+    /*
+    AgentID(uuid)
+    */
+    string agentId = 1 ;
+    /*
+    ip
+    */
+    string ip = 2 ;
+    /*
+    部署路径
+    */
+    repeated string deployPath = 3 ;
+    /*
+    插件包ID
+    */
+    string agentPluginId = 4 ;
+    /*
+    插件包名称
+    */
+    string agentPluginName = 5 ;
+    /*
+    插件包部署前名称
+    */
+    string preVersionName = 6 ;
+    /*
+    插件包版本名称
+    */
+    string pluginVersionName = 7 ;
+    /*
+    插件包版本仓库版本ID
+    */
+    string repoVersionId = 8 ;
+}
+        
+    
+    /*
+    插件部署任务的详情数据
+    */
+    repeated DeployInfoList deployInfoList = 1 ;
+    /*
+    部署类型
+    */
+    string deployType = 2 ;
+    /*
+    每批次数量
+    */
+    int32 perBatchNum = 3 ;
+    /*
+    每批时间间隔
+    */
+    int32 perBatchInterval = 4 ;
+}
+
+/*
+InstallPluginTaskV1返回
+*/
+message InstallPluginTaskV1Response {
+    /*
+    命令任务ID
+    */
+    string cmdTaskId = 1 ;
+}
+
+/*
+InstallPluginTaskV1Api返回
+*/
+message InstallPluginTaskV1ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    admin_task.InstallPluginTaskV1Response data = 4 ;
+}
+

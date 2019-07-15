@@ -1,0 +1,102 @@
+syntax = "proto3";
+package plugin;
+
+
+
+
+import "model/agent_admin/plugin_version.proto";
+
+/*
+UpdatePluginV1请求
+*/
+message UpdatePluginV1Request {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    备注
+    */
+    string memo = 3 ;
+    /*
+    部署路径
+    */
+    repeated string deployPath = 4 ;
+}
+
+/*
+UpdatePluginV1返回
+*/
+message UpdatePluginV1Response {
+    /*
+    插件包的最新版本信息
+    */
+    repeated agent_admin.PluginVersion lastestVersion = 1 ;
+    /*
+    部署的实例个数
+    */
+    int32 deployedCount = 2 ;
+    /*
+    ID
+    */
+    string id = 3 ;
+    /*
+    名称
+    */
+    string name = 4 ;
+    /*
+    部署路径
+    */
+    repeated string deployPath = 5 ;
+    /*
+    备注
+    */
+    string memo = 6 ;
+    /*
+    仓库对应包ID
+    */
+    string repoPackageId = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 9 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 10 ;
+    /*
+    是否锁定
+    */
+    bool isLocked = 11 ;
+}
+
+/*
+UpdatePluginV1Api返回
+*/
+message UpdatePluginV1ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin.UpdatePluginV1Response data = 4 ;
+}
+

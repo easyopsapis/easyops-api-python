@@ -1,0 +1,67 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+
+/*
+任务详情
+*/
+message JobTasks {
+    /*
+    job task id
+    */
+    string id = 1 ;
+    /*
+    job id
+    */
+    string jobId = 2 ;
+    /*
+    开始时间 2019-07-02 11:38:59.09199400
+    */
+    string startTime = 3 ;
+    /*
+    执行触发器
+    */
+    string trigger = 4 ;
+    /*
+    easy command id
+    */
+    string taskId = 5 ;
+    /*
+    工具类型
+    */
+    string taskType = 6 ;
+    /*
+    工具目标主机列表
+    */
+    repeated string agents = 7 ;
+    /*
+    工具执行用户
+    */
+    string execUser = 8 ;
+    /*
+    工具结果状态
+    */
+    string status = 9 ;
+    /*
+    任务结束时间 2019-07-02 11:38:59.09199400
+    */
+    string endTime = 10 ;
+    /*
+    工具版本
+    */
+    string vName = 11 ;
+    /*
+    作业成功率。success agents / all agents
+    */
+    float successRate = 12 ;
+    /*
+    工具报错信息
+    */
+    string error = 13 ;
+}
+

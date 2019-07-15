@@ -1,0 +1,107 @@
+syntax = "proto3";
+package plugin_version;
+
+
+
+
+import "model/agent_admin/plugin.proto";
+import "model/agent_admin/plugin_version.proto";
+
+/*
+CreatePluginVersionV1请求
+*/
+message CreatePluginVersionV1Request {
+    /*
+    插件Id
+    */
+    string id = 1 ;
+    /*
+    版本名称
+    */
+    string versionName = 2 ;
+    /*
+    基线版本ID，用于版本关联，可为空
+    */
+    string baseVersionId = 3 ;
+    /*
+    文件仓库的版本ID，前端提交文件后，调用文件仓库的提交，即可返回新的ID
+    */
+    string repoVersionId = 4 ;
+    /*
+    备注
+    */
+    string memo = 5 ;
+}
+
+/*
+CreatePluginVersionV1返回
+*/
+message CreatePluginVersionV1Response {
+    /*
+    插件包版本名称
+    */
+    string versionName = 1 ;
+    /*
+    所属插件包
+    */
+    agent_admin.Plugin agentPlugin = 2 ;
+    /*
+    基线版本
+    */
+    agent_admin.PluginVersion baseVersion = 3 ;
+    /*
+    ID
+    */
+    string id = 4 ;
+    /*
+    仓库版本ID
+    */
+    string repoVersionId = 5 ;
+    /*
+    版本名称
+    */
+    string name = 6 ;
+    /*
+    备注
+    */
+    string memo = 7 ;
+    /*
+    所属插件ID
+    */
+    string pluginId = 8 ;
+    /*
+    创建者
+    */
+    string creator = 9 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 10 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 11 ;
+}
+
+/*
+CreatePluginVersionV1Api返回
+*/
+message CreatePluginVersionV1ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin_version.CreatePluginVersionV1Response data = 4 ;
+}
+

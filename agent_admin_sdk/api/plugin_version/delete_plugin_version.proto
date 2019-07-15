@@ -1,0 +1,53 @@
+syntax = "proto3";
+package plugin_version;
+
+
+
+
+
+/*
+DeletePluginVersion请求
+*/
+message DeletePluginVersionRequest {
+    /*
+    插件Id
+    */
+    string id = 1 ;
+    /*
+    版本Id
+    */
+    string verId = 2 ;
+}
+
+/*
+DeletePluginVersion返回
+*/
+message DeletePluginVersionResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeletePluginVersionApi返回
+*/
+message DeletePluginVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin_version.DeletePluginVersionResponse data = 4 ;
+}
+

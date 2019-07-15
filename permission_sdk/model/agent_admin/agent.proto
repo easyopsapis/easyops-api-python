@@ -1,0 +1,59 @@
+syntax = "proto3";
+package agent_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/agent_admin";
+
+
+
+
+
+/*
+Agent
+*/
+message Agent {
+    /*
+    实例唯一标识
+    */
+    string id = 1 ;
+    /*
+    状态
+    */
+    string status = 2 ;
+    /*
+    是否存活
+    */
+    bool alive = 3 ;
+    /*
+    版本
+    */
+    string version = 4 ;
+    /*
+    Agent唯一标识
+    */
+    string uuid = 5 ;
+    /*
+    时区
+    */
+    int32 timezone = 6 ;
+    /*
+    Agent端心跳时间戳
+    */
+    int32 hbAgentTime = 7 ;
+    /*
+    Server端心跳时间戳
+    */
+    int32 hbServerTime = 8 ;
+    /*
+    Agent启动时间戳
+    */
+    int32 startTime = 9 ;
+    /*
+    Agent所属主机InstanceID
+    */
+    string hostID = 10 ;
+    /*
+    AgentIp
+    */
+    string ip = 11 ;
+}
+

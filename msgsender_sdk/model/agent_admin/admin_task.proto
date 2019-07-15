@@ -1,0 +1,35 @@
+syntax = "proto3";
+package agent_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/agent_admin";
+
+
+
+
+
+/*
+任务
+*/
+message AdminTask {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    类型
+    */
+    string type = 2 ;
+    /*
+    状态
+    */
+    string status = 3 ;
+    /*
+    信息
+    */
+    string message = 4 ;
+    /*
+    信息存活时间
+    */
+    int32 ttl = 5 ;
+}
+

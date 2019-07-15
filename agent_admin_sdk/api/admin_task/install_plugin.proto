@@ -1,0 +1,93 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+
+/*
+InstallPluginTask请求
+*/
+message InstallPluginTaskRequest {
+message Targets {
+    /*
+    AgentID(uuid)
+    */
+    string agentId = 1 ;
+    /*
+    ip
+    */
+    string ip = 2 ;
+    /*
+    部署路径
+    */
+    repeated string deployPath = 3 ;
+    /*
+    插件包ID
+    */
+    string pluginId = 4 ;
+    /*
+    插件包名称
+    */
+    string pluginName = 5 ;
+    /*
+    插件包版本名称
+    */
+    string pluginVersionName = 6 ;
+    /*
+    插件包版本ID
+    */
+    string pluginVersionId = 7 ;
+}
+        
+    
+    /*
+    插件部署任务的详情数据
+    */
+    repeated Targets targets = 1 ;
+    /*
+    部署类型
+    */
+    string taskType = 2 ;
+    /*
+    每批次数量
+    */
+    int32 batchNum = 3 ;
+    /*
+    每批时间间隔
+    */
+    int32 batchInterval = 4 ;
+}
+
+/*
+InstallPluginTask返回
+*/
+message InstallPluginTaskResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+InstallPluginTaskApi返回
+*/
+message InstallPluginTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    admin_task.InstallPluginTaskResponse data = 4 ;
+}
+

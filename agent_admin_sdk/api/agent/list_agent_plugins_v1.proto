@@ -1,0 +1,97 @@
+syntax = "proto3";
+package agent;
+
+
+
+
+
+/*
+ListAgentPluginsV1请求
+*/
+message ListAgentPluginsV1Request {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页数据量
+    */
+    int32 pageSize = 2 ;
+    /*
+    实例唯一标识
+    */
+    string id = 3 ;
+}
+
+/*
+ListAgentPluginsV1返回
+*/
+message ListAgentPluginsV1Response {
+message List {
+    /*
+    插件包ID
+    */
+    string pluginId = 1 ;
+    /*
+    插件包名称
+    */
+    string agentPluginName = 2 ;
+    /*
+    插件版本名称
+    */
+    string versionName = 3 ;
+    /*
+    最新的插件包版本名称
+    */
+    string lastestVersion = 4 ;
+    /*
+    插件的部署路径
+    */
+    repeated string deployPath = 5 ;
+    /*
+    插件版本的说明
+    */
+    string memo = 6 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListAgentPluginsV1Api返回
+*/
+message ListAgentPluginsV1ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent.ListAgentPluginsV1Response data = 4 ;
+}
+

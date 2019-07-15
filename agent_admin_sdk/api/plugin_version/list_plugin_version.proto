@@ -1,0 +1,70 @@
+syntax = "proto3";
+package plugin_version;
+
+
+
+
+import "model/agent_admin/plugin_version.proto";
+
+/*
+ListPluginVersion请求
+*/
+message ListPluginVersionRequest {
+    /*
+    组件ID
+    */
+    string id = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页数据量
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+ListPluginVersion返回
+*/
+message ListPluginVersionResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated agent_admin.PluginVersion list = 4 ;
+}
+
+/*
+ListPluginVersionApi返回
+*/
+message ListPluginVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin_version.ListPluginVersionResponse data = 4 ;
+}
+

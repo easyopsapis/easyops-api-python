@@ -1,0 +1,44 @@
+syntax = "proto3";
+package plugin_version;
+
+
+
+
+import "model/agent_admin/plugin_version.proto";
+
+/*
+GetPluginVersion请求
+*/
+message GetPluginVersionRequest {
+    /*
+    插件Id
+    */
+    string id = 1 ;
+    /*
+    版本Id
+    */
+    string verId = 2 ;
+}
+
+/*
+GetPluginVersionApi返回
+*/
+message GetPluginVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent_admin.PluginVersion data = 4 ;
+}
+

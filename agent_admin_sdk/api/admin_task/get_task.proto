@@ -1,0 +1,40 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+import "model/agent_admin/admin_task.proto";
+
+/*
+GetTask请求
+*/
+message GetTaskRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+GetTaskApi返回
+*/
+message GetTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent_admin.AdminTask data = 4 ;
+}
+

@@ -1,0 +1,47 @@
+syntax = "proto3";
+package agent_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/agent_admin";
+
+
+
+
+
+/*
+插件版本
+*/
+message PluginVersion {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    仓库版本ID
+    */
+    string repoVersionId = 2 ;
+    /*
+    版本名称
+    */
+    string name = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    所属插件ID
+    */
+    string pluginId = 5 ;
+    /*
+    创建者
+    */
+    string creator = 6 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 7 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 8 ;
+}
+
