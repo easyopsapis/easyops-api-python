@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='job_task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14list_job_tasks.proto\x12\x08job_task\x1a$model/ops_automation/job_tasks.proto\"\x99\x01\n\x13ListJobTasksRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\r\n\x05jobId\x18\x03 \x01(\t\x12\x0f\n\x07trigger\x18\x04 \x01(\t\x12\x0e\n\x06taskId\x18\x05 \x01(\t\x12\x10\n\x08taskType\x18\x06 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x07 \x01(\t\x12\x0e\n\x06status\x18\x08 \x01(\t\"n\n\x14ListJobTasksResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12&\n\x04list\x18\x04 \x03(\x0b\x32\x18.ops_automation.JobTasks\"}\n\x1bListJobTasksResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12,\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1e.job_task.ListJobTasksResponseb\x06proto3')
+  serialized_pb=_b('\n\x14list_job_tasks.proto\x12\x08job_task\x1a$model/ops_automation/job_tasks.proto\"\x99\x01\n\x13ListJobTasksRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\x0e\n\x06taskId\x18\x03 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x04 \x01(\t\x12\r\n\x05jobId\x18\x05 \x01(\t\x12\x0f\n\x07trigger\x18\x06 \x01(\t\x12\x10\n\x08taskType\x18\x07 \x01(\t\x12\x0e\n\x06status\x18\x08 \x01(\t\"n\n\x14ListJobTasksResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12&\n\x04list\x18\x04 \x03(\x0b\x32\x18.ops_automation.JobTasks\"}\n\x1bListJobTasksResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12,\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1e.job_task.ListJobTasksResponseb\x06proto3')
   ,
   dependencies=[model_dot_ops__automation_dot_job__tasks__pb2.DESCRIPTOR,])
 
@@ -49,35 +49,35 @@ _LISTJOBTASKSREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='jobId', full_name='job_task.ListJobTasksRequest.jobId', index=2,
+      name='taskId', full_name='job_task.ListJobTasksRequest.taskId', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='trigger', full_name='job_task.ListJobTasksRequest.trigger', index=3,
+      name='execUser', full_name='job_task.ListJobTasksRequest.execUser', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='taskId', full_name='job_task.ListJobTasksRequest.taskId', index=4,
+      name='jobId', full_name='job_task.ListJobTasksRequest.jobId', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='taskType', full_name='job_task.ListJobTasksRequest.taskType', index=5,
+      name='trigger', full_name='job_task.ListJobTasksRequest.trigger', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='execUser', full_name='job_task.ListJobTasksRequest.execUser', index=6,
+      name='taskType', full_name='job_task.ListJobTasksRequest.taskType', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,

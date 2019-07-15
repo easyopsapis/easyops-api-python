@@ -26,21 +26,21 @@ from typing_extensions import (
 class ListJobTasksRequest(google___protobuf___message___Message):
     page = ... # type: int
     pageSize = ... # type: int
+    taskId = ... # type: typing___Text
+    execUser = ... # type: typing___Text
     jobId = ... # type: typing___Text
     trigger = ... # type: typing___Text
-    taskId = ... # type: typing___Text
     taskType = ... # type: typing___Text
-    execUser = ... # type: typing___Text
     status = ... # type: typing___Text
 
     def __init__(self,
         page : typing___Optional[int] = None,
         pageSize : typing___Optional[int] = None,
+        taskId : typing___Optional[typing___Text] = None,
+        execUser : typing___Optional[typing___Text] = None,
         jobId : typing___Optional[typing___Text] = None,
         trigger : typing___Optional[typing___Text] = None,
-        taskId : typing___Optional[typing___Text] = None,
         taskType : typing___Optional[typing___Text] = None,
-        execUser : typing___Optional[typing___Text] = None,
         status : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod

@@ -19,25 +19,25 @@ message ListJobTasksRequest {
     */
     int32 pageSize = 2 ;
     /*
+    任务 ID
+    */
+    string taskId = 3 ;
+    /*
+    任务执行用户
+    */
+    string execUser = 4 ;
+    /*
     job id
     */
-    string jobId = 3 ;
+    string jobId = 5 ;
     /*
     执行触发器
     */
-    string trigger = 4 ;
-    /*
-    easy command id
-    */
-    string taskId = 5 ;
+    string trigger = 6 ;
     /*
     工具类型
     */
-    string taskType = 6 ;
-    /*
-    工具执行用户
-    */
-    string execUser = 7 ;
+    string taskType = 7 ;
     /*
     工具结果状态
     */
