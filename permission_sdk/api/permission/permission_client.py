@@ -8,6 +8,8 @@ import model.permission.permission_pb2
 
 import save_permission_pb2
 
+import validate_cmdb_permission_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -144,6 +146,46 @@ class PermissionClient(object):
             timeout=timeout,
         )
         rsp = save_permission_pb2.SavePermissionResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def validate_cmdb_permission(self, request, org, user, timeout=10):
+        # type: (validate_cmdb_permission_pb2.ValidateCmdbPermissionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        校验cmdb权限
+        :param request: validate_cmdb_permission请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.permission.permission.ValidateCmdbPermission"
+        uri = "/api/v1/permission/validate"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.permission_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
