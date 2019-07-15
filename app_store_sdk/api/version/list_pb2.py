@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='version',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x07version\"\x92\x01\n\x15ListAppVersionRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0e\n\x06\x61pp_id\x18\x03 \x01(\t\x12\x31\n\x04sort\x18\x04 \x01(\x0b\x32#.version.ListAppVersionRequest.Sort\x1a\x15\n\x04Sort\x12\r\n\x05\x63time\x18\x01 \x01(\x05\"\xe2\x01\n\x16ListAppVersionResponse\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x32\n\x04list\x18\x04 \x03(\x0b\x32$.version.ListAppVersionResponse.List\x1a\x64\n\x04List\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bversionName\x18\x03 \x01(\t\x12\x11\n\tchangeLog\x18\x04 \x01(\t\x12\x13\n\x0breleaseTime\x18\x05 \x01(\t\"\x80\x01\n\x1dListAppVersionResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.ListAppVersionResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x07version\"\xa7\x01\n\x15ListAppVersionRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x0e\n\x06\x61pp_id\x18\x03 \x01(\t\x12\x31\n\x04sort\x18\x04 \x01(\x0b\x32#.version.ListAppVersionRequest.Sort\x1a*\n\x04Sort\x12\r\n\x05\x63time\x18\x01 \x01(\x05\x12\x13\n\x0breleaseTime\x18\x02 \x01(\x05\"\xe2\x01\n\x16ListAppVersionResponse\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x32\n\x04list\x18\x04 \x03(\x0b\x32$.version.ListAppVersionResponse.List\x1a\x64\n\x04List\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bversionName\x18\x03 \x01(\t\x12\x11\n\tchangeLog\x18\x04 \x01(\t\x12\x13\n\x0breleaseTime\x18\x05 \x01(\t\"\x80\x01\n\x1dListAppVersionResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.ListAppVersionResponseb\x06proto3')
 )
 
 
@@ -39,6 +39,13 @@ _LISTAPPVERSIONREQUEST_SORT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='releaseTime', full_name='version.ListAppVersionRequest.Sort.releaseTime', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -52,7 +59,7 @@ _LISTAPPVERSIONREQUEST_SORT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=149,
-  serialized_end=170,
+  serialized_end=191,
 )
 
 _LISTAPPVERSIONREQUEST = _descriptor.Descriptor(
@@ -103,7 +110,7 @@ _LISTAPPVERSIONREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=170,
+  serialized_end=191,
 )
 
 
@@ -161,8 +168,8 @@ _LISTAPPVERSIONRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=299,
-  serialized_end=399,
+  serialized_start=320,
+  serialized_end=420,
 )
 
 _LISTAPPVERSIONRESPONSE = _descriptor.Descriptor(
@@ -212,8 +219,8 @@ _LISTAPPVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=173,
-  serialized_end=399,
+  serialized_start=194,
+  serialized_end=420,
 )
 
 
@@ -264,8 +271,8 @@ _LISTAPPVERSIONRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=402,
-  serialized_end=530,
+  serialized_start=423,
+  serialized_end=551,
 )
 
 _LISTAPPVERSIONREQUEST_SORT.containing_type = _LISTAPPVERSIONREQUEST
