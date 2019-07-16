@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+import os
+import sys
+
+current_path = os.path.dirname(os.path.abspath(__file__))
+PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
+if PROJECT_PATH not in sys.path:
+    sys.path.append(PROJECT_PATH)
+
 
 import create_container_pb2
 
