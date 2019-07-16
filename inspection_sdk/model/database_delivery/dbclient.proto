@@ -1,0 +1,47 @@
+syntax = "proto3";
+package database_delivery;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/database_delivery";
+
+
+
+
+
+/*
+数据库实例
+*/
+message DBClient {
+    /*
+    客户端ID
+    */
+    string id = 1 ;
+    /*
+    客户端名称
+    */
+    string name = 2 ;
+    /*
+    easyCommand任务ID
+    */
+    string cmdTaskId = 3 ;
+    /*
+    客户端IP
+    */
+    string ip = 4 ;
+    /*
+    客户端状态
+    */
+    string status = 5 ;
+    /*
+    客户端安装时间
+    */
+    int64 ctime = 6 ;
+    /*
+    客户端更新时间
+    */
+    int64 mtime = 7 ;
+    /*
+    客户端创建者
+    */
+    string creator = 8 ;
+}
+

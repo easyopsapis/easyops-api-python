@@ -1,0 +1,44 @@
+syntax = "proto3";
+package collector;
+
+
+
+
+import "model/inspection/collector.proto";
+
+/*
+GetCollector请求
+*/
+message GetCollectorRequest {
+    /*
+    套件id
+    */
+    string id = 1 ;
+    /*
+    采集脚本Id
+    */
+    string collectorId = 2 ;
+}
+
+/*
+GetCollectorApi返回
+*/
+message GetCollectorResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionCollector data = 4 ;
+}
+

@@ -1,0 +1,55 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+采集脚本
+*/
+message InspectionCollector {
+message Args {
+    /*
+    脚本入参key
+    */
+    string key = 1 ;
+    /*
+    别名
+    */
+    string alias = 2 ;
+    /*
+    输入框类型
+    */
+    string type = 3 ;
+    /*
+    是否必填
+    */
+    bool require = 4 ;
+}
+        
+    
+    /*
+    脚本id
+    */
+    string id = 1 ;
+    /*
+    脚本名称
+    */
+    string name = 2 ;
+    /*
+    脚本内容
+    */
+    string content = 3 ;
+    /*
+    脚本类型
+    */
+    string script = 4 ;
+    /*
+    脚本入参
+    */
+    repeated Args args = 5 ;
+}
+
