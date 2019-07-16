@@ -10,10 +10,6 @@ import delete_package_pb2
 
 import get_package_detail_pb2
 
-import 
-
-import get_package_list_pb2
-
 import get_package_permission_pb2
 
 import google.protobuf.empty_pb2
@@ -206,46 +202,6 @@ class PkgClient(object):
             timeout=timeout,
         )
         rsp = get_package_detail_pb2.GetPackageDetailResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
-    def get_package_list(self, request, org, user, timeout=10):
-        # type: (, int, str, int) -> get_package_list_pb2.GetPackageListResponse
-        """
-        批量获取包信息
-        :param request: get_package_list请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: get_package_list_pb2.GetPackageListResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.artifact.pkg.GetPackageList"
-        uri = "/package/list"
-        
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="POST",
-            src_name="logic.artifact_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = get_package_list_pb2.GetPackageListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
