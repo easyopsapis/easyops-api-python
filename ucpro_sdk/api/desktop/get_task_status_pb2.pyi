@@ -33,12 +33,14 @@ class GetTaskStatusResponse(google___protobuf___message___Message):
     taskId = ... # type: typing___Text
     status = ... # type: typing___Text
     taskType = ... # type: typing___Text
+    stage = ... # type: typing___Text
     msg = ... # type: typing___Text
 
     def __init__(self,
         taskId : typing___Optional[typing___Text] = None,
         status : typing___Optional[typing___Text] = None,
         taskType : typing___Optional[typing___Text] = None,
+        stage : typing___Optional[typing___Text] = None,
         msg : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
@@ -46,9 +48,9 @@ class GetTaskStatusResponse(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"msg",u"status",u"taskId",u"taskType"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"msg",u"stage",u"status",u"taskId",u"taskType"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"msg",b"status",b"taskId",b"taskType"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"msg",b"stage",b"status",b"taskId",b"taskType"]) -> None: ...
 
 class GetTaskStatusResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

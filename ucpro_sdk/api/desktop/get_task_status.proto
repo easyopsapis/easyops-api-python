@@ -32,9 +32,13 @@ message GetTaskStatusResponse {
     */
     string taskType = 3 ;
     /*
+    任务进行的阶段。 ready - 就绪， download - 下载, deploy - 安装, uninstall - 卸载
+    */
+    string stage = 4 ;
+    /*
     部署信息
     */
-    string msg = 4 ;
+    string msg = 5 ;
 }
 
 /*
