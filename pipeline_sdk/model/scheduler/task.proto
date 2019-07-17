@@ -1,0 +1,123 @@
+syntax = "proto3";
+package scheduler;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/scheduler";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+定时任务
+*/
+message SchedulerTask {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
+message Callback {
+    /*
+    url
+    */
+    string url = 1 ;
+    /*
+    header host
+    */
+    string host = 2 ;
+    /*
+    名字服务
+    */
+    string ensName = 3 ;
+}
+        
+    
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 1 ;
+    /*
+    task id
+    */
+    string task_id = 2 ;
+    /*
+    任务类型
+    */
+    string job_type = 3 ;
+    /*
+    脚本类型
+    */
+    string cmd_type = 4 ;
+    /*
+    工具执行 id
+    */
+    string tool_exec_id = 5 ;
+    /*
+    总状态
+    */
+    string total_status = 6 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 7 ;
+    /*
+    任务的具体配置, http或脚本
+    */
+    google.protobuf.Struct cmd_config = 8 ;
+    /*
+    是否支持一次性任务
+    */
+    string task_type = 9 ;
+    /*
+    更新权限
+    */
+    repeated string updateAuthorizers = 10 ;
+    /*
+    删除权限
+    */
+    repeated string deleteAuthorizers = 11 ;
+    /*
+    操作权限
+    */
+    repeated string operateAuthorizers = 12 ;
+    /*
+    0 在页面可见，1 不可见
+    */
+    int32 invisible = 13 ;
+    /*
+    回调
+    */
+    Callback callback = 14 ;
+    /*
+    注明的名字服务
+    */
+    string assignner = 15 ;
+    /*
+    启动时间
+    */
+    string start_time = 16 ;
+    /*
+    创建用户
+    */
+    string user = 17 ;
+    /*
+    结束时间
+    */
+    string end_time = 18 ;
+    /*
+    创建时间
+    */
+    string create_time = 19 ;
+    /*
+    更新时间
+    */
+    string update_time = 20 ;
+    /*
+    org
+    */
+    int32 org = 21 ;
+}
+

@@ -226,8 +226,9 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.GetJobChangeLog"
-        uri = "/api/ops_automation/v1/jobs/@jobId/changeLog"
-        
+        uri = "/api/ops_automation/v1/jobs/{jobId}/changeLog".format(
+            jobId=request.jobId,
+        )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(

@@ -1,0 +1,171 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListTask返回
+*/
+message ListTaskResponse {
+message List {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
+message Callback {
+    /*
+    url
+    */
+    string url = 1 ;
+    /*
+    header host
+    */
+    string host = 2 ;
+    /*
+    名字服务
+    */
+    string ensName = 3 ;
+}
+        
+    
+    /*
+    task id
+    */
+    string id = 1 ;
+    /*
+    作业 id
+    */
+    string job_id = 2 ;
+    /*
+    状态
+    */
+    int32 status = 3 ;
+    /*
+    是否停用。0 表示任务启动，1 表示停用
+    */
+    int32 disable = 4 ;
+    /*
+    定时时间
+    */
+    string task_scheduler = 5 ;
+    /*
+    任务名称
+    */
+    string name = 6 ;
+    /*
+    工具报错信息
+    */
+    string error = 7 ;
+    /*
+    任务的具体配置, http或脚本
+    */
+    google.protobuf.Struct cmd_config = 8 ;
+    /*
+    任务类型
+    */
+    string job_type = 9 ;
+    /*
+    更新权限
+    */
+    repeated string updateAuthorizers = 10 ;
+    /*
+    创建时间
+    */
+    string create_time = 11 ;
+    /*
+    是否支持一次性任务
+    */
+    string task_type = 12 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 13 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 14 ;
+    /*
+    更新时间
+    */
+    string update_time = 15 ;
+    /*
+    脚本类型
+    */
+    string cmd_type = 16 ;
+    /*
+    删除权限
+    */
+    repeated string deleteAuthorizers = 17 ;
+    /*
+    创建用户
+    */
+    string user = 18 ;
+    /*
+    0 在页面可见，1 不可见
+    */
+    int32 invisible = 19 ;
+    /*
+    org
+    */
+    int32 org = 20 ;
+    /*
+    操作权限
+    */
+    repeated string operateAuthorizers = 21 ;
+    /*
+    回调
+    */
+    Callback callback = 22 ;
+    /*
+    注明的名字服务
+    */
+    string assignner = 23 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListTaskApi返回
+*/
+message ListTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task.ListTaskResponse data = 4 ;
+}
+
