@@ -50,7 +50,7 @@ class JobExportClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.job_export.GetJobExport"
-        uri = "/jobs/{menuId}/export".format(
+        uri = "/api/ops_automation/v1/jobs/{menuId}/export".format(
             menuId=request.menuId,
         )
         requestParam = request
@@ -91,7 +91,7 @@ class JobExportClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.job_export.PostJobImport"
-        uri = "/jobs/{menuId}/export".format(
+        uri = "/api/ops_automation/v1/jobs/{menuId}/export".format(
             menuId=request.menuId,
         )
         requestParam = request

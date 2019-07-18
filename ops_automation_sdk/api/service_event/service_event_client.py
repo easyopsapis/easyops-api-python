@@ -48,7 +48,7 @@ class ServiceEventClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.service_event.CreateServiceEvent"
-        uri = "/service/event"
+        uri = "/api/ops_automation/v1/service/event"
         
         requestParam = request
         
