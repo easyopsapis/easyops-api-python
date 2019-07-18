@@ -1,0 +1,48 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteTool请求
+*/
+message DeleteToolRequest {
+    /*
+    强制删除工具，当工具被流程引用时 "true"|"false"
+    */
+    string force = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 3 ;
+}
+
+/*
+DeleteToolApi返回
+*/
+message DeleteToolResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

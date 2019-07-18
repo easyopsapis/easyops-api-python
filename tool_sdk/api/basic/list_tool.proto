@@ -1,0 +1,86 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "model/tool/tool.proto";
+
+/*
+ListTool请求
+*/
+message ListToolRequest {
+    /*
+    是否显示具体信息
+    */
+    string detail = 1 ;
+    /*
+    是否显示插件
+    */
+    string plugin = 2 ;
+    /*
+    工具的分类
+    */
+    string category = 3 ;
+    /*
+    用户对工具具有的权限; 用","分割(read=查看, update=更新, delete=删除, execute=执行, execResult=执行结果查看, rootExec=Root执行)
+    */
+    string permissions = 4 ;
+    /*
+    仅选择有生产版本的工具 true | false. 默认是false
+    */
+    string onlyProduction = 5 ;
+    /*
+    显示listVisible=false的工具; true=显示 | false=不显示. 默认是false
+    */
+    string showInvisible = 6 ;
+    /*
+    标签，用","分隔，标签只支持字符串
+    */
+    string tags = 7 ;
+}
+
+/*
+ListTool返回
+*/
+message ListToolResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated tool.Tool list = 4 ;
+}
+
+/*
+ListToolApi返回
+*/
+message ListToolResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.ListToolResponse data = 4 ;
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+import "model/topology/linkStyle.proto";
+
+/*
+边（线）
+*/
+message Link {
+    /*
+    源点
+    */
+    string source = 1 ;
+    /*
+    目标点
+    */
+    string target = 2 ;
+    /*
+    线样式
+    */
+    topology.LinkStyle style = 3 ;
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+定时任务详情
+*/
+message Scheduler {
+    /*
+    是否绑定
+    */
+    bool isBound = 1 ;
+    /*
+    是否启动
+    */
+    bool isActive = 2 ;
+    /*
+    最近历史信息
+    */
+    repeated google.protobuf.Struct recentHistory = 3 ;
+}
+

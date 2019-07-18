@@ -1,0 +1,59 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "model/tool/callback.proto";
+import "model/tool/tool.proto";
+import "model/tool/tool_task.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetExecuteResult请求
+*/
+message GetExecuteResultRequest {
+    /*
+    工具执行的任务Id
+    */
+    string execId = 1 ;
+    /*
+    精简模式，不展示执行结果的日志信息（包含 日志、输出、表格输出）,true|false(缺省)
+    */
+    string brief = 2 ;
+    /*
+    taskId列表；用";"隔开
+    */
+    string targetIds = 3 ;
+    /*
+    所属流程的taskId
+    */
+    string taskId = 4 ;
+    /*
+    在所属流程中的步骤Id
+    */
+    string stepId = 5 ;
+}
+
+/*
+GetExecuteResultApi返回
+*/
+message GetExecuteResultResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    tool.ToolTask data = 4 ;
+}
+

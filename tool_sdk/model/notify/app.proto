@@ -1,0 +1,23 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+应用信息(name,instanceId)
+*/
+message App {
+    /*
+    应用名
+    */
+    string name = 1 ;
+    /*
+    实例id
+    */
+    string instanceId = 2 ;
+}
+

@@ -1,0 +1,149 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "model/cmdb/cluster_info.proto";
+import "model/file_repository/diff.proto";
+import "google/protobuf/struct.proto";
+
+/*
+目标设备信息
+*/
+message TaskTargetInfo {
+message InstanceInfo {
+    /*
+    版本名
+    */
+    string versionName = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+    /*
+    版本Id
+    */
+    string versionId = 4 ;
+}
+        
+message VersionInfo {
+message SourceDecode {
+    /*
+    源服务名字
+    */
+    string ensName = 1 ;
+    /*
+    源域名
+    */
+    string host = 2 ;
+    /*
+    源类型
+    */
+    string type = 3 ;
+    /*
+    http源的ip
+    */
+    string ip = 4 ;
+    /*
+    http源的port
+    */
+    int32 port = 5 ;
+}
+        
+    
+    /*
+    包存储源信息
+    */
+    SourceDecode sourceDecode = 1 ;
+    /*
+    包存储源序列化信息
+    */
+    string source = 2 ;
+    /*
+    包diff信息
+    */
+    repeated file_repository.Diff diff = 3 ;
+    /*
+    包名称
+    */
+    string name = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+    /*
+    包Id
+    */
+    string packageId = 6 ;
+    /*
+    组织id
+    */
+    int32 org = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    版本备注
+    */
+    string memo = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    修改时间
+    */
+    string mtime = 11 ;
+    /*
+    包文件的md5检验值
+    */
+    google.protobuf.Struct sign = 12 ;
+    /*
+    包存储服务版本
+    */
+    string sourceType = 13 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 14 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 15 ;
+}
+        
+    
+    /*
+    目标设备Id
+    */
+    string targetId = 1 ;
+    /*
+    目标设备名称
+    */
+    string targetName = 2 ;
+    /*
+    实例Id
+    */
+    string instanceId = 3 ;
+    /*
+    集群列表
+    */
+    cmdb.ClusterInfo cluster = 4 ;
+    /*
+    目标设备上次成功部署的实例信息
+    */
+    repeated InstanceInfo instanceInfo = 5 ;
+    /*
+    包版本信息
+    */
+    VersionInfo versionInfo = 6 ;
+}
+
