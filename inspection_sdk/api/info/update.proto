@@ -1,0 +1,48 @@
+syntax = "proto3";
+package info;
+
+
+
+
+import "model/inspection/info.proto";
+
+/*
+UpdateInspectionInfo请求
+*/
+message UpdateInspectionInfoRequest {
+    /*
+    套件id
+    */
+    string id = 1 ;
+    /*
+    套件名
+    */
+    string name = 2 ;
+    /*
+    套件索引
+    */
+    int32 index = 3 ;
+}
+
+/*
+UpdateInspectionInfoApi返回
+*/
+message UpdateInspectionInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionInfo data = 4 ;
+}
+

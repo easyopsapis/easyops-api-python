@@ -1,0 +1,66 @@
+syntax = "proto3";
+package info;
+
+
+
+
+import "model/inspection/info.proto";
+
+/*
+ListInspectionInfo请求
+*/
+message ListInspectionInfoRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+}
+
+/*
+ListInspectionInfo返回
+*/
+message ListInspectionInfoResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated inspection.InspectionInfo list = 4 ;
+}
+
+/*
+ListInspectionInfoApi返回
+*/
+message ListInspectionInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    info.ListInspectionInfoResponse data = 4 ;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+套件信息
+*/
+message InspectionInfo {
+    /*
+    套件Id
+    */
+    string id = 1 ;
+    /*
+    套件名
+    */
+    string name = 2 ;
+    /*
+    备注
+    */
+    string memo = 3 ;
+    /*
+    套件索引
+    */
+    int32 index = 4 ;
+    /*
+    用于区分对象的维度列表
+    */
+    repeated string identifiers = 5 ;
+    /*
+    创建时间
+    */
+    string ctime = 6 ;
+}
+

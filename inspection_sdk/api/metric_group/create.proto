@@ -1,0 +1,62 @@
+syntax = "proto3";
+package metric_group;
+
+
+
+
+import "model/inspection/dim.proto";
+import "model/inspection/val.proto";
+import "model/inspection/metric_group.proto";
+
+/*
+CreateMetricGroup请求
+*/
+message CreateMetricGroupRequest {
+    /*
+    套件id
+    */
+    string id = 1 ;
+    /*
+    指标组名
+    */
+    string name = 2 ;
+    /*
+    指标组说明
+    */
+    string memo = 3 ;
+    /*
+    指标组维度信息
+    */
+    repeated inspection.InspectionDim dims = 4 ;
+    /*
+    两级分类，用.分割，(如：主机状态.基本配置 )
+    */
+    string category = 5 ;
+    /*
+    指标组指标信息
+    */
+    repeated inspection.InspectionVal vals = 6 ;
+}
+
+/*
+CreateMetricGroupApi返回
+*/
+message CreateMetricGroupResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionMetricGroup data = 4 ;
+}
+

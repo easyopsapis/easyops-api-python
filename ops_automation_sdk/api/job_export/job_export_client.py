@@ -10,6 +10,8 @@ if PROJECT_PATH not in sys.path:
 
 import get_job_export_pb2
 
+import get_job_table_tool_pb2
+
 import post_job_import_pb2
 
 import utils.http_util
@@ -69,6 +71,47 @@ class JobExportClient(object):
             timeout=timeout,
         )
         rsp = get_job_export_pb2.GetJobExportResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_job_table_tool_json(self, request, org, user, timeout=10):
+        # type: (get_job_table_tool_pb2.GetJobTableToolJsonRequest, int, str, int) -> get_job_table_tool_pb2.GetJobTableToolJsonResponse
+        """
+        返回工具执行结果
+        :param request: get_job_table_tool_json请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_job_table_tool_pb2.GetJobTableToolJsonResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ops_automation.job_export.GetJobTableToolJson"
+        uri = "/api/ops_automation/v1/job/table/{jobTaskIdTool}".format(
+            jobTaskIdTool=request.jobTaskIdTool,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.ops_automation_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_job_table_tool_pb2.GetJobTableToolJsonResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
