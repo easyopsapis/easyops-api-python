@@ -10,7 +10,9 @@ if PROJECT_PATH not in sys.path:
 
 import get_job_export_pb2
 
-import get_job_table_tool_pb2
+import get_job_table_json_pb2
+
+import google.protobuf.struct_pb2
 
 import post_job_import_pb2
 
@@ -76,15 +78,15 @@ class JobExportClient(object):
         
         return rsp
     
-    def get_job_table_tool_json(self, request, org, user, timeout=10):
-        # type: (get_job_table_tool_pb2.GetJobTableToolJsonRequest, int, str, int) -> get_job_table_tool_pb2.GetJobTableToolJsonResponse
+    def get_job_table_json(self, request, org, user, timeout=10):
+        # type: (get_job_table_json_pb2.GetJobTableJsonRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         返回工具执行结果
-        :param request: get_job_table_tool_json请求
+        :param request: get_job_table_json请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_job_table_tool_pb2.GetJobTableToolJsonResponse
+        :return: google.protobuf.struct_pb2.Struct
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -92,9 +94,9 @@ class JobExportClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.ops_automation.job_export.GetJobTableToolJson"
-        uri = "/api/ops_automation/v1/job/table/{jobTaskIdTool}".format(
-            jobTaskIdTool=request.jobTaskIdTool,
+            route_name = "easyops.api.ops_automation.job_export.GetJobTableJson"
+        uri = "/api/ops_automation/v1/job/table/{jobTaskId}".format(
+            jobTaskId=request.jobTaskId,
         )
         requestParam = request
         
@@ -111,7 +113,7 @@ class JobExportClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_job_table_tool_pb2.GetJobTableToolJsonResponse()
+        rsp = google.protobuf.struct_pb2.Struct()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
