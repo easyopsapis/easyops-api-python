@@ -133,48 +133,6 @@ message OutputDefs {
     repeated OutputDefs outputDefs = 5 ;
 }
         
-message ToolOutputs {
-message Dimensions {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-message Columns {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-    
-    /*
-    维度列
-    */
-    repeated Dimensions dimensions = 1 ;
-    /*
-    输出列
-    */
-    repeated Columns columns = 2 ;
-}
-        
 message BatchStrategy {
     /*
     自动分批:每批次部署机器数;手动分批:部署总共批次
@@ -241,6 +199,48 @@ message Columns {
     输出列
     */
     repeated Columns columns = 4 ;
+}
+        
+message ToolOutputs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+    /*
+    列类型
+    */
+    string type = 3 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+    /*
+    列类型
+    */
+    string type = 3 ;
+}
+        
+    
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 1 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 2 ;
 }
         
     
@@ -313,44 +313,44 @@ message Columns {
     */
     google.protobuf.Struct sysStatus = 17 ;
     /*
-    工具的输出定义
-    */
-    ToolOutputs toolOutputs = 18 ;
-    /*
     工具输出数据
     */
-    repeated google.protobuf.Struct toolOutputsData = 19 ;
+    repeated google.protobuf.Struct toolOutputsData = 18 ;
     /*
     表格数据
     */
-    google.protobuf.Struct tableData = 20 ;
+    google.protobuf.Struct tableData = 19 ;
     /*
     工具信息
     */
-    tool.Tool toolData = 21 ;
+    tool.Tool toolData = 20 ;
     /*
     分批策略
     */
-    BatchStrategy batchStrategy = 22 ;
+    BatchStrategy batchStrategy = 21 ;
     /*
     执行用户
     */
-    string execUser = 23 ;
+    string execUser = 22 ;
     /*
     工具版本
     */
-    string vId = 24 ;
+    string vId = 23 ;
     /*
     工具Id，服务端自动生成
     */
-    string toolId = 25 ;
+    string toolId = 24 ;
     /*
     工具的输出定义
     */
-    repeated OutputDefs outputDefs = 26 ;
+    repeated OutputDefs outputDefs = 25 ;
     /*
     工具的表格输出定义
     */
-    repeated TableDefs tableDefs = 27 ;
+    repeated TableDefs tableDefs = 26 ;
+    /*
+    工具的输出
+    */
+    ToolOutputs toolOutputs = 27 ;
 }
 

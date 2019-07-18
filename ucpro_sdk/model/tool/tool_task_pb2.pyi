@@ -203,65 +203,6 @@ class ToolTask(google___protobuf___message___Message):
             def HasField(self, field_name: typing_extensions___Literal[u"callback",b"callback",u"toolEnv",b"toolEnv",u"toolOutputs",b"toolOutputs"]) -> bool: ...
             def ClearField(self, field_name: typing_extensions___Literal[b"callback",b"outputDefs",b"tableDefs",b"toolEnv",b"toolOutputs"]) -> None: ...
 
-    class ToolOutputs(google___protobuf___message___Message):
-        class Dimensions(google___protobuf___message___Message):
-            id = ... # type: typing___Text
-            name = ... # type: typing___Text
-            type = ... # type: typing___Text
-
-            def __init__(self,
-                id : typing___Optional[typing___Text] = None,
-                name : typing___Optional[typing___Text] = None,
-                type : typing___Optional[typing___Text] = None,
-                ) -> None: ...
-            @classmethod
-            def FromString(cls, s: bytes) -> ToolTask.ToolOutputs.Dimensions: ...
-            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            if sys.version_info >= (3,):
-                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name",u"type"]) -> None: ...
-            else:
-                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"type"]) -> None: ...
-
-        class Columns(google___protobuf___message___Message):
-            id = ... # type: typing___Text
-            name = ... # type: typing___Text
-            type = ... # type: typing___Text
-
-            def __init__(self,
-                id : typing___Optional[typing___Text] = None,
-                name : typing___Optional[typing___Text] = None,
-                type : typing___Optional[typing___Text] = None,
-                ) -> None: ...
-            @classmethod
-            def FromString(cls, s: bytes) -> ToolTask.ToolOutputs.Columns: ...
-            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            if sys.version_info >= (3,):
-                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name",u"type"]) -> None: ...
-            else:
-                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"type"]) -> None: ...
-
-
-        @property
-        def dimensions(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ToolTask.ToolOutputs.Dimensions]: ...
-
-        @property
-        def columns(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ToolTask.ToolOutputs.Columns]: ...
-
-        def __init__(self,
-            dimensions : typing___Optional[typing___Iterable[ToolTask.ToolOutputs.Dimensions]] = None,
-            columns : typing___Optional[typing___Iterable[ToolTask.ToolOutputs.Columns]] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> ToolTask.ToolOutputs: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"columns",u"dimensions"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"columns",b"dimensions"]) -> None: ...
-
     class BatchStrategy(google___protobuf___message___Message):
         batchNum = ... # type: int
         batchInterval = ... # type: int
@@ -357,6 +298,65 @@ class ToolTask(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"columns",b"dimensions",b"id",b"name"]) -> None: ...
 
+    class ToolOutputs(google___protobuf___message___Message):
+        class Dimensions(google___protobuf___message___Message):
+            id = ... # type: typing___Text
+            name = ... # type: typing___Text
+            type = ... # type: typing___Text
+
+            def __init__(self,
+                id : typing___Optional[typing___Text] = None,
+                name : typing___Optional[typing___Text] = None,
+                type : typing___Optional[typing___Text] = None,
+                ) -> None: ...
+            @classmethod
+            def FromString(cls, s: bytes) -> ToolTask.ToolOutputs.Dimensions: ...
+            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            if sys.version_info >= (3,):
+                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name",u"type"]) -> None: ...
+            else:
+                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"type"]) -> None: ...
+
+        class Columns(google___protobuf___message___Message):
+            id = ... # type: typing___Text
+            name = ... # type: typing___Text
+            type = ... # type: typing___Text
+
+            def __init__(self,
+                id : typing___Optional[typing___Text] = None,
+                name : typing___Optional[typing___Text] = None,
+                type : typing___Optional[typing___Text] = None,
+                ) -> None: ...
+            @classmethod
+            def FromString(cls, s: bytes) -> ToolTask.ToolOutputs.Columns: ...
+            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            if sys.version_info >= (3,):
+                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name",u"type"]) -> None: ...
+            else:
+                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"type"]) -> None: ...
+
+
+        @property
+        def dimensions(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ToolTask.ToolOutputs.Dimensions]: ...
+
+        @property
+        def columns(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ToolTask.ToolOutputs.Columns]: ...
+
+        def __init__(self,
+            dimensions : typing___Optional[typing___Iterable[ToolTask.ToolOutputs.Dimensions]] = None,
+            columns : typing___Optional[typing___Iterable[ToolTask.ToolOutputs.Columns]] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> ToolTask.ToolOutputs: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"columns",u"dimensions"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"columns",b"dimensions"]) -> None: ...
+
     username = ... # type: typing___Text
     totalStatus = ... # type: typing___Text
     error = ... # type: typing___Text
@@ -403,9 +403,6 @@ class ToolTask(google___protobuf___message___Message):
     def sysStatus(self) -> google___protobuf___struct_pb2___Struct: ...
 
     @property
-    def toolOutputs(self) -> ToolTask.ToolOutputs: ...
-
-    @property
     def toolOutputsData(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[google___protobuf___struct_pb2___Struct]: ...
 
     @property
@@ -422,6 +419,9 @@ class ToolTask(google___protobuf___message___Message):
 
     @property
     def tableDefs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[ToolTask.TableDefs]: ...
+
+    @property
+    def toolOutputs(self) -> ToolTask.ToolOutputs: ...
 
     def __init__(self,
         username : typing___Optional[typing___Text] = None,
@@ -441,7 +441,6 @@ class ToolTask(google___protobuf___message___Message):
         endTime : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
         exitStatus : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
         sysStatus : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
-        toolOutputs : typing___Optional[ToolTask.ToolOutputs] = None,
         toolOutputsData : typing___Optional[typing___Iterable[google___protobuf___struct_pb2___Struct]] = None,
         tableData : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
         toolData : typing___Optional[model___tool___tool_pb2___Tool] = None,
@@ -451,6 +450,7 @@ class ToolTask(google___protobuf___message___Message):
         toolId : typing___Optional[typing___Text] = None,
         outputDefs : typing___Optional[typing___Iterable[ToolTask.OutputDefs]] = None,
         tableDefs : typing___Optional[typing___Iterable[ToolTask.TableDefs]] = None,
+        toolOutputs : typing___Optional[ToolTask.ToolOutputs] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> ToolTask: ...

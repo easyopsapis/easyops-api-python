@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tool',
   syntax='proto3',
   serialized_options=_b('Z>go.easyops.local/contracts/protorepo-models/easyops/model/tool'),
-  serialized_pb=_b('\n\x0ftool_task.proto\x12\x04tool\x1a\x19model/tool/callback.proto\x1a\x15model/tool/tool.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc2\x12\n\x08ToolTask\x12\x10\n\x08username\x18\x01 \x01(\t\x12\'\n\x06inputs\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12/\n\x0b\x65xtraDetail\x18\x03 \x01(\x0b\x32\x1a.tool.ToolTask.ExtraDetail\x12\x13\n\x0btotalStatus\x18\x04 \x01(\t\x12\r\n\x05\x65rror\x18\x05 \x01(\t\x12\x0e\n\x06\x65xecId\x18\x06 \x01(\t\x12(\n\x07toolEnv\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x12(\n\x07outputs\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12,\n\x0boutViewData\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\tagentData\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0e\n\x06\x61gents\x18\x0b \x03(\t\x12*\n\tstartTime\x18\x0c \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06status\x18\r \x01(\x0b\x32\x17.google.protobuf.Struct\x12$\n\x03msg\x18\x0e \x01(\x0b\x32\x17.google.protobuf.Struct\x12(\n\x07\x65ndTime\x18\x0f \x01(\x0b\x32\x17.google.protobuf.Struct\x12+\n\nexitStatus\x18\x10 \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\tsysStatus\x18\x11 \x01(\x0b\x32\x17.google.protobuf.Struct\x12/\n\x0btoolOutputs\x18\x12 \x01(\x0b\x32\x1a.tool.ToolTask.ToolOutputs\x12\x30\n\x0ftoolOutputsData\x18\x13 \x03(\x0b\x32\x17.google.protobuf.Struct\x12*\n\ttableData\x18\x14 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1c\n\x08toolData\x18\x15 \x01(\x0b\x32\n.tool.Tool\x12\x33\n\rbatchStrategy\x18\x16 \x01(\x0b\x32\x1c.tool.ToolTask.BatchStrategy\x12\x10\n\x08\x65xecUser\x18\x17 \x01(\t\x12\x0b\n\x03vId\x18\x18 \x01(\t\x12\x0e\n\x06toolId\x18\x19 \x01(\t\x12-\n\noutputDefs\x18\x1a \x03(\x0b\x32\x19.tool.ToolTask.OutputDefs\x12+\n\ttableDefs\x18\x1b \x03(\x0b\x32\x18.tool.ToolTask.TableDefs\x1a\xac\x06\n\x0b\x45xtraDetail\x12 \n\x08\x63\x61llback\x18\x01 \x01(\x0b\x32\x0e.tool.Callback\x12(\n\x07toolEnv\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12;\n\x0btoolOutputs\x18\x03 \x01(\x0b\x32&.tool.ToolTask.ExtraDetail.ToolOutputs\x12\x37\n\ttableDefs\x18\x04 \x03(\x0b\x32$.tool.ToolTask.ExtraDetail.TableDefs\x12\x39\n\noutputDefs\x18\x05 \x03(\x0b\x32%.tool.ToolTask.ExtraDetail.OutputDefs\x1a\xfe\x01\n\x0bToolOutputs\x12\x45\n\ndimensions\x18\x01 \x03(\x0b\x32\x31.tool.ToolTask.ExtraDetail.ToolOutputs.Dimensions\x12?\n\x07\x63olumns\x18\x02 \x03(\x0b\x32..tool.ToolTask.ExtraDetail.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\xf6\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x43\n\ndimensions\x18\x03 \x03(\x0b\x32/.tool.ToolTask.ExtraDetail.TableDefs.Dimensions\x12=\n\x07\x63olumns\x18\x04 \x03(\x0b\x32,.tool.ToolTask.ExtraDetail.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xe6\x01\n\x0bToolOutputs\x12\x39\n\ndimensions\x18\x01 \x03(\x0b\x32%.tool.ToolTask.ToolOutputs.Dimensions\x12\x33\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\".tool.ToolTask.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1aL\n\rBatchStrategy\x12\x10\n\x08\x62\x61tchNum\x18\x01 \x01(\x05\x12\x15\n\rbatchInterval\x18\x02 \x01(\x05\x12\x12\n\nfailedStop\x18\x03 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xde\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x37\n\ndimensions\x18\x03 \x03(\x0b\x32#.tool.ToolTask.TableDefs.Dimensions\x12\x31\n\x07\x63olumns\x18\x04 \x03(\x0b\x32 .tool.ToolTask.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/toolb\x06proto3')
+  serialized_pb=_b('\n\x0ftool_task.proto\x12\x04tool\x1a\x19model/tool/callback.proto\x1a\x15model/tool/tool.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc2\x12\n\x08ToolTask\x12\x10\n\x08username\x18\x01 \x01(\t\x12\'\n\x06inputs\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12/\n\x0b\x65xtraDetail\x18\x03 \x01(\x0b\x32\x1a.tool.ToolTask.ExtraDetail\x12\x13\n\x0btotalStatus\x18\x04 \x01(\t\x12\r\n\x05\x65rror\x18\x05 \x01(\t\x12\x0e\n\x06\x65xecId\x18\x06 \x01(\t\x12(\n\x07toolEnv\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x12(\n\x07outputs\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12,\n\x0boutViewData\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\tagentData\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0e\n\x06\x61gents\x18\x0b \x03(\t\x12*\n\tstartTime\x18\x0c \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06status\x18\r \x01(\x0b\x32\x17.google.protobuf.Struct\x12$\n\x03msg\x18\x0e \x01(\x0b\x32\x17.google.protobuf.Struct\x12(\n\x07\x65ndTime\x18\x0f \x01(\x0b\x32\x17.google.protobuf.Struct\x12+\n\nexitStatus\x18\x10 \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\tsysStatus\x18\x11 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x30\n\x0ftoolOutputsData\x18\x12 \x03(\x0b\x32\x17.google.protobuf.Struct\x12*\n\ttableData\x18\x13 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1c\n\x08toolData\x18\x14 \x01(\x0b\x32\n.tool.Tool\x12\x33\n\rbatchStrategy\x18\x15 \x01(\x0b\x32\x1c.tool.ToolTask.BatchStrategy\x12\x10\n\x08\x65xecUser\x18\x16 \x01(\t\x12\x0b\n\x03vId\x18\x17 \x01(\t\x12\x0e\n\x06toolId\x18\x18 \x01(\t\x12-\n\noutputDefs\x18\x19 \x03(\x0b\x32\x19.tool.ToolTask.OutputDefs\x12+\n\ttableDefs\x18\x1a \x03(\x0b\x32\x18.tool.ToolTask.TableDefs\x12/\n\x0btoolOutputs\x18\x1b \x01(\x0b\x32\x1a.tool.ToolTask.ToolOutputs\x1a\xac\x06\n\x0b\x45xtraDetail\x12 \n\x08\x63\x61llback\x18\x01 \x01(\x0b\x32\x0e.tool.Callback\x12(\n\x07toolEnv\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12;\n\x0btoolOutputs\x18\x03 \x01(\x0b\x32&.tool.ToolTask.ExtraDetail.ToolOutputs\x12\x37\n\ttableDefs\x18\x04 \x03(\x0b\x32$.tool.ToolTask.ExtraDetail.TableDefs\x12\x39\n\noutputDefs\x18\x05 \x03(\x0b\x32%.tool.ToolTask.ExtraDetail.OutputDefs\x1a\xfe\x01\n\x0bToolOutputs\x12\x45\n\ndimensions\x18\x01 \x03(\x0b\x32\x31.tool.ToolTask.ExtraDetail.ToolOutputs.Dimensions\x12?\n\x07\x63olumns\x18\x02 \x03(\x0b\x32..tool.ToolTask.ExtraDetail.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\xf6\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x43\n\ndimensions\x18\x03 \x03(\x0b\x32/.tool.ToolTask.ExtraDetail.TableDefs.Dimensions\x12=\n\x07\x63olumns\x18\x04 \x03(\x0b\x32,.tool.ToolTask.ExtraDetail.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1aL\n\rBatchStrategy\x12\x10\n\x08\x62\x61tchNum\x18\x01 \x01(\x05\x12\x15\n\rbatchInterval\x18\x02 \x01(\x05\x12\x12\n\nfailedStop\x18\x03 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xde\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x37\n\ndimensions\x18\x03 \x03(\x0b\x32#.tool.ToolTask.TableDefs.Dimensions\x12\x31\n\x07\x63olumns\x18\x04 \x03(\x0b\x32 .tool.ToolTask.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xe6\x01\n\x0bToolOutputs\x12\x39\n\ndimensions\x18\x01 \x03(\x0b\x32%.tool.ToolTask.ToolOutputs.Dimensions\x12\x33\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\".tool.ToolTask.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/toolb\x06proto3')
   ,
   dependencies=[model_dot_tool_dot_callback__pb2.DESCRIPTOR,model_dot_tool_dot_tool__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -374,131 +374,6 @@ _TOOLTASK_EXTRADETAIL = _descriptor.Descriptor(
   serialized_end=1900,
 )
 
-_TOOLTASK_TOOLOUTPUTS_DIMENSIONS = _descriptor.Descriptor(
-  name='Dimensions',
-  full_name='tool.ToolTask.ToolOutputs.Dimensions',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='tool.ToolTask.ToolOutputs.Dimensions.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='tool.ToolTask.ToolOutputs.Dimensions.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='tool.ToolTask.ToolOutputs.Dimensions.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1508,
-  serialized_end=1560,
-)
-
-_TOOLTASK_TOOLOUTPUTS_COLUMNS = _descriptor.Descriptor(
-  name='Columns',
-  full_name='tool.ToolTask.ToolOutputs.Columns',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='tool.ToolTask.ToolOutputs.Columns.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='tool.ToolTask.ToolOutputs.Columns.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='tool.ToolTask.ToolOutputs.Columns.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1562,
-  serialized_end=1611,
-)
-
-_TOOLTASK_TOOLOUTPUTS = _descriptor.Descriptor(
-  name='ToolOutputs',
-  full_name='tool.ToolTask.ToolOutputs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='dimensions', full_name='tool.ToolTask.ToolOutputs.dimensions', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='columns', full_name='tool.ToolTask.ToolOutputs.columns', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_TOOLTASK_TOOLOUTPUTS_DIMENSIONS, _TOOLTASK_TOOLOUTPUTS_COLUMNS, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1903,
-  serialized_end=2133,
-)
-
 _TOOLTASK_BATCHSTRATEGY = _descriptor.Descriptor(
   name='BatchStrategy',
   full_name='tool.ToolTask.BatchStrategy',
@@ -539,8 +414,8 @@ _TOOLTASK_BATCHSTRATEGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2135,
-  serialized_end=2211,
+  serialized_start=1902,
+  serialized_end=1978,
 )
 
 _TOOLTASK_OUTPUTDEFS = _descriptor.Descriptor(
@@ -701,7 +576,132 @@ _TOOLTASK_TABLEDEFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2254,
+  serialized_start=2021,
+  serialized_end=2243,
+)
+
+_TOOLTASK_TOOLOUTPUTS_DIMENSIONS = _descriptor.Descriptor(
+  name='Dimensions',
+  full_name='tool.ToolTask.ToolOutputs.Dimensions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='tool.ToolTask.ToolOutputs.Dimensions.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='tool.ToolTask.ToolOutputs.Dimensions.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='tool.ToolTask.ToolOutputs.Dimensions.type', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1508,
+  serialized_end=1560,
+)
+
+_TOOLTASK_TOOLOUTPUTS_COLUMNS = _descriptor.Descriptor(
+  name='Columns',
+  full_name='tool.ToolTask.ToolOutputs.Columns',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='tool.ToolTask.ToolOutputs.Columns.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='tool.ToolTask.ToolOutputs.Columns.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='tool.ToolTask.ToolOutputs.Columns.type', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1562,
+  serialized_end=1611,
+)
+
+_TOOLTASK_TOOLOUTPUTS = _descriptor.Descriptor(
+  name='ToolOutputs',
+  full_name='tool.ToolTask.ToolOutputs',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dimensions', full_name='tool.ToolTask.ToolOutputs.dimensions', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='columns', full_name='tool.ToolTask.ToolOutputs.columns', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TOOLTASK_TOOLOUTPUTS_DIMENSIONS, _TOOLTASK_TOOLOUTPUTS_COLUMNS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2246,
   serialized_end=2476,
 )
 
@@ -832,79 +832,79 @@ _TOOLTASK = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='toolOutputs', full_name='tool.ToolTask.toolOutputs', index=17,
-      number=18, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='toolOutputsData', full_name='tool.ToolTask.toolOutputsData', index=18,
-      number=19, type=11, cpp_type=10, label=3,
+      name='toolOutputsData', full_name='tool.ToolTask.toolOutputsData', index=17,
+      number=18, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='tableData', full_name='tool.ToolTask.tableData', index=19,
+      name='tableData', full_name='tool.ToolTask.tableData', index=18,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='toolData', full_name='tool.ToolTask.toolData', index=19,
       number=20, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='toolData', full_name='tool.ToolTask.toolData', index=20,
+      name='batchStrategy', full_name='tool.ToolTask.batchStrategy', index=20,
       number=21, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='batchStrategy', full_name='tool.ToolTask.batchStrategy', index=21,
-      number=22, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='execUser', full_name='tool.ToolTask.execUser', index=21,
+      number=22, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='execUser', full_name='tool.ToolTask.execUser', index=22,
+      name='vId', full_name='tool.ToolTask.vId', index=22,
       number=23, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='vId', full_name='tool.ToolTask.vId', index=23,
+      name='toolId', full_name='tool.ToolTask.toolId', index=23,
       number=24, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='toolId', full_name='tool.ToolTask.toolId', index=24,
-      number=25, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='outputDefs', full_name='tool.ToolTask.outputDefs', index=24,
+      number=25, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='outputDefs', full_name='tool.ToolTask.outputDefs', index=25,
+      name='tableDefs', full_name='tool.ToolTask.tableDefs', index=25,
       number=26, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='tableDefs', full_name='tool.ToolTask.tableDefs', index=26,
-      number=27, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='toolOutputs', full_name='tool.ToolTask.toolOutputs', index=26,
+      number=27, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_TOOLTASK_EXTRADETAIL, _TOOLTASK_TOOLOUTPUTS, _TOOLTASK_BATCHSTRATEGY, _TOOLTASK_OUTPUTDEFS, _TOOLTASK_TABLEDEFS, ],
+  nested_types=[_TOOLTASK_EXTRADETAIL, _TOOLTASK_BATCHSTRATEGY, _TOOLTASK_OUTPUTDEFS, _TOOLTASK_TABLEDEFS, _TOOLTASK_TOOLOUTPUTS, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -934,11 +934,6 @@ _TOOLTASK_EXTRADETAIL.fields_by_name['toolOutputs'].message_type = _TOOLTASK_EXT
 _TOOLTASK_EXTRADETAIL.fields_by_name['tableDefs'].message_type = _TOOLTASK_EXTRADETAIL_TABLEDEFS
 _TOOLTASK_EXTRADETAIL.fields_by_name['outputDefs'].message_type = _TOOLTASK_EXTRADETAIL_OUTPUTDEFS
 _TOOLTASK_EXTRADETAIL.containing_type = _TOOLTASK
-_TOOLTASK_TOOLOUTPUTS_DIMENSIONS.containing_type = _TOOLTASK_TOOLOUTPUTS
-_TOOLTASK_TOOLOUTPUTS_COLUMNS.containing_type = _TOOLTASK_TOOLOUTPUTS
-_TOOLTASK_TOOLOUTPUTS.fields_by_name['dimensions'].message_type = _TOOLTASK_TOOLOUTPUTS_DIMENSIONS
-_TOOLTASK_TOOLOUTPUTS.fields_by_name['columns'].message_type = _TOOLTASK_TOOLOUTPUTS_COLUMNS
-_TOOLTASK_TOOLOUTPUTS.containing_type = _TOOLTASK
 _TOOLTASK_BATCHSTRATEGY.containing_type = _TOOLTASK
 _TOOLTASK_OUTPUTDEFS.containing_type = _TOOLTASK
 _TOOLTASK_TABLEDEFS_DIMENSIONS.containing_type = _TOOLTASK_TABLEDEFS
@@ -946,6 +941,11 @@ _TOOLTASK_TABLEDEFS_COLUMNS.containing_type = _TOOLTASK_TABLEDEFS
 _TOOLTASK_TABLEDEFS.fields_by_name['dimensions'].message_type = _TOOLTASK_TABLEDEFS_DIMENSIONS
 _TOOLTASK_TABLEDEFS.fields_by_name['columns'].message_type = _TOOLTASK_TABLEDEFS_COLUMNS
 _TOOLTASK_TABLEDEFS.containing_type = _TOOLTASK
+_TOOLTASK_TOOLOUTPUTS_DIMENSIONS.containing_type = _TOOLTASK_TOOLOUTPUTS
+_TOOLTASK_TOOLOUTPUTS_COLUMNS.containing_type = _TOOLTASK_TOOLOUTPUTS
+_TOOLTASK_TOOLOUTPUTS.fields_by_name['dimensions'].message_type = _TOOLTASK_TOOLOUTPUTS_DIMENSIONS
+_TOOLTASK_TOOLOUTPUTS.fields_by_name['columns'].message_type = _TOOLTASK_TOOLOUTPUTS_COLUMNS
+_TOOLTASK_TOOLOUTPUTS.containing_type = _TOOLTASK
 _TOOLTASK.fields_by_name['inputs'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TOOLTASK.fields_by_name['extraDetail'].message_type = _TOOLTASK_EXTRADETAIL
 _TOOLTASK.fields_by_name['toolEnv'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -958,13 +958,13 @@ _TOOLTASK.fields_by_name['msg'].message_type = google_dot_protobuf_dot_struct__p
 _TOOLTASK.fields_by_name['endTime'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TOOLTASK.fields_by_name['exitStatus'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TOOLTASK.fields_by_name['sysStatus'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_TOOLTASK.fields_by_name['toolOutputs'].message_type = _TOOLTASK_TOOLOUTPUTS
 _TOOLTASK.fields_by_name['toolOutputsData'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TOOLTASK.fields_by_name['tableData'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TOOLTASK.fields_by_name['toolData'].message_type = model_dot_tool_dot_tool__pb2._TOOL
 _TOOLTASK.fields_by_name['batchStrategy'].message_type = _TOOLTASK_BATCHSTRATEGY
 _TOOLTASK.fields_by_name['outputDefs'].message_type = _TOOLTASK_OUTPUTDEFS
 _TOOLTASK.fields_by_name['tableDefs'].message_type = _TOOLTASK_TABLEDEFS
+_TOOLTASK.fields_by_name['toolOutputs'].message_type = _TOOLTASK_TOOLOUTPUTS
 DESCRIPTOR.message_types_by_name['ToolTask'] = _TOOLTASK
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1026,27 +1026,6 @@ ToolTask = _reflection.GeneratedProtocolMessageType('ToolTask', (_message.Messag
     ))
   ,
 
-  ToolOutputs = _reflection.GeneratedProtocolMessageType('ToolOutputs', (_message.Message,), dict(
-
-    Dimensions = _reflection.GeneratedProtocolMessageType('Dimensions', (_message.Message,), dict(
-      DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS_DIMENSIONS,
-      __module__ = 'tool_task_pb2'
-      # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs.Dimensions)
-      ))
-    ,
-
-    Columns = _reflection.GeneratedProtocolMessageType('Columns', (_message.Message,), dict(
-      DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS_COLUMNS,
-      __module__ = 'tool_task_pb2'
-      # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs.Columns)
-      ))
-    ,
-    DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS,
-    __module__ = 'tool_task_pb2'
-    # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs)
-    ))
-  ,
-
   BatchStrategy = _reflection.GeneratedProtocolMessageType('BatchStrategy', (_message.Message,), dict(
     DESCRIPTOR = _TOOLTASK_BATCHSTRATEGY,
     __module__ = 'tool_task_pb2'
@@ -1081,6 +1060,27 @@ ToolTask = _reflection.GeneratedProtocolMessageType('ToolTask', (_message.Messag
     # @@protoc_insertion_point(class_scope:tool.ToolTask.TableDefs)
     ))
   ,
+
+  ToolOutputs = _reflection.GeneratedProtocolMessageType('ToolOutputs', (_message.Message,), dict(
+
+    Dimensions = _reflection.GeneratedProtocolMessageType('Dimensions', (_message.Message,), dict(
+      DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS_DIMENSIONS,
+      __module__ = 'tool_task_pb2'
+      # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs.Dimensions)
+      ))
+    ,
+
+    Columns = _reflection.GeneratedProtocolMessageType('Columns', (_message.Message,), dict(
+      DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS_COLUMNS,
+      __module__ = 'tool_task_pb2'
+      # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs.Columns)
+      ))
+    ,
+    DESCRIPTOR = _TOOLTASK_TOOLOUTPUTS,
+    __module__ = 'tool_task_pb2'
+    # @@protoc_insertion_point(class_scope:tool.ToolTask.ToolOutputs)
+    ))
+  ,
   DESCRIPTOR = _TOOLTASK,
   __module__ = 'tool_task_pb2'
   # @@protoc_insertion_point(class_scope:tool.ToolTask)
@@ -1094,14 +1094,14 @@ _sym_db.RegisterMessage(ToolTask.ExtraDetail.TableDefs)
 _sym_db.RegisterMessage(ToolTask.ExtraDetail.TableDefs.Dimensions)
 _sym_db.RegisterMessage(ToolTask.ExtraDetail.TableDefs.Columns)
 _sym_db.RegisterMessage(ToolTask.ExtraDetail.OutputDefs)
-_sym_db.RegisterMessage(ToolTask.ToolOutputs)
-_sym_db.RegisterMessage(ToolTask.ToolOutputs.Dimensions)
-_sym_db.RegisterMessage(ToolTask.ToolOutputs.Columns)
 _sym_db.RegisterMessage(ToolTask.BatchStrategy)
 _sym_db.RegisterMessage(ToolTask.OutputDefs)
 _sym_db.RegisterMessage(ToolTask.TableDefs)
 _sym_db.RegisterMessage(ToolTask.TableDefs.Dimensions)
 _sym_db.RegisterMessage(ToolTask.TableDefs.Columns)
+_sym_db.RegisterMessage(ToolTask.ToolOutputs)
+_sym_db.RegisterMessage(ToolTask.ToolOutputs.Dimensions)
+_sym_db.RegisterMessage(ToolTask.ToolOutputs.Columns)
 
 
 DESCRIPTOR._options = None
