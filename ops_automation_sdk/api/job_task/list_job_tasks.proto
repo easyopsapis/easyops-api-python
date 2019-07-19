@@ -31,15 +31,15 @@ message ListJobTasksRequest {
     */
     string jobId = 5 ;
     /*
-    执行触发器
+    trigger
     */
     string trigger = 6 ;
     /*
-    工具类型
+    resourceType
     */
-    string taskType = 7 ;
+    string resourceType = 7 ;
     /*
-    工具结果状态
+    status
     */
     string status = 8 ;
 }

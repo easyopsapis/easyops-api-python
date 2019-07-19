@@ -6,13 +6,14 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/o
 
 
 
+import "model/ops_automation/mail_info.proto";
 
 /*
 任务详情
 */
 message JobTasks {
     /*
-    job task id
+    jobTask id
     */
     string id = 1 ;
     /*
@@ -20,48 +21,76 @@ message JobTasks {
     */
     string jobId = 2 ;
     /*
-    开始时间 2019-07-02 11:38:59.09199400
+    任务名称
     */
-    string startTime = 3 ;
+    string jobName = 3 ;
     /*
-    执行触发器
+    菜单名称
     */
-    string trigger = 4 ;
+    string menuName = 4 ;
     /*
-    easy command id
+    exec id/ task id
     */
-    string taskId = 5 ;
+    string execId = 5 ;
     /*
     工具类型
     */
-    string taskType = 6 ;
+    string resourceType = 6 ;
     /*
-    工具目标主机列表
+    tool/flow id
     */
-    repeated string agents = 7 ;
+    string resourceId = 7 ;
+    /*
+    工具版本ID
+    */
+    string resourceVId = 8 ;
+    /*
+    工具版本名称
+    */
+    string resourceVName = 9 ;
+    /*
+    执行触发器
+    */
+    string trigger = 10 ;
     /*
     工具执行用户
     */
-    string execUser = 8 ;
+    string execUser = 11 ;
     /*
-    工具结果状态
+    执行主机列表
     */
-    string status = 9 ;
+    repeated string hosts = 12 ;
     /*
-    任务结束时间 2019-07-02 11:38:59.09199400
+    工具结果状态。成功、失败、执行中、初始态等待执行、人工确认、暂停、终止
     */
-    string endTime = 10 ;
+    string status = 13 ;
     /*
-    工具版本
+    通知邮件
     */
-    string vName = 11 ;
+    ops_automation.MailInfo mail = 14 ;
     /*
-    作业成功率。success agents / all agents
+    成功率。success agents / all agents
     */
-    float successRate = 12 ;
+    float successRate = 15 ;
     /*
-    工具报错信息
+    错误返回
     */
-    string error = 13 ;
+    string error = 16 ;
+    /*
+    作业创建时间 2019-07-02 11:38:59
+    */
+    string createTime = 17 ;
+    /*
+    作业创建时间 2019-07-02 11:38:59
+    */
+    string updateTime = 18 ;
+    /*
+    作业创建者
+    */
+    string creator = 19 ;
+    /*
+    org
+    */
+    int32 org = 20 ;
 }
 

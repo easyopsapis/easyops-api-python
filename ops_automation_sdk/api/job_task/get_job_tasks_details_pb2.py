@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from model.ops_automation import mail_info_pb2 as model_dot_ops__automation_dot_mail__info__pb2
+from model.ops_automation import job_tasks_pb2 as model_dot_ops__automation_dot_job__tasks__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='job_task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1bget_job_tasks_details.proto\x12\x08job_task\x1a$model/ops_automation/mail_info.proto\"-\n\x18GetJobTasksDetailRequest\x12\x11\n\tjobTaskId\x18\x01 \x01(\t\"\x93\x03\n\x19GetJobTasksDetailResponse\x12\x0f\n\x07jobName\x18\x01 \x01(\t\x12\x10\n\x08menuName\x18\x02 \x01(\t\x12\x0e\n\x06\x65xecId\x18\x03 \x01(\t\x12\x14\n\x0cresourceType\x18\x04 \x01(\t\x12\x12\n\nresourceId\x18\x05 \x01(\t\x12\x13\n\x0bresourceVId\x18\x06 \x01(\t\x12\x15\n\rresourceVName\x18\x07 \x01(\t\x12\r\n\x05hosts\x18\x08 \x03(\t\x12&\n\x04mail\x18\t \x01(\x0b\x32\x18.ops_automation.MailInfo\x12\x12\n\ncreateTime\x18\n \x01(\t\x12\x12\n\nupdateTime\x18\x0b \x01(\t\x12\x0f\n\x07\x63reator\x18\x0c \x01(\t\x12\x0b\n\x03org\x18\r \x01(\x05\x12\n\n\x02id\x18\x0e \x01(\t\x12\r\n\x05jobId\x18\x0f \x01(\t\x12\x0f\n\x07trigger\x18\x10 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x11 \x01(\t\x12\x0e\n\x06status\x18\x12 \x01(\t\x12\x13\n\x0bsuccessRate\x18\x13 \x01(\x02\x12\r\n\x05\x65rror\x18\x14 \x01(\t\"\x87\x01\n GetJobTasksDetailResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x31\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32#.job_task.GetJobTasksDetailResponseb\x06proto3')
+  serialized_pb=_b('\n\x1bget_job_tasks_details.proto\x12\x08job_task\x1a$model/ops_automation/mail_info.proto\x1a$model/ops_automation/job_tasks.proto\"-\n\x18GetJobTasksDetailRequest\x12\x11\n\tjobTaskId\x18\x01 \x01(\t\"|\n GetJobTasksDetailResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.ops_automation.JobTasksb\x06proto3')
   ,
-  dependencies=[model_dot_ops__automation_dot_mail__info__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_ops__automation_dot_mail__info__pb2.DESCRIPTOR,model_dot_ops__automation_dot_job__tasks__pb2.DESCRIPTOR,])
 
 
 
@@ -53,172 +54,8 @@ _GETJOBTASKSDETAILREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=79,
-  serialized_end=124,
-)
-
-
-_GETJOBTASKSDETAILRESPONSE = _descriptor.Descriptor(
-  name='GetJobTasksDetailResponse',
-  full_name='job_task.GetJobTasksDetailResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='jobName', full_name='job_task.GetJobTasksDetailResponse.jobName', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='menuName', full_name='job_task.GetJobTasksDetailResponse.menuName', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='execId', full_name='job_task.GetJobTasksDetailResponse.execId', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='resourceType', full_name='job_task.GetJobTasksDetailResponse.resourceType', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='resourceId', full_name='job_task.GetJobTasksDetailResponse.resourceId', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='resourceVId', full_name='job_task.GetJobTasksDetailResponse.resourceVId', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='resourceVName', full_name='job_task.GetJobTasksDetailResponse.resourceVName', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='hosts', full_name='job_task.GetJobTasksDetailResponse.hosts', index=7,
-      number=8, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='mail', full_name='job_task.GetJobTasksDetailResponse.mail', index=8,
-      number=9, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='createTime', full_name='job_task.GetJobTasksDetailResponse.createTime', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='updateTime', full_name='job_task.GetJobTasksDetailResponse.updateTime', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='creator', full_name='job_task.GetJobTasksDetailResponse.creator', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='org', full_name='job_task.GetJobTasksDetailResponse.org', index=12,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='id', full_name='job_task.GetJobTasksDetailResponse.id', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='jobId', full_name='job_task.GetJobTasksDetailResponse.jobId', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='trigger', full_name='job_task.GetJobTasksDetailResponse.trigger', index=15,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='execUser', full_name='job_task.GetJobTasksDetailResponse.execUser', index=16,
-      number=17, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='job_task.GetJobTasksDetailResponse.status', index=17,
-      number=18, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='successRate', full_name='job_task.GetJobTasksDetailResponse.successRate', index=18,
-      number=19, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='job_task.GetJobTasksDetailResponse.error', index=19,
-      number=20, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=127,
-  serialized_end=530,
+  serialized_start=117,
+  serialized_end=162,
 )
 
 
@@ -269,14 +106,12 @@ _GETJOBTASKSDETAILRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=533,
-  serialized_end=668,
+  serialized_start=164,
+  serialized_end=288,
 )
 
-_GETJOBTASKSDETAILRESPONSE.fields_by_name['mail'].message_type = model_dot_ops__automation_dot_mail__info__pb2._MAILINFO
-_GETJOBTASKSDETAILRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETJOBTASKSDETAILRESPONSE
+_GETJOBTASKSDETAILRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_ops__automation_dot_job__tasks__pb2._JOBTASKS
 DESCRIPTOR.message_types_by_name['GetJobTasksDetailRequest'] = _GETJOBTASKSDETAILREQUEST
-DESCRIPTOR.message_types_by_name['GetJobTasksDetailResponse'] = _GETJOBTASKSDETAILRESPONSE
 DESCRIPTOR.message_types_by_name['GetJobTasksDetailResponseWrapper'] = _GETJOBTASKSDETAILRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -286,13 +121,6 @@ GetJobTasksDetailRequest = _reflection.GeneratedProtocolMessageType('GetJobTasks
   # @@protoc_insertion_point(class_scope:job_task.GetJobTasksDetailRequest)
   ))
 _sym_db.RegisterMessage(GetJobTasksDetailRequest)
-
-GetJobTasksDetailResponse = _reflection.GeneratedProtocolMessageType('GetJobTasksDetailResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETJOBTASKSDETAILRESPONSE,
-  __module__ = 'get_job_tasks_details_pb2'
-  # @@protoc_insertion_point(class_scope:job_task.GetJobTasksDetailResponse)
-  ))
-_sym_db.RegisterMessage(GetJobTasksDetailResponse)
 
 GetJobTasksDetailResponseWrapper = _reflection.GeneratedProtocolMessageType('GetJobTasksDetailResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETJOBTASKSDETAILRESPONSEWRAPPER,

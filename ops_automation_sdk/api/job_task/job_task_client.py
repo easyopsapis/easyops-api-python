@@ -10,6 +10,8 @@ if PROJECT_PATH not in sys.path:
 
 import get_job_tasks_details_pb2
 
+import model.ops_automation.job_tasks_pb2
+
 import list_job_tasks_pb2
 
 import utils.http_util
@@ -34,14 +36,14 @@ class JobTaskClient(object):
 
     
     def get_job_tasks_detail(self, request, org, user, timeout=10):
-        # type: (get_job_tasks_details_pb2.GetJobTasksDetailRequest, int, str, int) -> get_job_tasks_details_pb2.GetJobTasksDetailResponse
+        # type: (get_job_tasks_details_pb2.GetJobTasksDetailRequest, int, str, int) -> model.ops_automation.job_tasks_pb2.JobTasks
         """
         获取作业任务详情
         :param request: get_job_tasks_detail请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_job_tasks_details_pb2.GetJobTasksDetailResponse
+        :return: model.ops_automation.job_tasks_pb2.JobTasks
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -68,7 +70,7 @@ class JobTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_job_tasks_details_pb2.GetJobTasksDetailResponse()
+        rsp = model.ops_automation.job_tasks_pb2.JobTasks()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
