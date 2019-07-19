@@ -19,12 +19,12 @@ from typing_extensions import (
 
 
 class UpdateInspectionInfoRequest(google___protobuf___message___Message):
-    id = ... # type: typing___Text
+    pluginId = ... # type: typing___Text
     name = ... # type: typing___Text
     index = ... # type: int
 
     def __init__(self,
-        id : typing___Optional[typing___Text] = None,
+        pluginId : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         index : typing___Optional[int] = None,
         ) -> None: ...
@@ -33,9 +33,9 @@ class UpdateInspectionInfoRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"id",u"index",u"name"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"index",u"name",u"pluginId"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"id",b"index",b"name"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"index",b"name",b"pluginId"]) -> None: ...
 
 class UpdateInspectionInfoResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

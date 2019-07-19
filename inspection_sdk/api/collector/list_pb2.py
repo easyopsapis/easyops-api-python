@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='collector',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\tcollector\x1a model/inspection/collector.proto\"B\n\x14ListCollectorRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x10\n\x08pageSize\x18\x03 \x01(\x05\"v\n\x15ListCollectorResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12-\n\x04list\x18\x04 \x03(\x0b\x32\x1f.inspection.InspectionCollector\"\x80\x01\n\x1cListCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .collector.ListCollectorResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\tcollector\x1a model/inspection/collector.proto\"H\n\x14ListCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x10\n\x08pageSize\x18\x03 \x01(\x05\"v\n\x15ListCollectorResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12-\n\x04list\x18\x04 \x03(\x0b\x32\x1f.inspection.InspectionCollector\"\x80\x01\n\x1cListCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12.\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .collector.ListCollectorResponseb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_collector__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _LISTCOLLECTORREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='collector.ListCollectorRequest.id', index=0,
+      name='pluginId', full_name='collector.ListCollectorRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,7 +68,7 @@ _LISTCOLLECTORREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=59,
-  serialized_end=125,
+  serialized_end=131,
 )
 
 
@@ -119,8 +119,8 @@ _LISTCOLLECTORRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=127,
-  serialized_end=245,
+  serialized_start=133,
+  serialized_end=251,
 )
 
 
@@ -171,8 +171,8 @@ _LISTCOLLECTORRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=248,
-  serialized_end=376,
+  serialized_start=254,
+  serialized_end=382,
 )
 
 _LISTCOLLECTORRESPONSE.fields_by_name['list'].message_type = model_dot_inspection_dot_collector__pb2._INSPECTIONCOLLECTOR

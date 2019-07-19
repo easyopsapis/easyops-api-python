@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='metric_group',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x0cmetric_group\x1a#model/inspection/metric_group.proto\"D\n\x16ListMetricGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x10\n\x08pageSize\x18\x03 \x01(\x05\"z\n\x17ListMetricGroupResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12/\n\x04list\x18\x04 \x03(\x0b\x32!.inspection.InspectionMetricGroup\"\x87\x01\n\x1eListMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x33\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32%.metric_group.ListMetricGroupResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x0cmetric_group\x1a#model/inspection/metric_group.proto\"J\n\x16ListMetricGroupRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x10\n\x08pageSize\x18\x03 \x01(\x05\"z\n\x17ListMetricGroupResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12/\n\x04list\x18\x04 \x03(\x0b\x32!.inspection.InspectionMetricGroup\"\x87\x01\n\x1eListMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x33\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32%.metric_group.ListMetricGroupResponseb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_metric__group__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _LISTMETRICGROUPREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='metric_group.ListMetricGroupRequest.id', index=0,
+      name='pluginId', full_name='metric_group.ListMetricGroupRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,7 +68,7 @@ _LISTMETRICGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=65,
-  serialized_end=133,
+  serialized_end=139,
 )
 
 
@@ -119,8 +119,8 @@ _LISTMETRICGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=135,
-  serialized_end=257,
+  serialized_start=141,
+  serialized_end=263,
 )
 
 
@@ -171,8 +171,8 @@ _LISTMETRICGROUPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=395,
+  serialized_start=266,
+  serialized_end=401,
 )
 
 _LISTMETRICGROUPRESPONSE.fields_by_name['list'].message_type = model_dot_inspection_dot_metric__group__pb2._INSPECTIONMETRICGROUP

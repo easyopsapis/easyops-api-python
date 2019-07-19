@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='info',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x64\x65lete.proto\x12\x04info\x1a\x1bgoogle/protobuf/empty.proto\")\n\x1b\x44\x65leteInspectionInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"}\n#DeleteInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Emptyb\x06proto3')
+  serialized_pb=_b('\n\x0c\x64\x65lete.proto\x12\x04info\x1a\x1bgoogle/protobuf/empty.proto\"/\n\x1b\x44\x65leteInspectionInfoRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\"}\n#DeleteInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Emptyb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _DELETEINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='info.DeleteInspectionInfoRequest.id', index=0,
+      name='pluginId', full_name='info.DeleteInspectionInfoRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -54,7 +54,7 @@ _DELETEINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=51,
-  serialized_end=92,
+  serialized_end=98,
 )
 
 
@@ -105,8 +105,8 @@ _DELETEINSPECTIONINFORESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=94,
-  serialized_end=219,
+  serialized_start=100,
+  serialized_end=225,
 )
 
 _DELETEINSPECTIONINFORESPONSEWRAPPER.fields_by_name['data'].message_type = google_dot_protobuf_dot_empty__pb2._EMPTY

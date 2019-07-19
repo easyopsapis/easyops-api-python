@@ -60,8 +60,8 @@ class MetricGroupClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.metric_group.CreateMetricGroup"
-        uri = "/api/v1/inspection/{id}/metric-groups".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/metric-groups".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -101,8 +101,8 @@ class MetricGroupClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.metric_group.DeleteMetricGroup"
-        uri = "/api/v1/inspection/{id}/metric-groups/{metricGroupId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/metric-groups/{metricGroupId}".format(
+            pluginId=request.pluginId,
             metricGroupId=request.metricGroupId,
         )
         requestParam = request
@@ -143,8 +143,8 @@ class MetricGroupClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.metric_group.GetMetricGroup"
-        uri = "/api/v1/inspection/{id}/metric-groups/{metricGroupId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/metric-groups/{metricGroupId}".format(
+            pluginId=request.pluginId,
             metricGroupId=request.metricGroupId,
         )
         requestParam = request
@@ -185,8 +185,8 @@ class MetricGroupClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.metric_group.ListMetricGroup"
-        uri = "/api/v1/inspection/{id}/metric-groups".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/metric-groups".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -226,8 +226,8 @@ class MetricGroupClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.metric_group.UpdateMetricGroup"
-        uri = "/api/v1/inspection/{id}/metric-groups/{metricGroupId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/metric-groups/{metricGroupId}".format(
+            pluginId=request.pluginId,
             metricGroupId=request.metricGroupId,
         )
         requestParam = request

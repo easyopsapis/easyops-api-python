@@ -19,11 +19,11 @@ from typing_extensions import (
 
 
 class GetCollectorRequest(google___protobuf___message___Message):
-    id = ... # type: typing___Text
+    pluginId = ... # type: typing___Text
     collectorId = ... # type: typing___Text
 
     def __init__(self,
-        id : typing___Optional[typing___Text] = None,
+        pluginId : typing___Optional[typing___Text] = None,
         collectorId : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
@@ -31,9 +31,9 @@ class GetCollectorRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"collectorId",u"id"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"collectorId",u"pluginId"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"collectorId",b"id"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"collectorId",b"pluginId"]) -> None: ...
 
 class GetCollectorResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

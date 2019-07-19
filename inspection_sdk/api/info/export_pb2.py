@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='info',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x65xport.proto\x12\x04info\x1a\x1bgoogle/protobuf/empty.proto\" \n\x12\x45xportSuiteRequest\x12\n\n\x02id\x18\x01 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0c\x65xport.proto\x12\x04info\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x12\x45xportSuiteRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\tb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _EXPORTSUITEREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='info.ExportSuiteRequest.id', index=0,
+      name='pluginId', full_name='info.ExportSuiteRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -54,7 +54,7 @@ _EXPORTSUITEREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=51,
-  serialized_end=83,
+  serialized_end=89,
 )
 
 DESCRIPTOR.message_types_by_name['ExportSuiteRequest'] = _EXPORTSUITEREQUEST

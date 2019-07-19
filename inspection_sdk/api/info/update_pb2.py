@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='info',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cupdate.proto\x12\x04info\x1a\x1bmodel/inspection/info.proto\"F\n\x1bUpdateInspectionInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05index\x18\x03 \x01(\x05\"\x81\x01\n#UpdateInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12(\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1a.inspection.InspectionInfob\x06proto3')
+  serialized_pb=_b('\n\x0cupdate.proto\x12\x04info\x1a\x1bmodel/inspection/info.proto\"L\n\x1bUpdateInspectionInfoRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05index\x18\x03 \x01(\x05\"\x81\x01\n#UpdateInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12(\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1a.inspection.InspectionInfob\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_info__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _UPDATEINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='info.UpdateInspectionInfoRequest.id', index=0,
+      name='pluginId', full_name='info.UpdateInspectionInfoRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,7 +68,7 @@ _UPDATEINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=51,
-  serialized_end=121,
+  serialized_end=127,
 )
 
 
@@ -119,8 +119,8 @@ _UPDATEINSPECTIONINFORESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=124,
-  serialized_end=253,
+  serialized_start=130,
+  serialized_end=259,
 )
 
 _UPDATEINSPECTIONINFORESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_inspection_dot_info__pb2._INSPECTIONINFO

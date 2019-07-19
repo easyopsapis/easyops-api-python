@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='info',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\x04info\x1a\x1bmodel/inspection/info.proto\"&\n\x18GetInspectionInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"~\n GetInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12(\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1a.inspection.InspectionInfob\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\x04info\x1a\x1bmodel/inspection/info.proto\",\n\x18GetInspectionInfoRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\"~\n GetInspectionInfoResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12(\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1a.inspection.InspectionInfob\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_info__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _GETINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='info.GetInspectionInfoRequest.id', index=0,
+      name='pluginId', full_name='info.GetInspectionInfoRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -54,7 +54,7 @@ _GETINSPECTIONINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=48,
-  serialized_end=86,
+  serialized_end=92,
 )
 
 
@@ -105,8 +105,8 @@ _GETINSPECTIONINFORESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=88,
-  serialized_end=214,
+  serialized_start=94,
+  serialized_end=220,
 )
 
 _GETINSPECTIONINFORESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_inspection_dot_info__pb2._INSPECTIONINFO

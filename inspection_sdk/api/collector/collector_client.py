@@ -60,8 +60,8 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.collector.CreateCollector"
-        uri = "/api/v1/inspection/{id}/collector".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/collector".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -101,8 +101,8 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.collector.DeleteCollector"
-        uri = "/api/v1/inspection/{id}/collector/{collectorId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            pluginId=request.pluginId,
             collectorId=request.collectorId,
         )
         requestParam = request
@@ -143,8 +143,8 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.collector.GetCollector"
-        uri = "/api/v1/inspection/{id}/collector/{collectorId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            pluginId=request.pluginId,
             collectorId=request.collectorId,
         )
         requestParam = request
@@ -185,8 +185,8 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.collector.ListCollector"
-        uri = "/api/v1/inspection/{id}/collector".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/collector".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -226,8 +226,8 @@ class CollectorClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.collector.UpdateCollector"
-        uri = "/api/v1/inspection/{id}/collector/{collectorId}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            pluginId=request.pluginId,
             collectorId=request.collectorId,
         )
         requestParam = request

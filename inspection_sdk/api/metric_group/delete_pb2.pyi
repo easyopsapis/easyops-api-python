@@ -19,11 +19,11 @@ from typing_extensions import (
 
 
 class DeleteMetricGroupRequest(google___protobuf___message___Message):
-    id = ... # type: typing___Text
+    pluginId = ... # type: typing___Text
     metricGroupId = ... # type: typing___Text
 
     def __init__(self,
-        id : typing___Optional[typing___Text] = None,
+        pluginId : typing___Optional[typing___Text] = None,
         metricGroupId : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
@@ -31,9 +31,9 @@ class DeleteMetricGroupRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"id",u"metricGroupId"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"metricGroupId",u"pluginId"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"id",b"metricGroupId"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"metricGroupId",b"pluginId"]) -> None: ...
 
 class DeleteMetricGroupResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

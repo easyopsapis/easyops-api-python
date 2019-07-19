@@ -13,6 +13,6 @@ message ExportSuiteRequest {
     /*
     套件id
     */
-    string id = 1 ;
+    string pluginId = 1 ;
 }
 

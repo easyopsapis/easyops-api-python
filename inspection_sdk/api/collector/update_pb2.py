@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='collector',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cupdate.proto\x12\tcollector\x1a model/inspection/collector.proto\"\xe1\x01\n\x16UpdateCollectorRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0b\x63ollectorId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x0e\n\x06script\x18\x05 \x01(\t\x12\x34\n\x04\x61rgs\x18\x06 \x03(\x0b\x32&.collector.UpdateCollectorRequest.Args\x1a\x41\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0f\n\x07require\x18\x04 \x01(\x08\"\x81\x01\n\x1eUpdateCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.inspection.InspectionCollectorb\x06proto3')
+  serialized_pb=_b('\n\x0cupdate.proto\x12\tcollector\x1a model/inspection/collector.proto\"\xe7\x01\n\x16UpdateCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x13\n\x0b\x63ollectorId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x0e\n\x06script\x18\x05 \x01(\t\x12\x34\n\x04\x61rgs\x18\x06 \x03(\x0b\x32&.collector.UpdateCollectorRequest.Args\x1a\x41\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0f\n\x07require\x18\x04 \x01(\x08\"\x81\x01\n\x1eUpdateCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.inspection.InspectionCollectorb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_collector__pb2.DESCRIPTOR,])
 
@@ -74,8 +74,8 @@ _UPDATECOLLECTORREQUEST_ARGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=287,
+  serialized_start=228,
+  serialized_end=293,
 )
 
 _UPDATECOLLECTORREQUEST = _descriptor.Descriptor(
@@ -86,7 +86,7 @@ _UPDATECOLLECTORREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='collector.UpdateCollectorRequest.id', index=0,
+      name='pluginId', full_name='collector.UpdateCollectorRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -140,7 +140,7 @@ _UPDATECOLLECTORREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=62,
-  serialized_end=287,
+  serialized_end=293,
 )
 
 
@@ -191,8 +191,8 @@ _UPDATECOLLECTORRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=290,
-  serialized_end=419,
+  serialized_start=296,
+  serialized_end=425,
 )
 
 _UPDATECOLLECTORREQUEST_ARGS.containing_type = _UPDATECOLLECTORREQUEST

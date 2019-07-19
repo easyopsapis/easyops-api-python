@@ -45,7 +45,7 @@ class UpdateCollectorRequest(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"alias",b"key",b"require",b"type"]) -> None: ...
 
-    id = ... # type: typing___Text
+    pluginId = ... # type: typing___Text
     collectorId = ... # type: typing___Text
     name = ... # type: typing___Text
     content = ... # type: typing___Text
@@ -55,7 +55,7 @@ class UpdateCollectorRequest(google___protobuf___message___Message):
     def args(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[UpdateCollectorRequest.Args]: ...
 
     def __init__(self,
-        id : typing___Optional[typing___Text] = None,
+        pluginId : typing___Optional[typing___Text] = None,
         collectorId : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         content : typing___Optional[typing___Text] = None,
@@ -67,9 +67,9 @@ class UpdateCollectorRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"args",u"collectorId",u"content",u"id",u"name",u"script"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"args",u"collectorId",u"content",u"name",u"pluginId",u"script"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"args",b"collectorId",b"content",b"id",b"name",b"script"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"args",b"collectorId",b"content",b"name",b"pluginId",b"script"]) -> None: ...
 
 class UpdateCollectorResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

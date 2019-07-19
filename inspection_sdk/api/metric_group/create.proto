@@ -15,27 +15,31 @@ message CreateMetricGroupRequest {
     /*
     套件id
     */
-    string id = 1 ;
+    string pluginId = 1 ;
+    /*
+    指标组id
+    */
+    string id = 2 ;
     /*
     指标组名
     */
-    string name = 2 ;
+    string name = 3 ;
     /*
     指标组说明
     */
-    string memo = 3 ;
+    string memo = 4 ;
     /*
     指标组维度信息
     */
-    repeated inspection.InspectionDim dims = 4 ;
+    repeated inspection.InspectionDim dims = 5 ;
     /*
     两级分类，用.分割，(如：主机状态.基本配置 )
     */
-    string category = 5 ;
+    string category = 6 ;
     /*
     指标组指标信息
     */
-    repeated inspection.InspectionVal vals = 6 ;
+    repeated inspection.InspectionVal vals = 7 ;
 }
 
 /*

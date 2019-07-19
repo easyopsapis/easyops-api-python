@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='collector',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\tcollector\x1a model/inspection/collector.proto\"6\n\x13GetCollectorRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0b\x63ollectorId\x18\x02 \x01(\t\"~\n\x1bGetCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.inspection.InspectionCollectorb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\tcollector\x1a model/inspection/collector.proto\"<\n\x13GetCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x13\n\x0b\x63ollectorId\x18\x02 \x01(\t\"~\n\x1bGetCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.inspection.InspectionCollectorb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_collector__pb2.DESCRIPTOR,])
 
@@ -35,7 +35,7 @@ _GETCOLLECTORREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='collector.GetCollectorRequest.id', index=0,
+      name='pluginId', full_name='collector.GetCollectorRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -61,7 +61,7 @@ _GETCOLLECTORREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=58,
-  serialized_end=112,
+  serialized_end=118,
 )
 
 
@@ -112,8 +112,8 @@ _GETCOLLECTORRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=114,
-  serialized_end=240,
+  serialized_start=120,
+  serialized_end=246,
 )
 
 _GETCOLLECTORRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_inspection_dot_collector__pb2._INSPECTIONCOLLECTOR

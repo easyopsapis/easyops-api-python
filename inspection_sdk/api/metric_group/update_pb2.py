@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='metric_group',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cupdate.proto\x12\x0cmetric_group\x1a model/inspection/condition.proto\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\"\xc4\x02\n\x18UpdateMetricGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x15\n\rmetricGroupId\x18\x02 \x01(\t\x12\x39\n\x04vals\x18\x03 \x03(\x0b\x32+.metric_group.UpdateMetricGroupRequest.Vals\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0c\n\x04memo\x18\x05 \x01(\t\x12\'\n\x04\x64ims\x18\x06 \x03(\x0b\x32\x19.inspection.InspectionDim\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1as\n\x04Vals\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04memo\x18\x03 \x01(\t\x12\x0e\n\x06weight\x18\x04 \x01(\x05\x12\x33\n\nconditions\x18\x05 \x03(\x0b\x32\x1f.inspection.InspectionCondition\"\x85\x01\n UpdateMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
+  serialized_pb=_b('\n\x0cupdate.proto\x12\x0cmetric_group\x1a model/inspection/condition.proto\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\"\xca\x02\n\x18UpdateMetricGroupRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x15\n\rmetricGroupId\x18\x02 \x01(\t\x12\x39\n\x04vals\x18\x03 \x03(\x0b\x32+.metric_group.UpdateMetricGroupRequest.Vals\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0c\n\x04memo\x18\x05 \x01(\t\x12\'\n\x04\x64ims\x18\x06 \x03(\x0b\x32\x19.inspection.InspectionDim\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1as\n\x04Vals\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04memo\x18\x03 \x01(\t\x12\x0e\n\x06weight\x18\x04 \x01(\x05\x12\x33\n\nconditions\x18\x05 \x03(\x0b\x32\x1f.inspection.InspectionCondition\"\x85\x01\n UpdateMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_condition__pb2.DESCRIPTOR,model_dot_inspection_dot_dim__pb2.DESCRIPTOR,model_dot_inspection_dot_val__pb2.DESCRIPTOR,model_dot_inspection_dot_metric__group__pb2.DESCRIPTOR,])
 
@@ -84,8 +84,8 @@ _UPDATEMETRICGROUPREQUEST_VALS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=482,
+  serialized_start=373,
+  serialized_end=488,
 )
 
 _UPDATEMETRICGROUPREQUEST = _descriptor.Descriptor(
@@ -96,7 +96,7 @@ _UPDATEMETRICGROUPREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='metric_group.UpdateMetricGroupRequest.id', index=0,
+      name='pluginId', full_name='metric_group.UpdateMetricGroupRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -157,7 +157,7 @@ _UPDATEMETRICGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=158,
-  serialized_end=482,
+  serialized_end=488,
 )
 
 
@@ -208,8 +208,8 @@ _UPDATEMETRICGROUPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=485,
-  serialized_end=618,
+  serialized_start=491,
+  serialized_end=624,
 )
 
 _UPDATEMETRICGROUPREQUEST_VALS.fields_by_name['conditions'].message_type = model_dot_inspection_dot_condition__pb2._INSPECTIONCONDITION

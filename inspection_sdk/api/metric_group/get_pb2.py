@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='metric_group',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tget.proto\x12\x0cmetric_group\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\":\n\x15GetMetricGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x15\n\rmetricGroupId\x18\x02 \x01(\t\"\x82\x01\n\x1dGetMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
+  serialized_pb=_b('\n\tget.proto\x12\x0cmetric_group\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\"@\n\x15GetMetricGroupRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x15\n\rmetricGroupId\x18\x02 \x01(\t\"\x82\x01\n\x1dGetMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_dim__pb2.DESCRIPTOR,model_dot_inspection_dot_val__pb2.DESCRIPTOR,model_dot_inspection_dot_metric__group__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _GETMETRICGROUPREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='metric_group.GetMetricGroupRequest.id', index=0,
+      name='pluginId', full_name='metric_group.GetMetricGroupRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -63,7 +63,7 @@ _GETMETRICGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=120,
-  serialized_end=178,
+  serialized_end=184,
 )
 
 
@@ -114,8 +114,8 @@ _GETMETRICGROUPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=181,
-  serialized_end=311,
+  serialized_start=187,
+  serialized_end=317,
 )
 
 _GETMETRICGROUPRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_inspection_dot_metric__group__pb2._INSPECTIONMETRICGROUP

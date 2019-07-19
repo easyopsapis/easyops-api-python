@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='metric_group',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x0cmetric_group\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\"\xa6\x01\n\x18\x43reateMetricGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04memo\x18\x03 \x01(\t\x12\'\n\x04\x64ims\x18\x04 \x03(\x0b\x32\x19.inspection.InspectionDim\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\'\n\x04vals\x18\x06 \x03(\x0b\x32\x19.inspection.InspectionVal\"\x85\x01\n CreateMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x0cmetric_group\x1a\x1amodel/inspection/dim.proto\x1a\x1amodel/inspection/val.proto\x1a#model/inspection/metric_group.proto\"\xb8\x01\n\x18\x43reateMetricGroupRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04memo\x18\x04 \x01(\t\x12\'\n\x04\x64ims\x18\x05 \x03(\x0b\x32\x19.inspection.InspectionDim\x12\x10\n\x08\x63\x61tegory\x18\x06 \x01(\t\x12\'\n\x04vals\x18\x07 \x03(\x0b\x32\x19.inspection.InspectionVal\"\x85\x01\n CreateMetricGroupResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.inspection.InspectionMetricGroupb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_dim__pb2.DESCRIPTOR,model_dot_inspection_dot_val__pb2.DESCRIPTOR,model_dot_inspection_dot_metric__group__pb2.DESCRIPTOR,])
 
@@ -37,43 +37,50 @@ _CREATEMETRICGROUPREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='metric_group.CreateMetricGroupRequest.id', index=0,
+      name='pluginId', full_name='metric_group.CreateMetricGroupRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='metric_group.CreateMetricGroupRequest.name', index=1,
+      name='id', full_name='metric_group.CreateMetricGroupRequest.id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='memo', full_name='metric_group.CreateMetricGroupRequest.memo', index=2,
+      name='name', full_name='metric_group.CreateMetricGroupRequest.name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dims', full_name='metric_group.CreateMetricGroupRequest.dims', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='category', full_name='metric_group.CreateMetricGroupRequest.category', index=4,
-      number=5, type=9, cpp_type=9, label=1,
+      name='memo', full_name='metric_group.CreateMetricGroupRequest.memo', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='vals', full_name='metric_group.CreateMetricGroupRequest.vals', index=5,
-      number=6, type=11, cpp_type=10, label=3,
+      name='dims', full_name='metric_group.CreateMetricGroupRequest.dims', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='category', full_name='metric_group.CreateMetricGroupRequest.category', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vals', full_name='metric_group.CreateMetricGroupRequest.vals', index=6,
+      number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -91,7 +98,7 @@ _CREATEMETRICGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=124,
-  serialized_end=290,
+  serialized_end=308,
 )
 
 
@@ -142,8 +149,8 @@ _CREATEMETRICGROUPRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=293,
-  serialized_end=426,
+  serialized_start=311,
+  serialized_end=444,
 )
 
 _CREATEMETRICGROUPREQUEST.fields_by_name['dims'].message_type = model_dot_inspection_dot_dim__pb2._INSPECTIONDIM

@@ -57,7 +57,7 @@ class UpdateMetricGroupRequest(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"conditions",b"id",b"memo",b"name",b"weight"]) -> None: ...
 
-    id = ... # type: typing___Text
+    pluginId = ... # type: typing___Text
     metricGroupId = ... # type: typing___Text
     name = ... # type: typing___Text
     memo = ... # type: typing___Text
@@ -70,7 +70,7 @@ class UpdateMetricGroupRequest(google___protobuf___message___Message):
     def dims(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___inspection___dim_pb2___InspectionDim]: ...
 
     def __init__(self,
-        id : typing___Optional[typing___Text] = None,
+        pluginId : typing___Optional[typing___Text] = None,
         metricGroupId : typing___Optional[typing___Text] = None,
         vals : typing___Optional[typing___Iterable[UpdateMetricGroupRequest.Vals]] = None,
         name : typing___Optional[typing___Text] = None,
@@ -83,9 +83,9 @@ class UpdateMetricGroupRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"category",u"dims",u"id",u"memo",u"metricGroupId",u"name",u"vals"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"category",u"dims",u"memo",u"metricGroupId",u"name",u"pluginId",u"vals"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"category",b"dims",b"id",b"memo",b"metricGroupId",b"name",b"vals"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"category",b"dims",b"memo",b"metricGroupId",b"name",b"pluginId",b"vals"]) -> None: ...
 
 class UpdateMetricGroupResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int

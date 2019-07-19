@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='collector',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63reate.proto\x12\tcollector\"\xcc\x01\n\x16\x43reateCollectorRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\x12\x0e\n\x06script\x18\x04 \x01(\t\x12\x34\n\x04\x61rgs\x18\x05 \x03(\x0b\x32&.collector.CreateCollectorRequest.Args\x1a\x41\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0f\n\x07require\x18\x04 \x01(\x08\".\n\x17\x43reateCollectorResponse\x12\x13\n\x0b\x63ollectorId\x18\x01 \x01(\t\"\x84\x01\n\x1e\x43reateCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".collector.CreateCollectorResponseb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63reate.proto\x12\tcollector\"\xd2\x01\n\x16\x43reateCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\x12\x0e\n\x06script\x18\x04 \x01(\t\x12\x34\n\x04\x61rgs\x18\x05 \x03(\x0b\x32&.collector.CreateCollectorRequest.Args\x1a\x41\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0f\n\x07require\x18\x04 \x01(\x08\".\n\x17\x43reateCollectorResponse\x12\x13\n\x0b\x63ollectorId\x18\x01 \x01(\t\"\x84\x01\n\x1e\x43reateCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".collector.CreateCollectorResponseb\x06proto3')
 )
 
 
@@ -72,8 +72,8 @@ _CREATECOLLECTORREQUEST_ARGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=167,
-  serialized_end=232,
+  serialized_start=173,
+  serialized_end=238,
 )
 
 _CREATECOLLECTORREQUEST = _descriptor.Descriptor(
@@ -84,7 +84,7 @@ _CREATECOLLECTORREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='collector.CreateCollectorRequest.id', index=0,
+      name='pluginId', full_name='collector.CreateCollectorRequest.pluginId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -131,7 +131,7 @@ _CREATECOLLECTORREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=232,
+  serialized_end=238,
 )
 
 
@@ -161,8 +161,8 @@ _CREATECOLLECTORRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=280,
+  serialized_start=240,
+  serialized_end=286,
 )
 
 
@@ -213,8 +213,8 @@ _CREATECOLLECTORRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=283,
-  serialized_end=415,
+  serialized_start=289,
+  serialized_end=421,
 )
 
 _CREATECOLLECTORREQUEST_ARGS.containing_type = _CREATECOLLECTORREQUEST

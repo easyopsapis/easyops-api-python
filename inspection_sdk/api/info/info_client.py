@@ -100,8 +100,8 @@ class InfoClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.info.DeleteInspectionInfo"
-        uri = "/api/v1/inspection/{id}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -141,8 +141,8 @@ class InfoClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.info.GetInspectionInfo"
-        uri = "/api/v1/inspection/{id}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         
@@ -262,8 +262,8 @@ class InfoClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.inspection.info.UpdateInspectionInfo"
-        uri = "/api/v1/inspection/{id}".format(
-            id=request.id,
+        uri = "/api/v1/inspection/{pluginId}".format(
+            pluginId=request.pluginId,
         )
         requestParam = request
         

@@ -32,7 +32,7 @@ message Args {
     /*
     套件id
     */
-    string id = 1 ;
+    string pluginId = 1 ;
     /*
     脚本名称
     */
