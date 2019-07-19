@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,12 +19,48 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ops_automation',
   syntax='proto3',
   serialized_options=_b('ZHgo.easyops.local/contracts/protorepo-models/easyops/model/ops_automation'),
-  serialized_pb=_b('\n\x0fscheduler.proto\x12\x0eops_automation\x1a\x1cgoogle/protobuf/struct.proto\"^\n\tScheduler\x12\x0f\n\x07isBound\x18\x01 \x01(\x08\x12\x10\n\x08isActive\x18\x02 \x01(\x08\x12.\n\rrecentHistory\x18\x03 \x03(\x0b\x32\x17.google.protobuf.StructBJZHgo.easyops.local/contracts/protorepo-models/easyops/model/ops_automationb\x06proto3')
-  ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\x0fscheduler.proto\x12\x0eops_automation\"\xa3\x01\n\tScheduler\x12\x0f\n\x07isBound\x18\x01 \x01(\x08\x12\x10\n\x08isActive\x18\x02 \x01(\x08\x12>\n\rrecentHistory\x18\x03 \x03(\x0b\x32\'.ops_automation.Scheduler.RecentHistory\x1a\x33\n\rRecentHistory\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x12\n\ncreateTime\x18\x02 \x01(\tBJZHgo.easyops.local/contracts/protorepo-models/easyops/model/ops_automationb\x06proto3')
+)
 
 
 
+
+_SCHEDULER_RECENTHISTORY = _descriptor.Descriptor(
+  name='RecentHistory',
+  full_name='ops_automation.Scheduler.RecentHistory',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='ops_automation.Scheduler.RecentHistory.status', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='createTime', full_name='ops_automation.Scheduler.RecentHistory.createTime', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=148,
+  serialized_end=199,
+)
 
 _SCHEDULER = _descriptor.Descriptor(
   name='Scheduler',
@@ -58,7 +93,7 @@ _SCHEDULER = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_SCHEDULER_RECENTHISTORY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -67,20 +102,29 @@ _SCHEDULER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=65,
-  serialized_end=159,
+  serialized_start=36,
+  serialized_end=199,
 )
 
-_SCHEDULER.fields_by_name['recentHistory'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_SCHEDULER_RECENTHISTORY.containing_type = _SCHEDULER
+_SCHEDULER.fields_by_name['recentHistory'].message_type = _SCHEDULER_RECENTHISTORY
 DESCRIPTOR.message_types_by_name['Scheduler'] = _SCHEDULER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Scheduler = _reflection.GeneratedProtocolMessageType('Scheduler', (_message.Message,), dict(
+
+  RecentHistory = _reflection.GeneratedProtocolMessageType('RecentHistory', (_message.Message,), dict(
+    DESCRIPTOR = _SCHEDULER_RECENTHISTORY,
+    __module__ = 'scheduler_pb2'
+    # @@protoc_insertion_point(class_scope:ops_automation.Scheduler.RecentHistory)
+    ))
+  ,
   DESCRIPTOR = _SCHEDULER,
   __module__ = 'scheduler_pb2'
   # @@protoc_insertion_point(class_scope:ops_automation.Scheduler)
   ))
 _sym_db.RegisterMessage(Scheduler)
+_sym_db.RegisterMessage(Scheduler.RecentHistory)
 
 
 DESCRIPTOR._options = None

@@ -39,6 +39,39 @@ class GetTaskRequest(google___protobuf___message___Message):
         def ClearField(self, field_name: typing_extensions___Literal[b"taskId"]) -> None: ...
 
 class GetTaskResponse(google___protobuf___message___Message):
+    class CmdConfig(google___protobuf___message___Message):
+        url = ... # type: typing___Text
+        service_name = ... # type: typing___Text
+        port = ... # type: int
+        host = ... # type: typing___Text
+        method = ... # type: typing___Text
+
+        @property
+        def headers(self) -> google___protobuf___struct_pb2___Struct: ...
+
+        @property
+        def params(self) -> google___protobuf___struct_pb2___Struct: ...
+
+        def __init__(self,
+            url : typing___Optional[typing___Text] = None,
+            service_name : typing___Optional[typing___Text] = None,
+            port : typing___Optional[int] = None,
+            host : typing___Optional[typing___Text] = None,
+            method : typing___Optional[typing___Text] = None,
+            headers : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+            params : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> GetTaskResponse.CmdConfig: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def HasField(self, field_name: typing_extensions___Literal[u"headers",u"params"]) -> bool: ...
+            def ClearField(self, field_name: typing_extensions___Literal[u"headers",u"host",u"method",u"params",u"port",u"service_name",u"url"]) -> None: ...
+        else:
+            def HasField(self, field_name: typing_extensions___Literal[u"headers",b"headers",u"params",b"params"]) -> bool: ...
+            def ClearField(self, field_name: typing_extensions___Literal[b"headers",b"host",b"method",b"params",b"port",b"service_name",b"url"]) -> None: ...
+
     class Annotations(google___protobuf___message___Message):
         appId = ... # type: typing___Text
 
@@ -95,7 +128,7 @@ class GetTaskResponse(google___protobuf___message___Message):
     assignner = ... # type: typing___Text
 
     @property
-    def cmd_config(self) -> google___protobuf___struct_pb2___Struct: ...
+    def cmd_config(self) -> GetTaskResponse.CmdConfig: ...
 
     @property
     def annotations(self) -> GetTaskResponse.Annotations: ...
@@ -111,7 +144,7 @@ class GetTaskResponse(google___protobuf___message___Message):
         task_scheduler : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         error : typing___Optional[typing___Text] = None,
-        cmd_config : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        cmd_config : typing___Optional[GetTaskResponse.CmdConfig] = None,
         job_type : typing___Optional[typing___Text] = None,
         updateAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
         create_time : typing___Optional[typing___Text] = None,

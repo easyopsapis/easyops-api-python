@@ -20,6 +20,37 @@ message GetTaskRequest {
 GetTask返回
 */
 message GetTaskResponse {
+message CmdConfig {
+    /*
+    uri
+    */
+    string url = 1 ;
+    /*
+    名字服务
+    */
+    string service_name = 2 ;
+    /*
+    端口
+    */
+    int32 port = 3 ;
+    /*
+    名字服务
+    */
+    string host = 4 ;
+    /*
+    http 请求
+    */
+    string method = 5 ;
+    /*
+    请求头
+    */
+    google.protobuf.Struct headers = 6 ;
+    /*
+    参数
+    */
+    google.protobuf.Struct params = 7 ;
+}
+        
 message Annotations {
     /*
     应用ID
@@ -74,7 +105,7 @@ message Callback {
     /*
     任务的具体配置, http或脚本
     */
-    google.protobuf.Struct cmd_config = 8 ;
+    CmdConfig cmd_config = 8 ;
     /*
     任务类型
     */

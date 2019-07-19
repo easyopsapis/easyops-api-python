@@ -6,12 +6,23 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/o
 
 
 
-import "google/protobuf/struct.proto";
 
 /*
 定时任务详情
 */
 message Scheduler {
+message RecentHistory {
+    /*
+    执行状态
+    */
+    string status = 1 ;
+    /*
+    创建时间 2019-01-11 10:35:10
+    */
+    string createTime = 2 ;
+}
+        
+    
     /*
     是否绑定
     */
@@ -23,6 +34,6 @@ message Scheduler {
     /*
     最近历史信息
     */
-    repeated google.protobuf.Struct recentHistory = 3 ;
+    repeated RecentHistory recentHistory = 3 ;
 }
 
