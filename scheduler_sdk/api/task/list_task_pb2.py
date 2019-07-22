@@ -20,11 +20,84 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0flist_task.proto\x12\x04task\x1a\x1cgoogle/protobuf/struct.proto\"\xa3\x07\n\x10ListTaskResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.task.ListTaskResponse.List\x1a\xb3\x06\n\x04List\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06job_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\x05\x12\x0f\n\x07\x64isable\x18\x04 \x01(\x05\x12\x16\n\x0etask_scheduler\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\r\n\x05\x65rror\x18\x07 \x01(\t\x12\x39\n\ncmd_config\x18\x08 \x01(\x0b\x32%.task.ListTaskResponse.List.CmdConfig\x12\x10\n\x08job_type\x18\t \x01(\t\x12\x19\n\x11updateAuthorizers\x18\n \x03(\t\x12\x13\n\x0b\x63reate_time\x18\x0b \x01(\t\x12\x11\n\ttask_type\x18\x0c \x01(\t\x12\x0e\n\x06src_id\x18\r \x01(\t\x12<\n\x0b\x61nnotations\x18\x0e \x01(\x0b\x32\'.task.ListTaskResponse.List.Annotations\x12\x13\n\x0bupdate_time\x18\x0f \x01(\t\x12\x10\n\x08\x63md_type\x18\x10 \x01(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18\x11 \x03(\t\x12\x0c\n\x04user\x18\x12 \x01(\t\x12\x11\n\tinvisible\x18\x13 \x01(\x05\x12\x0b\n\x03org\x18\x14 \x01(\x05\x12\x1a\n\x12operateAuthorizers\x18\x15 \x03(\t\x12\x36\n\x08\x63\x61llback\x18\x16 \x01(\x0b\x32$.task.ListTaskResponse.List.Callback\x12\x11\n\tassignner\x18\x17 \x01(\t\x1a\xad\x01\n\tCmdConfig\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x0c\n\x04host\x18\x04 \x01(\t\x12\x0e\n\x06method\x18\x05 \x01(\t\x12(\n\x07headers\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06params\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x1a\x36\n\x08\x43\x61llback\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x03 \x01(\t\"q\n\x17ListTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.task.ListTaskResponseb\x06proto3')
+  serialized_pb=_b('\n\x0flist_task.proto\x12\x04task\x1a\x1cgoogle/protobuf/struct.proto\"\x8e\x01\n\x0fListTaskRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\n__select__\x18\x03 \x01(\t\x12\x12\n\n__sortby__\x18\x04 \x01(\t\x12\x0e\n\x06src_id\x18\x05 \x01(\t\x12\x0f\n\x07\x64isable\x18\x06 \x01(\x05\x12\x11\n\tassignner\x18\x07 \x01(\t\"\xa3\x07\n\x10ListTaskResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.task.ListTaskResponse.List\x1a\xb3\x06\n\x04List\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06job_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\x05\x12\x0f\n\x07\x64isable\x18\x04 \x01(\x05\x12\x16\n\x0etask_scheduler\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\r\n\x05\x65rror\x18\x07 \x01(\t\x12\x39\n\ncmd_config\x18\x08 \x01(\x0b\x32%.task.ListTaskResponse.List.CmdConfig\x12\x10\n\x08job_type\x18\t \x01(\t\x12\x19\n\x11updateAuthorizers\x18\n \x03(\t\x12\x13\n\x0b\x63reate_time\x18\x0b \x01(\t\x12\x11\n\ttask_type\x18\x0c \x01(\t\x12\x0e\n\x06src_id\x18\r \x01(\t\x12<\n\x0b\x61nnotations\x18\x0e \x01(\x0b\x32\'.task.ListTaskResponse.List.Annotations\x12\x13\n\x0bupdate_time\x18\x0f \x01(\t\x12\x10\n\x08\x63md_type\x18\x10 \x01(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18\x11 \x03(\t\x12\x0c\n\x04user\x18\x12 \x01(\t\x12\x11\n\tinvisible\x18\x13 \x01(\x05\x12\x0b\n\x03org\x18\x14 \x01(\x05\x12\x1a\n\x12operateAuthorizers\x18\x15 \x03(\t\x12\x36\n\x08\x63\x61llback\x18\x16 \x01(\x0b\x32$.task.ListTaskResponse.List.Callback\x12\x11\n\tassignner\x18\x17 \x01(\t\x1a\xad\x01\n\tCmdConfig\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x0c\n\x04host\x18\x04 \x01(\t\x12\x0e\n\x06method\x18\x05 \x01(\t\x12(\n\x07headers\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06params\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x1a\x36\n\x08\x43\x61llback\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x03 \x01(\t\"q\n\x17ListTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.task.ListTaskResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
+
+
+_LISTTASKREQUEST = _descriptor.Descriptor(
+  name='ListTaskRequest',
+  full_name='task.ListTaskRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page', full_name='task.ListTaskRequest.page', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='task.ListTaskRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='__select__', full_name='task.ListTaskRequest.__select__', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='__sortby__', full_name='task.ListTaskRequest.__sortby__', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='src_id', full_name='task.ListTaskRequest.src_id', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='disable', full_name='task.ListTaskRequest.disable', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='assignner', full_name='task.ListTaskRequest.assignner', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=56,
+  serialized_end=198,
+)
 
 
 _LISTTASKRESPONSE_LIST_CMDCONFIG = _descriptor.Descriptor(
@@ -95,8 +168,8 @@ _LISTTASKRESPONSE_LIST_CMDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=728,
-  serialized_end=901,
+  serialized_start=873,
+  serialized_end=1046,
 )
 
 _LISTTASKRESPONSE_LIST_ANNOTATIONS = _descriptor.Descriptor(
@@ -125,8 +198,8 @@ _LISTTASKRESPONSE_LIST_ANNOTATIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=903,
-  serialized_end=931,
+  serialized_start=1048,
+  serialized_end=1076,
 )
 
 _LISTTASKRESPONSE_LIST_CALLBACK = _descriptor.Descriptor(
@@ -169,8 +242,8 @@ _LISTTASKRESPONSE_LIST_CALLBACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=933,
-  serialized_end=987,
+  serialized_start=1078,
+  serialized_end=1132,
 )
 
 _LISTTASKRESPONSE_LIST = _descriptor.Descriptor(
@@ -353,8 +426,8 @@ _LISTTASKRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=168,
-  serialized_end=987,
+  serialized_start=313,
+  serialized_end=1132,
 )
 
 _LISTTASKRESPONSE = _descriptor.Descriptor(
@@ -404,8 +477,8 @@ _LISTTASKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=987,
+  serialized_start=201,
+  serialized_end=1132,
 )
 
 
@@ -456,8 +529,8 @@ _LISTTASKRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=989,
-  serialized_end=1102,
+  serialized_start=1134,
+  serialized_end=1247,
 )
 
 _LISTTASKRESPONSE_LIST_CMDCONFIG.fields_by_name['headers'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -471,9 +544,17 @@ _LISTTASKRESPONSE_LIST.fields_by_name['callback'].message_type = _LISTTASKRESPON
 _LISTTASKRESPONSE_LIST.containing_type = _LISTTASKRESPONSE
 _LISTTASKRESPONSE.fields_by_name['list'].message_type = _LISTTASKRESPONSE_LIST
 _LISTTASKRESPONSEWRAPPER.fields_by_name['data'].message_type = _LISTTASKRESPONSE
+DESCRIPTOR.message_types_by_name['ListTaskRequest'] = _LISTTASKREQUEST
 DESCRIPTOR.message_types_by_name['ListTaskResponse'] = _LISTTASKRESPONSE
 DESCRIPTOR.message_types_by_name['ListTaskResponseWrapper'] = _LISTTASKRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+ListTaskRequest = _reflection.GeneratedProtocolMessageType('ListTaskRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LISTTASKREQUEST,
+  __module__ = 'list_task_pb2'
+  # @@protoc_insertion_point(class_scope:task.ListTaskRequest)
+  ))
+_sym_db.RegisterMessage(ListTaskRequest)
 
 ListTaskResponse = _reflection.GeneratedProtocolMessageType('ListTaskResponse', (_message.Message,), dict(
 

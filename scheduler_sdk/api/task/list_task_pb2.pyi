@@ -24,6 +24,33 @@ from typing_extensions import (
 )
 
 
+class ListTaskRequest(google___protobuf___message___Message):
+    page = ... # type: int
+    page_size = ... # type: int
+    __select__ = ... # type: typing___Text
+    __sortby__ = ... # type: typing___Text
+    src_id = ... # type: typing___Text
+    disable = ... # type: int
+    assignner = ... # type: typing___Text
+
+    def __init__(self,
+        page : typing___Optional[int] = None,
+        page_size : typing___Optional[int] = None,
+        __select__ : typing___Optional[typing___Text] = None,
+        __sortby__ : typing___Optional[typing___Text] = None,
+        src_id : typing___Optional[typing___Text] = None,
+        disable : typing___Optional[int] = None,
+        assignner : typing___Optional[typing___Text] = None,
+        ) -> None: ...
+    @classmethod
+    def FromString(cls, s: bytes) -> ListTaskRequest: ...
+    def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    if sys.version_info >= (3,):
+        def ClearField(self, field_name: typing_extensions___Literal[u"__select__",u"__sortby__",u"assignner",u"disable",u"page",u"page_size",u"src_id"]) -> None: ...
+    else:
+        def ClearField(self, field_name: typing_extensions___Literal[b"__select__",b"__sortby__",b"assignner",b"disable",b"page",b"page_size",b"src_id"]) -> None: ...
+
 class ListTaskResponse(google___protobuf___message___Message):
     class List(google___protobuf___message___Message):
         class CmdConfig(google___protobuf___message___Message):

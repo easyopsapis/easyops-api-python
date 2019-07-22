@@ -120,7 +120,7 @@ class TaskClient(object):
         return rsp
     
     def list_task(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_task_pb2.ListTaskResponse
+        # type: (list_task_pb2.ListTaskRequest, int, str, int) -> list_task_pb2.ListTaskResponse
         """
         获取任务列表
         :param request: list_task请求

@@ -7,6 +7,40 @@ package task;
 import "google/protobuf/struct.proto";
 
 /*
+ListTask请求
+*/
+message ListTaskRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    列选择，英文逗号分隔
+    */
+    string __select__ = 3 ;
+    /*
+    根据指定字段排序
+    */
+    string __sortby__ = 4 ;
+    /*
+    源id
+    */
+    string src_id = 5 ;
+    /*
+    0表示不禁用，1 表示禁用定时任务
+    */
+    int32 disable = 6 ;
+    /*
+    调用方的名字服务
+    */
+    string assignner = 7 ;
+}
+
+/*
 ListTask返回
 */
 message ListTaskResponse {
