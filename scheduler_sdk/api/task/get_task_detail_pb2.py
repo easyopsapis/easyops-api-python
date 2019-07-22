@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.scheduler import task_pb2 as model_dot_scheduler_dot_task__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15get_task_detail.proto\x12\x04task\x1a\x1cgoogle/protobuf/struct.proto\" \n\x0eGetTaskRequest\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"\xac\x06\n\x0fGetTaskResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06job_id\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\x05\x12\x0f\n\x07\x64isable\x18\x04 \x01(\x05\x12\x16\n\x0etask_scheduler\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\r\n\x05\x65rror\x18\x07 \x01(\t\x12\x33\n\ncmd_config\x18\x08 \x01(\x0b\x32\x1f.task.GetTaskResponse.CmdConfig\x12\x10\n\x08job_type\x18\t \x01(\t\x12\x19\n\x11updateAuthorizers\x18\n \x03(\t\x12\x13\n\x0b\x63reate_time\x18\x0b \x01(\t\x12\x11\n\ttask_type\x18\x0c \x01(\t\x12\x0e\n\x06src_id\x18\r \x01(\t\x12\x36\n\x0b\x61nnotations\x18\x0e \x01(\x0b\x32!.task.GetTaskResponse.Annotations\x12\x13\n\x0bupdate_time\x18\x0f \x01(\t\x12\x10\n\x08\x63md_type\x18\x10 \x01(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18\x11 \x03(\t\x12\x0c\n\x04user\x18\x12 \x01(\t\x12\x11\n\tinvisible\x18\x13 \x01(\x05\x12\x0b\n\x03org\x18\x14 \x01(\x05\x12\x1a\n\x12operateAuthorizers\x18\x15 \x03(\t\x12\x30\n\x08\x63\x61llback\x18\x16 \x01(\x0b\x32\x1e.task.GetTaskResponse.Callback\x12\x11\n\tassignner\x18\x17 \x01(\t\x1a\xad\x01\n\tCmdConfig\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x0c\n\x04host\x18\x04 \x01(\t\x12\x0e\n\x06method\x18\x05 \x01(\t\x12(\n\x07headers\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06params\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x1a\x36\n\x08\x43\x61llback\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x03 \x01(\t\"o\n\x16GetTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12#\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x15.task.GetTaskResponseb\x06proto3')
+  serialized_pb=_b('\n\x15get_task_detail.proto\x12\x04task\x1a\x1amodel/scheduler/task.proto\x1a\x1cgoogle/protobuf/struct.proto\" \n\x0eGetTaskRequest\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"r\n\x16GetTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.scheduler.SchedulerTaskb\x06proto3')
   ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_scheduler_dot_task__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -53,339 +54,8 @@ _GETTASKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=61,
-  serialized_end=93,
-)
-
-
-_GETTASKRESPONSE_CMDCONFIG = _descriptor.Descriptor(
-  name='CmdConfig',
-  full_name='task.GetTaskResponse.CmdConfig',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='url', full_name='task.GetTaskResponse.CmdConfig.url', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='service_name', full_name='task.GetTaskResponse.CmdConfig.service_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='task.GetTaskResponse.CmdConfig.port', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='host', full_name='task.GetTaskResponse.CmdConfig.host', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='method', full_name='task.GetTaskResponse.CmdConfig.method', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='headers', full_name='task.GetTaskResponse.CmdConfig.headers', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='params', full_name='task.GetTaskResponse.CmdConfig.params', index=6,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=649,
-  serialized_end=822,
-)
-
-_GETTASKRESPONSE_ANNOTATIONS = _descriptor.Descriptor(
-  name='Annotations',
-  full_name='task.GetTaskResponse.Annotations',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='appId', full_name='task.GetTaskResponse.Annotations.appId', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=824,
-  serialized_end=852,
-)
-
-_GETTASKRESPONSE_CALLBACK = _descriptor.Descriptor(
-  name='Callback',
-  full_name='task.GetTaskResponse.Callback',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='url', full_name='task.GetTaskResponse.Callback.url', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='host', full_name='task.GetTaskResponse.Callback.host', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ensName', full_name='task.GetTaskResponse.Callback.ensName', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=854,
-  serialized_end=908,
-)
-
-_GETTASKRESPONSE = _descriptor.Descriptor(
-  name='GetTaskResponse',
-  full_name='task.GetTaskResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='task.GetTaskResponse.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='job_id', full_name='task.GetTaskResponse.job_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='task.GetTaskResponse.status', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disable', full_name='task.GetTaskResponse.disable', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='task_scheduler', full_name='task.GetTaskResponse.task_scheduler', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='task.GetTaskResponse.name', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='task.GetTaskResponse.error', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmd_config', full_name='task.GetTaskResponse.cmd_config', index=7,
-      number=8, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='job_type', full_name='task.GetTaskResponse.job_type', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='updateAuthorizers', full_name='task.GetTaskResponse.updateAuthorizers', index=9,
-      number=10, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='create_time', full_name='task.GetTaskResponse.create_time', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='task_type', full_name='task.GetTaskResponse.task_type', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='src_id', full_name='task.GetTaskResponse.src_id', index=12,
-      number=13, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='annotations', full_name='task.GetTaskResponse.annotations', index=13,
-      number=14, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='update_time', full_name='task.GetTaskResponse.update_time', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmd_type', full_name='task.GetTaskResponse.cmd_type', index=15,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='deleteAuthorizers', full_name='task.GetTaskResponse.deleteAuthorizers', index=16,
-      number=17, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='user', full_name='task.GetTaskResponse.user', index=17,
-      number=18, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='invisible', full_name='task.GetTaskResponse.invisible', index=18,
-      number=19, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='org', full_name='task.GetTaskResponse.org', index=19,
-      number=20, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='operateAuthorizers', full_name='task.GetTaskResponse.operateAuthorizers', index=20,
-      number=21, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='callback', full_name='task.GetTaskResponse.callback', index=21,
-      number=22, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='assignner', full_name='task.GetTaskResponse.assignner', index=22,
-      number=23, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_GETTASKRESPONSE_CMDCONFIG, _GETTASKRESPONSE_ANNOTATIONS, _GETTASKRESPONSE_CALLBACK, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=96,
-  serialized_end=908,
+  serialized_start=89,
+  serialized_end=121,
 )
 
 
@@ -436,21 +106,12 @@ _GETTASKRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=910,
-  serialized_end=1021,
+  serialized_start=123,
+  serialized_end=237,
 )
 
-_GETTASKRESPONSE_CMDCONFIG.fields_by_name['headers'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_GETTASKRESPONSE_CMDCONFIG.fields_by_name['params'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_GETTASKRESPONSE_CMDCONFIG.containing_type = _GETTASKRESPONSE
-_GETTASKRESPONSE_ANNOTATIONS.containing_type = _GETTASKRESPONSE
-_GETTASKRESPONSE_CALLBACK.containing_type = _GETTASKRESPONSE
-_GETTASKRESPONSE.fields_by_name['cmd_config'].message_type = _GETTASKRESPONSE_CMDCONFIG
-_GETTASKRESPONSE.fields_by_name['annotations'].message_type = _GETTASKRESPONSE_ANNOTATIONS
-_GETTASKRESPONSE.fields_by_name['callback'].message_type = _GETTASKRESPONSE_CALLBACK
-_GETTASKRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETTASKRESPONSE
+_GETTASKRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_scheduler_dot_task__pb2._SCHEDULERTASK
 DESCRIPTOR.message_types_by_name['GetTaskRequest'] = _GETTASKREQUEST
-DESCRIPTOR.message_types_by_name['GetTaskResponse'] = _GETTASKRESPONSE
 DESCRIPTOR.message_types_by_name['GetTaskResponseWrapper'] = _GETTASKRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -460,37 +121,6 @@ GetTaskRequest = _reflection.GeneratedProtocolMessageType('GetTaskRequest', (_me
   # @@protoc_insertion_point(class_scope:task.GetTaskRequest)
   ))
 _sym_db.RegisterMessage(GetTaskRequest)
-
-GetTaskResponse = _reflection.GeneratedProtocolMessageType('GetTaskResponse', (_message.Message,), dict(
-
-  CmdConfig = _reflection.GeneratedProtocolMessageType('CmdConfig', (_message.Message,), dict(
-    DESCRIPTOR = _GETTASKRESPONSE_CMDCONFIG,
-    __module__ = 'get_task_detail_pb2'
-    # @@protoc_insertion_point(class_scope:task.GetTaskResponse.CmdConfig)
-    ))
-  ,
-
-  Annotations = _reflection.GeneratedProtocolMessageType('Annotations', (_message.Message,), dict(
-    DESCRIPTOR = _GETTASKRESPONSE_ANNOTATIONS,
-    __module__ = 'get_task_detail_pb2'
-    # @@protoc_insertion_point(class_scope:task.GetTaskResponse.Annotations)
-    ))
-  ,
-
-  Callback = _reflection.GeneratedProtocolMessageType('Callback', (_message.Message,), dict(
-    DESCRIPTOR = _GETTASKRESPONSE_CALLBACK,
-    __module__ = 'get_task_detail_pb2'
-    # @@protoc_insertion_point(class_scope:task.GetTaskResponse.Callback)
-    ))
-  ,
-  DESCRIPTOR = _GETTASKRESPONSE,
-  __module__ = 'get_task_detail_pb2'
-  # @@protoc_insertion_point(class_scope:task.GetTaskResponse)
-  ))
-_sym_db.RegisterMessage(GetTaskResponse)
-_sym_db.RegisterMessage(GetTaskResponse.CmdConfig)
-_sym_db.RegisterMessage(GetTaskResponse.Annotations)
-_sym_db.RegisterMessage(GetTaskResponse.Callback)
 
 GetTaskResponseWrapper = _reflection.GeneratedProtocolMessageType('GetTaskResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _GETTASKRESPONSEWRAPPER,

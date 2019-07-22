@@ -40,41 +40,41 @@ message Annotations {
     */
     string id = 5 ;
     /*
-    启动时间
+    总状态
     */
-    string start_time = 6 ;
-    /*
-    创建用户
-    */
-    string user = 7 ;
-    /*
-    结束时间
-    */
-    string end_time = 8 ;
-    /*
-    org
-    */
-    int32 org = 9 ;
-    /*
-    发起定时任务的源 id
-    */
-    string src_id = 10 ;
+    string total_status = 6 ;
     /*
     task id
     */
-    string task_id = 11 ;
-    /*
-    任务类型
-    */
-    string job_type = 12 ;
+    string task_id = 7 ;
     /*
     工具执行 id
     */
-    string tool_exec_id = 13 ;
+    string tool_exec_id = 8 ;
     /*
-    总状态
+    启动时间
     */
-    string total_status = 14 ;
+    string start_time = 9 ;
+    /*
+    结束时间
+    */
+    string end_time = 10 ;
+    /*
+    创建用户
+    */
+    string user = 11 ;
+    /*
+    org
+    */
+    int32 org = 12 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 13 ;
+    /*
+    任务类型
+    */
+    string job_type = 14 ;
     /*
     相关参数
     */

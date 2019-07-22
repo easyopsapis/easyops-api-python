@@ -4,6 +4,7 @@ package task_history;
 
 
 
+import "model/scheduler/history.proto";
 
 /*
 ListHistory请求
@@ -43,74 +44,30 @@ message ListHistoryRequest {
 ListHistory返回
 */
 message ListHistoryResponse {
-message Annotations {
     /*
-    应用ID
+    返回码
     */
-    string appId = 1 ;
-}
-        
-    
+    int32 code = 1 ;
     /*
-    任务名称
+    初始页面
     */
-    string name = 1 ;
+    int32 page = 2 ;
     /*
-    任务执行总时间, 单位 s
+    页面大小
     */
-    int32 total_time = 2 ;
+    int32 page_size = 3 ;
     /*
-    执行返回码
-    */
-    int32 code = 3 ;
-    /*
-    工具返回
+    返回信息。get success
     */
     string msg = 4 ;
     /*
-    history id
+    总大小
     */
-    string id = 5 ;
+    int32 total = 5 ;
     /*
-    启动时间
+    执行历史记录
     */
-    string start_time = 6 ;
-    /*
-    创建用户
-    */
-    string user = 7 ;
-    /*
-    结束时间
-    */
-    string end_time = 8 ;
-    /*
-    org
-    */
-    int32 org = 9 ;
-    /*
-    发起定时任务的源 id
-    */
-    string src_id = 10 ;
-    /*
-    task id
-    */
-    string task_id = 11 ;
-    /*
-    任务类型
-    */
-    string job_type = 12 ;
-    /*
-    工具执行 id
-    */
-    string tool_exec_id = 13 ;
-    /*
-    总状态
-    */
-    string total_status = 14 ;
-    /*
-    相关参数
-    */
-    Annotations annotations = 15 ;
+    repeated scheduler.SchedulerHistory data = 6 ;
 }
 
 /*

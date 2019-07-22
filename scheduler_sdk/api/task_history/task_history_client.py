@@ -67,7 +67,7 @@ class TaskHistoryClient(object):
         )
         rsp = list_task_history_pb2.ListHistoryResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

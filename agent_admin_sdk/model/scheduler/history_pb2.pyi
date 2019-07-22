@@ -35,15 +35,15 @@ class SchedulerHistory(google___protobuf___message___Message):
     code = ... # type: int
     msg = ... # type: typing___Text
     id = ... # type: typing___Text
+    total_status = ... # type: typing___Text
+    task_id = ... # type: typing___Text
+    tool_exec_id = ... # type: typing___Text
     start_time = ... # type: typing___Text
-    user = ... # type: typing___Text
     end_time = ... # type: typing___Text
+    user = ... # type: typing___Text
     org = ... # type: int
     src_id = ... # type: typing___Text
-    task_id = ... # type: typing___Text
     job_type = ... # type: typing___Text
-    tool_exec_id = ... # type: typing___Text
-    total_status = ... # type: typing___Text
 
     @property
     def annotations(self) -> SchedulerHistory.Annotations: ...
@@ -54,15 +54,15 @@ class SchedulerHistory(google___protobuf___message___Message):
         code : typing___Optional[int] = None,
         msg : typing___Optional[typing___Text] = None,
         id : typing___Optional[typing___Text] = None,
+        total_status : typing___Optional[typing___Text] = None,
+        task_id : typing___Optional[typing___Text] = None,
+        tool_exec_id : typing___Optional[typing___Text] = None,
         start_time : typing___Optional[typing___Text] = None,
-        user : typing___Optional[typing___Text] = None,
         end_time : typing___Optional[typing___Text] = None,
+        user : typing___Optional[typing___Text] = None,
         org : typing___Optional[int] = None,
         src_id : typing___Optional[typing___Text] = None,
-        task_id : typing___Optional[typing___Text] = None,
         job_type : typing___Optional[typing___Text] = None,
-        tool_exec_id : typing___Optional[typing___Text] = None,
-        total_status : typing___Optional[typing___Text] = None,
         annotations : typing___Optional[SchedulerHistory.Annotations] = None,
         ) -> None: ...
     @classmethod

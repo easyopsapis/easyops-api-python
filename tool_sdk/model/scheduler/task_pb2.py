@@ -20,42 +20,12 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='scheduler',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/scheduler'),
-  serialized_pb=_b('\n\ntask.proto\x12\tscheduler\x1a\x1cgoogle/protobuf/struct.proto\"\xa4\x06\n\rSchedulerTask\x12\x0e\n\x06src_id\x18\x01 \x01(\t\x12\x0f\n\x07task_id\x18\x02 \x01(\t\x12\x10\n\x08job_type\x18\x03 \x01(\t\x12\x10\n\x08\x63md_type\x18\x04 \x01(\t\x12\x14\n\x0ctool_exec_id\x18\x05 \x01(\t\x12\x14\n\x0ctotal_status\x18\x06 \x01(\t\x12\x39\n\x0b\x61nnotations\x18\x07 \x01(\x0b\x32$.scheduler.SchedulerTask.Annotations\x12\x36\n\ncmd_config\x18\x08 \x01(\x0b\x32\".scheduler.SchedulerTask.CmdConfig\x12\x11\n\ttask_type\x18\t \x01(\t\x12\x19\n\x11updateAuthorizers\x18\n \x03(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18\x0b \x03(\t\x12\x1a\n\x12operateAuthorizers\x18\x0c \x03(\t\x12\x11\n\tinvisible\x18\r \x01(\x05\x12\x33\n\x08\x63\x61llback\x18\x0e \x01(\x0b\x32!.scheduler.SchedulerTask.Callback\x12\x11\n\tassignner\x18\x0f \x01(\t\x12\x12\n\nstart_time\x18\x10 \x01(\t\x12\x0c\n\x04user\x18\x11 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x12 \x01(\t\x12\x13\n\x0b\x63reate_time\x18\x13 \x01(\t\x12\x13\n\x0bupdate_time\x18\x14 \x01(\t\x12\x0b\n\x03org\x18\x15 \x01(\x05\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x1a\xad\x01\n\tCmdConfig\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x0c\n\x04host\x18\x04 \x01(\t\x12\x0e\n\x06method\x18\x05 \x01(\t\x12(\n\x07headers\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06params\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x36\n\x08\x43\x61llback\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x03 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/schedulerb\x06proto3')
+  serialized_pb=_b('\n\ntask.proto\x12\tscheduler\x1a\x1cgoogle/protobuf/struct.proto\"\xb3\x06\n\rSchedulerTask\x12\x36\n\ncmd_config\x18\x01 \x01(\x0b\x32\".scheduler.SchedulerTask.CmdConfig\x12\x10\n\x08job_type\x18\x02 \x01(\t\x12\x19\n\x11updateAuthorizers\x18\x03 \x03(\t\x12\x13\n\x0b\x63reate_time\x18\x04 \x01(\t\x12\n\n\x02id\x18\x05 \x01(\t\x12\x11\n\ttask_type\x18\x06 \x01(\t\x12\x0e\n\x06src_id\x18\x07 \x01(\t\x12\x0e\n\x06job_id\x18\x08 \x01(\t\x12\x39\n\x0b\x61nnotations\x18\t \x01(\x0b\x32$.scheduler.SchedulerTask.Annotations\x12\x0e\n\x06status\x18\n \x01(\x05\x12\x13\n\x0bupdate_time\x18\x0b \x01(\t\x12\x10\n\x08\x63md_type\x18\x0c \x01(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18\r \x03(\t\x12\x0f\n\x07\x64isable\x18\x0e \x01(\x05\x12\x0c\n\x04user\x18\x0f \x01(\t\x12\x16\n\x0etask_scheduler\x18\x10 \x01(\t\x12\x11\n\tinvisible\x18\x11 \x01(\x05\x12\x0b\n\x03org\x18\x12 \x01(\x05\x12\x1a\n\x12operateAuthorizers\x18\x13 \x03(\t\x12\x0c\n\x04name\x18\x14 \x01(\t\x12\x33\n\x08\x63\x61llback\x18\x15 \x01(\x0b\x32!.scheduler.SchedulerTask.Callback\x12\x11\n\tassignner\x18\x16 \x01(\t\x12\r\n\x05\x65rror\x18\x17 \x01(\t\x1a\xad\x01\n\tCmdConfig\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x0c\n\x04host\x18\x04 \x01(\t\x12\x0e\n\x06method\x18\x05 \x01(\t\x12(\n\x07headers\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\x06params\x18\x07 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x1a\x36\n\x08\x43\x61llback\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x03 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/schedulerb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
-
-_SCHEDULERTASK_ANNOTATIONS = _descriptor.Descriptor(
-  name='Annotations',
-  full_name='scheduler.SchedulerTask.Annotations',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='appId', full_name='scheduler.SchedulerTask.Annotations.appId', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=600,
-  serialized_end=628,
-)
 
 _SCHEDULERTASK_CMDCONFIG = _descriptor.Descriptor(
   name='CmdConfig',
@@ -125,8 +95,38 @@ _SCHEDULERTASK_CMDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=631,
-  serialized_end=804,
+  serialized_start=616,
+  serialized_end=789,
+)
+
+_SCHEDULERTASK_ANNOTATIONS = _descriptor.Descriptor(
+  name='Annotations',
+  full_name='scheduler.SchedulerTask.Annotations',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='appId', full_name='scheduler.SchedulerTask.Annotations.appId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=791,
+  serialized_end=819,
 )
 
 _SCHEDULERTASK_CALLBACK = _descriptor.Descriptor(
@@ -169,8 +169,8 @@ _SCHEDULERTASK_CALLBACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=806,
-  serialized_end=860,
+  serialized_start=821,
+  serialized_end=875,
 )
 
 _SCHEDULERTASK = _descriptor.Descriptor(
@@ -181,156 +181,170 @@ _SCHEDULERTASK = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='src_id', full_name='scheduler.SchedulerTask.src_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='cmd_config', full_name='scheduler.SchedulerTask.cmd_config', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='task_id', full_name='scheduler.SchedulerTask.task_id', index=1,
+      name='job_type', full_name='scheduler.SchedulerTask.job_type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='job_type', full_name='scheduler.SchedulerTask.job_type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='updateAuthorizers', full_name='scheduler.SchedulerTask.updateAuthorizers', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cmd_type', full_name='scheduler.SchedulerTask.cmd_type', index=3,
+      name='create_time', full_name='scheduler.SchedulerTask.create_time', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='tool_exec_id', full_name='scheduler.SchedulerTask.tool_exec_id', index=4,
+      name='id', full_name='scheduler.SchedulerTask.id', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='total_status', full_name='scheduler.SchedulerTask.total_status', index=5,
+      name='task_type', full_name='scheduler.SchedulerTask.task_type', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='annotations', full_name='scheduler.SchedulerTask.annotations', index=6,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmd_config', full_name='scheduler.SchedulerTask.cmd_config', index=7,
-      number=8, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='task_type', full_name='scheduler.SchedulerTask.task_type', index=8,
-      number=9, type=9, cpp_type=9, label=1,
+      name='src_id', full_name='scheduler.SchedulerTask.src_id', index=6,
+      number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='updateAuthorizers', full_name='scheduler.SchedulerTask.updateAuthorizers', index=9,
-      number=10, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
+      name='job_id', full_name='scheduler.SchedulerTask.job_id', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='deleteAuthorizers', full_name='scheduler.SchedulerTask.deleteAuthorizers', index=10,
-      number=11, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='operateAuthorizers', full_name='scheduler.SchedulerTask.operateAuthorizers', index=11,
-      number=12, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='invisible', full_name='scheduler.SchedulerTask.invisible', index=12,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='callback', full_name='scheduler.SchedulerTask.callback', index=13,
-      number=14, type=11, cpp_type=10, label=1,
+      name='annotations', full_name='scheduler.SchedulerTask.annotations', index=8,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='assignner', full_name='scheduler.SchedulerTask.assignner', index=14,
+      name='status', full_name='scheduler.SchedulerTask.status', index=9,
+      number=10, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='update_time', full_name='scheduler.SchedulerTask.update_time', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cmd_type', full_name='scheduler.SchedulerTask.cmd_type', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='deleteAuthorizers', full_name='scheduler.SchedulerTask.deleteAuthorizers', index=12,
+      number=13, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='disable', full_name='scheduler.SchedulerTask.disable', index=13,
+      number=14, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='user', full_name='scheduler.SchedulerTask.user', index=14,
       number=15, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='scheduler.SchedulerTask.start_time', index=15,
+      name='task_scheduler', full_name='scheduler.SchedulerTask.task_scheduler', index=15,
       number=16, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='user', full_name='scheduler.SchedulerTask.user', index=16,
-      number=17, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='invisible', full_name='scheduler.SchedulerTask.invisible', index=16,
+      number=17, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='scheduler.SchedulerTask.end_time', index=17,
-      number=18, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='org', full_name='scheduler.SchedulerTask.org', index=17,
+      number=18, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='scheduler.SchedulerTask.create_time', index=18,
-      number=19, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='operateAuthorizers', full_name='scheduler.SchedulerTask.operateAuthorizers', index=18,
+      number=19, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='update_time', full_name='scheduler.SchedulerTask.update_time', index=19,
+      name='name', full_name='scheduler.SchedulerTask.name', index=19,
       number=20, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='org', full_name='scheduler.SchedulerTask.org', index=20,
-      number=21, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='callback', full_name='scheduler.SchedulerTask.callback', index=20,
+      number=21, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='assignner', full_name='scheduler.SchedulerTask.assignner', index=21,
+      number=22, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='scheduler.SchedulerTask.error', index=22,
+      number=23, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_SCHEDULERTASK_ANNOTATIONS, _SCHEDULERTASK_CMDCONFIG, _SCHEDULERTASK_CALLBACK, ],
+  nested_types=[_SCHEDULERTASK_CMDCONFIG, _SCHEDULERTASK_ANNOTATIONS, _SCHEDULERTASK_CALLBACK, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -340,33 +354,33 @@ _SCHEDULERTASK = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=56,
-  serialized_end=860,
+  serialized_end=875,
 )
 
-_SCHEDULERTASK_ANNOTATIONS.containing_type = _SCHEDULERTASK
 _SCHEDULERTASK_CMDCONFIG.fields_by_name['headers'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _SCHEDULERTASK_CMDCONFIG.fields_by_name['params'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _SCHEDULERTASK_CMDCONFIG.containing_type = _SCHEDULERTASK
+_SCHEDULERTASK_ANNOTATIONS.containing_type = _SCHEDULERTASK
 _SCHEDULERTASK_CALLBACK.containing_type = _SCHEDULERTASK
-_SCHEDULERTASK.fields_by_name['annotations'].message_type = _SCHEDULERTASK_ANNOTATIONS
 _SCHEDULERTASK.fields_by_name['cmd_config'].message_type = _SCHEDULERTASK_CMDCONFIG
+_SCHEDULERTASK.fields_by_name['annotations'].message_type = _SCHEDULERTASK_ANNOTATIONS
 _SCHEDULERTASK.fields_by_name['callback'].message_type = _SCHEDULERTASK_CALLBACK
 DESCRIPTOR.message_types_by_name['SchedulerTask'] = _SCHEDULERTASK
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SchedulerTask = _reflection.GeneratedProtocolMessageType('SchedulerTask', (_message.Message,), dict(
 
-  Annotations = _reflection.GeneratedProtocolMessageType('Annotations', (_message.Message,), dict(
-    DESCRIPTOR = _SCHEDULERTASK_ANNOTATIONS,
-    __module__ = 'task_pb2'
-    # @@protoc_insertion_point(class_scope:scheduler.SchedulerTask.Annotations)
-    ))
-  ,
-
   CmdConfig = _reflection.GeneratedProtocolMessageType('CmdConfig', (_message.Message,), dict(
     DESCRIPTOR = _SCHEDULERTASK_CMDCONFIG,
     __module__ = 'task_pb2'
     # @@protoc_insertion_point(class_scope:scheduler.SchedulerTask.CmdConfig)
+    ))
+  ,
+
+  Annotations = _reflection.GeneratedProtocolMessageType('Annotations', (_message.Message,), dict(
+    DESCRIPTOR = _SCHEDULERTASK_ANNOTATIONS,
+    __module__ = 'task_pb2'
+    # @@protoc_insertion_point(class_scope:scheduler.SchedulerTask.Annotations)
     ))
   ,
 
@@ -381,8 +395,8 @@ SchedulerTask = _reflection.GeneratedProtocolMessageType('SchedulerTask', (_mess
   # @@protoc_insertion_point(class_scope:scheduler.SchedulerTask)
   ))
 _sym_db.RegisterMessage(SchedulerTask)
-_sym_db.RegisterMessage(SchedulerTask.Annotations)
 _sym_db.RegisterMessage(SchedulerTask.CmdConfig)
+_sym_db.RegisterMessage(SchedulerTask.Annotations)
 _sym_db.RegisterMessage(SchedulerTask.Callback)
 
 

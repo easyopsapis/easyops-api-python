@@ -14,6 +14,8 @@ import google.protobuf.empty_pb2
 
 import get_task_detail_pb2
 
+import model.scheduler.task_pb2
+
 import list_task_pb2
 
 import utils.http_util
@@ -79,14 +81,14 @@ class TaskClient(object):
         return rsp
     
     def get_task(self, request, org, user, timeout=10):
-        # type: (get_task_detail_pb2.GetTaskRequest, int, str, int) -> get_task_detail_pb2.GetTaskResponse
+        # type: (get_task_detail_pb2.GetTaskRequest, int, str, int) -> model.scheduler.task_pb2.SchedulerTask
         """
         获取任务详情
         :param request: get_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_task_detail_pb2.GetTaskResponse
+        :return: model.scheduler.task_pb2.SchedulerTask
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -113,7 +115,7 @@ class TaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_task_detail_pb2.GetTaskResponse()
+        rsp = model.scheduler.task_pb2.SchedulerTask()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -155,7 +157,7 @@ class TaskClient(object):
         )
         rsp = list_task_pb2.ListTaskResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
