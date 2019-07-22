@@ -6,6 +6,8 @@ import api.info.info_client
 
 import api.metric_group.metric_group_client
 
+import api.template.template_client
+
 
 
 class Client(object):
@@ -16,4 +18,6 @@ class Client(object):
         self.info = api.info.info_client.InfoClient(server_ip, server_port, service_name)
         
         self.metric_group = api.metric_group.metric_group_client.MetricGroupClient(server_ip, server_port, service_name)
+        
+        self.template = api.template.template_client.TemplateClient(server_ip, server_port, service_name)
         

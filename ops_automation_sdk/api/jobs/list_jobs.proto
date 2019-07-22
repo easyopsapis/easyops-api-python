@@ -18,6 +18,10 @@ message ListJobsRequest {
     每页大小
     */
     int32 pageSize = 2 ;
+    /*
+    menu Id
+    */
+    string menuId = 3 ;
 }
 
 /*
@@ -45,6 +49,10 @@ message List {
     作业描述
     */
     string desc = 5 ;
+    /*
+    菜单ID
+    */
+    string menuId = 6 ;
 }
         
     

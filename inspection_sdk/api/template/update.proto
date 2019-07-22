@@ -1,0 +1,182 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "model/inspection/template.proto";
+
+/*
+UpdateTemplate请求
+*/
+message UpdateTemplateRequest {
+message SummaryTemplates {
+message MetricGroups {
+    /*
+    排序
+    */
+    int32 index = 1 ;
+    /*
+    高度
+    */
+    int32 height = 2 ;
+    /*
+    宽度
+    */
+    int32 width = 3 ;
+    /*
+    图表类型(Form 表格)
+    */
+    string displayType = 4 ;
+    /*
+    是否转换行列(仅当图表类型为表格时有效)
+    */
+    bool transposed = 5 ;
+    /*
+    指标组id
+    */
+    string id = 6 ;
+    /*
+    指标组名
+    */
+    string name = 7 ;
+    /*
+    两级分类，用.分割，(如：主机状态.基本配置 )
+    */
+    string category = 8 ;
+}
+        
+message Metrics {
+    /*
+    指标组Id
+    */
+    string metricGroupId = 1 ;
+    /*
+    排序
+    */
+    int32 index = 2 ;
+    /*
+    高度
+    */
+    int32 height = 3 ;
+    /*
+    宽度
+    */
+    int32 width = 4 ;
+    /*
+    折线图横坐标ID(仅当图表类型为折线图时有效)
+    */
+    string abscissaId = 5 ;
+    /*
+    折线图横坐标名(仅当图表类型为折线图时有效)
+    */
+    string abscissaName = 6 ;
+    /*
+    图表类型(BasicInfo 基本信息/LineChart 折线图/BarChart 柱状图/DoughnutChart 环形图/Card 卡片)
+    */
+    string displayType = 7 ;
+    /*
+    指标id
+    */
+    string id = 8 ;
+    /*
+    指标名称
+    */
+    string name = 9 ;
+}
+        
+    
+    /*
+    如何展示指标组
+    */
+    repeated MetricGroups metricGroups = 1 ;
+    /*
+    如何展示指标
+    */
+    repeated Metrics metrics = 2 ;
+}
+        
+message MetricGroups {
+    /*
+    排序
+    */
+    int32 index = 1 ;
+    /*
+    图表类型(LineChart 折线图/BarChart 柱状图/Form 表格)
+    */
+    string displayType = 2 ;
+    /*
+    是否转换行列(仅当图表类型为表格时有效)
+    */
+    bool transposed = 3 ;
+    /*
+    折线图横坐标ID(仅当图表类型为折线图时有效)
+    */
+    string abscissaId = 4 ;
+    /*
+    折线图横坐标名(仅当图表类型为折线图时有效)
+    */
+    string abscissaName = 5 ;
+    /*
+    指标组id
+    */
+    string id = 6 ;
+    /*
+    指标组名
+    */
+    string name = 7 ;
+    /*
+    两级分类，用.分割，(如：主机状态.基本配置 )
+    */
+    string category = 8 ;
+}
+        
+    
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    报告模板ID
+    */
+    string templateId = 2 ;
+    /*
+    报告模板名
+    */
+    string name = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    报告总览模板
+    */
+    SummaryTemplates summaryTemplates = 5 ;
+    /*
+    报告详情模板
+    */
+    repeated MetricGroups metricGroups = 6 ;
+}
+
+/*
+UpdateTemplateApi返回
+*/
+message UpdateTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionTemplate data = 4 ;
+}
+

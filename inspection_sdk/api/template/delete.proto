@@ -1,0 +1,44 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteTemplate请求
+*/
+message DeleteTemplateRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    报告模板ID
+    */
+    string templateId = 2 ;
+}
+
+/*
+DeleteTemplateApi返回
+*/
+message DeleteTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

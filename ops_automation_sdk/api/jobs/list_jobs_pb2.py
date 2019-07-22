@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='jobs',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0flist_jobs.proto\x12\x04jobs\x1a$model/ops_automation/scheduler.proto\"1\n\x0fListJobsRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\"\xdd\x01\n\x10ListJobsResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.jobs.ListJobsResponse.List\x1an\n\x04List\x12,\n\tscheduler\x18\x01 \x01(\x0b\x32\x19.ops_automation.Scheduler\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x05 \x01(\t\"q\n\x17ListJobsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.jobs.ListJobsResponseb\x06proto3')
+  serialized_pb=_b('\n\x0flist_jobs.proto\x12\x04jobs\x1a$model/ops_automation/scheduler.proto\"A\n\x0fListJobsRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\x0e\n\x06menuId\x18\x03 \x01(\t\"\xed\x01\n\x10ListJobsResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12)\n\x04list\x18\x04 \x03(\x0b\x32\x1b.jobs.ListJobsResponse.List\x1a~\n\x04List\x12,\n\tscheduler\x18\x01 \x01(\x0b\x32\x19.ops_automation.Scheduler\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x05 \x01(\t\x12\x0e\n\x06menuId\x18\x06 \x01(\t\"q\n\x17ListJobsResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.jobs.ListJobsResponseb\x06proto3')
   ,
   dependencies=[model_dot_ops__automation_dot_scheduler__pb2.DESCRIPTOR,])
 
@@ -48,6 +48,13 @@ _LISTJOBSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='menuId', full_name='jobs.ListJobsRequest.menuId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -61,7 +68,7 @@ _LISTJOBSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=63,
-  serialized_end=112,
+  serialized_end=128,
 )
 
 
@@ -107,6 +114,13 @@ _LISTJOBSRESPONSE_LIST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='menuId', full_name='jobs.ListJobsResponse.List.menuId', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -119,8 +133,8 @@ _LISTJOBSRESPONSE_LIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=226,
-  serialized_end=336,
+  serialized_start=242,
+  serialized_end=368,
 )
 
 _LISTJOBSRESPONSE = _descriptor.Descriptor(
@@ -170,8 +184,8 @@ _LISTJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=115,
-  serialized_end=336,
+  serialized_start=131,
+  serialized_end=368,
 )
 
 
@@ -222,8 +236,8 @@ _LISTJOBSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=338,
-  serialized_end=451,
+  serialized_start=370,
+  serialized_end=483,
 )
 
 _LISTJOBSRESPONSE_LIST.fields_by_name['scheduler'].message_type = model_dot_ops__automation_dot_scheduler__pb2._SCHEDULER
