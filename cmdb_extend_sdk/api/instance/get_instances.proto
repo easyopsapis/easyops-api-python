@@ -1,0 +1,78 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetInstances请求
+*/
+message GetInstancesRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    实例Id列表,使用分号分隔
+    */
+    string instanceIds = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 4 ;
+    /*
+    查询参数
+    */
+    google.protobuf.Struct query = 5 ;
+}
+
+/*
+GetInstances返回
+*/
+message GetInstancesResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    实例数据
+    */
+    repeated google.protobuf.Struct list = 4 ;
+}
+
+/*
+GetInstancesApi返回
+*/
+message GetInstancesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.GetInstancesResponse data = 4 ;
+}
+
