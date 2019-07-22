@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='job_task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14list_job_tasks.proto\x12\x08job_task\x1a$model/ops_automation/job_tasks.proto\"\x9d\x01\n\x13ListJobTasksRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\x0e\n\x06taskId\x18\x03 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x04 \x01(\t\x12\r\n\x05jobId\x18\x05 \x01(\t\x12\x0f\n\x07trigger\x18\x06 \x01(\t\x12\x14\n\x0cresourceType\x18\x07 \x01(\t\x12\x0e\n\x06status\x18\x08 \x01(\t\"n\n\x14ListJobTasksResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12&\n\x04list\x18\x04 \x03(\x0b\x32\x18.ops_automation.JobTasks\"}\n\x1bListJobTasksResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12,\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1e.job_task.ListJobTasksResponseb\x06proto3')
+  serialized_pb=_b('\n\x14list_job_tasks.proto\x12\x08job_task\x1a$model/ops_automation/job_tasks.proto\"\xc1\x01\n\x13ListJobTasksRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\x0e\n\x06taskId\x18\x03 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x04 \x01(\t\x12\r\n\x05jobId\x18\x05 \x01(\t\x12\x0f\n\x07trigger\x18\x06 \x01(\t\x12\x14\n\x0cresourceType\x18\x07 \x01(\t\x12\x0e\n\x06status\x18\x08 \x01(\t\x12\x11\n\tstartTime\x18\t \x01(\t\x12\x0f\n\x07\x65ndTime\x18\n \x01(\t\"n\n\x14ListJobTasksResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12&\n\x04list\x18\x04 \x03(\x0b\x32\x18.ops_automation.JobTasks\"}\n\x1bListJobTasksResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12,\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1e.job_task.ListJobTasksResponseb\x06proto3')
   ,
   dependencies=[model_dot_ops__automation_dot_job__tasks__pb2.DESCRIPTOR,])
 
@@ -90,6 +90,20 @@ _LISTJOBTASKSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='startTime', full_name='job_task.ListJobTasksRequest.startTime', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='endTime', full_name='job_task.ListJobTasksRequest.endTime', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -103,7 +117,7 @@ _LISTJOBTASKSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=73,
-  serialized_end=230,
+  serialized_end=266,
 )
 
 
@@ -154,8 +168,8 @@ _LISTJOBTASKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=232,
-  serialized_end=342,
+  serialized_start=268,
+  serialized_end=378,
 )
 
 
@@ -206,8 +220,8 @@ _LISTJOBTASKSRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=344,
-  serialized_end=469,
+  serialized_start=380,
+  serialized_end=505,
 )
 
 _LISTJOBTASKSRESPONSE.fields_by_name['list'].message_type = model_dot_ops__automation_dot_job__tasks__pb2._JOBTASKS

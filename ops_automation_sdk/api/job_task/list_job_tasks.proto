@@ -42,6 +42,14 @@ message ListJobTasksRequest {
     status
     */
     string status = 8 ;
+    /*
+    2019-07-21+00:00:00
+    */
+    string startTime = 9 ;
+    /*
+    2019-07-22+00:00:00
+    */
+    string endTime = 10 ;
 }
 
 /*
