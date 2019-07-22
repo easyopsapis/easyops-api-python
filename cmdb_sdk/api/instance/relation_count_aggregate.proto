@@ -1,0 +1,86 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+RelationCountAggregate请求
+*/
+message RelationCountAggregateRequest {
+    /*
+    模型对象ID
+    */
+    string objectId = 1 ;
+    /*
+    e.g.: { name: { $like: '%q%' } }, { $or: [{ name: { $like: '%q%' }}] }
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    关系sideId,例如APP的owner
+    */
+    repeated string relation_side_ids = 3 ;
+    /*
+    当为 true 时，只搜索与我相关实例
+    */
+    bool only_my_instance = 4 ;
+}
+
+/*
+RelationCountAggregate返回
+*/
+message RelationCountAggregateResponse {
+message Data {
+    /*
+    关系sideId
+    */
+    string key = 1 ;
+    /*
+    关系个数
+    */
+    int32 value = 2 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    关系数量统计结果
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+RelationCountAggregateApi返回
+*/
+message RelationCountAggregateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.RelationCountAggregateResponse data = 4 ;
+}
+

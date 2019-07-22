@@ -34,6 +34,8 @@ import list_instance_pb2
 
 import post_search_pb2
 
+import relation_count_aggregate_pb2
+
 import search_total_pb2
 
 import update_instance_pb2
@@ -554,6 +556,47 @@ class InstanceClient(object):
         rsp = post_search_pb2.PostSearchResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def relation_count_aggregate(self, request, org, user, timeout=10):
+        # type: (relation_count_aggregate_pb2.RelationCountAggregateRequest, int, str, int) -> relation_count_aggregate_pb2.RelationCountAggregateResponse
+        """
+        实例关系数量统计
+        :param request: relation_count_aggregate请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: relation_count_aggregate_pb2.RelationCountAggregateResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance.RelationCountAggregate"
+        uri = "/object/{objectId}/instance/_relation_count_aggregate".format(
+            objectId=request.objectId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = relation_count_aggregate_pb2.RelationCountAggregateResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
