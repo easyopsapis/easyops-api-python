@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from model.tool import callback_pb2 as model_dot_tool_dot_callback__pb2
+from model.tool import input_param_pb2 as model_dot_tool_dot_input__param__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='execute',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x12\x65xecute_tool.proto\x12\x07\x65xecute\x1a\x19model/tool/callback.proto\"\x96\x05\n\x12\x45xecuteToolRequest\x12\x0e\n\x06\x61gents\x18\x01 \x03(\t\x12 \n\x08\x63\x61llback\x18\x02 \x01(\x0b\x32\x0e.tool.Callback\x12\x12\n\nneedNotify\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x36\n\x08metadata\x18\x05 \x01(\x0b\x32$.execute.ExecuteToolRequest.Metadata\x12\x0e\n\x06toolId\x18\x06 \x01(\t\x12\x0b\n\x03vId\x18\x07 \x01(\t\x12\x32\n\x06inputs\x18\x08 \x03(\x0b\x32\".execute.ExecuteToolRequest.Inputs\x12\x10\n\x08\x65xecUser\x18\t \x01(\t\x12\x0f\n\x07timeout\x18\n \x01(\x05\x1a\x1a\n\x08Metadata\x12\x0e\n\x06origin\x18\x01 \x01(\t\x1a\xe3\x02\n\x06Inputs\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ncmdbAttrId\x18\x02 \x01(\t\x12\x14\n\x0c\x63mdbObjectId\x18\x03 \x01(\t\x12\x14\n\x0c\x63mdbAttrType\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61scade\x18\x05 \x01(\t\x12\r\n\x05label\x18\x06 \x01(\t\x12\x10\n\x08multiple\x18\x07 \x01(\t\x12\x10\n\x08required\x18\x08 \x01(\t\x12\x0c\n\x04type\x18\t \x01(\t\x12\x0c\n\x04\x65num\x18\n \x03(\t\x12\x11\n\tprimitive\x18\x0b \x01(\t\x12\x0c\n\x04memo\x18\x0c \x01(\t\x12\x35\n\x04path\x18\r \x03(\x0b\x32\'.execute.ExecuteToolRequest.Inputs.Path\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x0e \x01(\t\x12\x0e\n\x06source\x18\x0f \x01(\t\x12\x10\n\x08selector\x18\x10 \x01(\t\x1a \n\x04Path\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\"%\n\x13\x45xecuteToolResponse\x12\x0e\n\x06\x65xecId\x18\x01 \x01(\t\"z\n\x1a\x45xecuteToolResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1c.execute.ExecuteToolResponseb\x06proto3')
+  serialized_pb=_b('\n\x12\x65xecute_tool.proto\x12\x07\x65xecute\x1a\x19model/tool/callback.proto\x1a\x1cmodel/tool/input_param.proto\"\x9f\x02\n\x12\x45xecuteToolRequest\x12\x0e\n\x06\x61gents\x18\x01 \x03(\t\x12 \n\x08\x63\x61llback\x18\x02 \x01(\x0b\x32\x0e.tool.Callback\x12\x12\n\nneedNotify\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x36\n\x08metadata\x18\x05 \x01(\x0b\x32$.execute.ExecuteToolRequest.Metadata\x12\x0e\n\x06toolId\x18\x06 \x01(\t\x12\x0b\n\x03vId\x18\x07 \x01(\t\x12!\n\x06inputs\x18\x08 \x03(\x0b\x32\x11.tool.input_param\x12\x10\n\x08\x65xecUser\x18\t \x01(\t\x12\x0f\n\x07timeout\x18\n \x01(\x05\x1a\x1a\n\x08Metadata\x12\x0e\n\x06origin\x18\x01 \x01(\t\"%\n\x13\x45xecuteToolResponse\x12\x0e\n\x06\x65xecId\x18\x01 \x01(\t\"z\n\x1a\x45xecuteToolResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1c.execute.ExecuteToolResponseb\x06proto3')
   ,
-  dependencies=[model_dot_tool_dot_callback__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_tool_dot_callback__pb2.DESCRIPTOR,model_dot_tool_dot_input__param__pb2.DESCRIPTOR,])
 
 
 
@@ -53,180 +54,8 @@ _EXECUTETOOLREQUEST_METADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=337,
-  serialized_end=363,
-)
-
-_EXECUTETOOLREQUEST_INPUTS_PATH = _descriptor.Descriptor(
-  name='Path',
-  full_name='execute.ExecuteToolRequest.Inputs.Path',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='execute.ExecuteToolRequest.Inputs.Path.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='execute.ExecuteToolRequest.Inputs.Path.type', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=689,
-  serialized_end=721,
-)
-
-_EXECUTETOOLREQUEST_INPUTS = _descriptor.Descriptor(
-  name='Inputs',
-  full_name='execute.ExecuteToolRequest.Inputs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='execute.ExecuteToolRequest.Inputs.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbAttrId', full_name='execute.ExecuteToolRequest.Inputs.cmdbAttrId', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbObjectId', full_name='execute.ExecuteToolRequest.Inputs.cmdbObjectId', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbAttrType', full_name='execute.ExecuteToolRequest.Inputs.cmdbAttrType', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cascade', full_name='execute.ExecuteToolRequest.Inputs.cascade', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='label', full_name='execute.ExecuteToolRequest.Inputs.label', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='multiple', full_name='execute.ExecuteToolRequest.Inputs.multiple', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='required', full_name='execute.ExecuteToolRequest.Inputs.required', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='execute.ExecuteToolRequest.Inputs.type', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='enum', full_name='execute.ExecuteToolRequest.Inputs.enum', index=9,
-      number=10, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='primitive', full_name='execute.ExecuteToolRequest.Inputs.primitive', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='memo', full_name='execute.ExecuteToolRequest.Inputs.memo', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='path', full_name='execute.ExecuteToolRequest.Inputs.path', index=12,
-      number=13, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='default', full_name='execute.ExecuteToolRequest.Inputs.default', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='source', full_name='execute.ExecuteToolRequest.Inputs.source', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='selector', full_name='execute.ExecuteToolRequest.Inputs.selector', index=15,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_EXECUTETOOLREQUEST_INPUTS_PATH, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=366,
-  serialized_end=721,
+  serialized_start=350,
+  serialized_end=376,
 )
 
 _EXECUTETOOLREQUEST = _descriptor.Descriptor(
@@ -309,7 +138,7 @@ _EXECUTETOOLREQUEST = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_EXECUTETOOLREQUEST_METADATA, _EXECUTETOOLREQUEST_INPUTS, ],
+  nested_types=[_EXECUTETOOLREQUEST_METADATA, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -318,8 +147,8 @@ _EXECUTETOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=59,
-  serialized_end=721,
+  serialized_start=89,
+  serialized_end=376,
 )
 
 
@@ -349,8 +178,8 @@ _EXECUTETOOLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=723,
-  serialized_end=760,
+  serialized_start=378,
+  serialized_end=415,
 )
 
 
@@ -401,17 +230,14 @@ _EXECUTETOOLRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=884,
+  serialized_start=417,
+  serialized_end=539,
 )
 
 _EXECUTETOOLREQUEST_METADATA.containing_type = _EXECUTETOOLREQUEST
-_EXECUTETOOLREQUEST_INPUTS_PATH.containing_type = _EXECUTETOOLREQUEST_INPUTS
-_EXECUTETOOLREQUEST_INPUTS.fields_by_name['path'].message_type = _EXECUTETOOLREQUEST_INPUTS_PATH
-_EXECUTETOOLREQUEST_INPUTS.containing_type = _EXECUTETOOLREQUEST
 _EXECUTETOOLREQUEST.fields_by_name['callback'].message_type = model_dot_tool_dot_callback__pb2._CALLBACK
 _EXECUTETOOLREQUEST.fields_by_name['metadata'].message_type = _EXECUTETOOLREQUEST_METADATA
-_EXECUTETOOLREQUEST.fields_by_name['inputs'].message_type = _EXECUTETOOLREQUEST_INPUTS
+_EXECUTETOOLREQUEST.fields_by_name['inputs'].message_type = model_dot_tool_dot_input__param__pb2._INPUT_PARAM
 _EXECUTETOOLRESPONSEWRAPPER.fields_by_name['data'].message_type = _EXECUTETOOLRESPONSE
 DESCRIPTOR.message_types_by_name['ExecuteToolRequest'] = _EXECUTETOOLREQUEST
 DESCRIPTOR.message_types_by_name['ExecuteToolResponse'] = _EXECUTETOOLRESPONSE
@@ -426,28 +252,12 @@ ExecuteToolRequest = _reflection.GeneratedProtocolMessageType('ExecuteToolReques
     # @@protoc_insertion_point(class_scope:execute.ExecuteToolRequest.Metadata)
     ))
   ,
-
-  Inputs = _reflection.GeneratedProtocolMessageType('Inputs', (_message.Message,), dict(
-
-    Path = _reflection.GeneratedProtocolMessageType('Path', (_message.Message,), dict(
-      DESCRIPTOR = _EXECUTETOOLREQUEST_INPUTS_PATH,
-      __module__ = 'execute_tool_pb2'
-      # @@protoc_insertion_point(class_scope:execute.ExecuteToolRequest.Inputs.Path)
-      ))
-    ,
-    DESCRIPTOR = _EXECUTETOOLREQUEST_INPUTS,
-    __module__ = 'execute_tool_pb2'
-    # @@protoc_insertion_point(class_scope:execute.ExecuteToolRequest.Inputs)
-    ))
-  ,
   DESCRIPTOR = _EXECUTETOOLREQUEST,
   __module__ = 'execute_tool_pb2'
   # @@protoc_insertion_point(class_scope:execute.ExecuteToolRequest)
   ))
 _sym_db.RegisterMessage(ExecuteToolRequest)
 _sym_db.RegisterMessage(ExecuteToolRequest.Metadata)
-_sym_db.RegisterMessage(ExecuteToolRequest.Inputs)
-_sym_db.RegisterMessage(ExecuteToolRequest.Inputs.Path)
 
 ExecuteToolResponse = _reflection.GeneratedProtocolMessageType('ExecuteToolResponse', (_message.Message,), dict(
   DESCRIPTOR = _EXECUTETOOLRESPONSE,

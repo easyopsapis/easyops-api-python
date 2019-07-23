@@ -1,0 +1,33 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "model/flow/flow_step.proto";
+import "model/tool/input_param.proto";
+import "model/flow/flow.proto";
+import "google/protobuf/struct.proto";
+
+/*
+CreateFlowApi返回
+*/
+message CreateFlowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    flow.Flow data = 4 ;
+}
+

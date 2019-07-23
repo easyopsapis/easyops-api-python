@@ -1,0 +1,278 @@
+syntax = "proto3";
+package flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flow";
+
+
+
+
+import "model/flow/flow_step.proto";
+import "model/tool/input_param.proto";
+import "google/protobuf/struct.proto";
+
+/*
+流程执行结果
+*/
+message FlowInstance {
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+message Metadata {
+    /*
+    环境
+    */
+    string type = 1 ;
+    /*
+    描述
+    */
+    string desc = 2 ;
+}
+        
+message FlowOutputs {
+message Columns {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    流程输出参数设置
+    */
+    repeated Columns columns = 1 ;
+}
+        
+message OutputDefs {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+    /*
+    开始时间戳
+    */
+    int32 startTime = 2 ;
+    /*
+    结束时间戳
+    */
+    int32 endTime = 3 ;
+    /*
+    当前时间戳
+    */
+    int32 currentTime = 4 ;
+    /*
+    流程执行结果总状态("wait"-初始态等待执行, "executing"-执行中, "success"-成功, "failed"-失败, "paused"-人工确认, "interrupted"-暂停, "terminate"-终止)
+    */
+    string totalStatus = 5 ;
+    /*
+    流程执行结果
+    */
+    string message = 6 ;
+    /*
+    任务数量
+    */
+    int32 taskCounter = 7 ;
+    /*
+    流程输出数据
+    */
+    google.protobuf.Struct flowOutputsData = 8 ;
+    /*
+    表格数据
+    */
+    google.protobuf.Struct tableData = 9 ;
+    /*
+    标准输出
+    */
+    google.protobuf.Struct standardOutputs = 10 ;
+    /*
+    agent数据
+    */
+    google.protobuf.Struct agentData = 11 ;
+    /*
+    流程ID
+    */
+    string flowId = 12 ;
+    /*
+    流程名称
+    */
+    string name = 13 ;
+    /*
+    流程自定义分类
+    */
+    string type = 14 ;
+    /*
+    流程类别如流水线、流程、流水线模板等
+    */
+    string category = 15 ;
+    /*
+    流程版本名
+    */
+    string vName = 16 ;
+    /*
+    是否可循环
+    */
+    string enableLoop = 17 ;
+    /*
+    是否只读
+    */
+    string readOnly = 18 ;
+    /*
+    org
+    */
+    int32 org = 19 ;
+    /*
+    创建时间
+    */
+    string createTime = 20 ;
+    /*
+    流程创建者
+    */
+    string creator = 21 ;
+    /*
+    版本创建者
+    */
+    string vCreator = 22 ;
+    /*
+    修改时间
+    */
+    string updateTime = 23 ;
+    /*
+    版本号(时间戳)
+    */
+    int32 version = 24 ;
+    /*
+    版本说明
+    */
+    string vDesc = 25 ;
+    /*
+    流程查询权限列表["username",":user_group_id"]
+    */
+    repeated string readAuthorizers = 26 ;
+    /*
+    流程更新权限列表["username",":user_group_id"]
+    */
+    repeated string updateAuthorizers = 27 ;
+    /*
+    流程删除权限列表["username",":user_group_id"]
+    */
+    repeated string deleteAuthorizers = 28 ;
+    /*
+    流程执行权限列表["username",":user_group_id"]
+    */
+    repeated string executeAuthorizers = 29 ;
+    /*
+    流程备注
+    */
+    string memo = 30 ;
+    /*
+    通知订阅者，英文逗号分开
+    */
+    repeated string subscribers = 31 ;
+    /*
+    通知事件
+    */
+    string subscribedChannel = 32 ;
+    /*
+    是否系统ORG
+    */
+    string is_system_org = 33 ;
+    /*
+    流程步骤
+    */
+    repeated flow.FlowStep stepList = 34 ;
+    /*
+    表格输出定义
+    */
+    repeated TableDefs tableDefs = 35 ;
+    /*
+    流程环境变量
+    */
+    google.protobuf.Struct flowEnv = 36 ;
+    /*
+    流程标签
+    */
+    repeated string tags = 37 ;
+    /*
+    流程环境类型
+    */
+    Metadata metadata = 38 ;
+    /*
+    流程输入
+    */
+    repeated tool.input_param flowInputs = 39 ;
+    /*
+    流程输出设置
+    */
+    FlowOutputs flowOutputs = 40 ;
+    /*
+    输出定义
+    */
+    repeated OutputDefs outputDefs = 41 ;
+    /*
+    流程执行历史
+    */
+    google.protobuf.Struct histories = 42 ;
+}
+

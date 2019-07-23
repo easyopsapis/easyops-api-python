@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.tool import input_param_pb2 as model_dot_tool_dot_input__param__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,183 +20,12 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tool',
   syntax='proto3',
   serialized_options=_b('Z>go.easyops.local/contracts/protorepo-models/easyops/model/tool'),
-  serialized_pb=_b('\n\ntool.proto\x12\x04tool\"\xaa\x11\n\x04Tool\x12\x0e\n\x06toolId\x18\x01 \x01(\t\x12\x0b\n\x03vId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07timeout\x18\x04 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x0c\n\x04icon\x18\x06 \x01(\t\x12\r\n\x05style\x18\x07 \x01(\t\x12\x0c\n\x04memo\x18\x08 \x01(\t\x12\x13\n\x0blistVisible\x18\t \x01(\t\x12\x0c\n\x04tags\x18\n \x03(\t\x12\x0f\n\x07\x64isable\x18\x0b \x01(\t\x12\x12\n\ncreateTime\x18\x0c \x01(\t\x12\x12\n\nupdateTime\x18\r \x01(\t\x12\x0f\n\x07\x63reator\x18\x0e \x01(\t\x12\x0b\n\x03org\x18\x0f \x01(\x05\x12!\n\x06inputs\x18\x10 \x03(\x0b\x32\x11.tool.Tool.Inputs\x12\x0f\n\x07outputs\x18\x11 \x01(\t\x12\x0c\n\x04type\x18\x12 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x13 \x01(\t\x12\x17\n\x0f\x64\x65\x66\x61ultExecUser\x18\x14 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x15 \x01(\t\x12\x11\n\tauthUsers\x18\x16 \x03(\t\x12\x15\n\rdefaultAgents\x18\x17 \x03(\t\x12\x15\n\rsystem_plugin\x18\x18 \x01(\t\x12\x13\n\x0bsystem_tool\x18\x19 \x01(\t\x12\x12\n\nlockAgents\x18\x1a \x01(\t\x12\x12\n\nsandboxRun\x18\x1b \x01(\t\x12\x11\n\twhiteList\x18\x1c \x03(\t\x12\x16\n\x0ewindowsSession\x18\x1d \x01(\t\x12\x11\n\tblackList\x18\x1e \x03(\t\x12+\n\x0btoolOutputs\x18\x1f \x01(\x0b\x32\x16.tool.Tool.ToolOutputs\x12)\n\noutputDefs\x18  \x03(\x0b\x32\x15.tool.Tool.OutputDefs\x12\'\n\ttableDefs\x18! \x03(\x0b\x32\x14.tool.Tool.TableDefs\x12\x13\n\x0bvCreateTime\x18\" \x01(\t\x12\x13\n\x0bvUpdateTime\x18# \x01(\t\x12\r\n\x05vName\x18$ \x01(\t\x12\x10\n\x08vCreator\x18% \x01(\t\x12\x17\n\x0freadAuthorizers\x18& \x03(\t\x12\x19\n\x11updateAuthorizers\x18\' \x03(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18( \x03(\t\x12\x1a\n\x12\x65xecuteAuthorizers\x18) \x03(\t\x12&\n\x1ereadExecutionResultAuthorizers\x18* \x03(\t\x12\x1e\n\x16rootExecuteAuthorizers\x18+ \x03(\t\x12\r\n\x05vDesc\x18, \x01(\t\x12\x12\n\nsourceFrom\x18- \x01(\t\x12\x0f\n\x07\x65nvType\x18. \x01(\x05\x12\x11\n\tcheckType\x18/ \x01(\t\x12\x11\n\tcheckUser\x18\x30 \x01(\t\x12\x14\n\x0c\x63heckSponsor\x18\x31 \x01(\t\x12\x14\n\x0c\x63heckComment\x18\x32 \x01(\t\x12/\n\rbatchStrategy\x18\x33 \x01(\x0b\x32\x18.tool.Tool.BatchStrategy\x12\x14\n\x0c\x66unctionType\x18\x34 \x01(\t\x12\x15\n\ris_system_org\x18\x35 \x01(\t\x12\x13\n\x0bsubscribers\x18\x36 \x03(\t\x12\x19\n\x11subscribedChannel\x18\x37 \x01(\t\x12\x10\n\x08readOnly\x18\x38 \x01(\t\x12\x14\n\x0ctemplateType\x18\x39 \x01(\t\x12\x11\n\tdelete_me\x18: \x01(\t\x12\x11\n\tapprovers\x18; \x03(\t\x1a\xd2\x02\n\x06Inputs\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ncmdbAttrId\x18\x02 \x01(\t\x12\x14\n\x0c\x63mdbObjectId\x18\x03 \x01(\t\x12\x14\n\x0c\x63mdbAttrType\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61scade\x18\x05 \x01(\t\x12\r\n\x05label\x18\x06 \x01(\t\x12\x10\n\x08multiple\x18\x07 \x01(\t\x12\x10\n\x08required\x18\x08 \x01(\t\x12\x0c\n\x04type\x18\t \x01(\t\x12\x0c\n\x04\x65num\x18\n \x03(\t\x12\x11\n\tprimitive\x18\x0b \x01(\t\x12\x0c\n\x04memo\x18\x0c \x01(\t\x12$\n\x04path\x18\r \x03(\x0b\x32\x16.tool.Tool.Inputs.Path\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x0e \x01(\t\x12\x0e\n\x06source\x18\x0f \x01(\t\x12\x10\n\x08selector\x18\x10 \x01(\t\x1a \n\x04Path\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x1a\xde\x01\n\x0bToolOutputs\x12\x35\n\ndimensions\x18\x01 \x03(\x0b\x32!.tool.Tool.ToolOutputs.Dimensions\x12/\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\x1e.tool.Tool.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xd6\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x33\n\ndimensions\x18\x03 \x03(\x0b\x32\x1f.tool.Tool.TableDefs.Dimensions\x12-\n\x07\x63olumns\x18\x04 \x03(\x0b\x32\x1c.tool.Tool.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a]\n\rBatchStrategy\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\t\x12\x10\n\x08\x62\x61tchNum\x18\x02 \x01(\x05\x12\x15\n\rbatchInterval\x18\x03 \x01(\x05\x12\x12\n\nfailedStop\x18\x04 \x01(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/toolb\x06proto3')
-)
+  serialized_pb=_b('\n\ntool.proto\x12\x04tool\x1a\x1cmodel/tool/input_param.proto\"\xd5\x0e\n\x04Tool\x12\x0e\n\x06toolId\x18\x01 \x01(\t\x12\x0b\n\x03vId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07timeout\x18\x04 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x0c\n\x04icon\x18\x06 \x01(\t\x12\r\n\x05style\x18\x07 \x01(\t\x12\x0c\n\x04memo\x18\x08 \x01(\t\x12\x13\n\x0blistVisible\x18\t \x01(\t\x12\x0c\n\x04tags\x18\n \x03(\t\x12\x0f\n\x07\x64isable\x18\x0b \x01(\t\x12\x12\n\ncreateTime\x18\x0c \x01(\t\x12\x12\n\nupdateTime\x18\r \x01(\t\x12\x0f\n\x07\x63reator\x18\x0e \x01(\t\x12\x0b\n\x03org\x18\x0f \x01(\x05\x12!\n\x06inputs\x18\x10 \x03(\x0b\x32\x11.tool.input_param\x12\x0f\n\x07outputs\x18\x11 \x01(\t\x12\x0c\n\x04type\x18\x12 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x13 \x01(\t\x12\x17\n\x0f\x64\x65\x66\x61ultExecUser\x18\x14 \x01(\t\x12\x10\n\x08\x65xecUser\x18\x15 \x01(\t\x12\x11\n\tauthUsers\x18\x16 \x03(\t\x12\x15\n\rdefaultAgents\x18\x17 \x03(\t\x12\x15\n\rsystem_plugin\x18\x18 \x01(\t\x12\x13\n\x0bsystem_tool\x18\x19 \x01(\t\x12\x12\n\nlockAgents\x18\x1a \x01(\t\x12\x12\n\nsandboxRun\x18\x1b \x01(\t\x12\x11\n\twhiteList\x18\x1c \x03(\t\x12\x16\n\x0ewindowsSession\x18\x1d \x01(\t\x12\x11\n\tblackList\x18\x1e \x03(\t\x12+\n\x0btoolOutputs\x18\x1f \x01(\x0b\x32\x16.tool.Tool.ToolOutputs\x12)\n\noutputDefs\x18  \x03(\x0b\x32\x15.tool.Tool.OutputDefs\x12\'\n\ttableDefs\x18! \x03(\x0b\x32\x14.tool.Tool.TableDefs\x12\x13\n\x0bvCreateTime\x18\" \x01(\t\x12\x13\n\x0bvUpdateTime\x18# \x01(\t\x12\r\n\x05vName\x18$ \x01(\t\x12\x10\n\x08vCreator\x18% \x01(\t\x12\x17\n\x0freadAuthorizers\x18& \x03(\t\x12\x19\n\x11updateAuthorizers\x18\' \x03(\t\x12\x19\n\x11\x64\x65leteAuthorizers\x18( \x03(\t\x12\x1a\n\x12\x65xecuteAuthorizers\x18) \x03(\t\x12&\n\x1ereadExecutionResultAuthorizers\x18* \x03(\t\x12\x1e\n\x16rootExecuteAuthorizers\x18+ \x03(\t\x12\r\n\x05vDesc\x18, \x01(\t\x12\x12\n\nsourceFrom\x18- \x01(\t\x12\x0f\n\x07\x65nvType\x18. \x01(\x05\x12\x11\n\tcheckType\x18/ \x01(\t\x12\x11\n\tcheckUser\x18\x30 \x01(\t\x12\x14\n\x0c\x63heckSponsor\x18\x31 \x01(\t\x12\x14\n\x0c\x63heckComment\x18\x32 \x01(\t\x12/\n\rbatchStrategy\x18\x33 \x01(\x0b\x32\x18.tool.Tool.BatchStrategy\x12\x14\n\x0c\x66unctionType\x18\x34 \x01(\t\x12\x15\n\ris_system_org\x18\x35 \x01(\t\x12\x13\n\x0bsubscribers\x18\x36 \x03(\t\x12\x19\n\x11subscribedChannel\x18\x37 \x01(\t\x12\x10\n\x08readOnly\x18\x38 \x01(\t\x12\x14\n\x0ctemplateType\x18\x39 \x01(\t\x12\x11\n\tdelete_me\x18: \x01(\t\x12\x11\n\tapprovers\x18; \x03(\t\x1a\xde\x01\n\x0bToolOutputs\x12\x35\n\ndimensions\x18\x01 \x03(\x0b\x32!.tool.Tool.ToolOutputs.Dimensions\x12/\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\x1e.tool.Tool.ToolOutputs.Columns\x1a\x34\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a\x31\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x1a&\n\nOutputDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\xd6\x01\n\tTableDefs\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x33\n\ndimensions\x18\x03 \x03(\x0b\x32\x1f.tool.Tool.TableDefs.Dimensions\x12-\n\x07\x63olumns\x18\x04 \x03(\x0b\x32\x1c.tool.Tool.TableDefs.Columns\x1a&\n\nDimensions\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a#\n\x07\x43olumns\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a]\n\rBatchStrategy\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\t\x12\x10\n\x08\x62\x61tchNum\x18\x02 \x01(\x05\x12\x15\n\rbatchInterval\x18\x03 \x01(\x05\x12\x12\n\nfailedStop\x18\x04 \x01(\tB@Z>go.easyops.local/contracts/protorepo-models/easyops/model/toolb\x06proto3')
+  ,
+  dependencies=[model_dot_tool_dot_input__param__pb2.DESCRIPTOR,])
 
 
 
-
-_TOOL_INPUTS_PATH = _descriptor.Descriptor(
-  name='Path',
-  full_name='tool.Tool.Inputs.Path',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='tool.Tool.Inputs.Path.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='tool.Tool.Inputs.Path.type', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1630,
-  serialized_end=1662,
-)
-
-_TOOL_INPUTS = _descriptor.Descriptor(
-  name='Inputs',
-  full_name='tool.Tool.Inputs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='tool.Tool.Inputs.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbAttrId', full_name='tool.Tool.Inputs.cmdbAttrId', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbObjectId', full_name='tool.Tool.Inputs.cmdbObjectId', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cmdbAttrType', full_name='tool.Tool.Inputs.cmdbAttrType', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cascade', full_name='tool.Tool.Inputs.cascade', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='label', full_name='tool.Tool.Inputs.label', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='multiple', full_name='tool.Tool.Inputs.multiple', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='required', full_name='tool.Tool.Inputs.required', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='tool.Tool.Inputs.type', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='enum', full_name='tool.Tool.Inputs.enum', index=9,
-      number=10, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='primitive', full_name='tool.Tool.Inputs.primitive', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='memo', full_name='tool.Tool.Inputs.memo', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='path', full_name='tool.Tool.Inputs.path', index=12,
-      number=13, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='default', full_name='tool.Tool.Inputs.default', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='source', full_name='tool.Tool.Inputs.source', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='selector', full_name='tool.Tool.Inputs.selector', index=15,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_TOOL_INPUTS_PATH, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1324,
-  serialized_end=1662,
-)
 
 _TOOL_TOOLOUTPUTS_DIMENSIONS = _descriptor.Descriptor(
   name='Dimensions',
@@ -237,8 +67,8 @@ _TOOL_TOOLOUTPUTS_DIMENSIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1784,
-  serialized_end=1836,
+  serialized_start=1473,
+  serialized_end=1525,
 )
 
 _TOOL_TOOLOUTPUTS_COLUMNS = _descriptor.Descriptor(
@@ -281,8 +111,8 @@ _TOOL_TOOLOUTPUTS_COLUMNS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1838,
-  serialized_end=1887,
+  serialized_start=1527,
+  serialized_end=1576,
 )
 
 _TOOL_TOOLOUTPUTS = _descriptor.Descriptor(
@@ -318,8 +148,8 @@ _TOOL_TOOLOUTPUTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1665,
-  serialized_end=1887,
+  serialized_start=1354,
+  serialized_end=1576,
 )
 
 _TOOL_OUTPUTDEFS = _descriptor.Descriptor(
@@ -355,8 +185,8 @@ _TOOL_OUTPUTDEFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1889,
-  serialized_end=1927,
+  serialized_start=1578,
+  serialized_end=1616,
 )
 
 _TOOL_TABLEDEFS_DIMENSIONS = _descriptor.Descriptor(
@@ -392,8 +222,8 @@ _TOOL_TABLEDEFS_DIMENSIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1784,
-  serialized_end=1822,
+  serialized_start=1473,
+  serialized_end=1511,
 )
 
 _TOOL_TABLEDEFS_COLUMNS = _descriptor.Descriptor(
@@ -429,8 +259,8 @@ _TOOL_TABLEDEFS_COLUMNS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1838,
-  serialized_end=1873,
+  serialized_start=1527,
+  serialized_end=1562,
 )
 
 _TOOL_TABLEDEFS = _descriptor.Descriptor(
@@ -480,8 +310,8 @@ _TOOL_TABLEDEFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1930,
-  serialized_end=2144,
+  serialized_start=1619,
+  serialized_end=1833,
 )
 
 _TOOL_BATCHSTRATEGY = _descriptor.Descriptor(
@@ -531,8 +361,8 @@ _TOOL_BATCHSTRATEGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2146,
-  serialized_end=2239,
+  serialized_start=1835,
+  serialized_end=1928,
 )
 
 _TOOL = _descriptor.Descriptor(
@@ -958,7 +788,7 @@ _TOOL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_TOOL_INPUTS, _TOOL_TOOLOUTPUTS, _TOOL_OUTPUTDEFS, _TOOL_TABLEDEFS, _TOOL_BATCHSTRATEGY, ],
+  nested_types=[_TOOL_TOOLOUTPUTS, _TOOL_OUTPUTDEFS, _TOOL_TABLEDEFS, _TOOL_BATCHSTRATEGY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -967,13 +797,10 @@ _TOOL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21,
-  serialized_end=2239,
+  serialized_start=51,
+  serialized_end=1928,
 )
 
-_TOOL_INPUTS_PATH.containing_type = _TOOL_INPUTS
-_TOOL_INPUTS.fields_by_name['path'].message_type = _TOOL_INPUTS_PATH
-_TOOL_INPUTS.containing_type = _TOOL
 _TOOL_TOOLOUTPUTS_DIMENSIONS.containing_type = _TOOL_TOOLOUTPUTS
 _TOOL_TOOLOUTPUTS_COLUMNS.containing_type = _TOOL_TOOLOUTPUTS
 _TOOL_TOOLOUTPUTS.fields_by_name['dimensions'].message_type = _TOOL_TOOLOUTPUTS_DIMENSIONS
@@ -986,7 +813,7 @@ _TOOL_TABLEDEFS.fields_by_name['dimensions'].message_type = _TOOL_TABLEDEFS_DIME
 _TOOL_TABLEDEFS.fields_by_name['columns'].message_type = _TOOL_TABLEDEFS_COLUMNS
 _TOOL_TABLEDEFS.containing_type = _TOOL
 _TOOL_BATCHSTRATEGY.containing_type = _TOOL
-_TOOL.fields_by_name['inputs'].message_type = _TOOL_INPUTS
+_TOOL.fields_by_name['inputs'].message_type = model_dot_tool_dot_input__param__pb2._INPUT_PARAM
 _TOOL.fields_by_name['toolOutputs'].message_type = _TOOL_TOOLOUTPUTS
 _TOOL.fields_by_name['outputDefs'].message_type = _TOOL_OUTPUTDEFS
 _TOOL.fields_by_name['tableDefs'].message_type = _TOOL_TABLEDEFS
@@ -995,20 +822,6 @@ DESCRIPTOR.message_types_by_name['Tool'] = _TOOL
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Tool = _reflection.GeneratedProtocolMessageType('Tool', (_message.Message,), dict(
-
-  Inputs = _reflection.GeneratedProtocolMessageType('Inputs', (_message.Message,), dict(
-
-    Path = _reflection.GeneratedProtocolMessageType('Path', (_message.Message,), dict(
-      DESCRIPTOR = _TOOL_INPUTS_PATH,
-      __module__ = 'tool_pb2'
-      # @@protoc_insertion_point(class_scope:tool.Tool.Inputs.Path)
-      ))
-    ,
-    DESCRIPTOR = _TOOL_INPUTS,
-    __module__ = 'tool_pb2'
-    # @@protoc_insertion_point(class_scope:tool.Tool.Inputs)
-    ))
-  ,
 
   ToolOutputs = _reflection.GeneratedProtocolMessageType('ToolOutputs', (_message.Message,), dict(
 
@@ -1070,8 +883,6 @@ Tool = _reflection.GeneratedProtocolMessageType('Tool', (_message.Message,), dic
   # @@protoc_insertion_point(class_scope:tool.Tool)
   ))
 _sym_db.RegisterMessage(Tool)
-_sym_db.RegisterMessage(Tool.Inputs)
-_sym_db.RegisterMessage(Tool.Inputs.Path)
 _sym_db.RegisterMessage(Tool.ToolOutputs)
 _sym_db.RegisterMessage(Tool.ToolOutputs.Dimensions)
 _sym_db.RegisterMessage(Tool.ToolOutputs.Columns)

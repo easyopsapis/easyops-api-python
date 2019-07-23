@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from model.tool import input_param_pb2 as model_dot_tool_dot_input__param__pb2
 from model.tool import tool_pb2 as model_dot_tool_dot_tool__pb2
 
 
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='basic',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0eget_tool.proto\x12\x05\x62\x61sic\x1a\x15model/tool/tool.proto\";\n\x0eGetToolRequest\x12\x0c\n\x04tags\x18\x01 \x01(\t\x12\x0e\n\x06toolId\x18\x02 \x01(\t\x12\x0b\n\x03vId\x18\x03 \x01(\t\"d\n\x16GetToolResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x18\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\n.tool.Toolb\x06proto3')
+  serialized_pb=_b('\n\x0eget_tool.proto\x12\x05\x62\x61sic\x1a\x1cmodel/tool/input_param.proto\x1a\x15model/tool/tool.proto\";\n\x0eGetToolRequest\x12\x0c\n\x04tags\x18\x01 \x01(\t\x12\x0e\n\x06toolId\x18\x02 \x01(\t\x12\x0b\n\x03vId\x18\x03 \x01(\t\"d\n\x16GetToolResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x18\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\n.tool.Toolb\x06proto3')
   ,
-  dependencies=[model_dot_tool_dot_tool__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_tool_dot_input__param__pb2.DESCRIPTOR,model_dot_tool_dot_tool__pb2.DESCRIPTOR,])
 
 
 
@@ -67,8 +68,8 @@ _GETTOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=48,
-  serialized_end=107,
+  serialized_start=78,
+  serialized_end=137,
 )
 
 
@@ -119,8 +120,8 @@ _GETTOOLRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=109,
-  serialized_end=209,
+  serialized_start=139,
+  serialized_end=239,
 )
 
 _GETTOOLRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_tool_dot_tool__pb2._TOOL

@@ -9,6 +9,10 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
+from model.tool.input_param_pb2 import (
+    input_param as model___tool___input_param_pb2___input_param,
+)
+
 from typing import (
     Iterable as typing___Iterable,
     Optional as typing___Optional,
@@ -21,70 +25,6 @@ from typing_extensions import (
 
 
 class Tool(google___protobuf___message___Message):
-    class Inputs(google___protobuf___message___Message):
-        class Path(google___protobuf___message___Message):
-            id = ... # type: typing___Text
-            type = ... # type: typing___Text
-
-            def __init__(self,
-                id : typing___Optional[typing___Text] = None,
-                type : typing___Optional[typing___Text] = None,
-                ) -> None: ...
-            @classmethod
-            def FromString(cls, s: bytes) -> Tool.Inputs.Path: ...
-            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            if sys.version_info >= (3,):
-                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"type"]) -> None: ...
-            else:
-                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"type"]) -> None: ...
-
-        name = ... # type: typing___Text
-        cmdbAttrId = ... # type: typing___Text
-        cmdbObjectId = ... # type: typing___Text
-        cmdbAttrType = ... # type: typing___Text
-        cascade = ... # type: typing___Text
-        label = ... # type: typing___Text
-        multiple = ... # type: typing___Text
-        required = ... # type: typing___Text
-        type = ... # type: typing___Text
-        enum = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-        primitive = ... # type: typing___Text
-        memo = ... # type: typing___Text
-        default = ... # type: typing___Text
-        source = ... # type: typing___Text
-        selector = ... # type: typing___Text
-
-        @property
-        def path(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[Tool.Inputs.Path]: ...
-
-        def __init__(self,
-            name : typing___Optional[typing___Text] = None,
-            cmdbAttrId : typing___Optional[typing___Text] = None,
-            cmdbObjectId : typing___Optional[typing___Text] = None,
-            cmdbAttrType : typing___Optional[typing___Text] = None,
-            cascade : typing___Optional[typing___Text] = None,
-            label : typing___Optional[typing___Text] = None,
-            multiple : typing___Optional[typing___Text] = None,
-            required : typing___Optional[typing___Text] = None,
-            type : typing___Optional[typing___Text] = None,
-            enum : typing___Optional[typing___Iterable[typing___Text]] = None,
-            primitive : typing___Optional[typing___Text] = None,
-            memo : typing___Optional[typing___Text] = None,
-            path : typing___Optional[typing___Iterable[Tool.Inputs.Path]] = None,
-            default : typing___Optional[typing___Text] = None,
-            source : typing___Optional[typing___Text] = None,
-            selector : typing___Optional[typing___Text] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> Tool.Inputs: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"cascade",u"cmdbAttrId",u"cmdbAttrType",u"cmdbObjectId",u"default",u"enum",u"label",u"memo",u"multiple",u"name",u"path",u"primitive",u"required",u"selector",u"source",u"type"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"cascade",b"cmdbAttrId",b"cmdbAttrType",b"cmdbObjectId",b"default",b"enum",b"label",b"memo",b"multiple",b"name",b"path",b"primitive",b"required",b"selector",b"source",b"type"]) -> None: ...
-
     class ToolOutputs(google___protobuf___message___Message):
         class Dimensions(google___protobuf___message___Message):
             id = ... # type: typing___Text
@@ -297,7 +237,7 @@ class Tool(google___protobuf___message___Message):
     approvers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
 
     @property
-    def inputs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[Tool.Inputs]: ...
+    def inputs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___tool___input_param_pb2___input_param]: ...
 
     @property
     def toolOutputs(self) -> Tool.ToolOutputs: ...
@@ -327,7 +267,7 @@ class Tool(google___protobuf___message___Message):
         updateTime : typing___Optional[typing___Text] = None,
         creator : typing___Optional[typing___Text] = None,
         org : typing___Optional[int] = None,
-        inputs : typing___Optional[typing___Iterable[Tool.Inputs]] = None,
+        inputs : typing___Optional[typing___Iterable[model___tool___input_param_pb2___input_param]] = None,
         outputs : typing___Optional[typing___Text] = None,
         type : typing___Optional[typing___Text] = None,
         content : typing___Optional[typing___Text] = None,

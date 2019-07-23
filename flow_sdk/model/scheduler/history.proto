@@ -1,0 +1,83 @@
+syntax = "proto3";
+package scheduler;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/scheduler";
+
+
+
+
+
+/*
+定时任务
+*/
+message SchedulerHistory {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
+    
+    /*
+    任务名称
+    */
+    string name = 1 ;
+    /*
+    任务执行总时间, 单位 s
+    */
+    int32 total_time = 2 ;
+    /*
+    执行返回码
+    */
+    int32 code = 3 ;
+    /*
+    工具返回
+    */
+    string msg = 4 ;
+    /*
+    history id
+    */
+    string id = 5 ;
+    /*
+    总状态
+    */
+    string total_status = 6 ;
+    /*
+    task id
+    */
+    string task_id = 7 ;
+    /*
+    工具执行 id
+    */
+    string tool_exec_id = 8 ;
+    /*
+    启动时间
+    */
+    string start_time = 9 ;
+    /*
+    结束时间
+    */
+    string end_time = 10 ;
+    /*
+    创建用户
+    */
+    string user = 11 ;
+    /*
+    org
+    */
+    int32 org = 12 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 13 ;
+    /*
+    任务类型
+    */
+    string job_type = 14 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 15 ;
+}
+

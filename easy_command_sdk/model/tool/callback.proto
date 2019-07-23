@@ -6,7 +6,6 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "google/protobuf/struct.proto";
 
 /*
 执行结束后的回调信息
@@ -17,20 +16,12 @@ message Callback {
     */
     string url = 1 ;
     /*
-    请求的主机
+    请求header host eg. tool.easyops-only.com
     */
     string host = 2 ;
     /*
-    回调服务名
+    回调服务名eg. logic.tool
     */
     string ensName = 3 ;
-    /*
-    请求方法
-    */
-    string method = 4 ;
-    /*
-    请求头信息；{"host":string,"content-type":string,"org":int,"user":string}, \ host为header host；content-type：请求内容类型；org：客户id；user：客户名称  \ 因为pb不能有"-"字段，详情：https://github.com/protocolbuffers/protobuf/issues/4613
-    */
-    google.protobuf.Struct headers = 5 ;
 }
 

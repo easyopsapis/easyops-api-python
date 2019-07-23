@@ -1,0 +1,57 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+
+/*
+RetryStep请求
+*/
+message RetryStepRequest {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+    /*
+    步骤ID
+    */
+    int32 stepId = 2 ;
+}
+
+/*
+RetryStep返回
+*/
+message RetryStepResponse {
+    /*
+    流程任务ID
+    */
+    string taskId = 1 ;
+    /*
+    流程步骤ID
+    */
+    int32 stepId = 2 ;
+}
+
+/*
+RetryStepApi返回
+*/
+message RetryStepResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    execute.RetryStepResponse data = 4 ;
+}
+

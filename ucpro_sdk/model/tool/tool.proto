@@ -6,90 +6,12 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
+import "model/tool/input_param.proto";
 
 /*
 工具
 */
 message Tool {
-message Inputs {
-message Path {
-    /*
-    参数id
-    */
-    string id = 1 ;
-    /*
-    参数类型
-    */
-    string type = 2 ;
-}
-        
-    
-    /*
-    参数名称
-    */
-    string name = 1 ;
-    /*
-    CMDB属性Id
-    */
-    string cmdbAttrId = 2 ;
-    /*
-    CMDB模型Id
-    */
-    string cmdbObjectId = 3 ;
-    /*
-    CMDB字段值类型
-    */
-    string cmdbAttrType = 4 ;
-    /*
-    是否级联(映射)
-    */
-    string cascade = 5 ;
-    /*
-    参数标题
-    */
-    string label = 6 ;
-    /*
-    多选
-    */
-    string multiple = 7 ;
-    /*
-    必填
-    */
-    string required = 8 ;
-    /*
-    输入参数类型
-    */
-    string type = 9 ;
-    /*
-    枚举列表
-    */
-    repeated string enum = 10 ;
-    /*
-    是否为原始参数(第一个参数)
-    */
-    string primitive = 11 ;
-    /*
-    辅助说明
-    */
-    string memo = 12 ;
-    /*
-    映射参数
-    */
-    repeated Path path = 13 ;
-    /*
-    默认值
-    */
-    string default = 14 ;
-    /*
-    映射来源
-    */
-    string source = 15 ;
-    /*
-    实例快速选择器
-    */
-    string selector = 16 ;
-}
-        
 message ToolOutputs {
 message Dimensions {
     /*
@@ -268,7 +190,7 @@ message BatchStrategy {
     /*
     工具输入参数
     */
-    repeated Inputs inputs = 16 ;
+    repeated tool.input_param inputs = 16 ;
     /*
     工具输出参数
     */
