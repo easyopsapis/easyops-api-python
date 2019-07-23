@@ -1,0 +1,93 @@
+syntax = "proto3";
+package history;
+
+
+
+
+
+/*
+GetStatistics请求
+*/
+message GetStatisticsRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    巡检作业Id
+    */
+    string jobId = 2 ;
+}
+
+/*
+GetStatistics返回
+*/
+message GetStatisticsResponse {
+    /*
+    日志
+    */
+    string log = 1 ;
+    /*
+    巡检总项数
+    */
+    int32 totalNum = 2 ;
+    /*
+    通知项数
+    */
+    int32 noticeNum = 3 ;
+    /*
+    警告项数
+    */
+    int32 warningNum = 4 ;
+    /*
+    紧急项数
+    */
+    int32 emergencyNum = 5 ;
+    /*
+    合格项数
+    */
+    int32 passedNum = 6 ;
+    /*
+    主机实例Id
+    */
+    string instanceId = 7 ;
+    /*
+    主机名称
+    */
+    string hostname = 8 ;
+    /*
+    主机IP
+    */
+    string ip = 9 ;
+    /*
+    评分(精确到小数点后2位)
+    */
+    float score = 10 ;
+    /*
+    unexecuted:脚本未执行; failed:返回码大于0; normal:返回码等于0,没有异常指标; abnormal:返回码等于0,有异常指标
+    */
+    string status = 11 ;
+}
+
+/*
+GetStatisticsApi返回
+*/
+message GetStatisticsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    history.GetStatisticsResponse data = 4 ;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+目标设备信息
+*/
+message InspectionTarget {
+    /*
+    主机实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    主机IP
+    */
+    string ip = 2 ;
+    /*
+    主机名称
+    */
+    string hostname = 3 ;
+    /*
+    端口
+    */
+    int32 port = 4 ;
+    /*
+    评分(精确到小数点后2位)
+    */
+    float score = 5 ;
+    /*
+    unexecuted:脚本未执行; failed:返回码大于0; normal:返回码等于0,没有异常指标; abnormal:返回码等于0,有异常指标
+    */
+    string status = 6 ;
+}
+

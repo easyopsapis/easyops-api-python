@@ -10,15 +10,13 @@ if PROJECT_PATH not in sys.path:
 
 import create_pb2
 
-import debug_pb2
+import model.inspection.task_pb2
 
 import delete_pb2
 
 import google.protobuf.empty_pb2
 
 import get_pb2
-
-import model.inspection.collector_pb2
 
 import list_pb2
 
@@ -28,7 +26,7 @@ import utils.http_util
 import google.protobuf.json_format
 
 
-class CollectorClient(object):
+class TaskClient(object):
     def __init__(self, server_ip="", server_port=0, service_name="", host=""):
         """
         初始化client
@@ -45,15 +43,15 @@ class CollectorClient(object):
         self._host = host
 
     
-    def create_collector(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateCollectorRequest, int, str, int) -> create_pb2.CreateCollectorResponse
+    def create_task(self, request, org, user, timeout=10):
+        # type: (create_pb2.CreateTaskRequest, int, str, int) -> model.inspection.task_pb2.InspectionTask
         """
-        创建采集脚本
-        :param request: create_collector请求
+        创建巡检任务
+        :param request: create_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateCollectorResponse
+        :return: model.inspection.task_pb2.InspectionTask
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -61,9 +59,9 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.CreateCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector".format(
-            pluginId=request.pluginId,
+            route_name = "easyops.api.inspection.task.CreateTask"
+        uri = "/api/v1/inspection/{id}/task".format(
+            id=request.id,
         )
         requestParam = request
         
@@ -80,58 +78,17 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateCollectorResponse()
+        rsp = model.inspection.task_pb2.InspectionTask()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def debug_collector(self, request, org, user, timeout=10):
-        # type: (debug_pb2.DebugCollectorRequest, int, str, int) -> debug_pb2.DebugCollectorResponse
+    def delete_task(self, request, org, user, timeout=10):
+        # type: (delete_pb2.DeleteTaskRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
-        调试采集脚本
-        :param request: debug_collector请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: debug_pb2.DebugCollectorResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.DebugCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector-debug".format(
-            pluginId=request.pluginId,
-        )
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="POST",
-            src_name="logic.inspection_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = debug_pb2.DebugCollectorResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
-    def delete_collector(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteCollectorRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
-        """
-        删除采集脚本
-        :param request: delete_collector请求
+        删除巡检任务
+        :param request: delete_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
@@ -143,10 +100,10 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.DeleteCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
-            pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            route_name = "easyops.api.inspection.task.DeleteTask"
+        uri = "/api/v1/inspection/{id}/task/{inspectionTaskId}".format(
+            id=request.id,
+            inspectionTaskId=request.inspectionTaskId,
         )
         requestParam = request
         
@@ -169,15 +126,15 @@ class CollectorClient(object):
         
         return rsp
     
-    def get_collector(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+    def get_task(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetTaskRequest, int, str, int) -> model.inspection.task_pb2.InspectionTask
         """
-        获取采集脚本
-        :param request: get_collector请求
+        获取巡检任务
+        :param request: get_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: model.inspection.task_pb2.InspectionTask
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -185,10 +142,10 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.GetCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
-            pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            route_name = "easyops.api.inspection.task.GetTask"
+        uri = "/api/v1/inspection/{id}/task/{inspectionTaskId}".format(
+            id=request.id,
+            inspectionTaskId=request.inspectionTaskId,
         )
         requestParam = request
         
@@ -205,21 +162,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = model.inspection.task_pb2.InspectionTask()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def list_collector(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListCollectorRequest, int, str, int) -> list_pb2.ListCollectorResponse
+    def list_inspection_info(self, request, org, user, timeout=10):
+        # type: (list_pb2.ListInspectionInfoRequest, int, str, int) -> list_pb2.ListInspectionInfoResponse
         """
-        获取采集脚本列表
-        :param request: list_collector请求
+        获取巡检套件列表
+        :param request: list_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListCollectorResponse
+        :return: list_pb2.ListInspectionInfoResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -227,9 +184,9 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.ListCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector".format(
-            pluginId=request.pluginId,
+            route_name = "easyops.api.inspection.task.ListInspectionInfo"
+        uri = "/api/v1/inspection/{id}/task".format(
+            id=request.id,
         )
         requestParam = request
         
@@ -246,21 +203,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListCollectorResponse()
+        rsp = list_pb2.ListInspectionInfoResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def update_collector(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+    def update_inspection_info(self, request, org, user, timeout=10):
+        # type: (update_pb2.UpdateInspectionInfoRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
-        更新采集脚本
-        :param request: update_collector请求
+        更新巡检套件
+        :param request: update_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: google.protobuf.empty_pb2.Empty
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -268,10 +225,10 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.UpdateCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
-            pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            route_name = "easyops.api.inspection.task.UpdateInspectionInfo"
+        uri = "/api/v1/inspection/{id}/task/{inspectionTaskId}".format(
+            id=request.id,
+            inspectionTaskId=request.inspectionTaskId,
         )
         requestParam = request
         
@@ -288,9 +245,9 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = google.protobuf.empty_pb2.Empty()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

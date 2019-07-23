@@ -8,27 +8,29 @@ if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
 
-import create_pb2
-
-import debug_pb2
-
-import delete_pb2
+import easy_command_callback_pb2
 
 import google.protobuf.empty_pb2
 
 import get_pb2
 
-import model.inspection.collector_pb2
+import model.inspection.history_pb2
+
+import get_source_data_pb2
+
+import get_statistics_pb2
 
 import list_pb2
 
-import update_pb2
+import list_abnormal_metrics_pb2
+
+import schduler_callback_pb2
 
 import utils.http_util
 import google.protobuf.json_format
 
 
-class CollectorClient(object):
+class HistoryClient(object):
     def __init__(self, server_ip="", server_port=0, service_name="", host=""):
         """
         初始化client
@@ -45,93 +47,11 @@ class CollectorClient(object):
         self._host = host
 
     
-    def create_collector(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateCollectorRequest, int, str, int) -> create_pb2.CreateCollectorResponse
+    def easy_command_callback(self, request, org, user, timeout=10):
+        # type: (easy_command_callback_pb2.EasyCommandCallbackRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
-        创建采集脚本
-        :param request: create_collector请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateCollectorResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.CreateCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector".format(
-            pluginId=request.pluginId,
-        )
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="POST",
-            src_name="logic.inspection_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = create_pb2.CreateCollectorResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
-    def debug_collector(self, request, org, user, timeout=10):
-        # type: (debug_pb2.DebugCollectorRequest, int, str, int) -> debug_pb2.DebugCollectorResponse
-        """
-        调试采集脚本
-        :param request: debug_collector请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: debug_pb2.DebugCollectorResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.DebugCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector-debug".format(
-            pluginId=request.pluginId,
-        )
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="POST",
-            src_name="logic.inspection_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = debug_pb2.DebugCollectorResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
-    def delete_collector(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteCollectorRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
-        """
-        删除采集脚本
-        :param request: delete_collector请求
+        命令通道回调接口
+        :param request: easy_command_callback请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
@@ -143,15 +63,16 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.DeleteCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            route_name = "easyops.api.inspection.history.EasyCommandCallback"
+        uri = "/command/callback/pluginId/{pluginId}/inspectionId/{inspectionTaskId}/jobId/{jobId}".format(
             pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            inspectionTaskId=request.inspectionTaskId,
+            jobId=request.jobId,
         )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="DELETE",
+            method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
             server_ip=server_ip,
@@ -169,15 +90,15 @@ class CollectorClient(object):
         
         return rsp
     
-    def get_collector(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+    def get_history(self, request, org, user, timeout=10):
+        # type: (get_pb2.GetHistoryRequest, int, str, int) -> model.inspection.history_pb2.InspectionHistory
         """
-        获取采集脚本
-        :param request: get_collector请求
+        获取巡检作业历史
+        :param request: get_history请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: model.inspection.history_pb2.InspectionHistory
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -185,10 +106,10 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.GetCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            route_name = "easyops.api.inspection.history.GetHistory"
+        uri = "/api/v1/inspection/{pluginId}/history/{jobId}".format(
             pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            jobId=request.jobId,
         )
         requestParam = request
         
@@ -205,21 +126,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = model.inspection.history_pb2.InspectionHistory()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def list_collector(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListCollectorRequest, int, str, int) -> list_pb2.ListCollectorResponse
+    def get_source_data(self, request, org, user, timeout=10):
+        # type: (get_source_data_pb2.GetSourceDataRequest, int, str, int) -> model.inspection.history_pb2.InspectionHistory
         """
-        获取采集脚本列表
-        :param request: list_collector请求
+        获取巡检作业的原始数据
+        :param request: get_source_data请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListCollectorResponse
+        :return: model.inspection.history_pb2.InspectionHistory
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -227,8 +148,92 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.ListCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector".format(
+            route_name = "easyops.api.inspection.history.GetSourceData"
+        uri = "/api/v1/inspection/{pluginId}/history/{jobId}/source-data".format(
+            pluginId=request.pluginId,
+            jobId=request.jobId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.inspection_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = model.inspection.history_pb2.InspectionHistory()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_statistics(self, request, org, user, timeout=10):
+        # type: (get_statistics_pb2.GetStatisticsRequest, int, str, int) -> get_statistics_pb2.GetStatisticsResponse
+        """
+        获取巡检作业的统计数据
+        :param request: get_statistics请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_statistics_pb2.GetStatisticsResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.inspection.history.GetStatistics"
+        uri = "/api/v1/inspection/{pluginId}/history/{jobId}/statistics".format(
+            pluginId=request.pluginId,
+            jobId=request.jobId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.inspection_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_statistics_pb2.GetStatisticsResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_history(self, request, org, user, timeout=10):
+        # type: (list_pb2.ListHistoryRequest, int, str, int) -> list_pb2.ListHistoryResponse
+        """
+        获取巡检作业历史列表
+        :param request: list_history请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: list_pb2.ListHistoryResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.inspection.history.ListHistory"
+        uri = "/api/v1/inspection/{pluginId}/history".format(
             pluginId=request.pluginId,
         )
         requestParam = request
@@ -246,21 +251,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListCollectorResponse()
+        rsp = list_pb2.ListHistoryResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def update_collector(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+    def list_abnormal_metrics(self, request, org, user, timeout=10):
+        # type: (list_abnormal_metrics_pb2.ListAbnormalMetricsRequest, int, str, int) -> list_abnormal_metrics_pb2.ListAbnormalMetricsResponse
         """
-        更新采集脚本
-        :param request: update_collector请求
+        获取巡检作业历史列表
+        :param request: list_abnormal_metrics请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: list_abnormal_metrics_pb2.ListAbnormalMetricsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -268,15 +273,15 @@ class CollectorClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.collector.UpdateCollector"
-        uri = "/api/v1/inspection/{pluginId}/collector/{collectorId}".format(
+            route_name = "easyops.api.inspection.history.ListAbnormalMetrics"
+        uri = "/api/v1/inspection/{pluginId}/history/{jobId}/abnormal-metrics".format(
             pluginId=request.pluginId,
-            collectorId=request.collectorId,
+            jobId=request.jobId,
         )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="PUT",
+            method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
             server_ip=server_ip,
@@ -288,7 +293,49 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = list_abnormal_metrics_pb2.ListAbnormalMetricsResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def scheduler_callback(self, request, org, user, timeout=10):
+        # type: (schduler_callback_pb2.SchedulerCallbackRequest, int, str, int) -> schduler_callback_pb2.SchedulerCallbackResponse
+        """
+        定时任务回调接口,用于创建easy_command任务
+        :param request: scheduler_callback请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: schduler_callback_pb2.SchedulerCallbackResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.inspection.history.SchedulerCallback"
+        uri = "/command/callback/pluginId/{pluginId}/inspectionId/{inspectionTaskId}/callback".format(
+            pluginId=request.pluginId,
+            inspectionTaskId=request.inspectionTaskId,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.inspection_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = schduler_callback_pb2.SchedulerCallbackResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

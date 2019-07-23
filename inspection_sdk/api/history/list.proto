@@ -1,0 +1,134 @@
+syntax = "proto3";
+package history;
+
+
+
+
+import "model/inspection/history.proto";
+
+/*
+ListHistory请求
+*/
+message ListHistoryRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 3 ;
+    /*
+    开始时间从，查询条件
+    */
+    int32 startTimeFrom = 4 ;
+    /*
+    开始时间到，查询条件
+    */
+    int32 startTimeTo = 5 ;
+    /*
+    耗时从，查询条件
+    */
+    int32 usedTimeFrom = 6 ;
+    /*
+    耗时到，查询条件
+    */
+    int32 usedTimeTo = 7 ;
+    /*
+    成功率从，查询条件
+    */
+    float passRateFrom = 8 ;
+    /*
+    成功率到，查询条件
+    */
+    float passRateTo = 9 ;
+    /*
+    评分从，查询条件
+    */
+    float scoreFrom = 10 ;
+    /*
+    评分到，查询条件
+    */
+    float scoreTo = 11 ;
+    /*
+    任务名包含，查询条件
+    */
+    string taskNameLike = 12 ;
+    /*
+    任务名不包含，查询条件
+    */
+    string taskNameNlike = 13 ;
+    /*
+    任务名等于，查询条件
+    */
+    string taskNameEq = 14 ;
+    /*
+    任务名不等于，查询条件
+    */
+    string taskNameNeq = 15 ;
+    /*
+    目标包含，查询条件
+    */
+    string targetLike = 16 ;
+    /*
+    目标不包含，查询条件
+    */
+    string targetNlike = 17 ;
+    /*
+    目标等于，查询条件
+    */
+    string targetEq = 18 ;
+    /*
+    目标不等于，查询条件
+    */
+    string targetNeq = 19 ;
+}
+
+/*
+ListHistory返回
+*/
+message ListHistoryResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated inspection.InspectionHistory list = 4 ;
+}
+
+/*
+ListHistoryApi返回
+*/
+message ListHistoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    history.ListHistoryResponse data = 4 ;
+}
+

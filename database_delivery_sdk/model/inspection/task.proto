@@ -1,0 +1,116 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+import "model/inspection/user_or_user_group.proto";
+import "model/easy_command/action_param_custom.proto";
+
+/*
+巡检任务
+*/
+message InspectionTask {
+message Args {
+    /*
+    参数ID
+    */
+    string key = 1 ;
+    /*
+    参数的值
+    */
+    string value = 2 ;
+}
+        
+message Targets {
+    /*
+    主机实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    主机IP
+    */
+    string ip = 2 ;
+    /*
+    主机名称
+    */
+    string hostname = 3 ;
+    /*
+    端口
+    */
+    int32 port = 4 ;
+    /*
+    任务的各个action在本target上的差异化参数信息。如果传了，则列表长度必须跟该任务的 actions 列表长度一致
+    */
+    repeated easy_command.ActionParamCustom actionParams = 5 ;
+}
+        
+    
+    /*
+    巡检任务Id
+    */
+    string inspectionTaskId = 1 ;
+    /*
+    巡检任务名称
+    */
+    string name = 2 ;
+    /*
+    是否全部通知
+    */
+    bool isAllNotify = 3 ;
+    /*
+    邮件通知限制
+    */
+    string notifyPassComparator = 4 ;
+    /*
+    邮件通知评分限制
+    */
+    float notifyScore = 5 ;
+    /*
+    采集时需要的参数
+    */
+    repeated Args args = 6 ;
+    /*
+    通知的用户
+    */
+    inspection.InspectionUserOrUserGroup notifyUser = 7 ;
+    /*
+    通知的用户组
+    */
+    inspection.InspectionUserOrUserGroup notifyUserGroup = 8 ;
+    /*
+    巡检策略(once单次,crontab周期)
+    */
+    string taskType = 9 ;
+    /*
+    执行目标(指定主机,指定主机查询策略)
+    */
+    string performanceTargets = 10 ;
+    /*
+    仅当执行目标为指定主机查询策略时该参数有效
+    */
+    string specifyHostPolicyInstanceId = 11 ;
+    /*
+    任务调度时间
+    */
+    string taskScheduler = 12 ;
+    /*
+    巡检对象
+    */
+    repeated Targets targets = 13 ;
+    /*
+    备注
+    */
+    string memo = 14 ;
+    /*
+    报告模板ID
+    */
+    string templateId = 15 ;
+    /*
+    报告模板名
+    */
+    string templateName = 16 ;
+}
+
