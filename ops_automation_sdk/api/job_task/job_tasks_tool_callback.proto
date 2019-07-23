@@ -4,10 +4,31 @@ package job_task;
 
 
 
-import "model/tool/callback.proto";
-import "model/tool/tool.proto";
 import "google/protobuf/struct.proto";
-import "google/protobuf/empty.proto";
+
+/*
+JobTasksToolCallback请求
+*/
+message JobTasksToolCallbackRequest {
+    /*
+    执行id
+    */
+    string execId = 1 ;
+    /*
+    agents状态
+    */
+    google.protobuf.Struct status = 2 ;
+}
+
+/*
+JobTasksToolCallback返回
+*/
+message JobTasksToolCallbackResponse {
+    /*
+    作业任务Id
+    */
+    string jobTasksId = 1 ;
+}
 
 /*
 JobTasksToolCallbackApi返回
@@ -28,6 +49,6 @@ message JobTasksToolCallbackResponseWrapper {
     /*
     返回数据
     */
-    google.protobuf.Empty data = 4 ;
+    job_task.JobTasksToolCallbackResponse data = 4 ;
 }
 

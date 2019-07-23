@@ -12,11 +12,9 @@ import get_job_tasks_details_pb2
 
 import model.ops_automation.job_tasks_pb2
 
-import model.easy_flow.deploy_ret_pb2
+import job_tasks_flow_callback_pb2
 
-import google.protobuf.empty_pb2
-
-import model.tool.tool_task_pb2
+import job_tasks_tool_callback_pb2
 
 import list_job_tasks_pb2
 
@@ -83,14 +81,14 @@ class JobTaskClient(object):
         return rsp
     
     def job_tasks_flow_callback(self, request, org, user, timeout=10):
-        # type: (model.easy_flow.deploy_ret_pb2.DeployRet, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (job_tasks_flow_callback_pb2.JobTasksFlowCallbackRequest, int, str, int) -> job_tasks_flow_callback_pb2.JobTasksFlowCallbackResponse
         """
         流程作业任务回调
         :param request: job_tasks_flow_callback请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: google.protobuf.empty_pb2.Empty
+        :return: job_tasks_flow_callback_pb2.JobTasksFlowCallbackResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -116,21 +114,21 @@ class JobTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = google.protobuf.empty_pb2.Empty()
+        rsp = job_tasks_flow_callback_pb2.JobTasksFlowCallbackResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def job_tasks_tool_callback(self, request, org, user, timeout=10):
-        # type: (model.tool.tool_task_pb2.ToolTask, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (job_tasks_tool_callback_pb2.JobTasksToolCallbackRequest, int, str, int) -> job_tasks_tool_callback_pb2.JobTasksToolCallbackResponse
         """
         工具作业任务回调
         :param request: job_tasks_tool_callback请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: google.protobuf.empty_pb2.Empty
+        :return: job_tasks_tool_callback_pb2.JobTasksToolCallbackResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -156,9 +154,9 @@ class JobTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = google.protobuf.empty_pb2.Empty()
+        rsp = job_tasks_tool_callback_pb2.JobTasksToolCallbackResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     

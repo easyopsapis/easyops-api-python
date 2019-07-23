@@ -4,9 +4,26 @@ package job_task;
 
 
 
-import "model/easy_flow/target_result.proto";
-import "model/easy_flow/deploy_label.proto";
-import "google/protobuf/empty.proto";
+
+/*
+JobTasksFlowCallback请求
+*/
+message JobTasksFlowCallbackRequest {
+    /*
+    任务Id
+    */
+    string taskId = 1 ;
+}
+
+/*
+JobTasksFlowCallback返回
+*/
+message JobTasksFlowCallbackResponse {
+    /*
+    作业任务Id
+    */
+    string jobTasksId = 1 ;
+}
 
 /*
 JobTasksFlowCallbackApi返回
@@ -27,6 +44,6 @@ message JobTasksFlowCallbackResponseWrapper {
     /*
     返回数据
     */
-    google.protobuf.Empty data = 4 ;
+    job_task.JobTasksFlowCallbackResponse data = 4 ;
 }
 
