@@ -12,6 +12,12 @@ import get_job_tasks_details_pb2
 
 import model.ops_automation.job_tasks_pb2
 
+import model.easy_flow.deploy_ret_pb2
+
+import google.protobuf.empty_pb2
+
+import model.tool.tool_task_pb2
+
 import list_job_tasks_pb2
 
 import utils.http_util
@@ -73,6 +79,86 @@ class JobTaskClient(object):
         rsp = model.ops_automation.job_tasks_pb2.JobTasks()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def job_tasks_flow_callback(self, request, org, user, timeout=10):
+        # type: (model.easy_flow.deploy_ret_pb2.DeployRet, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        流程作业任务回调
+        :param request: job_tasks_flow_callback请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ops_automation.job_task.JobTasksFlowCallback"
+        uri = "/api/ops_automation/v1/jobTasks/flow/callback"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.ops_automation_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def job_tasks_tool_callback(self, request, org, user, timeout=10):
+        # type: (model.tool.tool_task_pb2.ToolTask, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        工具作业任务回调
+        :param request: job_tasks_tool_callback请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ops_automation.job_task.JobTasksToolCallback"
+        uri = "/api/ops_automation/v1/jobTasks/tool/callback"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.ops_automation_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

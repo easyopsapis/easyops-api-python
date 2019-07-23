@@ -1,0 +1,32 @@
+syntax = "proto3";
+package job_task;
+
+
+
+
+import "model/easy_flow/target_result.proto";
+import "model/easy_flow/deploy_label.proto";
+import "google/protobuf/empty.proto";
+
+/*
+JobTasksFlowCallbackApi返回
+*/
+message JobTasksFlowCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+
