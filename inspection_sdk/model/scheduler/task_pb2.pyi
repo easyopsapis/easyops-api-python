@@ -24,6 +24,21 @@ from typing_extensions import (
 
 
 class SchedulerTask(google___protobuf___message___Message):
+    class Annotations(google___protobuf___message___Message):
+        appId = ... # type: typing___Text
+
+        def __init__(self,
+            appId : typing___Optional[typing___Text] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> SchedulerTask.Annotations: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"appId"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"appId"]) -> None: ...
+
     class CmdConfig(google___protobuf___message___Message):
         url = ... # type: typing___Text
         service_name = ... # type: typing___Text
@@ -57,21 +72,6 @@ class SchedulerTask(google___protobuf___message___Message):
             def HasField(self, field_name: typing_extensions___Literal[u"headers",b"headers",u"params",b"params"]) -> bool: ...
             def ClearField(self, field_name: typing_extensions___Literal[b"headers",b"host",b"method",b"params",b"port",b"service_name",b"url"]) -> None: ...
 
-    class Annotations(google___protobuf___message___Message):
-        appId = ... # type: typing___Text
-
-        def __init__(self,
-            appId : typing___Optional[typing___Text] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> SchedulerTask.Annotations: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"appId"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"appId"]) -> None: ...
-
     class Callback(google___protobuf___message___Message):
         url = ... # type: typing___Text
         host = ... # type: typing___Text
@@ -91,59 +91,59 @@ class SchedulerTask(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"ensName",b"host",b"url"]) -> None: ...
 
-    job_type = ... # type: typing___Text
-    updateAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    create_time = ... # type: typing___Text
     id = ... # type: typing___Text
+    name = ... # type: typing___Text
+    job_type = ... # type: typing___Text
     task_type = ... # type: typing___Text
-    src_id = ... # type: typing___Text
-    job_id = ... # type: typing___Text
-    status = ... # type: int
-    update_time = ... # type: typing___Text
     cmd_type = ... # type: typing___Text
-    deleteAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    disable = ... # type: int
-    user = ... # type: typing___Text
     task_scheduler = ... # type: typing___Text
+    src_id = ... # type: typing___Text
+    assignner = ... # type: typing___Text
+    disable = ... # type: int
     invisible = ... # type: int
     org = ... # type: int
+    user = ... # type: typing___Text
     operateAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    name = ... # type: typing___Text
-    assignner = ... # type: typing___Text
+    deleteAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+    updateAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+    create_time = ... # type: typing___Text
+    update_time = ... # type: typing___Text
+    job_id = ... # type: typing___Text
+    status = ... # type: int
     error = ... # type: typing___Text
-
-    @property
-    def cmd_config(self) -> SchedulerTask.CmdConfig: ...
 
     @property
     def annotations(self) -> SchedulerTask.Annotations: ...
 
     @property
+    def cmd_config(self) -> SchedulerTask.CmdConfig: ...
+
+    @property
     def callback(self) -> SchedulerTask.Callback: ...
 
     def __init__(self,
-        cmd_config : typing___Optional[SchedulerTask.CmdConfig] = None,
-        job_type : typing___Optional[typing___Text] = None,
-        updateAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        create_time : typing___Optional[typing___Text] = None,
         id : typing___Optional[typing___Text] = None,
+        name : typing___Optional[typing___Text] = None,
+        job_type : typing___Optional[typing___Text] = None,
         task_type : typing___Optional[typing___Text] = None,
-        src_id : typing___Optional[typing___Text] = None,
-        job_id : typing___Optional[typing___Text] = None,
-        annotations : typing___Optional[SchedulerTask.Annotations] = None,
-        status : typing___Optional[int] = None,
-        update_time : typing___Optional[typing___Text] = None,
         cmd_type : typing___Optional[typing___Text] = None,
-        deleteAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        disable : typing___Optional[int] = None,
-        user : typing___Optional[typing___Text] = None,
         task_scheduler : typing___Optional[typing___Text] = None,
+        annotations : typing___Optional[SchedulerTask.Annotations] = None,
+        src_id : typing___Optional[typing___Text] = None,
+        cmd_config : typing___Optional[SchedulerTask.CmdConfig] = None,
+        assignner : typing___Optional[typing___Text] = None,
+        disable : typing___Optional[int] = None,
         invisible : typing___Optional[int] = None,
         org : typing___Optional[int] = None,
+        user : typing___Optional[typing___Text] = None,
         operateAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        name : typing___Optional[typing___Text] = None,
+        deleteAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
+        updateAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
+        create_time : typing___Optional[typing___Text] = None,
+        update_time : typing___Optional[typing___Text] = None,
+        job_id : typing___Optional[typing___Text] = None,
+        status : typing___Optional[int] = None,
         callback : typing___Optional[SchedulerTask.Callback] = None,
-        assignner : typing___Optional[typing___Text] = None,
         error : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod

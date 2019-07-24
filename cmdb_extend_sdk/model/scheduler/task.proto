@@ -12,6 +12,13 @@ import "google/protobuf/struct.proto";
 定时任务
 */
 message SchedulerTask {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
 message CmdConfig {
     /*
     uri
@@ -43,13 +50,6 @@ message CmdConfig {
     google.protobuf.Struct params = 7 ;
 }
         
-message Annotations {
-    /*
-    应用ID
-    */
-    string appId = 1 ;
-}
-        
 message Callback {
     /*
     url
@@ -67,95 +67,95 @@ message Callback {
         
     
     /*
-    任务的具体配置, http或脚本
-    */
-    CmdConfig cmd_config = 1 ;
-    /*
-    任务类型
-    */
-    string job_type = 2 ;
-    /*
-    更新权限
-    */
-    repeated string updateAuthorizers = 3 ;
-    /*
-    创建时间
-    */
-    string create_time = 4 ;
-    /*
     scheduler task id
     */
-    string id = 5 ;
-    /*
-    是否支持一次性任务
-    */
-    string task_type = 6 ;
-    /*
-    发起定时任务的源 id
-    */
-    string src_id = 7 ;
-    /*
-    job id
-    */
-    string job_id = 8 ;
-    /*
-    相关参数
-    */
-    Annotations annotations = 9 ;
-    /*
-    运行状态
-    */
-    int32 status = 10 ;
-    /*
-    更新时间
-    */
-    string update_time = 11 ;
-    /*
-    脚本类型
-    */
-    string cmd_type = 12 ;
-    /*
-    删除权限
-    */
-    repeated string deleteAuthorizers = 13 ;
-    /*
-    0 表示不禁用。1 表示禁用
-    */
-    int32 disable = 14 ;
-    /*
-    创建用户
-    */
-    string user = 15 ;
-    /*
-    定时时间：x/5 x x x x， 2018-09-04 15:56:23
-    */
-    string task_scheduler = 16 ;
-    /*
-    0 在页面可见，1 不可见
-    */
-    int32 invisible = 17 ;
-    /*
-    org
-    */
-    int32 org = 18 ;
-    /*
-    操作权限
-    */
-    repeated string operateAuthorizers = 19 ;
+    string id = 1 ;
     /*
     定时任务名称
     */
-    string name = 20 ;
+    string name = 2 ;
+    /*
+    任务对象类型
+    */
+    string job_type = 3 ;
+    /*
+    定时任务执行周期类型
+    */
+    string task_type = 4 ;
+    /*
+    任务执行方式，目前只使用到了http
+    */
+    string cmd_type = 5 ;
+    /*
+    定时时间：x/5 x x x x， 2018-09-04 15:56:23
+    */
+    string task_scheduler = 6 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 7 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 8 ;
+    /*
+    任务的具体配置, http或脚本
+    */
+    CmdConfig cmd_config = 9 ;
+    /*
+    任务创建者来源
+    */
+    string assignner = 10 ;
+    /*
+    0 表示不禁用, 1 表示禁用
+    */
+    int32 disable = 11 ;
+    /*
+    0 在页面可见，1 不可见
+    */
+    int32 invisible = 12 ;
+    /*
+    org
+    */
+    int32 org = 13 ;
+    /*
+    创建用户
+    */
+    string user = 14 ;
+    /*
+    操作权限
+    */
+    repeated string operateAuthorizers = 15 ;
+    /*
+    删除权限
+    */
+    repeated string deleteAuthorizers = 16 ;
+    /*
+    更新权限
+    */
+    repeated string updateAuthorizers = 17 ;
+    /*
+    创建时间
+    */
+    string create_time = 18 ;
+    /*
+    更新时间
+    */
+    string update_time = 19 ;
+    /*
+    job id
+    */
+    string job_id = 20 ;
+    /*
+    运行状态
+    */
+    int32 status = 21 ;
     /*
     回调
     */
-    Callback callback = 21 ;
+    Callback callback = 22 ;
     /*
-    注明的名字服务
-    */
-    string assignner = 22 ;
-    /*
-    返回信息。{u'message': u'Success', u'code': 0, u'data': {u'execId': u'201809_task155123648b640b916475'}, u'error': u'\u6210\u529f\u3002Success'}
+    调度结果信息。{u'message': u'Success', u'code': 0, u'data': {u'execId': u'201809_task155123648b640b916475'}, u'error': u'\u6210\u529f\u3002Success'}
     */
     string error = 23 ;
 }

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='scheduler',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/scheduler'),
-  serialized_pb=_b('\n\rhistory.proto\x12\tscheduler\"\xd7\x02\n\x10SchedulerHistory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ntotal_time\x18\x02 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x03 \x01(\x05\x12\x0b\n\x03msg\x18\x04 \x01(\t\x12\n\n\x02id\x18\x05 \x01(\t\x12\x14\n\x0ctotal_status\x18\x06 \x01(\t\x12\x0f\n\x07task_id\x18\x07 \x01(\t\x12\x14\n\x0ctool_exec_id\x18\x08 \x01(\t\x12\x12\n\nstart_time\x18\t \x01(\t\x12\x10\n\x08\x65nd_time\x18\n \x01(\t\x12\x0c\n\x04user\x18\x0b \x01(\t\x12\x0b\n\x03org\x18\x0c \x01(\x05\x12\x0e\n\x06src_id\x18\r \x01(\t\x12\x10\n\x08job_type\x18\x0e \x01(\t\x12<\n\x0b\x61nnotations\x18\x0f \x01(\x0b\x32\'.scheduler.SchedulerHistory.Annotations\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/schedulerb\x06proto3')
+  serialized_pb=_b('\n\rhistory.proto\x12\tscheduler\"\xd7\x02\n\x10SchedulerHistory\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\x05\x12\x0b\n\x03msg\x18\x04 \x01(\t\x12\x12\n\ntotal_time\x18\x05 \x01(\x05\x12\x14\n\x0ctotal_status\x18\x06 \x01(\t\x12\x0f\n\x07task_id\x18\x07 \x01(\t\x12\x14\n\x0ctool_exec_id\x18\x08 \x01(\t\x12\x12\n\nstart_time\x18\t \x01(\t\x12\x10\n\x08\x65nd_time\x18\n \x01(\t\x12\x0c\n\x04user\x18\x0b \x01(\t\x12\x0b\n\x03org\x18\x0c \x01(\x05\x12\x0e\n\x06src_id\x18\r \x01(\t\x12\x10\n\x08job_type\x18\x0e \x01(\t\x12<\n\x0b\x61nnotations\x18\x0f \x01(\x0b\x32\'.scheduler.SchedulerHistory.Annotations\x1a\x1c\n\x0b\x41nnotations\x12\r\n\x05\x61ppId\x18\x01 \x01(\tBEZCgo.easyops.local/contracts/protorepo-models/easyops/model/schedulerb\x06proto3')
 )
 
 
@@ -63,16 +63,16 @@ _SCHEDULERHISTORY = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='scheduler.SchedulerHistory.name', index=0,
+      name='id', full_name='scheduler.SchedulerHistory.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='total_time', full_name='scheduler.SchedulerHistory.total_time', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='name', full_name='scheduler.SchedulerHistory.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -91,9 +91,9 @@ _SCHEDULERHISTORY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='id', full_name='scheduler.SchedulerHistory.id', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='total_time', full_name='scheduler.SchedulerHistory.total_time', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),

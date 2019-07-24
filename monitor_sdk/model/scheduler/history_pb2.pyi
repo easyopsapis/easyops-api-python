@@ -30,11 +30,11 @@ class SchedulerHistory(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"appId"]) -> None: ...
 
+    id = ... # type: typing___Text
     name = ... # type: typing___Text
-    total_time = ... # type: int
     code = ... # type: int
     msg = ... # type: typing___Text
-    id = ... # type: typing___Text
+    total_time = ... # type: int
     total_status = ... # type: typing___Text
     task_id = ... # type: typing___Text
     tool_exec_id = ... # type: typing___Text
@@ -49,11 +49,11 @@ class SchedulerHistory(google___protobuf___message___Message):
     def annotations(self) -> SchedulerHistory.Annotations: ...
 
     def __init__(self,
+        id : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
-        total_time : typing___Optional[int] = None,
         code : typing___Optional[int] = None,
         msg : typing___Optional[typing___Text] = None,
-        id : typing___Optional[typing___Text] = None,
+        total_time : typing___Optional[int] = None,
         total_status : typing___Optional[typing___Text] = None,
         task_id : typing___Optional[typing___Text] = None,
         tool_exec_id : typing___Optional[typing___Text] = None,
