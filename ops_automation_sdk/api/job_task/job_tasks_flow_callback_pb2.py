@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='job_task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1djob_tasks_flow_callback.proto\x12\x08job_task\"-\n\x1bJobTasksFlowCallbackRequest\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"2\n\x1cJobTasksFlowCallbackResponse\x12\x12\n\njobTasksId\x18\x01 \x01(\t\"\x8d\x01\n#JobTasksFlowCallbackResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.job_task.JobTasksFlowCallbackResponseb\x06proto3')
+  serialized_pb=_b('\n\x1djob_tasks_flow_callback.proto\x12\x08job_task\"B\n\x1bJobTasksFlowCallbackRequest\x12\x0e\n\x06taskId\x18\x01 \x01(\t\x12\x13\n\x0btotalStatus\x18\x02 \x01(\t\"2\n\x1cJobTasksFlowCallbackResponse\x12\x12\n\njobTasksId\x18\x01 \x01(\t\"\x8d\x01\n#JobTasksFlowCallbackResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.job_task.JobTasksFlowCallbackResponseb\x06proto3')
 )
 
 
@@ -39,6 +39,13 @@ _JOBTASKSFLOWCALLBACKREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='totalStatus', full_name='job_task.JobTasksFlowCallbackRequest.totalStatus', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -52,7 +59,7 @@ _JOBTASKSFLOWCALLBACKREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=43,
-  serialized_end=88,
+  serialized_end=109,
 )
 
 
@@ -82,8 +89,8 @@ _JOBTASKSFLOWCALLBACKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=90,
-  serialized_end=140,
+  serialized_start=111,
+  serialized_end=161,
 )
 
 
@@ -134,8 +141,8 @@ _JOBTASKSFLOWCALLBACKRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=284,
+  serialized_start=164,
+  serialized_end=305,
 )
 
 _JOBTASKSFLOWCALLBACKRESPONSEWRAPPER.fields_by_name['data'].message_type = _JOBTASKSFLOWCALLBACKRESPONSE

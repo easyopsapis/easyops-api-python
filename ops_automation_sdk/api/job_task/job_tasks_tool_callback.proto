@@ -18,6 +18,10 @@ message JobTasksToolCallbackRequest {
     agents状态
     */
     google.protobuf.Struct status = 2 ;
+    /*
+    执行状态
+    */
+    string totalStatus = 3 ;
 }
 
 /*

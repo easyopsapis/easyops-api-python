@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='job_task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1djob_tasks_tool_callback.proto\x12\x08job_task\x1a\x1cgoogle/protobuf/struct.proto\"V\n\x1bJobTasksToolCallbackRequest\x12\x0e\n\x06\x65xecId\x18\x01 \x01(\t\x12\'\n\x06status\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"2\n\x1cJobTasksToolCallbackResponse\x12\x12\n\njobTasksId\x18\x01 \x01(\t\"\x8d\x01\n#JobTasksToolCallbackResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.job_task.JobTasksToolCallbackResponseb\x06proto3')
+  serialized_pb=_b('\n\x1djob_tasks_tool_callback.proto\x12\x08job_task\x1a\x1cgoogle/protobuf/struct.proto\"k\n\x1bJobTasksToolCallbackRequest\x12\x0e\n\x06\x65xecId\x18\x01 \x01(\t\x12\'\n\x06status\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0btotalStatus\x18\x03 \x01(\t\"2\n\x1cJobTasksToolCallbackResponse\x12\x12\n\njobTasksId\x18\x01 \x01(\t\"\x8d\x01\n#JobTasksToolCallbackResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.job_task.JobTasksToolCallbackResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -48,6 +48,13 @@ _JOBTASKSTOOLCALLBACKREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='totalStatus', full_name='job_task.JobTasksToolCallbackRequest.totalStatus', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -61,7 +68,7 @@ _JOBTASKSTOOLCALLBACKREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=73,
-  serialized_end=159,
+  serialized_end=180,
 )
 
 
@@ -91,8 +98,8 @@ _JOBTASKSTOOLCALLBACKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=161,
-  serialized_end=211,
+  serialized_start=182,
+  serialized_end=232,
 )
 
 
@@ -143,8 +150,8 @@ _JOBTASKSTOOLCALLBACKRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=355,
+  serialized_start=235,
+  serialized_end=376,
 )
 
 _JOBTASKSTOOLCALLBACKREQUEST.fields_by_name['status'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
