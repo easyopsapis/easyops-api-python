@@ -5,7 +5,7 @@ package execute;
 
 
 import "model/tool/callback.proto";
-import "model/tool/input_param.proto";
+import "google/protobuf/struct.proto";
 
 /*
 ExecuteTool请求
@@ -20,37 +20,49 @@ message Metadata {
         
     
     /*
+    执行时输入参数
+  "inputs": {
+    "@agents": [
+    {
+      "ip": "192.168.100.163",
+      "instanceId": "5caee6c67d86a"
+    }
+    ],
+    "ddddd": "5caee6c67d86a",
+    "test1": "test params",
+    "test2": "develop_1"
+  },
+
+    */
+    google.protobuf.Struct inputs = 1 ;
+    /*
     执行工具的agents列表
     */
-    repeated string agents = 1 ;
+    repeated string agents = 2 ;
     /*
     工具执行成功的回调信息
     */
-    tool.Callback callback = 2 ;
+    tool.Callback callback = 3 ;
     /*
     工具执行的通知信息
     */
-    string needNotify = 3 ;
+    string needNotify = 4 ;
     /*
     工具执行通知的用户
     */
-    string name = 4 ;
+    string name = 5 ;
     /*
     一些拓展字段 目前支持origin=页面访问地址
     */
-    Metadata metadata = 5 ;
+    Metadata metadata = 6 ;
     /*
     工具Id，服务端自动生成
     */
-    string toolId = 6 ;
+    string toolId = 7 ;
     /*
     工具版本
     */
-    string vId = 7 ;
-    /*
-    工具输入参数
-    */
-    repeated tool.input_param inputs = 8 ;
+    string vId = 8 ;
     /*
     执行用户
     */
