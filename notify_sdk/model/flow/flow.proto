@@ -155,7 +155,7 @@ message OutputDefs {
     */
     string updateTime = 12 ;
     /*
-    版本号(时间戳)
+    版本号(时间戳-秒)
     */
     int32 version = 13 ;
     /*

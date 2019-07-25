@@ -49,7 +49,7 @@ message Metadata {
     */
     string flowId = 6 ;
     /*
-    版本号(时间戳)
+    版本号(时间戳-秒)
     */
     int32 version = 7 ;
     /*

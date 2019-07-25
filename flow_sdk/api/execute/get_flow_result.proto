@@ -4,7 +4,7 @@ package execute;
 
 
 
-import "model/flow/flow_step.proto";
+import "model/flow/flow_execute_step.proto";
 import "model/tool/input_param.proto";
 import "model/flow/flow_instance.proto";
 import "google/protobuf/struct.proto";

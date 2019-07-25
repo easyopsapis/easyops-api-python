@@ -2,7 +2,6 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
-    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
@@ -13,8 +12,8 @@ from google.protobuf.struct_pb2 import (
     Struct as google___protobuf___struct_pb2___Struct,
 )
 
-from model.flow.flow_step_pb2 import (
-    FlowStep as model___flow___flow_step_pb2___FlowStep,
+from model.flow.flow_execute_step_pb2 import (
+    FlowExecuteStep as model___flow___flow_execute_step_pb2___FlowExecuteStep,
 )
 
 from model.tool.input_param_pb2 import (
@@ -33,65 +32,6 @@ from typing_extensions import (
 
 
 class FlowInstance(google___protobuf___message___Message):
-    class TableDefs(google___protobuf___message___Message):
-        class Dimensions(google___protobuf___message___Message):
-            id = ... # type: typing___Text
-            name = ... # type: typing___Text
-
-            def __init__(self,
-                id : typing___Optional[typing___Text] = None,
-                name : typing___Optional[typing___Text] = None,
-                ) -> None: ...
-            @classmethod
-            def FromString(cls, s: bytes) -> FlowInstance.TableDefs.Dimensions: ...
-            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            if sys.version_info >= (3,):
-                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name"]) -> None: ...
-            else:
-                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name"]) -> None: ...
-
-        class Columns(google___protobuf___message___Message):
-            id = ... # type: typing___Text
-            name = ... # type: typing___Text
-
-            def __init__(self,
-                id : typing___Optional[typing___Text] = None,
-                name : typing___Optional[typing___Text] = None,
-                ) -> None: ...
-            @classmethod
-            def FromString(cls, s: bytes) -> FlowInstance.TableDefs.Columns: ...
-            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-            if sys.version_info >= (3,):
-                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name"]) -> None: ...
-            else:
-                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name"]) -> None: ...
-
-        id = ... # type: typing___Text
-        name = ... # type: typing___Text
-
-        @property
-        def dimensions(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs.Dimensions]: ...
-
-        @property
-        def columns(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs.Columns]: ...
-
-        def __init__(self,
-            id : typing___Optional[typing___Text] = None,
-            name : typing___Optional[typing___Text] = None,
-            dimensions : typing___Optional[typing___Iterable[FlowInstance.TableDefs.Dimensions]] = None,
-            columns : typing___Optional[typing___Iterable[FlowInstance.TableDefs.Columns]] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> FlowInstance.TableDefs: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"columns",u"dimensions",u"id",u"name"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"columns",b"dimensions",b"id",b"name"]) -> None: ...
-
     class Metadata(google___protobuf___message___Message):
         type = ... # type: typing___Text
         desc = ... # type: typing___Text
@@ -164,7 +104,67 @@ class FlowInstance(google___protobuf___message___Message):
         else:
             def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"type"]) -> None: ...
 
+    class TableDefs(google___protobuf___message___Message):
+        class Dimensions(google___protobuf___message___Message):
+            id = ... # type: typing___Text
+            name = ... # type: typing___Text
+
+            def __init__(self,
+                id : typing___Optional[typing___Text] = None,
+                name : typing___Optional[typing___Text] = None,
+                ) -> None: ...
+            @classmethod
+            def FromString(cls, s: bytes) -> FlowInstance.TableDefs.Dimensions: ...
+            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            if sys.version_info >= (3,):
+                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name"]) -> None: ...
+            else:
+                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name"]) -> None: ...
+
+        class Columns(google___protobuf___message___Message):
+            id = ... # type: typing___Text
+            name = ... # type: typing___Text
+
+            def __init__(self,
+                id : typing___Optional[typing___Text] = None,
+                name : typing___Optional[typing___Text] = None,
+                ) -> None: ...
+            @classmethod
+            def FromString(cls, s: bytes) -> FlowInstance.TableDefs.Columns: ...
+            def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+            if sys.version_info >= (3,):
+                def ClearField(self, field_name: typing_extensions___Literal[u"id",u"name"]) -> None: ...
+            else:
+                def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name"]) -> None: ...
+
+        id = ... # type: typing___Text
+        name = ... # type: typing___Text
+
+        @property
+        def dimensions(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs.Dimensions]: ...
+
+        @property
+        def columns(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs.Columns]: ...
+
+        def __init__(self,
+            id : typing___Optional[typing___Text] = None,
+            name : typing___Optional[typing___Text] = None,
+            dimensions : typing___Optional[typing___Iterable[FlowInstance.TableDefs.Dimensions]] = None,
+            columns : typing___Optional[typing___Iterable[FlowInstance.TableDefs.Columns]] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> FlowInstance.TableDefs: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"columns",u"dimensions",u"id",u"name"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"columns",b"dimensions",b"id",b"name"]) -> None: ...
+
     taskId = ... # type: typing___Text
+    needNotify = ... # type: typing___Text
     startTime = ... # type: int
     endTime = ... # type: int
     currentTime = ... # type: int
@@ -172,28 +172,25 @@ class FlowInstance(google___protobuf___message___Message):
     message = ... # type: typing___Text
     taskCounter = ... # type: int
     flowId = ... # type: typing___Text
-    name = ... # type: typing___Text
-    type = ... # type: typing___Text
-    category = ... # type: typing___Text
-    vName = ... # type: typing___Text
-    enableLoop = ... # type: typing___Text
-    readOnly = ... # type: typing___Text
-    org = ... # type: int
-    createTime = ... # type: typing___Text
-    creator = ... # type: typing___Text
-    vCreator = ... # type: typing___Text
-    updateTime = ... # type: typing___Text
     version = ... # type: int
-    vDesc = ... # type: typing___Text
-    readAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    updateAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    deleteAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    executeAuthorizers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    memo = ... # type: typing___Text
-    subscribers = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
-    subscribedChannel = ... # type: typing___Text
-    is_system_org = ... # type: typing___Text
-    tags = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+    name = ... # type: typing___Text
+    org = ... # type: int
+    creator = ... # type: typing___Text
+    category = ... # type: typing___Text
+    updateTime = ... # type: typing___Text
+    createTime = ... # type: typing___Text
+
+    @property
+    def stepList(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___flow___flow_execute_step_pb2___FlowExecuteStep]: ...
+
+    @property
+    def instanceMap(self) -> google___protobuf___struct_pb2___Struct: ...
+
+    @property
+    def outputs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[google___protobuf___struct_pb2___Struct]: ...
+
+    @property
+    def runningSteps(self) -> google___protobuf___struct_pb2___Struct: ...
 
     @property
     def flowOutputsData(self) -> google___protobuf___struct_pb2___Struct: ...
@@ -208,10 +205,7 @@ class FlowInstance(google___protobuf___message___Message):
     def agentData(self) -> google___protobuf___struct_pb2___Struct: ...
 
     @property
-    def stepList(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___flow___flow_step_pb2___FlowStep]: ...
-
-    @property
-    def tableDefs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs]: ...
+    def flowInputs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___tool___input_param_pb2___input_param]: ...
 
     @property
     def flowEnv(self) -> google___protobuf___struct_pb2___Struct: ...
@@ -220,19 +214,21 @@ class FlowInstance(google___protobuf___message___Message):
     def metadata(self) -> FlowInstance.Metadata: ...
 
     @property
-    def flowInputs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___tool___input_param_pb2___input_param]: ...
-
-    @property
     def flowOutputs(self) -> FlowInstance.FlowOutputs: ...
 
     @property
     def outputDefs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.OutputDefs]: ...
 
     @property
-    def histories(self) -> google___protobuf___struct_pb2___Struct: ...
+    def tableDefs(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[FlowInstance.TableDefs]: ...
 
     def __init__(self,
+        stepList : typing___Optional[typing___Iterable[model___flow___flow_execute_step_pb2___FlowExecuteStep]] = None,
         taskId : typing___Optional[typing___Text] = None,
+        instanceMap : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        outputs : typing___Optional[typing___Iterable[google___protobuf___struct_pb2___Struct]] = None,
+        runningSteps : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        needNotify : typing___Optional[typing___Text] = None,
         startTime : typing___Optional[int] = None,
         endTime : typing___Optional[int] = None,
         currentTime : typing___Optional[int] = None,
@@ -244,44 +240,27 @@ class FlowInstance(google___protobuf___message___Message):
         standardOutputs : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
         agentData : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
         flowId : typing___Optional[typing___Text] = None,
-        name : typing___Optional[typing___Text] = None,
-        type : typing___Optional[typing___Text] = None,
-        category : typing___Optional[typing___Text] = None,
-        vName : typing___Optional[typing___Text] = None,
-        enableLoop : typing___Optional[typing___Text] = None,
-        readOnly : typing___Optional[typing___Text] = None,
-        org : typing___Optional[int] = None,
-        createTime : typing___Optional[typing___Text] = None,
-        creator : typing___Optional[typing___Text] = None,
-        vCreator : typing___Optional[typing___Text] = None,
-        updateTime : typing___Optional[typing___Text] = None,
         version : typing___Optional[int] = None,
-        vDesc : typing___Optional[typing___Text] = None,
-        readAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        updateAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        deleteAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        executeAuthorizers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        memo : typing___Optional[typing___Text] = None,
-        subscribers : typing___Optional[typing___Iterable[typing___Text]] = None,
-        subscribedChannel : typing___Optional[typing___Text] = None,
-        is_system_org : typing___Optional[typing___Text] = None,
-        stepList : typing___Optional[typing___Iterable[model___flow___flow_step_pb2___FlowStep]] = None,
-        tableDefs : typing___Optional[typing___Iterable[FlowInstance.TableDefs]] = None,
-        flowEnv : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
-        tags : typing___Optional[typing___Iterable[typing___Text]] = None,
-        metadata : typing___Optional[FlowInstance.Metadata] = None,
         flowInputs : typing___Optional[typing___Iterable[model___tool___input_param_pb2___input_param]] = None,
+        flowEnv : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        metadata : typing___Optional[FlowInstance.Metadata] = None,
+        name : typing___Optional[typing___Text] = None,
+        org : typing___Optional[int] = None,
         flowOutputs : typing___Optional[FlowInstance.FlowOutputs] = None,
         outputDefs : typing___Optional[typing___Iterable[FlowInstance.OutputDefs]] = None,
-        histories : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        tableDefs : typing___Optional[typing___Iterable[FlowInstance.TableDefs]] = None,
+        creator : typing___Optional[typing___Text] = None,
+        category : typing___Optional[typing___Text] = None,
+        updateTime : typing___Optional[typing___Text] = None,
+        createTime : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> FlowInstance: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def HasField(self, field_name: typing_extensions___Literal[u"agentData",u"flowEnv",u"flowOutputs",u"flowOutputsData",u"histories",u"metadata",u"standardOutputs",u"tableData"]) -> bool: ...
-        def ClearField(self, field_name: typing_extensions___Literal[u"agentData",u"category",u"createTime",u"creator",u"currentTime",u"deleteAuthorizers",u"enableLoop",u"endTime",u"executeAuthorizers",u"flowEnv",u"flowId",u"flowInputs",u"flowOutputs",u"flowOutputsData",u"histories",u"is_system_org",u"memo",u"message",u"metadata",u"name",u"org",u"outputDefs",u"readAuthorizers",u"readOnly",u"standardOutputs",u"startTime",u"stepList",u"subscribedChannel",u"subscribers",u"tableData",u"tableDefs",u"tags",u"taskCounter",u"taskId",u"totalStatus",u"type",u"updateAuthorizers",u"updateTime",u"vCreator",u"vDesc",u"vName",u"version"]) -> None: ...
+        def HasField(self, field_name: typing_extensions___Literal[u"agentData",u"flowEnv",u"flowOutputs",u"flowOutputsData",u"instanceMap",u"metadata",u"runningSteps",u"standardOutputs",u"tableData"]) -> bool: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"agentData",u"category",u"createTime",u"creator",u"currentTime",u"endTime",u"flowEnv",u"flowId",u"flowInputs",u"flowOutputs",u"flowOutputsData",u"instanceMap",u"message",u"metadata",u"name",u"needNotify",u"org",u"outputDefs",u"outputs",u"runningSteps",u"standardOutputs",u"startTime",u"stepList",u"tableData",u"tableDefs",u"taskCounter",u"taskId",u"totalStatus",u"updateTime",u"version"]) -> None: ...
     else:
-        def HasField(self, field_name: typing_extensions___Literal[u"agentData",b"agentData",u"flowEnv",b"flowEnv",u"flowOutputs",b"flowOutputs",u"flowOutputsData",b"flowOutputsData",u"histories",b"histories",u"metadata",b"metadata",u"standardOutputs",b"standardOutputs",u"tableData",b"tableData"]) -> bool: ...
-        def ClearField(self, field_name: typing_extensions___Literal[b"agentData",b"category",b"createTime",b"creator",b"currentTime",b"deleteAuthorizers",b"enableLoop",b"endTime",b"executeAuthorizers",b"flowEnv",b"flowId",b"flowInputs",b"flowOutputs",b"flowOutputsData",b"histories",b"is_system_org",b"memo",b"message",b"metadata",b"name",b"org",b"outputDefs",b"readAuthorizers",b"readOnly",b"standardOutputs",b"startTime",b"stepList",b"subscribedChannel",b"subscribers",b"tableData",b"tableDefs",b"tags",b"taskCounter",b"taskId",b"totalStatus",b"type",b"updateAuthorizers",b"updateTime",b"vCreator",b"vDesc",b"vName",b"version"]) -> None: ...
+        def HasField(self, field_name: typing_extensions___Literal[u"agentData",b"agentData",u"flowEnv",b"flowEnv",u"flowOutputs",b"flowOutputs",u"flowOutputsData",b"flowOutputsData",u"instanceMap",b"instanceMap",u"metadata",b"metadata",u"runningSteps",b"runningSteps",u"standardOutputs",b"standardOutputs",u"tableData",b"tableData"]) -> bool: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"agentData",b"category",b"createTime",b"creator",b"currentTime",b"endTime",b"flowEnv",b"flowId",b"flowInputs",b"flowOutputs",b"flowOutputsData",b"instanceMap",b"message",b"metadata",b"name",b"needNotify",b"org",b"outputDefs",b"outputs",b"runningSteps",b"standardOutputs",b"startTime",b"stepList",b"tableData",b"tableDefs",b"taskCounter",b"taskId",b"totalStatus",b"updateTime",b"version"]) -> None: ...

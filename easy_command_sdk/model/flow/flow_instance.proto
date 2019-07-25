@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/f
 
 
 
-import "model/flow/flow_step.proto";
+import "model/flow/flow_execute_step.proto";
 import "model/tool/input_param.proto";
 import "google/protobuf/struct.proto";
 
@@ -14,48 +14,6 @@ import "google/protobuf/struct.proto";
 流程执行结果
 */
 message FlowInstance {
-message TableDefs {
-message Dimensions {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-}
-        
-message Columns {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-}
-        
-    
-    /*
-    输出表格id
-    */
-    string id = 1 ;
-    /*
-    输出表格标题
-    */
-    string name = 2 ;
-    /*
-    维度列
-    */
-    repeated Dimensions dimensions = 3 ;
-    /*
-    输出列
-    */
-    repeated Columns columns = 4 ;
-}
-        
 message Metadata {
     /*
     环境
@@ -105,174 +63,168 @@ message OutputDefs {
     string name = 3 ;
 }
         
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
     
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    流程步骤详情
+    */
+    repeated flow.FlowExecuteStep stepList = 1 ;
     /*
     任务ID
     */
-    string taskId = 1 ;
+    string taskId = 2 ;
     /*
-    开始时间戳
+    自动填充参数
     */
-    int32 startTime = 2 ;
+    google.protobuf.Struct instanceMap = 3 ;
     /*
-    结束时间戳
+    执行输出
     */
-    int32 endTime = 3 ;
+    repeated google.protobuf.Struct outputs = 4 ;
     /*
-    当前时间戳
+    执行中步骤,如: {2: {startTime: 1563958843992, status: "executing", name: 2}}
     */
-    int32 currentTime = 4 ;
+    google.protobuf.Struct runningSteps = 5 ;
+    /*
+    是否发送notify通知
+    */
+    string needNotify = 6 ;
+    /*
+    开始时间戳毫秒
+    */
+    int32 startTime = 7 ;
+    /*
+    结束时间戳毫秒
+    */
+    int32 endTime = 8 ;
+    /*
+    当前时间戳毫秒
+    */
+    int32 currentTime = 9 ;
     /*
     流程执行结果总状态("wait"-初始态等待执行, "executing"-执行中, "success"-成功, "failed"-失败, "paused"-人工确认, "interrupted"-暂停, "terminate"-终止)
     */
-    string totalStatus = 5 ;
+    string totalStatus = 10 ;
     /*
     流程执行结果
     */
-    string message = 6 ;
+    string message = 11 ;
     /*
     任务数量
     */
-    int32 taskCounter = 7 ;
+    int32 taskCounter = 12 ;
     /*
     流程输出数据
     */
-    google.protobuf.Struct flowOutputsData = 8 ;
+    google.protobuf.Struct flowOutputsData = 13 ;
     /*
     表格数据
     */
-    google.protobuf.Struct tableData = 9 ;
+    google.protobuf.Struct tableData = 14 ;
     /*
     标准输出
     */
-    google.protobuf.Struct standardOutputs = 10 ;
+    google.protobuf.Struct standardOutputs = 15 ;
     /*
     agent数据
     */
-    google.protobuf.Struct agentData = 11 ;
+    google.protobuf.Struct agentData = 16 ;
     /*
     流程ID
     */
-    string flowId = 12 ;
+    string flowId = 17 ;
     /*
-    流程名称
+    版本号(时间戳-秒)
     */
-    string name = 13 ;
-    /*
-    流程自定义分类
-    */
-    string type = 14 ;
-    /*
-    流程类别如流水线、流程、流水线模板等
-    */
-    string category = 15 ;
-    /*
-    流程版本名
-    */
-    string vName = 16 ;
-    /*
-    是否可循环
-    */
-    string enableLoop = 17 ;
-    /*
-    是否只读
-    */
-    string readOnly = 18 ;
-    /*
-    org
-    */
-    int32 org = 19 ;
-    /*
-    创建时间
-    */
-    string createTime = 20 ;
-    /*
-    流程创建者
-    */
-    string creator = 21 ;
-    /*
-    版本创建者
-    */
-    string vCreator = 22 ;
-    /*
-    修改时间
-    */
-    string updateTime = 23 ;
-    /*
-    版本号(时间戳)
-    */
-    int32 version = 24 ;
-    /*
-    版本说明
-    */
-    string vDesc = 25 ;
-    /*
-    流程查询权限列表["username",":user_group_id"]
-    */
-    repeated string readAuthorizers = 26 ;
-    /*
-    流程更新权限列表["username",":user_group_id"]
-    */
-    repeated string updateAuthorizers = 27 ;
-    /*
-    流程删除权限列表["username",":user_group_id"]
-    */
-    repeated string deleteAuthorizers = 28 ;
-    /*
-    流程执行权限列表["username",":user_group_id"]
-    */
-    repeated string executeAuthorizers = 29 ;
-    /*
-    流程备注
-    */
-    string memo = 30 ;
-    /*
-    通知订阅者，英文逗号分开
-    */
-    repeated string subscribers = 31 ;
-    /*
-    通知事件
-    */
-    string subscribedChannel = 32 ;
-    /*
-    是否系统ORG
-    */
-    string is_system_org = 33 ;
-    /*
-    流程步骤
-    */
-    repeated flow.FlowStep stepList = 34 ;
-    /*
-    表格输出定义
-    */
-    repeated TableDefs tableDefs = 35 ;
-    /*
-    流程环境变量
-    */
-    google.protobuf.Struct flowEnv = 36 ;
-    /*
-    流程标签
-    */
-    repeated string tags = 37 ;
-    /*
-    流程环境类型
-    */
-    Metadata metadata = 38 ;
+    int32 version = 18 ;
     /*
     流程输入
     */
-    repeated tool.input_param flowInputs = 39 ;
+    repeated tool.input_param flowInputs = 19 ;
+    /*
+    流程环境变量
+    */
+    google.protobuf.Struct flowEnv = 20 ;
+    /*
+    流程环境类型
+    */
+    Metadata metadata = 21 ;
+    /*
+    流程名称
+    */
+    string name = 22 ;
+    /*
+    org
+    */
+    int32 org = 23 ;
     /*
     流程输出设置
     */
-    FlowOutputs flowOutputs = 40 ;
+    FlowOutputs flowOutputs = 24 ;
     /*
     输出定义
     */
-    repeated OutputDefs outputDefs = 41 ;
+    repeated OutputDefs outputDefs = 25 ;
     /*
-    流程执行历史
+    表格输出定义
     */
-    google.protobuf.Struct histories = 42 ;
+    repeated TableDefs tableDefs = 26 ;
+    /*
+    流程创建者
+    */
+    string creator = 27 ;
+    /*
+    流程类别如流水线、流程、流水线模板等
+    */
+    string category = 28 ;
+    /*
+    修改时间
+    */
+    string updateTime = 29 ;
+    /*
+    创建时间
+    */
+    string createTime = 30 ;
 }
 
