@@ -20,11 +20,49 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cmdb_object',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nlist.proto\x12\x0b\x63mdb_object\x1a\x1cmodel/cmdb/cmdb_object.proto\"^\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1e\n\x04list\x18\x04 \x03(\x0b\x32\x10.cmdb.CmdbObject\"p\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\'\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x19.cmdb_object.ListResponseb\x06proto3')
+  serialized_pb=_b('\n\nlist.proto\x12\x0b\x63mdb_object\x1a\x1cmodel/cmdb/cmdb_object.proto\".\n\x0bListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\"^\n\x0cListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1e\n\x04list\x18\x04 \x03(\x0b\x32\x10.cmdb.CmdbObject\"p\n\x13ListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\'\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x19.cmdb_object.ListResponseb\x06proto3')
   ,
   dependencies=[model_dot_cmdb_dot_cmdb__object__pb2.DESCRIPTOR,])
 
 
+
+
+_LISTREQUEST = _descriptor.Descriptor(
+  name='ListRequest',
+  full_name='cmdb_object.ListRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page', full_name='cmdb_object.ListRequest.page', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='cmdb_object.ListRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=57,
+  serialized_end=103,
+)
 
 
 _LISTRESPONSE = _descriptor.Descriptor(
@@ -74,8 +112,8 @@ _LISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=57,
-  serialized_end=151,
+  serialized_start=105,
+  serialized_end=199,
 )
 
 
@@ -126,15 +164,23 @@ _LISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=265,
+  serialized_start=201,
+  serialized_end=313,
 )
 
 _LISTRESPONSE.fields_by_name['list'].message_type = model_dot_cmdb_dot_cmdb__object__pb2._CMDBOBJECT
 _LISTRESPONSEWRAPPER.fields_by_name['data'].message_type = _LISTRESPONSE
+DESCRIPTOR.message_types_by_name['ListRequest'] = _LISTREQUEST
 DESCRIPTOR.message_types_by_name['ListResponse'] = _LISTRESPONSE
 DESCRIPTOR.message_types_by_name['ListResponseWrapper'] = _LISTRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+ListRequest = _reflection.GeneratedProtocolMessageType('ListRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LISTREQUEST,
+  __module__ = 'list_pb2'
+  # @@protoc_insertion_point(class_scope:cmdb_object.ListRequest)
+  ))
+_sym_db.RegisterMessage(ListRequest)
 
 ListResponse = _reflection.GeneratedProtocolMessageType('ListResponse', (_message.Message,), dict(
   DESCRIPTOR = _LISTRESPONSE,

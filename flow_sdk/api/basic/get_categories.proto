@@ -1,0 +1,51 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+GetFlowCategories返回
+*/
+message GetFlowCategoriesResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回信息
+    */
+    string message = 2 ;
+    /*
+    请求错误信息
+    */
+    string error = 3 ;
+    /*
+    流程分类信息,如["默认","清理","Test"]
+    */
+    repeated string data = 4 ;
+}
+
+/*
+GetFlowCategoriesApi返回
+*/
+message GetFlowCategoriesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetFlowCategoriesResponse data = 4 ;
+}
+

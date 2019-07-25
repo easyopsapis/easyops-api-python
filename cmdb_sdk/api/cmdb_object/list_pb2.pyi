@@ -23,6 +23,23 @@ from typing_extensions import (
 )
 
 
+class ListRequest(google___protobuf___message___Message):
+    page = ... # type: int
+    page_size = ... # type: int
+
+    def __init__(self,
+        page : typing___Optional[int] = None,
+        page_size : typing___Optional[int] = None,
+        ) -> None: ...
+    @classmethod
+    def FromString(cls, s: bytes) -> ListRequest: ...
+    def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    if sys.version_info >= (3,):
+        def ClearField(self, field_name: typing_extensions___Literal[u"page",u"page_size"]) -> None: ...
+    else:
+        def ClearField(self, field_name: typing_extensions___Literal[b"page",b"page_size"]) -> None: ...
+
 class ListResponse(google___protobuf___message___Message):
     page = ... # type: int
     page_size = ... # type: int

@@ -18,6 +18,10 @@ import delete_pb2
 
 import get_pb2
 
+import google.protobuf.empty_pb2
+
+import get_categories_pb2
+
 import get_version_list_pb2
 
 import list_pb2
@@ -202,6 +206,46 @@ class BasicClient(object):
         rsp = model.flow.flow_pb2.Flow()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_flow_categories(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_categories_pb2.GetFlowCategoriesResponse
+        """
+        查询流程分类
+        :param request: get_flow_categories请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: get_categories_pb2.GetFlowCategoriesResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.flow.basic.GetFlowCategories"
+        uri = "/flow_categories"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.flow_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = get_categories_pb2.GetFlowCategoriesResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

@@ -7,6 +7,20 @@ package cmdb_object;
 import "model/cmdb/cmdb_object.proto";
 
 /*
+List请求
+*/
+message ListRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
 List返回
 */
 message ListResponse {

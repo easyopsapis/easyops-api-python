@@ -12,8 +12,6 @@ import get_detail_pb2
 
 import model.cmdb.cmdb_object_pb2
 
-import google.protobuf.empty_pb2
-
 import list_pb2
 
 import utils.http_util
@@ -79,7 +77,7 @@ class CmdbObjectClient(object):
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_pb2.ListResponse
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         获取模型列表
         :param request: list请求
