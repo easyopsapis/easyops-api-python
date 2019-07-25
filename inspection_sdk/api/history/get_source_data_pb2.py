@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='history',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15get_source_data.proto\x12\x07history\x1a\x1dmodel/inspection/target.proto\x1a\x1emodel/inspection/history.proto\"\xb0\x03\n\x14GetSourceDataRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\t\x12\x12\n\ninstanceId\x18\x03 \x01(\t\x12\x30\n\x04list\x18\x04 \x01(\x0b\x32\".history.GetSourceDataRequest.List\x12\n\n\x02id\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1a\x84\x02\n\x04List\x12;\n\x07\x64imList\x18\x01 \x03(\x0b\x32*.history.GetSourceDataRequest.List.DimList\x12;\n\x07valList\x18\x02 \x03(\x0b\x32*.history.GetSourceDataRequest.List.ValList\x1a\x32\n\x07\x44imList\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x1aN\n\x07ValList\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\"}\n\x1cGetSourceDataResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12+\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1d.inspection.InspectionHistoryb\x06proto3')
+  serialized_pb=_b('\n\x15get_source_data.proto\x12\x07history\x1a\x1dmodel/inspection/target.proto\x1a\x1emodel/inspection/history.proto\"\xb0\x03\n\x14GetSourceDataRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\t\x12\x12\n\ninstanceId\x18\x03 \x01(\t\x12\x30\n\x04list\x18\x04 \x03(\x0b\x32\".history.GetSourceDataRequest.List\x12\n\n\x02id\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1a\x84\x02\n\x04List\x12;\n\x07\x64imList\x18\x01 \x03(\x0b\x32*.history.GetSourceDataRequest.List.DimList\x12;\n\x07valList\x18\x02 \x03(\x0b\x32*.history.GetSourceDataRequest.List.ValList\x1a\x32\n\x07\x44imList\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x1aN\n\x07ValList\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\"}\n\x1cGetSourceDataResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12+\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1d.inspection.InspectionHistoryb\x06proto3')
   ,
   dependencies=[model_dot_inspection_dot_target__pb2.DESCRIPTOR,model_dot_inspection_dot_history__pb2.DESCRIPTOR,])
 
@@ -197,8 +197,8 @@ _GETSOURCEDATAREQUEST = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='list', full_name='history.GetSourceDataRequest.list', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),

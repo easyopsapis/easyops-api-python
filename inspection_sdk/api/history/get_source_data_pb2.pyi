@@ -95,13 +95,13 @@ class GetSourceDataRequest(google___protobuf___message___Message):
     category = ... # type: typing___Text
 
     @property
-    def list(self) -> GetSourceDataRequest.List: ...
+    def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[GetSourceDataRequest.List]: ...
 
     def __init__(self,
         pluginId : typing___Optional[typing___Text] = None,
         jobId : typing___Optional[typing___Text] = None,
         instanceId : typing___Optional[typing___Text] = None,
-        list : typing___Optional[GetSourceDataRequest.List] = None,
+        list : typing___Optional[typing___Iterable[GetSourceDataRequest.List]] = None,
         id : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         category : typing___Optional[typing___Text] = None,
@@ -111,10 +111,8 @@ class GetSourceDataRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def HasField(self, field_name: typing_extensions___Literal[u"list"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[u"category",u"id",u"instanceId",u"jobId",u"list",u"name",u"pluginId"]) -> None: ...
     else:
-        def HasField(self, field_name: typing_extensions___Literal[u"list",b"list"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[b"category",b"id",b"instanceId",b"jobId",b"list",b"name",b"pluginId"]) -> None: ...
 
 class GetSourceDataResponseWrapper(google___protobuf___message___Message):

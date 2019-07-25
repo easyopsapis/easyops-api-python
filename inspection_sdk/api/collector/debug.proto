@@ -137,7 +137,6 @@ message Vals {
 ok: 通过调试
 undefined: 指标组未定义
 missing: 缺失指标组
-duplicated: 重复
 dims_not_unique: 维度不能唯一确定数据
 
     */

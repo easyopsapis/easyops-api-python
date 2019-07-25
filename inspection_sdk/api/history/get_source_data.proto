@@ -77,7 +77,7 @@ message ValList {
     /*
     指标组的值的列表
     */
-    List list = 4 ;
+    repeated List list = 4 ;
     /*
     指标组id
     */
