@@ -8,7 +8,11 @@ if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
 
+import add_cluster_device_pb2
+
 import create_instances_pb2
+
+import delete_cluster_device_pb2
 
 import get_instance_pb2
 
@@ -38,6 +42,48 @@ class InstanceClient(object):
         self._service_name = service_name
         self._host = host
 
+    
+    def add_cluster_device(self, request, org, user, timeout=10):
+        # type: (add_cluster_device_pb2.AddClusterDeviceRequest, int, str, int) -> add_cluster_device_pb2.AddClusterDeviceResponse
+        """
+        集群添加设备
+        :param request: add_cluster_device请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: add_cluster_device_pb2.AddClusterDeviceResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb_extend.instance.AddClusterDevice"
+        uri = "/cluster/{instanceId}/device/{deviceIds}".format(
+            instanceId=request.instanceId,
+            deviceIds=request.deviceIds,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_extend_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = add_cluster_device_pb2.AddClusterDeviceResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
     
     def create_instances(self, request, org, user, timeout=10):
         # type: (create_instances_pb2.CreateInstancesRequest, int, str, int) -> create_instances_pb2.CreateInstancesResponse
@@ -75,6 +121,48 @@ class InstanceClient(object):
             timeout=timeout,
         )
         rsp = create_instances_pb2.CreateInstancesResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def delete_cluster_device(self, request, org, user, timeout=10):
+        # type: (delete_cluster_device_pb2.DeleteClusterDeviceRequest, int, str, int) -> delete_cluster_device_pb2.DeleteClusterDeviceResponse
+        """
+        集群删除设备
+        :param request: delete_cluster_device请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: delete_cluster_device_pb2.DeleteClusterDeviceResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb_extend.instance.DeleteClusterDevice"
+        uri = "/cluster/{instanceId}/device/{deviceIds}".format(
+            instanceId=request.instanceId,
+            deviceIds=request.deviceIds,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="DELETE",
+            src_name="logic.cmdb_extend_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = delete_cluster_device_pb2.DeleteClusterDeviceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
