@@ -15,7 +15,6 @@ _sym_db = _symbol_database.Default()
 from model.inspection import val_pb2 as model_dot_inspection_dot_val__pb2
 from model.inspection import user_or_user_group_pb2 as model_dot_inspection_dot_user__or__user__group__pb2
 from model.easy_command import action_param_custom_pb2 as model_dot_easy__command_dot_action__param__custom__pb2
-from model.inspection import task_pb2 as model_dot_inspection_dot_task__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='task',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x04task\x1a\x1amodel/inspection/val.proto\x1a)model/inspection/user_or_user_group.proto\x1a,model/easy_command/action_param_custom.proto\x1a\x1bmodel/inspection/task.proto\"\xc0\x05\n\x11\x43reateTaskRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\'\n\x04vals\x18\x02 \x03(\x0b\x32\x19.inspection.InspectionVal\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x13\n\x0bisAllNotify\x18\x04 \x01(\x08\x12\x1c\n\x14notifyPassComparator\x18\x05 \x01(\t\x12\x13\n\x0bnotifyScore\x18\x06 \x01(\x02\x12*\n\x04\x61rgs\x18\x07 \x03(\x0b\x32\x1c.task.CreateTaskRequest.Args\x12\x39\n\nnotifyUser\x18\x08 \x01(\x0b\x32%.inspection.InspectionUserOrUserGroup\x12>\n\x0fnotifyUserGroup\x18\t \x01(\x0b\x32%.inspection.InspectionUserOrUserGroup\x12\x10\n\x08taskType\x18\n \x01(\t\x12\x1a\n\x12performanceTargets\x18\x0b \x01(\t\x12#\n\x1bspecifyHostPolicyInstanceId\x18\x0c \x01(\t\x12\x15\n\rtaskScheduler\x18\r \x01(\t\x12\x30\n\x07targets\x18\x0e \x03(\x0b\x32\x1f.task.CreateTaskRequest.Targets\x12\x0c\n\x04memo\x18\x0f \x01(\t\x12\x12\n\ntemplateId\x18\x10 \x01(\t\x12\x14\n\x0ctemplateName\x18\x11 \x01(\t\x1a\"\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x1a\x80\x01\n\x07Targets\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\n\n\x02ip\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\x05\x12\x35\n\x0c\x61\x63tionParams\x18\x05 \x03(\x0b\x32\x1f.easy_command.ActionParamCustom\"w\n\x19\x43reateTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12(\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1a.inspection.InspectionTaskb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x04task\x1a\x1amodel/inspection/val.proto\x1a)model/inspection/user_or_user_group.proto\x1a,model/easy_command/action_param_custom.proto\"\xc0\x05\n\x11\x43reateTaskRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\'\n\x04vals\x18\x02 \x03(\x0b\x32\x19.inspection.InspectionVal\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x13\n\x0bisAllNotify\x18\x04 \x01(\x08\x12\x1c\n\x14notifyPassComparator\x18\x05 \x01(\t\x12\x13\n\x0bnotifyScore\x18\x06 \x01(\x02\x12*\n\x04\x61rgs\x18\x07 \x03(\x0b\x32\x1c.task.CreateTaskRequest.Args\x12\x39\n\nnotifyUser\x18\x08 \x01(\x0b\x32%.inspection.InspectionUserOrUserGroup\x12>\n\x0fnotifyUserGroup\x18\t \x01(\x0b\x32%.inspection.InspectionUserOrUserGroup\x12\x10\n\x08taskType\x18\n \x01(\t\x12\x1a\n\x12performanceTargets\x18\x0b \x01(\t\x12#\n\x1bspecifyHostPolicyInstanceId\x18\x0c \x01(\t\x12\x15\n\rtaskScheduler\x18\r \x01(\t\x12\x30\n\x07targets\x18\x0e \x03(\x0b\x32\x1f.task.CreateTaskRequest.Targets\x12\x0c\n\x04memo\x18\x0f \x01(\t\x12\x12\n\ntemplateId\x18\x10 \x01(\t\x12\x14\n\x0ctemplateName\x18\x11 \x01(\t\x1a\"\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x1a\x80\x01\n\x07Targets\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\n\n\x02ip\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\x05\x12\x35\n\x0c\x61\x63tionParams\x18\x05 \x03(\x0b\x32\x1f.easy_command.ActionParamCustom\"\xa5\x02\n\x12\x43reateTaskResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rtaskScheduler\x18\x02 \x01(\t\x12\x14\n\x0ctemplateName\x18\x03 \x01(\t\x12\x0c\n\x04memo\x18\x04 \x01(\t\x12\x10\n\x08taskType\x18\x05 \x01(\t\x12\x31\n\x07targets\x18\x06 \x03(\x0b\x32 .task.CreateTaskResponse.Targets\x1a\x80\x01\n\x07Targets\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\n\n\x02ip\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\x05\x12\x35\n\x0c\x61\x63tionParams\x18\x05 \x03(\x0b\x32\x1f.easy_command.ActionParamCustom\"u\n\x19\x43reateTaskResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.task.CreateTaskResponseb\x06proto3')
   ,
-  dependencies=[model_dot_inspection_dot_val__pb2.DESCRIPTOR,model_dot_inspection_dot_user__or__user__group__pb2.DESCRIPTOR,model_dot_easy__command_dot_action__param__custom__pb2.DESCRIPTOR,model_dot_inspection_dot_task__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_inspection_dot_val__pb2.DESCRIPTOR,model_dot_inspection_dot_user__or__user__group__pb2.DESCRIPTOR,model_dot_easy__command_dot_action__param__custom__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +62,8 @@ _CREATETASKREQUEST_ARGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=708,
-  serialized_end=742,
+  serialized_start=679,
+  serialized_end=713,
 )
 
 _CREATETASKREQUEST_TARGETS = _descriptor.Descriptor(
@@ -121,8 +120,8 @@ _CREATETASKREQUEST_TARGETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=745,
-  serialized_end=873,
+  serialized_start=716,
+  serialized_end=844,
 )
 
 _CREATETASKREQUEST = _descriptor.Descriptor(
@@ -263,8 +262,132 @@ _CREATETASKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=169,
-  serialized_end=873,
+  serialized_start=140,
+  serialized_end=844,
+)
+
+
+_CREATETASKRESPONSE_TARGETS = _descriptor.Descriptor(
+  name='Targets',
+  full_name='task.CreateTaskResponse.Targets',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='instanceId', full_name='task.CreateTaskResponse.Targets.instanceId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='task.CreateTaskResponse.Targets.ip', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hostname', full_name='task.CreateTaskResponse.Targets.hostname', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='port', full_name='task.CreateTaskResponse.Targets.port', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='actionParams', full_name='task.CreateTaskResponse.Targets.actionParams', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=716,
+  serialized_end=844,
+)
+
+_CREATETASKRESPONSE = _descriptor.Descriptor(
+  name='CreateTaskResponse',
+  full_name='task.CreateTaskResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='task.CreateTaskResponse.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='taskScheduler', full_name='task.CreateTaskResponse.taskScheduler', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='templateName', full_name='task.CreateTaskResponse.templateName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='memo', full_name='task.CreateTaskResponse.memo', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='taskType', full_name='task.CreateTaskResponse.taskType', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='targets', full_name='task.CreateTaskResponse.targets', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CREATETASKRESPONSE_TARGETS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=847,
+  serialized_end=1140,
 )
 
 
@@ -315,8 +438,8 @@ _CREATETASKRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=875,
-  serialized_end=994,
+  serialized_start=1142,
+  serialized_end=1259,
 )
 
 _CREATETASKREQUEST_ARGS.containing_type = _CREATETASKREQUEST
@@ -327,8 +450,12 @@ _CREATETASKREQUEST.fields_by_name['args'].message_type = _CREATETASKREQUEST_ARGS
 _CREATETASKREQUEST.fields_by_name['notifyUser'].message_type = model_dot_inspection_dot_user__or__user__group__pb2._INSPECTIONUSERORUSERGROUP
 _CREATETASKREQUEST.fields_by_name['notifyUserGroup'].message_type = model_dot_inspection_dot_user__or__user__group__pb2._INSPECTIONUSERORUSERGROUP
 _CREATETASKREQUEST.fields_by_name['targets'].message_type = _CREATETASKREQUEST_TARGETS
-_CREATETASKRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_inspection_dot_task__pb2._INSPECTIONTASK
+_CREATETASKRESPONSE_TARGETS.fields_by_name['actionParams'].message_type = model_dot_easy__command_dot_action__param__custom__pb2._ACTIONPARAMCUSTOM
+_CREATETASKRESPONSE_TARGETS.containing_type = _CREATETASKRESPONSE
+_CREATETASKRESPONSE.fields_by_name['targets'].message_type = _CREATETASKRESPONSE_TARGETS
+_CREATETASKRESPONSEWRAPPER.fields_by_name['data'].message_type = _CREATETASKRESPONSE
 DESCRIPTOR.message_types_by_name['CreateTaskRequest'] = _CREATETASKREQUEST
+DESCRIPTOR.message_types_by_name['CreateTaskResponse'] = _CREATETASKRESPONSE
 DESCRIPTOR.message_types_by_name['CreateTaskResponseWrapper'] = _CREATETASKRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -354,6 +481,21 @@ CreateTaskRequest = _reflection.GeneratedProtocolMessageType('CreateTaskRequest'
 _sym_db.RegisterMessage(CreateTaskRequest)
 _sym_db.RegisterMessage(CreateTaskRequest.Args)
 _sym_db.RegisterMessage(CreateTaskRequest.Targets)
+
+CreateTaskResponse = _reflection.GeneratedProtocolMessageType('CreateTaskResponse', (_message.Message,), dict(
+
+  Targets = _reflection.GeneratedProtocolMessageType('Targets', (_message.Message,), dict(
+    DESCRIPTOR = _CREATETASKRESPONSE_TARGETS,
+    __module__ = 'create_pb2'
+    # @@protoc_insertion_point(class_scope:task.CreateTaskResponse.Targets)
+    ))
+  ,
+  DESCRIPTOR = _CREATETASKRESPONSE,
+  __module__ = 'create_pb2'
+  # @@protoc_insertion_point(class_scope:task.CreateTaskResponse)
+  ))
+_sym_db.RegisterMessage(CreateTaskResponse)
+_sym_db.RegisterMessage(CreateTaskResponse.Targets)
 
 CreateTaskResponseWrapper = _reflection.GeneratedProtocolMessageType('CreateTaskResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _CREATETASKRESPONSEWRAPPER,

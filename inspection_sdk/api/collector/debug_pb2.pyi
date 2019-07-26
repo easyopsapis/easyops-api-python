@@ -2,7 +2,6 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
-    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
@@ -65,12 +64,12 @@ class DebugCollectorRequest(google___protobuf___message___Message):
 class DebugCollectorResponse(google___protobuf___message___Message):
     class MetricGroups(google___protobuf___message___Message):
         class DimStatus(google___protobuf___message___Message):
-            status = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+            status = ... # type: typing___Text
             id = ... # type: typing___Text
             name = ... # type: typing___Text
 
             def __init__(self,
-                status : typing___Optional[typing___Iterable[typing___Text]] = None,
+                status : typing___Optional[typing___Text] = None,
                 id : typing___Optional[typing___Text] = None,
                 name : typing___Optional[typing___Text] = None,
                 ) -> None: ...
@@ -84,14 +83,14 @@ class DebugCollectorResponse(google___protobuf___message___Message):
                 def ClearField(self, field_name: typing_extensions___Literal[b"id",b"name",b"status"]) -> None: ...
 
         class ValStatus(google___protobuf___message___Message):
-            status = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+            status = ... # type: typing___Text
             id = ... # type: typing___Text
             name = ... # type: typing___Text
             type = ... # type: typing___Text
             unit = ... # type: typing___Text
 
             def __init__(self,
-                status : typing___Optional[typing___Iterable[typing___Text]] = None,
+                status : typing___Optional[typing___Text] = None,
                 id : typing___Optional[typing___Text] = None,
                 name : typing___Optional[typing___Text] = None,
                 type : typing___Optional[typing___Text] = None,
@@ -161,7 +160,7 @@ class DebugCollectorResponse(google___protobuf___message___Message):
             else:
                 def ClearField(self, field_name: typing_extensions___Literal[b"dims",b"vals"]) -> None: ...
 
-        metric_group_status = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
+        metric_group_status = ... # type: typing___Text
         id = ... # type: typing___Text
         name = ... # type: typing___Text
         category = ... # type: typing___Text
@@ -176,7 +175,7 @@ class DebugCollectorResponse(google___protobuf___message___Message):
         def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[DebugCollectorResponse.MetricGroups.List]: ...
 
         def __init__(self,
-            metric_group_status : typing___Optional[typing___Iterable[typing___Text]] = None,
+            metric_group_status : typing___Optional[typing___Text] = None,
             dim_status : typing___Optional[typing___Iterable[DebugCollectorResponse.MetricGroups.DimStatus]] = None,
             val_status : typing___Optional[typing___Iterable[DebugCollectorResponse.MetricGroups.ValStatus]] = None,
             list : typing___Optional[typing___Iterable[DebugCollectorResponse.MetricGroups.List]] = None,

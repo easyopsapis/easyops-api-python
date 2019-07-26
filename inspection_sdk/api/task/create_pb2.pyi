@@ -12,10 +12,6 @@ from model.easy_command.action_param_custom_pb2 import (
     ActionParamCustom as model___easy_command___action_param_custom_pb2___ActionParamCustom,
 )
 
-from model.inspection.task_pb2 import (
-    InspectionTask as model___inspection___task_pb2___InspectionTask,
-)
-
 from model.inspection.user_or_user_group_pb2 import (
     InspectionUserOrUserGroup as model___inspection___user_or_user_group_pb2___InspectionUserOrUserGroup,
 )
@@ -136,19 +132,71 @@ class CreateTaskRequest(google___protobuf___message___Message):
         def HasField(self, field_name: typing_extensions___Literal[u"notifyUser",b"notifyUser",u"notifyUserGroup",b"notifyUserGroup"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[b"args",b"id",b"isAllNotify",b"memo",b"name",b"notifyPassComparator",b"notifyScore",b"notifyUser",b"notifyUserGroup",b"performanceTargets",b"specifyHostPolicyInstanceId",b"targets",b"taskScheduler",b"taskType",b"templateId",b"templateName",b"vals"]) -> None: ...
 
+class CreateTaskResponse(google___protobuf___message___Message):
+    class Targets(google___protobuf___message___Message):
+        instanceId = ... # type: typing___Text
+        ip = ... # type: typing___Text
+        hostname = ... # type: typing___Text
+        port = ... # type: int
+
+        @property
+        def actionParams(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___easy_command___action_param_custom_pb2___ActionParamCustom]: ...
+
+        def __init__(self,
+            instanceId : typing___Optional[typing___Text] = None,
+            ip : typing___Optional[typing___Text] = None,
+            hostname : typing___Optional[typing___Text] = None,
+            port : typing___Optional[int] = None,
+            actionParams : typing___Optional[typing___Iterable[model___easy_command___action_param_custom_pb2___ActionParamCustom]] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> CreateTaskResponse.Targets: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"actionParams",u"hostname",u"instanceId",u"ip",u"port"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"actionParams",b"hostname",b"instanceId",b"ip",b"port"]) -> None: ...
+
+    name = ... # type: typing___Text
+    taskScheduler = ... # type: typing___Text
+    templateName = ... # type: typing___Text
+    memo = ... # type: typing___Text
+    taskType = ... # type: typing___Text
+
+    @property
+    def targets(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[CreateTaskResponse.Targets]: ...
+
+    def __init__(self,
+        name : typing___Optional[typing___Text] = None,
+        taskScheduler : typing___Optional[typing___Text] = None,
+        templateName : typing___Optional[typing___Text] = None,
+        memo : typing___Optional[typing___Text] = None,
+        taskType : typing___Optional[typing___Text] = None,
+        targets : typing___Optional[typing___Iterable[CreateTaskResponse.Targets]] = None,
+        ) -> None: ...
+    @classmethod
+    def FromString(cls, s: bytes) -> CreateTaskResponse: ...
+    def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+    if sys.version_info >= (3,):
+        def ClearField(self, field_name: typing_extensions___Literal[u"memo",u"name",u"targets",u"taskScheduler",u"taskType",u"templateName"]) -> None: ...
+    else:
+        def ClearField(self, field_name: typing_extensions___Literal[b"memo",b"name",b"targets",b"taskScheduler",b"taskType",b"templateName"]) -> None: ...
+
 class CreateTaskResponseWrapper(google___protobuf___message___Message):
     code = ... # type: int
     codeExplain = ... # type: typing___Text
     error = ... # type: typing___Text
 
     @property
-    def data(self) -> model___inspection___task_pb2___InspectionTask: ...
+    def data(self) -> CreateTaskResponse: ...
 
     def __init__(self,
         code : typing___Optional[int] = None,
         codeExplain : typing___Optional[typing___Text] = None,
         error : typing___Optional[typing___Text] = None,
-        data : typing___Optional[model___inspection___task_pb2___InspectionTask] = None,
+        data : typing___Optional[CreateTaskResponse] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> CreateTaskResponseWrapper: ...

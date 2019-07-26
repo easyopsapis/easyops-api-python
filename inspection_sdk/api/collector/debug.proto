@@ -57,8 +57,12 @@ mismatched_type: 类型错误
 missing: 未采集到
 duplicated: 重复
 
+如果同时具有多种状态只返回最重要的状态
+1:mismatched_type和duplicated只返回mismatched_type
+2:undefined和duplicated只返回undefined
+
     */
-    repeated string status = 1 ;
+    string status = 1 ;
     /*
     维度id
     */
@@ -78,8 +82,12 @@ mismatched_type: 类型错误
 missing: 未采集到
 duplicated: 重复
 
+如果同时具有多种状态只返回最重要的状态
+1:mismatched_type和duplicated只返回mismatched_type
+2:undefined和duplicated只返回undefined
+
     */
-    repeated string status = 1 ;
+    string status = 1 ;
     /*
     指标id
     */
@@ -139,17 +147,14 @@ ok: 通过调试
 undefined: 指标组未定义
 missing: 未采集指标组
 dims_not_unique: 维度不能唯一确定数据
-dims_undefined: dims未定义
-dims_mismatched_type:  dims类型错误
-dims_missing: 未采集到某些dims
-dims_duplicated: dims重复
-vals_undefined: vals未定义
-vals_missing: 未采集到某些vals
-vals_mismatched_type: vals类型错误
-vals_duplicated: vals重复
+metrics_not_ok: dims或vals不合法(未定义,类型错误,未采集到或重复)
+
+如果同时具有多种状态只返回最重要的状态
+1:metrics_not_ok和dims_not_unique只返回dims_not_unique
+2:undefined和dims_not_unique只返回undefined
 
     */
-    repeated string metric_group_status = 1 ;
+    string metric_group_status = 1 ;
     /*
     dim的状态列表
     */

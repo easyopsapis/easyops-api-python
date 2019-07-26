@@ -10,13 +10,13 @@ if PROJECT_PATH not in sys.path:
 
 import create_pb2
 
-import model.inspection.task_pb2
-
 import delete_pb2
 
 import google.protobuf.empty_pb2
 
 import get_pb2
+
+import model.inspection.task_pb2
 
 import list_pb2
 
@@ -44,14 +44,14 @@ class TaskClient(object):
 
     
     def create_task(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateTaskRequest, int, str, int) -> model.inspection.task_pb2.InspectionTask
+        # type: (create_pb2.CreateTaskRequest, int, str, int) -> create_pb2.CreateTaskResponse
         """
         创建巡检任务
         :param request: create_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.task_pb2.InspectionTask
+        :return: create_pb2.CreateTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -78,7 +78,7 @@ class TaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.task_pb2.InspectionTask()
+        rsp = create_pb2.CreateTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

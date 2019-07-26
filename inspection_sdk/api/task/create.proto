@@ -7,7 +7,6 @@ package task;
 import "model/inspection/val.proto";
 import "model/inspection/user_or_user_group.proto";
 import "model/easy_command/action_param_custom.proto";
-import "model/inspection/task.proto";
 
 /*
 CreateTask请求
@@ -119,6 +118,60 @@ message Targets {
 }
 
 /*
+CreateTask返回
+*/
+message CreateTaskResponse {
+message Targets {
+    /*
+    主机实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    主机IP
+    */
+    string ip = 2 ;
+    /*
+    主机名称
+    */
+    string hostname = 3 ;
+    /*
+    端口
+    */
+    int32 port = 4 ;
+    /*
+    任务的各个action在本target上的差异化参数信息。如果传了，则列表长度必须跟该任务的 actions 列表长度一致
+    */
+    repeated easy_command.ActionParamCustom actionParams = 5 ;
+}
+        
+    
+    /*
+    巡检任务名称
+    */
+    string name = 1 ;
+    /*
+    任务调度时间
+    */
+    string taskScheduler = 2 ;
+    /*
+    报告模板名
+    */
+    string templateName = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    巡检策略(once单次,crontab周期)
+    */
+    string taskType = 5 ;
+    /*
+    巡检对象
+    */
+    repeated Targets targets = 6 ;
+}
+
+/*
 CreateTaskApi返回
 */
 message CreateTaskResponseWrapper {
@@ -137,6 +190,6 @@ message CreateTaskResponseWrapper {
     /*
     返回数据
     */
-    inspection.InspectionTask data = 4 ;
+    task.CreateTaskResponse data = 4 ;
 }
 
