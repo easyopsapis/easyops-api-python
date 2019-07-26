@@ -53,11 +53,12 @@ message DimStatus {
     dim的状态
 ok: 通过调试
 undefined: 未定义
-missing: 缺失
+mismatched_type: 类型错误
+missing: 未采集到
 duplicated: 重复
 
     */
-    string status = 1 ;
+    repeated string status = 1 ;
     /*
     维度id
     */
@@ -73,12 +74,12 @@ message ValStatus {
     val的状态
 ok: 通过调试
 undefined: 未定义
-missing: 缺失
-duplicated: 重复
 mismatched_type: 类型错误
+missing: 未采集到
+duplicated: 重复
 
     */
-    string status = 1 ;
+    repeated string status = 1 ;
     /*
     指标id
     */
@@ -136,11 +137,19 @@ message Vals {
     指标组状态
 ok: 通过调试
 undefined: 指标组未定义
-missing: 缺失指标组
+missing: 未采集指标组
 dims_not_unique: 维度不能唯一确定数据
+dims_undefined: dims未定义
+dims_mismatched_type:  dims类型错误
+dims_missing: 未采集到某些dims
+dims_duplicated: dims重复
+vals_undefined: vals未定义
+vals_missing: 未采集到某些vals
+vals_mismatched_type: vals类型错误
+vals_duplicated: vals重复
 
     */
-    string metric_group_status = 1 ;
+    repeated string metric_group_status = 1 ;
     /*
     dim的状态列表
     */

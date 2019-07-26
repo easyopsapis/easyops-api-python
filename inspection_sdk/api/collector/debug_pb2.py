@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='collector',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x64\x65\x62ug.proto\x12\tcollector\"\xb3\x01\n\x15\x44\x65\x62ugCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0e\n\x06target\x18\x02 \x01(\t\x12\x33\n\x04\x61rgs\x18\x03 \x03(\x0b\x32%.collector.DebugCollectorRequest.Args\x12\x0e\n\x06script\x18\x04 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\t\x1a\"\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x9e\x06\n\x16\x44\x65\x62ugCollectorResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x0b\n\x03msg\x18\x02 \x01(\t\x12\x45\n\rmetric_groups\x18\x03 \x03(\x0b\x32..collector.DebugCollectorResponse.MetricGroups\x1a\x9f\x05\n\x0cMetricGroups\x12\x1b\n\x13metric_group_status\x18\x01 \x01(\t\x12L\n\ndim_status\x18\x02 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.DimStatus\x12L\n\nval_status\x18\x03 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.ValStatus\x12\x41\n\x04list\x18\x04 \x03(\x0b\x32\x33.collector.DebugCollectorResponse.MetricGroups.List\x12\n\n\x02id\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1a\x35\n\tDimStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x1aQ\n\tValStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x1a\xdc\x01\n\x04List\x12\x46\n\x04\x64ims\x18\x01 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.List.Dims\x12\x46\n\x04vals\x18\x02 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.List.Vals\x1a!\n\x04\x44ims\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x1a!\n\x04Vals\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\"\x82\x01\n\x1d\x44\x65\x62ugCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.collector.DebugCollectorResponseb\x06proto3')
+  serialized_pb=_b('\n\x0b\x64\x65\x62ug.proto\x12\tcollector\"\xb3\x01\n\x15\x44\x65\x62ugCollectorRequest\x12\x10\n\x08pluginId\x18\x01 \x01(\t\x12\x0e\n\x06target\x18\x02 \x01(\t\x12\x33\n\x04\x61rgs\x18\x03 \x03(\x0b\x32%.collector.DebugCollectorRequest.Args\x12\x0e\n\x06script\x18\x04 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\t\x1a\"\n\x04\x41rgs\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x9e\x06\n\x16\x44\x65\x62ugCollectorResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x0b\n\x03msg\x18\x02 \x01(\t\x12\x45\n\rmetric_groups\x18\x03 \x03(\x0b\x32..collector.DebugCollectorResponse.MetricGroups\x1a\x9f\x05\n\x0cMetricGroups\x12\x1b\n\x13metric_group_status\x18\x01 \x03(\t\x12L\n\ndim_status\x18\x02 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.DimStatus\x12L\n\nval_status\x18\x03 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.ValStatus\x12\x41\n\x04list\x18\x04 \x03(\x0b\x32\x33.collector.DebugCollectorResponse.MetricGroups.List\x12\n\n\x02id\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\x1a\x35\n\tDimStatus\x12\x0e\n\x06status\x18\x01 \x03(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x1aQ\n\tValStatus\x12\x0e\n\x06status\x18\x01 \x03(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0c\n\x04unit\x18\x05 \x01(\t\x1a\xdc\x01\n\x04List\x12\x46\n\x04\x64ims\x18\x01 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.List.Dims\x12\x46\n\x04vals\x18\x02 \x03(\x0b\x32\x38.collector.DebugCollectorResponse.MetricGroups.List.Vals\x1a!\n\x04\x44ims\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x1a!\n\x04Vals\x12\r\n\x05value\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\"\x82\x01\n\x1d\x44\x65\x62ugCollectorResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12/\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32!.collector.DebugCollectorResponseb\x06proto3')
 )
 
 
@@ -130,8 +130,8 @@ _DEBUGCOLLECTORRESPONSE_METRICGROUPS_DIMSTATUS = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='status', full_name='collector.DebugCollectorResponse.MetricGroups.DimStatus.status', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -174,8 +174,8 @@ _DEBUGCOLLECTORRESPONSE_METRICGROUPS_VALSTATUS = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='status', full_name='collector.DebugCollectorResponse.MetricGroups.ValStatus.status', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -343,8 +343,8 @@ _DEBUGCOLLECTORRESPONSE_METRICGROUPS = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='metric_group_status', full_name='collector.DebugCollectorResponse.MetricGroups.metric_group_status', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
