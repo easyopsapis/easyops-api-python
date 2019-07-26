@@ -1,0 +1,45 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "model/cmdb_extend/cluster_package.proto";
+import "google/protobuf/empty.proto";
+
+/*
+ClusterAddPackages请求
+*/
+message ClusterAddPackagesRequest {
+    /*
+    集群实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    程序包列表
+    */
+    repeated cmdb_extend.ClusterPackage packages = 2 ;
+}
+
+/*
+ClusterAddPackagesApi返回
+*/
+message ClusterAddPackagesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

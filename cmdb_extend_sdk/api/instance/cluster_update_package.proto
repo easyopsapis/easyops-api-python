@@ -1,0 +1,45 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+/*
+ClusterUpdatePackage请求
+*/
+message ClusterUpdatePackageRequest {
+    /*
+    集群实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    程序包信息(packageId, installPath, installPathNew ...)
+    */
+    google.protobuf.Struct package = 2 ;
+}
+
+/*
+ClusterUpdatePackageApi返回
+*/
+message ClusterUpdatePackageResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

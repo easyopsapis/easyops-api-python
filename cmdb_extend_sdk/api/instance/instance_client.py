@@ -20,6 +20,12 @@ import app_sort_packages_pb2
 
 import app_update_package_pb2
 
+import cluster_add_packages_pb2
+
+import cluster_delete_package_pb2
+
+import cluster_update_package_pb2
+
 import create_instances_pb2
 
 import delete_cluster_device_pb2
@@ -237,6 +243,130 @@ class InstanceClient(object):
         elif self._server_ip != "":
             route_name = "easyops.api.cmdb_extend.instance.AppUpdatePackage"
         uri = "/app/{instanceId}/package".format(
+            instanceId=request.instanceId,
+        )
+        requestParam = request.package
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="PUT",
+            src_name="logic.cmdb_extend_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def cluster_add_packages(self, request, org, user, timeout=10):
+        # type: (cluster_add_packages_pb2.ClusterAddPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        集群添加程序包
+        :param request: cluster_add_packages请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb_extend.instance.ClusterAddPackages"
+        uri = "/cluster/{instanceId}/package".format(
+            instanceId=request.instanceId,
+        )
+        requestParam = request.packages
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_extend_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def cluster_delete_package(self, request, org, user, timeout=10):
+        # type: (cluster_delete_package_pb2.ClusterDeletePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        集群解除关联包
+        :param request: cluster_delete_package请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb_extend.instance.ClusterDeletePackage"
+        uri = "/cluster/{instanceId}/package/{packageIds}".format(
+            instanceId=request.instanceId,
+            packageIds=request.packageIds,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="DELETE",
+            src_name="logic.cmdb_extend_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def cluster_update_package(self, request, org, user, timeout=10):
+        # type: (cluster_update_package_pb2.ClusterUpdatePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        修改集群关联包
+        :param request: cluster_update_package请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb_extend.instance.ClusterUpdatePackage"
+        uri = "/cluster/{instanceId}/package".format(
             instanceId=request.instanceId,
         )
         requestParam = request.package
