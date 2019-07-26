@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 
 from model.tool import callback_pb2 as model_dot_tool_dot_callback__pb2
-from model.tool import input_param_pb2 as model_dot_tool_dot_input__param__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
@@ -22,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='execute',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rexecute.proto\x12\x07\x65xecute\x1a\x19model/tool/callback.proto\x1a\x1cmodel/tool/input_param.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xa1\x03\n\x12\x45xecuteFlowRequest\x12,\n\x0binstanceMap\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x12\n\nneedNotify\x18\x02 \x01(\t\x12\x14\n\x0cparentTaskId\x18\x03 \x01(\t\x12 \n\x08\x63\x61llback\x18\x04 \x01(\x0b\x32\x0e.tool.Callback\x12#\n\x0b\x65ndCallback\x18\x05 \x01(\x0b\x32\x0e.tool.Callback\x12\x0e\n\x06\x66lowId\x18\x06 \x01(\t\x12\x0f\n\x07version\x18\x07 \x01(\x05\x12%\n\nflowInputs\x18\x08 \x03(\x0b\x32\x11.tool.input_param\x12\x0c\n\x04name\x18\t \x01(\t\x12(\n\x07\x66lowEnv\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x08metadata\x18\x0b \x01(\x0b\x32$.execute.ExecuteFlowRequest.Metadata\x12\x0c\n\x04tags\x18\x0c \x03(\t\x1a&\n\x08Metadata\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\"%\n\x13\x45xecuteFlowResponse\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"z\n\x1a\x45xecuteFlowResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1c.execute.ExecuteFlowResponseb\x06proto3')
+  serialized_pb=_b('\n\rexecute.proto\x12\x07\x65xecute\x1a\x19model/tool/callback.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xa7\x03\n\x12\x45xecuteFlowRequest\x12+\n\nflowInputs\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12,\n\x0binstanceMap\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x12\n\nneedNotify\x18\x03 \x01(\t\x12\x14\n\x0cparentTaskId\x18\x04 \x01(\t\x12 \n\x08\x63\x61llback\x18\x05 \x01(\x0b\x32\x0e.tool.Callback\x12#\n\x0b\x65ndCallback\x18\x06 \x01(\x0b\x32\x0e.tool.Callback\x12\x0e\n\x06\x66lowId\x18\x07 \x01(\t\x12\x0f\n\x07version\x18\x08 \x01(\x05\x12\x0c\n\x04name\x18\t \x01(\t\x12(\n\x07\x66lowEnv\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x08metadata\x18\x0b \x01(\x0b\x32$.execute.ExecuteFlowRequest.Metadata\x12\x0c\n\x04tags\x18\x0c \x03(\t\x1a&\n\x08Metadata\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\"%\n\x13\x45xecuteFlowResponse\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"z\n\x1a\x45xecuteFlowResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12*\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1c.execute.ExecuteFlowResponseb\x06proto3')
   ,
-  dependencies=[model_dot_tool_dot_callback__pb2.DESCRIPTOR,model_dot_tool_dot_input__param__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_tool_dot_callback__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +61,8 @@ _EXECUTEFLOWREQUEST_METADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=493,
-  serialized_end=531,
+  serialized_start=469,
+  serialized_end=507,
 )
 
 _EXECUTEFLOWREQUEST = _descriptor.Descriptor(
@@ -74,58 +73,58 @@ _EXECUTEFLOWREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='instanceMap', full_name='execute.ExecuteFlowRequest.instanceMap', index=0,
+      name='flowInputs', full_name='execute.ExecuteFlowRequest.flowInputs', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='needNotify', full_name='execute.ExecuteFlowRequest.needNotify', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='instanceMap', full_name='execute.ExecuteFlowRequest.instanceMap', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='parentTaskId', full_name='execute.ExecuteFlowRequest.parentTaskId', index=2,
+      name='needNotify', full_name='execute.ExecuteFlowRequest.needNotify', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='callback', full_name='execute.ExecuteFlowRequest.callback', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='parentTaskId', full_name='execute.ExecuteFlowRequest.parentTaskId', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='endCallback', full_name='execute.ExecuteFlowRequest.endCallback', index=4,
+      name='callback', full_name='execute.ExecuteFlowRequest.callback', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='flowId', full_name='execute.ExecuteFlowRequest.flowId', index=5,
-      number=6, type=9, cpp_type=9, label=1,
+      name='endCallback', full_name='execute.ExecuteFlowRequest.endCallback', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='flowId', full_name='execute.ExecuteFlowRequest.flowId', index=6,
+      number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='version', full_name='execute.ExecuteFlowRequest.version', index=6,
-      number=7, type=5, cpp_type=1, label=1,
+      name='version', full_name='execute.ExecuteFlowRequest.version', index=7,
+      number=8, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='flowInputs', full_name='execute.ExecuteFlowRequest.flowInputs', index=7,
-      number=8, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -169,8 +168,8 @@ _EXECUTEFLOWREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=114,
-  serialized_end=531,
+  serialized_start=84,
+  serialized_end=507,
 )
 
 
@@ -200,8 +199,8 @@ _EXECUTEFLOWRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=533,
-  serialized_end=570,
+  serialized_start=509,
+  serialized_end=546,
 )
 
 
@@ -252,15 +251,15 @@ _EXECUTEFLOWRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=572,
-  serialized_end=694,
+  serialized_start=548,
+  serialized_end=670,
 )
 
 _EXECUTEFLOWREQUEST_METADATA.containing_type = _EXECUTEFLOWREQUEST
+_EXECUTEFLOWREQUEST.fields_by_name['flowInputs'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _EXECUTEFLOWREQUEST.fields_by_name['instanceMap'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _EXECUTEFLOWREQUEST.fields_by_name['callback'].message_type = model_dot_tool_dot_callback__pb2._CALLBACK
 _EXECUTEFLOWREQUEST.fields_by_name['endCallback'].message_type = model_dot_tool_dot_callback__pb2._CALLBACK
-_EXECUTEFLOWREQUEST.fields_by_name['flowInputs'].message_type = model_dot_tool_dot_input__param__pb2._INPUT_PARAM
 _EXECUTEFLOWREQUEST.fields_by_name['flowEnv'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _EXECUTEFLOWREQUEST.fields_by_name['metadata'].message_type = _EXECUTEFLOWREQUEST_METADATA
 _EXECUTEFLOWRESPONSEWRAPPER.fields_by_name['data'].message_type = _EXECUTEFLOWRESPONSE

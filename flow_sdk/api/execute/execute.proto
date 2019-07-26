@@ -5,7 +5,6 @@ package execute;
 
 
 import "model/tool/callback.proto";
-import "model/tool/input_param.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -25,37 +24,49 @@ message Metadata {
         
     
     /*
+    流程执行时输入参数
+  "flowInputs": {
+      "@agents": [
+        {
+          "ip": "192.168.100.163",
+          "instanceId": "5caee6c67d86a"
+        }
+      ],
+      "test1": "test params",
+      "ddddd": "5caee6c67d86a",
+      "test2": "develop_1"
+    },
+
+    */
+    google.protobuf.Struct flowInputs = 1 ;
+    /*
     自动填充参数
     */
-    google.protobuf.Struct instanceMap = 1 ;
+    google.protobuf.Struct instanceMap = 2 ;
     /*
     是否发送notify通知
     */
-    string needNotify = 2 ;
+    string needNotify = 3 ;
     /*
     父流程任务ID
     */
-    string parentTaskId = 3 ;
+    string parentTaskId = 4 ;
     /*
     流程执行成功后的回调,有中间态回调,(部署在使用)
     */
-    tool.Callback callback = 4 ;
+    tool.Callback callback = 5 ;
     /*
     流程全部执行完回调,有别于callback字段
     */
-    tool.Callback endCallback = 5 ;
+    tool.Callback endCallback = 6 ;
     /*
     流程ID
     */
-    string flowId = 6 ;
+    string flowId = 7 ;
     /*
     版本号(时间戳-秒)
     */
-    int32 version = 7 ;
-    /*
-    流程输入
-    */
-    repeated tool.input_param flowInputs = 8 ;
+    int32 version = 8 ;
     /*
     流程名称
     */
