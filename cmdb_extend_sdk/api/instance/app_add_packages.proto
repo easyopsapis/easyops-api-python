@@ -1,0 +1,45 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "model/cmdb_extend/app_package.proto";
+import "google/protobuf/empty.proto";
+
+/*
+AppAddPackages请求
+*/
+message AppAddPackagesRequest {
+    /*
+    应用实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    程序包列表
+    */
+    repeated cmdb_extend.AppPackage packages = 2 ;
+}
+
+/*
+AppAddPackagesApi返回
+*/
+message AppAddPackagesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+
