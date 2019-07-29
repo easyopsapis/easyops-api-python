@@ -10,6 +10,10 @@ if PROJECT_PATH not in sys.path:
 
 import model.notify.pub_subscriber_pb2
 
+import delete_pb2
+
+import google.protobuf.empty_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -34,7 +38,7 @@ class PubSubscriberClient(object):
     def pub_subscriber_create(self, request, org, user, timeout=10):
         # type: (model.notify.pub_subscriber_pb2.PubSubscriber, int, str, int) -> model.notify.pub_subscriber_pb2.PubSubscriber
         """
-        添加订阅者
+        添加订阅
         :param request: pub_subscriber_create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
@@ -71,10 +75,51 @@ class PubSubscriberClient(object):
         
         return rsp
     
+    def pub_subscriber_delete(self, request, org, user, timeout=10):
+        # type: (delete_pb2.PubSubscriberDeleteRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        删除订阅
+        :param request: pub_subscriber_delete请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberDelete"
+        uri = "/pub_subscriber/{subscriber_id}".format(
+            subscriber_id=request.subscriber_id,
+        )
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="DELETE",
+            src_name="logic.notify_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def pub_subscriber_update(self, request, org, user, timeout=10):
         # type: (model.notify.pub_subscriber_pb2.PubSubscriber, int, str, int) -> model.notify.pub_subscriber_pb2.PubSubscriber
         """
-        更新订阅者
+        更新订阅
         :param request: pub_subscriber_update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名

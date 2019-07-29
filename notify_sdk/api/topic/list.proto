@@ -1,0 +1,70 @@
+syntax = "proto3";
+package topic;
+
+
+
+
+import "model/notify/topic.proto";
+
+/*
+TopicList请求
+*/
+message TopicListRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    事件系统
+    */
+    string system = 3 ;
+}
+
+/*
+TopicList返回
+*/
+message TopicListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated notify.Topic list = 4 ;
+}
+
+/*
+TopicListApi返回
+*/
+message TopicListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topic.TopicListResponse data = 4 ;
+}
+

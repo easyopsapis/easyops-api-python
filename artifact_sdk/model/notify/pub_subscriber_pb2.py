@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='notify',
   syntax='proto3',
   serialized_options=_b('Z@go.easyops.local/contracts/protorepo-models/easyops/model/notify'),
-  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\x1a!model/notify/subscribe_info.proto\"\xaa\x01\n\rPubSubscriber\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03org\x18\x02 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x04 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x05 \x01(\t\x12\r\n\x05retry\x18\x06 \x01(\x05\x12,\n\rsubscribeInfo\x18\x07 \x03(\x0b\x32\x15.notify.SubscribeInfo\x12\x0f\n\x07version\x18\x08 \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
+  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\x1a!model/notify/subscribe_info.proto\"\xa3\x01\n\rPubSubscriber\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03org\x18\x02 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x04 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x05 \x01(\t\x12\r\n\x05retry\x18\x06 \x01(\x05\x12%\n\x06topics\x18\x07 \x03(\x0b\x32\x15.notify.SubscribeInfo\x12\x0f\n\x07version\x18\x08 \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
   ,
   dependencies=[model_dot_notify_dot_subscribe__info__pb2.DESCRIPTOR,])
 
@@ -77,7 +77,7 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='subscribeInfo', full_name='notify.PubSubscriber.subscribeInfo', index=6,
+      name='topics', full_name='notify.PubSubscriber.topics', index=6,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -103,10 +103,10 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=68,
-  serialized_end=238,
+  serialized_end=231,
 )
 
-_PUBSUBSCRIBER.fields_by_name['subscribeInfo'].message_type = model_dot_notify_dot_subscribe__info__pb2._SUBSCRIBEINFO
+_PUBSUBSCRIBER.fields_by_name['topics'].message_type = model_dot_notify_dot_subscribe__info__pb2._SUBSCRIBEINFO
 DESCRIPTOR.message_types_by_name['PubSubscriber'] = _PUBSUBSCRIBER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

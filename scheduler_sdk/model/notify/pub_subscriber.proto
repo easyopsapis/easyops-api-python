@@ -39,7 +39,7 @@ message PubSubscriber {
     /*
     订阅信息
     */
-    repeated notify.SubscribeInfo subscribeInfo = 7 ;
+    repeated notify.SubscribeInfo topics = 7 ;
     /*
     版本号。用于乐观锁
     */
