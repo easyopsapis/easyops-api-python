@@ -14,6 +14,8 @@ import delete_pb2
 
 import google.protobuf.empty_pb2
 
+import list_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
@@ -113,6 +115,46 @@ class PubSubscriberClient(object):
         rsp = google.protobuf.empty_pb2.Empty()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def pub_subscriber_list(self, request, org, user, timeout=10):
+        # type: (list_pb2.PubSubscriberListRequest, int, str, int) -> list_pb2.PubSubscriberListResponse
+        """
+        获取订阅列表
+        :param request: pub_subscriber_list请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: list_pb2.PubSubscriberListResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberList"
+        uri = "/pub_subscriber"
+        
+        requestParam = request
+        
+        rsp_obj = utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.notify_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = list_pb2.PubSubscriberListResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
