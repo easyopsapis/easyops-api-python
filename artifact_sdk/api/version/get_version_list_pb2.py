@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='version',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x16get_version_list.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\"y\n\x15GetVersionListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\r\n\x05order\x18\x03 \x01(\t\x12\x11\n\tpackageId\x18\x04 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x05 \x01(\x05\x12\x0c\n\x04name\x18\x06 \x01(\t\"i\n\x16GetVersionListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1f\n\x04list\x18\x04 \x03(\x0b\x32\x11.artifact.Version\"\x80\x01\n\x1dGetVersionListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.GetVersionListResponseb\x06proto3')
+  serialized_pb=_b('\n\x16get_version_list.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\"\x94\x01\n\x15GetVersionListRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\r\n\x05order\x18\x03 \x01(\t\x12\x19\n\x11XXX_RestFieldMask\x18\x04 \x03(\t\x12\x11\n\tpackageId\x18\x05 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x06 \x01(\x05\x12\x0c\n\x04name\x18\x07 \x01(\t\"i\n\x16GetVersionListResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1f\n\x04list\x18\x04 \x03(\x0b\x32\x11.artifact.Version\"\x80\x01\n\x1dGetVersionListResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12-\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x1f.version.GetVersionListResponseb\x06proto3')
   ,
   dependencies=[model_dot_artifact_dot_version__pb2.DESCRIPTOR,])
 
@@ -56,22 +56,29 @@ _GETVERSIONLISTREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='packageId', full_name='version.GetVersionListRequest.packageId', index=3,
-      number=4, type=9, cpp_type=9, label=1,
+      name='XXX_RestFieldMask', full_name='version.GetVersionListRequest.XXX_RestFieldMask', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='packageId', full_name='version.GetVersionListRequest.packageId', index=4,
+      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='env_type', full_name='version.GetVersionListRequest.env_type', index=4,
-      number=5, type=5, cpp_type=1, label=1,
+      name='env_type', full_name='version.GetVersionListRequest.env_type', index=5,
+      number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='version.GetVersionListRequest.name', index=5,
-      number=6, type=9, cpp_type=9, label=1,
+      name='name', full_name='version.GetVersionListRequest.name', index=6,
+      number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -88,8 +95,8 @@ _GETVERSIONLISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=65,
-  serialized_end=186,
+  serialized_start=66,
+  serialized_end=214,
 )
 
 
@@ -140,8 +147,8 @@ _GETVERSIONLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=293,
+  serialized_start=216,
+  serialized_end=321,
 )
 
 
@@ -192,8 +199,8 @@ _GETVERSIONLISTRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=296,
-  serialized_end=424,
+  serialized_start=324,
+  serialized_end=452,
 )
 
 _GETVERSIONLISTRESPONSE.fields_by_name['list'].message_type = model_dot_artifact_dot_version__pb2._VERSION

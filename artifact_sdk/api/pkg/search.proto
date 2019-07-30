@@ -23,21 +23,25 @@ message SearchRequest {
     */
     string order = 3 ;
     /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 4 ;
+    /*
     包名称
     */
-    string name = 4 ;
+    string name = 5 ;
     /*
     版本类型 1 程序包,  2 配置包,  4 文件包
     */
-    int32 type = 5 ;
+    int32 type = 6 ;
     /*
     包分类
     */
-    int32 cId = 6 ;
+    int32 cId = 7 ;
     /*
     包分类标签
     */
-    string category = 7 ;
+    string category = 8 ;
 }
 
 /*

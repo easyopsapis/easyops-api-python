@@ -2,6 +2,7 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
+    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
@@ -27,6 +28,7 @@ class SearchRequest(google___protobuf___message___Message):
     page = ... # type: int
     pageSize = ... # type: int
     order = ... # type: typing___Text
+    XXX_RestFieldMask = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     name = ... # type: typing___Text
     type = ... # type: int
     cId = ... # type: int
@@ -36,6 +38,7 @@ class SearchRequest(google___protobuf___message___Message):
         page : typing___Optional[int] = None,
         pageSize : typing___Optional[int] = None,
         order : typing___Optional[typing___Text] = None,
+        XXX_RestFieldMask : typing___Optional[typing___Iterable[typing___Text]] = None,
         name : typing___Optional[typing___Text] = None,
         type : typing___Optional[int] = None,
         cId : typing___Optional[int] = None,
@@ -46,9 +49,9 @@ class SearchRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"cId",u"category",u"name",u"order",u"page",u"pageSize",u"type"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"XXX_RestFieldMask",u"cId",u"category",u"name",u"order",u"page",u"pageSize",u"type"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"cId",b"category",b"name",b"order",b"page",b"pageSize",b"type"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"XXX_RestFieldMask",b"cId",b"category",b"name",b"order",b"page",b"pageSize",b"type"]) -> None: ...
 
 class SearchResponse(google___protobuf___message___Message):
     page = ... # type: int

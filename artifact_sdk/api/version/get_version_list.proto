@@ -23,17 +23,21 @@ message GetVersionListRequest {
     */
     string order = 3 ;
     /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 4 ;
+    /*
     程序包Id
     */
-    string packageId = 4 ;
+    string packageId = 5 ;
     /*
     版本类型 1 开发, 3 测试, 7 预发布, 15 生产
     */
-    int32 env_type = 5 ;
+    int32 env_type = 6 ;
     /*
     包名称
     */
-    string name = 6 ;
+    string name = 7 ;
 }
 
 /*

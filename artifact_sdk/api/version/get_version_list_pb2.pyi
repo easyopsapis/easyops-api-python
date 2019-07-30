@@ -2,6 +2,7 @@
 import sys
 from google.protobuf.internal.containers import (
     RepeatedCompositeFieldContainer as google___protobuf___internal___containers___RepeatedCompositeFieldContainer,
+    RepeatedScalarFieldContainer as google___protobuf___internal___containers___RepeatedScalarFieldContainer,
 )
 
 from google.protobuf.message import (
@@ -27,6 +28,7 @@ class GetVersionListRequest(google___protobuf___message___Message):
     page = ... # type: int
     pageSize = ... # type: int
     order = ... # type: typing___Text
+    XXX_RestFieldMask = ... # type: google___protobuf___internal___containers___RepeatedScalarFieldContainer[typing___Text]
     packageId = ... # type: typing___Text
     env_type = ... # type: int
     name = ... # type: typing___Text
@@ -35,6 +37,7 @@ class GetVersionListRequest(google___protobuf___message___Message):
         page : typing___Optional[int] = None,
         pageSize : typing___Optional[int] = None,
         order : typing___Optional[typing___Text] = None,
+        XXX_RestFieldMask : typing___Optional[typing___Iterable[typing___Text]] = None,
         packageId : typing___Optional[typing___Text] = None,
         env_type : typing___Optional[int] = None,
         name : typing___Optional[typing___Text] = None,
@@ -44,9 +47,9 @@ class GetVersionListRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def ClearField(self, field_name: typing_extensions___Literal[u"env_type",u"name",u"order",u"packageId",u"page",u"pageSize"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[u"XXX_RestFieldMask",u"env_type",u"name",u"order",u"packageId",u"page",u"pageSize"]) -> None: ...
     else:
-        def ClearField(self, field_name: typing_extensions___Literal[b"env_type",b"name",b"order",b"packageId",b"page",b"pageSize"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions___Literal[b"XXX_RestFieldMask",b"env_type",b"name",b"order",b"packageId",b"page",b"pageSize"]) -> None: ...
 
 class GetVersionListResponse(google___protobuf___message___Message):
     page = ... # type: int

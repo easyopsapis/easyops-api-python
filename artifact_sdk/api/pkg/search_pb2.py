@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pkg',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0csearch.proto\x12\x03pkg\x1a\x1cmodel/artifact/package.proto\"y\n\rSearchRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\r\n\x05order\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\x05\x12\x0b\n\x03\x63Id\x18\x06 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\"a\n\x0eSearchResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1f\n\x04list\x18\x04 \x03(\x0b\x32\x11.artifact.Package\"l\n\x15SearchResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12!\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x13.pkg.SearchResponseb\x06proto3')
+  serialized_pb=_b('\n\x0csearch.proto\x12\x03pkg\x1a\x1cmodel/artifact/package.proto\"\x94\x01\n\rSearchRequest\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x10\n\x08pageSize\x18\x02 \x01(\x05\x12\r\n\x05order\x18\x03 \x01(\t\x12\x19\n\x11XXX_RestFieldMask\x18\x04 \x03(\t\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\x0c\n\x04type\x18\x06 \x01(\x05\x12\x0b\n\x03\x63Id\x18\x07 \x01(\x05\x12\x10\n\x08\x63\x61tegory\x18\x08 \x01(\t\"a\n\x0eSearchResponse\x12\x0c\n\x04page\x18\x01 \x01(\x05\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\r\n\x05total\x18\x03 \x01(\x05\x12\x1f\n\x04list\x18\x04 \x03(\x0b\x32\x11.artifact.Package\"l\n\x15SearchResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12!\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x13.pkg.SearchResponseb\x06proto3')
   ,
   dependencies=[model_dot_artifact_dot_package__pb2.DESCRIPTOR,])
 
@@ -56,29 +56,36 @@ _SEARCHREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='pkg.SearchRequest.name', index=3,
-      number=4, type=9, cpp_type=9, label=1,
+      name='XXX_RestFieldMask', full_name='pkg.SearchRequest.XXX_RestFieldMask', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='pkg.SearchRequest.name', index=4,
+      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='type', full_name='pkg.SearchRequest.type', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='cId', full_name='pkg.SearchRequest.cId', index=5,
+      name='type', full_name='pkg.SearchRequest.type', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='category', full_name='pkg.SearchRequest.category', index=6,
-      number=7, type=9, cpp_type=9, label=1,
+      name='cId', full_name='pkg.SearchRequest.cId', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='category', full_name='pkg.SearchRequest.category', index=7,
+      number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -95,8 +102,8 @@ _SEARCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=172,
+  serialized_start=52,
+  serialized_end=200,
 )
 
 
@@ -147,8 +154,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=271,
+  serialized_start=202,
+  serialized_end=299,
 )
 
 
@@ -199,8 +206,8 @@ _SEARCHRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=273,
-  serialized_end=381,
+  serialized_start=301,
+  serialized_end=409,
 )
 
 _SEARCHRESPONSE.fields_by_name['list'].message_type = model_dot_artifact_dot_package__pb2._PACKAGE
