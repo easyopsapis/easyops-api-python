@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from model.notify import subscribe_info_pb2 as model_dot_notify_dot_subscribe__info__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='notify',
   syntax='proto3',
   serialized_options=_b('Z@go.easyops.local/contracts/protorepo-models/easyops/model/notify'),
-  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\x1a!model/notify/subscribe_info.proto\"\xa3\x01\n\rPubSubscriber\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03org\x18\x02 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x03 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x04 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x05 \x01(\t\x12\r\n\x05retry\x18\x06 \x01(\x05\x12%\n\x06topics\x18\x07 \x03(\x0b\x32\x15.notify.SubscribeInfo\x12\x0f\n\x07version\x18\x08 \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
-  ,
-  dependencies=[model_dot_notify_dot_subscribe__info__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\"\x7f\n\rPubSubscriber\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x05 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x06 \x01(\t\x12\r\n\x05retry\x18\x07 \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
+)
 
 
 
@@ -35,57 +33,50 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='notify.PubSubscriber.name', index=0,
+      name='instanceId', full_name='notify.PubSubscriber.instanceId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='org', full_name='notify.PubSubscriber.org', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='admin', full_name='notify.PubSubscriber.admin', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='name', full_name='notify.PubSubscriber.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='callback', full_name='notify.PubSubscriber.callback', index=3,
+      name='org', full_name='notify.PubSubscriber.org', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='admin', full_name='notify.PubSubscriber.admin', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ensName', full_name='notify.PubSubscriber.ensName', index=4,
+      name='callback', full_name='notify.PubSubscriber.callback', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='retry', full_name='notify.PubSubscriber.retry', index=5,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='ensName', full_name='notify.PubSubscriber.ensName', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='topics', full_name='notify.PubSubscriber.topics', index=6,
-      number=7, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='version', full_name='notify.PubSubscriber.version', index=7,
-      number=8, type=5, cpp_type=1, label=1,
+      name='retry', full_name='notify.PubSubscriber.retry', index=6,
+      number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -102,11 +93,10 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=231,
+  serialized_start=32,
+  serialized_end=159,
 )
 
-_PUBSUBSCRIBER.fields_by_name['topics'].message_type = model_dot_notify_dot_subscribe__info__pb2._SUBSCRIBEINFO
 DESCRIPTOR.message_types_by_name['PubSubscriber'] = _PUBSUBSCRIBER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

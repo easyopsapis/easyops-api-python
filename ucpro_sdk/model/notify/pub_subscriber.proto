@@ -6,43 +6,38 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/n
 
 
 
-import "model/notify/subscribe_info.proto";
 
 /*
 订阅者
 */
 message PubSubscriber {
     /*
-    订阅名称，为数据库主键，全局唯一.
+    订阅ID
     */
-    string name = 1 ;
+    string instanceId = 1 ;
+    /*
+    订阅名称，可以为中文
+    */
+    string name = 2 ;
     /*
     订阅某个org的消息
     */
-    int32 org = 2 ;
+    int32 org = 3 ;
     /*
     订阅负责人。如 linus
     */
-    string admin = 3 ;
+    string admin = 4 ;
     /*
     回调url. 处理成功时需要返回 status 2xx
     */
-    string callback = 4 ;
+    string callback = 5 ;
     /*
     回调名字服务名。非空时，callback url的域名解析会先经ens
     */
-    string ensName = 5 ;
+    string ensName = 6 ;
     /*
     retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
     */
-    int32 retry = 6 ;
-    /*
-    订阅信息
-    */
-    repeated notify.SubscribeInfo topics = 7 ;
-    /*
-    版本号。用于乐观锁
-    */
-    int32 version = 8 ;
+    int32 retry = 7 ;
 }
 

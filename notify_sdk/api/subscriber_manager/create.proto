@@ -1,0 +1,94 @@
+syntax = "proto3";
+package subscriber_manager;
+
+
+
+
+import "model/notify/topic.proto";
+
+/*
+PubSubscriberCreate请求
+*/
+message PubSubscriberCreateRequest {
+    /*
+    订阅的事件id列表
+    */
+    repeated string topics = 1 ;
+    /*
+    订阅名称，可以为中文
+    */
+    string name = 2 ;
+    /*
+    回调url. 处理成功时需要返回 status 2xx
+    */
+    string callback = 3 ;
+    /*
+    回调名字服务名。非空时，callback url的域名解析会先经ens
+    */
+    string ensName = 4 ;
+    /*
+    retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
+    */
+    int32 retry = 5 ;
+}
+
+/*
+PubSubscriberCreate返回
+*/
+message PubSubscriberCreateResponse {
+    /*
+    订阅的事件列表
+    */
+    repeated notify.Topic topics = 1 ;
+    /*
+    订阅ID
+    */
+    string instanceId = 2 ;
+    /*
+    订阅名称，可以为中文
+    */
+    string name = 3 ;
+    /*
+    订阅某个org的消息
+    */
+    int32 org = 4 ;
+    /*
+    订阅负责人。如 linus
+    */
+    string admin = 5 ;
+    /*
+    回调url. 处理成功时需要返回 status 2xx
+    */
+    string callback = 6 ;
+    /*
+    回调名字服务名。非空时，callback url的域名解析会先经ens
+    */
+    string ensName = 7 ;
+    /*
+    retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
+    */
+    int32 retry = 8 ;
+}
+
+/*
+PubSubscriberCreateApi返回
+*/
+message PubSubscriberCreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    subscriber_manager.PubSubscriberCreateResponse data = 4 ;
+}
+

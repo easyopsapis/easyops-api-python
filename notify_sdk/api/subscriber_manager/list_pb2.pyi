@@ -8,8 +8,8 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
-from model.notify.pub_subscriber_pb2 import (
-    PubSubscriber as model___notify___pub_subscriber_pb2___PubSubscriber,
+from model.notify.topic_pb2 import (
+    Topic as model___notify___topic_pb2___Topic,
 )
 
 from typing import (
@@ -41,18 +41,49 @@ class PubSubscriberListRequest(google___protobuf___message___Message):
         def ClearField(self, field_name: typing_extensions___Literal[b"page",b"page_size"]) -> None: ...
 
 class PubSubscriberListResponse(google___protobuf___message___Message):
+    class List(google___protobuf___message___Message):
+        instanceId = ... # type: typing___Text
+        name = ... # type: typing___Text
+        org = ... # type: int
+        admin = ... # type: typing___Text
+        callback = ... # type: typing___Text
+        ensName = ... # type: typing___Text
+        retry = ... # type: int
+
+        @property
+        def topics(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___notify___topic_pb2___Topic]: ...
+
+        def __init__(self,
+            topics : typing___Optional[typing___Iterable[model___notify___topic_pb2___Topic]] = None,
+            instanceId : typing___Optional[typing___Text] = None,
+            name : typing___Optional[typing___Text] = None,
+            org : typing___Optional[int] = None,
+            admin : typing___Optional[typing___Text] = None,
+            callback : typing___Optional[typing___Text] = None,
+            ensName : typing___Optional[typing___Text] = None,
+            retry : typing___Optional[int] = None,
+            ) -> None: ...
+        @classmethod
+        def FromString(cls, s: bytes) -> PubSubscriberListResponse.List: ...
+        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
+        if sys.version_info >= (3,):
+            def ClearField(self, field_name: typing_extensions___Literal[u"admin",u"callback",u"ensName",u"instanceId",u"name",u"org",u"retry",u"topics"]) -> None: ...
+        else:
+            def ClearField(self, field_name: typing_extensions___Literal[b"admin",b"callback",b"ensName",b"instanceId",b"name",b"org",b"retry",b"topics"]) -> None: ...
+
     page = ... # type: int
     page_size = ... # type: int
     total = ... # type: int
 
     @property
-    def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[model___notify___pub_subscriber_pb2___PubSubscriber]: ...
+    def list(self) -> google___protobuf___internal___containers___RepeatedCompositeFieldContainer[PubSubscriberListResponse.List]: ...
 
     def __init__(self,
         page : typing___Optional[int] = None,
         page_size : typing___Optional[int] = None,
         total : typing___Optional[int] = None,
-        list : typing___Optional[typing___Iterable[model___notify___pub_subscriber_pb2___PubSubscriber]] = None,
+        list : typing___Optional[typing___Iterable[PubSubscriberListResponse.List]] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> PubSubscriberListResponse: ...

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package pub_subscriber;
+package subscriber_manager;
 
 
 
@@ -13,7 +13,7 @@ message PubSubscriberDeleteRequest {
     /*
     订阅id
     */
-    string subscriber_id = 1 ;
+    string subscriberId = 1 ;
 }
 
 /*

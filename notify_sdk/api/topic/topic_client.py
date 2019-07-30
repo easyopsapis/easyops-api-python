@@ -48,7 +48,7 @@ class TopicClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.notify.topic.TopicList"
-        uri = "/topic/list"
+        uri = "/api/subscriber_manager/v1/topics"
         
         requestParam = request
         

@@ -8,7 +8,7 @@ if PROJECT_PATH not in sys.path:
     sys.path.append(PROJECT_PATH)
 
 
-import model.notify.pub_subscriber_pb2
+import create_pb2
 
 import delete_pb2
 
@@ -16,11 +16,13 @@ import google.protobuf.empty_pb2
 
 import list_pb2
 
+import update_pb2
+
 import utils.http_util
 import google.protobuf.json_format
 
 
-class PubSubscriberClient(object):
+class SubscriberManagerClient(object):
     def __init__(self, server_ip="", server_port=0, service_name="", host=""):
         """
         初始化client
@@ -38,14 +40,14 @@ class PubSubscriberClient(object):
 
     
     def pub_subscriber_create(self, request, org, user, timeout=10):
-        # type: (model.notify.pub_subscriber_pb2.PubSubscriber, int, str, int) -> model.notify.pub_subscriber_pb2.PubSubscriber
+        # type: (create_pb2.PubSubscriberCreateRequest, int, str, int) -> create_pb2.PubSubscriberCreateResponse
         """
         添加订阅
         :param request: pub_subscriber_create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.notify.pub_subscriber_pb2.PubSubscriber
+        :return: create_pb2.PubSubscriberCreateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -53,8 +55,8 @@ class PubSubscriberClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberCreate"
-        uri = "/pub_subscriber/create"
+            route_name = "easyops.api.notify.subscriber_manager.PubSubscriberCreate"
+        uri = "/api/subscriber_manager/v1/subscribers"
         
         requestParam = request
         
@@ -71,7 +73,7 @@ class PubSubscriberClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.notify.pub_subscriber_pb2.PubSubscriber()
+        rsp = create_pb2.PubSubscriberCreateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -93,9 +95,9 @@ class PubSubscriberClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberDelete"
-        uri = "/pub_subscriber/{subscriber_id}".format(
-            subscriber_id=request.subscriber_id,
+            route_name = "easyops.api.notify.subscriber_manager.PubSubscriberDelete"
+        uri = "/api/subscriber_manager/v1/subscribers/{subscriberId}".format(
+            subscriberId=request.subscriberId,
         )
         requestParam = request
         
@@ -134,8 +136,8 @@ class PubSubscriberClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberList"
-        uri = "/pub_subscriber"
+            route_name = "easyops.api.notify.subscriber_manager.PubSubscriberList"
+        uri = "/api/subscriber_manager/v1/subscribers"
         
         requestParam = request
         
@@ -159,14 +161,14 @@ class PubSubscriberClient(object):
         return rsp
     
     def pub_subscriber_update(self, request, org, user, timeout=10):
-        # type: (model.notify.pub_subscriber_pb2.PubSubscriber, int, str, int) -> model.notify.pub_subscriber_pb2.PubSubscriber
+        # type: (update_pb2.PubSubscriberUpdateRequest, int, str, int) -> update_pb2.PubSubscriberUpdateResponse
         """
         更新订阅
         :param request: pub_subscriber_update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.notify.pub_subscriber_pb2.PubSubscriber
+        :return: update_pb2.PubSubscriberUpdateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -174,13 +176,14 @@ class PubSubscriberClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.notify.pub_subscriber.PubSubscriberUpdate"
-        uri = "/pub_subscriber/update"
-        
+            route_name = "easyops.api.notify.subscriber_manager.PubSubscriberUpdate"
+        uri = "/api/subscriber_manager/v1/subscribers/{subscriberId}".format(
+            subscriberId=request.subscriberId,
+        )
         requestParam = request
         
         rsp_obj = utils.http_util.do_api_request(
-            method="POST",
+            method="PUT",
             src_name="logic.notify_sdk",
             dst_name=route_name,
             server_ip=server_ip,
@@ -192,7 +195,7 @@ class PubSubscriberClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.notify.pub_subscriber_pb2.PubSubscriber()
+        rsp = update_pb2.PubSubscriberUpdateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
