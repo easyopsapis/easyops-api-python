@@ -292,15 +292,15 @@ class BuildClient(object):
         
         return rsp
     
-    def post(self, request, org, user, timeout=10):
-        # type: (list_pb2.POSTRequest, int, str, int) -> list_pb2.POSTResponse
+    def list(self, request, org, user, timeout=10):
+        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
         """
         获取流水线任务列表
-        :param request: post请求
+        :param request: list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.POSTResponse
+        :return: list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -308,7 +308,7 @@ class BuildClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.pipeline.build.POST"
+            route_name = "easyops.api.pipeline.build.List"
         uri = "/api/pipeline/v1/builds/list"
         
         requestParam = request
@@ -326,7 +326,7 @@ class BuildClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.POSTResponse()
+        rsp = list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

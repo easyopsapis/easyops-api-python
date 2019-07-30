@@ -12,9 +12,9 @@ import "model/pipeline/build_status.proto";
 import "google/protobuf/struct.proto";
 
 /*
-POST请求
+List请求
 */
-message POSTRequest {
+message ListRequest {
     /*
     页码
     */
@@ -34,9 +34,9 @@ message POSTRequest {
 }
 
 /*
-POST返回
+List返回
 */
-message POSTResponse {
+message ListResponse {
 message Data {
 message List {
     /*
@@ -120,9 +120,9 @@ message List {
 }
 
 /*
-POSTApi返回
+ListApi返回
 */
-message POSTResponseWrapper {
+message ListResponseWrapper {
     /*
     返回码
     */
@@ -138,6 +138,6 @@ message POSTResponseWrapper {
     /*
     返回数据
     */
-    build.POSTResponse data = 4 ;
+    build.ListResponse data = 4 ;
 }
 
