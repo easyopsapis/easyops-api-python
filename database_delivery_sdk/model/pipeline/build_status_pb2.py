@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=_b('ZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipeline'),
-  serialized_pb=_b('\n\x12\x62uild_status.proto\x12\x08pipeline\"P\n\x0b\x42uildStatus\x12\r\n\x05state\x18\x01 \x01(\t\x12\x0f\n\x07started\x18\x02 \x01(\x05\x12\x0f\n\x07updated\x18\x03 \x01(\x05\x12\x10\n\x08\x66inished\x18\x04 \x01(\x05\x42\x44ZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
+  serialized_pb=_b('\n\x12\x62uild_status.proto\x12\x08pipeline\"b\n\x0b\x42uildStatus\x12\r\n\x05state\x18\x01 \x01(\t\x12\x10\n\x08nodeName\x18\x02 \x01(\t\x12\x0f\n\x07started\x18\x03 \x01(\x05\x12\x0f\n\x07updated\x18\x04 \x01(\x05\x12\x10\n\x08\x66inished\x18\x05 \x01(\x05\x42\x44ZBgo.easyops.local/contracts/protorepo-models/easyops/model/pipelineb\x06proto3')
 )
 
 
@@ -40,22 +40,29 @@ _BUILDSTATUS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='started', full_name='pipeline.BuildStatus.started', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='nodeName', full_name='pipeline.BuildStatus.nodeName', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='updated', full_name='pipeline.BuildStatus.updated', index=2,
+      name='started', full_name='pipeline.BuildStatus.started', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='finished', full_name='pipeline.BuildStatus.finished', index=3,
+      name='updated', full_name='pipeline.BuildStatus.updated', index=3,
       number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='finished', full_name='pipeline.BuildStatus.finished', index=4,
+      number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -73,7 +80,7 @@ _BUILDSTATUS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=32,
-  serialized_end=112,
+  serialized_end=130,
 )
 
 DESCRIPTOR.message_types_by_name['BuildStatus'] = _BUILDSTATUS

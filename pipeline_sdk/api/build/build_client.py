@@ -328,7 +328,7 @@ class BuildClient(object):
         )
         rsp = list_pb2.ListResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     

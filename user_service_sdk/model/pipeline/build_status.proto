@@ -16,16 +16,20 @@ message BuildStatus {
     */
     string state = 1 ;
     /*
+    运行的节点
+    */
+    string nodeName = 2 ;
+    /*
     开始时间
     */
-    int32 started = 2 ;
+    int32 started = 3 ;
     /*
     更新时间
     */
-    int32 updated = 3 ;
+    int32 updated = 4 ;
     /*
     完成时间
     */
-    int32 finished = 4 ;
+    int32 finished = 5 ;
 }
 
