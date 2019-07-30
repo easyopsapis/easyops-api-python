@@ -125,14 +125,14 @@ class PipelineClient(object):
         return rsp
     
     def get_pipelines(self, request, org, user, timeout=10):
-        # type: (get_pipelines_pb2.GetPipelinesRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        # type: (get_pipelines_pb2.GetPipelinesRequest, int, str, int) -> get_pipelines_pb2.GetPipelinesResponse
         """
         获取流水线列表
         :param request: get_pipelines请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        :return: get_pipelines_pb2.GetPipelinesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -159,9 +159,9 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb_extend.app_pipeline_pb2.AppPipeline()
+        rsp = get_pipelines_pb2.GetPipelinesResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
@@ -210,7 +210,7 @@ class PipelineClient(object):
     def un_bind_pipeline(self, request, org, user, timeout=10):
         # type: (unbind_pipeline_pb2.UnBindPipelineRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
-        绑定流水线
+        解绑流水线
         :param request: un_bind_pipeline请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名

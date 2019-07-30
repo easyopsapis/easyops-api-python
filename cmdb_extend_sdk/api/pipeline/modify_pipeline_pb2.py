@@ -21,98 +21,12 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pipeline',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15modify_pipeline.proto\x12\x08pipeline\x1a$model/cmdb_extend/app_pipeline.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xe4\x02\n\x15ModifyPipelineRequest\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x12\x0e\n\x06\x66lowId\x18\x02 \x01(\t\x12:\n\x08pipeline\x18\x03 \x01(\x0b\x32(.pipeline.ModifyPipelineRequest.Pipeline\x1a\xef\x01\n\x08Pipeline\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x13\n\x0b\x66lowVersion\x18\x03 \x01(\x05\x12\x12\n\ntemplateId\x18\x04 \x01(\t\x12\x17\n\x0ftemplateVersion\x18\x05 \x01(\x05\x12\x13\n\x0bsubscribers\x18\x06 \x03(\t\x12\x19\n\x11subscribedChannel\x18\x07 \x01(\t\x12&\n\x05rules\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12)\n\x08metadata\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\"y\n\x1dModifyPipelineResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.cmdb_extend.AppPipelineb\x06proto3')
+  serialized_pb=_b('\n\x15modify_pipeline.proto\x12\x08pipeline\x1a$model/cmdb_extend/app_pipeline.proto\x1a\x1cgoogle/protobuf/struct.proto\"a\n\x15ModifyPipelineRequest\x12\r\n\x05\x61ppId\x18\x01 \x01(\t\x12\x0e\n\x06\x66lowId\x18\x02 \x01(\t\x12)\n\x08pipeline\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"y\n\x1dModifyPipelineResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.cmdb_extend.AppPipelineb\x06proto3')
   ,
   dependencies=[model_dot_cmdb__extend_dot_app__pipeline__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
-
-_MODIFYPIPELINEREQUEST_PIPELINE = _descriptor.Descriptor(
-  name='Pipeline',
-  full_name='pipeline.ModifyPipelineRequest.Pipeline',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='pipeline.ModifyPipelineRequest.Pipeline.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='category', full_name='pipeline.ModifyPipelineRequest.Pipeline.category', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='flowVersion', full_name='pipeline.ModifyPipelineRequest.Pipeline.flowVersion', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='templateId', full_name='pipeline.ModifyPipelineRequest.Pipeline.templateId', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='templateVersion', full_name='pipeline.ModifyPipelineRequest.Pipeline.templateVersion', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='subscribers', full_name='pipeline.ModifyPipelineRequest.Pipeline.subscribers', index=5,
-      number=6, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='subscribedChannel', full_name='pipeline.ModifyPipelineRequest.Pipeline.subscribedChannel', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rules', full_name='pipeline.ModifyPipelineRequest.Pipeline.rules', index=7,
-      number=8, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='metadata', full_name='pipeline.ModifyPipelineRequest.Pipeline.metadata', index=8,
-      number=9, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=221,
-  serialized_end=460,
-)
 
 _MODIFYPIPELINEREQUEST = _descriptor.Descriptor(
   name='ModifyPipelineRequest',
@@ -145,7 +59,7 @@ _MODIFYPIPELINEREQUEST = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_MODIFYPIPELINEREQUEST_PIPELINE, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -154,8 +68,8 @@ _MODIFYPIPELINEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=104,
-  serialized_end=460,
+  serialized_start=103,
+  serialized_end=200,
 )
 
 
@@ -206,33 +120,22 @@ _MODIFYPIPELINERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=462,
-  serialized_end=583,
+  serialized_start=202,
+  serialized_end=323,
 )
 
-_MODIFYPIPELINEREQUEST_PIPELINE.fields_by_name['rules'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_MODIFYPIPELINEREQUEST_PIPELINE.fields_by_name['metadata'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_MODIFYPIPELINEREQUEST_PIPELINE.containing_type = _MODIFYPIPELINEREQUEST
-_MODIFYPIPELINEREQUEST.fields_by_name['pipeline'].message_type = _MODIFYPIPELINEREQUEST_PIPELINE
+_MODIFYPIPELINEREQUEST.fields_by_name['pipeline'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _MODIFYPIPELINERESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_cmdb__extend_dot_app__pipeline__pb2._APPPIPELINE
 DESCRIPTOR.message_types_by_name['ModifyPipelineRequest'] = _MODIFYPIPELINEREQUEST
 DESCRIPTOR.message_types_by_name['ModifyPipelineResponseWrapper'] = _MODIFYPIPELINERESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ModifyPipelineRequest = _reflection.GeneratedProtocolMessageType('ModifyPipelineRequest', (_message.Message,), dict(
-
-  Pipeline = _reflection.GeneratedProtocolMessageType('Pipeline', (_message.Message,), dict(
-    DESCRIPTOR = _MODIFYPIPELINEREQUEST_PIPELINE,
-    __module__ = 'modify_pipeline_pb2'
-    # @@protoc_insertion_point(class_scope:pipeline.ModifyPipelineRequest.Pipeline)
-    ))
-  ,
   DESCRIPTOR = _MODIFYPIPELINEREQUEST,
   __module__ = 'modify_pipeline_pb2'
   # @@protoc_insertion_point(class_scope:pipeline.ModifyPipelineRequest)
   ))
 _sym_db.RegisterMessage(ModifyPipelineRequest)
-_sym_db.RegisterMessage(ModifyPipelineRequest.Pipeline)
 
 ModifyPipelineResponseWrapper = _reflection.GeneratedProtocolMessageType('ModifyPipelineResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _MODIFYPIPELINERESPONSEWRAPPER,
