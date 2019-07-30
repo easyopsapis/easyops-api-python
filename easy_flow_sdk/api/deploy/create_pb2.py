@@ -16,7 +16,6 @@ from model.easy_flow import deploy_label_pb2 as model_dot_easy__flow_dot_deploy_
 from model.easy_flow import deploy_batch_target_pb2 as model_dot_easy__flow_dot_deploy__batch__target__pb2
 from model.cmdb import cluster_info_pb2 as model_dot_cmdb_dot_cluster__info__pb2
 from model.file_repository import diff_pb2 as model_dot_file__repository_dot_diff__pb2
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='deploy',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x06\x64\x65ploy\x1a\"model/easy_flow/deploy_label.proto\x1a)model/easy_flow/deploy_batch_target.proto\x1a\x1dmodel/cmdb/cluster_info.proto\x1a model/file_repository/diff.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x83\x0b\n\rCreateRequest\x12\x12\n\nneedNotify\x18\x01 \x01(\t\x12&\n\x06labels\x18\x02 \x01(\x0b\x32\x16.easy_flow.DeployLabel\x12\r\n\x05\x61ppId\x18\x03 \x01(\t\x12\x0f\n\x07\x61ppName\x18\x04 \x01(\t\x12\x11\n\tclusterId\x18\x05 \x01(\t\x12\x13\n\x0b\x63lusterType\x18\x06 \x01(\t\x12\x10\n\x08\x62\x61tchNum\x18\x07 \x01(\x05\x12\x15\n\rbatchInterval\x18\x08 \x01(\x05\x12.\n\x07\x62\x61tches\x18\t \x03(\x0b\x32\x1d.deploy.CreateRequest.Batches\x12\x12\n\nfailedStop\x18\n \x01(\t\x12\x10\n\x08targetId\x18\x0b \x01(\t\x12\x12\n\ntargetName\x18\x0c \x01(\t\x12\x12\n\ninstanceId\x18\r \x01(\t\x12\"\n\x07\x63luster\x18\x0e \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12\x38\n\x0cinstanceInfo\x18\x0f \x03(\x0b\x32\".deploy.CreateRequest.InstanceInfo\x12\x36\n\x0bversionInfo\x18\x10 \x01(\x0b\x32!.deploy.CreateRequest.VersionInfo\x12\x36\n\x0bpackageList\x18\x11 \x01(\x0b\x32!.deploy.CreateRequest.PackageList\x1a\x38\n\x07\x42\x61tches\x12-\n\x07targets\x18\x01 \x03(\x0b\x32\x1c.easy_flow.DeployBatchTarget\x1a^\n\x0cInstanceInfo\x12\x13\n\x0bversionName\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x13\n\x0binstallPath\x18\x03 \x01(\t\x12\x11\n\tversionId\x18\x04 \x01(\t\x1a\xb8\x03\n\x0bVersionInfo\x12\x44\n\x0csourceDecode\x18\x01 \x01(\x0b\x32..deploy.CreateRequest.VersionInfo.SourceDecode\x12\x0e\n\x06source\x18\x02 \x01(\t\x12#\n\x04\x64iff\x18\x03 \x03(\x0b\x32\x15.file_repository.Diff\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x11\n\tversionId\x18\x05 \x01(\t\x12\x11\n\tpackageId\x18\x06 \x01(\t\x12\x0b\n\x03org\x18\x07 \x01(\x05\x12\x0f\n\x07\x63reator\x18\x08 \x01(\t\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12%\n\x04sign\x18\x0c \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x12\n\nsourceType\x18\r \x01(\t\x12\x0c\n\x04\x63onf\x18\x0e \x01(\t\x12\x10\n\x08\x65nv_type\x18\x0f \x01(\x05\x1aU\n\x0cSourceDecode\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\x1a\xa3\x02\n\x0bPackageList\x12\"\n\x07\x63luster\x18\x01 \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12\x15\n\rtargetVersion\x18\x02 \x01(\t\x12\x0f\n\x07preStop\x18\x03 \x01(\t\x12\x13\n\x0bpostRestart\x18\x04 \x01(\t\x12\x11\n\tautoStart\x18\x05 \x01(\t\x12\x11\n\tuserCheck\x18\x06 \x01(\t\x12\x12\n\nfullUpdate\x18\x07 \x01(\t\x12\r\n\x05\x66orce\x18\x08 \x01(\t\x12\x14\n\x0c\x66orceInstall\x18\t \x01(\t\x12\x11\n\tpackageId\x18\n \x01(\t\x12\x0c\n\x04name\x18\x0b \x01(\t\x12\x13\n\x0binstallPath\x18\x0c \x01(\t\x12\x0c\n\x04type\x18\r \x01(\x05\x12\x10\n\x08platform\x18\x0e \x01(\t\" \n\x0e\x43reateResponse\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"o\n\x15\x43reateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.deploy.CreateResponseb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63reate.proto\x12\x06\x64\x65ploy\x1a\"model/easy_flow/deploy_label.proto\x1a)model/easy_flow/deploy_batch_target.proto\x1a\x1dmodel/cmdb/cluster_info.proto\x1a model/file_repository/diff.proto\"\xea\n\n\rCreateRequest\x12\x12\n\nneedNotify\x18\x01 \x01(\t\x12&\n\x06labels\x18\x02 \x01(\x0b\x32\x16.easy_flow.DeployLabel\x12\r\n\x05\x61ppId\x18\x03 \x01(\t\x12\x0f\n\x07\x61ppName\x18\x04 \x01(\t\x12\x11\n\tclusterId\x18\x05 \x01(\t\x12\x13\n\x0b\x63lusterType\x18\x06 \x01(\t\x12\x10\n\x08\x62\x61tchNum\x18\x07 \x01(\x05\x12\x15\n\rbatchInterval\x18\x08 \x01(\x05\x12.\n\x07\x62\x61tches\x18\t \x03(\x0b\x32\x1d.deploy.CreateRequest.Batches\x12\x12\n\nfailedStop\x18\n \x01(\t\x12\x10\n\x08targetId\x18\x0b \x01(\t\x12\x12\n\ntargetName\x18\x0c \x01(\t\x12\x12\n\ninstanceId\x18\r \x01(\t\x12\"\n\x07\x63luster\x18\x0e \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12\x38\n\x0cinstanceInfo\x18\x0f \x03(\x0b\x32\".deploy.CreateRequest.InstanceInfo\x12\x36\n\x0bversionInfo\x18\x10 \x01(\x0b\x32!.deploy.CreateRequest.VersionInfo\x12\x36\n\x0bpackageList\x18\x11 \x01(\x0b\x32!.deploy.CreateRequest.PackageList\x1a\x38\n\x07\x42\x61tches\x12-\n\x07targets\x18\x01 \x03(\x0b\x32\x1c.easy_flow.DeployBatchTarget\x1a^\n\x0cInstanceInfo\x12\x13\n\x0bversionName\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x13\n\x0binstallPath\x18\x03 \x01(\t\x12\x11\n\tversionId\x18\x04 \x01(\t\x1a\x9f\x03\n\x0bVersionInfo\x12\x44\n\x0csourceDecode\x18\x01 \x01(\x0b\x32..deploy.CreateRequest.VersionInfo.SourceDecode\x12\x0e\n\x06source\x18\x02 \x01(\t\x12#\n\x04\x64iff\x18\x03 \x03(\x0b\x32\x15.file_repository.Diff\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x11\n\tversionId\x18\x05 \x01(\t\x12\x11\n\tpackageId\x18\x06 \x01(\t\x12\x0b\n\x03org\x18\x07 \x01(\x05\x12\x0f\n\x07\x63reator\x18\x08 \x01(\t\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12\x0c\n\x04sign\x18\x0c \x01(\t\x12\x12\n\nsourceType\x18\r \x01(\t\x12\x0c\n\x04\x63onf\x18\x0e \x01(\t\x12\x10\n\x08\x65nv_type\x18\x0f \x01(\x05\x1aU\n\x0cSourceDecode\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\x1a\xa3\x02\n\x0bPackageList\x12\"\n\x07\x63luster\x18\x01 \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12\x15\n\rtargetVersion\x18\x02 \x01(\t\x12\x0f\n\x07preStop\x18\x03 \x01(\t\x12\x13\n\x0bpostRestart\x18\x04 \x01(\t\x12\x11\n\tautoStart\x18\x05 \x01(\t\x12\x11\n\tuserCheck\x18\x06 \x01(\t\x12\x12\n\nfullUpdate\x18\x07 \x01(\t\x12\r\n\x05\x66orce\x18\x08 \x01(\t\x12\x14\n\x0c\x66orceInstall\x18\t \x01(\t\x12\x11\n\tpackageId\x18\n \x01(\t\x12\x0c\n\x04name\x18\x0b \x01(\t\x12\x13\n\x0binstallPath\x18\x0c \x01(\t\x12\x0c\n\x04type\x18\r \x01(\x05\x12\x10\n\x08platform\x18\x0e \x01(\t\" \n\x0e\x43reateResponse\x12\x0e\n\x06taskId\x18\x01 \x01(\t\"o\n\x15\x43reateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12$\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x16.deploy.CreateResponseb\x06proto3')
   ,
-  dependencies=[model_dot_easy__flow_dot_deploy__label__pb2.DESCRIPTOR,model_dot_easy__flow_dot_deploy__batch__target__pb2.DESCRIPTOR,model_dot_cmdb_dot_cluster__info__pb2.DESCRIPTOR,model_dot_file__repository_dot_diff__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_easy__flow_dot_deploy__label__pb2.DESCRIPTOR,model_dot_easy__flow_dot_deploy__batch__target__pb2.DESCRIPTOR,model_dot_cmdb_dot_cluster__info__pb2.DESCRIPTOR,model_dot_file__repository_dot_diff__pb2.DESCRIPTOR,])
 
 
 
@@ -57,8 +56,8 @@ _CREATEREQUEST_BATCHES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=721,
-  serialized_end=777,
+  serialized_start=691,
+  serialized_end=747,
 )
 
 _CREATEREQUEST_INSTANCEINFO = _descriptor.Descriptor(
@@ -108,8 +107,8 @@ _CREATEREQUEST_INSTANCEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=779,
-  serialized_end=873,
+  serialized_start=749,
+  serialized_end=843,
 )
 
 _CREATEREQUEST_VERSIONINFO_SOURCEDECODE = _descriptor.Descriptor(
@@ -166,8 +165,8 @@ _CREATEREQUEST_VERSIONINFO_SOURCEDECODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1231,
-  serialized_end=1316,
+  serialized_start=1176,
+  serialized_end=1261,
 )
 
 _CREATEREQUEST_VERSIONINFO = _descriptor.Descriptor(
@@ -256,8 +255,8 @@ _CREATEREQUEST_VERSIONINFO = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='deploy.CreateRequest.VersionInfo.sign', index=11,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -294,8 +293,8 @@ _CREATEREQUEST_VERSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=876,
-  serialized_end=1316,
+  serialized_start=846,
+  serialized_end=1261,
 )
 
 _CREATEREQUEST_PACKAGELIST = _descriptor.Descriptor(
@@ -415,8 +414,8 @@ _CREATEREQUEST_PACKAGELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1319,
-  serialized_end=1610,
+  serialized_start=1264,
+  serialized_end=1555,
 )
 
 _CREATEREQUEST = _descriptor.Descriptor(
@@ -557,8 +556,8 @@ _CREATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=199,
-  serialized_end=1610,
+  serialized_start=169,
+  serialized_end=1555,
 )
 
 
@@ -588,8 +587,8 @@ _CREATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1612,
-  serialized_end=1644,
+  serialized_start=1557,
+  serialized_end=1589,
 )
 
 
@@ -640,8 +639,8 @@ _CREATERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1646,
-  serialized_end=1757,
+  serialized_start=1591,
+  serialized_end=1702,
 )
 
 _CREATEREQUEST_BATCHES.fields_by_name['targets'].message_type = model_dot_easy__flow_dot_deploy__batch__target__pb2._DEPLOYBATCHTARGET
@@ -650,7 +649,6 @@ _CREATEREQUEST_INSTANCEINFO.containing_type = _CREATEREQUEST
 _CREATEREQUEST_VERSIONINFO_SOURCEDECODE.containing_type = _CREATEREQUEST_VERSIONINFO
 _CREATEREQUEST_VERSIONINFO.fields_by_name['sourceDecode'].message_type = _CREATEREQUEST_VERSIONINFO_SOURCEDECODE
 _CREATEREQUEST_VERSIONINFO.fields_by_name['diff'].message_type = model_dot_file__repository_dot_diff__pb2._DIFF
-_CREATEREQUEST_VERSIONINFO.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _CREATEREQUEST_VERSIONINFO.containing_type = _CREATEREQUEST
 _CREATEREQUEST_PACKAGELIST.fields_by_name['cluster'].message_type = model_dot_cmdb_dot_cluster__info__pb2._CLUSTERINFO
 _CREATEREQUEST_PACKAGELIST.containing_type = _CREATEREQUEST

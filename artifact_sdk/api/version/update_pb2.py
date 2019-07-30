@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 
 from model.artifact import version_pb2 as model_dot_artifact_dot_version__pb2
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='version',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cupdate.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\x1a\x1cgoogle/protobuf/struct.proto\"S\n\rUpdateRequest\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04memo\x18\x03 \x01(\t\x12\x13\n\x0b\x62\x61seImageId\x18\x04 \x01(\t\"j\n\x15UpdateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x11.artifact.Versionb\x06proto3')
+  serialized_pb=_b('\n\x0cupdate.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\"S\n\rUpdateRequest\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04memo\x18\x03 \x01(\t\x12\x13\n\x0b\x62\x61seImageId\x18\x04 \x01(\t\"j\n\x15UpdateResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x11.artifact.Versionb\x06proto3')
   ,
-  dependencies=[model_dot_artifact_dot_version__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_artifact_dot_version__pb2.DESCRIPTOR,])
 
 
 
@@ -75,8 +74,8 @@ _UPDATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=85,
-  serialized_end=168,
+  serialized_start=55,
+  serialized_end=138,
 )
 
 
@@ -127,8 +126,8 @@ _UPDATERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=170,
-  serialized_end=276,
+  serialized_start=140,
+  serialized_end=246,
 )
 
 _UPDATERESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_artifact_dot_version__pb2._VERSION

@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='archive',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1bget_archive_sign_info.proto\x12\x07\x61rchive\x1a\x1cgoogle/protobuf/struct.proto\"6\n\x0eGetSignRequest\x12\x11\n\tpackageId\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\"8\n\x0fGetSignResponse\x12%\n\x04sign\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\"r\n\x16GetSignResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.archive.GetSignResponseb\x06proto3')
-  ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\x1bget_archive_sign_info.proto\x12\x07\x61rchive\"6\n\x0eGetSignRequest\x12\x11\n\tpackageId\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\"\x1f\n\x0fGetSignResponse\x12\x0c\n\x04sign\x18\x01 \x01(\t\"r\n\x16GetSignResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12&\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x18.archive.GetSignResponseb\x06proto3')
+)
 
 
 
@@ -60,8 +58,8 @@ _GETSIGNREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=70,
-  serialized_end=124,
+  serialized_start=40,
+  serialized_end=94,
 )
 
 
@@ -74,8 +72,8 @@ _GETSIGNRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='sign', full_name='archive.GetSignResponse.sign', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -91,8 +89,8 @@ _GETSIGNRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=126,
-  serialized_end=182,
+  serialized_start=96,
+  serialized_end=127,
 )
 
 
@@ -143,11 +141,10 @@ _GETSIGNRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=184,
-  serialized_end=298,
+  serialized_start=129,
+  serialized_end=243,
 )
 
-_GETSIGNRESPONSE.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _GETSIGNRESPONSEWRAPPER.fields_by_name['data'].message_type = _GETSIGNRESPONSE
 DESCRIPTOR.message_types_by_name['GetSignRequest'] = _GETSIGNREQUEST
 DESCRIPTOR.message_types_by_name['GetSignResponse'] = _GETSIGNRESPONSE

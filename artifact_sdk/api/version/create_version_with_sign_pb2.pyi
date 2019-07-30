@@ -4,10 +4,6 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
-from google.protobuf.struct_pb2 import (
-    Struct as google___protobuf___struct_pb2___Struct,
-)
-
 from model.artifact.version_pb2 import (
     Version as model___artifact___version_pb2___Version,
 )
@@ -23,65 +19,36 @@ from typing_extensions import (
 
 
 class CreateVersionWithSignRequest(google___protobuf___message___Message):
-    class Source(google___protobuf___message___Message):
-        ensName = ... # type: typing___Text
-        host = ... # type: typing___Text
-        type = ... # type: typing___Text
-        ip = ... # type: typing___Text
-        port = ... # type: int
-
-        def __init__(self,
-            ensName : typing___Optional[typing___Text] = None,
-            host : typing___Optional[typing___Text] = None,
-            type : typing___Optional[typing___Text] = None,
-            ip : typing___Optional[typing___Text] = None,
-            port : typing___Optional[int] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> CreateVersionWithSignRequest.Source: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"ensName",u"host",u"ip",u"port",u"type"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"ensName",b"host",b"ip",b"port",b"type"]) -> None: ...
-
     packageId = ... # type: typing___Text
     versionId = ... # type: typing___Text
     name = ... # type: typing___Text
     memo = ... # type: typing___Text
+    sign = ... # type: typing___Text
     conf = ... # type: typing___Text
     env_type = ... # type: int
     baseImageId = ... # type: typing___Text
     workspaceBaseId = ... # type: typing___Text
-
-    @property
-    def sign(self) -> google___protobuf___struct_pb2___Struct: ...
-
-    @property
-    def source(self) -> CreateVersionWithSignRequest.Source: ...
+    source = ... # type: typing___Text
 
     def __init__(self,
         packageId : typing___Optional[typing___Text] = None,
         versionId : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         memo : typing___Optional[typing___Text] = None,
-        sign : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        sign : typing___Optional[typing___Text] = None,
         conf : typing___Optional[typing___Text] = None,
         env_type : typing___Optional[int] = None,
         baseImageId : typing___Optional[typing___Text] = None,
         workspaceBaseId : typing___Optional[typing___Text] = None,
-        source : typing___Optional[CreateVersionWithSignRequest.Source] = None,
+        source : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> CreateVersionWithSignRequest: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def HasField(self, field_name: typing_extensions___Literal[u"sign",u"source"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[u"baseImageId",u"conf",u"env_type",u"memo",u"name",u"packageId",u"sign",u"source",u"versionId",u"workspaceBaseId"]) -> None: ...
     else:
-        def HasField(self, field_name: typing_extensions___Literal[u"sign",b"sign",u"source",b"source"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[b"baseImageId",b"conf",b"env_type",b"memo",b"name",b"packageId",b"sign",b"source",b"versionId",b"workspaceBaseId"]) -> None: ...
 
 class CreateVersionWithSignResponseWrapper(google___protobuf___message___Message):

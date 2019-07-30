@@ -14,7 +14,6 @@ _sym_db = _symbol_database.Default()
 
 from model.cmdb import cluster_info_pb2 as model_dot_cmdb_dot_cluster__info__pb2
 from model.file_repository import diff_pb2 as model_dot_file__repository_dot_diff__pb2
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='easy_flow',
   syntax='proto3',
   serialized_options=_b('ZCgo.easyops.local/contracts/protorepo-models/easyops/model/easy_flow'),
-  serialized_pb=_b('\n\x16target_info_task.proto\x12\teasy_flow\x1a\x1dmodel/cmdb/cluster_info.proto\x1a model/file_repository/diff.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x87\x06\n\x0eTaskTargetInfo\x12\x10\n\x08targetId\x18\x01 \x01(\t\x12\x12\n\ntargetName\x18\x02 \x01(\t\x12\x12\n\ninstanceId\x18\x03 \x01(\t\x12\"\n\x07\x63luster\x18\x04 \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12<\n\x0cinstanceInfo\x18\x05 \x03(\x0b\x32&.easy_flow.TaskTargetInfo.InstanceInfo\x12:\n\x0bversionInfo\x18\x06 \x01(\x0b\x32%.easy_flow.TaskTargetInfo.VersionInfo\x1a^\n\x0cInstanceInfo\x12\x13\n\x0bversionName\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x13\n\x0binstallPath\x18\x03 \x01(\t\x12\x11\n\tversionId\x18\x04 \x01(\t\x1a\xbc\x03\n\x0bVersionInfo\x12H\n\x0csourceDecode\x18\x01 \x01(\x0b\x32\x32.easy_flow.TaskTargetInfo.VersionInfo.SourceDecode\x12\x0e\n\x06source\x18\x02 \x01(\t\x12#\n\x04\x64iff\x18\x03 \x03(\x0b\x32\x15.file_repository.Diff\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x11\n\tversionId\x18\x05 \x01(\t\x12\x11\n\tpackageId\x18\x06 \x01(\t\x12\x0b\n\x03org\x18\x07 \x01(\x05\x12\x0f\n\x07\x63reator\x18\x08 \x01(\t\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12%\n\x04sign\x18\x0c \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x12\n\nsourceType\x18\r \x01(\t\x12\x0c\n\x04\x63onf\x18\x0e \x01(\t\x12\x10\n\x08\x65nv_type\x18\x0f \x01(\x05\x1aU\n\x0cSourceDecode\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\x42\x45ZCgo.easyops.local/contracts/protorepo-models/easyops/model/easy_flowb\x06proto3')
+  serialized_pb=_b('\n\x16target_info_task.proto\x12\teasy_flow\x1a\x1dmodel/cmdb/cluster_info.proto\x1a model/file_repository/diff.proto\"\xee\x05\n\x0eTaskTargetInfo\x12\x10\n\x08targetId\x18\x01 \x01(\t\x12\x12\n\ntargetName\x18\x02 \x01(\t\x12\x12\n\ninstanceId\x18\x03 \x01(\t\x12\"\n\x07\x63luster\x18\x04 \x01(\x0b\x32\x11.cmdb.ClusterInfo\x12<\n\x0cinstanceInfo\x18\x05 \x03(\x0b\x32&.easy_flow.TaskTargetInfo.InstanceInfo\x12:\n\x0bversionInfo\x18\x06 \x01(\x0b\x32%.easy_flow.TaskTargetInfo.VersionInfo\x1a^\n\x0cInstanceInfo\x12\x13\n\x0bversionName\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x13\n\x0binstallPath\x18\x03 \x01(\t\x12\x11\n\tversionId\x18\x04 \x01(\t\x1a\xa3\x03\n\x0bVersionInfo\x12H\n\x0csourceDecode\x18\x01 \x01(\x0b\x32\x32.easy_flow.TaskTargetInfo.VersionInfo.SourceDecode\x12\x0e\n\x06source\x18\x02 \x01(\t\x12#\n\x04\x64iff\x18\x03 \x03(\x0b\x32\x15.file_repository.Diff\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x11\n\tversionId\x18\x05 \x01(\t\x12\x11\n\tpackageId\x18\x06 \x01(\t\x12\x0b\n\x03org\x18\x07 \x01(\x05\x12\x0f\n\x07\x63reator\x18\x08 \x01(\t\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12\x0c\n\x04sign\x18\x0c \x01(\t\x12\x12\n\nsourceType\x18\r \x01(\t\x12\x0c\n\x04\x63onf\x18\x0e \x01(\t\x12\x10\n\x08\x65nv_type\x18\x0f \x01(\x05\x1aU\n\x0cSourceDecode\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\x42\x45ZCgo.easyops.local/contracts/protorepo-models/easyops/model/easy_flowb\x06proto3')
   ,
-  dependencies=[model_dot_cmdb_dot_cluster__info__pb2.DESCRIPTOR,model_dot_file__repository_dot_diff__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_cmdb_dot_cluster__info__pb2.DESCRIPTOR,model_dot_file__repository_dot_diff__pb2.DESCRIPTOR,])
 
 
 
@@ -76,8 +75,8 @@ _TASKTARGETINFO_INSTANCEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=461,
+  serialized_start=337,
+  serialized_end=431,
 )
 
 _TASKTARGETINFO_VERSIONINFO_SOURCEDECODE = _descriptor.Descriptor(
@@ -134,8 +133,8 @@ _TASKTARGETINFO_VERSIONINFO_SOURCEDECODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=823,
-  serialized_end=908,
+  serialized_start=768,
+  serialized_end=853,
 )
 
 _TASKTARGETINFO_VERSIONINFO = _descriptor.Descriptor(
@@ -224,8 +223,8 @@ _TASKTARGETINFO_VERSIONINFO = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='easy_flow.TaskTargetInfo.VersionInfo.sign', index=11,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -262,8 +261,8 @@ _TASKTARGETINFO_VERSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=464,
-  serialized_end=908,
+  serialized_start=434,
+  serialized_end=853,
 )
 
 _TASKTARGETINFO = _descriptor.Descriptor(
@@ -327,15 +326,14 @@ _TASKTARGETINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=133,
-  serialized_end=908,
+  serialized_start=103,
+  serialized_end=853,
 )
 
 _TASKTARGETINFO_INSTANCEINFO.containing_type = _TASKTARGETINFO
 _TASKTARGETINFO_VERSIONINFO_SOURCEDECODE.containing_type = _TASKTARGETINFO_VERSIONINFO
 _TASKTARGETINFO_VERSIONINFO.fields_by_name['sourceDecode'].message_type = _TASKTARGETINFO_VERSIONINFO_SOURCEDECODE
 _TASKTARGETINFO_VERSIONINFO.fields_by_name['diff'].message_type = model_dot_file__repository_dot_diff__pb2._DIFF
-_TASKTARGETINFO_VERSIONINFO.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _TASKTARGETINFO_VERSIONINFO.containing_type = _TASKTARGETINFO
 _TASKTARGETINFO.fields_by_name['cluster'].message_type = model_dot_cmdb_dot_cluster__info__pb2._CLUSTERINFO
 _TASKTARGETINFO.fields_by_name['instanceInfo'].message_type = _TASKTARGETINFO_INSTANCEINFO

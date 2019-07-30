@@ -6,36 +6,11 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/a
 
 
 
-import "google/protobuf/struct.proto";
 
 /*
 程序包版本
 */
 message Version {
-message Source {
-    /*
-    源服务名字
-    */
-    string ensName = 1 ;
-    /*
-    源域名
-    */
-    string host = 2 ;
-    /*
-    源类型
-    */
-    string type = 3 ;
-    /*
-    http源的ip
-    */
-    string ip = 4 ;
-    /*
-    http源的port
-    */
-    int32 port = 5 ;
-}
-        
-    
     /*
     包名称
     */
@@ -83,15 +58,15 @@ message Source {
     /*
     包文件的md5检验值
     */
-    google.protobuf.Struct sign = 12 ;
+    string sign = 12 ;
     /*
     关联的svn库版本，已废弃
     */
     string repoVersion = 13 ;
     /*
-    包存储源信息
+    包存储源信息,如"{"host":"deployrepo.easyops-only.com","ensName":"logic.deploy.repo.archive"}"
     */
-    Source source = 14 ;
+    string source = 14 ;
     /*
     包存储服务版本
     */

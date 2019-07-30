@@ -4,7 +4,6 @@ package archive;
 
 
 
-import "google/protobuf/struct.proto";
 
 /*
 CreateAndRegister返回
@@ -17,7 +16,7 @@ message CreateAndRegisterResponse {
     /*
     包文件的md5检验值
     */
-    google.protobuf.Struct sign = 2 ;
+    string sign = 2 ;
     /*
     版本的进程及启停、安装、升级脚本, package.conf.yaml
     */

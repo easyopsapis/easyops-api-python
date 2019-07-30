@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,70 +19,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='artifact',
   syntax='proto3',
   serialized_options=_b('ZBgo.easyops.local/contracts/protorepo-models/easyops/model/artifact'),
-  serialized_pb=_b('\n\rversion.proto\x12\x08\x61rtifact\x1a\x1cgoogle/protobuf/struct.proto\"\xb9\x03\n\x07Version\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\x12\x11\n\tpackageId\x18\x03 \x01(\t\x12\x0b\n\x03org\x18\x04 \x01(\x05\x12\x13\n\x0b\x62\x61seImageId\x18\x05 \x01(\t\x12\x17\n\x0f\x62\x61seVersionName\x18\x06 \x01(\t\x12\x0f\n\x07\x63reator\x18\x07 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x08 \x01(\x05\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12%\n\x04sign\x18\x0c \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0brepoVersion\x18\r \x01(\t\x12(\n\x06source\x18\x0e \x01(\x0b\x32\x18.artifact.Version.Source\x12\x12\n\nsourceType\x18\x0f \x01(\t\x12\x17\n\x0fworkspaceBaseId\x18\x10 \x01(\t\x12\x0c\n\x04\x63onf\x18\x11 \x01(\t\x1aO\n\x06Source\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\x42\x44ZBgo.easyops.local/contracts/protorepo-models/easyops/model/artifactb\x06proto3')
-  ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
-
-
-
-
-_VERSION_SOURCE = _descriptor.Descriptor(
-  name='Source',
-  full_name='artifact.Version.Source',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ensName', full_name='artifact.Version.Source.ensName', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='host', full_name='artifact.Version.Source.host', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='artifact.Version.Source.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ip', full_name='artifact.Version.Source.ip', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='artifact.Version.Source.port', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=420,
-  serialized_end=499,
+  serialized_pb=_b('\n\rversion.proto\x12\x08\x61rtifact\"\xb5\x02\n\x07Version\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\x12\x11\n\tpackageId\x18\x03 \x01(\t\x12\x0b\n\x03org\x18\x04 \x01(\x05\x12\x13\n\x0b\x62\x61seImageId\x18\x05 \x01(\t\x12\x17\n\x0f\x62\x61seVersionName\x18\x06 \x01(\t\x12\x0f\n\x07\x63reator\x18\x07 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x08 \x01(\x05\x12\x0c\n\x04memo\x18\t \x01(\t\x12\r\n\x05\x63time\x18\n \x01(\t\x12\r\n\x05mtime\x18\x0b \x01(\t\x12\x0c\n\x04sign\x18\x0c \x01(\t\x12\x13\n\x0brepoVersion\x18\r \x01(\t\x12\x0e\n\x06source\x18\x0e \x01(\t\x12\x12\n\nsourceType\x18\x0f \x01(\t\x12\x17\n\x0fworkspaceBaseId\x18\x10 \x01(\t\x12\x0c\n\x04\x63onf\x18\x11 \x01(\tBDZBgo.easyops.local/contracts/protorepo-models/easyops/model/artifactb\x06proto3')
 )
+
+
+
 
 _VERSION = _descriptor.Descriptor(
   name='Version',
@@ -171,8 +111,8 @@ _VERSION = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='artifact.Version.sign', index=11,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -185,8 +125,8 @@ _VERSION = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='source', full_name='artifact.Version.source', index=13,
-      number=14, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=14, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -214,7 +154,7 @@ _VERSION = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_VERSION_SOURCE, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -223,30 +163,19 @@ _VERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=58,
-  serialized_end=499,
+  serialized_start=28,
+  serialized_end=337,
 )
 
-_VERSION_SOURCE.containing_type = _VERSION
-_VERSION.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_VERSION.fields_by_name['source'].message_type = _VERSION_SOURCE
 DESCRIPTOR.message_types_by_name['Version'] = _VERSION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Version = _reflection.GeneratedProtocolMessageType('Version', (_message.Message,), dict(
-
-  Source = _reflection.GeneratedProtocolMessageType('Source', (_message.Message,), dict(
-    DESCRIPTOR = _VERSION_SOURCE,
-    __module__ = 'version_pb2'
-    # @@protoc_insertion_point(class_scope:artifact.Version.Source)
-    ))
-  ,
   DESCRIPTOR = _VERSION,
   __module__ = 'version_pb2'
   # @@protoc_insertion_point(class_scope:artifact.Version)
   ))
 _sym_db.RegisterMessage(Version)
-_sym_db.RegisterMessage(Version.Source)
 
 
 DESCRIPTOR._options = None

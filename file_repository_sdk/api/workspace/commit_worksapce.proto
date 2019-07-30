@@ -4,7 +4,6 @@ package workspace;
 
 
 
-import "google/protobuf/struct.proto";
 
 /*
 CommitWorkspace请求
@@ -39,7 +38,7 @@ message CommitWorkspaceResponse {
     /*
     包文件的md5检验值
     */
-    google.protobuf.Struct sign = 3 ;
+    string sign = 3 ;
 }
 
 /*

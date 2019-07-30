@@ -5,7 +5,6 @@ package version;
 
 
 import "model/artifact/version.proto";
-import "google/protobuf/struct.proto";
 
 /*
 GetVersionDetail请求

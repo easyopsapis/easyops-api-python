@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 
 from model.artifact import version_pb2 as model_dot_artifact_dot_version__pb2
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,70 +20,12 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='version',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1e\x63reate_version_with_sign.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xe4\x02\n\x1c\x43reateVersionWithSignRequest\x12\x11\n\tpackageId\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04memo\x18\x04 \x01(\t\x12%\n\x04sign\x18\x05 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04\x63onf\x18\x06 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x07 \x01(\x05\x12\x13\n\x0b\x62\x61seImageId\x18\x08 \x01(\t\x12\x17\n\x0fworkspaceBaseId\x18\t \x01(\t\x12<\n\x06source\x18\n \x01(\x0b\x32,.version.CreateVersionWithSignRequest.Source\x1aO\n\x06Source\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\"y\n$CreateVersionWithSignResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x11.artifact.Versionb\x06proto3')
+  serialized_pb=_b('\n\x1e\x63reate_version_with_sign.proto\x12\x07version\x1a\x1cmodel/artifact/version.proto\"\xcc\x01\n\x1c\x43reateVersionWithSignRequest\x12\x11\n\tpackageId\x18\x01 \x01(\t\x12\x11\n\tversionId\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0c\n\x04memo\x18\x04 \x01(\t\x12\x0c\n\x04sign\x18\x05 \x01(\t\x12\x0c\n\x04\x63onf\x18\x06 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x07 \x01(\x05\x12\x13\n\x0b\x62\x61seImageId\x18\x08 \x01(\t\x12\x17\n\x0fworkspaceBaseId\x18\t \x01(\t\x12\x0e\n\x06source\x18\n \x01(\t\"y\n$CreateVersionWithSignResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x1f\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\x11.artifact.Versionb\x06proto3')
   ,
-  dependencies=[model_dot_artifact_dot_version__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[model_dot_artifact_dot_version__pb2.DESCRIPTOR,])
 
 
 
-
-_CREATEVERSIONWITHSIGNREQUEST_SOURCE = _descriptor.Descriptor(
-  name='Source',
-  full_name='version.CreateVersionWithSignRequest.Source',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ensName', full_name='version.CreateVersionWithSignRequest.Source.ensName', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='host', full_name='version.CreateVersionWithSignRequest.Source.host', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='version.CreateVersionWithSignRequest.Source.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ip', full_name='version.CreateVersionWithSignRequest.Source.ip', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='version.CreateVersionWithSignRequest.Source.port', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=381,
-  serialized_end=460,
-)
 
 _CREATEVERSIONWITHSIGNREQUEST = _descriptor.Descriptor(
   name='CreateVersionWithSignRequest',
@@ -123,8 +64,8 @@ _CREATEVERSIONWITHSIGNREQUEST = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='version.CreateVersionWithSignRequest.sign', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -158,15 +99,15 @@ _CREATEVERSIONWITHSIGNREQUEST = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='source', full_name='version.CreateVersionWithSignRequest.source', index=9,
-      number=10, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_CREATEVERSIONWITHSIGNREQUEST_SOURCE, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -175,8 +116,8 @@ _CREATEVERSIONWITHSIGNREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=104,
-  serialized_end=460,
+  serialized_start=74,
+  serialized_end=278,
 )
 
 
@@ -227,32 +168,21 @@ _CREATEVERSIONWITHSIGNRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=462,
-  serialized_end=583,
+  serialized_start=280,
+  serialized_end=401,
 )
 
-_CREATEVERSIONWITHSIGNREQUEST_SOURCE.containing_type = _CREATEVERSIONWITHSIGNREQUEST
-_CREATEVERSIONWITHSIGNREQUEST.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_CREATEVERSIONWITHSIGNREQUEST.fields_by_name['source'].message_type = _CREATEVERSIONWITHSIGNREQUEST_SOURCE
 _CREATEVERSIONWITHSIGNRESPONSEWRAPPER.fields_by_name['data'].message_type = model_dot_artifact_dot_version__pb2._VERSION
 DESCRIPTOR.message_types_by_name['CreateVersionWithSignRequest'] = _CREATEVERSIONWITHSIGNREQUEST
 DESCRIPTOR.message_types_by_name['CreateVersionWithSignResponseWrapper'] = _CREATEVERSIONWITHSIGNRESPONSEWRAPPER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateVersionWithSignRequest = _reflection.GeneratedProtocolMessageType('CreateVersionWithSignRequest', (_message.Message,), dict(
-
-  Source = _reflection.GeneratedProtocolMessageType('Source', (_message.Message,), dict(
-    DESCRIPTOR = _CREATEVERSIONWITHSIGNREQUEST_SOURCE,
-    __module__ = 'create_version_with_sign_pb2'
-    # @@protoc_insertion_point(class_scope:version.CreateVersionWithSignRequest.Source)
-    ))
-  ,
   DESCRIPTOR = _CREATEVERSIONWITHSIGNREQUEST,
   __module__ = 'create_version_with_sign_pb2'
   # @@protoc_insertion_point(class_scope:version.CreateVersionWithSignRequest)
   ))
 _sym_db.RegisterMessage(CreateVersionWithSignRequest)
-_sym_db.RegisterMessage(CreateVersionWithSignRequest.Source)
 
 CreateVersionWithSignResponseWrapper = _reflection.GeneratedProtocolMessageType('CreateVersionWithSignResponseWrapper', (_message.Message,), dict(
   DESCRIPTOR = _CREATEVERSIONWITHSIGNRESPONSEWRAPPER,

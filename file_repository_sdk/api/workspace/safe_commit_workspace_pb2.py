@@ -19,69 +19,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='workspace',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1bsafe_commit_workspace.proto\x12\tworkspace\"\x82\x02\n\x1aSafeCommitWorkspaceRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x11\n\tversionId\x18\x03 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x04 \x01(\x05\x12<\n\x06source\x18\x05 \x01(\x0b\x32,.workspace.SafeCommitWorkspaceRequest.Source\x12\x0c\n\x04name\x18\x06 \x01(\t\x1aO\n\x06Source\x12\x0f\n\x07\x65nsName\x18\x01 \x01(\t\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\x12\x0c\n\x04port\x18\x05 \x01(\x05\"Y\n\x1bSafeCommitWorkspaceResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\t\"\x8c\x01\n\"SafeCommitWorkspaceResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.workspace.SafeCommitWorkspaceResponseb\x06proto3')
+  serialized_pb=_b('\n\x1bsafe_commit_workspace.proto\x12\tworkspace\"\x83\x01\n\x1aSafeCommitWorkspaceRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x11\n\tversionId\x18\x03 \x01(\t\x12\x10\n\x08\x65nv_type\x18\x04 \x01(\x05\x12\x0e\n\x06source\x18\x05 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\"Y\n\x1bSafeCommitWorkspaceResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\t\"\x8c\x01\n\"SafeCommitWorkspaceResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x34\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32&.workspace.SafeCommitWorkspaceResponseb\x06proto3')
 )
 
 
 
-
-_SAFECOMMITWORKSPACEREQUEST_SOURCE = _descriptor.Descriptor(
-  name='Source',
-  full_name='workspace.SafeCommitWorkspaceRequest.Source',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ensName', full_name='workspace.SafeCommitWorkspaceRequest.Source.ensName', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='host', full_name='workspace.SafeCommitWorkspaceRequest.Source.host', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='workspace.SafeCommitWorkspaceRequest.Source.type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ip', full_name='workspace.SafeCommitWorkspaceRequest.Source.ip', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='workspace.SafeCommitWorkspaceRequest.Source.port', index=4,
-      number=5, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=222,
-  serialized_end=301,
-)
 
 _SAFECOMMITWORKSPACEREQUEST = _descriptor.Descriptor(
   name='SafeCommitWorkspaceRequest',
@@ -120,8 +62,8 @@ _SAFECOMMITWORKSPACEREQUEST = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='source', full_name='workspace.SafeCommitWorkspaceRequest.source', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -135,7 +77,7 @@ _SAFECOMMITWORKSPACEREQUEST = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_SAFECOMMITWORKSPACEREQUEST_SOURCE, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -145,7 +87,7 @@ _SAFECOMMITWORKSPACEREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=43,
-  serialized_end=301,
+  serialized_end=174,
 )
 
 
@@ -196,8 +138,8 @@ _SAFECOMMITWORKSPACERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=303,
-  serialized_end=392,
+  serialized_start=176,
+  serialized_end=265,
 )
 
 
@@ -248,12 +190,10 @@ _SAFECOMMITWORKSPACERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=395,
-  serialized_end=535,
+  serialized_start=268,
+  serialized_end=408,
 )
 
-_SAFECOMMITWORKSPACEREQUEST_SOURCE.containing_type = _SAFECOMMITWORKSPACEREQUEST
-_SAFECOMMITWORKSPACEREQUEST.fields_by_name['source'].message_type = _SAFECOMMITWORKSPACEREQUEST_SOURCE
 _SAFECOMMITWORKSPACERESPONSEWRAPPER.fields_by_name['data'].message_type = _SAFECOMMITWORKSPACERESPONSE
 DESCRIPTOR.message_types_by_name['SafeCommitWorkspaceRequest'] = _SAFECOMMITWORKSPACEREQUEST
 DESCRIPTOR.message_types_by_name['SafeCommitWorkspaceResponse'] = _SAFECOMMITWORKSPACERESPONSE
@@ -261,19 +201,11 @@ DESCRIPTOR.message_types_by_name['SafeCommitWorkspaceResponseWrapper'] = _SAFECO
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SafeCommitWorkspaceRequest = _reflection.GeneratedProtocolMessageType('SafeCommitWorkspaceRequest', (_message.Message,), dict(
-
-  Source = _reflection.GeneratedProtocolMessageType('Source', (_message.Message,), dict(
-    DESCRIPTOR = _SAFECOMMITWORKSPACEREQUEST_SOURCE,
-    __module__ = 'safe_commit_workspace_pb2'
-    # @@protoc_insertion_point(class_scope:workspace.SafeCommitWorkspaceRequest.Source)
-    ))
-  ,
   DESCRIPTOR = _SAFECOMMITWORKSPACEREQUEST,
   __module__ = 'safe_commit_workspace_pb2'
   # @@protoc_insertion_point(class_scope:workspace.SafeCommitWorkspaceRequest)
   ))
 _sym_db.RegisterMessage(SafeCommitWorkspaceRequest)
-_sym_db.RegisterMessage(SafeCommitWorkspaceRequest.Source)
 
 SafeCommitWorkspaceResponse = _reflection.GeneratedProtocolMessageType('SafeCommitWorkspaceResponse', (_message.Message,), dict(
   DESCRIPTOR = _SAFECOMMITWORKSPACERESPONSE,

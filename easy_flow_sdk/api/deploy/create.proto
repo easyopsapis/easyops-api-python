@@ -8,7 +8,6 @@ import "model/easy_flow/deploy_label.proto";
 import "model/easy_flow/deploy_batch_target.proto";
 import "model/cmdb/cluster_info.proto";
 import "model/file_repository/diff.proto";
-import "google/protobuf/struct.proto";
 
 /*
 Create请求
@@ -112,7 +111,7 @@ message SourceDecode {
     /*
     包文件的md5检验值
     */
-    google.protobuf.Struct sign = 12 ;
+    string sign = 12 ;
     /*
     包存储服务版本
     */

@@ -5,36 +5,11 @@ package version;
 
 
 import "model/artifact/version.proto";
-import "google/protobuf/struct.proto";
 
 /*
 CreateVersionWithSign请求
 */
 message CreateVersionWithSignRequest {
-message Source {
-    /*
-    源服务名字
-    */
-    string ensName = 1 ;
-    /*
-    源域名
-    */
-    string host = 2 ;
-    /*
-    源类型
-    */
-    string type = 3 ;
-    /*
-    http源的ip
-    */
-    string ip = 4 ;
-    /*
-    http源的port
-    */
-    int32 port = 5 ;
-}
-        
-    
     /*
     程序包Id
     */
@@ -54,7 +29,7 @@ message Source {
     /*
     包文件的md5检验值
     */
-    google.protobuf.Struct sign = 5 ;
+    string sign = 5 ;
     /*
     版本的进程及启停、安装、升级脚本, package.conf.yaml
     */
@@ -72,9 +47,9 @@ message Source {
     */
     string workspaceBaseId = 9 ;
     /*
-    包存储源信息
+    包存储源信息,如"{"host":"deployrepo.easyops-only.com","ensName":"logic.deploy.repo.archive"}"
     */
-    Source source = 10 ;
+    string source = 10 ;
 }
 
 /*

@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='archive',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x19\x63reate_and_register.proto\x12\x07\x61rchive\x1a\x1cgoogle/protobuf/struct.proto\"c\n\x19\x43reateAndRegisterResponse\x12\x11\n\tversionId\x18\x01 \x01(\t\x12%\n\x04sign\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04\x63onf\x18\x03 \x01(\t\"\x86\x01\n CreateAndRegisterResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".archive.CreateAndRegisterResponseb\x06proto3')
-  ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\x19\x63reate_and_register.proto\x12\x07\x61rchive\"J\n\x19\x43reateAndRegisterResponse\x12\x11\n\tversionId\x18\x01 \x01(\t\x12\x0c\n\x04sign\x18\x02 \x01(\t\x12\x0c\n\x04\x63onf\x18\x03 \x01(\t\"\x86\x01\n CreateAndRegisterResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".archive.CreateAndRegisterResponseb\x06proto3')
+)
 
 
 
@@ -43,8 +41,8 @@ _CREATEANDREGISTERRESPONSE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='archive.CreateAndRegisterResponse.sign', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -67,8 +65,8 @@ _CREATEANDREGISTERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=167,
+  serialized_start=38,
+  serialized_end=112,
 )
 
 
@@ -119,11 +117,10 @@ _CREATEANDREGISTERRESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=170,
-  serialized_end=304,
+  serialized_start=115,
+  serialized_end=249,
 )
 
-_CREATEANDREGISTERRESPONSE.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _CREATEANDREGISTERRESPONSEWRAPPER.fields_by_name['data'].message_type = _CREATEANDREGISTERRESPONSE
 DESCRIPTOR.message_types_by_name['CreateAndRegisterResponse'] = _CREATEANDREGISTERRESPONSE
 DESCRIPTOR.message_types_by_name['CreateAndRegisterResponseWrapper'] = _CREATEANDREGISTERRESPONSEWRAPPER

@@ -9,30 +9,6 @@ package workspace;
 SafeCommitWorkspace请求
 */
 message SafeCommitWorkspaceRequest {
-message Source {
-    /*
-    源服务名字
-    */
-    string ensName = 1 ;
-    /*
-    源域名
-    */
-    string host = 2 ;
-    /*
-    源类型
-    */
-    string type = 3 ;
-    /*
-    http源的ip
-    */
-    string ip = 4 ;
-    /*
-    http源的port
-    */
-    int32 port = 5 ;
-}
-        
-    
     /*
     版本备注信息
     */
@@ -50,9 +26,9 @@ message Source {
     */
     int32 env_type = 4 ;
     /*
-    包存储源信息
+    包存储源信息,如"{"host":"deployrepo.easyops-only.com","ensName":"logic.deploy.repo.archive"}"
     */
-    Source source = 5 ;
+    string source = 5 ;
     /*
     包名称
     */

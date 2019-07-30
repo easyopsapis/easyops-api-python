@@ -4,10 +4,6 @@ from google.protobuf.message import (
     Message as google___protobuf___message___Message,
 )
 
-from google.protobuf.struct_pb2 import (
-    Struct as google___protobuf___struct_pb2___Struct,
-)
-
 from typing import (
     Optional as typing___Optional,
     Text as typing___Text,
@@ -36,22 +32,18 @@ class GetSignRequest(google___protobuf___message___Message):
         def ClearField(self, field_name: typing_extensions___Literal[b"packageId",b"versionId"]) -> None: ...
 
 class GetSignResponse(google___protobuf___message___Message):
-
-    @property
-    def sign(self) -> google___protobuf___struct_pb2___Struct: ...
+    sign = ... # type: typing___Text
 
     def __init__(self,
-        sign : typing___Optional[google___protobuf___struct_pb2___Struct] = None,
+        sign : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
     def FromString(cls, s: bytes) -> GetSignResponse: ...
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def HasField(self, field_name: typing_extensions___Literal[u"sign"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[u"sign"]) -> None: ...
     else:
-        def HasField(self, field_name: typing_extensions___Literal[u"sign",b"sign"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[b"sign"]) -> None: ...
 
 class GetSignResponseWrapper(google___protobuf___message___Message):

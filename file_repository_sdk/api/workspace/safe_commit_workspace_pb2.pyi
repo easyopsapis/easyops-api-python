@@ -15,44 +15,19 @@ from typing_extensions import (
 
 
 class SafeCommitWorkspaceRequest(google___protobuf___message___Message):
-    class Source(google___protobuf___message___Message):
-        ensName = ... # type: typing___Text
-        host = ... # type: typing___Text
-        type = ... # type: typing___Text
-        ip = ... # type: typing___Text
-        port = ... # type: int
-
-        def __init__(self,
-            ensName : typing___Optional[typing___Text] = None,
-            host : typing___Optional[typing___Text] = None,
-            type : typing___Optional[typing___Text] = None,
-            ip : typing___Optional[typing___Text] = None,
-            port : typing___Optional[int] = None,
-            ) -> None: ...
-        @classmethod
-        def FromString(cls, s: bytes) -> SafeCommitWorkspaceRequest.Source: ...
-        def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
-        if sys.version_info >= (3,):
-            def ClearField(self, field_name: typing_extensions___Literal[u"ensName",u"host",u"ip",u"port",u"type"]) -> None: ...
-        else:
-            def ClearField(self, field_name: typing_extensions___Literal[b"ensName",b"host",b"ip",b"port",b"type"]) -> None: ...
-
     message = ... # type: typing___Text
     packageId = ... # type: typing___Text
     versionId = ... # type: typing___Text
     env_type = ... # type: int
+    source = ... # type: typing___Text
     name = ... # type: typing___Text
-
-    @property
-    def source(self) -> SafeCommitWorkspaceRequest.Source: ...
 
     def __init__(self,
         message : typing___Optional[typing___Text] = None,
         packageId : typing___Optional[typing___Text] = None,
         versionId : typing___Optional[typing___Text] = None,
         env_type : typing___Optional[int] = None,
-        source : typing___Optional[SafeCommitWorkspaceRequest.Source] = None,
+        source : typing___Optional[typing___Text] = None,
         name : typing___Optional[typing___Text] = None,
         ) -> None: ...
     @classmethod
@@ -60,10 +35,8 @@ class SafeCommitWorkspaceRequest(google___protobuf___message___Message):
     def MergeFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     def CopyFrom(self, other_msg: google___protobuf___message___Message) -> None: ...
     if sys.version_info >= (3,):
-        def HasField(self, field_name: typing_extensions___Literal[u"source"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[u"env_type",u"message",u"name",u"packageId",u"source",u"versionId"]) -> None: ...
     else:
-        def HasField(self, field_name: typing_extensions___Literal[u"source",b"source"]) -> bool: ...
         def ClearField(self, field_name: typing_extensions___Literal[b"env_type",b"message",b"name",b"packageId",b"source",b"versionId"]) -> None: ...
 
 class SafeCommitWorkspaceResponse(google___protobuf___message___Message):

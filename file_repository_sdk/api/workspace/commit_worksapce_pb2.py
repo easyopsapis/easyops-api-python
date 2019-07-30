@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='workspace',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x16\x63ommit_worksapce.proto\x12\tworkspace\x1a\x1cgoogle/protobuf/struct.proto\"O\n\x16\x43ommitWorkspaceRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x11\n\tversionId\x18\x03 \x01(\t\"Z\n\x17\x43ommitWorkspaceResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04\x63onf\x18\x02 \x01(\t\x12%\n\x04sign\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x84\x01\n\x1e\x43ommitWorkspaceResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".workspace.CommitWorkspaceResponseb\x06proto3')
-  ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  serialized_pb=_b('\n\x16\x63ommit_worksapce.proto\x12\tworkspace\"O\n\x16\x43ommitWorkspaceRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\tpackageId\x18\x02 \x01(\t\x12\x11\n\tversionId\x18\x03 \x01(\t\"A\n\x17\x43ommitWorkspaceResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04\x63onf\x18\x02 \x01(\t\x12\x0c\n\x04sign\x18\x03 \x01(\t\"\x84\x01\n\x1e\x43ommitWorkspaceResponseWrapper\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x13\n\x0b\x63odeExplain\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\x12\x30\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32\".workspace.CommitWorkspaceResponseb\x06proto3')
+)
 
 
 
@@ -67,8 +65,8 @@ _COMMITWORKSPACEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=146,
+  serialized_start=37,
+  serialized_end=116,
 )
 
 
@@ -95,8 +93,8 @@ _COMMITWORKSPACERESPONSE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='sign', full_name='workspace.CommitWorkspaceResponse.sign', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -112,8 +110,8 @@ _COMMITWORKSPACERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=148,
-  serialized_end=238,
+  serialized_start=118,
+  serialized_end=183,
 )
 
 
@@ -164,11 +162,10 @@ _COMMITWORKSPACERESPONSEWRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=241,
-  serialized_end=373,
+  serialized_start=186,
+  serialized_end=318,
 )
 
-_COMMITWORKSPACERESPONSE.fields_by_name['sign'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _COMMITWORKSPACERESPONSEWRAPPER.fields_by_name['data'].message_type = _COMMITWORKSPACERESPONSE
 DESCRIPTOR.message_types_by_name['CommitWorkspaceRequest'] = _COMMITWORKSPACEREQUEST
 DESCRIPTOR.message_types_by_name['CommitWorkspaceResponse'] = _COMMITWORKSPACERESPONSE
