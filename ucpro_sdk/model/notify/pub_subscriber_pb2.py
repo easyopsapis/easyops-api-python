@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='notify',
   syntax='proto3',
   serialized_options=_b('Z@go.easyops.local/contracts/protorepo-models/easyops/model/notify'),
-  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\"\x7f\n\rPubSubscriber\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x05 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x06 \x01(\t\x12\r\n\x05retry\x18\x07 \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
+  serialized_pb=_b('\n\x14pub_subscriber.proto\x12\x06notify\"\xa0\x01\n\rPubSubscriber\x12\x12\n\ninstanceId\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\x05\x12\r\n\x05\x61\x64min\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61llback\x18\x05 \x01(\t\x12\x0f\n\x07\x65nsName\x18\x06 \x01(\t\x12\r\n\x05retry\x18\x07 \x01(\x05\x12\r\n\x05mtime\x18\x08 \x01(\x03\x12\x10\n\x08_version\x18\t \x01(\x05\x42\x42Z@go.easyops.local/contracts/protorepo-models/easyops/model/notifyb\x06proto3')
 )
 
 
@@ -81,6 +81,20 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mtime', full_name='notify.PubSubscriber.mtime', index=7,
+      number=8, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='_version', full_name='notify.PubSubscriber._version', index=8,
+      number=9, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -93,8 +107,8 @@ _PUBSUBSCRIBER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=32,
-  serialized_end=159,
+  serialized_start=33,
+  serialized_end=193,
 )
 
 DESCRIPTOR.message_types_by_name['PubSubscriber'] = _PUBSUBSCRIBER

@@ -68,6 +68,14 @@ message PubSubscriberCreateResponse {
     retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
     */
     int32 retry = 8 ;
+    /*
+    模型修改时间
+    */
+    int64 mtime = 9 ;
+    /*
+    模型版本
+    */
+    int32 _version = 10 ;
 }
 
 /*
