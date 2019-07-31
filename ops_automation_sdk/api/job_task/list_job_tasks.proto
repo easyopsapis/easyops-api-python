@@ -1,0 +1,98 @@
+syntax = "proto3";
+package job_task;
+
+
+
+
+import "model/ops_automation/job_tasks.proto";
+
+/*
+ListJobTasks请求
+*/
+message ListJobTasksRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    任务 ID
+    */
+    string taskId = 3 ;
+    /*
+    任务执行用户
+    */
+    string execUser = 4 ;
+    /*
+    job id
+    */
+    string jobId = 5 ;
+    /*
+    trigger
+    */
+    string trigger = 6 ;
+    /*
+    resourceType
+    */
+    string resourceType = 7 ;
+    /*
+    status
+    */
+    string status = 8 ;
+    /*
+    2019-07-21+00:00:00
+    */
+    string startTime = 9 ;
+    /*
+    2019-07-22+00:00:00
+    */
+    string endTime = 10 ;
+}
+
+/*
+ListJobTasks返回
+*/
+message ListJobTasksResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated ops_automation.JobTasks list = 4 ;
+}
+
+/*
+ListJobTasksApi返回
+*/
+message ListJobTasksResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    job_task.ListJobTasksResponse data = 4 ;
+}
+

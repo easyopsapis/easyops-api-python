@@ -1,0 +1,47 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+仓库 https://developer.github.com/v3/repos/ https://docs.gitlab.com/ee/api/projects.html 
+*/
+message Repository {
+    /*
+    git项目名称
+    */
+    string repo_name = 1 ;
+    /*
+    git项目id
+    */
+    int32 repo_id = 2 ;
+    /*
+    带namespace的显示名称
+    */
+    string name_with_namespace = 3 ;
+    /*
+    带namespace的项目路径
+    */
+    string path_with_namespace = 4 ;
+    /*
+    git ssh 克隆地址
+    */
+    string git_ssh_url = 5 ;
+    /*
+    git http克隆地址
+    */
+    string git_http_url = 6 ;
+    /*
+    repo web url
+    */
+    string link = 7 ;
+    /*
+    默认分支名称
+    */
+    string default_branch = 8 ;
+}
+

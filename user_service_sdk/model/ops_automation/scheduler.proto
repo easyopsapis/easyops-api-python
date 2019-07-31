@@ -1,0 +1,39 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+
+/*
+定时任务详情
+*/
+message Scheduler {
+message RecentHistory {
+    /*
+    执行状态
+    */
+    string status = 1 ;
+    /*
+    创建时间 2019-01-11 10:35:10
+    */
+    string createTime = 2 ;
+}
+        
+    
+    /*
+    是否绑定
+    */
+    bool isBound = 1 ;
+    /*
+    是否启动
+    */
+    bool isActive = 2 ;
+    /*
+    最近历史信息
+    */
+    repeated RecentHistory recentHistory = 3 ;
+}
+

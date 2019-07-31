@@ -1,0 +1,86 @@
+syntax = "proto3";
+package agent;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpsertAgentPlugins请求
+*/
+message UpsertAgentPluginsRequest {
+message Vals {
+message Plugins {
+    /*
+    实际部署路径
+    */
+    string deployPath = 1 ;
+    /*
+    AgentUUID
+    */
+    string agentId = 2 ;
+    /*
+    部署的插件版本名称
+    */
+    string agentPluginId = 3 ;
+    /*
+    插件的版本ID
+    */
+    string versionId = 4 ;
+    /*
+    AgentIp
+    */
+    string ip = 5 ;
+}
+        
+    
+    /*
+    数据上报的信息
+    */
+    repeated Plugins plugins = 1 ;
+}
+        
+    
+    /*
+    数据上报的信息
+    */
+    Vals vals = 1 ;
+    /*
+    数据上报维度
+    */
+    google.protobuf.Struct dims = 2 ;
+}
+
+/*
+UpsertAgentPlugins返回
+*/
+message UpsertAgentPluginsResponse {
+    /*
+    信息
+    */
+    string message = 1 ;
+}
+
+/*
+UpsertAgentPluginsApi返回
+*/
+message UpsertAgentPluginsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent.UpsertAgentPluginsResponse data = 4 ;
+}
+

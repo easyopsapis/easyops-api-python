@@ -1,0 +1,48 @@
+syntax = "proto3";
+package version;
+
+
+
+
+import "model/artifact/version.proto";
+
+/*
+UpdateVersionEnvType请求
+*/
+message UpdateVersionEnvTypeRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 3 ;
+}
+
+/*
+UpdateVersionEnvTypeApi返回
+*/
+message UpdateVersionEnvTypeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    artifact.Version data = 4 ;
+}
+

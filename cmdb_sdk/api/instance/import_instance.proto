@@ -1,0 +1,86 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ImportInstance请求
+*/
+message ImportInstanceRequest {
+    /*
+    实例所属的模型ID
+    */
+    string objectId = 1 ;
+    /*
+    导入实例的字段
+    */
+    repeated string keys = 2 ;
+    /*
+    导入实例数据列表
+    */
+    repeated google.protobuf.Struct datas = 3 ;
+}
+
+/*
+ImportInstance返回
+*/
+message ImportInstanceResponse {
+message Data {
+    /*
+    错误码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    错误数据
+    */
+    repeated google.protobuf.Struct data = 3 ;
+}
+        
+    
+    /*
+    成功插入数量
+    */
+    int32 insert_count = 1 ;
+    /*
+    成功更新数量
+    */
+    int32 update_count = 2 ;
+    /*
+    失败数量
+    */
+    int32 failed_count = 3 ;
+    /*
+    失败数据
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+ImportInstanceApi返回
+*/
+message ImportInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.ImportInstanceResponse data = 4 ;
+}
+

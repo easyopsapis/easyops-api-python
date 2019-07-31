@@ -1,0 +1,48 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/pipeline/trigger.proto";
+
+/*
+CreateTrigger请求
+*/
+message CreateTriggerRequest {
+    /*
+    project id
+    */
+    string project_id = 1 ;
+    /*
+    pipeline id
+    */
+    string pipeline_id = 2 ;
+    /*
+    trigger 配置
+    */
+    pipeline.Trigger trigger = 3 ;
+}
+
+/*
+CreateTriggerApi返回
+*/
+message CreateTriggerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.Trigger data = 4 ;
+}
+

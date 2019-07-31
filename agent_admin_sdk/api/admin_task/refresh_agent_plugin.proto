@@ -1,0 +1,49 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+
+/*
+RefreshAgentPluginTask请求
+*/
+message RefreshAgentPluginTaskRequest {
+    /*
+    agent
+    */
+    repeated string agents = 1 ;
+}
+
+/*
+RefreshAgentPluginTask返回
+*/
+message RefreshAgentPluginTaskResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+RefreshAgentPluginTaskApi返回
+*/
+message RefreshAgentPluginTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    admin_task.RefreshAgentPluginTaskResponse data = 4 ;
+}
+

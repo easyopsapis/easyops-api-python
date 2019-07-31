@@ -1,0 +1,51 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "model/flow/flow_step.proto";
+import "model/tool/input_param.proto";
+import "model/flow/flow.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetFlowInfo请求
+*/
+message GetFlowInfoRequest {
+    /*
+    流程ID
+    */
+    string flowId = 1 ;
+    /*
+    版本号(时间戳-秒)
+    */
+    int32 version = 2 ;
+    /*
+    流程标签
+    */
+    repeated string tags = 3 ;
+}
+
+/*
+GetFlowInfoApi返回
+*/
+message GetFlowInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    flow.Flow data = 4 ;
+}
+

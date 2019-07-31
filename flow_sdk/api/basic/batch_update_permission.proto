@@ -1,0 +1,52 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdateBatchPermission请求
+*/
+message UpdateBatchPermissionRequest {
+    /*
+    批量更新方式, 可选值: append(追加), overwrite(重置), pull(移除)
+    */
+    string method = 1 ;
+    /*
+    权限列表,可选值deleteAuthorizers(删除), updateAuthorizers(更新), readAuthorizers(读取或查看),executeAuthorizers(执行)
+    */
+    repeated string permissions = 2 ;
+    /*
+    流程ID
+    */
+    repeated string flowIds = 3 ;
+    /*
+    用户、用户组列表
+    */
+    repeated string authorizers = 4 ;
+}
+
+/*
+UpdateBatchPermissionApi返回
+*/
+message UpdateBatchPermissionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

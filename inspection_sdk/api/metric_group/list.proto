@@ -1,0 +1,70 @@
+syntax = "proto3";
+package metric_group;
+
+
+
+
+import "model/inspection/metric_group.proto";
+
+/*
+ListMetricGroup请求
+*/
+message ListMetricGroupRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+ListMetricGroup返回
+*/
+message ListMetricGroupResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated inspection.InspectionMetricGroup list = 4 ;
+}
+
+/*
+ListMetricGroupApi返回
+*/
+message ListMetricGroupResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    metric_group.ListMetricGroupResponse data = 4 ;
+}
+

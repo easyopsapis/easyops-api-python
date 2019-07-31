@@ -1,0 +1,53 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+
+/*
+HandleHook请求
+*/
+message HandleHookRequest {
+    /*
+    provider: gitlab
+    */
+    string provider = 1 ;
+    /*
+    token
+    */
+    string token = 2 ;
+}
+
+/*
+HandleHook返回
+*/
+message HandleHookResponse {
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 1 ;
+}
+
+/*
+HandleHookApi返回
+*/
+message HandleHookResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.HandleHookResponse data = 4 ;
+}
+

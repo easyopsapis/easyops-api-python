@@ -1,0 +1,76 @@
+syntax = "proto3";
+package version;
+
+
+
+
+import "model/artifact/version.proto";
+
+/*
+CreateVersionWithSign请求
+*/
+message CreateVersionWithSignRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+    /*
+    包名称
+    */
+    string name = 3 ;
+    /*
+    版本备注
+    */
+    string memo = 4 ;
+    /*
+    包文件的md5检验值
+    */
+    string sign = 5 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 6 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 7 ;
+    /*
+    基础Docker镜像Id
+    */
+    string baseImageId = 8 ;
+    /*
+    工作区基础版本Id
+    */
+    string workspaceBaseId = 9 ;
+    /*
+    包存储源信息,如"{"host":"deployrepo.easyops-only.com","ensName":"logic.deploy.repo.archive"}"
+    */
+    string source = 10 ;
+}
+
+/*
+CreateVersionWithSignApi返回
+*/
+message CreateVersionWithSignResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    artifact.Version data = 4 ;
+}
+

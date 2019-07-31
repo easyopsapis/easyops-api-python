@@ -1,0 +1,66 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+AddStrToArray请求
+*/
+message AddStrToArrayRequest {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+    /*
+    属性key(仅支持arr类型属性)
+    */
+    string attr_id = 2 ;
+    /*
+    与实例搜索query一致,将对search到的所有实例操作
+    */
+    google.protobuf.Struct query = 3 ;
+    /*
+    append的值
+    */
+    repeated string values = 4 ;
+}
+
+/*
+AddStrToArray返回
+*/
+message AddStrToArrayResponse {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    属性值
+    */
+    repeated string values = 2 ;
+}
+
+/*
+AddStrToArrayApi返回
+*/
+message AddStrToArrayResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated instance.AddStrToArrayResponse data = 4 ;
+}
+

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+FileDownload请求
+*/
+message FileDownloadRequest {
+    /*
+    只查看指定文件内容差异
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+}
+

@@ -1,0 +1,65 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+
+/*
+DeleteClusterDevice请求
+*/
+message DeleteClusterDeviceRequest {
+    /*
+    模型对象ID
+    */
+    string instanceId = 1 ;
+    /*
+    多个设备id,用;分隔
+    */
+    string deviceIds = 2 ;
+}
+
+/*
+DeleteClusterDevice返回
+*/
+message DeleteClusterDeviceResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    实例Id
+    */
+    string data = 4 ;
+}
+
+/*
+DeleteClusterDeviceApi返回
+*/
+message DeleteClusterDeviceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.DeleteClusterDeviceResponse data = 4 ;
+}
+

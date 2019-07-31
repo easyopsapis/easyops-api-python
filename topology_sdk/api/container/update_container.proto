@@ -1,0 +1,94 @@
+syntax = "proto3";
+package container;
+
+
+
+
+import "model/topology/property.proto";
+
+/*
+UpdateContainer请求
+*/
+message UpdateContainerRequest {
+message Style {
+    /*
+    x坐标
+    */
+    float x = 1 ;
+    /*
+    y坐标
+    */
+    float y = 2 ;
+    /*
+    宽
+    */
+    float width = 3 ;
+    /*
+    高
+    */
+    float height = 4 ;
+    /*
+    类型
+    */
+    string className = 5 ;
+}
+        
+    
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    来源
+    */
+    string dataSource = 3 ;
+    /*
+    数据属性
+    */
+    topology.Property property = 4 ;
+    /*
+    风格
+    */
+    Style style = 5 ;
+    /*
+    是否允许展开
+    */
+    bool collapse = 6 ;
+}
+
+/*
+UpdateContainer返回
+*/
+message UpdateContainerResponse {
+    /*
+    容器ID
+    */
+    string id = 1 ;
+}
+
+/*
+UpdateContainerApi返回
+*/
+message UpdateContainerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.UpdateContainerResponse data = 4 ;
+}
+

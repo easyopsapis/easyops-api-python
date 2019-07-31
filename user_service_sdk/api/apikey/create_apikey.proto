@@ -1,0 +1,73 @@
+syntax = "proto3";
+package apikey;
+
+
+
+
+
+/*
+CreateApiKey请求
+*/
+message CreateApiKeyRequest {
+    /*
+    用户名
+    */
+    string user = 1 ;
+}
+
+/*
+CreateApiKey返回
+*/
+message CreateApiKeyResponse {
+    /*
+    用户名
+    */
+    string user = 1 ;
+    /*
+    access_key
+    */
+    string access_key = 2 ;
+    /*
+    secret_key
+    */
+    string secret_key = 3 ;
+    /*
+    是否可用
+    */
+    string state = 4 ;
+    /*
+    org
+    */
+    int32 org = 5 ;
+    /*
+    创建时间
+    */
+    string ctime = 6 ;
+    /*
+    更新时间戳
+    */
+    int32 ts = 7 ;
+}
+
+/*
+CreateApiKeyApi返回
+*/
+message CreateApiKeyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    apikey.CreateApiKeyResponse data = 4 ;
+}
+

@@ -1,0 +1,53 @@
+syntax = "proto3";
+package version;
+
+
+
+
+
+/*
+DeleteVersion请求
+*/
+message DeleteVersionRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+DeleteVersion返回
+*/
+message DeleteVersionResponse {
+    /*
+    是否为最新版本
+    */
+    bool lastVersion = 1 ;
+}
+
+/*
+DeleteVersionApi返回
+*/
+message DeleteVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    version.DeleteVersionResponse data = 4 ;
+}
+

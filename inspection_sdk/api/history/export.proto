@@ -1,0 +1,22 @@
+syntax = "proto3";
+package history;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ExportHistory请求
+*/
+message ExportHistoryRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    巡检作业Id
+    */
+    string jobId = 2 ;
+}
+

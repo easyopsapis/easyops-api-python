@@ -1,0 +1,52 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+import "model/file_repository/diff.proto";
+
+/*
+Status请求
+*/
+message StatusRequest {
+    /*
+    是否要获取文件内容差异
+    */
+    string diff_file = 1 ;
+    /*
+    只查看指定文件内容差异
+    */
+    string path = 2 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+}
+
+/*
+StatusApi返回
+*/
+message StatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated file_repository.Diff data = 4 ;
+}
+

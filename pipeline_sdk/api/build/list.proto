@@ -1,0 +1,143 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "model/pipeline/project.proto";
+import "model/pipeline/pipeline.proto";
+import "model/pipeline/stage_status.proto";
+import "model/pipeline/git_meta.proto";
+import "model/pipeline/build_status.proto";
+import "google/protobuf/struct.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    条件查询；需要构造这个query格式；具体格式如下：\ 1.按照日期筛选：\ {"page":"1","page_size":"100", "query":{"created":{"$gt":156024989 }}\ 2.按照创建人筛选：\ {"page":"1","page_size":"100","query":{"sender":"em"} \ 3.按照状态筛选：\ {"page":"1","page_size":"100","query":{"status.state":"failed" }} \ 4.按照pipeline_id筛选 \ {"page": 1,"page_size": 10,"query": {"PIPELINE.instanceId": "58af5330e04d"}} \ 5.按照project_id筛选 \ {"page": 1,"page_size": 10,"query": {"PIPELINE.PROJECT.instanceId": "58a8dd6a23d6e"}}
+    */
+    google.protobuf.Struct query = 3 ;
+    /*
+    条件查询：按照字段正/倒序 :1表示升序, -1表示降序\ {"page": 1,"page_size": 10,"sort": {"created": -1}} //created可替换当前模型任意字段
+    */
+    google.protobuf.Struct sort = 4 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+message Data {
+message List {
+    /*
+    项目
+    */
+    pipeline.Project project = 1 ;
+    /*
+    流水线
+    */
+    pipeline.Pipeline pipeline = 2 ;
+    /*
+    stages执行状态
+    */
+    repeated pipeline.StageStatus stages = 3 ;
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 4 ;
+    /*
+    git信息, 创建的时候传入，不能修改
+    */
+    pipeline.GitMeta git_meta = 5 ;
+    /*
+    触发者，创建的时候传入，不能修改
+    */
+    string sender = 6 ;
+    /*
+    创建时间，创建的时候传入，不能修改
+    */
+    int32 created = 7 ;
+    /*
+    workflow定义
+    */
+    string yaml_string = 8 ;
+    /*
+    执行状态
+    */
+    pipeline.BuildStatus status = 9 ;
+    /*
+    编号
+    */
+    string number = 10 ;
+}
+        
+    
+    /*
+    返回总数
+    */
+    int32 total = 1 ;
+    /*
+    页数
+    */
+    int32 page = 2 ;
+    /*
+    该页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    列表
+    */
+    repeated List list = 4 ;
+}
+        
+    
+    /*
+    返回状态码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    Data data = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    build.ListResponse data = 4 ;
+}
+

@@ -1,0 +1,58 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+CreateJobsExcution请求
+*/
+message CreateJobsExcutionRequest {
+    /*
+    作业id
+    */
+    string jobId = 1 ;
+    /*
+    关联工具的入参
+    */
+    google.protobuf.Struct inputs = 2 ;
+    /*
+    执行方式：手动、定时
+    */
+    string trigger = 3 ;
+}
+
+/*
+CreateJobsExcution返回
+*/
+message CreateJobsExcutionResponse {
+    /*
+    task id
+    */
+    string id = 1 ;
+}
+
+/*
+CreateJobsExcutionApi返回
+*/
+message CreateJobsExcutionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    jobs.CreateJobsExcutionResponse data = 4 ;
+}
+

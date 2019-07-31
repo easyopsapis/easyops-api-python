@@ -1,0 +1,67 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+流水线
+*/
+message Pipeline {
+message Variables {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    流水线id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    流水线名称
+    */
+    string alias_name = 2 ;
+    /*
+    yaml文件内容
+    */
+    string workflow_type = 3 ;
+    /*
+    workflow yaml存放位置
+    */
+    string yaml_path = 4 ;
+    /*
+    workflow定义字符串
+    */
+    string yaml_string = 5 ;
+    /*
+    workflow定义url
+    */
+    string yaml_url = 6 ;
+    /*
+    流水线全局变量
+    */
+    repeated Variables variables = 7 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 8 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 9 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 10 ;
+}
+

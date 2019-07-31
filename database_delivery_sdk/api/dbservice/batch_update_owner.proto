@@ -1,0 +1,56 @@
+syntax = "proto3";
+package dbservice;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+BatchUpdateDBServiceOwner请求
+*/
+message BatchUpdateDBServiceOwnerRequest {
+message UpdateDbservice {
+    /*
+    操作类型
+    */
+    string type = 1 ;
+    /*
+    数据库服务实例ID列表
+    */
+    repeated string instanceIdList = 2 ;
+    /*
+    负责人ID列表
+    */
+    repeated string owner = 3 ;
+}
+        
+    
+    /*
+    变更的数据库服务信息
+    */
+    UpdateDbservice update_dbservice = 1 ;
+}
+
+/*
+BatchUpdateDBServiceOwnerApi返回
+*/
+message BatchUpdateDBServiceOwnerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

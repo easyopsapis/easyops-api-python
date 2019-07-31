@@ -1,0 +1,64 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+import "model/file_repository/diff.proto";
+
+/*
+GetPackageDifference请求
+*/
+message GetPackageDifferenceRequest {
+    /*
+    源包Id
+    */
+    string package_from = 1 ;
+    /*
+    目标包Id
+    */
+    string package_to = 2 ;
+    /*
+    源版本Id
+    */
+    string ver_from = 3 ;
+    /*
+    目标版本Id
+    */
+    string ver_to = 4 ;
+    /*
+    是否要获取文件内容差异(true,false)
+    */
+    string diff_file = 5 ;
+    /*
+    只查看指定的文件内容差异
+    */
+    string path = 6 ;
+    /*
+    参数patn的编码格式
+    */
+    string enconing = 7 ;
+}
+
+/*
+GetPackageDifferenceApi返回
+*/
+message GetPackageDifferenceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    file_repository.Diff data = 4 ;
+}
+

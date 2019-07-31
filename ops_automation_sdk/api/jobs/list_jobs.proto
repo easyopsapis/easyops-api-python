@@ -1,0 +1,98 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+import "model/ops_automation/scheduler.proto";
+
+/*
+ListJobs请求
+*/
+message ListJobsRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    menu Id
+    */
+    string menuId = 3 ;
+}
+
+/*
+ListJobs返回
+*/
+message ListJobsResponse {
+message List {
+    /*
+    定时任务详情
+    */
+    ops_automation.Scheduler scheduler = 1 ;
+    /*
+    任务ID
+    */
+    string id = 2 ;
+    /*
+    任务名称
+    */
+    string name = 3 ;
+    /*
+    菜单分类
+    */
+    string category = 4 ;
+    /*
+    作业描述
+    */
+    string desc = 5 ;
+    /*
+    菜单ID
+    */
+    string menuId = 6 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListJobsApi返回
+*/
+message ListJobsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    jobs.ListJobsResponse data = 4 ;
+}
+

@@ -1,0 +1,65 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+
+/*
+GetSize请求
+*/
+message GetSizeRequest {
+    /*
+    程序包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+GetSize返回
+*/
+message GetSizeResponse {
+    /*
+    返回状态码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    版本大小
+    */
+    int64 data = 4 ;
+}
+
+/*
+GetSizeApi返回
+*/
+message GetSizeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.GetSizeResponse data = 4 ;
+}
+

@@ -1,0 +1,65 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+CommitWorkspace请求
+*/
+message CommitWorkspaceRequest {
+    /*
+    版本备注信息
+    */
+    string message = 1 ;
+    /*
+    程序包Id
+    */
+    string packageId = 2 ;
+    /*
+    版本Id
+    */
+    string versionId = 3 ;
+}
+
+/*
+CommitWorkspace返回
+*/
+message CommitWorkspaceResponse {
+    /*
+    版本Id
+    */
+    string id = 1 ;
+    /*
+    包配置信息
+    */
+    string conf = 2 ;
+    /*
+    包文件的md5检验值
+    */
+    string sign = 3 ;
+}
+
+/*
+CommitWorkspaceApi返回
+*/
+message CommitWorkspaceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.CommitWorkspaceResponse data = 4 ;
+}
+

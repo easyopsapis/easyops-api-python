@@ -1,0 +1,23 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+
+/*
+动作为 "saveFile" 的action的参数
+*/
+message FileActionParam {
+    /*
+    文件内容 base64 编码字符串
+    */
+    string content = 1 ;
+    /*
+    保存到目标机器的绝对路径，如 /tmp/foo/bar.tar.gz
+    */
+    string dst_file = 2 ;
+}
+

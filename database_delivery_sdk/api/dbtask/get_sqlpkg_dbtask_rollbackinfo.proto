@@ -1,0 +1,93 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+GetSQLPackageDBTaskRollbackInfo请求
+*/
+message GetSQLPackageDBTaskRollbackInfoRequest {
+    /*
+    任务ID
+    */
+    string dbTaskId = 1 ;
+}
+
+/*
+GetSQLPackageDBTaskRollbackInfo返回
+*/
+message GetSQLPackageDBTaskRollbackInfoResponse {
+message RollbackInfo {
+message ScriptInfo {
+    /*
+    变更集ID
+    */
+    string id = 1 ;
+    /*
+    变更SQL文件名
+    */
+    string updateName = 2 ;
+    /*
+    回退SQL文件名
+    */
+    string rollbackName = 3 ;
+}
+        
+    
+    /*
+    汇总任务ID
+    */
+    string summaryTaskId = 1 ;
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 2 ;
+    /*
+    数据库实例名称
+    */
+    string dbInstanceName = 3 ;
+    /*
+    可回退的脚本信息列表
+    */
+    repeated ScriptInfo scriptInfo = 4 ;
+}
+        
+    
+    /*
+    SQL包的仓库ID
+    */
+    string repoPackageId = 1 ;
+    /*
+    SQL包版本的仓库版本ID
+    */
+    string repoVersionId = 2 ;
+    /*
+    SQL包变更任务的版本信息
+    */
+    repeated RollbackInfo rollbackInfo = 3 ;
+}
+
+/*
+GetSQLPackageDBTaskRollbackInfoApi返回
+*/
+message GetSQLPackageDBTaskRollbackInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.GetSQLPackageDBTaskRollbackInfoResponse data = 4 ;
+}
+

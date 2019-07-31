@@ -1,0 +1,97 @@
+syntax = "proto3";
+package apikey;
+
+
+
+
+
+/*
+ListApiKey请求
+*/
+message ListApiKeyRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
+ListApiKey返回
+*/
+message ListApiKeyResponse {
+message List {
+    /*
+    用户名
+    */
+    string user = 1 ;
+    /*
+    access_key
+    */
+    string access_key = 2 ;
+    /*
+    secret_key
+    */
+    string secret_key = 3 ;
+    /*
+    是否可用
+    */
+    string state = 4 ;
+    /*
+    org
+    */
+    int32 org = 5 ;
+    /*
+    创建时间
+    */
+    string ctime = 6 ;
+    /*
+    更新时间戳
+    */
+    int32 ts = 7 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListApiKeyApi返回
+*/
+message ListApiKeyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    apikey.ListApiKeyResponse data = 4 ;
+}
+

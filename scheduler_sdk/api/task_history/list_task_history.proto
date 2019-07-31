@@ -1,0 +1,94 @@
+syntax = "proto3";
+package task_history;
+
+
+
+
+import "model/scheduler/history.proto";
+
+/*
+ListHistory请求
+*/
+message ListHistoryRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    列选择，英文逗号分隔
+    */
+    string __select__ = 3 ;
+    /*
+    根据指定字段排序
+    */
+    string __sortby__ = 4 ;
+    /*
+    源 id
+    */
+    string src_id = 5 ;
+    /*
+    history id
+    */
+    string id = 6 ;
+    /*
+    task id
+    */
+    string task_id = 7 ;
+}
+
+/*
+ListHistory返回
+*/
+message ListHistoryResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    初始页面
+    */
+    int32 page = 2 ;
+    /*
+    页面大小
+    */
+    int32 page_size = 3 ;
+    /*
+    返回信息。get success
+    */
+    string msg = 4 ;
+    /*
+    总大小
+    */
+    int32 total = 5 ;
+    /*
+    执行历史记录
+    */
+    repeated scheduler.SchedulerHistory data = 6 ;
+}
+
+/*
+ListHistoryApi返回
+*/
+message ListHistoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task_history.ListHistoryResponse data = 4 ;
+}
+

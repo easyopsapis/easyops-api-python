@@ -1,0 +1,27 @@
+syntax = "proto3";
+package artifact;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/artifact";
+
+
+
+
+
+/*
+白名单权限用户
+*/
+message WhitePermissionUser {
+    /*
+    拥有更新权限用户
+    */
+    repeated string updateAuthorizers = 1 ;
+    /*
+    拥有删除权限用户
+    */
+    repeated string deleteAuthorizers = 2 ;
+    /*
+    拥有查看权限用户
+    */
+    repeated string readAuthorizers = 3 ;
+}
+

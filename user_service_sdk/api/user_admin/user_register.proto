@@ -1,0 +1,69 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+
+/*
+UserRegister请求
+*/
+message UserRegisterRequest {
+    /*
+    用户名
+    */
+    string name = 1 ;
+    /*
+    密码
+    */
+    string password = 2 ;
+    /*
+    邮箱
+    */
+    string email = 3 ;
+    /*
+    org
+    */
+    int32 org = 4 ;
+}
+
+/*
+UserRegister返回
+*/
+message UserRegisterResponse {
+    /*
+    用户名
+    */
+    string name = 1 ;
+    /*
+    邮箱
+    */
+    string email = 2 ;
+    /*
+    org
+    */
+    int32 org = 3 ;
+}
+
+/*
+UserRegisterApi返回
+*/
+message UserRegisterResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    user_admin.UserRegisterResponse data = 4 ;
+}
+

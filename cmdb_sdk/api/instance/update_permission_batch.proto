@@ -1,0 +1,70 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdatePermissionBatch请求
+*/
+message UpdatePermissionBatchRequest {
+    /*
+    资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID列表
+    */
+    repeated string ids = 2 ;
+    /*
+    权限字段
+    */
+    string field = 3 ;
+    /*
+    updateAthorizers, deleteAuthorizers, readAuthorizers, operateAuthorizers中的一个或多个
+    */
+    repeated string fields = 4 ;
+    /*
+    修改操作的类型(overwrite, append, pull)(在枚举之外的操作类型会报错)
+    */
+    string method = 5 ;
+    /*
+    用户,用户组列表
+    */
+    repeated string list = 6 ;
+}
+
+/*
+UpdatePermissionBatch返回
+*/
+message UpdatePermissionBatchResponse {
+    /*
+    没有权限更新的实例列表
+    */
+    repeated google.protobuf.Struct noAuthorizedList = 1 ;
+}
+
+/*
+UpdatePermissionBatchApi返回
+*/
+message UpdatePermissionBatchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.UpdatePermissionBatchResponse data = 4 ;
+}
+

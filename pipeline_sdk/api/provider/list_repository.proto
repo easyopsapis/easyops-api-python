@@ -1,0 +1,66 @@
+syntax = "proto3";
+package provider;
+
+
+
+
+import "model/pipeline/repository.proto";
+
+/*
+ListRepository请求
+*/
+message ListRepositoryRequest {
+    /*
+    根据provider id查找代码项目
+    */
+    string provider_id = 1 ;
+    /*
+    搜索关键字
+    */
+    string search = 2 ;
+}
+
+/*
+ListRepository返回
+*/
+message ListRepositoryResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated pipeline.Repository list = 4 ;
+}
+
+/*
+ListRepositoryApi返回
+*/
+message ListRepositoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    provider.ListRepositoryResponse data = 4 ;
+}
+

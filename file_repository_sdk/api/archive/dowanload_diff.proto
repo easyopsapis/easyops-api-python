@@ -1,0 +1,22 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DownloadDiff请求
+*/
+message DownloadDiffRequest {
+    /*
+    版本差异列表
+    */
+    string diff = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+}
+

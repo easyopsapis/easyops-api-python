@@ -1,0 +1,216 @@
+syntax = "proto3";
+package flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flow";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+流程执行步骤
+*/
+message FlowExecuteStep {
+message Times {
+    /*
+    步骤开始执行毫秒时间戳，如1563949106082
+    */
+    int32 stepStartTime = 1 ;
+    /*
+    工具开始执行毫秒时间戳，如1563949106082
+    */
+    int32 toolStartTime = 2 ;
+    /*
+    工具结束执行毫秒时间戳，如1563949106082
+    */
+    int32 toolEndTime = 3 ;
+    /*
+    步骤结束执行毫秒时间戳，如1563949106082
+    */
+    int32 stepEndTime = 4 ;
+}
+        
+message Agents {
+    /*
+    ip
+    */
+    string ip = 1 ;
+    /*
+    主机instanceId
+    */
+    string instanceId = 2 ;
+}
+        
+message Styles {
+    /*
+    宽
+    */
+    float width = 1 ;
+}
+        
+message Parents {
+    /*
+    步骤名称
+    */
+    string stepName = 1 ;
+    /*
+    步骤序号
+    */
+    int32 stepId = 2 ;
+    /*
+    连线起点位置
+    */
+    string sourcePoint = 3 ;
+    /*
+    连线终点位置
+    */
+    string targetPoint = 4 ;
+}
+        
+    
+    /*
+    流程执行的taskId
+    */
+    string taskId = 1 ;
+    /*
+    所在流程id
+    */
+    string flowId = 2 ;
+    /*
+    执行时间信息
+    */
+    Times times = 3 ;
+    /*
+    步骤执行状态
+    */
+    string status = 4 ;
+    /*
+    org
+    */
+    int32 org = 5 ;
+    /*
+    执行输入定义
+    */
+    google.protobuf.Struct inputsDefinition = 6 ;
+    /*
+    执行输出定义
+    */
+    google.protobuf.Struct outputsDefinition = 7 ;
+    /*
+    执行目标
+    */
+    repeated Agents agents = 8 ;
+    /*
+    步骤执行的taskId
+    */
+    string execId = 9 ;
+    /*
+    步骤执行退出码
+    */
+    int32 exitStatus = 10 ;
+    /*
+    agent执行状态如: {"192.168.100.163": "success"}
+    */
+    google.protobuf.Struct agentStatus = 11 ;
+    /*
+    agent执行输出如 {"192.168.100.163": null}
+    */
+    google.protobuf.Struct agentOutputs = 12 ;
+    /*
+    agent执行详细信息
+{
+    "agentData": {
+        "192.168.100.163": {
+            "targetId": "5caee6c67d86a",
+            "tableData": [],
+            "outputs": null,
+            "msg": "Wed Jul 24 14:18:28 CST 2019\nWed Jul 24 14:18:29 CST 2019",
+            "startTime": "2019-07-24T14:18:28+08:00",
+            "updateTime": "2019-07-24T14:18:30+08:00",
+            "endTime": "2019-07-24T14:18:30+08:00",
+            "status": "success",
+            "exitStatus": 0,
+            "sysStatus": "ok",
+            "retryCount": 0,
+            "backoffLimit": 0
+        }
+    }
+}
+
+    */
+    google.protobuf.Struct agentData = 13 ;
+    /*
+    步骤ID
+    */
+    int32 stepId = 14 ;
+    /*
+    引用步骤ID(工具ID或者流程ID，当为人工审批节点是为空)
+    */
+    string toolId = 15 ;
+    /*
+    步骤名
+    */
+    string stepName = 16 ;
+    /*
+    使用工具版本
+    */
+    string vId = 17 ;
+    /*
+    执行用户
+    */
+    string execUser = 18 ;
+    /*
+    失败退出
+    */
+    string failureExit = 19 ;
+    /*
+    步骤类型(tool、flow、manual)
+    */
+    string subType = 20 ;
+    /*
+    类型
+    */
+    string type = 21 ;
+    /*
+    在画布中X坐标
+    */
+    float _x = 22 ;
+    /*
+    在画布中Y坐标
+    */
+    float _y = 23 ;
+    /*
+    是否root执行
+    */
+    string root = 24 ;
+    /*
+    相对流程起点X坐标
+    */
+    float _dx = 25 ;
+    /*
+    相对流程启动Y坐标
+    */
+    float _dy = 26 ;
+    /*
+    样式
+    */
+    Styles styles = 27 ;
+    /*
+    步骤输出
+    */
+    google.protobuf.Struct outputs = 28 ;
+    /*
+    流程输入
+    */
+    google.protobuf.Struct inputs = 29 ;
+    /*
+    通知条件
+    */
+    string informCondition = 30 ;
+    /*
+    前置节点信息
+    */
+    repeated Parents parents = 31 ;
+}
+

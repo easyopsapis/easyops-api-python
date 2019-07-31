@@ -1,0 +1,39 @@
+syntax = "proto3";
+package permission;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/permission";
+
+
+
+
+
+/*
+角色
+*/
+message Role {
+    /*
+    角色id
+    */
+    string id = 1 ;
+    /*
+    角色所在org
+    */
+    int32 org = 2 ;
+    /*
+    角色名称
+    */
+    string role = 3 ;
+    /*
+    角色下用户列表
+    */
+    repeated string user = 4 ;
+    /*
+    角色下权限id列表
+    */
+    repeated string permission = 5 ;
+    /*
+    角色下用户组列表
+    */
+    repeated string user_group = 6 ;
+}
+

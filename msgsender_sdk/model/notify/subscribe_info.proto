@@ -1,0 +1,23 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+订阅信息
+*/
+message SubscribeInfo {
+    /*
+    订阅channel
+    */
+    string channel = 1 ;
+    /*
+    订阅的事件列表
+    */
+    repeated string event = 2 ;
+}
+

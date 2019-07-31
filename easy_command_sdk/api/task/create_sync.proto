@@ -1,0 +1,34 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "model/easy_command/action.proto";
+import "model/easy_command/target.proto";
+import "model/easy_command/task_callback.proto";
+import "model/easy_command/target_log.proto";
+import "model/easy_command/task_detail.proto";
+
+/*
+CreateSyncTaskApi返回
+*/
+message CreateSyncTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_command.TaskDetail data = 4 ;
+}
+

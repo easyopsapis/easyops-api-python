@@ -1,0 +1,43 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+事件
+*/
+message Topic {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    实例名称
+    */
+    string name = 2 ;
+    /*
+    事件系统
+    */
+    string system = 3 ;
+    /*
+    事件分类
+    */
+    string topic = 4 ;
+    /*
+    说明
+    */
+    string memo = 5 ;
+    /*
+    事件二级分类
+    */
+    string category = 6 ;
+    /*
+     数据格式样例
+    */
+    string example = 7 ;
+}
+

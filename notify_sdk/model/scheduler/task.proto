@@ -1,0 +1,162 @@
+syntax = "proto3";
+package scheduler;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/scheduler";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+定时任务
+*/
+message SchedulerTask {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
+message CmdConfig {
+    /*
+    uri
+    */
+    string url = 1 ;
+    /*
+    名字服务
+    */
+    string service_name = 2 ;
+    /*
+    端口
+    */
+    int32 port = 3 ;
+    /*
+    名字服务
+    */
+    string host = 4 ;
+    /*
+    http 请求
+    */
+    string method = 5 ;
+    /*
+    请求头
+    */
+    google.protobuf.Struct headers = 6 ;
+    /*
+    参数
+    */
+    google.protobuf.Struct params = 7 ;
+}
+        
+message Callback {
+    /*
+    url
+    */
+    string url = 1 ;
+    /*
+    header host
+    */
+    string host = 2 ;
+    /*
+    名字服务
+    */
+    string ensName = 3 ;
+}
+        
+    
+    /*
+    scheduler task id
+    */
+    string id = 1 ;
+    /*
+    定时任务名称
+    */
+    string name = 2 ;
+    /*
+    任务对象类型
+    */
+    string job_type = 3 ;
+    /*
+    定时任务执行周期类型
+    */
+    string task_type = 4 ;
+    /*
+    任务执行方式，目前只使用到了http
+    */
+    string cmd_type = 5 ;
+    /*
+    定时时间：x/5 x x x x， 2018-09-04 15:56:23
+    */
+    string task_scheduler = 6 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 7 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 8 ;
+    /*
+    任务的具体配置, http或脚本
+    */
+    CmdConfig cmd_config = 9 ;
+    /*
+    任务创建者来源
+    */
+    string assignner = 10 ;
+    /*
+    0 表示不禁用, 1 表示禁用
+    */
+    int32 disable = 11 ;
+    /*
+    0 在页面可见，1 不可见
+    */
+    int32 invisible = 12 ;
+    /*
+    org
+    */
+    int32 org = 13 ;
+    /*
+    创建用户
+    */
+    string user = 14 ;
+    /*
+    操作权限
+    */
+    repeated string operateAuthorizers = 15 ;
+    /*
+    删除权限
+    */
+    repeated string deleteAuthorizers = 16 ;
+    /*
+    更新权限
+    */
+    repeated string updateAuthorizers = 17 ;
+    /*
+    创建时间
+    */
+    string create_time = 18 ;
+    /*
+    更新时间
+    */
+    string update_time = 19 ;
+    /*
+    job id
+    */
+    string job_id = 20 ;
+    /*
+    运行状态
+    */
+    int32 status = 21 ;
+    /*
+    回调
+    */
+    Callback callback = 22 ;
+    /*
+    调度结果信息。{u'message': u'Success', u'code': 0, u'data': {u'execId': u'201809_task155123648b640b916475'}, u'error': u'\u6210\u529f\u3002Success'}
+    */
+    string error = 23 ;
+}
+

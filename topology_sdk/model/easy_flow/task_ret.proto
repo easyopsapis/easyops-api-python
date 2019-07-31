@@ -1,0 +1,176 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+部署任务返回
+*/
+message TaskRet {
+message TargetsLog {
+message ActionsLog {
+    /*
+    执行名称
+    */
+    string name = 1 ;
+    /*
+    类型
+    */
+    string type = 2 ;
+    /*
+    动作
+    */
+    string action = 3 ;
+    /*
+    状态
+    */
+    string status = 4 ;
+    /*
+    错误码
+    */
+    int32 code = 5 ;
+    /*
+    额外信息
+    */
+    google.protobuf.Struct extInfo = 6 ;
+    /*
+    消息
+    */
+    string msg = 7 ;
+    /*
+    进度
+    */
+    google.protobuf.Struct progress = 8 ;
+    /*
+    使用次数
+    */
+    int32 usedTime = 9 ;
+    /*
+    开始时间
+    */
+    string startTime = 10 ;
+    /*
+    结束时间
+    */
+    string endTime = 11 ;
+}
+        
+    
+    /*
+    目标设备Id
+    */
+    string targetId = 1 ;
+    /*
+    目标设备名称
+    */
+    string targetName = 2 ;
+    /*
+    状态
+    */
+    string status = 3 ;
+    /*
+    系统状态
+    */
+    string sysStatus = 4 ;
+    /*
+    错误码
+    */
+    int32 code = 5 ;
+    /*
+    消息
+    */
+    string msg = 6 ;
+    /*
+    进度
+    */
+    google.protobuf.Struct progress = 7 ;
+    /*
+    执行日志
+    */
+    repeated ActionsLog actionsLog = 8 ;
+}
+        
+    
+    /*
+    任务Id
+    */
+    string taskId = 1 ;
+    /*
+    姓名
+    */
+    string name = 2 ;
+    /*
+    组Id
+    */
+    string groupId = 3 ;
+    /*
+    应用Id
+    */
+    string appId = 4 ;
+    /*
+    分批数量
+    */
+    int32 batchNum = 5 ;
+    /*
+    分批间隔
+    */
+    int32 batchInterval = 6 ;
+    /*
+    是否暂停失败
+    */
+    string failedStop = 7 ;
+    /*
+    包Id
+    */
+    string packageId = 8 ;
+    /*
+    类型
+    */
+    string type = 9 ;
+    /*
+    操作
+    */
+    string operation = 10 ;
+    /*
+    客户id
+    */
+    int32 org = 11 ;
+    /*
+    操作人
+    */
+    string operator = 12 ;
+    /*
+    状态
+    */
+    string status = 13 ;
+    /*
+    错误码
+    */
+    int32 code = 14 ;
+    /*
+    使用次数
+    */
+    int32 usedTime = 15 ;
+    /*
+    开始时间
+    */
+    string startTime = 16 ;
+    /*
+    结束时间
+    */
+    string endTime = 17 ;
+    /*
+    额外信息
+    */
+    google.protobuf.Struct extraInfo = 18 ;
+    /*
+    目标设备日志
+    */
+    repeated TargetsLog targetsLog = 19 ;
+}
+

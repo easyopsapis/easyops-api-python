@@ -1,0 +1,70 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/pipeline/pipeline.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    按project id过滤pipeline
+    */
+    string project_id = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 3 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated pipeline.Pipeline list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.ListResponse data = 4 ;
+}
+

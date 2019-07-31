@@ -1,0 +1,44 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "model/inspection/template.proto";
+
+/*
+GetTemplate请求
+*/
+message GetTemplateRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    报告模板ID
+    */
+    string templateId = 2 ;
+}
+
+/*
+GetTemplateApi返回
+*/
+message GetTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionTemplate data = 4 ;
+}
+

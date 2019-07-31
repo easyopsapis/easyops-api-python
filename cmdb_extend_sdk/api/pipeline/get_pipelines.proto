@@ -1,0 +1,62 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "model/cmdb_extend/app_pipeline.proto";
+
+/*
+GetPipelines请求
+*/
+message GetPipelinesRequest {
+    /*
+    应用Id
+    */
+    string appId = 1 ;
+}
+
+/*
+GetPipelines返回
+*/
+message GetPipelinesResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    流水线列表
+    */
+    repeated cmdb_extend.AppPipeline data = 4 ;
+}
+
+/*
+GetPipelinesApi返回
+*/
+message GetPipelinesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.GetPipelinesResponse data = 4 ;
+}
+

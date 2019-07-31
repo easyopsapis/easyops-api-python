@@ -1,0 +1,51 @@
+syntax = "proto3";
+package file_repository;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/file_repository";
+
+
+
+
+
+/*
+变更信息
+*/
+message Diff {
+    /*
+    操作类型
+    */
+    string op = 1 ;
+    /*
+    文件路径
+    */
+    string file = 2 ;
+    /*
+    文件类型
+    */
+    string type = 3 ;
+    /*
+    文件权限
+    */
+    string perm = 4 ;
+    /*
+    新的检验值
+    */
+    string newMd5 = 5 ;
+    /*
+    旧的检验值
+    */
+    string oldMd5 = 6 ;
+    /*
+    文件原本大小
+    */
+    int64 oldSize = 7 ;
+    /*
+    文件新的大小
+    */
+    int64 newSize = 8 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 9 ;
+}
+

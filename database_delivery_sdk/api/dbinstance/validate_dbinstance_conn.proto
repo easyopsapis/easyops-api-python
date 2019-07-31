@@ -1,0 +1,80 @@
+syntax = "proto3";
+package dbinstance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ValidateDBInstanceConenction请求
+*/
+message ValidateDBInstanceConenctionRequest {
+message ConnParams {
+message DbClient {
+    /*
+    客户端IP
+    */
+    string ip = 1 ;
+    /*
+    客户端ID
+    */
+    string id = 2 ;
+}
+        
+    
+    /*
+    用户名
+    */
+    string username = 1 ;
+    /*
+    连接客户端
+    */
+    DbClient dbClient = 2 ;
+    /*
+    数据库类型
+    */
+    string dbType = 3 ;
+    /*
+    连接串
+    */
+    string connURL = 4 ;
+    /*
+    默认密码
+    */
+    string password = 5 ;
+}
+        
+    
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 1 ;
+    /*
+    连接参数
+    */
+    ConnParams connParams = 2 ;
+}
+
+/*
+ValidateDBInstanceConenctionApi返回
+*/
+message ValidateDBInstanceConenctionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,251 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+GetSQLPackageDBTaskDetail请求
+*/
+message GetSQLPackageDBTaskDetailRequest {
+    /*
+    任务ID
+    */
+    string dbTaskId = 1 ;
+}
+
+/*
+GetSQLPackageDBTaskDetail返回
+*/
+message GetSQLPackageDBTaskDetailResponse {
+message BackupTask {
+message Result {
+    /*
+    脚本路径
+    */
+    string scriptPath = 1 ;
+    /*
+    结果状态
+    */
+    string status = 2 ;
+    /*
+    结果日志
+    */
+    string msg = 3 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 4 ;
+    /*
+    结束时间
+    */
+    int64 etime = 5 ;
+}
+        
+    
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机Ip
+    */
+    string hostIp = 2 ;
+    /*
+    结果详情
+    */
+    repeated Result result = 3 ;
+}
+        
+message ChangeTask {
+message Result {
+    /*
+    变更脚本路径
+    */
+    string scriptPath = 1 ;
+    /*
+    是否跳过(1表示跳过，0表示未跳过)
+    */
+    int32 isSkip = 2 ;
+    /*
+    是否回退(1表示回退，0表示未回退)
+    */
+    int32 isRollback = 3 ;
+    /*
+    结果状态
+    */
+    string status = 4 ;
+    /*
+    结果日志
+    */
+    string msg = 5 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 6 ;
+    /*
+    结束时间
+    */
+    int64 etime = 7 ;
+}
+        
+    
+    /*
+    任务实体ID
+    */
+    string entityTaskId = 1 ;
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 2 ;
+    /*
+    数据库实例名称
+    */
+    string dbInstanceName = 3 ;
+    /*
+    结果详情
+    */
+    repeated Result result = 4 ;
+}
+        
+message CheckTask {
+message Result {
+    /*
+    对象名
+    */
+    string name = 1 ;
+    /*
+    对象类型
+    */
+    string type = 2 ;
+    /*
+    是否更新
+    */
+    string updated = 3 ;
+    /*
+    检查日志信息
+    */
+    string check_message = 4 ;
+    /*
+    重新编译
+    */
+    string recompiled = 5 ;
+    /*
+    重新编译日志信息
+    */
+    string recompile_message = 6 ;
+    /*
+    结果状态
+    */
+    string status = 7 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 8 ;
+    /*
+    结束时间
+    */
+    int64 etime = 9 ;
+}
+        
+    
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
+    /*
+    数据库实例名称
+    */
+    string dbInstanceName = 2 ;
+    /*
+    检查任务脚本路径（对象声明文件)
+    */
+    repeated string scripts = 3 ;
+    /*
+    检查日志
+    */
+    string message = 4 ;
+    /*
+    结果详情
+    */
+    repeated Result result = 5 ;
+}
+        
+    
+    /*
+    总任务ID
+    */
+    string id = 1 ;
+    /*
+    所处的状态（变更还是回退）
+    */
+    string state = 2 ;
+    /*
+    用户
+    */
+    string creator = 3 ;
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 4 ;
+    /*
+    数据库服务名称
+    */
+    string dbServiceName = 5 ;
+    /*
+    文件仓库包ID
+    */
+    string repoPackageId = 6 ;
+    /*
+    文件仓库版本ID
+    */
+    string repoVersionId = 7 ;
+    /*
+    备份任务详情
+    */
+    BackupTask backupTask = 8 ;
+    /*
+    变更任务列表
+    */
+    repeated ChangeTask changeTask = 9 ;
+    /*
+    检查任务列表
+    */
+    repeated CheckTask checkTask = 10 ;
+    /*
+    结果状态
+    */
+    string status = 11 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 12 ;
+    /*
+    结束时间
+    */
+    int64 etime = 13 ;
+}
+
+/*
+GetSQLPackageDBTaskDetailApi返回
+*/
+message GetSQLPackageDBTaskDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.GetSQLPackageDBTaskDetailResponse data = 4 ;
+}
+

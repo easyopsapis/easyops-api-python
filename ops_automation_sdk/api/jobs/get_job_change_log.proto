@@ -1,0 +1,101 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+
+/*
+GetJobChangeLog请求
+*/
+message GetJobChangeLogRequest {
+    /*
+    作业id
+    */
+    string jobId = 1 ;
+    /*
+    page
+    */
+    int32 page = 2 ;
+    /*
+    pageSize
+    */
+    int32 pageSize = 3 ;
+}
+
+/*
+GetJobChangeLog返回
+*/
+message GetJobChangeLogResponse {
+message List {
+    /*
+    当前作业版本的详细情况
+    */
+    string data = 1 ;
+    /*
+    任务ID
+    */
+    string id = 2 ;
+    /*
+    change log 历史版本, 例如： 1
+    */
+    int32 version = 3 ;
+    /*
+    创建时间 2019-01-11 10:35:10.19285900
+    */
+    string createTime = 4 ;
+    /*
+    更新时间 2019-01-11 10:35:10.19285900
+    */
+    string updateTime = 5 ;
+    /*
+    用户 easyops
+    */
+    string creator = 6 ;
+    /*
+    org
+    */
+    int32 org = 7 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+GetJobChangeLogApi返回
+*/
+message GetJobChangeLogResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    jobs.GetJobChangeLogResponse data = 4 ;
+}
+

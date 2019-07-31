@@ -1,0 +1,66 @@
+syntax = "proto3";
+package plugin;
+
+
+
+
+import "model/agent_admin/plugin.proto";
+
+/*
+ListPlugin请求
+*/
+message ListPluginRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页数据量
+    */
+    int32 pageSize = 2 ;
+}
+
+/*
+ListPlugin返回
+*/
+message ListPluginResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated agent_admin.Plugin list = 4 ;
+}
+
+/*
+ListPluginApi返回
+*/
+message ListPluginResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin.ListPluginResponse data = 4 ;
+}
+

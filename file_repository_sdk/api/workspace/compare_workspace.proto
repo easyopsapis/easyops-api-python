@@ -1,0 +1,81 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+FileCompare请求
+*/
+message FileCompareRequest {
+message Items {
+    /*
+    文件旧名称
+    */
+    string oldName = 1 ;
+    /*
+    文件新名称
+    */
+    string newName = 2 ;
+    /*
+    要比较的文件路径
+    */
+    string path = 3 ;
+}
+        
+    
+    /*
+    要比较的文件列表
+    */
+    repeated Items items = 1 ;
+    /*
+    程序包Id
+    */
+    string packageId = 2 ;
+}
+
+/*
+FileCompare返回
+*/
+message FileCompareResponse {
+message Datail {
+    /*
+    差异信息
+    */
+    string diff = 1 ;
+    /*
+    文件路径
+    */
+    string file = 2 ;
+}
+        
+    
+    /*
+    差异详情列表
+    */
+    repeated Datail datail = 1 ;
+}
+
+/*
+FileCompareApi返回
+*/
+message FileCompareResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.FileCompareResponse data = 4 ;
+}
+

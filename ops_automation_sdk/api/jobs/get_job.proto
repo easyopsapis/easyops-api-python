@@ -1,0 +1,42 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+import "model/ops_automation/bind_resource.proto";
+import "model/ops_automation/mail_info.proto";
+import "model/ops_automation/job_details.proto";
+
+/*
+GetJobs请求
+*/
+message GetJobsRequest {
+    /*
+    作业id
+    */
+    string jobId = 1 ;
+}
+
+/*
+GetJobsApi返回
+*/
+message GetJobsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    ops_automation.JobDetails data = 4 ;
+}
+

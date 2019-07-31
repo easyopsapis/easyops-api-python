@@ -1,0 +1,44 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "model/cmdb/object_attr.proto";
+import "model/cmdb/object_relation.proto";
+import "model/cmdb/object_relation_group.proto";
+import "model/cmdb/object_view.proto";
+import "model/cmdb/cmdb_object.proto";
+
+/*
+GetDetail请求
+*/
+message GetDetailRequest {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+}
+
+/*
+GetDetailApi返回
+*/
+message GetDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb.CmdbObject data = 4 ;
+}
+

@@ -1,0 +1,95 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "model/cmdb/object_attr.proto";
+import "model/cmdb/object_relation.proto";
+import "model/cmdb/object_relation_group.proto";
+import "model/cmdb/object_view.proto";
+
+/*
+模型
+*/
+message CmdbObject {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    objectId
+    */
+    string objectId = 2 ;
+    /*
+    备注
+    */
+    string memo = 3 ;
+    /*
+    属性列表
+    */
+    repeated cmdb.ObjectAttr attrList = 4 ;
+    /*
+    关系列表
+    */
+    repeated cmdb.ObjectRelation relation_list = 5 ;
+    /*
+    关系分组
+    */
+    repeated cmdb.ObjectRelationGroup relation_groups = 6 ;
+    /*
+    视图设置
+    */
+    cmdb.ObjectView view = 7 ;
+    /*
+    true 内置模型，false 用户自定义模型
+    */
+    bool protected = 8 ;
+    /*
+    当为 true 时，不纳入全文搜索
+    */
+    bool wordIndexDenied = 9 ;
+    /*
+    分类
+    */
+    string category = 10 ;
+    /*
+    模型图标
+    */
+    string icon = 11 ;
+    /*
+    创建时间
+    */
+    string ctime = 12 ;
+    /*
+    修改时间
+    */
+    string mtime = 13 ;
+    /*
+    创建者
+    */
+    string creator = 14 ;
+    /*
+    修改者
+    */
+    string modifier = 15 ;
+    /*
+    创建时间的时间截
+    */
+    int32 _ts = 16 ;
+    /*
+    模型版本
+    */
+    int32 _version = 17 ;
+    /*
+    编辑权限白名单
+    */
+    repeated string updateAuthorizers = 18 ;
+    /*
+    删除权限白名单
+    */
+    repeated string deleteAuthorizers = 19 ;
+}
+

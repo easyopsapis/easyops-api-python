@@ -1,0 +1,87 @@
+syntax = "proto3";
+package instance_graph;
+
+
+
+
+import "model/cmdb/traverse_child_node.proto";
+import "google/protobuf/struct.proto";
+
+/*
+TraverseGraph请求
+*/
+message TraverseGraphRequest {
+    /*
+    模型Id
+    */
+    string object_id = 1 ;
+    /*
+    实例的过滤条件 (过滤条件不仅支持属性的过滤，也支持关系字段的过滤)
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    指定返回此关系指向模型的fields
+    */
+    google.protobuf.Struct fields = 3 ;
+    /*
+    子节点列表
+    */
+    repeated cmdb.TraverseChildNode child = 4 ;
+}
+
+/*
+TraverseGraph返回
+*/
+message TraverseGraphResponse {
+message Edges {
+    /*
+    关系Id
+    */
+    string relation_id = 1 ;
+    /*
+    实例Id
+    */
+    string out = 2 ;
+    /*
+    实例Id, 例如:「 应用的负责人 」 这一关系数据中, 「应用」数据是 out, 「用户」数据是 in
+    */
+    string in = 3 ;
+}
+        
+    
+    /*
+    根节点实例列表
+    */
+    repeated google.protobuf.Struct topic_vertices = 1 ;
+    /*
+    节点实例列表
+    */
+    repeated google.protobuf.Struct vertices = 2 ;
+    /*
+    关系列表
+    */
+    repeated Edges edges = 3 ;
+}
+
+/*
+TraverseGraphApi返回
+*/
+message TraverseGraphResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance_graph.TraverseGraphResponse data = 4 ;
+}
+

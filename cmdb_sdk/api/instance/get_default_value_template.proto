@@ -1,0 +1,44 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetDefaultValueTemplate请求
+*/
+message GetDefaultValueTemplateRequest {
+    /*
+    实例所属的模型ID
+    */
+    string objectId = 1 ;
+    /*
+    不获取默认值的字段，用逗号分隔
+    */
+    string exclude_keys = 2 ;
+}
+
+/*
+GetDefaultValueTemplateApi返回
+*/
+message GetDefaultValueTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

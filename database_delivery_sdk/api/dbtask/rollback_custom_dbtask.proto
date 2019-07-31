@@ -1,0 +1,85 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+RollbackCustomDBTask请求
+*/
+message RollbackCustomDBTaskRequest {
+message RollbackParams {
+message RollbackCfgList {
+message ChangesetList {
+    /*
+    变更集ID
+    */
+    string id = 1 ;
+    /*
+    回退SQL
+    */
+    string rollbackSql = 2 ;
+}
+        
+    
+    /*
+    实体任务ID
+    */
+    string entityTaskId = 1 ;
+    /*
+    要回退的变更集列表
+    */
+    repeated ChangesetList changesetList = 2 ;
+}
+        
+    
+    /*
+    回退的配置列表
+    */
+    repeated RollbackCfgList rollbackCfgList = 1 ;
+}
+        
+    
+    /*
+    任务ID
+    */
+    string dbTaskId = 1 ;
+    /*
+    回退的参数body
+    */
+    RollbackParams rollbackParams = 2 ;
+}
+
+/*
+RollbackCustomDBTask返回
+*/
+message RollbackCustomDBTaskResponse {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+RollbackCustomDBTaskApi返回
+*/
+message RollbackCustomDBTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.RollbackCustomDBTaskResponse data = 4 ;
+}
+

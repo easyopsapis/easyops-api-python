@@ -1,0 +1,41 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "model/scheduler/task.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetTask请求
+*/
+message GetTaskRequest {
+    /*
+    任务id
+    */
+    string taskId = 1 ;
+}
+
+/*
+GetTaskApi返回
+*/
+message GetTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    scheduler.SchedulerTask data = 4 ;
+}
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "model/cmdb/cluster_info.proto";
+
+/*
+目标设备信息
+*/
+message TargetInfo {
+    /*
+    目标设备Id
+    */
+    string targetId = 1 ;
+    /*
+    目标设备名称
+    */
+    string targetName = 2 ;
+    /*
+    实例Id
+    */
+    string instanceId = 3 ;
+    /*
+    集群列表
+    */
+    cmdb.ClusterInfo cluster = 4 ;
+}
+

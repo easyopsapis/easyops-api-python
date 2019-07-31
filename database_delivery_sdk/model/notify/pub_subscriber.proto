@@ -1,0 +1,51 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+订阅者
+*/
+message PubSubscriber {
+    /*
+    订阅ID
+    */
+    string instanceId = 1 ;
+    /*
+    订阅名称，可以为中文
+    */
+    string name = 2 ;
+    /*
+    订阅某个org的消息
+    */
+    int32 org = 3 ;
+    /*
+    订阅负责人。如 linus
+    */
+    string admin = 4 ;
+    /*
+    回调url. 处理成功时需要返回 status 2xx
+    */
+    string callback = 5 ;
+    /*
+    回调名字服务名。非空时，callback url的域名解析会先经ens
+    */
+    string ensName = 6 ;
+    /*
+    retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
+    */
+    int32 retry = 7 ;
+    /*
+    模型修改时间
+    */
+    int64 mtime = 8 ;
+    /*
+    模型版本
+    */
+    int32 _version = 9 ;
+}
+

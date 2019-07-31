@@ -1,0 +1,87 @@
+syntax = "proto3";
+package instance_graph;
+
+
+
+
+import "model/cmdb/traverse_child_node.proto";
+import "google/protobuf/struct.proto";
+
+/*
+TraverseGraphCount请求
+*/
+message TraverseGraphCountRequest {
+    /*
+    模型Id
+    */
+    string object_id = 1 ;
+    /*
+    实例的过滤条件 (过滤条件不仅支持属性的过滤，也支持关系字段的过滤)
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    指定返回此关系指向模型的fields
+    */
+    google.protobuf.Struct fields = 3 ;
+    /*
+    子节点列表
+    */
+    repeated cmdb.TraverseChildNode child = 4 ;
+}
+
+/*
+TraverseGraphCount返回
+*/
+message TraverseGraphCountResponse {
+message List {
+    /*
+    叶子节点模型Id
+    */
+    string object_id = 1 ;
+    /*
+    路径，eg: a.b.c
+    */
+    string path = 2 ;
+    /*
+    节点个数
+    */
+    int32 count = 3 ;
+}
+        
+    
+    /*
+    根节点模型Id
+    */
+    string object_id = 1 ;
+    /*
+    根节点instanceId
+    */
+    string instanceId = 2 ;
+    /*
+    叶子节点个数统计
+    */
+    repeated List list = 3 ;
+}
+
+/*
+TraverseGraphCountApi返回
+*/
+message TraverseGraphCountResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated instance_graph.TraverseGraphCountResponse data = 4 ;
+}
+

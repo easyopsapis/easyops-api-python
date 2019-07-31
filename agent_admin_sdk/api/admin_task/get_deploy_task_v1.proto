@@ -1,0 +1,109 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+
+/*
+GetDeployTaskV1请求
+*/
+message GetDeployTaskV1Request {
+    /*
+    TaskId
+    */
+    string cmdTaskId = 1 ;
+}
+
+/*
+GetDeployTaskV1返回
+*/
+message GetDeployTaskV1Response {
+message DeployList {
+    /*
+    AgentID
+    */
+    string agentId = 1 ;
+    /*
+    ip
+    */
+    string ip = 2 ;
+    /*
+    部署路径
+    */
+    repeated string deployPath = 3 ;
+    /*
+    插件包ID
+    */
+    string agentPluginId = 4 ;
+    /*
+    插件包名称
+    */
+    string agentPluginName = 5 ;
+    /*
+    插件包部署前名称
+    */
+    string preVersionName = 6 ;
+    /*
+    插件包版本名称
+    */
+    string pluginVersionName = 7 ;
+    /*
+    插件包部署状态
+    */
+    string status = 8 ;
+}
+        
+    
+    /*
+    任务对象
+    */
+    string targetId = 1 ;
+    /*
+    任务对象名称
+    */
+    string targetName = 2 ;
+    /*
+    执行用户
+    */
+    string creator = 3 ;
+    /*
+    任务状态
+    */
+    string status = 4 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 5 ;
+    /*
+    结束时间
+    */
+    int32 etime = 6 ;
+    /*
+    部署信息
+    */
+    repeated DeployList deployList = 7 ;
+}
+
+/*
+GetDeployTaskV1Api返回
+*/
+message GetDeployTaskV1ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    admin_task.GetDeployTaskV1Response data = 4 ;
+}
+

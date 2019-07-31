@@ -1,0 +1,43 @@
+syntax = "proto3";
+package sqlpkgs;
+
+
+
+
+
+/*
+GetFolderName返回
+*/
+message GetFolderNameResponse {
+    /*
+    备份目录
+    */
+    string backUpFolder = 1 ;
+    /*
+    对象检查目录
+    */
+    string checkFolder = 2 ;
+}
+
+/*
+GetFolderNameApi返回
+*/
+message GetFolderNameResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    sqlpkgs.GetFolderNameResponse data = 4 ;
+}
+

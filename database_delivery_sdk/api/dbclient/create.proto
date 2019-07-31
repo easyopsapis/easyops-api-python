@@ -1,0 +1,40 @@
+syntax = "proto3";
+package dbclient;
+
+
+
+
+import "model/database_delivery/dbclient.proto";
+
+/*
+CreateClient请求
+*/
+message CreateClientRequest {
+    /*
+    客户端IP
+    */
+    string ip = 1 ;
+}
+
+/*
+CreateClientApi返回
+*/
+message CreateClientResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    database_delivery.DBClient data = 4 ;
+}
+

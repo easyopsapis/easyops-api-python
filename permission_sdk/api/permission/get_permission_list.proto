@@ -1,0 +1,74 @@
+syntax = "proto3";
+package permission;
+
+
+
+
+import "model/permission/permission.proto";
+
+/*
+GetPermissionList请求
+*/
+message GetPermissionListRequest {
+    /*
+    action名称过滤，多个用,分隔
+    */
+    string action__in = 1 ;
+    /*
+    分页
+    */
+    int32 page = 2 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    需要鉴权的动作, 全局唯一
+    */
+    string action = 4 ;
+}
+
+/*
+GetPermissionList返回
+*/
+message GetPermissionListResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    数据
+    */
+    repeated permission.Permission data = 4 ;
+}
+
+/*
+GetPermissionListApi返回
+*/
+message GetPermissionListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission.GetPermissionListResponse data = 4 ;
+}
+

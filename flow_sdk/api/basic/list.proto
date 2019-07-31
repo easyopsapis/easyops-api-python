@@ -1,0 +1,106 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "model/flow/flow.proto";
+
+/*
+GetFlowList请求
+*/
+message GetFlowListRequest {
+    /*
+    查询其实页面
+    */
+    int32 page = 1 ;
+    /*
+    每页数量
+    */
+    int32 pageSize = 2 ;
+    /*
+    名字模糊匹配
+    */
+    string keyword = 3 ;
+    /*
+    没设类别的流程
+    */
+    string notCategory = 4 ;
+    /*
+    用户对流程具有的权限; 用","分割(read=查看, update=更新, delete=删除, execute=执行)
+    */
+    string permissions = 5 ;
+    /*
+    元数据查询的key名称(支持对流程metadata属性数据的查询，如 metadata.customKey(MongoDB二级查询语法))
+    */
+    string metadataKey = 6 ;
+    /*
+    元数据查询的key对应的值; 目前只支持字符串。(在实际查询时是metadata.customValue)
+    */
+    string metadataValue = 7 ;
+    /*
+    指定返回流程id，用","分隔
+    */
+    string ids = 8 ;
+    /*
+    流程类别如流水线、流程、流水线模板等
+    */
+    string category = 9 ;
+    /*
+    流程创建者
+    */
+    string creator = 10 ;
+    /*
+    流程自定义分类
+    */
+    string type = 11 ;
+    /*
+    流程标签
+    */
+    repeated string tags = 12 ;
+}
+
+/*
+GetFlowList返回
+*/
+message GetFlowListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated flow.Flow list = 4 ;
+}
+
+/*
+GetFlowListApi返回
+*/
+message GetFlowListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetFlowListResponse data = 4 ;
+}
+

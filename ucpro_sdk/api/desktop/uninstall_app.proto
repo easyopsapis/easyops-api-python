@@ -1,0 +1,53 @@
+syntax = "proto3";
+package desktop;
+
+
+
+
+
+/*
+UninstallApp请求
+*/
+message UninstallAppRequest {
+    /*
+    小产品id
+    */
+    string appId = 1 ;
+    /*
+    小产品版本号
+    */
+    string version = 2 ;
+}
+
+/*
+UninstallApp返回
+*/
+message UninstallAppResponse {
+    /*
+    任务id
+    */
+    string taskId = 1 ;
+}
+
+/*
+UninstallAppApi返回
+*/
+message UninstallAppResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    desktop.UninstallAppResponse data = 4 ;
+}
+

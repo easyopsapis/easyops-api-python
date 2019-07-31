@@ -1,0 +1,143 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+
+/*
+CreateSQLPackageDBTask请求
+*/
+message CreateSQLPackageDBTaskRequest {
+message TaskInfo {
+message BackupCfg {
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机IP
+    */
+    string hostIp = 2 ;
+    /*
+    备份任务脚本
+    */
+    repeated string scripts = 3 ;
+}
+        
+message ChangeCfg {
+message Scripts {
+    /*
+    变更SQL路径
+    */
+    string update = 1 ;
+    /*
+    回退SQL路径
+    */
+    string rollback = 2 ;
+}
+        
+    
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
+    /*
+    数据库实例用户名（临时）
+    */
+    string username = 2 ;
+    /*
+    数据库实例密码（临时）
+    */
+    string password = 3 ;
+    /*
+    检查任务脚本路径列表
+    */
+    repeated Scripts scripts = 4 ;
+}
+        
+message CheckCfg {
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
+    /*
+    数据库实例用户名（临时）
+    */
+    string username = 2 ;
+    /*
+    数据库实例密码（临时）
+    */
+    string password = 3 ;
+    /*
+    检查任务脚本路径（对象声明文件）
+    */
+    repeated string scripts = 4 ;
+}
+        
+    
+    /*
+    数据库服务ID
+    */
+    string dbServiceId = 1 ;
+    /*
+    备份任务配置，可以为空
+    */
+    BackupCfg backupCfg = 2 ;
+    /*
+    变更任务配置
+    */
+    repeated ChangeCfg changeCfg = 3 ;
+    /*
+    检查任务配置，可以为空
+    */
+    repeated CheckCfg checkCfg = 4 ;
+}
+        
+    
+    /*
+    SQL包ID
+    */
+    string pkgId = 1 ;
+    /*
+    SQL包版本ID
+    */
+    string versionId = 2 ;
+    /*
+    创建SQL包变更任务请求参数
+    */
+    TaskInfo taskInfo = 3 ;
+}
+
+/*
+CreateSQLPackageDBTask返回
+*/
+message CreateSQLPackageDBTaskResponse {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+CreateSQLPackageDBTaskApi返回
+*/
+message CreateSQLPackageDBTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.CreateSQLPackageDBTaskResponse data = 4 ;
+}
+

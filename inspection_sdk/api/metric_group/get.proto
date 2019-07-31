@@ -1,0 +1,46 @@
+syntax = "proto3";
+package metric_group;
+
+
+
+
+import "model/inspection/dim.proto";
+import "model/inspection/val.proto";
+import "model/inspection/metric_group.proto";
+
+/*
+GetMetricGroup请求
+*/
+message GetMetricGroupRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    指标组id
+    */
+    string metricGroupId = 2 ;
+}
+
+/*
+GetMetricGroupApi返回
+*/
+message GetMetricGroupResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inspection.InspectionMetricGroup data = 4 ;
+}
+

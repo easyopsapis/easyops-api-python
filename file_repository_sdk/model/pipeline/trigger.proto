@@ -1,0 +1,55 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+trigger信息
+*/
+message Trigger {
+    /*
+    实例id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    git 事件
+    */
+    repeated string events = 2 ;
+    /*
+    链接
+    */
+    string link = 3 ;
+    /*
+    branch 正则
+    */
+    string branch_name = 4 ;
+    /*
+    类型
+    */
+    string type = 5 ;
+    /*
+    git hook id
+    */
+    string hook_id = 6 ;
+    /*
+    gitlab, github...
+    */
+    string provider = 7 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 8 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 9 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 10 ;
+}
+

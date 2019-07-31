@@ -1,0 +1,27 @@
+syntax = "proto3";
+package tool;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tool";
+
+
+
+
+
+/*
+执行结束后的回调信息
+*/
+message Callback {
+    /*
+    回调url
+    */
+    string url = 1 ;
+    /*
+    请求header host eg. tool.easyops-only.com
+    */
+    string host = 2 ;
+    /*
+    回调服务名eg. logic.tool
+    */
+    string ensName = 3 ;
+}
+

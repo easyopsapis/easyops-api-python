@@ -1,0 +1,27 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+关系查询策略
+*/
+message Strategy {
+    /*
+    策略
+    */
+    string objectId = 1 ;
+    /*
+    关系路径
+    */
+    repeated string relations = 2 ;
+    /*
+    隐藏关系路径
+    */
+    repeated string hideRelations = 3 ;
+}
+

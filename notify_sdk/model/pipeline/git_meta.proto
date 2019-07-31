@@ -1,0 +1,67 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+git信息
+*/
+message GitMeta {
+    /*
+    git事件
+    */
+    string event = 1 ;
+    /*
+    前一个commit sha
+    */
+    string before = 2 ;
+    /*
+    当前commit sha
+    */
+    string after = 3 ;
+    /*
+    提交者图像
+    */
+    string author_avatar = 4 ;
+    /*
+    提交者邮箱
+    */
+    string author_email = 5 ;
+    /*
+    提交者
+    */
+    string author_name = 6 ;
+    /*
+    提交信息
+    */
+    string message = 7 ;
+    /*
+    引用
+    */
+    string ref = 8 ;
+    /*
+    源分支
+    */
+    string source = 9 ;
+    /*
+    目标分支
+    */
+    string target = 10 ;
+    /*
+    触发方式
+    */
+    string trigger = 11 ;
+    /*
+    动作
+    */
+    string action = 12 ;
+    /*
+    链接
+    */
+    string link = 13 ;
+}
+

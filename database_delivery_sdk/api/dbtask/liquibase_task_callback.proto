@@ -1,0 +1,50 @@
+syntax = "proto3";
+package dbtask;
+
+
+
+
+import "model/easy_command/task_detail.proto";
+
+/*
+LiquibaseTaskCallback请求
+*/
+message LiquibaseTaskCallbackRequest {
+    /*
+    回调的参数详情
+    */
+    easy_command.TaskDetail command = 1 ;
+}
+
+/*
+LiquibaseTaskCallback返回
+*/
+message LiquibaseTaskCallbackResponse {
+    /*
+    回调处理结果
+    */
+    string status = 1 ;
+}
+
+/*
+LiquibaseTaskCallbackApi返回
+*/
+message LiquibaseTaskCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    dbtask.LiquibaseTaskCallbackResponse data = 4 ;
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+package subscriber_manager;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+PubSubscriberDelete请求
+*/
+message PubSubscriberDeleteRequest {
+    /*
+    订阅id
+    */
+    string subscriberId = 1 ;
+}
+
+/*
+PubSubscriberDeleteApi返回
+*/
+message PubSubscriberDeleteResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,61 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+
+/*
+GetDiffSize请求
+*/
+message GetDiffSizeRequest {
+    /*
+    版本Id
+    */
+    string ver_from = 1 ;
+    /*
+    版本Id
+    */
+    string ver_to = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+}
+
+/*
+GetDiffSize返回
+*/
+message GetDiffSizeResponse {
+    /*
+    文件大小
+    */
+    int64 size = 1 ;
+    /*
+    差异大小
+    */
+    int64 diffSize = 2 ;
+}
+
+/*
+GetDiffSizeApi返回
+*/
+message GetDiffSizeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.GetDiffSizeResponse data = 4 ;
+}
+

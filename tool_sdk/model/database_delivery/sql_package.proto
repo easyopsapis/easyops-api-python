@@ -1,0 +1,51 @@
+syntax = "proto3";
+package database_delivery;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/database_delivery";
+
+
+
+
+
+/*
+SQL包
+*/
+message SQLPackage {
+    /*
+    SQL包ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    SQL包的数据库类型
+    */
+    string dbType = 3 ;
+    /*
+    描述
+    */
+    string memo = 4 ;
+    /*
+    创建者
+    */
+    string creator = 5 ;
+    /*
+    ctime
+    */
+    int64 ctime = 6 ;
+    /*
+    mtime
+    */
+    int64 mtime = 7 ;
+    /*
+    程序包Id
+    */
+    string appPackageId = 8 ;
+    /*
+    文件仓库包ID
+    */
+    string repoPackageId = 9 ;
+}
+

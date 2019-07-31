@@ -1,0 +1,40 @@
+syntax = "proto3";
+package agent;
+
+
+
+
+import "model/agent_admin/agent.proto";
+
+/*
+GetAgent请求
+*/
+message GetAgentRequest {
+    /*
+    实例唯一标识
+    */
+    string id = 1 ;
+}
+
+/*
+GetAgentApi返回
+*/
+message GetAgentResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent_admin.Agent data = 4 ;
+}
+

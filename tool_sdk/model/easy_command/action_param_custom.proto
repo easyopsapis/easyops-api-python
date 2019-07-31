@@ -1,0 +1,19 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+
+/*
+一个action在一个target上的差异化参数
+*/
+message ActionParamCustom {
+    /*
+    对动作为 "runCmd" 的action，为要运行的脚本的差异化内容，会拼在该action的 CmdActionParam.cmd 之前
+    */
+    string param = 1 ;
+}
+

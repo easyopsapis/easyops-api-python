@@ -1,0 +1,62 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+AggregateCountV2请求
+*/
+message AggregateCountV2Request {
+    /*
+    URL中资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    URL中模型属性ID, 支持结构体，用.分隔结构体名称和属性名称，如cpu.brand
+    */
+    string attrId = 2 ;
+    /*
+    top n, 默认300, 为0则获取所有, top n+1以后的属性值将会聚合追加到最后,属性值为'-'
+    */
+    int32 top = 3 ;
+}
+
+/*
+AggregateCountV2返回
+*/
+message AggregateCountV2Response {
+    /*
+    个数
+    */
+    int32 count = 1 ;
+    /*
+    属性值
+    */
+    google.protobuf.Struct attr = 2 ;
+}
+
+/*
+AggregateCountV2Api返回
+*/
+message AggregateCountV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated instance.AggregateCountV2Response data = 4 ;
+}
+

@@ -1,0 +1,48 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ClusterDeletePackage请求
+*/
+message ClusterDeletePackageRequest {
+    /*
+    应用实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    程序包Id列表，用;分隔
+    */
+    string packageIds = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+
+/*
+ClusterDeletePackageApi返回
+*/
+message ClusterDeletePackageResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

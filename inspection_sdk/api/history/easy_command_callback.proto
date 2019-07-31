@@ -1,0 +1,77 @@
+syntax = "proto3";
+package history;
+
+
+
+
+import "model/easy_command/target_log.proto";
+import "google/protobuf/empty.proto";
+
+/*
+EasyCommandCallback请求
+*/
+message EasyCommandCallbackRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+    /*
+    巡检任务ID
+    */
+    string inspectionTaskId = 2 ;
+    /*
+    巡检作业ID
+    */
+    string jobId = 3 ;
+    /*
+    任务ID
+    */
+    string taskId = 4 ;
+    /*
+    任务执行状态
+    */
+    string status = 5 ;
+    /*
+    整个任务当前的用时，单位为秒
+    */
+    int32 usedTime = 6 ;
+    /*
+    任务开始时间
+    */
+    string startTime = 7 ;
+    /*
+    任务状态更新时间
+    */
+    string updateTime = 8 ;
+    /*
+    任务结束时间
+    */
+    string endTime = 9 ;
+    /*
+    任务的各个目标机器的执行结果详情
+    */
+    repeated easy_command.TargetLog targetsLog = 10 ;
+}
+
+/*
+EasyCommandCallbackApi返回
+*/
+message EasyCommandCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

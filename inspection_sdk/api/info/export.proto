@@ -1,0 +1,18 @@
+syntax = "proto3";
+package info;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ExportSuite请求
+*/
+message ExportSuiteRequest {
+    /*
+    套件id
+    */
+    string pluginId = 1 ;
+}
+

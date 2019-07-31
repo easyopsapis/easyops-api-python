@@ -1,0 +1,51 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+GetToolCategories返回
+*/
+message GetToolCategoriesResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    工具分类
+    */
+    repeated string data = 4 ;
+}
+
+/*
+GetToolCategoriesApi返回
+*/
+message GetToolCategoriesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetToolCategoriesResponse data = 4 ;
+}
+

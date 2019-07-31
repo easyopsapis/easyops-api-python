@@ -1,0 +1,115 @@
+syntax = "proto3";
+package flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flow";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+流程步骤
+*/
+message FlowStep {
+message Styles {
+    /*
+    宽
+    */
+    float width = 1 ;
+}
+        
+message Parents {
+    /*
+    步骤名称
+    */
+    string stepName = 1 ;
+    /*
+    步骤序号
+    */
+    int32 stepId = 2 ;
+    /*
+    连线起点位置
+    */
+    string sourcePoint = 3 ;
+    /*
+    连线终点位置
+    */
+    string targetPoint = 4 ;
+}
+        
+    
+    /*
+    步骤ID
+    */
+    int32 stepId = 1 ;
+    /*
+    引用步骤ID(工具ID或者流程ID，当为人工审批节点是为空)
+    */
+    string toolId = 2 ;
+    /*
+    步骤名
+    */
+    string stepName = 3 ;
+    /*
+    使用工具版本
+    */
+    string vId = 4 ;
+    /*
+    执行用户
+    */
+    string execUser = 5 ;
+    /*
+    失败退出
+    */
+    string failureExit = 6 ;
+    /*
+    步骤类型(tool、flow、manual)
+    */
+    string subType = 7 ;
+    /*
+    类型
+    */
+    string type = 8 ;
+    /*
+    在画布中X坐标
+    */
+    float _x = 9 ;
+    /*
+    在画布中Y坐标
+    */
+    float _y = 10 ;
+    /*
+    是否root执行
+    */
+    string root = 11 ;
+    /*
+    相对流程起点X坐标
+    */
+    float _dx = 12 ;
+    /*
+    相对流程启动Y坐标
+    */
+    float _dy = 13 ;
+    /*
+    样式
+    */
+    Styles styles = 14 ;
+    /*
+    步骤输出
+    */
+    google.protobuf.Struct outputs = 15 ;
+    /*
+    流程输入
+    */
+    google.protobuf.Struct inputs = 16 ;
+    /*
+    通知条件
+    */
+    string informCondition = 17 ;
+    /*
+    前置节点信息
+    */
+    repeated Parents parents = 18 ;
+}
+

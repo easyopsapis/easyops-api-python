@@ -1,0 +1,35 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+
+/*
+动作为 "runCmd" 的action的参数
+*/
+message CmdActionParam {
+    /*
+    要运行的脚本内容
+    */
+    string cmd = 1 ;
+    /*
+    执行用户
+    */
+    string execUser = 2 ;
+    /*
+    脚本类型
+    */
+    string scriptType = 3 ;
+    /*
+    指定脚本解析器，如用 /usr/bin/python 执行 python 脚本。不指定会用默认的
+    */
+    string parser = 4 ;
+    /*
+    脚本执行超时时间，单位为秒。超时会触发agent去kill脚本的进程
+    */
+    int32 timeout = 5 ;
+}
+

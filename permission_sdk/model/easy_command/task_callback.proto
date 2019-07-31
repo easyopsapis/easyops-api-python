@@ -1,0 +1,35 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+
+/*
+任务回调设置
+*/
+message TaskCallback {
+    /*
+    回调接口的 http url
+    */
+    string url = 1 ;
+    /*
+    回调接口组件的 ens 名字
+    */
+    string ensName = 2 ;
+    /*
+    指定回调接口的IP
+    */
+    string ip = 3 ;
+    /*
+    指定回调接口的端口
+    */
+    int32 port = 4 ;
+    /*
+    指定调用回调接口的 Host header
+    */
+    string host = 5 ;
+}
+

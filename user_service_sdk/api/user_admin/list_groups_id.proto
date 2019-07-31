@@ -1,0 +1,40 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ListGroupsId请求
+*/
+message ListGroupsIdRequest {
+    /*
+    用户id, 传此参数返回用户所在的所有用户组, 默认返回所有用户组
+    */
+    string user_id = 1 ;
+}
+
+/*
+ListGroupsIdApi返回
+*/
+message ListGroupsIdResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    repeated string data = 4 ;
+}
+

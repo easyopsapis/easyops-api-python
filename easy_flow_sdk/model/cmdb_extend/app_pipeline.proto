@@ -1,0 +1,56 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+流水线
+*/
+message AppPipeline {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    分类
+    */
+    string category = 2 ;
+    /*
+    流水线Id
+    */
+    string flowId = 3 ;
+    /*
+    流水线版本
+    */
+    int32 flowVersion = 4 ;
+    /*
+    模板Id
+    */
+    string templateId = 5 ;
+    /*
+    模板版本
+    */
+    int32 templateVersion = 6 ;
+    /*
+    通知人
+    */
+    repeated string subscribers = 7 ;
+    /*
+    通知规则(WARNING/ALL)
+    */
+    string subscribedChannel = 8 ;
+    /*
+    钩子触发规则, {"gitlabHooks":{"enabled":true},"subversionHooks":{"enabled":false}}
+    */
+    google.protobuf.Struct rules = 9 ;
+    /*
+    元数据, {"type":"development","desc":"xxx","appId":"5cc18b157f868"}
+    */
+    google.protobuf.Struct metadata = 10 ;
+}
+

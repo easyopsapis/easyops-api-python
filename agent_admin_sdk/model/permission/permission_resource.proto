@@ -1,0 +1,28 @@
+syntax = "proto3";
+package permission;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/permission";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+权限点的依赖资源(依赖资源需要先登记在permission的settings.permission_resource中)
+*/
+message PermissionResource {
+    /*
+    权限点id
+    */
+    string name = 1 ;
+    /*
+    系统名
+    */
+    string system = 2 ;
+    /*
+    验证条件
+    */
+    google.protobuf.Struct condition = 3 ;
+}
+

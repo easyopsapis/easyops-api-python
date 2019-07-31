@@ -1,0 +1,32 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+绑定资源
+*/
+message BindResource {
+    /*
+    绑定类型
+    */
+    string type = 1 ;
+    /*
+    资源ID
+    */
+    string id = 2 ;
+    /*
+    最新版本ID
+    */
+    string vId = 3 ;
+    /*
+    工具的输入,固定@agent。{@agents:[{'ip':xxxx, 'instanceId':xxxx}], ....}
+    */
+    google.protobuf.Struct defaultInputs = 4 ;
+}
+

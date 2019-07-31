@@ -1,0 +1,43 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "model/flow/flow_execute_step.proto";
+import "model/tool/input_param.proto";
+import "model/flow/flow_instance.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetFlowResult请求
+*/
+message GetFlowResultRequest {
+    /*
+    流程执行任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+GetFlowResultApi返回
+*/
+message GetFlowResultResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    flow.FlowInstance data = 4 ;
+}
+

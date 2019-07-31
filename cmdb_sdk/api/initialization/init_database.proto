@@ -1,0 +1,40 @@
+syntax = "proto3";
+package initialization;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+InitDatabase请求
+*/
+message InitDatabaseRequest {
+    /*
+    org
+    */
+    int32 org = 1 ;
+}
+
+/*
+InitDatabaseApi返回
+*/
+message InitDatabaseResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

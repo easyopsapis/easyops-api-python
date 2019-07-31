@@ -1,0 +1,36 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+TraverseChildNode
+*/
+message TraverseChildNode {
+    /*
+    父节点指向当前节点的关系字段, 比如 APP的 owner, CLUSTER 的 deviceList
+    */
+    string parentOut = 1 ;
+    /*
+    当前图所有实例的过滤条件 (过滤条件不仅支持属性的过滤，也支持关系字段的过滤)
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    指定返回此关系指向模型的fields
+    */
+    google.protobuf.Struct fields = 3 ;
+    /*
+    自递归深度 -1表示不限深度
+    */
+    int32 depth = 4 ;
+    /*
+    子节点列表
+    */
+    repeated cmdb.TraverseChildNode child = 5 ;
+}
+

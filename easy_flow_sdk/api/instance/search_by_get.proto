@@ -1,0 +1,102 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "model/easy_flow/instance_info.proto";
+
+/*
+PostSearch请求
+*/
+message PostSearchRequest {
+    /*
+    多个包ID，以`,`分隔
+    */
+    string packageIds = 1 ;
+    /*
+    多个设备ID，以`,`分隔
+    */
+    string deviceIds = 2 ;
+    /*
+    设备IP
+    */
+    string deviceIp = 3 ;
+    /*
+    多个应用ID
+    */
+    string appIds = 4 ;
+    /*
+    分页
+    */
+    int32 page = 5 ;
+    /*
+    分页大小
+    */
+    int32 pageSize = 6 ;
+    /*
+    排序字段
+    */
+    string order = 7 ;
+    /*
+    包Id
+    */
+    string packageId = 8 ;
+    /*
+    版本Id
+    */
+    string versionId = 9 ;
+    /*
+    设备Id
+    */
+    string deviceId = 10 ;
+    /*
+    应用Id
+    */
+    string appId = 11 ;
+}
+
+/*
+PostSearch返回
+*/
+message PostSearchResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated easy_flow.InstanceInfo list = 4 ;
+}
+
+/*
+PostSearchApi返回
+*/
+message PostSearchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.PostSearchResponse data = 4 ;
+}
+

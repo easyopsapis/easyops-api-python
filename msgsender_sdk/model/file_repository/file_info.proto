@@ -1,0 +1,51 @@
+syntax = "proto3";
+package file_repository;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/file_repository";
+
+
+
+
+
+/*
+归档文件信息
+*/
+message FileInfo {
+    /*
+    文件名
+    */
+    string name = 1 ;
+    /*
+    文件类型
+    */
+    string type = 2 ;
+    /*
+    文件大小
+    */
+    int64 size = 3 ;
+    /*
+    文件权限
+    */
+    string perm = 4 ;
+    /*
+    文件修改时间
+    */
+    string mtime = 5 ;
+    /*
+    文件创建时间
+    */
+    string ctime = 6 ;
+    /*
+    如果type=link，link为链接地址
+    */
+    string link = 7 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 8 ;
+    /*
+    文件hash
+    */
+    string md5 = 9 ;
+}
+

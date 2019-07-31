@@ -1,0 +1,35 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+阈值判定条件
+*/
+message InspectionCondition {
+    /*
+    比较器的类型
+    */
+    string comparatorType = 1 ;
+    /*
+    告警等级。0、5、10 分别对应 notice、warning、emergency 三个等级
+    */
+    int32 level = 2 ;
+    /*
+    一个 level 内最大值。仅当 type == int 时有效
+    */
+    float maxValue = 3 ;
+    /*
+    一个 level 内最小值。仅当 type == int 时有效
+    */
+    float minValue = 4 ;
+    /*
+    阈值。仅当 type == string 时有效
+    */
+    string value = 5 ;
+}
+

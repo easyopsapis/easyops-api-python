@@ -1,0 +1,49 @@
+syntax = "proto3";
+package plugin;
+
+
+
+
+
+/*
+DeletePlugin请求
+*/
+message DeletePluginRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeletePlugin返回
+*/
+message DeletePluginResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeletePluginApi返回
+*/
+message DeletePluginResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    plugin.DeletePluginResponse data = 4 ;
+}
+

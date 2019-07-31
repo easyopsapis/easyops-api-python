@@ -1,0 +1,65 @@
+syntax = "proto3";
+package desktop;
+
+
+
+
+
+/*
+GetTaskStatus请求
+*/
+message GetTaskStatusRequest {
+    /*
+    部署任务id
+    */
+    string taskId = 1 ;
+}
+
+/*
+GetTaskStatus返回
+*/
+message GetTaskStatusResponse {
+    /*
+    部署任务id
+    */
+    string taskId = 1 ;
+    /*
+    任务状态, running-正在运行， failed-失败, ok-成功
+    */
+    string status = 2 ;
+    /*
+    任务类型， install-安装， uninstall-卸载
+    */
+    string taskType = 3 ;
+    /*
+    任务进行的阶段。 ready - 就绪， download - 下载, deploy - 安装, uninstall - 卸载
+    */
+    string stage = 4 ;
+    /*
+    部署信息
+    */
+    string msg = 5 ;
+}
+
+/*
+GetTaskStatusApi返回
+*/
+message GetTaskStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    desktop.GetTaskStatusResponse data = 4 ;
+}
+

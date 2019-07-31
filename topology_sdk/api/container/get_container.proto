@@ -1,0 +1,41 @@
+syntax = "proto3";
+package container;
+
+
+
+
+import "model/topology/property.proto";
+import "model/topology/container.proto";
+
+/*
+GetContainer请求
+*/
+message GetContainerRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+GetContainerApi返回
+*/
+message GetContainerResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topology.Container data = 4 ;
+}
+

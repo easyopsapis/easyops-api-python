@@ -1,0 +1,23 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+维度信息
+*/
+message InspectionDim {
+    /*
+    维度id
+    */
+    string id = 1 ;
+    /*
+    维度名称
+    */
+    string name = 2 ;
+}
+

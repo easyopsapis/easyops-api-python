@@ -1,0 +1,46 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "model/easy_command/task_callback.proto";
+import "model/easy_command/target_log.proto";
+import "model/easy_command/task_detail.proto";
+
+/*
+GetTaskDetail请求
+*/
+message GetTaskDetailRequest {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+    /*
+    是否返回简洁的任务详情，忽略action的输出
+    */
+    bool brief = 2 ;
+}
+
+/*
+GetTaskDetailApi返回
+*/
+message GetTaskDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_command.TaskDetail data = 4 ;
+}
+

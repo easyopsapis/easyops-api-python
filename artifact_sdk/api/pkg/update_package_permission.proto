@@ -1,0 +1,52 @@
+syntax = "proto3";
+package pkg;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UpdatePackagePermission请求
+*/
+message UpdatePackagePermissionRequest {
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    拥有更新权限用户
+    */
+    repeated string updateAuthorizers = 2 ;
+    /*
+    拥有删除权限用户
+    */
+    repeated string deleteAuthorizers = 3 ;
+    /*
+    拥有查看权限用户
+    */
+    repeated string readAuthorizers = 4 ;
+}
+
+/*
+UpdatePackagePermissionApi返回
+*/
+message UpdatePackagePermissionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,83 @@
+syntax = "proto3";
+package custom_sender;
+
+
+
+
+
+/*
+ListSupportInform返回
+*/
+message ListSupportInformResponse {
+message Data {
+    /*
+    关联的cmdb用户对象字段
+    */
+    string col_of_cmdb_user_object = 1 ;
+    /*
+    是否启用
+    */
+    string enable = 2 ;
+    /*
+    通知插件名称
+    */
+    string plugin_name = 3 ;
+    /*
+    通知方式描述
+    */
+    string description = 4 ;
+    /*
+    通知方式名称
+    */
+    string inform_type = 5 ;
+}
+        
+    
+    /*
+    数据内容
+    */
+    repeated Data data = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页记录数
+    */
+    int32 page_size = 3 ;
+    /*
+    记录总数
+    */
+    int32 tatal = 4 ;
+    /*
+    请求错误信息
+    */
+    string msg = 5 ;
+    /*
+    请求返回码
+    */
+    int32 code = 6 ;
+}
+
+/*
+ListSupportInformApi返回
+*/
+message ListSupportInformResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    custom_sender.ListSupportInformResponse data = 4 ;
+}
+

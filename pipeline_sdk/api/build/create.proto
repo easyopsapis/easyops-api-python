@@ -1,0 +1,50 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "model/pipeline/build.proto";
+import "model/pipeline/git_meta.proto";
+import "model/pipeline/build_status.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    项目id
+    */
+    string project_id = 1 ;
+    /*
+    流水线id
+    */
+    string pipeline_id = 2 ;
+    /*
+    构建任务
+    */
+    pipeline.Build build = 3 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.Build data = 4 ;
+}
+

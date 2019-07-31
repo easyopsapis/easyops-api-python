@@ -1,0 +1,60 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UpdateFile请求
+*/
+message UpdateFileRequest {
+    /*
+    rename的新文件名
+    */
+    string name = 1 ;
+    /*
+    要操作的文件、目录路径,上传时path是指存储的目录
+    */
+    string path = 2 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 3 ;
+    /*
+    文件操作类型包括：上传 -> upload，删除 -> delete,重命名 -> rename,修改权限 -> chmod,创建目录 -> mkdir
+    */
+    string op = 4 ;
+    /*
+    chmod、mkdir新文件权限（0755, 0644)
+    */
+    string perm = 5 ;
+    /*
+    包Id
+    */
+    string packageId = 6 ;
+}
+
+/*
+UpdateFileApi返回
+*/
+message UpdateFileResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

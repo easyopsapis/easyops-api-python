@@ -1,0 +1,109 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+GetFileList请求
+*/
+message GetFileListRequest {
+    /*
+    要操作的文件、目录路径,上传时path是指存储的目录
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 2 ;
+    /*
+    文件操作类型包括：查看文件列表 -> list
+    */
+    string op = 3 ;
+    /*
+    路径扁平化(true,false)
+    */
+    string flatten = 4 ;
+    /*
+    包Id
+    */
+    string packageId = 5 ;
+}
+
+/*
+GetFileList返回
+*/
+message GetFileListResponse {
+message Data {
+    /*
+    文件名
+    */
+    string name = 1 ;
+    /*
+    文件类型
+    */
+    string type = 2 ;
+    /*
+    参数path的编码格式
+    */
+    string encoding = 3 ;
+    /*
+    文件大小
+    */
+    int32 size = 4 ;
+    /*
+    chmod、mkdir新文件权限
+    */
+    string perm = 5 ;
+    /*
+    mtime
+    */
+    string mtime = 6 ;
+    /*
+    ctime
+    */
+    string ctime = 7 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+GetFileListApi返回
+*/
+message GetFileListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.GetFileListResponse data = 4 ;
+}
+

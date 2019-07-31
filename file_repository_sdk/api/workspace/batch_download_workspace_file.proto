@@ -1,0 +1,22 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+BatchDownload请求
+*/
+message BatchDownloadRequest {
+    /*
+    要下载的文件路径列表
+    */
+    repeated string paths = 1 ;
+    /*
+    程序包Id
+    */
+    string packageId = 2 ;
+}
+

@@ -1,0 +1,65 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+
+/*
+AddClusterDevice请求
+*/
+message AddClusterDeviceRequest {
+    /*
+    模型对象ID
+    */
+    string instanceId = 1 ;
+    /*
+    多个设备id,用;分隔
+    */
+    string deviceIds = 2 ;
+}
+
+/*
+AddClusterDevice返回
+*/
+message AddClusterDeviceResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    实例Id
+    */
+    string data = 4 ;
+}
+
+/*
+AddClusterDeviceApi返回
+*/
+message AddClusterDeviceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.AddClusterDeviceResponse data = 4 ;
+}
+

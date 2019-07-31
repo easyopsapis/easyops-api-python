@@ -1,0 +1,49 @@
+syntax = "proto3";
+package view;
+
+
+
+
+
+/*
+DeleteView请求
+*/
+message DeleteViewRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteView返回
+*/
+message DeleteViewResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteViewApi返回
+*/
+message DeleteViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    view.DeleteViewResponse data = 4 ;
+}
+

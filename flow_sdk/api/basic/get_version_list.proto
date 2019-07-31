@@ -1,0 +1,101 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+GetVersionList请求
+*/
+message GetVersionListRequest {
+    /*
+    查询开始时间
+    */
+    string startTime = 1 ;
+    /*
+    查询结束时间
+    */
+    string endTime = 2 ;
+    /*
+    version排序规则
+    */
+    string order = 3 ;
+    /*
+    指定返回字段, 逗号分隔
+    */
+    string fields = 4 ;
+    /*
+    流程ID
+    */
+    string flowId = 5 ;
+}
+
+/*
+GetVersionList返回
+*/
+message GetVersionListResponse {
+message List {
+    /*
+    流程ID
+    */
+    string flowId = 1 ;
+    /*
+    版本创建者
+    */
+    string vCreator = 2 ;
+    /*
+    修改时间
+    */
+    string updateTime = 3 ;
+    /*
+    版本号(时间戳-秒)
+    */
+    int32 version = 4 ;
+    /*
+    版本说明
+    */
+    string vDesc = 5 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+GetVersionListApi返回
+*/
+message GetVersionListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetVersionListResponse data = 4 ;
+}
+

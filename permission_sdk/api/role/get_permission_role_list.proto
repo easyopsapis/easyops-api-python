@@ -1,0 +1,105 @@
+syntax = "proto3";
+package role;
+
+
+
+
+
+/*
+GetPermissionRoleList请求
+*/
+message GetPermissionRoleListRequest {
+    /*
+    用户名
+    */
+    string user = 1 ;
+    /*
+    角色名
+    */
+    string role = 2 ;
+    /*
+    分页
+    */
+    int32 page = 3 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+GetPermissionRoleList返回
+*/
+message GetPermissionRoleListResponse {
+message Data {
+    /*
+    角色禁用菜单列表
+    */
+    repeated string forbidden_menu = 1 ;
+    /*
+    角色id
+    */
+    string id = 2 ;
+    /*
+    角色所在org
+    */
+    int32 org = 3 ;
+    /*
+    角色名称
+    */
+    string role = 4 ;
+    /*
+    角色下用户列表
+    */
+    repeated string user = 5 ;
+    /*
+    角色下权限id列表
+    */
+    repeated string permission = 6 ;
+    /*
+    角色下用户组列表
+    */
+    repeated string user_group = 7 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    角色列表
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+GetPermissionRoleListApi返回
+*/
+message GetPermissionRoleListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    role.GetPermissionRoleListResponse data = 4 ;
+}
+

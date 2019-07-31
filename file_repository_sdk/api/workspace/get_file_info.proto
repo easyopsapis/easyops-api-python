@@ -1,0 +1,85 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+GetFileInfo请求
+*/
+message GetFileInfoRequest {
+    /*
+    要操作的文件、目录路径,上传时path是指存储的目录
+    */
+    string path = 1 ;
+    /*
+    参数path的编码格式
+    */
+    string encodeing = 2 ;
+    /*
+    文件操作类型包括：查询属性和md5 -> info
+    */
+    string op = 3 ;
+    /*
+    包Id
+    */
+    string packageId = 4 ;
+}
+
+/*
+GetFileInfo返回
+*/
+message GetFileInfoResponse {
+    /*
+    文件名
+    */
+    string name = 1 ;
+    /*
+    文件类型
+    */
+    string type = 2 ;
+    /*
+    文件大小
+    */
+    int32 size = 3 ;
+    /*
+    chmod、mkdir新文件权限
+    */
+    string perm = 4 ;
+    /*
+    文件的link类型
+    */
+    string link = 5 ;
+    /*
+    mtime
+    */
+    string mtime = 6 ;
+    /*
+    ctime
+    */
+    string ctime = 7 ;
+}
+
+/*
+GetFileInfoApi返回
+*/
+message GetFileInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.GetFileInfoResponse data = 4 ;
+}
+

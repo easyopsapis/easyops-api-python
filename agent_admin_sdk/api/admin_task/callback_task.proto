@@ -1,0 +1,66 @@
+syntax = "proto3";
+package admin_task;
+
+
+
+
+import "model/easy_command/target_log.proto";
+
+/*
+CallbackAdminTask请求
+*/
+message CallbackAdminTaskRequest {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+    /*
+    任务执行状态
+    */
+    string status = 2 ;
+    /*
+    最后一个出错的目标机器action的退出码
+    */
+    int32 code = 3 ;
+    /*
+    任务的各个目标机器的执行结果详情
+    */
+    repeated easy_command.TargetLog targetsLog = 4 ;
+    /*
+    任务名称
+    */
+    string name = 5 ;
+}
+
+/*
+CallbackAdminTask返回
+*/
+message CallbackAdminTaskResponse {
+    /*
+    返回接受状态
+    */
+    string status = 1 ;
+}
+
+/*
+CallbackAdminTaskApi返回
+*/
+message CallbackAdminTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    admin_task.CallbackAdminTaskResponse data = 4 ;
+}
+

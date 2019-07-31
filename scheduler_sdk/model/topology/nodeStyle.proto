@@ -1,0 +1,31 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+节点样式
+*/
+message NodeStyle {
+    /*
+    x坐标
+    */
+    float x = 1 ;
+    /*
+    y坐标
+    */
+    float y = 2 ;
+    /*
+    形状
+    */
+    string shape = 3 ;
+    /*
+    样式类
+    */
+    string className = 4 ;
+}
+

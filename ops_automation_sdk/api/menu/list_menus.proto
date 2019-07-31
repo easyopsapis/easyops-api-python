@@ -1,0 +1,101 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+
+/*
+ListMenus请求
+*/
+message ListMenusRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    菜单的分类
+    */
+    string category = 3 ;
+    /*
+    菜单精确匹配
+    */
+    string name = 4 ;
+    /*
+    菜单模糊匹配
+    */
+    string keyword = 5 ;
+}
+
+/*
+ListMenus返回
+*/
+message ListMenusResponse {
+message List {
+    /*
+    menu id
+    */
+    string id = 1 ;
+    /*
+    menu name
+    */
+    string name = 2 ;
+    /*
+    category name
+    */
+    string category = 3 ;
+    /*
+    icon string
+    */
+    string icon = 4 ;
+    /*
+    menu creator
+    */
+    string creator = 5 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListMenusApi返回
+*/
+message ListMenusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.ListMenusResponse data = 4 ;
+}
+

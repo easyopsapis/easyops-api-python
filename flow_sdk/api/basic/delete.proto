@@ -1,0 +1,49 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+DeleteFlow请求
+*/
+message DeleteFlowRequest {
+    /*
+    流程ID
+    */
+    string flowId = 1 ;
+}
+
+/*
+DeleteFlow返回
+*/
+message DeleteFlowResponse {
+    /*
+    流程ID
+    */
+    string flowId = 1 ;
+}
+
+/*
+DeleteFlowApi返回
+*/
+message DeleteFlowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.DeleteFlowResponse data = 4 ;
+}
+

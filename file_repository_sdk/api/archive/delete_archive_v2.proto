@@ -1,0 +1,73 @@
+syntax = "proto3";
+package archive;
+
+
+
+
+
+/*
+DeleteArchiveV2请求
+*/
+message DeleteArchiveV2Request {
+    /*
+    是否彻底删除文件（true|false）
+    */
+    string deleteFile = 1 ;
+    /*
+    是否最后一个版本
+    */
+    string lastVersion = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+    /*
+    版本Id
+    */
+    string versionId = 4 ;
+}
+
+/*
+DeleteArchiveV2返回
+*/
+message DeleteArchiveV2Response {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    返回数据,成功删除的版本Id
+    */
+    string data = 4 ;
+}
+
+/*
+DeleteArchiveV2Api返回
+*/
+message DeleteArchiveV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    archive.DeleteArchiveV2Response data = 4 ;
+}
+

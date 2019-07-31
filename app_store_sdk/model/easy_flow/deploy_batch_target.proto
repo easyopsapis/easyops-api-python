@@ -1,0 +1,39 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+
+/*
+分批目标
+*/
+message DeployBatchTarget {
+message ActionParams {
+    /*
+    参数
+    */
+    string param = 1 ;
+}
+        
+    
+    /*
+    目标Id
+    */
+    string targetId = 1 ;
+    /*
+    目标名称
+    */
+    string targetName = 2 ;
+    /*
+    集群Id
+    */
+    string clusterId = 3 ;
+    /*
+    参数列表
+    */
+    repeated ActionParams actionParams = 4 ;
+}
+

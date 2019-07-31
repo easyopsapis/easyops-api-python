@@ -1,0 +1,91 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+代码项目
+*/
+message Project {
+message Variables {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    项目id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    项目名称, 默认同repo_name
+    */
+    string name = 2 ;
+    /*
+    是否收藏
+    */
+    string favorite = 3 ;
+    /*
+    标签
+    */
+    repeated string tags = 4 ;
+    /*
+    project变量
+    */
+    repeated Variables variables = 5 ;
+    /*
+    创建者，服务端自动生成
+    */
+    string creator = 6 ;
+    /*
+    创建时间，服务端自动生成
+    */
+    string ctime = 7 ;
+    /*
+    更新时间，服务端自动生成
+    */
+    string mtime = 8 ;
+    /*
+    git项目名称
+    */
+    string repo_name = 9 ;
+    /*
+    git项目id
+    */
+    int32 repo_id = 10 ;
+    /*
+    带namespace的显示名称
+    */
+    string name_with_namespace = 11 ;
+    /*
+    带namespace的项目路径
+    */
+    string path_with_namespace = 12 ;
+    /*
+    git ssh 克隆地址
+    */
+    string git_ssh_url = 13 ;
+    /*
+    git http克隆地址
+    */
+    string git_http_url = 14 ;
+    /*
+    repo web url
+    */
+    string link = 15 ;
+    /*
+    默认分支名称
+    */
+    string default_branch = 16 ;
+}
+

@@ -1,0 +1,54 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "model/cmdb/fail_instance.proto";
+
+/*
+DeleteInstanceBatch请求
+*/
+message DeleteInstanceBatchRequest {
+    /*
+    模型对象ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID, 用分号隔开, e.g. 5ab9f10a6ef88;5abb0dca9971d
+    */
+    string instanceIds = 2 ;
+}
+
+/*
+DeleteInstanceBatch返回
+*/
+message DeleteInstanceBatchResponse {
+    /*
+    删除失败的实例列表
+    */
+    repeated cmdb.FailInstance deleteFailedInstances = 1 ;
+}
+
+/*
+DeleteInstanceBatchApi返回
+*/
+message DeleteInstanceBatchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.DeleteInstanceBatchResponse data = 4 ;
+}
+

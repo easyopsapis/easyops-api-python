@@ -1,0 +1,35 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+
+/*
+集群程序包
+*/
+message ClusterPackage {
+    /*
+    包名称
+    */
+    string name = 1 ;
+    /*
+    包ID
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+    /*
+    目标版本
+    */
+    string targetVersion = 4 ;
+    /*
+    配置组合id
+    */
+    string combinationId = 5 ;
+}
+

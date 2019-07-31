@@ -1,0 +1,53 @@
+syntax = "proto3";
+package history;
+
+
+
+
+
+/*
+SchedulerCallback请求
+*/
+message SchedulerCallbackRequest {
+    /*
+    套件ID
+    */
+    string pluginId = 1 ;
+    /*
+    巡检任务ID
+    */
+    string inspectionTaskId = 2 ;
+}
+
+/*
+SchedulerCallback返回
+*/
+message SchedulerCallbackResponse {
+    /*
+    easy_command任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+SchedulerCallbackApi返回
+*/
+message SchedulerCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    history.SchedulerCallbackResponse data = 4 ;
+}
+

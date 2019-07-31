@@ -1,0 +1,86 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+AggregateCount请求
+*/
+message AggregateCountRequest {
+    /*
+    URL中资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    URL中模型属性ID, 支持结构体，用.分隔结构体名称和属性名称，如cpu.brand
+    */
+    string attrId = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+AggregateCount返回
+*/
+message AggregateCountResponse {
+message List {
+    /*
+    个数
+    */
+    int32 count = 1 ;
+    /*
+    属性值
+    */
+    google.protobuf.Struct attr = 2 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+AggregateCountApi返回
+*/
+message AggregateCountResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.AggregateCountResponse data = 4 ;
+}
+
