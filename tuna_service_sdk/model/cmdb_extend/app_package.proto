@@ -1,0 +1,63 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+
+/*
+应用程序包
+*/
+message AppPackage {
+    /*
+    包名称
+    */
+    string name = 1 ;
+    /*
+    包ID
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+    /*
+    是否主程序包
+    */
+    string isMaster = 4 ;
+    /*
+    系统类型
+    */
+    string platform = 5 ;
+    /*
+    升级前停止
+    */
+    int32 preStop = 6 ;
+    /*
+    强制升级
+    */
+    int32 forceUpdate = 7 ;
+    /*
+    升级后重启
+    */
+    int32 postRestart = 8 ;
+    /*
+    安装完成自动启动
+    */
+    int32 autoStart = 9 ;
+    /*
+    目标版本
+    */
+    string targetVersion = 10 ;
+    /*
+    发布后检查
+    */
+    int32 userCheck = 11 ;
+    /*
+    全量升级
+    */
+    int32 fullUpdate = 12 ;
+}
+

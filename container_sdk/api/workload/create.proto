@@ -1,0 +1,64 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/workload.proto";
+import "container_sdk/model/container/service.proto";
+import "container_sdk/model/container/hpa.proto";
+import "container_sdk/model/container/container.proto";
+import "container_sdk/model/container/volume.proto";
+import "container_sdk/model/container/deployment_strategy.proto";
+import "container_sdk/model/container/local_object_reference.proto";
+import "container_sdk/model/container/deployment_status.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    部署资源组 (resource group) id
+    */
+    string rgId = 1 ;
+    /*
+    命名空间 id
+    */
+    string namespaceId = 2 ;
+    /*
+    workload 信息
+    */
+    container.Workload workload = 3 ;
+    /*
+    service 信息
+    */
+    container.Service service = 4 ;
+    /*
+    自动扩缩容
+    */
+    container.HorizontalPodAutoscaler hpa = 5 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.Workload data = 4 ;
+}
+

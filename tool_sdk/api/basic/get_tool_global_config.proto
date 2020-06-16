@@ -1,0 +1,51 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+GetToolGlobalConfig返回
+*/
+message GetToolGlobalConfigResponse {
+    /*
+    系统ORG
+    */
+    int32 org = 1 ;
+    /*
+    配置类型
+    */
+    string ConfigType = 2 ;
+    /*
+    审批并同意
+    */
+    string CheckAndAgree = 3 ;
+    /*
+    审批人列表
+    */
+    repeated string CheckManagers = 4 ;
+}
+
+/*
+GetToolGlobalConfigApi返回
+*/
+message GetToolGlobalConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetToolGlobalConfigResponse data = 4 ;
+}
+

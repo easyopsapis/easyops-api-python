@@ -1,0 +1,44 @@
+syntax = "proto3";
+package object_store;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+CreateBucket请求
+*/
+message CreateBucketRequest {
+    /*
+    存储桶名称
+    */
+    string bucketName = 1 ;
+    /*
+    存储桶被创建的region(地区)
+    */
+    string location = 2 ;
+}
+
+/*
+CreateBucketApi返回
+*/
+message CreateBucketResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

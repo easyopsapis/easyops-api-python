@@ -4,7 +4,8 @@ package basic;
 
 
 
-import "model/tool/input_param.proto";
+import "tool_sdk/model/tool/tool_input.proto";
+import "google/protobuf/struct.proto";
 
 /*
 CreateTool返回
@@ -21,7 +22,7 @@ message CreateToolResponse {
     /*
     禁用工具开关
     */
-    string disable = 3 ;
+    bool disable = 3 ;
 }
 
 /*

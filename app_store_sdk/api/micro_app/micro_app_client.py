@@ -2,25 +2,20 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import app_store_sdk.model.app_store.micro_app_pb2
 
-import model.app_store.micro_app_pb2
-
-import delete_pb2
+import app_store_sdk.api.micro_app.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import app_store_sdk.api.micro_app.get_pb2
 
-import get_packages_pb2
+import app_store_sdk.api.micro_app.get_packages_pb2
 
-import list_pb2
+import app_store_sdk.api.micro_app.list_pb2
 
-import utils.http_util
+import app_store_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,14 +37,14 @@ class MicroAppClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (model.app_store.micro_app_pb2.AppStoreMicroApp, int, str, int) -> model.app_store.micro_app_pb2.AppStoreMicroApp
+        # type: (app_store_sdk.model.app_store.micro_app_pb2.AppStoreMicroApp, int, str, int) -> app_store_sdk.model.app_store.micro_app_pb2.AppStoreMicroApp
         """
         发布新的小产品
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.app_store.micro_app_pb2.AppStoreMicroApp
+        :return: app_store_sdk.model.app_store.micro_app_pb2.AppStoreMicroApp
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -62,7 +57,7 @@ class MicroAppClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = app_store_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
@@ -75,14 +70,14 @@ class MicroAppClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.app_store.micro_app_pb2.AppStoreMicroApp()
+        rsp = app_store_sdk.model.app_store.micro_app_pb2.AppStoreMicroApp()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_app_store_micro_app(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteAppStoreMicroAppRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (app_store_sdk.api.micro_app.delete_pb2.DeleteAppStoreMicroAppRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         下线小产品
         :param request: delete_app_store_micro_app请求
@@ -103,7 +98,7 @@ class MicroAppClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = app_store_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
@@ -123,14 +118,14 @@ class MicroAppClient(object):
         return rsp
     
     def get_app_store_micro_app(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetAppStoreMicroAppRequest, int, str, int) -> get_pb2.GetAppStoreMicroAppResponse
+        # type: (app_store_sdk.api.micro_app.get_pb2.GetAppStoreMicroAppRequest, int, str, int) -> app_store_sdk.api.micro_app.get_pb2.GetAppStoreMicroAppResponse
         """
         根据id获取小产品信息
         :param request: get_app_store_micro_app请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetAppStoreMicroAppResponse
+        :return: app_store_sdk.api.micro_app.get_pb2.GetAppStoreMicroAppResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -144,7 +139,7 @@ class MicroAppClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = app_store_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
@@ -157,21 +152,21 @@ class MicroAppClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetAppStoreMicroAppResponse()
+        rsp = app_store_sdk.api.micro_app.get_pb2.GetAppStoreMicroAppResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_related_packages(self, request, org, user, timeout=10):
-        # type: (get_packages_pb2.GetRelatedPackagesRequest, int, str, int) -> get_packages_pb2.GetRelatedPackagesResponse
+        # type: (app_store_sdk.api.micro_app.get_packages_pb2.GetRelatedPackagesRequest, int, str, int) -> app_store_sdk.api.micro_app.get_packages_pb2.GetRelatedPackagesResponse
         """
         根据app_id获取关联制品包
         :param request: get_related_packages请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_packages_pb2.GetRelatedPackagesResponse
+        :return: app_store_sdk.api.micro_app.get_packages_pb2.GetRelatedPackagesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -185,7 +180,7 @@ class MicroAppClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = app_store_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
@@ -198,21 +193,21 @@ class MicroAppClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_packages_pb2.GetRelatedPackagesResponse()
+        rsp = app_store_sdk.api.micro_app.get_packages_pb2.GetRelatedPackagesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_app_store_micro_app(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListAppStoreMicroAppRequest, int, str, int) -> list_pb2.ListAppStoreMicroAppResponse
+        # type: (app_store_sdk.api.micro_app.list_pb2.ListAppStoreMicroAppRequest, int, str, int) -> app_store_sdk.api.micro_app.list_pb2.ListAppStoreMicroAppResponse
         """
         获取小产品列表
         :param request: list_app_store_micro_app请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListAppStoreMicroAppResponse
+        :return: app_store_sdk.api.micro_app.list_pb2.ListAppStoreMicroAppResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -225,7 +220,7 @@ class MicroAppClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = app_store_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.app_store_sdk",
             dst_name=route_name,
@@ -238,7 +233,7 @@ class MicroAppClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListAppStoreMicroAppResponse()
+        rsp = app_store_sdk.api.micro_app.list_pb2.ListAppStoreMicroAppResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

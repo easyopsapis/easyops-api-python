@@ -1,0 +1,135 @@
+syntax = "proto3";
+package idcrack;
+
+
+
+
+import "idcmanager_sdk/model/idcmanager/idc.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ListIDCRackV2请求
+*/
+message ListIDCRackV2Request {
+    /*
+    机柜ID列表，以,分割
+    */
+    string idcrackIds = 1 ;
+}
+
+/*
+ListIDCRackV2返回
+*/
+message ListIDCRackV2Response {
+message List {
+message Layout {
+    /*
+    设备ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备类型(HOST, _SWITCH, _FIREWALL, _ROUTER, disable)
+    */
+    string type = 2 ;
+    /*
+    起始U位
+    */
+    int32 startU = 3 ;
+    /*
+    占用U位
+    */
+    int32 occupiedU = 4 ;
+    /*
+    对应的设备的类型
+    */
+    google.protobuf.Struct device = 5 ;
+}
+        
+    
+    /*
+    机柜布局
+    */
+    repeated Layout layout = 1 ;
+    /*
+    所在的机房
+    */
+    idcmanager.IDC idc = 2 ;
+    /*
+    机柜ID
+    */
+    string instanceId = 3 ;
+    /*
+    机柜名称
+    */
+    string name = 4 ;
+    /*
+    机柜编号
+    */
+    string code = 5 ;
+    /*
+    机柜状态
+    */
+    string status = 6 ;
+    /*
+    机柜类型
+    */
+    string type = 7 ;
+    /*
+    机柜U数
+    */
+    int32 unum = 8 ;
+    /*
+    空闲U位数
+    */
+    int32 freeUnum = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    创建者
+    */
+    string creator = 11 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListIDCRackV2Api返回
+*/
+message ListIDCRackV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    idcrack.ListIDCRackV2Response data = 4 ;
+}
+

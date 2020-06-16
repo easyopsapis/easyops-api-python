@@ -44,6 +44,18 @@ ListAppVersion返回
 */
 message ListAppVersionResponse {
 message List {
+message Dependencies {
+    /*
+    依赖组件
+    */
+    string packageName = 1 ;
+    /*
+    依赖版本semver约束
+    */
+    string constraint = 2 ;
+}
+        
+    
     /*
     版本实例id
     */
@@ -64,6 +76,10 @@ message List {
     版本发布时间
     */
     string releaseTime = 5 ;
+    /*
+    依赖包列表
+    */
+    repeated Dependencies dependencies = 6 ;
 }
         
     

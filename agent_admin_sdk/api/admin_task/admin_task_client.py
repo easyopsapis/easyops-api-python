@@ -2,33 +2,30 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import agent_admin_sdk.api.admin_task.callback_task_pb2
 
-import callback_task_pb2
+import agent_admin_sdk.api.admin_task.callback_task_v1_pb2
 
-import callback_task_v1_pb2
+import agent_admin_sdk.api.admin_task.get_deploy_task_v1_pb2
 
-import get_deploy_task_v1_pb2
+import agent_admin_sdk.api.admin_task.get_task_pb2
 
-import get_task_pb2
+import agent_admin_sdk.model.agent_admin.admin_task_pb2
 
-import model.agent_admin.admin_task_pb2
+import agent_admin_sdk.api.admin_task.install_plugin_pb2
 
-import install_plugin_pb2
+import agent_admin_sdk.api.admin_task.install_plugin_v1_pb2
 
-import install_plugin_v1_pb2
+import agent_admin_sdk.api.admin_task.list_plugin_task_pb2
 
-import refresh_agent_plugin_pb2
+import agent_admin_sdk.api.admin_task.refresh_agent_plugin_pb2
 
-import refresh_agent_plugin_v1_pb2
+import agent_admin_sdk.api.admin_task.refresh_agent_plugin_v1_pb2
 
 import google.protobuf.empty_pb2
 
-import utils.http_util
+import agent_admin_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -50,14 +47,14 @@ class AdminTaskClient(object):
 
     
     def callback_admin_task(self, request, org, user, timeout=10):
-        # type: (callback_task_pb2.CallbackAdminTaskRequest, int, str, int) -> callback_task_pb2.CallbackAdminTaskResponse
+        # type: (agent_admin_sdk.api.admin_task.callback_task_pb2.CallbackAdminTaskRequest, int, str, int) -> agent_admin_sdk.api.admin_task.callback_task_pb2.CallbackAdminTaskResponse
         """
         创建插件
         :param request: callback_admin_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: callback_task_pb2.CallbackAdminTaskResponse
+        :return: agent_admin_sdk.api.admin_task.callback_task_pb2.CallbackAdminTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -70,7 +67,7 @@ class AdminTaskClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -83,21 +80,21 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = callback_task_pb2.CallbackAdminTaskResponse()
+        rsp = agent_admin_sdk.api.admin_task.callback_task_pb2.CallbackAdminTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def callback_admin_task_v_1(self, request, org, user, timeout=10):
-        # type: (callback_task_v1_pb2.CallbackAdminTaskV1Request, int, str, int) -> callback_task_v1_pb2.CallbackAdminTaskV1Response
+        # type: (agent_admin_sdk.api.admin_task.callback_task_v1_pb2.CallbackAdminTaskV1Request, int, str, int) -> agent_admin_sdk.api.admin_task.callback_task_v1_pb2.CallbackAdminTaskV1Response
         """
         创建插件
         :param request: callback_admin_task_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: callback_task_v1_pb2.CallbackAdminTaskV1Response
+        :return: agent_admin_sdk.api.admin_task.callback_task_v1_pb2.CallbackAdminTaskV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -110,7 +107,7 @@ class AdminTaskClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -123,21 +120,21 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = callback_task_v1_pb2.CallbackAdminTaskV1Response()
+        rsp = agent_admin_sdk.api.admin_task.callback_task_v1_pb2.CallbackAdminTaskV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_deploy_task_v_1(self, request, org, user, timeout=10):
-        # type: (get_deploy_task_v1_pb2.GetDeployTaskV1Request, int, str, int) -> get_deploy_task_v1_pb2.GetDeployTaskV1Response
+        # type: (agent_admin_sdk.api.admin_task.get_deploy_task_v1_pb2.GetDeployTaskV1Request, int, str, int) -> agent_admin_sdk.api.admin_task.get_deploy_task_v1_pb2.GetDeployTaskV1Response
         """
         获取任务详细数据
         :param request: get_deploy_task_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_deploy_task_v1_pb2.GetDeployTaskV1Response
+        :return: agent_admin_sdk.api.admin_task.get_deploy_task_v1_pb2.GetDeployTaskV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -151,7 +148,7 @@ class AdminTaskClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -164,21 +161,21 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_deploy_task_v1_pb2.GetDeployTaskV1Response()
+        rsp = agent_admin_sdk.api.admin_task.get_deploy_task_v1_pb2.GetDeployTaskV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_task(self, request, org, user, timeout=10):
-        # type: (get_task_pb2.GetTaskRequest, int, str, int) -> model.agent_admin.admin_task_pb2.AdminTask
+        # type: (agent_admin_sdk.api.admin_task.get_task_pb2.GetTaskRequest, int, str, int) -> agent_admin_sdk.model.agent_admin.admin_task_pb2.AdminTask
         """
         获取任务详细数据
         :param request: get_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.agent_admin.admin_task_pb2.AdminTask
+        :return: agent_admin_sdk.model.agent_admin.admin_task_pb2.AdminTask
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -192,7 +189,7 @@ class AdminTaskClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -205,21 +202,21 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.agent_admin.admin_task_pb2.AdminTask()
+        rsp = agent_admin_sdk.model.agent_admin.admin_task_pb2.AdminTask()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def install_plugin_task(self, request, org, user, timeout=10):
-        # type: (install_plugin_pb2.InstallPluginTaskRequest, int, str, int) -> install_plugin_pb2.InstallPluginTaskResponse
+        # type: (agent_admin_sdk.api.admin_task.install_plugin_pb2.InstallPluginTaskRequest, int, str, int) -> agent_admin_sdk.api.admin_task.install_plugin_pb2.InstallPluginTaskResponse
         """
         安装插件
         :param request: install_plugin_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: install_plugin_pb2.InstallPluginTaskResponse
+        :return: agent_admin_sdk.api.admin_task.install_plugin_pb2.InstallPluginTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -232,7 +229,7 @@ class AdminTaskClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -245,21 +242,21 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = install_plugin_pb2.InstallPluginTaskResponse()
+        rsp = agent_admin_sdk.api.admin_task.install_plugin_pb2.InstallPluginTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def install_plugin_task_v_1(self, request, org, user, timeout=10):
-        # type: (install_plugin_v1_pb2.InstallPluginTaskV1Request, int, str, int) -> install_plugin_v1_pb2.InstallPluginTaskV1Response
+        # type: (agent_admin_sdk.api.admin_task.install_plugin_v1_pb2.InstallPluginTaskV1Request, int, str, int) -> agent_admin_sdk.api.admin_task.install_plugin_v1_pb2.InstallPluginTaskV1Response
         """
         安装插件
         :param request: install_plugin_task_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: install_plugin_v1_pb2.InstallPluginTaskV1Response
+        :return: agent_admin_sdk.api.admin_task.install_plugin_v1_pb2.InstallPluginTaskV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -272,7 +269,7 @@ class AdminTaskClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -285,21 +282,62 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = install_plugin_v1_pb2.InstallPluginTaskV1Response()
+        rsp = agent_admin_sdk.api.admin_task.install_plugin_v1_pb2.InstallPluginTaskV1Response()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_plugin_task(self, request, org, user, timeout=10):
+        # type: (agent_admin_sdk.api.admin_task.list_plugin_task_pb2.ListPluginTaskRequest, int, str, int) -> agent_admin_sdk.api.admin_task.list_plugin_task_pb2.ListPluginTaskResponse
+        """
+        获取部署任务历史列表
+        :param request: list_plugin_task请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: agent_admin_sdk.api.admin_task.list_plugin_task_pb2.ListPluginTaskResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.agent_admin.admin_task.ListPluginTask"
+        uri = "/api/v1/plugin/{id}/task".format(
+            id=request.id,
+        )
+        requestParam = request
+        
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.agent_admin_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = agent_admin_sdk.api.admin_task.list_plugin_task_pb2.ListPluginTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def refresh_agent_plugin_task(self, request, org, user, timeout=10):
-        # type: (refresh_agent_plugin_pb2.RefreshAgentPluginTaskRequest, int, str, int) -> refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse
+        # type: (agent_admin_sdk.api.admin_task.refresh_agent_plugin_pb2.RefreshAgentPluginTaskRequest, int, str, int) -> agent_admin_sdk.api.admin_task.refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse
         """
         安装插件
         :param request: refresh_agent_plugin_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse
+        :return: agent_admin_sdk.api.admin_task.refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -312,7 +350,7 @@ class AdminTaskClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -325,14 +363,14 @@ class AdminTaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse()
+        rsp = agent_admin_sdk.api.admin_task.refresh_agent_plugin_pb2.RefreshAgentPluginTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def refresh_agent_plugin_task_v_1(self, request, org, user, timeout=10):
-        # type: (refresh_agent_plugin_v1_pb2.RefreshAgentPluginTaskV1Request, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (agent_admin_sdk.api.admin_task.refresh_agent_plugin_v1_pb2.RefreshAgentPluginTaskV1Request, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         安装插件
         :param request: refresh_agent_plugin_task_v_1请求
@@ -353,7 +391,7 @@ class AdminTaskClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,

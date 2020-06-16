@@ -1,0 +1,94 @@
+syntax = "proto3";
+package business_instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+SearchSubSystem请求
+*/
+message SearchSubSystemRequest {
+    /*
+    系统的实例ID
+    */
+    string systemInstanceId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    查询条件,与[实例搜索接口]的query字段说明一致
+    */
+    google.protobuf.Struct query = 4 ;
+    /*
+    过滤的字段列表, 留空代表返回所有字段(true: 表示指定获取字段, false: 表示指定不获取的字段)(支持关系数据的二级jsonPath格式的指定字段如clusters.name)
+    */
+    google.protobuf.Struct fields = 5 ;
+    /*
+    按字段排序, 留空默认按照实例ID降序排序(1表示升序, -1表示降序)
+    */
+    google.protobuf.Struct sort = 6 ;
+    /*
+    按照权限过滤(通用实例都有`read`, `update`, `delete`权限控制, 主机实例在通用实例权限基础上有额外的`operate`权限, 应用实例在通用实例权限基础上有额外的`developClusterOperate`, `testClusterOperate`, `prereleaseClusterOperate`, `productionClusterOperate`权限)
+    */
+    repeated string permission = 7 ;
+    /*
+    对于关联的实例数据是否只获取relation_view中指定的属性, 这个字段为true时, 会覆盖fields字段中指定的二级字段设置
+    */
+    bool only_relation_view = 8 ;
+    /*
+    是否只获取与自己有关的那部分数据, 默认为false
+    */
+    bool only_my_instance = 9 ;
+}
+
+/*
+SearchSubSystem返回
+*/
+message SearchSubSystemResponse {
+    /*
+    total
+    */
+    int32 total = 1 ;
+    /*
+    page
+    */
+    int32 page = 2 ;
+    /*
+    page_size
+    */
+    int32 page_size = 3 ;
+    /*
+    实例列表
+    */
+    repeated google.protobuf.Struct list = 4 ;
+}
+
+/*
+SearchSubSystemApi返回
+*/
+message SearchSubSystemResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    business_instance.SearchSubSystemResponse data = 4 ;
+}
+

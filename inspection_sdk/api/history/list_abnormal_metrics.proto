@@ -4,7 +4,7 @@ package history;
 
 
 
-import "model/inspection/dim.proto";
+import "inspection_sdk/model/inspection/dim.proto";
 
 /*
 ListAbnormalMetrics请求
@@ -70,21 +70,17 @@ message AbnormalMetrics {
         
     
     /*
-    主机IP
+    巡检对象实例ID
     */
-    string ip = 1 ;
-    /*
-    主机实例ID
-    */
-    string targetId = 2 ;
+    string targetId = 1 ;
     /*
     巡检日志
     */
-    string log = 3 ;
+    string log = 2 ;
     /*
     异常指标列表
     */
-    AbnormalMetricGroups abnormalMetricGroups = 4 ;
+    AbnormalMetricGroups abnormalMetricGroups = 3 ;
 }
         
     

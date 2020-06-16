@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import database_delivery_sdk.api.dbclient.create_pb2
 
-import create_pb2
+import database_delivery_sdk.model.database_delivery.dbclient_pb2
 
-import model.database_delivery.dbclient_pb2
+import database_delivery_sdk.model.easy_command.task_detail_pb2
 
-import model.easy_command.task_detail_pb2
+import database_delivery_sdk.api.dbclient.create_callback_pb2
 
-import create_callback_pb2
-
-import delete_pb2
+import database_delivery_sdk.api.dbclient.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import list_pb2
+import database_delivery_sdk.api.dbclient.list_pb2
 
-import utils.http_util
+import database_delivery_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class DbclientClient(object):
 
     
     def create_client(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateClientRequest, int, str, int) -> model.database_delivery.dbclient_pb2.DBClient
+        # type: (database_delivery_sdk.api.dbclient.create_pb2.CreateClientRequest, int, str, int) -> database_delivery_sdk.model.database_delivery.dbclient_pb2.DBClient
         """
         创建客户端
         :param request: create_client请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.database_delivery.dbclient_pb2.DBClient
+        :return: database_delivery_sdk.model.database_delivery.dbclient_pb2.DBClient
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -64,7 +59,7 @@ class DbclientClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -77,21 +72,21 @@ class DbclientClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.database_delivery.dbclient_pb2.DBClient()
+        rsp = database_delivery_sdk.model.database_delivery.dbclient_pb2.DBClient()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_client_callback(self, request, org, user, timeout=10):
-        # type: (model.easy_command.task_detail_pb2.TaskDetail, int, str, int) -> create_callback_pb2.CreateClientCallbackResponse
+        # type: (database_delivery_sdk.model.easy_command.task_detail_pb2.TaskDetail, int, str, int) -> database_delivery_sdk.api.dbclient.create_callback_pb2.CreateClientCallbackResponse
         """
         创建客户端回调
         :param request: create_client_callback请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_callback_pb2.CreateClientCallbackResponse
+        :return: database_delivery_sdk.api.dbclient.create_callback_pb2.CreateClientCallbackResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -104,7 +99,7 @@ class DbclientClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -117,14 +112,14 @@ class DbclientClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_callback_pb2.CreateClientCallbackResponse()
+        rsp = database_delivery_sdk.api.dbclient.create_callback_pb2.CreateClientCallbackResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_client(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteClientRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbclient.delete_pb2.DeleteClientRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除客户端
         :param request: delete_client请求
@@ -145,7 +140,7 @@ class DbclientClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -165,14 +160,14 @@ class DbclientClient(object):
         return rsp
     
     def list_client(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListClientRequest, int, str, int) -> list_pb2.ListClientResponse
+        # type: (database_delivery_sdk.api.dbclient.list_pb2.ListClientRequest, int, str, int) -> database_delivery_sdk.api.dbclient.list_pb2.ListClientResponse
         """
         获取客户端列表
         :param request: list_client请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListClientResponse
+        :return: database_delivery_sdk.api.dbclient.list_pb2.ListClientResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -185,7 +180,7 @@ class DbclientClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -198,7 +193,7 @@ class DbclientClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListClientResponse()
+        rsp = database_delivery_sdk.api.dbclient.list_pb2.ListClientResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

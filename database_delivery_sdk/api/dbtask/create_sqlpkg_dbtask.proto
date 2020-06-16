@@ -11,18 +11,46 @@ CreateSQLPackageDBTask请求
 message CreateSQLPackageDBTaskRequest {
 message TaskInfo {
 message BackupCfg {
+message Scripts {
+message Variables {
+    /*
+    参数名称
+    */
+    string key = 1 ;
+    /*
+    参数值
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    脚本路径
+    */
+    string script = 1 ;
+    /*
+    脚本参数
+    */
+    repeated Variables variables = 2 ;
+}
+        
+    
+    /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
     /*
     主机ID
     */
-    string hostId = 1 ;
+    string hostId = 2 ;
     /*
     主机IP
     */
-    string hostIp = 2 ;
+    string hostIp = 3 ;
     /*
-    备份任务脚本
+    备份任务脚本列表
     */
-    repeated string scripts = 3 ;
+    repeated Scripts scripts = 4 ;
 }
         
 message ChangeCfg {
@@ -83,7 +111,7 @@ message CheckCfg {
     /*
     备份任务配置，可以为空
     */
-    BackupCfg backupCfg = 2 ;
+    repeated BackupCfg backupCfg = 2 ;
     /*
     变更任务配置
     */

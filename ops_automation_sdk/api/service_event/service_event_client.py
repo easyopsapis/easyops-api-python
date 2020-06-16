@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import ops_automation_sdk.api.service_event.create_service_event_pb2
 
-import create_service_event_pb2
-
-import utils.http_util
+import ops_automation_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -32,14 +27,14 @@ class ServiceEventClient(object):
 
     
     def create_service_event(self, request, org, user, timeout=10):
-        # type: (create_service_event_pb2.CreateServiceEventRequest, int, str, int) -> create_service_event_pb2.CreateServiceEventResponse
+        # type: (ops_automation_sdk.api.service_event.create_service_event_pb2.CreateServiceEventRequest, int, str, int) -> ops_automation_sdk.api.service_event.create_service_event_pb2.CreateServiceEventResponse
         """
         创建系统事件
         :param request: create_service_event请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_service_event_pb2.CreateServiceEventResponse
+        :return: ops_automation_sdk.api.service_event.create_service_event_pb2.CreateServiceEventResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -52,7 +47,7 @@ class ServiceEventClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -65,7 +60,7 @@ class ServiceEventClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_service_event_pb2.CreateServiceEventResponse()
+        rsp = ops_automation_sdk.api.service_event.create_service_event_pb2.CreateServiceEventResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -1,0 +1,32 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+import "anxin_service_sdk/model/monitor/alert_event.proto";
+
+/*
+告警状态
+*/
+message AlertRange {
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    告警事件Id
+    */
+    string key = 2 ;
+    /*
+    最近一次告警详情
+    */
+    monitor.AlertEvent first_alert = 3 ;
+    /*
+    第一次告警时间
+    */
+    int32 alert_begin_time = 4 ;
+}
+

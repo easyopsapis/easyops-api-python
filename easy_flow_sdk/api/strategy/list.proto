@@ -4,7 +4,7 @@ package strategy;
 
 
 
-import "model/easy_flow/deploy_strategy.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_strategy.proto";
 
 /*
 List请求

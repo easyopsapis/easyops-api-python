@@ -4,46 +4,8 @@ package jobs;
 
 
 
-import "model/ops_automation/bind_resource.proto";
-import "model/ops_automation/mail_info.proto";
-
-/*
-UpdateJobs请求
-*/
-message UpdateJobsRequest {
-    /*
-    作业id
-    */
-    string jobId = 1 ;
-    /*
-    任务名称
-    */
-    string name = 2 ;
-    /*
-    菜单分类
-    */
-    string category = 3 ;
-    /*
-    菜单ID
-    */
-    string menuId = 4 ;
-    /*
-    绑定资源
-    */
-    ops_automation.BindResource bindResource = 5 ;
-    /*
-    作业描述
-    */
-    string desc = 6 ;
-    /*
-    执行时是否允许修改入参
-    */
-    bool allowModify = 7 ;
-    /*
-    邮件通知配置
-    */
-    ops_automation.MailInfo mail = 8 ;
-}
+import "ops_automation_sdk/model/ops_automation/bind_resource.proto";
+import "ops_automation_sdk/model/ops_automation/mail_info.proto";
 
 /*
 UpdateJobs返回

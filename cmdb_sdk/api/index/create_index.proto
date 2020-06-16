@@ -1,0 +1,57 @@
+syntax = "proto3";
+package index;
+
+
+
+
+
+/*
+CreateIndex请求
+*/
+message CreateIndexRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    属性Id
+    */
+    repeated string propertyIds = 2 ;
+    /*
+    是否唯一
+    */
+    bool unique = 3 ;
+}
+
+/*
+CreateIndex返回
+*/
+message CreateIndexResponse {
+    /*
+    索引名称,唯一标识
+    */
+    string indexName = 1 ;
+}
+
+/*
+CreateIndexApi返回
+*/
+message CreateIndexResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    index.CreateIndexResponse data = 4 ;
+}
+

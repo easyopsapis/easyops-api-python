@@ -1,0 +1,27 @@
+syntax = "proto3";
+package easy_work_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_work_service";
+
+
+
+
+
+/*
+个人收藏
+*/
+message PersonalCollection {
+    /*
+    个人收藏 ID
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    收藏用户名
+    */
+    string username = 3 ;
+}
+

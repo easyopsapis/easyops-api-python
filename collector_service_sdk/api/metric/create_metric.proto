@@ -1,0 +1,139 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+
+/*
+CreateCollectorMetric请求
+*/
+message CreateCollectorMetricRequest {
+message Parent {
+    /*
+    指标名
+    */
+    string name = 1 ;
+}
+        
+message TagDefine {
+    /*
+    名字
+    */
+    string name = 1 ;
+    /*
+    默认值
+    */
+    string default = 2 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+    /*
+    值类型
+    */
+    string valueType = 5 ;
+}
+        
+message ParamDefine {
+    /*
+    名字
+    */
+    string name = 1 ;
+    /*
+    值类型
+    */
+    string valueType = 2 ;
+    /*
+    默认值
+    */
+    string default = 3 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 4 ;
+}
+        
+    
+    /*
+    父指标
+    */
+    Parent parent = 1 ;
+    /*
+    指标key
+    */
+    string key = 2 ;
+    /*
+    指标名
+    */
+    string keyName = 3 ;
+    /*
+    标签
+    */
+    repeated string labels = 4 ;
+    /*
+    指标类型
+    */
+    string metricType = 5 ;
+    /*
+    指标数据类型
+    */
+    string dataType = 6 ;
+    /*
+    所属Agent
+    */
+    string agentType = 7 ;
+    /*
+    维度定义
+    */
+    repeated TagDefine tagDefine = 8 ;
+    /*
+    参数定义
+    */
+    repeated ParamDefine paramDefine = 9 ;
+    /*
+    帮助
+    */
+    string help = 10 ;
+    /*
+    单位
+    */
+    string unit = 11 ;
+}
+
+/*
+CreateCollectorMetric返回
+*/
+message CreateCollectorMetricResponse {
+    /*
+    指标id
+    */
+    string metricId = 1 ;
+}
+
+/*
+CreateCollectorMetricApi返回
+*/
+message CreateCollectorMetricResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    metric.CreateCollectorMetricResponse data = 4 ;
+}
+

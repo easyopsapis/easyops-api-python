@@ -2,19 +2,16 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import notify_sdk.model.notify.operation_log_with_meta_pb2
 
-import model.notify.operation_log_with_meta_pb2
+import notify_sdk.api.oplog.create_operation_log_pb2
 
-import create_operation_log_pb2
+import notify_sdk.model.notify.list_operation_log_request_pb2
 
-import list_operation_log_pb2
+import notify_sdk.api.oplog.list_operation_log_pb2
 
-import utils.http_util
+import notify_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -36,14 +33,14 @@ class OplogClient(object):
 
     
     def create_operation_log(self, request, org, user, timeout=10):
-        # type: (model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> create_operation_log_pb2.CreateOperationLogResponse
+        # type: (notify_sdk.model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> notify_sdk.api.oplog.create_operation_log_pb2.CreateOperationLogResponse
         """
         创建通知日志信息
         :param request: create_operation_log请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_operation_log_pb2.CreateOperationLogResponse
+        :return: notify_sdk.api.oplog.create_operation_log_pb2.CreateOperationLogResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -56,7 +53,7 @@ class OplogClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -69,21 +66,21 @@ class OplogClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_operation_log_pb2.CreateOperationLogResponse()
+        rsp = notify_sdk.api.oplog.create_operation_log_pb2.CreateOperationLogResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_operation_log(self, request, org, user, timeout=10):
-        # type: (list_operation_log_pb2.ListOperationLogRequest, int, str, int) -> list_operation_log_pb2.ListOperationLogResponse
+        # type: (notify_sdk.model.notify.list_operation_log_request_pb2.ListOperationLogRequest, int, str, int) -> notify_sdk.api.oplog.list_operation_log_pb2.ListOperationLogResponse
         """
         获取通知日志信息
         :param request: list_operation_log请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_operation_log_pb2.ListOperationLogResponse
+        :return: notify_sdk.api.oplog.list_operation_log_pb2.ListOperationLogResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -96,7 +93,7 @@ class OplogClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -109,7 +106,7 @@ class OplogClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_operation_log_pb2.ListOperationLogResponse()
+        rsp = notify_sdk.api.oplog.list_operation_log_pb2.ListOperationLogResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

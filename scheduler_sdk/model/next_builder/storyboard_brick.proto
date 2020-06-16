@@ -1,0 +1,47 @@
+syntax = "proto3";
+package next_builder;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/next_builder";
+
+
+
+
+
+/*
+Storyboard brick
+*/
+message StoryboardBrick {
+    /*
+    Brick
+    */
+    string brick = 1 ;
+    /*
+    属性
+    */
+    string properties = 2 ;
+    /*
+    InjectDeep
+    */
+    bool injectDeep = 3 ;
+    /*
+    事件
+    */
+    string events = 4 ;
+    /*
+    Bg
+    */
+    bool bg = 5 ;
+    /*
+    生命周期
+    */
+    string lifeCycle = 6 ;
+    /*
+    参数定义
+    */
+    string params = 7 ;
+    /*
+    If
+    */
+    string if = 8 ;
+}
+

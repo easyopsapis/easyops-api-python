@@ -1,0 +1,36 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+模型属性类型
+*/
+message ObjectAttrValueStruct {
+    /*
+    结构体字段ID
+    */
+    string id = 1 ;
+    /*
+    结构体字段名称
+    */
+    string name = 2 ;
+    /*
+    数据类型
+    */
+    string type = 3 ;
+    /*
+    仅仅在type是enum时有值，并且是字符串数组
+    */
+    google.protobuf.Value regex = 4 ;
+    /*
+    是否是内置属性: 核心定义的内置属性默认都是核心属性, 核心属性不允许被删除、不允许修改约束
+    */
+    bool protected = 5 ;
+}
+

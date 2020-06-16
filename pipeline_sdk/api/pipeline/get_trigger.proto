@@ -4,7 +4,7 @@ package pipeline;
 
 
 
-import "model/pipeline/trigger.proto";
+import "pipeline_sdk/model/pipeline/trigger.proto";
 
 /*
 GetTrigger请求

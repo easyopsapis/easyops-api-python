@@ -1,0 +1,40 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+import "metadata_center_sdk/model/metadata_center/stream_metrics_schema.proto";
+
+/*
+ListMetricsStates返回
+*/
+message ListMetricsStatesResponse {
+    /*
+    指标表列表
+    */
+    repeated metadata_center.StreamMetricsSchema states = 1 ;
+}
+
+/*
+ListMetricsStatesApi返回
+*/
+message ListMetricsStatesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ListMetricsStatesResponse data = 4 ;
+}
+

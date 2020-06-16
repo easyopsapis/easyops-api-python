@@ -1,0 +1,33 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+import "api_gateway_sdk/model/topology/strategy.proto";
+import "api_gateway_sdk/model/topology/cmdb_instance.proto";
+
+/*
+属性
+*/
+message Property {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID
+    */
+    string instanceId = 2 ;
+    /*
+    策略
+    */
+    topology.Strategy strategy = 3 ;
+    /*
+    关联实例
+    */
+    repeated topology.CmdbInstance relateInstances = 4 ;
+}
+

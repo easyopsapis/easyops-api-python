@@ -1,0 +1,69 @@
+syntax = "proto3";
+package desktop;
+
+
+
+
+
+/*
+GetAppDependencies请求
+*/
+message GetAppDependenciesRequest {
+    /*
+    小产品id
+    */
+    string appId = 1 ;
+}
+
+/*
+GetAppDependencies返回
+*/
+message GetAppDependenciesResponse {
+message Dependencies {
+    /*
+    依赖组件
+    */
+    string packageName = 1 ;
+    /*
+    依赖版本
+    */
+    string constraint = 2 ;
+    /*
+    当前版本
+    */
+    string currentVersion = 3 ;
+    /*
+    当前版本是否符合依赖
+    */
+    bool meetConstraint = 4 ;
+}
+        
+    
+    /*
+    依赖信息列表
+    */
+    repeated Dependencies dependencies = 1 ;
+}
+
+/*
+GetAppDependenciesApi返回
+*/
+message GetAppDependenciesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    desktop.GetAppDependenciesResponse data = 4 ;
+}
+

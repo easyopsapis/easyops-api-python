@@ -4,7 +4,7 @@ package version;
 
 
 
-import "model/artifact/version.proto";
+import "artifact_sdk/model/artifact/version.proto";
 
 /*
 UpdateVersionEnvType请求

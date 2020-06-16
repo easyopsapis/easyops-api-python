@@ -1,0 +1,193 @@
+syntax = "proto3";
+package idc;
+
+
+
+
+
+/*
+GetIDC请求
+*/
+message GetIDCRequest {
+    /*
+    机房ID
+    */
+    string idcId = 1 ;
+}
+
+/*
+GetIDC返回
+*/
+message GetIDCResponse {
+message Racks {
+message Layout {
+    /*
+    设备ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备类型(host,switch,router,firewall,disable)
+    */
+    string type = 2 ;
+    /*
+    起始U位
+    */
+    int32 startU = 3 ;
+    /*
+    占用U位
+    */
+    int32 occupiedU = 4 ;
+}
+        
+    
+    /*
+    设备数量
+    */
+    int32 deviceCount = 1 ;
+    /*
+    最大连续可用U数
+    */
+    int32 maxuSize = 2 ;
+    /*
+    关联产品线
+    */
+    repeated string products = 3 ;
+    /*
+    关联的客户
+    */
+    repeated string customers = 4 ;
+    /*
+    是否包含单电源设备
+    */
+    bool hasSinglePowerDevice = 5 ;
+    /*
+    是否有配置错误，如U位冲突，U位数值错误
+    */
+    bool isMisConfigured = 6 ;
+    /*
+    机柜ID
+    */
+    string instanceId = 7 ;
+    /*
+    机柜名称
+    */
+    string name = 8 ;
+    /*
+    机柜编号
+    */
+    string code = 9 ;
+    /*
+    机柜状态
+    */
+    string status = 10 ;
+    /*
+    应用名称
+    */
+    string app = 11 ;
+    /*
+    业务类型
+    */
+    string business = 12 ;
+    /*
+    机柜类型
+    */
+    string type = 13 ;
+    /*
+    机柜U数
+    */
+    int32 unum = 14 ;
+    /*
+    空闲U位数
+    */
+    int32 freeUnum = 15 ;
+    /*
+    备注
+    */
+    string memo = 16 ;
+    /*
+    机柜部局
+    */
+    repeated Layout layout = 17 ;
+    /*
+    创建时间
+    */
+    string ctime = 18 ;
+    /*
+    创建者
+    */
+    string creator = 19 ;
+}
+        
+    
+    /*
+    机柜列表
+    */
+    repeated Racks racks = 1 ;
+    /*
+    机房ID
+    */
+    string instanceId = 2 ;
+    /*
+    机房名称
+    */
+    string name = 3 ;
+    /*
+    楼层号
+    */
+    string building = 4 ;
+    /*
+    简称
+    */
+    string short_name = 5 ;
+    /*
+    值班电话
+    */
+    string telphone = 6 ;
+    /*
+    区域，如1F01
+    */
+    string area = 7 ;
+    /*
+    机房地址，如华北机房
+    */
+    string address = 8 ;
+    /*
+    机房状态
+    */
+    string status = 9 ;
+    /*
+    机房布局，用json保存二维数组[[{instanceId, type, code}]]
+    */
+    string layout = 10 ;
+    /*
+    机房创建时间
+    */
+    string ctime = 11 ;
+    /*
+    机房创建者
+    */
+    string creator = 12 ;
+}
+
+/*
+GetIDCApi返回
+*/
+message GetIDCResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    idc.GetIDCResponse data = 4 ;
+}
+

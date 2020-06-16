@@ -2,17 +2,12 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import easy_flow_sdk.api.instance.search_by_get_pb2
 
-import search_by_get_pb2
+import easy_flow_sdk.api.instance.search_by_post_pb2
 
-import search_by_post_pb2
-
-import utils.http_util
+import easy_flow_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -33,55 +28,15 @@ class InstanceClient(object):
         self._host = host
 
     
-    def post_search(self, request, org, user, timeout=10):
-        # type: (search_by_get_pb2.PostSearchRequest, int, str, int) -> search_by_get_pb2.PostSearchResponse
-        """
-        查询实例信息
-        :param request: post_search请求
-        :param org: 客户的org编号，为数字
-        :param user: 调用api使用的用户名
-        :param timeout: 调用超时时间，单位秒
-        :return: search_by_get_pb2.PostSearchResponse
-        """
-        headers = {"org": org, "user": user}
-        route_name = ""
-        server_ip = self._server_ip
-        if self._service_name != "":
-            route_name = self._service_name
-        elif self._server_ip != "":
-            route_name = "easyops.api.easy_flow.instance.PostSearch"
-        uri = "/instance/search"
-        
-        requestParam = request
-        
-        rsp_obj = utils.http_util.do_api_request(
-            method="GET",
-            src_name="logic.easy_flow_sdk",
-            dst_name=route_name,
-            server_ip=server_ip,
-            server_port=self._server_port,
-            host=self._host,
-            uri=uri,
-            params=google.protobuf.json_format.MessageToDict(
-                requestParam, preserving_proto_field_name=True),
-            headers=headers,
-            timeout=timeout,
-        )
-        rsp = search_by_get_pb2.PostSearchResponse()
-        
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
-        
-        return rsp
-    
     def get_search(self, request, org, user, timeout=10):
-        # type: (search_by_post_pb2.GetSearchRequest, int, str, int) -> search_by_post_pb2.GetSearchResponse
+        # type: (easy_flow_sdk.api.instance.search_by_get_pb2.GetSearchRequest, int, str, int) -> easy_flow_sdk.api.instance.search_by_get_pb2.GetSearchResponse
         """
         查询实例信息
         :param request: get_search请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: search_by_post_pb2.GetSearchResponse
+        :return: easy_flow_sdk.api.instance.search_by_get_pb2.GetSearchResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -94,7 +49,47 @@ class InstanceClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.easy_flow_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = easy_flow_sdk.api.instance.search_by_get_pb2.GetSearchResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def post_search(self, request, org, user, timeout=10):
+        # type: (easy_flow_sdk.api.instance.search_by_post_pb2.PostSearchRequest, int, str, int) -> easy_flow_sdk.api.instance.search_by_post_pb2.PostSearchResponse
+        """
+        查询实例信息
+        :param request: post_search请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: easy_flow_sdk.api.instance.search_by_post_pb2.PostSearchResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.easy_flow.instance.PostSearch"
+        uri = "/instance/search"
+        
+        requestParam = request
+        
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.easy_flow_sdk",
             dst_name=route_name,
@@ -107,7 +102,7 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = search_by_post_pb2.GetSearchResponse()
+        rsp = easy_flow_sdk.api.instance.search_by_post_pb2.PostSearchResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

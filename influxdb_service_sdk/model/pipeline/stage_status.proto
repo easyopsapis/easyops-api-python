@@ -1,0 +1,92 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+import "influxdb_service_sdk/model/pipeline/condition.proto";
+
+/*
+阶段状态
+*/
+message StageStatus {
+message Steps {
+    /*
+    step状态唯一id
+    */
+    string id = 1 ;
+    /*
+    step名称
+    */
+    string name = 2 ;
+    /*
+    step在steps中的序号
+    */
+    int32 number = 3 ;
+    /*
+    step状态
+    */
+    string state = 4 ;
+    /*
+    退出码
+    */
+    int32 exit_code = 5 ;
+    /*
+    日志id
+    */
+    string log_id = 6 ;
+    /*
+    step开始时间
+    */
+    int32 started = 7 ;
+    /*
+    step结束时间
+    */
+    int32 finished = 8 ;
+    /*
+    step类型
+    */
+    string type = 9 ;
+}
+        
+    
+    /*
+    stage状态唯一id, 服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    stage名称
+    */
+    string stage_name = 2 ;
+    /*
+    stage在stages中的序号
+    */
+    int32 number = 3 ;
+    /*
+    step是否并行
+    */
+    bool parallel = 4 ;
+    /*
+    stage状态
+    */
+    string state = 5 ;
+    /*
+    特殊状态
+    */
+    repeated pipeline.Condition conditions = 6 ;
+    /*
+    steps状态
+    */
+    repeated Steps steps = 7 ;
+    /*
+    创建时间
+    */
+    int32 created = 8 ;
+    /*
+    更新时间
+    */
+    int32 updated = 9 ;
+}
+

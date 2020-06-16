@@ -1,0 +1,163 @@
+syntax = "proto3";
+package tool;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tool";
+
+
+
+
+import "next_builder_sdk/model/tool/callback.proto";
+import "google/protobuf/struct.proto";
+
+/*
+执行的额外信息
+*/
+message ExtraInfo {
+message Detail {
+message OutputDefs {
+    /*
+    输出参数ID
+    */
+    string id = 1 ;
+    /*
+    输出参数标题
+    */
+    string name = 2 ;
+}
+        
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    回调信息
+    */
+    tool.Callback callback = 1 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 2 ;
+    /*
+    工具的Env
+    */
+    google.protobuf.Struct toolEnv = 3 ;
+    /*
+    工具的输出定义
+    */
+    repeated OutputDefs outputDefs = 4 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 5 ;
+    /*
+    邮件订阅用户
+    */
+    repeated string subscribers = 6 ;
+}
+        
+    
+    /*
+    工具名称
+    */
+    string toolName = 1 ;
+    /*
+    运行模式
+    */
+    string execMode = 2 ;
+    /*
+    输出信息
+    */
+    repeated string outputs = 3 ;
+    /*
+    请求源地址
+    */
+    string origin = 4 ;
+    /*
+    触发器名称
+    */
+    string trigger = 5 ;
+    /*
+    详细信息
+    */
+    Detail detail = 6 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 7 ;
+    /*
+    执行用户
+    */
+    string execUser = 8 ;
+    /*
+    工具输入参数
+    */
+    google.protobuf.Struct inputs = 9 ;
+}
+

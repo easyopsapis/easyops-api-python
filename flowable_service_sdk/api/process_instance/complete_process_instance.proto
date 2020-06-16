@@ -1,0 +1,72 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+CompleteProcessInstance请求
+*/
+message CompleteProcessInstanceRequest {
+message FormData {
+    /*
+    流程实例表单基础信息,json字典
+    */
+    string header = 1 ;
+    /*
+    流程实例表单业务信息,json数组
+    */
+    string body = 2 ;
+}
+        
+    
+    /*
+    流程实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    流程实例数据
+    */
+    FormData formData = 2 ;
+    /*
+    会签指派人（下一步会签的时候需要指定）
+    */
+    repeated string assigneeList = 3 ;
+    /*
+    条件变量名称（如pass)
+    */
+    string variableName = 4 ;
+    /*
+    条件变量值(如0,1)
+    */
+    string variableValue = 5 ;
+    /*
+    操作说明
+    */
+    string memo = 6 ;
+}
+
+/*
+CompleteProcessInstanceApi返回
+*/
+message CompleteProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,93 @@
+syntax = "proto3";
+package backlog;
+
+
+
+
+
+/*
+ListBacklogView请求
+*/
+message ListBacklogViewRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+}
+
+/*
+ListBacklogView返回
+*/
+message ListBacklogViewResponse {
+message List {
+message Attrs {
+    /*
+    字段键
+    */
+    string key = 1 ;
+    /*
+    字段名
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    分类名称
+    */
+    string name = 1 ;
+    /*
+    事务分类
+    */
+    string category = 2 ;
+    /*
+    事务数据
+    */
+    repeated Attrs attrs = 3 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListBacklogViewApi返回
+*/
+message ListBacklogViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    backlog.ListBacklogViewResponse data = 4 ;
+}
+

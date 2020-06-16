@@ -1,0 +1,35 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+工作空间
+*/
+message Workspace {
+    /*
+    id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    workspace 名称, 创建之后不能修改
+    */
+    string name = 2 ;
+    /*
+    显示名称
+    */
+    string displayName = 3 ;
+    /*
+    环境类型
+    */
+    string environment = 4 ;
+    /*
+    描述
+    */
+    string description = 5 ;
+}
+

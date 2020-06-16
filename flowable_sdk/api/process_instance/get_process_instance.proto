@@ -1,0 +1,41 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "flowable_sdk/model/flowable/process_variable.proto";
+import "flowable_sdk/model/flowable/process_instance.proto";
+
+/*
+GetProcessInstance请求
+*/
+message GetProcessInstanceRequest {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetProcessInstanceApi返回
+*/
+message GetProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    flowable.FlowableProcessInstance data = 4 ;
+}
+

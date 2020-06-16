@@ -1,0 +1,23 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+流程变量
+*/
+message ProcessVariable {
+    /*
+    变量名称
+    */
+    string name = 1 ;
+    /*
+    变量值
+    */
+    string value = 2 ;
+}
+

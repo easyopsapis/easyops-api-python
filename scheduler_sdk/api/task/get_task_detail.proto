@@ -4,7 +4,7 @@ package task;
 
 
 
-import "model/scheduler/task.proto";
+import "scheduler_sdk/model/scheduler/task.proto";
 import "google/protobuf/struct.proto";
 
 /*

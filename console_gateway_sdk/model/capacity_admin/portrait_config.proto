@@ -1,0 +1,35 @@
+syntax = "proto3";
+package capacity_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/capacity_admin";
+
+
+
+
+
+/*
+容量管理-闲置资源画像配置
+*/
+message PortraitConfig {
+    /*
+    cpu 阀值
+    */
+    int32 cpu = 1 ;
+    /*
+    内存阀值
+    */
+    int32 memory = 2 ;
+    /*
+    连接数阀值
+    */
+    int32 connections = 3 ;
+    /*
+    用户登录日志查询时间阀值
+    */
+    int32 userLogin = 4 ;
+    /*
+    开启端口对比
+    */
+    bool portCheck = 5 ;
+}
+

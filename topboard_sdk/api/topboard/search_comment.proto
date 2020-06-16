@@ -1,0 +1,75 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "topboard_sdk/model/topboard/comment.proto";
+import "google/protobuf/struct.proto";
+
+/*
+SearchComment请求
+*/
+message SearchCommentRequest {
+    /*
+    搜索条件
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    筛选字段
+    */
+    google.protobuf.Struct fields = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小, 为0时拉取所有数据
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+SearchComment返回
+*/
+message SearchCommentResponse {
+    /*
+    评论列表
+    */
+    repeated topboard.Comment list = 1 ;
+    /*
+    总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+SearchCommentApi返回
+*/
+message SearchCommentResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.SearchCommentResponse data = 4 ;
+}
+

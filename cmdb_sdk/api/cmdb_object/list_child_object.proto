@@ -1,0 +1,66 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
+
+/*
+ListChildObject请求
+*/
+message ListChildObjectRequest {
+    /*
+    忽略模型字段权限校验
+    */
+    bool ignoreAttrPermission = 1 ;
+    /*
+    objectId
+    */
+    string objectId = 2 ;
+}
+
+/*
+ListChildObject返回
+*/
+message ListChildObjectResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    模型列表
+    */
+    repeated cmdb.CmdbObject data = 4 ;
+}
+
+/*
+ListChildObjectApi返回
+*/
+message ListChildObjectResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ListChildObjectResponse data = 4 ;
+}
+

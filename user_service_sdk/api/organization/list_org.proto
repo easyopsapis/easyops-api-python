@@ -9,34 +9,54 @@ package organization;
 ListOrg返回
 */
 message ListOrgResponse {
+message Data {
     /*
-    org
+    创建时间
     */
-    int32 id = 1 ;
+    string createAt = 1 ;
     /*
-    过期时间戳
+    orgid
     */
-    int32 expires = 2 ;
+    int32 id = 2 ;
     /*
-    创建日期
+    memo
     */
-    string createAt = 3 ;
+    string memo = 3 ;
     /*
-    是否可用
+    name
     */
-    bool valid = 4 ;
+    string name = 4 ;
     /*
-    更新事件戳
+    ts
     */
     int32 ts = 5 ;
     /*
-    名称
+    是否合法
     */
-    string name = 6 ;
+    bool valid = 6 ;
     /*
-    备注
+    expires
     */
-    string memo = 7 ;
+    int32 expires = 7 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    org列表
+    */
+    repeated Data data = 4 ;
 }
 
 /*
@@ -58,6 +78,6 @@ message ListOrgResponseWrapper {
     /*
     返回数据
     */
-    repeated organization.ListOrgResponse data = 4 ;
+    organization.ListOrgResponse data = 4 ;
 }
 

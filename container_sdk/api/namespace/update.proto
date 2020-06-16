@@ -1,0 +1,91 @@
+syntax = "proto3";
+package namespace;
+
+
+
+
+import "container_sdk/model/container/namespace.proto";
+import "container_sdk/model/container/resource_requirements.proto";
+import "container_sdk/model/container/resource_quota.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Update请求
+*/
+message UpdateRequest {
+    /*
+    namespace id
+    */
+    string instanceId = 1 ;
+    /*
+    命名空间
+    */
+    container.Namespace namespace = 2 ;
+    /*
+    namespace 资源限制
+{
+  "count/deployments.apps": "100",   #  无状态工作负载
+  "count/statefulsets.apps": "100",  #  有状态工作负载
+  "count/daemonsets.apps": "100",    #  守护进程
+  "count/jobs.batch": "100",     # 任务
+  "count/cronjobs.batch": "100", # 定时任务
+  "count/pods": "500",      # Pod
+  "count/services": "100",  # 服务
+  "count/ingresses.extensions": "100", # 应用路由
+  "persistentvolumeclaims": "100", # 存储卷
+  "count/secrets": "100",    # 密钥
+  "count/configmaps": "100", # 配置
+  "limits.cpu": "10",        # CPU 限额
+  "limits.memory": "20Gi"    # 内存限额
+  "requests.cpu": "1",       # CPU 预留
+  "requests.memory": "100Mi" # 内存预留
+}
+
+    */
+    google.protobuf.Struct namespaceQuota = 3 ;
+    /*
+    最大资源限制和初始资源请求
+    */
+    container.ResourceRequirements containerDefaultLimit = 4 ;
+}
+
+/*
+Update返回
+*/
+message UpdateResponse {
+    /*
+    命名空间
+    */
+    container.Namespace namespace = 1 ;
+    /*
+    资源限制
+    */
+    container.ResourceQuota namespaceQuota = 2 ;
+    /*
+    最大资源限制和初始资源请求
+    */
+    container.ResourceRequirements containerDefaultLimit = 3 ;
+}
+
+/*
+UpdateApi返回
+*/
+message UpdateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    namespace.UpdateResponse data = 4 ;
+}
+

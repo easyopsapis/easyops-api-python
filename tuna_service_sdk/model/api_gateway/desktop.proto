@@ -1,0 +1,67 @@
+syntax = "proto3";
+package api_gateway;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/api_gateway";
+
+
+
+
+
+/*
+app展示视图
+*/
+message Desktop {
+message Items {
+message Items {
+    /*
+    元素类型
+    */
+    string type = 1 ;
+    /*
+    小产品id
+    */
+    string id = 2 ;
+    /*
+    元素位置
+    */
+    int32 position = 3 ;
+}
+        
+    
+    /*
+    元素类型
+    */
+    string type = 1 ;
+    /*
+    小产品id或文件夹id
+    */
+    string id = 2 ;
+    /*
+    dir名称（type为dir时有效）
+    */
+    string name = 3 ;
+    /*
+    元素位置
+    */
+    int32 position = 4 ;
+    /*
+    小产品列表(type为dir时有效)
+    */
+    repeated Items items = 5 ;
+}
+        
+    
+    /*
+    桌面名称
+    */
+    string name = 1 ;
+    /*
+    排序
+    */
+    int32 order = 2 ;
+    /*
+    桌面元素列表
+    */
+    repeated Items items = 3 ;
+}
+

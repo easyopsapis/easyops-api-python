@@ -1,0 +1,43 @@
+syntax = "proto3";
+package users;
+
+
+
+
+
+/*
+SyncDimissionUserDingTalkToLdap返回
+*/
+message SyncDimissionUserDingTalkToLdapResponse {
+    /*
+    更新用户数
+    */
+    int32 updateCount = 1 ;
+    /*
+    更新失败的用户列表
+    */
+    repeated string failedList = 2 ;
+}
+
+/*
+SyncDimissionUserDingTalkToLdapApi返回
+*/
+message SyncDimissionUserDingTalkToLdapResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    users.SyncDimissionUserDingTalkToLdapResponse data = 4 ;
+}
+

@@ -2,29 +2,26 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import pipeline_sdk.api.project.create_pb2
 
-import create_pb2
-
-import delete_pb2
+import pipeline_sdk.api.project.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import pipeline_sdk.api.project.get_pb2
 
-import list_pb2
+import pipeline_sdk.api.project.list_pb2
 
-import list_branch_pb2
+import pipeline_sdk.api.project.list_branch_pb2
 
-import update_pb2
+import pipeline_sdk.api.project.list_variable_pb2
 
-import model.pipeline.project_pb2
+import pipeline_sdk.api.project.update_pb2
 
-import utils.http_util
+import pipeline_sdk.model.pipeline.project_pb2
+
+import pipeline_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -46,14 +43,14 @@ class ProjectClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
+        # type: (pipeline_sdk.api.project.create_pb2.CreateRequest, int, str, int) -> pipeline_sdk.api.project.create_pb2.CreateResponse
         """
         创建代码项目
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateResponse
+        :return: pipeline_sdk.api.project.create_pb2.CreateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -66,7 +63,7 @@ class ProjectClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -79,14 +76,14 @@ class ProjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateResponse()
+        rsp = pipeline_sdk.api.project.create_pb2.CreateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_project(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteProjectRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (pipeline_sdk.api.project.delete_pb2.DeleteProjectRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除代码项目
         :param request: delete_project请求
@@ -107,7 +104,7 @@ class ProjectClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -127,14 +124,14 @@ class ProjectClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> get_pb2.GetResponse
+        # type: (pipeline_sdk.api.project.get_pb2.GetRequest, int, str, int) -> pipeline_sdk.api.project.get_pb2.GetResponse
         """
         获取单个代码项目详情
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetResponse
+        :return: pipeline_sdk.api.project.get_pb2.GetResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -148,7 +145,7 @@ class ProjectClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -161,21 +158,21 @@ class ProjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetResponse()
+        rsp = pipeline_sdk.api.project.get_pb2.GetResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
+        # type: (pipeline_sdk.api.project.list_pb2.ListRequest, int, str, int) -> pipeline_sdk.api.project.list_pb2.ListResponse
         """
         查询代码项目列表
         :param request: list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListResponse
+        :return: pipeline_sdk.api.project.list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -188,7 +185,7 @@ class ProjectClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -201,21 +198,21 @@ class ProjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListResponse()
+        rsp = pipeline_sdk.api.project.list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_branch(self, request, org, user, timeout=10):
-        # type: (list_branch_pb2.ListBranchRequest, int, str, int) -> list_branch_pb2.ListBranchResponse
+        # type: (pipeline_sdk.api.project.list_branch_pb2.ListBranchRequest, int, str, int) -> pipeline_sdk.api.project.list_branch_pb2.ListBranchResponse
         """
         查询分支列表
         :param request: list_branch请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_branch_pb2.ListBranchResponse
+        :return: pipeline_sdk.api.project.list_branch_pb2.ListBranchResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -229,7 +226,7 @@ class ProjectClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -242,21 +239,61 @@ class ProjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_branch_pb2.ListBranchResponse()
+        rsp = pipeline_sdk.api.project.list_branch_pb2.ListBranchResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_variable(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> pipeline_sdk.api.project.list_variable_pb2.ListVariableResponse
+        """
+        获取内置变量列表
+        :param request: list_variable请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: pipeline_sdk.api.project.list_variable_pb2.ListVariableResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.project.ListVariable"
+        uri = "/api/pipeline/v1/variables"
+        
+        requestParam = request
+        
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = pipeline_sdk.api.project.list_variable_pb2.ListVariableResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateRequest, int, str, int) -> model.pipeline.project_pb2.Project
+        # type: (pipeline_sdk.api.project.update_pb2.UpdateRequest, int, str, int) -> pipeline_sdk.model.pipeline.project_pb2.Project
         """
         修改代码项目
         :param request: update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.project_pb2.Project
+        :return: pipeline_sdk.model.pipeline.project_pb2.Project
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -270,7 +307,7 @@ class ProjectClient(object):
         )
         requestParam = request.project
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -283,7 +320,7 @@ class ProjectClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.project_pb2.Project()
+        rsp = pipeline_sdk.model.pipeline.project_pb2.Project()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

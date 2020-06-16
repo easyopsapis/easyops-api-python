@@ -1,0 +1,58 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+DeleteAlertRule请求
+*/
+message DeleteAlertRuleRequest {
+    /*
+    告警规则id
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteAlertRule返回
+*/
+message DeleteAlertRuleResponse {
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    msg
+    */
+    string msg = 2 ;
+    /*
+    data
+    */
+    google.protobuf.Struct data = 3 ;
+}
+
+/*
+DeleteAlertRuleApi返回
+*/
+message DeleteAlertRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.DeleteAlertRuleResponse data = 4 ;
+}
+

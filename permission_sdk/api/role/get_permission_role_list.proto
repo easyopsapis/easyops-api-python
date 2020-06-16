@@ -25,6 +25,10 @@ message GetPermissionRoleListRequest {
     分页大小
     */
     int32 page_size = 4 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 5 ;
 }
 
 /*

@@ -1,0 +1,71 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "flowable_sdk/model/container/resource_metric_source.proto";
+
+/*
+HorizontalPodAutoscaler 实例
+*/
+message HorizontalPodAutoscaler {
+message ScaleTargetRef {
+    /*
+    kind
+    */
+    string kind = 1 ;
+    /*
+    name
+    */
+    string name = 2 ;
+    /*
+    name
+    */
+    string apiVersion = 3 ;
+}
+        
+message Metrics {
+    /*
+    Resource 类型
+    */
+    string type = 1 ;
+    /*
+    资源类型信息
+    */
+    container.ResourceMetricSource resource = 2 ;
+}
+        
+    
+    /*
+    instance id
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string resourceName = 2 ;
+    /*
+    名称空间
+    */
+    string namespace = 3 ;
+    /*
+    扩缩容对象
+    */
+    ScaleTargetRef scaleTargetRef = 4 ;
+    /*
+    最小副本
+    */
+    int32 minReplicas = 5 ;
+    /*
+    最大副本
+    */
+    int32 maxReplicas = 6 ;
+    /*
+    metrics
+    */
+    repeated Metrics metrics = 7 ;
+}
+

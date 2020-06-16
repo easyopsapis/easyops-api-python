@@ -1,0 +1,52 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+查询策略路径节点，路径为点-边-点结构，因此偶数节点objectId等数据为空，奇数点relation_id等数据为空
+*/
+message StrategyPathNode {
+message Fields {
+    /*
+    字段id
+    */
+    string id = 1 ;
+    /*
+    字段排序id, 与外层alias_id_sort对应
+    */
+    string alias_id = 2 ;
+}
+        
+    
+    /*
+    节点查询条件
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    节点查询返回字段
+    */
+    repeated Fields fields = 2 ;
+    /*
+    描述
+    */
+    string relationDescription = 3 ;
+    /*
+    节点模型ID
+    */
+    string objectId = 4 ;
+    /*
+    关系id
+    */
+    string relation_id = 5 ;
+    /*
+    关系对端id
+    */
+    string relation_side_id = 6 ;
+}
+

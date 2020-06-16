@@ -1,0 +1,174 @@
+syntax = "proto3";
+package notify_ctrl;
+
+
+
+
+import "console_gateway_sdk/model/notify/operation_log.proto";
+
+/*
+ListOperationLog请求
+*/
+message ListOperationLogRequest {
+    /*
+    模型Id
+    */
+    string object_id = 1 ;
+    /*
+    实例Id
+    */
+    string instance_id = 2 ;
+    /*
+    range
+    */
+    string range = 3 ;
+    /*
+    st
+    */
+    string st = 4 ;
+    /*
+    et
+    */
+    string et = 5 ;
+    /*
+    include_notifier
+    */
+    bool include_notifier = 6 ;
+    /*
+    应用id
+    */
+    string app_id = 7 ;
+    /*
+    目标名称
+    */
+    string target_id = 8 ;
+    /*
+    事件id
+    */
+    string event_id = 9 ;
+    /*
+    父事件id
+    */
+    string parent_event_id = 10 ;
+    /*
+    事件名称
+    */
+    string event = 11 ;
+    /*
+    排除事件名称
+    */
+    string exclude_event = 12 ;
+    /*
+    系统名称
+    */
+    string system = 13 ;
+    /*
+    page
+    */
+    int32 page = 14 ;
+    /*
+    pageSize
+    */
+    int32 pageSize = 15 ;
+    /*
+    事件状态
+    */
+    string status = 16 ;
+    /*
+    关联的设备id
+    */
+    string device_id = 17 ;
+    /*
+    操作人
+    */
+    string operator = 18 ;
+    /*
+    通知相关人（包含operator和notifier)
+    */
+    string user = 19 ;
+    /*
+    是否查询子事件（true查询子事件，false不查询子时间，默认false)
+    */
+    bool with_children = 20 ;
+    /*
+    排除的系统名称
+    */
+    string exclude_system = 21 ;
+    /*
+    是否不需要查询总数
+    */
+    string without_total = 22 ;
+    /*
+    ctime_order
+    */
+    string ctime_order = 23 ;
+    /*
+    query
+    */
+    string query = 24 ;
+    /*
+    topic
+    */
+    string topic = 25 ;
+    /*
+    应用名称
+    */
+    string app_name = 26 ;
+    /*
+    business
+    */
+    string business = 27 ;
+    /*
+    开始时间
+    */
+    string start_time = 28 ;
+    /*
+    截止时间
+    */
+    string end_time = 29 ;
+}
+
+/*
+ListOperationLog返回
+*/
+message ListOperationLogResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated notify.OperationLog list = 4 ;
+}
+
+/*
+ListOperationLogApi返回
+*/
+message ListOperationLogResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    notify_ctrl.ListOperationLogResponse data = 4 ;
+}
+

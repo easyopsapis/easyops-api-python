@@ -2,21 +2,16 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import init_database_pb2
+import cmdb_sdk.api.initialization.init_database_pb2
 
 import google.protobuf.empty_pb2
 
-import init_objects_pb2
+import cmdb_sdk.api.initialization.init_objects_pb2
 
-import init_relations_pb2
+import cmdb_sdk.api.initialization.init_relations_pb2
 
-import utils.http_util
+import cmdb_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -38,7 +33,7 @@ class InitializationClient(object):
 
     
     def init_database(self, request, org, user, timeout=10):
-        # type: (init_database_pb2.InitDatabaseRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.initialization.init_database_pb2.InitDatabaseRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         初始化DB[内部]
         :param request: init_database请求
@@ -58,7 +53,7 @@ class InitializationClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -78,7 +73,7 @@ class InitializationClient(object):
         return rsp
     
     def init_objects(self, request, org, user, timeout=10):
-        # type: (init_objects_pb2.InitObjectsRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.initialization.init_objects_pb2.InitObjectsRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         初始化核心模型[内部]
         :param request: init_objects请求
@@ -98,7 +93,7 @@ class InitializationClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -118,7 +113,7 @@ class InitializationClient(object):
         return rsp
     
     def init_relations(self, request, org, user, timeout=10):
-        # type: (init_relations_pb2.InitRelationsRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.initialization.init_relations_pb2.InitRelationsRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         初始化核心模型关系[内部]
         :param request: init_relations请求
@@ -138,7 +133,7 @@ class InitializationClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,

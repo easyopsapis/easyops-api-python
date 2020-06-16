@@ -1,0 +1,48 @@
+syntax = "proto3";
+package member;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+Update请求
+*/
+message UpdateRequest {
+    /*
+    工作空间ID
+    */
+    string workspaceId = 1 ;
+    /*
+    成员身份
+    */
+    string role = 2 ;
+    /*
+    user name list
+    */
+    repeated string user_list = 3 ;
+}
+
+/*
+UpdateApi返回
+*/
+message UpdateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

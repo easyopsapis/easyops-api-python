@@ -1,0 +1,94 @@
+syntax = "proto3";
+package cmdb_service_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+RelationMaxCheckAll请求
+*/
+message RelationMaxCheckAllRequest {
+    /*
+    资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    资源模型关系ID
+    */
+    string relation_id = 2 ;
+    /*
+    left_id或者right_id来指定资源模型在关系的哪一端
+    */
+    string relation_side_id = 3 ;
+    /*
+    查询条件,与[实例搜索接口]的query字段说明一致
+    */
+    google.protobuf.Struct query = 4 ;
+    /*
+    按字段排序, 留空默认按照实例ID降序排序(1表示升序, -1表示降序)
+    */
+    google.protobuf.Struct sort = 5 ;
+    /*
+    按照权限过滤(通用实例都有`read`, `update`, `delete`权限控制, 主机实例在通用实例权限基础上有额外的`operate`权限, 应用实例在通用实例权限基础上有额外的`developClusterOperate`, `testClusterOperate`, `prereleaseClusterOperate`, `productionClusterOperate`权限)
+    */
+    repeated string permission = 6 ;
+}
+
+/*
+RelationMaxCheckAll返回
+*/
+message RelationMaxCheckAllResponse {
+message Data {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    _relation_is_max
+    */
+    bool _relation_is_max = 2 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    数据列表
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+RelationMaxCheckAllApi返回
+*/
+message RelationMaxCheckAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_service_ctrl.RelationMaxCheckAllResponse data = 4 ;
+}
+

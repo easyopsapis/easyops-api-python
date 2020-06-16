@@ -1,0 +1,47 @@
+syntax = "proto3";
+package users;
+
+
+
+
+
+/*
+SyncUserDingTalkToLdap返回
+*/
+message SyncUserDingTalkToLdapResponse {
+    /*
+    添加用户数
+    */
+    int32 insertCount = 1 ;
+    /*
+    更新用户数
+    */
+    int32 updateCount = 2 ;
+    /*
+    添加失败的用户列表
+    */
+    repeated string failedList = 3 ;
+}
+
+/*
+SyncUserDingTalkToLdapApi返回
+*/
+message SyncUserDingTalkToLdapResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    users.SyncUserDingTalkToLdapResponse data = 4 ;
+}
+

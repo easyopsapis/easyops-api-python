@@ -1,0 +1,45 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "cmdb_sdk/model/cmdb/instance_query_strategy.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetInstanceQueryStrategy请求
+*/
+message GetInstanceQueryStrategyRequest {
+    /*
+    模型对象ID
+    */
+    string objectId = 1 ;
+    /*
+    策略ID
+    */
+    string strategyId = 2 ;
+}
+
+/*
+GetInstanceQueryStrategyApi返回
+*/
+message GetInstanceQueryStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb.InstanceQueryStrategy data = 4 ;
+}
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package form_schema_version;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+SetFormSchemaMainVersion请求
+*/
+message SetFormSchemaMainVersionRequest {
+    /*
+    表单实例Id
+    */
+    string formId = 1 ;
+    /*
+    表单版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+SetFormSchemaMainVersionApi返回
+*/
+message SetFormSchemaMainVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

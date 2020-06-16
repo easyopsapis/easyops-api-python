@@ -1,0 +1,87 @@
+syntax = "proto3";
+package alert_event;
+
+
+
+
+import "alert_service_sdk/model/monitor/alert_event.proto";
+import "google/protobuf/struct.proto";
+
+/*
+SearchAlertEventNotRecover请求
+*/
+message SearchAlertEventNotRecoverRequest {
+    /*
+    选择返回的字段,不传则返回所有字段
+    */
+    repeated string fields = 1 ;
+    /*
+    排序
+    */
+    string sort = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 4 ;
+    /*
+    搜索条件,与mongo语法一致
+    */
+    google.protobuf.Struct query = 5 ;
+    /*
+    开始时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳
+    */
+    string st = 6 ;
+    /*
+    结束时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳
+    */
+    string et = 7 ;
+}
+
+/*
+SearchAlertEventNotRecover返回
+*/
+message SearchAlertEventNotRecoverResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    告警事件列表
+    */
+    repeated monitor.AlertEvent list = 4 ;
+}
+
+/*
+SearchAlertEventNotRecoverApi返回
+*/
+message SearchAlertEventNotRecoverResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_event.SearchAlertEventNotRecoverResponse data = 4 ;
+}
+

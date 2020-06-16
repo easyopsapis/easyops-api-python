@@ -1,0 +1,57 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+
+/*
+GetUserLoginInfo请求
+*/
+message GetUserLoginInfoRequest {
+    /*
+    登录的key字符串, 例如SSO登录时候的工号的key
+    */
+    string login_key = 1 ;
+    /*
+    登录的值, 例如SSO登录时候的工号的值
+    */
+    string login_value = 2 ;
+}
+
+/*
+GetUserLoginInfo返回
+*/
+message GetUserLoginInfoResponse {
+    /*
+    用户name
+    */
+    string name = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+}
+
+/*
+GetUserLoginInfoApi返回
+*/
+message GetUserLoginInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    user_admin.GetUserLoginInfoResponse data = 4 ;
+}
+

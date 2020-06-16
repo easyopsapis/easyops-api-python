@@ -103,5 +103,9 @@ message ObjectRelation {
     版本
     */
     int32 _version = 23 ;
+    /*
+    是否继承自父模型
+    */
+    bool isInherit = 24 ;
 }
 

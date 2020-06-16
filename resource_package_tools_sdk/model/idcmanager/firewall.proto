@@ -1,0 +1,59 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+防火墙
+*/
+message Firewall {
+    /*
+    防火墙ID
+    */
+    string instanceId = 1 ;
+    /*
+    防火墙名称
+    */
+    string name = 2 ;
+    /*
+    管理IP
+    */
+    string ip = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    起始U位
+    */
+    int32 _startU = 5 ;
+    /*
+    占用U位
+    */
+    int32 _occupiedU = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    产品线
+    */
+    string product = 9 ;
+    /*
+    客户
+    */
+    string customer = 10 ;
+    /*
+    是否单电源
+    */
+    bool isSinglePower = 11 ;
+}
+

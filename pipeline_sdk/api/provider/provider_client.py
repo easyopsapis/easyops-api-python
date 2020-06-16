@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import pipeline_sdk.model.pipeline.provider_pb2
 
-import model.pipeline.provider_pb2
-
-import delete_pb2
+import pipeline_sdk.api.provider.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import pipeline_sdk.api.provider.get_pb2
 
-import list_pb2
+import pipeline_sdk.api.provider.list_pb2
 
-import list_repository_pb2
+import pipeline_sdk.api.provider.list_repository_pb2
 
-import set_default_pb2
+import pipeline_sdk.api.provider.set_default_pb2
 
-import utils.http_util
+import pipeline_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class ProviderClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (model.pipeline.provider_pb2.Provider, int, str, int) -> model.pipeline.provider_pb2.Provider
+        # type: (pipeline_sdk.model.pipeline.provider_pb2.Provider, int, str, int) -> pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         创建 Git Provider
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.provider_pb2.Provider
+        :return: pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -64,7 +59,7 @@ class ProviderClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -77,14 +72,14 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.provider_pb2.Provider()
+        rsp = pipeline_sdk.model.pipeline.provider_pb2.Provider()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_provider(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (pipeline_sdk.api.provider.delete_pb2.DeleteProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除 Git Provider
         :param request: delete_provider请求
@@ -105,7 +100,7 @@ class ProviderClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -125,14 +120,14 @@ class ProviderClient(object):
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.provider_pb2.Provider
+        # type: (pipeline_sdk.api.provider.get_pb2.GetRequest, int, str, int) -> pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         获取单个Git Provider详情
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.provider_pb2.Provider
+        :return: pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -146,7 +141,7 @@ class ProviderClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -159,21 +154,21 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.provider_pb2.Provider()
+        rsp = pipeline_sdk.model.pipeline.provider_pb2.Provider()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_pb2.ListResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> pipeline_sdk.api.provider.list_pb2.ListResponse
         """
         查询 Git Provider 列表
         :param request: list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListResponse
+        :return: pipeline_sdk.api.provider.list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -186,7 +181,7 @@ class ProviderClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -199,21 +194,21 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListResponse()
+        rsp = pipeline_sdk.api.provider.list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_repository(self, request, org, user, timeout=10):
-        # type: (list_repository_pb2.ListRepositoryRequest, int, str, int) -> list_repository_pb2.ListRepositoryResponse
+        # type: (pipeline_sdk.api.provider.list_repository_pb2.ListRepositoryRequest, int, str, int) -> pipeline_sdk.api.provider.list_repository_pb2.ListRepositoryResponse
         """
         根据provider拉取所有git项目列表
         :param request: list_repository请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_repository_pb2.ListRepositoryResponse
+        :return: pipeline_sdk.api.provider.list_repository_pb2.ListRepositoryResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -227,7 +222,7 @@ class ProviderClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -240,14 +235,14 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_repository_pb2.ListRepositoryResponse()
+        rsp = pipeline_sdk.api.provider.list_repository_pb2.ListRepositoryResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def set_default_provider(self, request, org, user, timeout=10):
-        # type: (set_default_pb2.SetDefaultProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (pipeline_sdk.api.provider.set_default_pb2.SetDefaultProviderRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         设置默认provider
         :param request: set_default_provider请求
@@ -268,7 +263,7 @@ class ProviderClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -288,14 +283,14 @@ class ProviderClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (model.pipeline.provider_pb2.Provider, int, str, int) -> model.pipeline.provider_pb2.Provider
+        # type: (pipeline_sdk.model.pipeline.provider_pb2.Provider, int, str, int) -> pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         修改 Git Provider
         :param request: update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.provider_pb2.Provider
+        :return: pipeline_sdk.model.pipeline.provider_pb2.Provider
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -309,7 +304,7 @@ class ProviderClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -322,7 +317,7 @@ class ProviderClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.provider_pb2.Provider()
+        rsp = pipeline_sdk.model.pipeline.provider_pb2.Provider()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

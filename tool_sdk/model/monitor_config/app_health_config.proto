@@ -1,0 +1,57 @@
+syntax = "proto3";
+package monitor_config;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor_config";
+
+
+
+
+import "tool_sdk/model/monitor_config/app_health_config_variable.proto";
+import "tool_sdk/model/monitor_config/app_health_config_layer.proto";
+
+/*
+应用评分配置
+*/
+message AppHealthConfig {
+    /*
+    应用id
+    */
+    string app_id = 1 ;
+    /*
+    配置id
+    */
+    string id = 2 ;
+    /*
+    版本id
+    */
+    string version_id = 3 ;
+    /*
+    创建者
+    */
+    string creator = 4 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 5 ;
+    /*
+    修改者
+    */
+    string modifier = 6 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 7 ;
+    /*
+    org
+    */
+    int32 org = 8 ;
+    /*
+    应用变量
+    */
+    repeated monitor_config.AppHealthConfigVariable variables = 9 ;
+    /*
+    应用分层
+    */
+    repeated monitor_config.AppHealthConfigLayer layers = 10 ;
+}
+

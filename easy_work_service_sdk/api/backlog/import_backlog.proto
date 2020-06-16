@@ -1,0 +1,89 @@
+syntax = "proto3";
+package backlog;
+
+
+
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+/*
+ImportBacklog请求
+*/
+message ImportBacklogRequest {
+    /*
+    事务分类
+    */
+    string category = 1 ;
+    /*
+    事务ID
+    */
+    string id = 2 ;
+    /*
+    计划开始时间(例如"1970-01-01 00:00:00")
+    */
+    string scheduledStartTime = 3 ;
+    /*
+    计划完成时间(例如"1970-01-01 00:00:00")
+    */
+    string deadline = 4 ;
+    /*
+    实际开始时间(例如"1970-01-01 00:00:00")
+    */
+    string startTime = 5 ;
+    /*
+    实际结束时间(例如"1970-01-01 00:00:00")
+    */
+    string endTime = 6 ;
+    /*
+    详情链接
+    */
+    string url = 7 ;
+    /*
+    标题
+    */
+    string title = 8 ;
+    /*
+    描述
+    */
+    string description = 9 ;
+    /*
+    事务状态
+    */
+    string status = 10 ;
+    /*
+    指派人
+    */
+    string assigner = 11 ;
+    /*
+    受理人列表(暂时只支持一个人)
+    */
+    repeated string assignee = 12 ;
+    /*
+    事务数据
+    */
+    google.protobuf.Struct extFields = 13 ;
+}
+
+/*
+ImportBacklogApi返回
+*/
+message ImportBacklogResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

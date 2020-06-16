@@ -1,0 +1,19 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+部署信息
+*/
+message DeployInfo {
+    /*
+    应用部署方式
+    */
+    string from = 1 ;
+}
+

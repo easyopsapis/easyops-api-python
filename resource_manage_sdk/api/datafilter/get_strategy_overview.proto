@@ -1,0 +1,78 @@
+syntax = "proto3";
+package datafilter;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetStrategyOverview请求
+*/
+message GetStrategyOverviewRequest {
+    /*
+    query
+    */
+    google.protobuf.Struct query = 1 ;
+}
+
+/*
+GetStrategyOverview返回
+*/
+message GetStrategyOverviewResponse {
+message List {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    规则总数
+    */
+    int32 strategyTotal = 2 ;
+    /*
+    启用规则总数
+    */
+    int32 enableTotal = 3 ;
+    /*
+    存在违规数据的规则总数
+    */
+    int32 execFailTotal = 4 ;
+    /*
+    最近执行规则总数
+    */
+    int32 execTotal = 5 ;
+    /*
+    最近执行时间
+    */
+    string lastExecTime = 6 ;
+}
+        
+    
+    /*
+    数据列表
+    */
+    repeated List list = 1 ;
+}
+
+/*
+GetStrategyOverviewApi返回
+*/
+message GetStrategyOverviewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    datafilter.GetStrategyOverviewResponse data = 4 ;
+}
+

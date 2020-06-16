@@ -1,0 +1,73 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+import "topboard_sdk/model/flowable_service/bpmn_links.proto";
+import "topboard_sdk/model/flowable_service/process_variable.proto";
+
+/*
+bpmnXML结束事件
+*/
+message BPMNUserTask {
+message ProcessOp {
+    /*
+    操作名称(通过/驳回/xxx)
+    */
+    string name = 1 ;
+    /*
+    流程变量
+    */
+    flowable_service.ProcessVariable conditionExpression = 2 ;
+    /*
+    流转下一目标任务定义Id
+    */
+    string targetTaskId = 3 ;
+}
+        
+    
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    指向链接
+    */
+    flowable_service.BPMNLinks links = 3 ;
+    /*
+    是否为表格决定多分支流转,默认为字符串 "0"表示否, "1"表示由表格决定
+    */
+    string isFormDecision = 4 ;
+    /*
+    指派类型(assignee普通指派,assigneeList会签)
+    */
+    string assignType = 5 ;
+    /*
+    指派策略(emptySkip为空跳过, emptyAssign为空转人工,sampleSkip与上节点相同审批人跳过)
+    */
+    string assignStrategy = 6 ;
+    /*
+    普通指派用户类型(loginUser当前登录用户,lastExec上一步执行人,specifyUser指定用户)
+    */
+    string userType = 7 ;
+    /*
+    会签指派用户,多个用户name
+    */
+    repeated string assigneeListUser = 8 ;
+    /*
+    任务工时 单位/s,默认2小时
+    */
+    float taskWorkingTime = 9 ;
+    /*
+    流程操作
+    */
+    repeated ProcessOp processOp = 10 ;
+}
+

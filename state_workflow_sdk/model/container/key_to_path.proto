@@ -1,0 +1,27 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+映射字段到volume里面的指定路径
+*/
+message KeyToPath {
+    /*
+    要映射的key名称
+    */
+    string key = 1 ;
+    /*
+    映射到容器内的路径
+    */
+    string path = 2 ;
+    /*
+    文件权限, 0 - 0777, 默认 0644
+    */
+    int32 mode = 3 ;
+}
+

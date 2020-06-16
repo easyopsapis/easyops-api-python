@@ -1,0 +1,66 @@
+syntax = "proto3";
+package storyboard;
+
+
+
+
+import "next_builder_sdk/model/next_builder/storyboard_node.proto";
+
+/*
+SortStoryboardNodes请求
+*/
+message SortStoryboardNodesRequest {
+message Nodes {
+    /*
+    实例标识
+    */
+    string instanceId = 1 ;
+    /*
+    类型
+    */
+    string type = 2 ;
+    /*
+    排序
+    */
+    int32 sort = 3 ;
+}
+        
+    
+    /*
+    storyboard nodes
+    */
+    repeated Nodes nodes = 1 ;
+}
+
+/*
+SortStoryboardNodes返回
+*/
+message SortStoryboardNodesResponse {
+    /*
+    节点列表
+    */
+    repeated next_builder.StoryboardNode nodes = 1 ;
+}
+
+/*
+SortStoryboardNodesApi返回
+*/
+message SortStoryboardNodesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    storyboard.SortStoryboardNodesResponse data = 4 ;
+}
+

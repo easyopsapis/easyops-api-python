@@ -4,7 +4,7 @@ package micro_app;
 
 
 
-import "model/app_store/release_package.proto";
+import "app_store_sdk/model/app_store/release_package.proto";
 
 /*
 GetRelatedPackages请求

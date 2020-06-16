@@ -1,0 +1,156 @@
+syntax = "proto3";
+package state_workflow;
+
+
+
+
+import "state_workflow_sdk/model/state_workflow/state.proto";
+
+/*
+TransitStateWorkflowStatus请求
+*/
+message TransitStateWorkflowStatusRequest {
+    /*
+    要更新的模型标识
+    */
+    string objectId = 1 ;
+    /*
+    要更新的实例标识
+    */
+    string instanceId = 2 ;
+    /*
+    要更新的属性名称
+    */
+    string attribute = 3 ;
+    /*
+    要更新的目标状态值
+    */
+    string targetStateValue = 4 ;
+}
+
+/*
+TransitStateWorkflowStatus返回
+*/
+message TransitStateWorkflowStatusResponse {
+message Transit {
+message CurrentStateCallbacks {
+    /*
+    触发事件
+    */
+    string event = 1 ;
+    /*
+    回调uri
+    */
+    string callbackUri = 2 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 3 ;
+    /*
+    回调是否成功
+    */
+    bool result = 4 ;
+}
+        
+message TargetStateCallbacks {
+    /*
+    触发事件
+    */
+    string event = 1 ;
+    /*
+    回调uri
+    */
+    string callbackUri = 2 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 3 ;
+    /*
+    回调是否成功
+    */
+    bool result = 4 ;
+}
+        
+message TransitCallbacks {
+    /*
+    触发事件
+    */
+    string event = 1 ;
+    /*
+    回调uri
+    */
+    string callbackUri = 2 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 3 ;
+    /*
+    回调是否成功
+    */
+    bool result = 4 ;
+}
+        
+    
+    /*
+    当前状态
+    */
+    state_workflow.State currentState = 1 ;
+    /*
+    当前状态触发的回调
+    */
+    repeated CurrentStateCallbacks currentStateCallbacks = 2 ;
+    /*
+    目标状态
+    */
+    state_workflow.State targetState = 3 ;
+    /*
+    当前状态触发的回调
+    */
+    repeated TargetStateCallbacks targetStateCallbacks = 4 ;
+    /*
+    转换状态触发的回调
+    */
+    repeated TransitCallbacks transitCallbacks = 5 ;
+}
+        
+    
+    /*
+    要更新的模型标识
+    */
+    string objectId = 1 ;
+    /*
+    要更新的实例标识
+    */
+    string instanceId = 2 ;
+    /*
+    要更新的属性名称
+    */
+    string attribute = 3 ;
+    /*
+    状态更新
+    */
+    Transit transit = 4 ;
+}
+
+/*
+TransitStateWorkflowStatusApi返回
+*/
+message TransitStateWorkflowStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    state_workflow.TransitStateWorkflowStatusResponse data = 4 ;
+}
+

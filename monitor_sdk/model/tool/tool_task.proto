@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/tool/callback.proto";
-import "model/tool/tool.proto";
+import "monitor_sdk/model/tool/callback.proto";
+import "monitor_sdk/model/tool/tool.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -15,48 +15,6 @@ import "google/protobuf/struct.proto";
 */
 message ToolTask {
 message ExtraDetail {
-message ToolOutputs {
-message Dimensions {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-message Columns {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-    
-    /*
-    维度列
-    */
-    repeated Dimensions dimensions = 1 ;
-    /*
-    输出列
-    */
-    repeated Columns columns = 2 ;
-}
-        
 message TableDefs {
 message Dimensions {
     /*
@@ -120,9 +78,37 @@ message OutputDefs {
     */
     google.protobuf.Struct toolEnv = 2 ;
     /*
-    工具的输出
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
     */
-    ToolOutputs toolOutputs = 3 ;
+    google.protobuf.Value toolOutputs = 3 ;
     /*
     工具的表格输出定义
     */
@@ -145,7 +131,7 @@ message BatchStrategy {
     /*
     是否失败暂停
     */
-    string failedStop = 3 ;
+    bool failedStop = 3 ;
 }
         
 message OutputDefs {
@@ -199,48 +185,6 @@ message Columns {
     输出列
     */
     repeated Columns columns = 4 ;
-}
-        
-message ToolOutputs {
-message Dimensions {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-message Columns {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-    
-    /*
-    维度列
-    */
-    repeated Dimensions dimensions = 1 ;
-    /*
-    输出列
-    */
-    repeated Columns columns = 2 ;
 }
         
     
@@ -329,28 +273,60 @@ message Columns {
     */
     BatchStrategy batchStrategy = 21 ;
     /*
+    工具执行的通知信息
+    */
+    string needNotify = 22 ;
+    /*
     执行用户
     */
-    string execUser = 22 ;
+    string execUser = 23 ;
     /*
     工具版本
     */
-    string vId = 23 ;
+    string vId = 24 ;
     /*
     工具Id，服务端自动生成
     */
-    string toolId = 24 ;
+    string toolId = 25 ;
     /*
     工具的输出定义
     */
-    repeated OutputDefs outputDefs = 25 ;
+    repeated OutputDefs outputDefs = 26 ;
     /*
     工具的表格输出定义
     */
-    repeated TableDefs tableDefs = 26 ;
+    repeated TableDefs tableDefs = 27 ;
     /*
-    工具的输出
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
     */
-    ToolOutputs toolOutputs = 27 ;
+    google.protobuf.Value toolOutputs = 28 ;
 }
 

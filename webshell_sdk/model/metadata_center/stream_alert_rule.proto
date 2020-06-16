@@ -1,0 +1,104 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+告警规则
+*/
+message StreamAlertRule {
+message Dimensions {
+    /*
+    告警维度前台展示名字
+    */
+    string name = 1 ;
+    /*
+    告警维度值数组
+    */
+    repeated string values = 2 ;
+}
+        
+message Conditions {
+    /*
+    告警条件
+    */
+    int32 level = 1 ;
+    /*
+    告警阈值
+    */
+    google.protobuf.Value threshold = 2 ;
+}
+        
+    
+    /*
+    告警规则id
+    */
+    string id = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+    /*
+    版本
+    */
+    int32 version = 3 ;
+    /*
+    版本id
+    */
+    string versionId = 4 ;
+    /*
+    指标表名
+    */
+    string schema = 5 ;
+    /*
+    告警优先级
+    */
+    int32 priority = 6 ;
+    /*
+    告警维度
+    */
+    repeated Dimensions dimensions = 7 ;
+    /*
+    告警指标
+    */
+    string metric = 8 ;
+    /*
+    告警比较器
+bigger_than: 大于
+smaller_than: 小于
+equal: 等于
+unequal: 不等于
+include: 包含
+exclude: 不包含
+dynamic: 动态阈值
+transition: 状态变更
+
+    */
+    string comparator = 9 ;
+    /*
+    告警条件
+    */
+    repeated Conditions conditions = 10 ;
+    /*
+    告警命中数量
+    */
+    int32 alertCount = 11 ;
+    /*
+    告警窗口
+    */
+    int32 alertWindow = 12 ;
+    /*
+    告警间隔
+    */
+    int32 alertInterval = 13 ;
+    /*
+    恢复窗口
+    */
+    int32 recoverCount = 14 ;
+}
+

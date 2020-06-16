@@ -1,0 +1,100 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "collector_center_sdk/model/collector_center/script.proto";
+import "collector_center_sdk/model/collector_center/target_range.proto";
+import "google/protobuf/struct.proto";
+
+/*
+CreateConfigurationTemplate请求
+*/
+message CreateConfigurationTemplateRequest {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    参数
+    */
+    google.protobuf.Value kwargs = 2 ;
+    /*
+    超时时间
+    */
+    int32 timeout = 3 ;
+    /*
+    环境变量
+    */
+    google.protobuf.Value env = 4 ;
+    /*
+    是否禁用
+    */
+    bool disabled = 5 ;
+    /*
+    标签
+    */
+    repeated string labels = 6 ;
+    /*
+    脚本
+    */
+    collector_center.Script script = 7 ;
+    /*
+    是否忽略不符合要求数据
+    */
+    bool ignoreInvalid = 8 ;
+    /*
+    目标动态范围
+    */
+    collector_center.TargetRange targetRange = 9 ;
+    /*
+    采集间隔
+    */
+    int32 interval = 10 ;
+    /*
+    缓存过期次数（时间）
+    */
+    int32 cacheTtl = 11 ;
+    /*
+    执行时间范围（24小时）
+    */
+    string timeRange = 12 ;
+    /*
+    采集类型名称
+    */
+    string clazzName = 13 ;
+}
+
+/*
+CreateConfigurationTemplate返回
+*/
+message CreateConfigurationTemplateResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+CreateConfigurationTemplateApi返回
+*/
+message CreateConfigurationTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.CreateConfigurationTemplateResponse data = 4 ;
+}
+

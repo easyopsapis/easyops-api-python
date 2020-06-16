@@ -1,0 +1,62 @@
+syntax = "proto3";
+package cmdb_service_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ArchiveInstanceListAll请求
+*/
+message ArchiveInstanceListAllRequest {
+    /*
+    实例所属的模型ID
+    */
+    string objectId = 1 ;
+}
+
+/*
+ArchiveInstanceListAll返回
+*/
+message ArchiveInstanceListAllResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    实例列表
+    */
+    repeated google.protobuf.Struct data = 4 ;
+}
+
+/*
+ArchiveInstanceListAllApi返回
+*/
+message ArchiveInstanceListAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_service_ctrl.ArchiveInstanceListAllResponse data = 4 ;
+}
+

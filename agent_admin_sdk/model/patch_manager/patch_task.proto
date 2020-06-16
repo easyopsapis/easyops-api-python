@@ -1,0 +1,63 @@
+syntax = "proto3";
+package patch_manager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/patch_manager";
+
+
+
+
+
+/*
+补丁安装汇总任务
+*/
+message PatchTask {
+message Request {
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机ip
+    */
+    string hostIp = 2 ;
+    /*
+    安装的补丁实例ID列表
+    */
+    repeated string patchIdList = 3 ;
+}
+        
+    
+    /*
+    任务ID，objectId形式的
+    */
+    string taskId = 1 ;
+    /*
+    补丁安装请求
+    */
+    repeated Request request = 2 ;
+    /*
+    创建人
+    */
+    string creator = 3 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 4 ;
+    /*
+    结束时间
+    */
+    int32 etime = 5 ;
+    /*
+    任务状态
+    */
+    string status = 6 ;
+    /*
+    分批大小
+    */
+    int32 groupSize = 7 ;
+    /*
+    当前已处理的任务数
+    */
+    int32 processedCount = 8 ;
+}
+

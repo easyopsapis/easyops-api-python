@@ -1,0 +1,74 @@
+syntax = "proto3";
+package data_name;
+
+
+
+
+import "monitor_sdk/model/monitor/metrics.proto";
+
+/*
+ListMetrics请求
+*/
+message ListMetricsRequest {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
+ListMetrics返回
+*/
+message ListMetricsResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回信息
+    */
+    string msg = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    页码
+    */
+    int32 page = 4 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 5 ;
+    /*
+    翻译规则列表
+    */
+    repeated monitor.Metrics data = 6 ;
+}
+
+/*
+ListMetricsApi返回
+*/
+message ListMetricsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    data_name.ListMetricsResponse data = 4 ;
+}
+

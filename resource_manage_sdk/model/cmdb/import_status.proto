@@ -1,0 +1,31 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+ImportStatus
+*/
+message ImportStatus {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    状态码
+    */
+    int32 code = 3 ;
+    /*
+    描述
+    */
+    string message = 4 ;
+}
+

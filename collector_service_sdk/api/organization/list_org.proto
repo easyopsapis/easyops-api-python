@@ -1,0 +1,71 @@
+syntax = "proto3";
+package organization;
+
+
+
+
+
+/*
+ListOrg返回
+*/
+message ListOrgResponse {
+message OrgList {
+    /*
+    创建时间
+    */
+    string createAt = 1 ;
+    /*
+    orgid
+    */
+    int32 id = 2 ;
+    /*
+    memo
+    */
+    string memo = 3 ;
+    /*
+    name
+    */
+    string name = 4 ;
+    /*
+    ts
+    */
+    int32 ts = 5 ;
+    /*
+    是否合法
+    */
+    bool valid = 6 ;
+    /*
+    expires
+    */
+    int32 expires = 7 ;
+}
+        
+    
+    /*
+    org列表
+    */
+    repeated OrgList orgList = 1 ;
+}
+
+/*
+ListOrgApi返回
+*/
+message ListOrgResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    organization.ListOrgResponse data = 4 ;
+}
+

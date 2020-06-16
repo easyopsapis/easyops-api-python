@@ -1,0 +1,78 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+
+/*
+翻译数据包
+*/
+message StreamTranslatePackage {
+message MatchData {
+message Resource {
+    /*
+    关联的模型id
+    */
+    string objectId = 1 ;
+    /*
+    关联的实例id列表
+    */
+    repeated string instances = 2 ;
+}
+        
+message Tags {
+    /*
+    标签名
+    */
+    string key = 1 ;
+    /*
+    标签值
+    */
+    repeated string value = 2 ;
+}
+        
+    
+    /*
+    匹配键
+    */
+    string matchKey = 1 ;
+    /*
+    关联的资源
+    */
+    Resource resource = 2 ;
+    /*
+    关联的标签列表
+    */
+    repeated Tags tags = 3 ;
+}
+        
+    
+    /*
+    id
+    */
+    string id = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+    /*
+    版本
+    */
+    int32 version = 3 ;
+    /*
+    关联的指标表列表
+    */
+    repeated string schemas = 4 ;
+    /*
+    匹配字段列表
+    */
+    repeated string matchFields = 5 ;
+    /*
+    匹配数据列表
+    */
+    repeated MatchData matchData = 6 ;
+}
+

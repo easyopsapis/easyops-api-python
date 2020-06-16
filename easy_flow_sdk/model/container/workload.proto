@@ -1,0 +1,103 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "easy_flow_sdk/model/container/container.proto";
+import "easy_flow_sdk/model/container/volume.proto";
+import "easy_flow_sdk/model/container/deployment_strategy.proto";
+import "easy_flow_sdk/model/container/local_object_reference.proto";
+import "easy_flow_sdk/model/container/deployment_status.proto";
+import "google/protobuf/struct.proto";
+
+/*
+工作负载
+*/
+message Workload {
+    /*
+    workload id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    workload 类型, 创建之后不能修改
+    */
+    string kind = 2 ;
+    /*
+    workload全称，命名规则 clusterId:kind:namespace:name, 创建之后不能修改
+    */
+    string name = 3 ;
+    /*
+    命名空间, 创建之后不能修改
+    */
+    string namespace = 4 ;
+    /*
+    名称
+    */
+    string resourceName = 5 ;
+    /*
+    容器列表
+    */
+    repeated container.ContainerConfig containers = 6 ;
+    /*
+    pod 副本数量
+    */
+    int32 replicas = 7 ;
+    /*
+    "存储卷, refs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#volume-v1-core"
+目前支持 hostPath, emptyDir, secret, configMap, pvc
+
+    */
+    repeated container.Volume volumes = 8 ;
+    /*
+    注解
+    */
+    google.protobuf.Struct annotations = 9 ;
+    /*
+    标签
+    */
+    google.protobuf.Struct labels = 10 ;
+    /*
+    dns 解析策略, 默认 ClusterFirst
+    */
+    string dnsPolicy = 11 ;
+    /*
+    pod 重启策略
+    */
+    string restartPolicy = 12 ;
+    /*
+    deployment 更新策略, 目前只支持deployment, 扩展其它的就使用如 statefulSetConfig, jobConfig
+    */
+    container.DeploymentStrategy deploymentStrategy = 13 ;
+    /*
+    拉取镜像使用的私钥信息
+    */
+    repeated container.LocalObjectReference imagePullSecrets = 14 ;
+    /*
+    deployment 状态
+    */
+    container.DeploymentStatus deploymentStatus = 15 ;
+    /*
+    workload 定义原文件
+    */
+    string resourceSpec = 16 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 17 ;
+    /*
+    创建时间
+    */
+    string creationTimestamp = 18 ;
+    /*
+    状态
+    */
+    string state = 19 ;
+    /*
+    状态信息
+    */
+    string transitionMessage = 20 ;
+}
+

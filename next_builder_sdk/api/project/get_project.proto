@@ -1,0 +1,40 @@
+syntax = "proto3";
+package project;
+
+
+
+
+import "next_builder_sdk/model/next_builder/micro_app_project.proto";
+
+/*
+GetMicroAppProject请求
+*/
+message GetMicroAppProjectRequest {
+    /*
+    projectId
+    */
+    string projectId = 1 ;
+}
+
+/*
+GetMicroAppProjectApi返回
+*/
+message GetMicroAppProjectResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    next_builder.MicroAppProject data = 4 ;
+}
+

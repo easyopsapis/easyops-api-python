@@ -1,0 +1,62 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/history_item.proto";
+
+/*
+ListHistory请求
+*/
+message ListHistoryRequest {
+    /*
+    workloadId
+    */
+    string instanceId = 1 ;
+}
+
+/*
+ListHistory返回
+*/
+message ListHistoryResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated container.HistoryItem list = 4 ;
+}
+
+/*
+ListHistoryApi返回
+*/
+message ListHistoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workload.ListHistoryResponse data = 4 ;
+}
+

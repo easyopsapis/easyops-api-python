@@ -1,0 +1,55 @@
+syntax = "proto3";
+package app_store;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/app_store";
+
+
+
+
+
+/*
+产品线
+*/
+message ProductLine {
+message Icon {
+    /*
+    FA 或 EasyOps 图标
+    */
+    string icon = 1 ;
+    /*
+    图标库
+    */
+    string lib = 2 ;
+    /*
+    Antd 图标类型
+    */
+    string type = 3 ;
+    /*
+    Antd 图标主题
+    */
+    string theme = 4 ;
+    /*
+    FA 图标前缀
+    */
+    string prefix = 5 ;
+    /*
+    EasyOps 图标分类
+    */
+    string category = 6 ;
+}
+        
+    
+    /*
+    实例id
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    图标
+    */
+    Icon icon = 3 ;
+}
+

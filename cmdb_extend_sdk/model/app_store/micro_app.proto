@@ -47,5 +47,13 @@ message Icons {
     首页路径
     */
     string homepage = 7 ;
+    /*
+    小产品分类
+    */
+    string category = 8 ;
+    /*
+    所属桌面Id
+    */
+    string containerId = 9 ;
 }
 

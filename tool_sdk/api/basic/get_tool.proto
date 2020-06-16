@@ -4,8 +4,9 @@ package basic;
 
 
 
-import "model/tool/input_param.proto";
-import "model/tool/tool.proto";
+import "tool_sdk/model/tool/tool_input.proto";
+import "tool_sdk/model/tool/tool.proto";
+import "google/protobuf/struct.proto";
 
 /*
 GetTool请求

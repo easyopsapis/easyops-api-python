@@ -1,0 +1,88 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ResourceQuota 资源定义
+*/
+message ResourceQuota {
+    /*
+    id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    ResourceQuota 类型
+    */
+    string kind = 2 ;
+    /*
+    resourcequota 全称，命名规则 clusterId:kind:name, 创建之后不能修改
+    */
+    string name = 3 ;
+    /*
+    名称
+    */
+    string resourceName = 4 ;
+    /*
+    quota 资源定义文件
+    */
+    string resourceSpec = 5 ;
+    /*
+    命名空间, 创建之后不能修改
+    */
+    string namespace = 6 ;
+    /*
+    namespace 资源限制
+{
+  "count/deployments.apps": "100",   #  无状态工作负载
+  "count/statefulsets.apps": "100",  #  有状态工作负载
+  "count/daemonsets.apps": "100",    #  守护进程
+  "count/jobs.batch": "100",     # 任务
+  "count/cronjobs.batch": "100", # 定时任务
+  "count/pods": "500",      # Pod
+  "count/services": "100",  # 服务
+  "count/ingresses.extensions": "100", # 应用路由
+  "persistentvolumeclaims": "100", # 存储卷
+  "count/secrets": "100",    # 密钥
+  "count/configmaps": "100", # 配置
+  "limits.cpu": "10",        # CPU 限额
+  "limits.memory": "20Gi"    # 内存限额
+  "requests.cpu": "1",       # CPU 预留
+  "requests.memory": "100Mi" # 内存预留
+}
+
+    */
+    google.protobuf.Struct hard = 7 ;
+    /*
+    已经使用的资源
+{
+  "count/deployments.apps": "100",   #  无状态工作负载
+  "count/statefulsets.apps": "100",  #  有状态工作负载
+  "count/daemonsets.apps": "100",    #  守护进程
+  "count/jobs.batch": "100",     # 任务
+  "count/cronjobs.batch": "100", # 定时任务
+  "count/pods": "500",      # Pod
+  "count/services": "100",  # 服务
+  "count/ingresses.extensions": "100", # 应用路由
+  "persistentvolumeclaims": "100", # 存储卷
+  "count/secrets": "100",    # 密钥
+  "count/configmaps": "100", # 配置
+  "limits.cpu": "10",        # CPU 限额
+  "limits.memory": "20Gi"    # 内存限额
+  "requests.cpu": "1",       # CPU 预留
+  "requests.memory": "100Mi" # 内存预留
+}
+
+    */
+    google.protobuf.Struct used = 8 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 9 ;
+}
+

@@ -1,0 +1,55 @@
+syntax = "proto3";
+package resource_monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_monitor";
+
+
+
+
+
+/*
+关联资源
+*/
+message RelatedResource {
+message RelatedInfo {
+    /*
+    id
+    */
+    string id = 1 ;
+    /*
+    描述
+    */
+    string label = 2 ;
+    /*
+    query条件key
+    */
+    string reverseQueryKey = 3 ;
+}
+        
+    
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    关联名称
+    */
+    string name = 2 ;
+    /*
+    所属模型id
+    */
+    string objectId = 3 ;
+    /*
+    关联模型Id
+    */
+    string relatedObjectId = 4 ;
+    /*
+    query参数,预留字段
+    */
+    string query = 5 ;
+    /*
+    资源模型路径实例查询key信息
+    */
+    RelatedInfo relatedInfo = 6 ;
+}
+

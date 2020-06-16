@@ -20,32 +20,32 @@ message PubSubscriber {
     */
     string name = 2 ;
     /*
-    订阅某个org的消息
-    */
-    int32 org = 3 ;
-    /*
     订阅负责人。如 linus
     */
-    string admin = 4 ;
+    string admin = 3 ;
     /*
     回调url. 处理成功时需要返回 status 2xx
     */
-    string callback = 5 ;
+    string callback = 4 ;
     /*
     回调名字服务名。非空时，callback url的域名解析会先经ens
     */
-    string ensName = 6 ;
+    string ensName = 5 ;
     /*
     retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
     */
-    int32 retry = 7 ;
+    int32 retry = 6 ;
     /*
     模型修改时间
     */
-    int64 mtime = 8 ;
+    string mtime = 7 ;
     /*
     模型版本
     */
-    int32 _version = 9 ;
+    int32 _version = 8 ;
+    /*
+    订阅的事件的版本，隐藏字段，因为_version不会反应关系的修改
+    */
+    int32 topicVersion = 9 ;
 }
 

@@ -1,0 +1,73 @@
+syntax = "proto3";
+package idcrack;
+
+
+
+
+
+/*
+UpdateIDCRackLayout请求
+*/
+message UpdateIDCRackLayoutRequest {
+message Layout {
+    /*
+    设备ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备类型(host,switch,router,firewall,disable)
+    */
+    string type = 2 ;
+    /*
+    起始U位
+    */
+    int32 startU = 3 ;
+    /*
+    占用U位
+    */
+    int32 occupiedU = 4 ;
+}
+        
+    
+    /*
+    机柜ID
+    */
+    string idcrackId = 1 ;
+    /*
+    机柜部局
+    */
+    repeated Layout layout = 2 ;
+}
+
+/*
+UpdateIDCRackLayout返回
+*/
+message UpdateIDCRackLayoutResponse {
+    /*
+    补丁id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+UpdateIDCRackLayoutApi返回
+*/
+message UpdateIDCRackLayoutResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    idcrack.UpdateIDCRackLayoutResponse data = 4 ;
+}
+

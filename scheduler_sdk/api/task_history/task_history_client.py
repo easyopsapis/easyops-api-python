@@ -2,15 +2,12 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import scheduler_sdk.api.task_history.create_task_history_pb2
 
-import list_task_history_pb2
+import scheduler_sdk.api.task_history.list_task_history_pb2
 
-import utils.http_util
+import scheduler_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -31,15 +28,55 @@ class TaskHistoryClient(object):
         self._host = host
 
     
+    def create_history(self, request, org, user, timeout=10):
+        # type: (scheduler_sdk.api.task_history.create_task_history_pb2.CreateHistoryRequest, int, str, int) -> scheduler_sdk.api.task_history.create_task_history_pb2.CreateHistoryResponse
+        """
+        保存调度历史
+        :param request: create_history请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: scheduler_sdk.api.task_history.create_task_history_pb2.CreateHistoryResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.scheduler.task_history.CreateHistory"
+        uri = "/api/v1/scheduler/history"
+        
+        requestParam = request
+        
+        rsp_obj = scheduler_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.scheduler_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = scheduler_sdk.api.task_history.create_task_history_pb2.CreateHistoryResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def list_history(self, request, org, user, timeout=10):
-        # type: (list_task_history_pb2.ListHistoryRequest, int, str, int) -> list_task_history_pb2.ListHistoryResponse
+        # type: (scheduler_sdk.api.task_history.list_task_history_pb2.ListHistoryRequest, int, str, int) -> scheduler_sdk.api.task_history.list_task_history_pb2.ListHistoryResponse
         """
         获取作业历史列表
         :param request: list_history请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_task_history_pb2.ListHistoryResponse
+        :return: scheduler_sdk.api.task_history.list_task_history_pb2.ListHistoryResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -52,7 +89,7 @@ class TaskHistoryClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = scheduler_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.scheduler_sdk",
             dst_name=route_name,
@@ -65,7 +102,7 @@ class TaskHistoryClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_task_history_pb2.ListHistoryResponse()
+        rsp = scheduler_sdk.api.task_history.list_task_history_pb2.ListHistoryResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

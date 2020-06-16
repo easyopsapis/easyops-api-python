@@ -1,0 +1,80 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+import "idcmanager_sdk/model/topology/property.proto";
+
+/*
+容器
+*/
+message Container {
+message Style {
+    /*
+    x坐标
+    */
+    float x = 1 ;
+    /*
+    y坐标
+    */
+    float y = 2 ;
+    /*
+    宽
+    */
+    float width = 3 ;
+    /*
+    高
+    */
+    float height = 4 ;
+    /*
+    类型
+    */
+    string className = 5 ;
+}
+        
+    
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    来源
+    */
+    string dataSource = 2 ;
+    /*
+    ID
+    */
+    string id = 3 ;
+    /*
+    数据属性
+    */
+    topology.Property property = 4 ;
+    /*
+    是否允许展开
+    */
+    bool collapse = 5 ;
+    /*
+    创建者
+    */
+    string creator = 6 ;
+    /*
+    修改者
+    */
+    string modifier = 7 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 8 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 9 ;
+    /*
+    风格
+    */
+    Style style = 10 ;
+}
+

@@ -1,0 +1,23 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+bpmnXML链接
+*/
+message BPMNLinks {
+    /*
+    来源列表
+    */
+    repeated string incoming = 1 ;
+    /*
+    指向列表
+    */
+    repeated string outgoing = 2 ;
+}
+

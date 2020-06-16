@@ -1,0 +1,74 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+BatchUpdateToolPermission请求
+*/
+message BatchUpdateToolPermissionRequest {
+    /*
+    批量更新方式, 可选值: append(追加), overwrite(重置), pull(移除)
+    */
+    string method = 1 ;
+    /*
+    权限列表, 可选值: deleteAuthorizers(删除), updateAuthorizers(更新), readAuthorizers(读取或查看),executeAuthorizers,rootExecuteAuthorizers,readExecutionResultAuthorizers
+    */
+    repeated string permissions = 2 ;
+    /*
+    用户或用户组列表
+    */
+    repeated string authorizers = 3 ;
+    /*
+    工具ID列表
+    */
+    repeated string toolIds = 4 ;
+}
+
+/*
+BatchUpdateToolPermission返回
+*/
+message BatchUpdateToolPermissionResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    工具修改详情,返回结果如下 { "code": 0, "error": "成功: Success", "message": "Success", "data": { "999dab4e776c6378bd8c15ff5730cbd7": { "code": 0, "message": "success", "name": "cccc" } } }
+    */
+    google.protobuf.Struct data = 4 ;
+}
+
+/*
+BatchUpdateToolPermissionApi返回
+*/
+message BatchUpdateToolPermissionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.BatchUpdateToolPermissionResponse data = 4 ;
+}
+

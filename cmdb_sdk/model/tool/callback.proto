@@ -23,5 +23,9 @@ message Callback {
     回调服务名eg. logic.tool
     */
     string ensName = 3 ;
+    /*
+    回调服务方法
+    */
+    string method = 4 ;
 }
 

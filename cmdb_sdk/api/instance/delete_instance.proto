@@ -18,6 +18,10 @@ message DeleteInstanceRequest {
     实例ID
     */
     string instanceId = 2 ;
+    /*
+    是否只返回实例id
+    */
+    bool only_instance_id = 3 ;
 }
 
 /*

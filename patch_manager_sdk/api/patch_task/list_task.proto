@@ -1,0 +1,125 @@
+syntax = "proto3";
+package patch_task;
+
+
+
+
+
+/*
+ListPatchTask请求
+*/
+message ListPatchTaskRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页面大小
+    */
+    int32 page_size = 2 ;
+    /*
+    查询起始时间
+    */
+    int32 startTime = 3 ;
+    /*
+    查询结束时间
+    */
+    int32 endTime = 4 ;
+}
+
+/*
+ListPatchTask返回
+*/
+message ListPatchTaskResponse {
+message List {
+message Request {
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机ip
+    */
+    string hostIp = 2 ;
+    /*
+    安装的补丁实例ID列表
+    */
+    repeated string patchIdList = 3 ;
+}
+        
+    
+    /*
+    任务ID，objectId形式的
+    */
+    string taskId = 1 ;
+    /*
+    补丁安装请求
+    */
+    repeated Request request = 2 ;
+    /*
+    创建人
+    */
+    string creator = 3 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 4 ;
+    /*
+    结束时间
+    */
+    int32 etime = 5 ;
+    /*
+    任务状态
+    */
+    string status = 6 ;
+    /*
+    分批大小
+    */
+    int32 groupSize = 7 ;
+    /*
+    当前已处理的任务数
+    */
+    int32 processedCount = 8 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListPatchTaskApi返回
+*/
+message ListPatchTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch_task.ListPatchTaskResponse data = 4 ;
+}
+

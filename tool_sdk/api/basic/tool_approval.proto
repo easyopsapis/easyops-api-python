@@ -1,0 +1,81 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+ToolApproval请求
+*/
+message ToolApprovalRequest {
+    /*
+    工具审批结果[approving=待审批;approved=已审批;rejected=审批未通过;]
+    */
+    string checkType = 1 ;
+    /*
+    工具审批意见
+    */
+    string checkComment = 2 ;
+    /*
+    前端访问地址
+    */
+    string origin = 3 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 4 ;
+    /*
+    工具版本
+    */
+    string vId = 5 ;
+}
+
+/*
+ToolApproval返回
+*/
+message ToolApprovalResponse {
+    /*
+    版本类型
+    */
+    string envType = 1 ;
+    /*
+    工具审批结果(approving=待审批;approved=已审批;rejected=审批未通过)
+    */
+    string checkType = 2 ;
+    /*
+    审批发起人
+    */
+    string checkSponsor = 3 ;
+    /*
+    工具审批结论意见
+    */
+    string checkComment = 4 ;
+    /*
+    审批人
+    */
+    string checkUser = 5 ;
+}
+
+/*
+ToolApprovalApi返回
+*/
+message ToolApprovalResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.ToolApprovalResponse data = 4 ;
+}
+

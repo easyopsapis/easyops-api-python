@@ -1,0 +1,70 @@
+syntax = "proto3";
+package instance_archive;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListArchiveInstance请求
+*/
+message ListArchiveInstanceRequest {
+    /*
+    实例所属的模型ID
+    */
+    string object_id = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页大小
+    */
+    int32 page_size = 3 ;
+}
+
+/*
+ListArchiveInstance返回
+*/
+message ListArchiveInstanceResponse {
+    /*
+    instance list
+    */
+    repeated google.protobuf.Struct list = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+ListArchiveInstanceApi返回
+*/
+message ListArchiveInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance_archive.ListArchiveInstanceResponse data = 4 ;
+}
+

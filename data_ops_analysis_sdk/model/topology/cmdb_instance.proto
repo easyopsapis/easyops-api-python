@@ -1,0 +1,23 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+实例
+*/
+message CmdbInstance {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    实例ID
+    */
+    string instanceId = 2 ;
+}
+

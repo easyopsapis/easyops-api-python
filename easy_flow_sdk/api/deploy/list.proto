@@ -4,7 +4,7 @@ package deploy;
 
 
 
-import "model/easy_flow/deploy_ret.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_ret.proto";
 
 /*
 List请求

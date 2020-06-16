@@ -1,0 +1,45 @@
+syntax = "proto3";
+package storageclass;
+
+
+
+
+import "container_sdk/model/container/storage_class.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    集群 id
+    */
+    string clusterId = 1 ;
+    /*
+    StorageClass
+    */
+    container.StorageClass storageClass = 2 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.StorageClass data = 4 ;
+}
+

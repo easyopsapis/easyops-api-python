@@ -2,37 +2,32 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import agent_admin_sdk.api.plugin.create_plugin_pb2
 
-import create_plugin_pb2
+import agent_admin_sdk.api.plugin.create_plugin_v1_pb2
 
-import create_plugin_v1_pb2
+import agent_admin_sdk.api.plugin.delete_plugin_pb2
 
-import delete_plugin_pb2
+import agent_admin_sdk.api.plugin.get_plugin_pb2
 
-import get_plugin_pb2
+import agent_admin_sdk.model.agent_admin.plugin_pb2
 
-import model.agent_admin.plugin_pb2
+import agent_admin_sdk.api.plugin.get_plugin_v1_pb2
 
-import get_plugin_v1_pb2
+import agent_admin_sdk.api.plugin.list_plugin_pb2
 
-import list_plugin_pb2
+import agent_admin_sdk.api.plugin.list_plugin_agent_pb2
 
-import list_plugin_agent_pb2
+import agent_admin_sdk.api.plugin.list_plugin_agent_v1_pb2
 
-import list_plugin_agent_v1_pb2
+import agent_admin_sdk.api.plugin.list_plugin_v1_pb2
 
-import list_plugin_v1_pb2
+import agent_admin_sdk.api.plugin.update_plugin_pb2
 
-import update_plugin_pb2
+import agent_admin_sdk.api.plugin.update_plugin_v1_pb2
 
-import update_plugin_v1_pb2
-
-import utils.http_util
+import agent_admin_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -54,14 +49,14 @@ class PluginClient(object):
 
     
     def create_plugin(self, request, org, user, timeout=10):
-        # type: (create_plugin_pb2.CreatePluginRequest, int, str, int) -> create_plugin_pb2.CreatePluginResponse
+        # type: (agent_admin_sdk.api.plugin.create_plugin_pb2.CreatePluginRequest, int, str, int) -> agent_admin_sdk.api.plugin.create_plugin_pb2.CreatePluginResponse
         """
         创建插件
         :param request: create_plugin请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_plugin_pb2.CreatePluginResponse
+        :return: agent_admin_sdk.api.plugin.create_plugin_pb2.CreatePluginResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -74,7 +69,7 @@ class PluginClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -87,21 +82,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_plugin_pb2.CreatePluginResponse()
+        rsp = agent_admin_sdk.api.plugin.create_plugin_pb2.CreatePluginResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_plugin_v_1(self, request, org, user, timeout=10):
-        # type: (create_plugin_v1_pb2.CreatePluginV1Request, int, str, int) -> create_plugin_v1_pb2.CreatePluginV1Response
+        # type: (agent_admin_sdk.api.plugin.create_plugin_v1_pb2.CreatePluginV1Request, int, str, int) -> agent_admin_sdk.api.plugin.create_plugin_v1_pb2.CreatePluginV1Response
         """
         创建插件
         :param request: create_plugin_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_plugin_v1_pb2.CreatePluginV1Response
+        :return: agent_admin_sdk.api.plugin.create_plugin_v1_pb2.CreatePluginV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -114,7 +109,7 @@ class PluginClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -127,21 +122,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_plugin_v1_pb2.CreatePluginV1Response()
+        rsp = agent_admin_sdk.api.plugin.create_plugin_v1_pb2.CreatePluginV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_plugin(self, request, org, user, timeout=10):
-        # type: (delete_plugin_pb2.DeletePluginRequest, int, str, int) -> delete_plugin_pb2.DeletePluginResponse
+        # type: (agent_admin_sdk.api.plugin.delete_plugin_pb2.DeletePluginRequest, int, str, int) -> agent_admin_sdk.api.plugin.delete_plugin_pb2.DeletePluginResponse
         """
         删除插件
         :param request: delete_plugin请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_plugin_pb2.DeletePluginResponse
+        :return: agent_admin_sdk.api.plugin.delete_plugin_pb2.DeletePluginResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -155,7 +150,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -168,21 +163,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_plugin_pb2.DeletePluginResponse()
+        rsp = agent_admin_sdk.api.plugin.delete_plugin_pb2.DeletePluginResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_plugin(self, request, org, user, timeout=10):
-        # type: (get_plugin_pb2.GetPluginRequest, int, str, int) -> model.agent_admin.plugin_pb2.Plugin
+        # type: (agent_admin_sdk.api.plugin.get_plugin_pb2.GetPluginRequest, int, str, int) -> agent_admin_sdk.model.agent_admin.plugin_pb2.Plugin
         """
         获取插件
         :param request: get_plugin请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.agent_admin.plugin_pb2.Plugin
+        :return: agent_admin_sdk.model.agent_admin.plugin_pb2.Plugin
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -196,7 +191,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -209,21 +204,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.agent_admin.plugin_pb2.Plugin()
+        rsp = agent_admin_sdk.model.agent_admin.plugin_pb2.Plugin()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_plugin_v_1(self, request, org, user, timeout=10):
-        # type: (get_plugin_v1_pb2.GetPluginV1Request, int, str, int) -> get_plugin_v1_pb2.GetPluginV1Response
+        # type: (agent_admin_sdk.api.plugin.get_plugin_v1_pb2.GetPluginV1Request, int, str, int) -> agent_admin_sdk.api.plugin.get_plugin_v1_pb2.GetPluginV1Response
         """
         获取插件
         :param request: get_plugin_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_plugin_v1_pb2.GetPluginV1Response
+        :return: agent_admin_sdk.api.plugin.get_plugin_v1_pb2.GetPluginV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -237,7 +232,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -250,21 +245,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_plugin_v1_pb2.GetPluginV1Response()
+        rsp = agent_admin_sdk.api.plugin.get_plugin_v1_pb2.GetPluginV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin(self, request, org, user, timeout=10):
-        # type: (list_plugin_pb2.ListPluginRequest, int, str, int) -> list_plugin_pb2.ListPluginResponse
+        # type: (agent_admin_sdk.api.plugin.list_plugin_pb2.ListPluginRequest, int, str, int) -> agent_admin_sdk.api.plugin.list_plugin_pb2.ListPluginResponse
         """
         插件列表
         :param request: list_plugin请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_pb2.ListPluginResponse
+        :return: agent_admin_sdk.api.plugin.list_plugin_pb2.ListPluginResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -277,7 +272,7 @@ class PluginClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -290,21 +285,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_pb2.ListPluginResponse()
+        rsp = agent_admin_sdk.api.plugin.list_plugin_pb2.ListPluginResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin_agents(self, request, org, user, timeout=10):
-        # type: (list_plugin_agent_pb2.ListPluginAgentsRequest, int, str, int) -> list_plugin_agent_pb2.ListPluginAgentsResponse
+        # type: (agent_admin_sdk.api.plugin.list_plugin_agent_pb2.ListPluginAgentsRequest, int, str, int) -> agent_admin_sdk.api.plugin.list_plugin_agent_pb2.ListPluginAgentsResponse
         """
         插件Agent列表
         :param request: list_plugin_agents请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_agent_pb2.ListPluginAgentsResponse
+        :return: agent_admin_sdk.api.plugin.list_plugin_agent_pb2.ListPluginAgentsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -318,7 +313,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -331,21 +326,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_agent_pb2.ListPluginAgentsResponse()
+        rsp = agent_admin_sdk.api.plugin.list_plugin_agent_pb2.ListPluginAgentsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin_agents_v_1(self, request, org, user, timeout=10):
-        # type: (list_plugin_agent_v1_pb2.ListPluginAgentsV1Request, int, str, int) -> list_plugin_agent_v1_pb2.ListPluginAgentsV1Response
+        # type: (agent_admin_sdk.api.plugin.list_plugin_agent_v1_pb2.ListPluginAgentsV1Request, int, str, int) -> agent_admin_sdk.api.plugin.list_plugin_agent_v1_pb2.ListPluginAgentsV1Response
         """
         插件Agent列表
         :param request: list_plugin_agents_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_agent_v1_pb2.ListPluginAgentsV1Response
+        :return: agent_admin_sdk.api.plugin.list_plugin_agent_v1_pb2.ListPluginAgentsV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -359,7 +354,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -372,21 +367,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_agent_v1_pb2.ListPluginAgentsV1Response()
+        rsp = agent_admin_sdk.api.plugin.list_plugin_agent_v1_pb2.ListPluginAgentsV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin_v_1(self, request, org, user, timeout=10):
-        # type: (list_plugin_v1_pb2.ListPluginV1Request, int, str, int) -> list_plugin_v1_pb2.ListPluginV1Response
+        # type: (agent_admin_sdk.api.plugin.list_plugin_v1_pb2.ListPluginV1Request, int, str, int) -> agent_admin_sdk.api.plugin.list_plugin_v1_pb2.ListPluginV1Response
         """
         插件列表
         :param request: list_plugin_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_v1_pb2.ListPluginV1Response
+        :return: agent_admin_sdk.api.plugin.list_plugin_v1_pb2.ListPluginV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -399,7 +394,7 @@ class PluginClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -412,21 +407,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_v1_pb2.ListPluginV1Response()
+        rsp = agent_admin_sdk.api.plugin.list_plugin_v1_pb2.ListPluginV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_plugin(self, request, org, user, timeout=10):
-        # type: (update_plugin_pb2.UpdatePluginRequest, int, str, int) -> update_plugin_pb2.UpdatePluginResponse
+        # type: (agent_admin_sdk.api.plugin.update_plugin_pb2.UpdatePluginRequest, int, str, int) -> agent_admin_sdk.api.plugin.update_plugin_pb2.UpdatePluginResponse
         """
         更新插件
         :param request: update_plugin请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_plugin_pb2.UpdatePluginResponse
+        :return: agent_admin_sdk.api.plugin.update_plugin_pb2.UpdatePluginResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -440,7 +435,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -453,21 +448,21 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_plugin_pb2.UpdatePluginResponse()
+        rsp = agent_admin_sdk.api.plugin.update_plugin_pb2.UpdatePluginResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_plugin_v_1(self, request, org, user, timeout=10):
-        # type: (update_plugin_v1_pb2.UpdatePluginV1Request, int, str, int) -> update_plugin_v1_pb2.UpdatePluginV1Response
+        # type: (agent_admin_sdk.api.plugin.update_plugin_v1_pb2.UpdatePluginV1Request, int, str, int) -> agent_admin_sdk.api.plugin.update_plugin_v1_pb2.UpdatePluginV1Response
         """
         更新插件
         :param request: update_plugin_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_plugin_v1_pb2.UpdatePluginV1Response
+        :return: agent_admin_sdk.api.plugin.update_plugin_v1_pb2.UpdatePluginV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -481,7 +476,7 @@ class PluginClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -494,7 +489,7 @@ class PluginClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_plugin_v1_pb2.UpdatePluginV1Response()
+        rsp = agent_admin_sdk.api.plugin.update_plugin_v1_pb2.UpdatePluginV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

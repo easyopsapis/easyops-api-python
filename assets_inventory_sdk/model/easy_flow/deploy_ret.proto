@@ -1,0 +1,133 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "assets_inventory_sdk/model/easy_flow/target_result.proto";
+import "assets_inventory_sdk/model/easy_flow/deploy_label.proto";
+
+/*
+部署返回
+*/
+message DeployRet {
+message ConfigDiff {
+message Detail {
+message Items {
+    /*
+    路径
+    */
+    string path = 1 ;
+    /*
+    包新名称
+    */
+    string newName = 2 ;
+    /*
+    包原名称
+    */
+    string oldName = 3 ;
+}
+        
+    
+    /*
+    详情
+    */
+    repeated Items items = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    包配置变更信息
+    */
+    repeated Detail detail = 2 ;
+}
+        
+    
+    /*
+    任务Id
+    */
+    string taskId = 1 ;
+    /*
+    应用Id
+    */
+    string appId = 2 ;
+    /*
+    app名字
+    */
+    string appName = 3 ;
+    /*
+    操作人
+    */
+    string operator = 4 ;
+    /*
+    客户id
+    */
+    int32 org = 5 ;
+    /*
+    目标列表
+    */
+    repeated easy_flow.TargetResult targetList = 6 ;
+    /*
+    分批数量
+    */
+    int32 batchNum = 7 ;
+    /*
+    分批间隔
+    */
+    int32 batchInterval = 8 ;
+    /*
+    是否暂停失败
+    */
+    bool failedStop = 9 ;
+    /*
+    状态
+    */
+    string status = 10 ;
+    /*
+    错误码
+    */
+    int32 code = 11 ;
+    /*
+    使用次数
+    */
+    int32 usedTime = 12 ;
+    /*
+    开始时间
+    */
+    string startTime = 13 ;
+    /*
+    结束时间
+    */
+    string endTime = 14 ;
+    /*
+    集群Id
+    */
+    string clusterId = 15 ;
+    /*
+    配置包Id
+    */
+    string configPackageId = 16 ;
+    /*
+    标签
+    */
+    easy_flow.DeployLabel labels = 17 ;
+    /*
+    配置变更信息
+    */
+    repeated ConfigDiff configDiff = 18 ;
+}
+

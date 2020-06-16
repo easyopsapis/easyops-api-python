@@ -4,7 +4,7 @@ package info;
 
 
 
-import "model/inspection/info.proto";
+import "inspection_sdk/model/inspection/info.proto";
 
 /*
 CreateInspectionInfo请求
@@ -27,9 +27,23 @@ message CreateInspectionInfoRequest {
     */
     int32 index = 4 ;
     /*
-    用于区分对象的维度列表
+    CMDB模型ID
     */
-    repeated string identifiers = 5 ;
+    string objectId = 5 ;
+    /*
+    唯一键列表(CMDB模型的属性)
+    */
+    repeated string keys = 6 ;
+    /*
+    CMDB模型与主机的关系ID
+    */
+    string relationIdWithHost = 7 ;
+    /*
+    执行巡检的方式
+agent: 通过agent执行
+
+    */
+    string method = 8 ;
 }
 
 /*

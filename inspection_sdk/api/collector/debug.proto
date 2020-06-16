@@ -11,13 +11,20 @@ DebugCollector请求
 message DebugCollectorRequest {
 message Args {
     /*
+    脚本入参值(当入参为自定义时需要)
+    */
+    string value = 1 ;
+    /*
     脚本入参key
     */
-    string key = 1 ;
+    string key = 2 ;
     /*
-    脚本入参值
+    参数的来源
+attr_id: CMDB模型的属性
+custom: 自定义
+
     */
-    string value = 2 ;
+    string source = 3 ;
 }
         
     

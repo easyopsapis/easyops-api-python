@@ -4,7 +4,7 @@ package subscriber_manager;
 
 
 
-import "model/notify/topic.proto";
+import "notify_sdk/model/notify/topic.proto";
 
 /*
 PubSubscriberUpdate请求
@@ -34,6 +34,10 @@ message PubSubscriberUpdateRequest {
     retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
     */
     int32 retry = 6 ;
+    /*
+    订阅的事件的版本，隐藏字段，因为_version不会反应关系的修改
+    */
+    int32 topicVersion = 7 ;
 }
 
 /*
@@ -53,33 +57,33 @@ message PubSubscriberUpdateResponse {
     */
     string name = 3 ;
     /*
-    订阅某个org的消息
-    */
-    int32 org = 4 ;
-    /*
     订阅负责人。如 linus
     */
-    string admin = 5 ;
+    string admin = 4 ;
     /*
     回调url. 处理成功时需要返回 status 2xx
     */
-    string callback = 6 ;
+    string callback = 5 ;
     /*
     回调名字服务名。非空时，callback url的域名解析会先经ens
     */
-    string ensName = 7 ;
+    string ensName = 6 ;
     /*
     retry 为 0 时调用 callback 出错不会重试，否则会无限重试。
     */
-    int32 retry = 8 ;
+    int32 retry = 7 ;
     /*
     模型修改时间
     */
-    int64 mtime = 9 ;
+    string mtime = 8 ;
     /*
     模型版本
     */
-    int32 _version = 10 ;
+    int32 _version = 9 ;
+    /*
+    订阅的事件的版本，隐藏字段，因为_version不会反应关系的修改
+    */
+    int32 topicVersion = 10 ;
 }
 
 /*

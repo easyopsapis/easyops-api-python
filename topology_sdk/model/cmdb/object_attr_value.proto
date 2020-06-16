@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/c
 
 
 
-import "model/cmdb/object_attr_value_struct.proto";
+import "topology_sdk/model/cmdb/object_attr_value_struct.proto";
 import "google/protobuf/struct.proto";
 
 /*

@@ -1,0 +1,80 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+import "state_workflow_sdk/model/monitor/alert_dims.proto";
+
+/*
+告警屏蔽规则
+*/
+message AlertDowntime {
+message Schedule {
+    /*
+    屏蔽周期
+    */
+    string type = 1 ;
+    /*
+    开始日期
+    */
+    string start_time = 2 ;
+    /*
+    结束日期
+    */
+    string end_time = 3 ;
+    /*
+    开始时间
+    */
+    string start_date = 4 ;
+    /*
+    结束时间
+    */
+    string end_date = 5 ;
+    /*
+    指定屏蔽的星期
+    */
+    repeated string repeat_on = 6 ;
+}
+        
+    
+    /*
+    告警屏蔽规则id
+    */
+    string id = 1 ;
+    /*
+    告警规则 ID
+    */
+    string alert_rule_id = 2 ;
+    /*
+    告警维度
+    */
+    repeated monitor.AlertDims alert_dims = 3 ;
+    /*
+    屏蔽时间段
+    */
+    Schedule schedule = 4 ;
+    /*
+    屏蔽原因
+    */
+    string reason = 5 ;
+    /*
+    创建者
+    */
+    string creator = 6 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 7 ;
+    /*
+    最近一次改变时间
+    */
+    int32 mtime = 8 ;
+    /*
+    org
+    */
+    int32 org = 9 ;
+}
+

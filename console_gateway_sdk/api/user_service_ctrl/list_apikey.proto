@@ -1,0 +1,52 @@
+syntax = "proto3";
+package user_service_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListApiKey返回
+*/
+message ListApiKeyResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    key列表
+    */
+    repeated google.protobuf.Struct data = 4 ;
+}
+
+/*
+ListApiKeyApi返回
+*/
+message ListApiKeyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    user_service_ctrl.ListApiKeyResponse data = 4 ;
+}
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+BuildAndPush请求
+*/
+message BuildAndPushRequest {
+    /*
+    storyboard的json内容
+    */
+    string storyboardJson = 1 ;
+    /*
+    projectId
+    */
+    string projectId = 2 ;
+}
+
+/*
+BuildAndPushApi返回
+*/
+message BuildAndPushResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

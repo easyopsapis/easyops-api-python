@@ -1,0 +1,39 @@
+syntax = "proto3";
+package users;
+
+
+
+
+
+/*
+ListDimissionUserFromLdap返回
+*/
+message ListDimissionUserFromLdapResponse {
+    /*
+    用户Id列表
+    */
+    repeated string list = 1 ;
+}
+
+/*
+ListDimissionUserFromLdapApi返回
+*/
+message ListDimissionUserFromLdapResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    users.ListDimissionUserFromLdapResponse data = 4 ;
+}
+

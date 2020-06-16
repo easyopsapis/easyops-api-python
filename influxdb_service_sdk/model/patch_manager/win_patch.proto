@@ -1,0 +1,63 @@
+syntax = "proto3";
+package patch_manager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/patch_manager";
+
+
+
+
+
+/*
+windows补丁模型
+*/
+message WinPatch {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    补丁编号
+    */
+    string articleId = 3 ;
+    /*
+    发布时间
+    */
+    string releaseTime = 4 ;
+    /*
+    适用系统类型(如:Windows, linux)
+    */
+    string osSystem = 5 ;
+    /*
+    适用系统版本(如:Windows Server 2012 R2)
+    */
+    repeated string osVersion = 6 ;
+    /*
+    操作系统架构
+    */
+    repeated string osArchitecture = 7 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 8 ;
+    /*
+    MSRC编号
+    */
+    string msrc = 9 ;
+    /*
+    补丁大小(单位为KB)
+    */
+    int32 size = 10 ;
+    /*
+    备注
+    */
+    string memo = 11 ;
+    /*
+    补丁下载链接
+    */
+    string url = 12 ;
+}
+

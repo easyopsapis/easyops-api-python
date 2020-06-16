@@ -1,0 +1,69 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+
+/*
+DisableAlertRule请求
+*/
+message DisableAlertRuleRequest {
+    /*
+    是否禁用
+    */
+    bool disabled = 1 ;
+    /*
+    告警规则id
+    */
+    string id = 2 ;
+}
+
+/*
+DisableAlertRule返回
+*/
+message DisableAlertRuleResponse {
+message Data {
+    /*
+    更新数量
+    */
+    int32 count = 1 ;
+}
+        
+    
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    msg
+    */
+    string msg = 2 ;
+    /*
+    data
+    */
+    Data data = 3 ;
+}
+
+/*
+DisableAlertRuleApi返回
+*/
+message DisableAlertRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.DisableAlertRuleResponse data = 4 ;
+}
+

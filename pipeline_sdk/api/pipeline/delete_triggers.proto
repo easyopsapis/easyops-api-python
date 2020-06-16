@@ -1,0 +1,40 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteTriggers请求
+*/
+message DeleteTriggersRequest {
+    /*
+    pipeline id
+    */
+    string pipeline_id = 1 ;
+}
+
+/*
+DeleteTriggersApi返回
+*/
+message DeleteTriggersResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

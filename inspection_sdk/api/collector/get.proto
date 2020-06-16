@@ -4,7 +4,8 @@ package collector;
 
 
 
-import "model/inspection/collector.proto";
+import "inspection_sdk/model/inspection/arg.proto";
+import "inspection_sdk/model/inspection/collector.proto";
 
 /*
 GetCollector请求

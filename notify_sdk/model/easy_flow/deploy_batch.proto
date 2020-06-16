@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/easy_flow/deploy_batch_target.proto";
+import "notify_sdk/model/easy_flow/deploy_target.proto";
 
 /*
 部署分批
@@ -16,7 +16,7 @@ message Batches {
     /*
     批次主机列表
     */
-    repeated easy_flow.DeployBatchTarget targets = 1 ;
+    repeated easy_flow.DeployTarget targets = 1 ;
 }
         
     
@@ -39,6 +39,6 @@ message Batches {
     /*
     是否失败暂停
     */
-    string failedStop = 5 ;
+    bool failedStop = 5 ;
 }
 

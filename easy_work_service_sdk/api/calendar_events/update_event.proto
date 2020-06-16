@@ -1,0 +1,76 @@
+syntax = "proto3";
+package calendar_events;
+
+
+
+
+import "easy_work_service_sdk/model/easy_work_service/calendar_events.proto";
+
+/*
+UpdateEvent请求
+*/
+message UpdateEventRequest {
+    /*
+    日历事件ID
+    */
+    string eventId = 1 ;
+    /*
+    事件名称
+    */
+    string eventName = 2 ;
+    /*
+    事件相关成员
+    */
+    repeated string members = 3 ;
+    /*
+    事件类型
+    */
+    string type = 4 ;
+    /*
+    开始日期 2020-02-02
+    */
+    string startDay = 5 ;
+    /*
+    开始时间 09:30:00
+    */
+    string startTime = 6 ;
+    /*
+    结束日期 2020-02-02
+    */
+    string endDay = 7 ;
+    /*
+    结束时间 09:30:00
+    */
+    string endTime = 8 ;
+    /*
+    事件备注
+    */
+    string memo = 9 ;
+    /*
+    事件的等级
+    */
+    string level = 10 ;
+}
+
+/*
+UpdateEventApi返回
+*/
+message UpdateEventResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_work_service.CalendarEvents data = 4 ;
+}
+

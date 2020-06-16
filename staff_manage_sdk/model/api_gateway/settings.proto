@@ -1,0 +1,44 @@
+syntax = "proto3";
+package api_gateway;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/api_gateway";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+初始化配置
+*/
+message Settings {
+message Launchpad {
+    /*
+    列数
+    */
+    int32 columns = 1 ;
+    /*
+    行数
+    */
+    int32 rows = 2 ;
+}
+        
+    
+    /*
+    特性开关
+    */
+    google.protobuf.Struct featureFlags = 1 ;
+    /*
+    首页地址
+    */
+    string homepage = 2 ;
+    /*
+    品牌设置
+    */
+    google.protobuf.Struct brand = 3 ;
+    /*
+    launchpad
+    */
+    Launchpad launchpad = 4 ;
+}
+

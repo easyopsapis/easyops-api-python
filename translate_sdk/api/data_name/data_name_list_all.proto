@@ -1,0 +1,161 @@
+syntax = "proto3";
+package data_name;
+
+
+
+
+
+/*
+DataNameListAll请求
+*/
+message DataNameListAllRequest {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
+DataNameListAll返回
+*/
+message DataNameListAllResponse {
+message Data {
+message Formats {
+message Fields {
+    /*
+    字段类型
+    */
+    string field_type = 1 ;
+    /*
+    字段描述
+    */
+    string description = 2 ;
+    /*
+    字段名称
+    */
+    string field_name = 3 ;
+    /*
+    字段值类型
+    */
+    string field_value_type = 4 ;
+    /*
+    单位
+    */
+    string unit = 5 ;
+}
+        
+    
+    /*
+    配置id
+    */
+    string config_id = 1 ;
+    /*
+    字段定义
+    */
+    repeated Fields fields = 2 ;
+    /*
+    数据表名
+    */
+    string table = 3 ;
+}
+        
+    
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    创建用户
+    */
+    string creator = 2 ;
+    /*
+    修改用户
+    */
+    string modifier = 3 ;
+    /*
+    数据表描述
+    */
+    string description = 4 ;
+    /*
+    数据保存策略
+    */
+    string retention_policy = 5 ;
+    /*
+    数据表类型
+    */
+    string data_type = 6 ;
+    /*
+    数据表名称
+    */
+    string data_name = 7 ;
+    /*
+    是否自定义
+    */
+    bool custom = 8 ;
+    /*
+    版本号
+    */
+    float version = 9 ;
+    /*
+    数据表id
+    */
+    string _id = 10 ;
+    /*
+    数据表列表
+    */
+    repeated Formats formats = 11 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    分页参数
+    */
+    int32 page_size = 2 ;
+    /*
+    返回信息
+    */
+    string msg = 3 ;
+    /*
+    总数
+    */
+    int32 total = 4 ;
+    /*
+    页数
+    */
+    int32 page = 5 ;
+    /*
+    返回数据
+    */
+    repeated Data data = 6 ;
+}
+
+/*
+DataNameListAllApi返回
+*/
+message DataNameListAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    data_name.DataNameListAllResponse data = 4 ;
+}
+

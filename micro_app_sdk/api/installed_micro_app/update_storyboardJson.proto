@@ -1,0 +1,53 @@
+syntax = "proto3";
+package installed_micro_app;
+
+
+
+
+import "micro_app_sdk/model/micro_app/installed_micro_app.proto";
+import "google/protobuf/struct.proto";
+
+/*
+UpdateInstalledMicroAppStoryboardJson请求
+*/
+message UpdateInstalledMicroAppStoryboardJsonRequest {
+message MicroApp {
+    /*
+    小产品配置信息
+    */
+    string storyboardJson = 1 ;
+}
+        
+    
+    /*
+    小产品id
+    */
+    string app_id = 1 ;
+    /*
+    要更新的小产品信息
+    */
+    MicroApp micro_app = 2 ;
+}
+
+/*
+UpdateInstalledMicroAppStoryboardJsonApi返回
+*/
+message UpdateInstalledMicroAppStoryboardJsonResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    micro_app.InstalledMicroApp data = 4 ;
+}
+

@@ -24,28 +24,28 @@ message SQLPackageVersion {
     */
     string repoVersionId = 3 ;
     /*
-    程序包版本ID
-    */
-    string appVersionId = 4 ;
-    /*
     版本名称
     */
-    string versionName = 5 ;
+    string versionName = 4 ;
     /*
     备注
     */
-    string memo = 6 ;
+    string memo = 5 ;
     /*
     创建者
     */
-    string creator = 7 ;
+    string creator = 6 ;
     /*
     创建时间
     */
-    int64 ctime = 8 ;
+    int64 ctime = 7 ;
     /*
     修改时间
     */
-    int64 mtime = 9 ;
+    int64 mtime = 8 ;
+    /*
+    版本类型, [开发,测试,预发布,生产]
+    */
+    string versionType = 9 ;
 }
 

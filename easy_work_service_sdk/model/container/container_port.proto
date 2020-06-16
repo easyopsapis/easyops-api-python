@@ -1,0 +1,31 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+容器端口设置
+*/
+message ContainerPort {
+    /*
+    端口名称
+    */
+    string name = 1 ;
+    /*
+    容器所在主机要监听的端口，默认与Container相同
+    */
+    int32 hostPort = 2 ;
+    /*
+    容器监听端口
+    */
+    int32 containerPort = 3 ;
+    /*
+    传输协议, 默认为 TCP
+    */
+    string protocol = 4 ;
+}
+

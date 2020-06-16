@@ -1,0 +1,154 @@
+syntax = "proto3";
+package micro_app;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/micro_app";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+小产品
+*/
+message InstalledMicroAppBootstrap {
+message Icons {
+    /*
+    图标url
+    */
+    string large = 1 ;
+}
+        
+message ClonedFrom {
+    /*
+    克隆的appId
+    */
+    string appId = 1 ;
+    /*
+    克隆的版本号
+    */
+    string version = 2 ;
+    /*
+    克隆的app名称
+    */
+    string name = 3 ;
+}
+        
+message MenuIcon {
+    /*
+    图标库
+    */
+    string lib = 1 ;
+    /*
+    Antd 图标类型
+    */
+    string type = 2 ;
+    /*
+    Antd 图标主题
+    */
+    string theme = 3 ;
+    /*
+    FA 或 EasyOps 图标
+    */
+    string icon = 4 ;
+    /*
+    FA 图标前缀
+    */
+    string prefix = 5 ;
+    /*
+    EasyOps 图标分类
+    */
+    string category = 6 ;
+}
+        
+    
+    /*
+    小产品id
+    */
+    string id = 1 ;
+    /*
+    表示该应用是内部的，不出现在 launchpad 和 app store 中
+    */
+    bool internal = 2 ;
+    /*
+    私有安装应用, true or false
+    */
+    bool private = 3 ;
+    /*
+    将console以iframe嵌入
+    */
+    string legacy = 4 ;
+    /*
+    小产品名称
+    */
+    string name = 5 ;
+    /*
+    图标url
+    */
+    Icons icons = 6 ;
+    /*
+    小产品配置
+    */
+    string storyboardJson = 7 ;
+    /*
+    标签
+    */
+    repeated string tags = 8 ;
+    /*
+    NA程序包当前版本
+    */
+    string currentVersion = 9 ;
+    /*
+    安装状态， ok-成功, running-正在安装
+    */
+    string installStatus = 10 ;
+    /*
+    小产品首页
+    */
+    string homepage = 11 ;
+    /*
+    克隆对象
+    */
+    ClonedFrom clonedFrom = 12 ;
+    /*
+    作者
+    */
+    string owner = 13 ;
+    /*
+    readme
+    */
+    string readme = 14 ;
+    /*
+    状态
+    */
+    string status = 15 ;
+    /*
+    创建时间
+    */
+    string ctime = 16 ;
+    /*
+    修改时间
+    */
+    string mtime = 17 ;
+    /*
+    关联程序包名称
+    */
+    string pkgName = 18 ;
+    /*
+    菜单中显示的图标
+    */
+    MenuIcon menuIcon = 19 ;
+    /*
+    图标背景
+    */
+    string iconBackground = 20 ;
+    /*
+    默认配置
+    */
+    google.protobuf.Struct defaultConfig = 21 ;
+    /*
+    用户配置
+    */
+    google.protobuf.Struct userConfig = 22 ;
+}
+

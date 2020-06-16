@@ -1,0 +1,45 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "flowable_service_sdk/model/cmdb/cluster_info.proto";
+import "flowable_service_sdk/model/easy_flow/deploy_package_result.proto";
+
+/*
+目标设备信息
+*/
+message TargetResult {
+    /*
+    目标设备Id
+    */
+    string targetId = 1 ;
+    /*
+    目标设别名称
+    */
+    string targetName = 2 ;
+    /*
+    集群
+    */
+    cmdb.ClusterInfo cluster = 3 ;
+    /*
+    错误码
+    */
+    int32 code = 4 ;
+    /*
+    消息
+    */
+    string msg = 5 ;
+    /*
+    状态
+    */
+    string status = 6 ;
+    /*
+    包状态列表
+    */
+    repeated easy_flow.DeployPackageResult packageStatus = 7 ;
+}
+

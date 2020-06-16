@@ -1,0 +1,112 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "flowable_sdk/model/container/key_to_path.proto";
+
+/*
+存储卷
+*/
+message Volume {
+message HostPath {
+    /*
+    挂载路径
+    */
+    string path = 1 ;
+    /*
+    hostPath 存储卷类型, ["DirectoryOrCreate", "Directory", "FileOrCreate", "File", "Socket", "CharDevice", "BlockDevice"]
+    */
+    string type = 2 ;
+}
+        
+message EmptyDir {
+    /*
+    emptyDir 存储介质, "" 代表使用 node 上面默认的存储
+    */
+    string medium = 1 ;
+    /*
+    emptyDir 存储介质, ["", "Memory", "HugePages"], 单位Mi
+    */
+    string sizeLimit = 2 ;
+}
+        
+message Secret {
+    /*
+    使用的密钥名称
+    */
+    string secretName = 1 ;
+    /*
+    key 映射文件名
+    */
+    repeated container.KeyToPath items = 2 ;
+    /*
+    默认文件权限
+    */
+    int32 defaultMode = 3 ;
+    /*
+    secret或者key必须存在
+    */
+    bool optional = 4 ;
+}
+        
+message ConfigMap {
+    /*
+    使用的 configMap 名称
+    */
+    string name = 1 ;
+    /*
+    key 映射文件名
+    */
+    repeated container.KeyToPath items = 2 ;
+    /*
+    默认文件权限
+    */
+    int32 defaultMode = 3 ;
+    /*
+    secret或者key必须存在
+    */
+    bool optional = 4 ;
+}
+        
+message PersistentVolumeClaim {
+    /*
+    pvc名称, 必须要同一 namespace 下面
+    */
+    string claimName = 1 ;
+    /*
+    只读
+    */
+    bool readOnly = 2 ;
+}
+        
+    
+    /*
+    pod定义的共享存储卷名称
+    */
+    string name = 1 ;
+    /*
+    存储卷内volume 来源为 hostPath
+    */
+    HostPath hostPath = 2 ;
+    /*
+    volume 来源为 emptyDir
+    */
+    EmptyDir emptyDir = 3 ;
+    /*
+    volume 来源为 secret
+    */
+    Secret secret = 4 ;
+    /*
+    volume 来源为 configMap
+    */
+    ConfigMap configMap = 5 ;
+    /*
+    volume 来源为 pvc
+    */
+    PersistentVolumeClaim persistentVolumeClaim = 6 ;
+}
+

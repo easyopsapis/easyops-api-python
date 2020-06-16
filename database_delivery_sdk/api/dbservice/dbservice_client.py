@@ -2,29 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import batch_update_owner_pb2
+import database_delivery_sdk.api.dbservice.batch_update_owner_pb2
 
 import google.protobuf.empty_pb2
 
-import create_pb2
+import database_delivery_sdk.api.dbservice.create_pb2
 
-import delete_pb2
+import database_delivery_sdk.api.dbservice.delete_pb2
 
-import get_pb2
+import database_delivery_sdk.api.dbservice.get_pb2
 
-import list_pb2
+import database_delivery_sdk.api.dbservice.list_pb2
 
-import listen_org_register_pb2
+import database_delivery_sdk.api.dbservice.listen_org_register_pb2
 
-import update_pb2
+import database_delivery_sdk.api.dbservice.update_pb2
 
-import utils.http_util
+import database_delivery_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -46,7 +41,7 @@ class DbserviceClient(object):
 
     
     def batch_update_db_service_owner(self, request, org, user, timeout=10):
-        # type: (batch_update_owner_pb2.BatchUpdateDBServiceOwnerRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbservice.batch_update_owner_pb2.BatchUpdateDBServiceOwnerRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量设置数据库服务运维负责人
         :param request: batch_update_db_service_owner请求
@@ -66,7 +61,7 @@ class DbserviceClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -86,14 +81,14 @@ class DbserviceClient(object):
         return rsp
     
     def create_db_service(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateDBServiceRequest, int, str, int) -> create_pb2.CreateDBServiceResponse
+        # type: (database_delivery_sdk.api.dbservice.create_pb2.CreateDBServiceRequest, int, str, int) -> database_delivery_sdk.api.dbservice.create_pb2.CreateDBServiceResponse
         """
         创建数据库服务
         :param request: create_db_service请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateDBServiceResponse
+        :return: database_delivery_sdk.api.dbservice.create_pb2.CreateDBServiceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -106,7 +101,7 @@ class DbserviceClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -119,14 +114,14 @@ class DbserviceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateDBServiceResponse()
+        rsp = database_delivery_sdk.api.dbservice.create_pb2.CreateDBServiceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_db_service(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteDBServiceRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbservice.delete_pb2.DeleteDBServiceRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除数据库服务
         :param request: delete_db_service请求
@@ -147,7 +142,7 @@ class DbserviceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -167,14 +162,14 @@ class DbserviceClient(object):
         return rsp
     
     def get_db_service(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetDBServiceRequest, int, str, int) -> get_pb2.GetDBServiceResponse
+        # type: (database_delivery_sdk.api.dbservice.get_pb2.GetDBServiceRequest, int, str, int) -> database_delivery_sdk.api.dbservice.get_pb2.GetDBServiceResponse
         """
         获取数据库服务详情
         :param request: get_db_service请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetDBServiceResponse
+        :return: database_delivery_sdk.api.dbservice.get_pb2.GetDBServiceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -188,7 +183,7 @@ class DbserviceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -201,21 +196,21 @@ class DbserviceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetDBServiceResponse()
+        rsp = database_delivery_sdk.api.dbservice.get_pb2.GetDBServiceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_db_service(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListDBServiceRequest, int, str, int) -> list_pb2.ListDBServiceResponse
+        # type: (database_delivery_sdk.api.dbservice.list_pb2.ListDBServiceRequest, int, str, int) -> database_delivery_sdk.api.dbservice.list_pb2.ListDBServiceResponse
         """
         获取数据库服务列表
         :param request: list_db_service请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListDBServiceResponse
+        :return: database_delivery_sdk.api.dbservice.list_pb2.ListDBServiceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -228,7 +223,7 @@ class DbserviceClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -241,14 +236,14 @@ class DbserviceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListDBServiceResponse()
+        rsp = database_delivery_sdk.api.dbservice.list_pb2.ListDBServiceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def listen_org_register(self, request, org, user, timeout=10):
-        # type: (listen_org_register_pb2.ListenOrgRegisterRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbservice.listen_org_register_pb2.ListenOrgRegisterRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         监听ORG创建事件
         :param request: listen_org_register请求
@@ -268,7 +263,7 @@ class DbserviceClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -288,14 +283,14 @@ class DbserviceClient(object):
         return rsp
     
     def update_db_service(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateDBServiceRequest, int, str, int) -> update_pb2.UpdateDBServiceResponse
+        # type: (database_delivery_sdk.api.dbservice.update_pb2.UpdateDBServiceRequest, int, str, int) -> database_delivery_sdk.api.dbservice.update_pb2.UpdateDBServiceResponse
         """
         更新数据库服务详情
         :param request: update_db_service请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_pb2.UpdateDBServiceResponse
+        :return: database_delivery_sdk.api.dbservice.update_pb2.UpdateDBServiceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -309,7 +304,7 @@ class DbserviceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -322,7 +317,7 @@ class DbserviceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_pb2.UpdateDBServiceResponse()
+        rsp = database_delivery_sdk.api.dbservice.update_pb2.UpdateDBServiceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+import "assets_inventory_sdk/model/ops_automation/bind_resource.proto";
+import "assets_inventory_sdk/model/ops_automation/mail_info.proto";
+
+/*
+创建巡检任务
+*/
+message Jobs {
+    /*
+    任务名称
+    */
+    string name = 1 ;
+    /*
+    菜单分类
+    */
+    string category = 2 ;
+    /*
+    菜单ID
+    */
+    string menuId = 3 ;
+    /*
+    绑定资源
+    */
+    ops_automation.BindResource bindResource = 4 ;
+    /*
+    作业描述
+    */
+    string desc = 5 ;
+    /*
+    执行时是否允许修改入参
+    */
+    bool allowModify = 6 ;
+    /*
+    邮件通知配置
+    */
+    ops_automation.MailInfo mail = 7 ;
+    /*
+    作业ID
+    */
+    string id = 8 ;
+}
+

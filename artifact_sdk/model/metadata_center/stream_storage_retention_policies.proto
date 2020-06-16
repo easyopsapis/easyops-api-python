@@ -1,0 +1,35 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+
+/*
+数据流存储的RetentionPolicy
+*/
+message StreamStorageRetentionPolicy {
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    RP名称
+    */
+    string name = 2 ;
+    /*
+    RP所属数据库
+    */
+    string database = 3 ;
+    /*
+    数据保留时间
+    */
+    string duration = 4 ;
+    /*
+    数据分片时间范围
+    */
+    string shardDuration = 5 ;
+}
+

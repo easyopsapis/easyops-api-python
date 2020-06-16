@@ -1,0 +1,48 @@
+syntax = "proto3";
+package host_resolved;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdateHostUnresolved请求
+*/
+message UpdateHostUnresolvedRequest {
+    /*
+    操作类型
+    */
+    string action = 1 ;
+    /*
+    主机数据
+    */
+    google.protobuf.Struct host = 2 ;
+    /*
+    id
+    */
+    string _id = 3 ;
+}
+
+/*
+UpdateHostUnresolvedApi返回
+*/
+message UpdateHostUnresolvedResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

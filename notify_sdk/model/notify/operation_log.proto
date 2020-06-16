@@ -6,8 +6,9 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/n
 
 
 
-import "model/notify/device.proto";
-import "model/notify/app.proto";
+import "notify_sdk/model/notify/device.proto";
+import "notify_sdk/model/notify/app.proto";
+import "notify_sdk/model/notify/deploy_info.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -59,32 +60,84 @@ message OperationLog {
     */
     string target_id = 11 ;
     /*
+    目标分类
+    */
+    string target_category = 12 ;
+    /*
     app
     */
-    repeated notify.App app_list = 12 ;
+    repeated notify.App app_list = 13 ;
     /*
     ext_info
     */
-    google.protobuf.Struct ext_info = 13 ;
+    google.protobuf.Struct ext_info = 14 ;
     /*
-    修改时间
+    notifiers
     */
-    int64 mtime = 14 ;
+    repeated string notifiers = 15 ;
     /*
-    创建时间
+    trigger
     */
-    int64 ctime = 15 ;
+    string trigger = 16 ;
+    /*
+    memo
+    */
+    string memo = 17 ;
     /*
     关联应用id
     */
-    string app_id = 16 ;
-    /*
-    关联包id
-    */
-    string package_id = 17 ;
+    string app_id = 18 ;
     /*
     关联集群id
     */
-    string cluster_id = 18 ;
+    string cluster_id = 19 ;
+    /*
+    关联包id
+    */
+    string package_id = 20 ;
+    /*
+    关联包名称
+    */
+    string package_name = 21 ;
+    /*
+    version_id
+    */
+    string version_id = 22 ;
+    /*
+    version_name
+    */
+    string version_name = 23 ;
+    /*
+    deploy_info
+    */
+    notify.DeployInfo deploy_info = 24 ;
+    /*
+    content
+    */
+    string content = 25 ;
+    /*
+    data_name
+    */
+    string data_name = 26 ;
+    /*
+    ip
+    */
+    string ip = 27 ;
+    /*
+    ip_list
+    */
+    repeated string ip_list = 28 ;
+    /*
+    subject
+    */
+    string subject = 29 ;
+    /*
+    修改时间
+    */
+    int64 mtime = 30 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 31 ;
 }
 

@@ -1,0 +1,70 @@
+syntax = "proto3";
+package host_resolved;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+Search请求
+*/
+message SearchRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    查询参数
+    */
+    google.protobuf.Struct query = 3 ;
+}
+
+/*
+Search返回
+*/
+message SearchResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    文档数据
+    */
+    repeated google.protobuf.Struct list = 4 ;
+}
+
+/*
+SearchApi返回
+*/
+message SearchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    host_resolved.SearchResponse data = 4 ;
+}
+

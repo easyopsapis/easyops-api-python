@@ -1,0 +1,98 @@
+syntax = "proto3";
+package influxdb_proxy;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+InfluxdbQuery请求
+*/
+message InfluxdbQueryRequest {
+    /*
+    数据库
+    */
+    string db = 1 ;
+    /*
+    SQL语句
+    */
+    string q = 2 ;
+    /*
+    返回时间戳的精度
+    */
+    string epoch = 3 ;
+    /*
+    是否翻译instanceId
+    */
+    bool translate = 4 ;
+}
+
+/*
+InfluxdbQuery返回
+*/
+message InfluxdbQueryResponse {
+message Results {
+message Series {
+    /*
+    指标值（是一个二维表），根据sql不同而不同，他的列在columns标明
+    */
+    repeated google.protobuf.Value values = 1 ;
+    /*
+    表名
+    */
+    string name = 2 ;
+    /*
+    列名
+    */
+    repeated string columns = 3 ;
+    /*
+    tags
+    */
+    google.protobuf.Struct tags = 4 ;
+}
+        
+    
+    /*
+    series
+    */
+    repeated Series series = 1 ;
+    /*
+    error
+    */
+    string error = 2 ;
+    /*
+    statement_id
+    */
+    int32 statement_id = 3 ;
+}
+        
+    
+    /*
+    返回的数据
+    */
+    repeated Results results = 1 ;
+}
+
+/*
+InfluxdbQueryApi返回
+*/
+message InfluxdbQueryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    influxdb_proxy.InfluxdbQueryResponse data = 4 ;
+}
+

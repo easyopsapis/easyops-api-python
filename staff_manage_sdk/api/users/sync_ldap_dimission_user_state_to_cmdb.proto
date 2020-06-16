@@ -1,0 +1,65 @@
+syntax = "proto3";
+package users;
+
+
+
+
+
+/*
+SyncLdapDimissionUserStateToCmdb请求
+*/
+message SyncLdapDimissionUserStateToCmdbRequest {
+    /*
+    cmdb地址,http://127.0.0.1
+    */
+    string host = 1 ;
+    /*
+    cmdb端口, 8079
+    */
+    int32 port = 2 ;
+    /*
+    user
+    */
+    string user = 3 ;
+    /*
+    org
+    */
+    int32 org = 4 ;
+}
+
+/*
+SyncLdapDimissionUserStateToCmdb返回
+*/
+message SyncLdapDimissionUserStateToCmdbResponse {
+    /*
+    更新用户数
+    */
+    int32 updateCount = 1 ;
+    /*
+    更新失败的用户列表
+    */
+    repeated string failedList = 2 ;
+}
+
+/*
+SyncLdapDimissionUserStateToCmdbApi返回
+*/
+message SyncLdapDimissionUserStateToCmdbResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    users.SyncLdapDimissionUserStateToCmdbResponse data = 4 ;
+}
+

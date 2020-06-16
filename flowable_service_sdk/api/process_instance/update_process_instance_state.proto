@@ -1,0 +1,44 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UpdateProcessInstanceState请求
+*/
+message UpdateProcessInstanceStateRequest {
+    /*
+    流程实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    操作状态：挂起、激活、作废
+    */
+    string action = 2 ;
+}
+
+/*
+UpdateProcessInstanceStateApi返回
+*/
+message UpdateProcessInstanceStateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

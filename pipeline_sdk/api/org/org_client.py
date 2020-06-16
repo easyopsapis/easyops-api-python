@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
-
 
 import google.protobuf.empty_pb2
 
-import utils.http_util
+import pipeline_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -31,11 +26,11 @@ class OrgClient(object):
         self._host = host
 
     
-    def register(self, request, org, user, timeout=10):
+    def register_org(self, request, org, user, timeout=10):
         # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         注册
-        :param request: register请求
+        :param request: register_org请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
@@ -47,12 +42,12 @@ class OrgClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.pipeline.org.Register"
+            route_name = "easyops.api.pipeline.org.RegisterOrg"
         uri = "/api/pipeline/v1/org/register"
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,

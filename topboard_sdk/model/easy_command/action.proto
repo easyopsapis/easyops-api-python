@@ -1,0 +1,36 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+Action规格
+*/
+message Action {
+    /*
+    创建任务时设置的action名称
+    */
+    string name = 1 ;
+    /*
+    action类型，一般不用设置
+    */
+    string type = 2 ;
+    /*
+    设置的action动作
+    */
+    string action = 3 ;
+    /*
+    设置的action超时时间，单位为秒。设置为0时不超时
+    */
+    int32 timeout = 4 ;
+    /*
+    设置的action参数。见 CmdActionParam FileActionParam
+    */
+    google.protobuf.Struct param = 5 ;
+}
+

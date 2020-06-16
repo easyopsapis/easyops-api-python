@@ -4,10 +4,7 @@ package strategy;
 
 
 
-import "model/easy_flow/deploy_batch_target.proto";
-import "model/cmdb/cluster_info.proto";
-import "model/easy_flow/target_info.proto";
-import "model/easy_flow/deploy_strategy.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_strategy.proto";
 
 /*
 Get请求
@@ -17,6 +14,24 @@ message GetRequest {
     策略Id
     */
     string strategyID = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+    /*
+    错误码
+    */
+    int32 code = 1 ;
+    /*
+    消息
+    */
+    string msg = 2 ;
+    /*
+    返回数据
+    */
+    easy_flow.DeployStrategy data = 3 ;
 }
 
 /*
@@ -38,6 +53,6 @@ message GetResponseWrapper {
     /*
     返回数据
     */
-    easy_flow.DeployStrategy data = 4 ;
+    strategy.GetResponse data = 4 ;
 }
 

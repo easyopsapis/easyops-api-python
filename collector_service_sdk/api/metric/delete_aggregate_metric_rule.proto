@@ -1,0 +1,40 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteCollectorAggregateMetricRule请求
+*/
+message DeleteCollectorAggregateMetricRuleRequest {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteCollectorAggregateMetricRuleApi返回
+*/
+message DeleteCollectorAggregateMetricRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

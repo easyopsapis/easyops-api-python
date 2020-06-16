@@ -1,0 +1,143 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+import "flowable_service_sdk/model/notify/device.proto";
+import "flowable_service_sdk/model/notify/app.proto";
+import "flowable_service_sdk/model/notify/deploy_info.proto";
+import "google/protobuf/struct.proto";
+
+/*
+返回数据中具体一条日志
+*/
+message OperationLog {
+    /*
+    系统名称
+    */
+    string system = 1 ;
+    /*
+    topic
+    */
+    string topic = 2 ;
+    /*
+    事件id
+    */
+    string event_id = 3 ;
+    /*
+    父事件id
+    */
+    string parent_event_id = 4 ;
+    /*
+    父事件
+    */
+    notify.OperationLog parent_event = 5 ;
+    /*
+    事件名称
+    */
+    string event = 6 ;
+    /*
+    事件状态
+    */
+    string status = 7 ;
+    /*
+    设备列表
+    */
+    repeated notify.Device device_list = 8 ;
+    /*
+    操作人
+    */
+    string operator = 9 ;
+    /*
+    目标名称(工具名/流程名/对象名/实例名)
+    */
+    string target_name = 10 ;
+    /*
+    目标名称
+    */
+    string target_id = 11 ;
+    /*
+    目标分类
+    */
+    string target_category = 12 ;
+    /*
+    app
+    */
+    repeated notify.App app_list = 13 ;
+    /*
+    ext_info
+    */
+    google.protobuf.Struct ext_info = 14 ;
+    /*
+    notifiers
+    */
+    repeated string notifiers = 15 ;
+    /*
+    trigger
+    */
+    string trigger = 16 ;
+    /*
+    memo
+    */
+    string memo = 17 ;
+    /*
+    关联应用id
+    */
+    string app_id = 18 ;
+    /*
+    关联集群id
+    */
+    string cluster_id = 19 ;
+    /*
+    关联包id
+    */
+    string package_id = 20 ;
+    /*
+    关联包名称
+    */
+    string package_name = 21 ;
+    /*
+    version_id
+    */
+    string version_id = 22 ;
+    /*
+    version_name
+    */
+    string version_name = 23 ;
+    /*
+    deploy_info
+    */
+    notify.DeployInfo deploy_info = 24 ;
+    /*
+    content
+    */
+    string content = 25 ;
+    /*
+    data_name
+    */
+    string data_name = 26 ;
+    /*
+    ip
+    */
+    string ip = 27 ;
+    /*
+    ip_list
+    */
+    repeated string ip_list = 28 ;
+    /*
+    subject
+    */
+    string subject = 29 ;
+    /*
+    修改时间
+    */
+    int64 mtime = 30 ;
+    /*
+    创建时间
+    */
+    int64 ctime = 31 ;
+}
+

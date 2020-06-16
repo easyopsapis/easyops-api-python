@@ -1,0 +1,36 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+import "influxdb_service_sdk/model/inspection/arg.proto";
+
+/*
+采集脚本
+*/
+message InspectionCollector {
+    /*
+    脚本id
+    */
+    string id = 1 ;
+    /*
+    脚本名称
+    */
+    string name = 2 ;
+    /*
+    脚本内容
+    */
+    string content = 3 ;
+    /*
+    脚本类型
+    */
+    string script = 4 ;
+    /*
+    脚本入参
+    */
+    repeated inspection.InspectionArg args = 5 ;
+}
+

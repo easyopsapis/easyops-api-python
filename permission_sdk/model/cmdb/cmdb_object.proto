@@ -6,90 +6,111 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/c
 
 
 
-import "model/cmdb/object_attr.proto";
-import "model/cmdb/object_relation.proto";
-import "model/cmdb/object_relation_group.proto";
-import "model/cmdb/object_view.proto";
+import "permission_sdk/model/cmdb/object_attr.proto";
+import "permission_sdk/model/cmdb/object_relation.proto";
+import "permission_sdk/model/cmdb/object_relation_group.proto";
+import "permission_sdk/model/cmdb/object_index.proto";
+import "permission_sdk/model/cmdb/object_view.proto";
 
 /*
 模型
 */
 message CmdbObject {
     /*
-    名称
-    */
-    string name = 1 ;
-    /*
-    objectId
-    */
-    string objectId = 2 ;
-    /*
-    备注
-    */
-    string memo = 3 ;
-    /*
     属性列表
     */
-    repeated cmdb.ObjectAttr attrList = 4 ;
+    repeated cmdb.ObjectAttr attrList = 1 ;
     /*
     关系列表
     */
-    repeated cmdb.ObjectRelation relation_list = 5 ;
+    repeated cmdb.ObjectRelation relation_list = 2 ;
     /*
     关系分组
     */
-    repeated cmdb.ObjectRelationGroup relation_groups = 6 ;
+    repeated cmdb.ObjectRelationGroup relation_groups = 3 ;
+    /*
+    索引列表
+    */
+    repeated cmdb.ObjectIndex indexList = 4 ;
+    /*
+    名称
+    */
+    string name = 5 ;
+    /*
+    objectId
+    */
+    string objectId = 6 ;
+    /*
+    备注
+    */
+    string memo = 7 ;
     /*
     视图设置
     */
-    cmdb.ObjectView view = 7 ;
+    cmdb.ObjectView view = 8 ;
     /*
     true 内置模型，false 用户自定义模型
     */
-    bool protected = 8 ;
+    bool protected = 9 ;
     /*
     当为 true 时，不纳入全文搜索
     */
-    bool wordIndexDenied = 9 ;
+    bool wordIndexDenied = 10 ;
     /*
     分类
     */
-    string category = 10 ;
+    string category = 11 ;
     /*
     模型图标
     */
-    string icon = 11 ;
+    string icon = 12 ;
+    /*
+    模型所属小产品，有值则会在界面隐藏该模型
+    */
+    string system = 13 ;
     /*
     创建时间
     */
-    string ctime = 12 ;
+    string ctime = 14 ;
     /*
     修改时间
     */
-    string mtime = 13 ;
+    string mtime = 15 ;
     /*
     创建者
     */
-    string creator = 14 ;
+    string creator = 16 ;
     /*
     修改者
     */
-    string modifier = 15 ;
+    string modifier = 17 ;
     /*
     创建时间的时间截
     */
-    int32 _ts = 16 ;
+    int32 _ts = 18 ;
     /*
     模型版本
     */
-    int32 _version = 17 ;
+    int32 _version = 19 ;
     /*
     编辑权限白名单
     */
-    repeated string updateAuthorizers = 18 ;
+    repeated string updateAuthorizers = 20 ;
     /*
     删除权限白名单
     */
-    repeated string deleteAuthorizers = 19 ;
+    repeated string deleteAuthorizers = 21 ;
+    /*
+    是否是抽象模型(父模型)
+    */
+    bool isAbstract = 22 ;
+    /*
+    所属父模型
+    */
+    string parentObjectId = 23 ;
+    /*
+    当为 true 时，将会忽略该模型的实例权限点校验
+    */
+    bool permissionDenied = 24 ;
 }
 

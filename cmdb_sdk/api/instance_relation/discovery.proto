@@ -4,7 +4,7 @@ package instance_relation;
 
 
 
-import "model/cmdb/auto_discovery_instance.proto";
+import "cmdb_sdk/model/cmdb/auto_discovery_instance.proto";
 import "google/protobuf/struct.proto";
 
 /*

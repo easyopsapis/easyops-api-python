@@ -1,0 +1,52 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdateInstanceV2请求
+*/
+message UpdateInstanceV2Request {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+    /*
+    instanceId
+    */
+    string instanceId = 2 ;
+    /*
+    要更新的实例
+    */
+    google.protobuf.Struct instance = 3 ;
+    /*
+    是否只返回实例id
+    */
+    bool only_instance_id = 4 ;
+}
+
+/*
+UpdateInstanceV2Api返回
+*/
+message UpdateInstanceV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

@@ -4,7 +4,7 @@ package execute;
 
 
 
-import "model/tool/callback.proto";
+import "flow_sdk/model/tool/callback.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -46,7 +46,7 @@ message Metadata {
     /*
     是否发送notify通知
     */
-    string needNotify = 3 ;
+    bool needNotify = 3 ;
     /*
     父流程任务ID
     */
@@ -72,9 +72,10 @@ message Metadata {
     */
     string name = 9 ;
     /*
-    流程环境变量
+    流程环境变量 { "youcash":"1234",
+}
     */
-    google.protobuf.Struct flowEnv = 10 ;
+    google.protobuf.Value flowEnv = 10 ;
     /*
     流程环境类型
     */

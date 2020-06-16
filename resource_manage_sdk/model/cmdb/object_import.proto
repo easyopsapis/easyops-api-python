@@ -1,0 +1,162 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "resource_manage_sdk/model/cmdb/object_attr_value.proto";
+
+/*
+导入模型的message
+*/
+message ObjectImport {
+message AttrList {
+    /*
+    属性ID
+    */
+    string id = 1 ;
+    /*
+    属性名称
+    */
+    string name = 2 ;
+    /*
+    'true' 唯一属性
+    */
+    string unique = 3 ;
+    /*
+    'true' 只读属性，'false' 可写属性
+    */
+    string readonly = 4 ;
+    /*
+    'true' 必填属性，'false' 非必填属性
+    */
+    string required = 5 ;
+    /*
+    属性分类
+    */
+    repeated string tag = 6 ;
+    /*
+    属性的描述
+    */
+    string description = 7 ;
+    /*
+    属性的提示
+    */
+    string tips = 8 ;
+    /*
+    属性值类型，不同类型有不同字段
+    */
+    cmdb.ObjectAttrValue value = 9 ;
+}
+        
+message RelationGroups {
+    /*
+    分组ID
+    */
+    string id = 1 ;
+    /*
+    分组名称
+    */
+    string name = 2 ;
+}
+        
+message RelationList {
+    /*
+    关系名称, 不是必填, 而且在引入了 left_description 和 right_description 之后这个字段几乎处于废弃状态
+    */
+    string name = 1 ;
+    /*
+    关系左端的模型ID
+    */
+    string left_object_id = 2 ;
+    /*
+    关系左端模型中表达右端模型实例的别名字段: 比如应用的负责人需要在应用的实例中表达出一个字段; 对已有模型添加关系时这个ID需要加下划线前缀避免冲突
+    */
+    string left_id = 3 ;
+    /*
+    是与 left_id 相反的含义, 但仅用于前端展示 (p.s.: 关系左端模型的描述)
+    */
+    string left_description = 4 ;
+    /*
+    关系左端的资源模型实例至少包含多少数量的关系: 目前来说这个字段是过度设计的字段, 一般填0就好了
+    */
+    int32 left_min = 5 ;
+    /*
+    关系左端的资源模型实例最多包含多少数量的关系: 有数据库级别的索引支持, 一般情况填1 或者 -1, -1表示无限多
+    */
+    int32 left_max = 6 ;
+    /*
+    关系在左端模型的哪些分组里
+    */
+    repeated string left_groups = 7 ;
+    /*
+    关系左端标签
+    */
+    repeated string left_tags = 8 ;
+    /*
+    关系右端的模型ID
+    */
+    string right_object_id = 9 ;
+    /*
+    关系右端模型中表达左端模型实例的别名字段: 比如应用的负责人需要在应用的实例中表达出一个字段; 对已有模型添加关系时这个ID需要加下划线前缀避免冲突
+    */
+    string right_id = 10 ;
+    /*
+    是与 right_id 相反的含义, 但仅用于前端展示 (p.s.: 关系右端模型的描述)
+    */
+    string right_description = 11 ;
+    /*
+    关系右端的资源模型实例至少包含多少数量的关系: 目前来说这个字段是过度设计的字段, 一般填 0 就好了
+    */
+    int32 right_min = 12 ;
+    /*
+    关系右端的资源模型实例最多包含多少数量的关系: 有数据库级别的索引支持, 一般情况填 1 或者 -1, -1表示无限多
+    */
+    int32 right_max = 13 ;
+    /*
+    关系在右端模型的哪些分组里
+    */
+    repeated string right_groups = 14 ;
+    /*
+    关系右端标签
+    */
+    repeated string right_tags = 15 ;
+}
+        
+    
+    /*
+    ID
+    */
+    string objectId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    图标
+    */
+    string icon = 3 ;
+    /*
+    分类, 点分表示二级分类
+    */
+    string category = 4 ;
+    /*
+    说明
+    */
+    string memo = 5 ;
+    /*
+    属性列表
+    */
+    repeated AttrList attrList = 6 ;
+    /*
+    关系分组列表
+    */
+    repeated RelationGroups relation_groups = 7 ;
+    /*
+    关系列表
+    */
+    repeated RelationList relation_list = 8 ;
+}
+

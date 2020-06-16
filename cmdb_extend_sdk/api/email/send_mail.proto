@@ -1,0 +1,64 @@
+syntax = "proto3";
+package email;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+SendMail请求
+*/
+message SendMailRequest {
+    /*
+    目标地址
+    */
+    string sendTo = 1 ;
+    /*
+    邮件标题
+    */
+    string subject = 2 ;
+    /*
+    邮件内容
+    */
+    string msg = 3 ;
+    /*
+    抄送
+    */
+    string cc = 4 ;
+    /*
+    发送方地址
+    */
+    string sendFrom = 5 ;
+    /*
+    发送方名称
+    */
+    string sendFromName = 6 ;
+    /*
+    发送内容类型,默认为text/plain
+    */
+    string contentType = 7 ;
+}
+
+/*
+SendMailApi返回
+*/
+message SendMailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

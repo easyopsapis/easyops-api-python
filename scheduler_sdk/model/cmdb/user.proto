@@ -63,5 +63,9 @@ message User {
     微信
     */
     string user_wechat = 13 ;
+    /*
+    用户头像
+    */
+    string user_icon = 14 ;
 }
 

@@ -1,0 +1,81 @@
+syntax = "proto3";
+package business;
+
+
+
+
+
+/*
+GetAppDeployInstance请求
+*/
+message GetAppDeployInstanceRequest {
+    /*
+    APP的ID列表以,分割
+    */
+    string appIds = 1 ;
+}
+
+/*
+GetAppDeployInstance返回
+*/
+message GetAppDeployInstanceResponse {
+message List {
+    /*
+    部署实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    包ID
+    */
+    string packageId = 2 ;
+    /*
+    版本ID
+    */
+    string versionId = 3 ;
+    /*
+    实例ID
+    */
+    string deviceId = 4 ;
+    /*
+    实例IP
+    */
+    string deviceIp = 5 ;
+    /*
+    部署路径
+    */
+    string installPath = 6 ;
+    /*
+    应用ID
+    */
+    string appId = 7 ;
+}
+        
+    
+    /*
+    部署实例列表
+    */
+    repeated List list = 1 ;
+}
+
+/*
+GetAppDeployInstanceApi返回
+*/
+message GetAppDeployInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    business.GetAppDeployInstanceResponse data = 4 ;
+}
+

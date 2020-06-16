@@ -4,8 +4,8 @@ package container;
 
 
 
-import "model/topology/property.proto";
-import "model/topology/container.proto";
+import "topology_sdk/model/topology/property.proto";
+import "topology_sdk/model/topology/container.proto";
 
 /*
 GetContainer请求

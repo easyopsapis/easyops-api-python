@@ -1,0 +1,137 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+PostSearchV2请求
+*/
+message PostSearchV2Request {
+message Sort {
+    /*
+    属性id
+    */
+    string key = 1 ;
+    /*
+    1表示升序， -1表示降序
+    */
+    int32 order = 2 ;
+}
+        
+message Limitations {
+message Sort {
+    /*
+    属性id
+    */
+    string key = 1 ;
+    /*
+    1或-1， 1为升序， -1位降序
+    */
+    int32 order = 2 ;
+}
+        
+    
+    /*
+    关系id， 支持多级关系， 如owner， owner.app
+    */
+    string field = 1 ;
+    /*
+    关系数量限制， 0为不限制， 优先级高于relation_limit
+    */
+    int32 limit = 2 ;
+    /*
+    关系排序
+    */
+    repeated Sort sort = 3 ;
+}
+        
+    
+    /*
+    模型对象ID
+    */
+    string objectId = 1 ;
+    /*
+    e.g.: { name: { $like: '%q%' } }, { $or: [{ name: { $like: '%q%' }}] }
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    e.g.: { instanceId: true, name: true, owner.name: true}， *代表所有普通属性， 注意：建议都指定fields，按需拉取字段，不然有可能返回数据量太大而导致接口慢系统不稳定
+    */
+    google.protobuf.Struct fields = 3 ;
+    /*
+    当为 true 时，只搜索与我相关实例
+    */
+    bool only_my_instance = 4 ;
+    /*
+    页码
+    */
+    int32 page = 5 ;
+    /*
+    页大小
+    */
+    int32 page_size = 6 ;
+    /*
+    按字段排序， 留空默认按照实例ID降序排序(1表示升序， -1表示降序) e.g.: { instanceId: 1 }
+    */
+    repeated Sort sort = 7 ;
+    /*
+    按照权限过滤(通用实例都有 read， update， delete 权限控制， 主机实例在通用实例权限基础上有额外的 operate 权限， 应用实例在通用实例权限基础上有额外的 developClusterOperate， testClusterOperate， prereleaseClusterOperate， productionClusterOperate 权限) e.g.: [ "operate", "update" ]
+    */
+    repeated string permission = 8 ;
+    /*
+    限制fields所带出的关系的数量， 0为不限制，全局配置
+    */
+    int32 relation_limit = 9 ;
+    /*
+    单独指定关系的limit与sort
+    */
+    repeated Limitations limitations = 10 ;
+}
+
+/*
+PostSearchV2返回
+*/
+message PostSearchV2Response {
+    /*
+    instance list
+    */
+    repeated google.protobuf.Struct list = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+PostSearchV2Api返回
+*/
+message PostSearchV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.PostSearchV2Response data = 4 ;
+}
+

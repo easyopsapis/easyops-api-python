@@ -1,0 +1,247 @@
+syntax = "proto3";
+package flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flow";
+
+
+
+
+import "flowable_service_sdk/model/flow/flow_execute_step.proto";
+import "google/protobuf/struct.proto";
+
+/*
+流程执行结果
+*/
+message FlowInstance {
+message Metadata {
+    /*
+    环境
+    */
+    string type = 1 ;
+    /*
+    描述
+    */
+    string desc = 2 ;
+}
+        
+message FlowOutputs {
+message Columns {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    流程输出参数设置
+    */
+    repeated Columns columns = 1 ;
+}
+        
+message OutputDefs {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    流程步骤详情
+    */
+    repeated flow.FlowExecuteStep stepList = 1 ;
+    /*
+    任务ID
+    */
+    string taskId = 2 ;
+    /*
+    自动填充参数
+    */
+    repeated google.protobuf.Struct instanceMap = 3 ;
+    /*
+    执行输出
+    */
+    google.protobuf.Value outputs = 4 ;
+    /*
+    执行中步骤,如: {2: {startTime: 1563958843992, status: "executing", name: 2}}
+    */
+    google.protobuf.Value runningSteps = 5 ;
+    /*
+    是否发送notify通知
+    */
+    bool needNotify = 6 ;
+    /*
+    开始时间戳毫秒
+    */
+    int64 startTime = 7 ;
+    /*
+    结束时间戳毫秒
+    */
+    int64 endTime = 8 ;
+    /*
+    当前时间戳毫秒
+    */
+    int64 currentTime = 9 ;
+    /*
+    流程执行结果总状态("wait"-初始态等待执行, "executing"-执行中, "success"-成功, "failed"-失败, "paused"-人工确认, "interrupted"-暂停, "terminate"-终止)
+    */
+    string totalStatus = 10 ;
+    /*
+    流程执行结果
+    */
+    string message = 11 ;
+    /*
+    任务数量
+    */
+    int32 taskCounter = 12 ;
+    /*
+    流程输出数据
+    */
+    google.protobuf.Value flowOutputsData = 13 ;
+    /*
+    表格数据
+    */
+    google.protobuf.Value tableData = 14 ;
+    /*
+    标准输出
+    */
+    google.protobuf.Value standardOutputs = 15 ;
+    /*
+    agent数据
+    */
+    google.protobuf.Value agentData = 16 ;
+    /*
+    流程ID
+    */
+    string flowId = 17 ;
+    /*
+    版本号(时间戳-秒)
+    */
+    int32 version = 18 ;
+    /*
+    流程输入
+    {
+      "flowInputs": {
+        "@agents": [
+        {
+          "instanceId": "5c6f6cf0d8079",
+          "ip": "192.168.100.162"
+        },
+        {
+          "instanceId": "5c6f6cf0d8075",
+          "ip": "192.168.100.163"
+        }
+        ],
+        "must_input": "1",
+        "option_input": "000"
+      }
+    }
+
+    */
+    google.protobuf.Value flowInputs = 19 ;
+    /*
+    流程环境变量 { "youcash":"1234",
+}
+    */
+    google.protobuf.Value flowEnv = 20 ;
+    /*
+    流程环境类型
+    */
+    Metadata metadata = 21 ;
+    /*
+    流程名称
+    */
+    string name = 22 ;
+    /*
+    org
+    */
+    int32 org = 23 ;
+    /*
+    流程输出设置
+    */
+    repeated FlowOutputs flowOutputs = 24 ;
+    /*
+    输出定义
+    */
+    repeated OutputDefs outputDefs = 25 ;
+    /*
+    表格输出定义
+    */
+    repeated TableDefs tableDefs = 26 ;
+    /*
+    流程创建者
+    */
+    string creator = 27 ;
+    /*
+    流程类别如流水线、流程、流水线模板等
+    */
+    string category = 28 ;
+    /*
+    修改时间
+    */
+    string updateTime = 29 ;
+    /*
+    创建时间
+    */
+    string createTime = 30 ;
+}
+

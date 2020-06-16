@@ -2,21 +2,16 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import flow_sdk.api.execute.execute_pb2
 
-import execute_pb2
+import flow_sdk.api.execute.get_flow_result_pb2
 
-import get_flow_result_pb2
+import flow_sdk.model.flow.flow_instance_pb2
 
-import model.flow.flow_instance_pb2
+import flow_sdk.api.execute.retry_pb2
 
-import retry_pb2
-
-import utils.http_util
+import flow_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -38,14 +33,14 @@ class ExecuteClient(object):
 
     
     def execute_flow(self, request, org, user, timeout=10):
-        # type: (execute_pb2.ExecuteFlowRequest, int, str, int) -> execute_pb2.ExecuteFlowResponse
+        # type: (flow_sdk.api.execute.execute_pb2.ExecuteFlowRequest, int, str, int) -> flow_sdk.api.execute.execute_pb2.ExecuteFlowResponse
         """
         执行流程
         :param request: execute_flow请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: execute_pb2.ExecuteFlowResponse
+        :return: flow_sdk.api.execute.execute_pb2.ExecuteFlowResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -58,7 +53,7 @@ class ExecuteClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -71,21 +66,21 @@ class ExecuteClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = execute_pb2.ExecuteFlowResponse()
+        rsp = flow_sdk.api.execute.execute_pb2.ExecuteFlowResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_flow_result(self, request, org, user, timeout=10):
-        # type: (get_flow_result_pb2.GetFlowResultRequest, int, str, int) -> model.flow.flow_instance_pb2.FlowInstance
+        # type: (flow_sdk.api.execute.get_flow_result_pb2.GetFlowResultRequest, int, str, int) -> flow_sdk.model.flow.flow_instance_pb2.FlowInstance
         """
         获取流程执行结果
         :param request: get_flow_result请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.flow.flow_instance_pb2.FlowInstance
+        :return: flow_sdk.model.flow.flow_instance_pb2.FlowInstance
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -99,7 +94,7 @@ class ExecuteClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -112,21 +107,21 @@ class ExecuteClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.flow.flow_instance_pb2.FlowInstance()
+        rsp = flow_sdk.model.flow.flow_instance_pb2.FlowInstance()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def retry_step(self, request, org, user, timeout=10):
-        # type: (retry_pb2.RetryStepRequest, int, str, int) -> retry_pb2.RetryStepResponse
+        # type: (flow_sdk.api.execute.retry_pb2.RetryStepRequest, int, str, int) -> flow_sdk.api.execute.retry_pb2.RetryStepResponse
         """
         重试步骤
         :param request: retry_step请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: retry_pb2.RetryStepResponse
+        :return: flow_sdk.api.execute.retry_pb2.RetryStepResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -141,7 +136,7 @@ class ExecuteClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -154,7 +149,7 @@ class ExecuteClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = retry_pb2.RetryStepResponse()
+        rsp = flow_sdk.api.execute.retry_pb2.RetryStepResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

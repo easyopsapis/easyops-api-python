@@ -1,0 +1,36 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+import "user_service_sdk/model/cmdb_extend/subsystem_dependency.proto";
+
+/*
+系统依赖
+*/
+message SystemDependency {
+    /*
+    系统简称
+    */
+    string abbreviation = 1 ;
+    /*
+    系统名称
+    */
+    string name = 2 ;
+    /*
+    模型ID
+    */
+    string object_id = 3 ;
+    /*
+    实例ID
+    */
+    string instance_id = 4 ;
+    /*
+    子系统依赖
+    */
+    repeated cmdb_extend.SubsystemDependency subsystems = 5 ;
+}
+

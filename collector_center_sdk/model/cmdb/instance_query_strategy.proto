@@ -1,0 +1,48 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+实例查询策略
+*/
+message InstanceQueryStrategy {
+    /*
+    策略ID
+    */
+    string id = 1 ;
+    /*
+    策略名称
+    */
+    string name = 2 ;
+    /*
+    策略所属模型id
+    */
+    string objectId = 3 ;
+    /*
+    策略类型(org 或者 user)
+    */
+    string type = 4 ;
+    /*
+    策略对应的实例类型(instance 或者 relation)
+    */
+    string instance_type = 5 ;
+    /*
+    策略内容(包含查询条件和返回的字段,供前端使用，后台逻辑暂时不做校验)
+    */
+    google.protobuf.Struct query = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+    /*
+    创建用户
+    */
+    string creator = 8 ;
+}
+

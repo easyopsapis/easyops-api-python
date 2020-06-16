@@ -1,0 +1,62 @@
+syntax = "proto3";
+package object_micro_app;
+
+
+
+
+import "micro_app_sdk/model/micro_app/object_micro_app.proto";
+
+/*
+GetMicroAppList请求
+*/
+message GetMicroAppListRequest {
+    /*
+    模型id
+    */
+    string object_id = 1 ;
+}
+
+/*
+GetMicroAppList返回
+*/
+message GetMicroAppListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated micro_app.ObjectMicroApp list = 4 ;
+}
+
+/*
+GetMicroAppListApi返回
+*/
+message GetMicroAppListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    object_micro_app.GetMicroAppListResponse data = 4 ;
+}
+

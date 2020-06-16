@@ -1,0 +1,43 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+
+/*
+告警维度
+*/
+message AlertDims {
+message Values {
+    /*
+    告警维度值
+    */
+    string value = 1 ;
+    /*
+    告警维度前台展示值
+    */
+    string display_value = 2 ;
+}
+        
+    
+    /*
+    告警维度前台展示名字
+    */
+    string name = 1 ;
+    /*
+    被调接口
+    */
+    string display_name = 2 ;
+    /*
+    告警维度值数组
+    */
+    repeated Values values = 3 ;
+    /*
+    告警维度类型
+    */
+    string type = 4 ;
+}
+

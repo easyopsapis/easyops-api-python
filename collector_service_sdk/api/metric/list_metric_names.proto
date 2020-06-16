@@ -1,0 +1,141 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+
+/*
+ListCollectorMetricNames请求
+*/
+message ListCollectorMetricNamesRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    目标模型ID，多个使用逗号分隔
+    */
+    string objectId = 3 ;
+    /*
+    搜索指标名,模糊匹配
+    */
+    string metricName = 4 ;
+    /*
+    指标名列表,多个使用逗号分隔(完全匹配)
+    */
+    string metricNames = 5 ;
+    /*
+    采集模板Id
+    */
+    string templateId = 6 ;
+    /*
+    只获取基本信息（不包含关联模版列表，关联告警策略数量）
+    */
+    bool onlyBasicInfo = 7 ;
+    /*
+    只获取关键指标
+    */
+    bool onlyKeyMetric = 8 ;
+}
+
+/*
+ListCollectorMetricNames返回
+*/
+message ListCollectorMetricNamesResponse {
+message List {
+message TemplateList {
+    /*
+    模版实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    模版名称
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    指标id
+    */
+    string metricId = 1 ;
+    /*
+    指标名
+    */
+    string metricName = 2 ;
+    /*
+    指标详细说明
+    */
+    string description = 3 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 4 ;
+    /*
+    单位
+    */
+    string unit = 5 ;
+    /*
+    数据类型
+    */
+    string dataType = 6 ;
+    /*
+    是否为关键指标
+    */
+    bool isKeyMetric = 7 ;
+    /*
+    关联模版列表
+    */
+    repeated TemplateList templateList = 8 ;
+    /*
+    关联告警策略数量
+    */
+    int32 alertRuleBound = 9 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListCollectorMetricNamesApi返回
+*/
+message ListCollectorMetricNamesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    metric.ListCollectorMetricNamesResponse data = 4 ;
+}
+

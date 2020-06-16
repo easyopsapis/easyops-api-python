@@ -1,0 +1,113 @@
+syntax = "proto3";
+package assets_inventory;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/assets_inventory";
+
+
+
+
+
+/*
+资产盘点汇总
+*/
+message AssetInventorySummary {
+message DeviceSummary {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    数量
+    */
+    int32 count = 2 ;
+}
+        
+message ServerSummary {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    数量
+    */
+    int32 count = 2 ;
+}
+        
+message NetSummary {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    数量
+    */
+    int32 count = 2 ;
+}
+        
+    
+    /*
+    执行用户
+    */
+    string creator = 1 ;
+    /*
+    编号
+    */
+    string instanceId = 2 ;
+    /*
+    机房ID
+    */
+    string idcId = 3 ;
+    /*
+    批次号
+    */
+    string batchNo = 4 ;
+    /*
+    最近时间
+    */
+    string ctime = 5 ;
+    /*
+    设备总数
+    */
+    int32 total = 6 ;
+    /*
+    正常设备数量
+    */
+    int32 normal = 7 ;
+    /*
+    入库设备数量
+    */
+    int32 xin = 8 ;
+    /*
+    出库设备数量
+    */
+    int32 out = 9 ;
+    /*
+    位置变更设备数量
+    */
+    int32 changed = 10 ;
+    /*
+    异常设备数量
+    */
+    int32 invalid = 11 ;
+    /*
+    上线设备数量
+    */
+    int32 online = 12 ;
+    /*
+    下线设备数量
+    */
+    int32 offline = 13 ;
+    /*
+    设备类型占比
+    */
+    repeated DeviceSummary deviceSummary = 14 ;
+    /*
+    服务器占比
+    */
+    repeated ServerSummary serverSummary = 15 ;
+    /*
+    网络设备占比
+    */
+    repeated NetSummary netSummary = 16 ;
+}
+

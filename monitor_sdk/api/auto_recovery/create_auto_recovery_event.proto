@@ -1,0 +1,78 @@
+syntax = "proto3";
+package auto_recovery;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+CreateAutoRecoveryEvent请求
+*/
+message CreateAutoRecoveryEventRequest {
+    /*
+    告警自愈事件源
+    */
+    string source = 1 ;
+    /*
+    描述
+    */
+    string desc = 2 ;
+    /*
+    分页大小
+    */
+    string url = 3 ;
+    /*
+    自愈事件
+    */
+    google.protobuf.Struct event = 4 ;
+}
+
+/*
+CreateAutoRecoveryEvent返回
+*/
+message CreateAutoRecoveryEventResponse {
+message Data {
+    /*
+    告警自愈历史id列表
+    */
+    repeated string id = 1 ;
+}
+        
+    
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    msg
+    */
+    string msg = 2 ;
+    /*
+    data
+    */
+    Data data = 3 ;
+}
+
+/*
+CreateAutoRecoveryEventApi返回
+*/
+message CreateAutoRecoveryEventResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    auto_recovery.CreateAutoRecoveryEventResponse data = 4 ;
+}
+

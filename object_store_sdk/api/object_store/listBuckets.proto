@@ -1,0 +1,51 @@
+syntax = "proto3";
+package object_store;
+
+
+
+
+
+/*
+ListBuckets返回
+*/
+message ListBucketsResponse {
+message Buckets {
+    /*
+    对象存储桶名称
+    */
+    string bucketName = 1 ;
+    /*
+    创建时间
+    */
+    string creationDate = 2 ;
+}
+        
+    
+    /*
+    对象存储桶列表
+    */
+    repeated Buckets buckets = 1 ;
+}
+
+/*
+ListBucketsApi返回
+*/
+message ListBucketsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    object_store.ListBucketsResponse data = 4 ;
+}
+

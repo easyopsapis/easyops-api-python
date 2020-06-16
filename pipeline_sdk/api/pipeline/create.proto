@@ -4,8 +4,8 @@ package pipeline;
 
 
 
-import "model/pipeline/pipeline.proto";
-import "model/pipeline/trigger.proto";
+import "pipeline_sdk/model/pipeline/pipeline.proto";
+import "pipeline_sdk/model/pipeline/trigger.proto";
 
 /*
 Create请求
@@ -16,13 +16,17 @@ message CreateRequest {
     */
     string project_id = 1 ;
     /*
+    关联模版id
+    */
+    string template_id = 2 ;
+    /*
     流水线
     */
-    pipeline.Pipeline pipeline = 2 ;
+    pipeline.Pipeline pipeline = 3 ;
     /*
     初始化trigger
     */
-    pipeline.Trigger trigger = 3 ;
+    pipeline.Trigger trigger = 4 ;
 }
 
 /*

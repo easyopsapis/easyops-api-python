@@ -1,0 +1,132 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+DebugCollectionConfig请求
+*/
+message DebugCollectionConfigRequest {
+message Script {
+    /*
+    脚本Id
+    */
+    string id = 1 ;
+    /*
+    脚本版本
+    */
+    string version = 2 ;
+    /*
+    脚本类型
+    */
+    string type = 3 ;
+    /*
+    脚本内容
+    */
+    string content = 4 ;
+    /*
+    脚本名称
+    */
+    string name = 5 ;
+}
+        
+message Env {
+    /*
+    键
+    */
+    string key = 1 ;
+    /*
+    值
+    */
+    google.protobuf.Value value = 2 ;
+}
+        
+message Kwargs {
+    /*
+    键
+    */
+    string key = 1 ;
+    /*
+    值
+    */
+    google.protobuf.Value value = 2 ;
+}
+        
+    
+    /*
+    目标主机
+    */
+    string host = 1 ;
+    /*
+    采集类型ID
+    */
+    string clazzId = 2 ;
+    /*
+    是否忽略不符合要求数据
+    */
+    bool ignoreInvalid = 3 ;
+    /*
+    超时时间
+    */
+    int32 timeout = 4 ;
+    /*
+    脚本
+    */
+    Script script = 5 ;
+    /*
+    执行时间范围（24小时）
+    */
+    string timeRange = 6 ;
+    /*
+    名称
+    */
+    string name = 7 ;
+    /*
+    环境变量
+    */
+    repeated Env env = 8 ;
+    /*
+    参数
+    */
+    repeated Kwargs kwargs = 9 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 10 ;
+}
+
+/*
+DebugCollectionConfig返回
+*/
+message DebugCollectionConfigResponse {
+    /*
+    调试任务ID
+    */
+    string id = 1 ;
+}
+
+/*
+DebugCollectionConfigApi返回
+*/
+message DebugCollectionConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.DebugCollectionConfigResponse data = 4 ;
+}
+

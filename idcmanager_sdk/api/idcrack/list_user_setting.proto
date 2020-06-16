@@ -1,0 +1,119 @@
+syntax = "proto3";
+package idcrack;
+
+
+
+
+
+/*
+ListUserSetting请求
+*/
+message ListUserSettingRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    设备类型(设备模型ID)列表,以,分割
+    */
+    string types = 3 ;
+}
+
+/*
+ListUserSetting返回
+*/
+message ListUserSettingResponse {
+message List {
+message DetailDisplayList {
+    /*
+    字段名
+    */
+    string key = 1 ;
+    /*
+    字段中文名
+    */
+    string value = 2 ;
+    /*
+    是否展示(true 展示, 默认为 true)
+    */
+    bool show = 3 ;
+}
+        
+    
+    /*
+    用户设置名称(user_name + type)
+    */
+    string name = 1 ;
+    /*
+    用户名
+    */
+    string user_name = 2 ;
+    /*
+    设备类型
+    */
+    string type = 3 ;
+    /*
+    名称展示字段列表,默认["name"]
+    */
+    repeated string name_display_list = 4 ;
+    /*
+    详情展示字段列表,默认:名称、起始U位、占用U位、管理IP、状态、资产编号、用途,示例:
+"detail_display_list": [
+  {"key":"name", "value":"名称", "show":true},
+  {"key":"_startU", "value":"起始U位", "show":true},
+  {"key":"_occupiedU", "value":"占用U位", "show":true},
+  {"key":"ip", "value":"管理IP", "show":true},
+  {"key":"status", "value":"状态", "show":true},
+  {"key":"propertyid", "value":"资产编号", "show":true},
+  {"key":"use", "value":"用途", "show":true}
+]
+
+    */
+    repeated DetailDisplayList detail_display_list = 5 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListUserSettingApi返回
+*/
+message ListUserSettingResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    idcrack.ListUserSettingResponse data = 4 ;
+}
+

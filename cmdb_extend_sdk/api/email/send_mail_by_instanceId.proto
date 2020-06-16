@@ -1,0 +1,68 @@
+syntax = "proto3";
+package email;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+SendMailByInstanceId请求
+*/
+message SendMailByInstanceIdRequest {
+    /*
+    目标 user instanceId
+    */
+    repeated string send_to_user = 1 ;
+    /*
+    目标用户群组
+    */
+    repeated string send_to_group = 2 ;
+    /*
+    邮件标题
+    */
+    string subject = 3 ;
+    /*
+    邮件内容
+    */
+    string message = 4 ;
+    /*
+    抄送 user instanceId
+    */
+    repeated string cc_to_user = 5 ;
+    /*
+    抄送 group instanceId
+    */
+    repeated string cc_to_group = 6 ;
+    /*
+    发送方名称
+    */
+    string send_from_name = 7 ;
+    /*
+    发送内容类型,默认为text/plain
+    */
+    string contentType = 8 ;
+}
+
+/*
+SendMailByInstanceIdApi返回
+*/
+message SendMailByInstanceIdResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

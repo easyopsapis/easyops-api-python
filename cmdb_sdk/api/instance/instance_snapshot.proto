@@ -1,0 +1,52 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+InstanceSnapshot请求
+*/
+message InstanceSnapshotRequest {
+    /*
+    模型对象ID
+    */
+    string object_id = 1 ;
+    /*
+    实例ID
+    */
+    string instance_id = 2 ;
+    /*
+    版本号
+    */
+    int32 _version = 3 ;
+    /*
+    操作时间
+    */
+    int32 _ts = 4 ;
+}
+
+/*
+InstanceSnapshotApi返回
+*/
+message InstanceSnapshotResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

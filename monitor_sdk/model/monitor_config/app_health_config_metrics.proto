@@ -1,0 +1,79 @@
+syntax = "proto3";
+package monitor_config;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor_config";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+应用评分配置采集项
+*/
+message AppHealthConfigMetrics {
+message Filters {
+    /*
+    参数名
+    */
+    string name = 1 ;
+    /*
+    比较方式
+    */
+    string op = 2 ;
+    /*
+    参数值
+    */
+    string variable = 3 ;
+}
+        
+message Ranges {
+    /*
+    分值
+    */
+    int32 score = 1 ;
+    /*
+    区间闭合类型
+    */
+    string type = 2 ;
+    /*
+    最小值
+    */
+    google.protobuf.Value min_value = 3 ;
+    /*
+    最大值
+    */
+    google.protobuf.Value max_value = 4 ;
+}
+        
+    
+    /*
+    指标表
+    */
+    string table = 1 ;
+    /*
+    说明
+    */
+    string description = 2 ;
+    /*
+    字段
+    */
+    string key = 3 ;
+    /*
+    采集项类型
+    */
+    string metric_type = 4 ;
+    /*
+    聚合方式
+    */
+    string aggregation = 5 ;
+    /*
+    过滤条件
+    */
+    repeated Filters filters = 6 ;
+    /*
+    阈值区间
+    */
+    repeated Ranges ranges = 7 ;
+}
+

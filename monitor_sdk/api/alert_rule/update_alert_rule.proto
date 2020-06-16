@@ -1,0 +1,58 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "monitor_sdk/model/monitor/alert_dims.proto";
+import "monitor_sdk/model/monitor/alert_conditions.proto";
+import "google/protobuf/struct.proto";
+
+/*
+UpdateAlertRule返回
+*/
+message UpdateAlertRuleResponse {
+message Data {
+    /*
+    更新数量
+    */
+    int32 count = 1 ;
+}
+        
+    
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    msg
+    */
+    string msg = 2 ;
+    /*
+    data
+    */
+    Data data = 3 ;
+}
+
+/*
+UpdateAlertRuleApi返回
+*/
+message UpdateAlertRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.UpdateAlertRuleResponse data = 4 ;
+}
+

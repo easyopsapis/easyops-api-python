@@ -1,0 +1,94 @@
+syntax = "proto3";
+package namespace;
+
+
+
+
+import "container_sdk/model/container/workspace.proto";
+import "container_sdk/model/container/namespace.proto";
+import "container_sdk/model/container/cluster.proto";
+import "container_sdk/model/container/resource_quota.proto";
+import "container_sdk/model/container/resource_requirements.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    k8s 集群 id
+    */
+    string clusterId = 1 ;
+    /*
+    工作空间 id
+    */
+    string workspaceId = 2 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+message List {
+    /*
+    workspace 信息
+    */
+    container.Workspace workspace = 1 ;
+    /*
+    namespace 信息
+    */
+    container.Namespace namespace = 2 ;
+    /*
+    cluster
+    */
+    container.Cluster cluster = 3 ;
+    /*
+    资源限制
+    */
+    container.ResourceQuota namespaceQuota = 4 ;
+    /*
+    最大资源限制和初始资源请求
+    */
+    container.ResourceRequirements containerDefaultLimit = 5 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    namespace.ListResponse data = 4 ;
+}
+

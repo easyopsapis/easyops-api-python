@@ -6,13 +6,57 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/easy_flow/target_result.proto";
-import "model/easy_flow/deploy_label.proto";
+import "notify_sdk/model/easy_flow/target_result.proto";
+import "notify_sdk/model/easy_flow/deploy_label.proto";
 
 /*
 部署返回
 */
 message DeployRet {
+message ConfigDiff {
+message Detail {
+message Items {
+    /*
+    路径
+    */
+    string path = 1 ;
+    /*
+    包新名称
+    */
+    string newName = 2 ;
+    /*
+    包原名称
+    */
+    string oldName = 3 ;
+}
+        
+    
+    /*
+    详情
+    */
+    repeated Items items = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    包配置变更信息
+    */
+    repeated Detail detail = 2 ;
+}
+        
+    
     /*
     任务Id
     */
@@ -48,7 +92,7 @@ message DeployRet {
     /*
     是否暂停失败
     */
-    string failedStop = 9 ;
+    bool failedStop = 9 ;
     /*
     状态
     */
@@ -81,5 +125,9 @@ message DeployRet {
     标签
     */
     easy_flow.DeployLabel labels = 17 ;
+    /*
+    配置变更信息
+    */
+    repeated ConfigDiff configDiff = 18 ;
 }
 

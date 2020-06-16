@@ -33,7 +33,7 @@ message List {
     */
     string data = 1 ;
     /*
-    任务ID
+    作业ID
     */
     string id = 2 ;
     /*

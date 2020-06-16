@@ -1,0 +1,47 @@
+syntax = "proto3";
+package next_builder;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/next_builder";
+
+
+
+
+
+/*
+Storyboard路由
+*/
+message StoryboardRoute {
+    /*
+    路径
+    */
+    string path = 1 ;
+    /*
+    Exact
+    */
+    bool exact = 2 ;
+    /*
+    Public
+    */
+    bool public = 3 ;
+    /*
+    菜单定义
+    */
+    string menu = 4 ;
+    /*
+    Hybrid
+    */
+    bool hybrid = 5 ;
+    /*
+    Providers
+    */
+    repeated string providers = 6 ;
+    /*
+    DefineResolves
+    */
+    string defineResolves = 7 ;
+    /*
+    Redirect
+    */
+    string redirect = 8 ;
+}
+

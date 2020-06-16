@@ -1,0 +1,26 @@
+syntax = "proto3";
+package agent_install_script;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetInstallScript请求
+*/
+message GetInstallScriptRequest {
+    /*
+    操作系统
+    */
+    string os = 1 ;
+    /*
+    Agent安装密钥
+    */
+    string install_key = 2 ;
+    /*
+    代理地址
+    */
+    string proxy_ip = 3 ;
+}
+

@@ -1,0 +1,57 @@
+syntax = "proto3";
+package jobs;
+
+
+
+
+
+/*
+ProxyHeartbeat请求
+*/
+message ProxyHeartbeatRequest {
+    /*
+    proxy groupId
+    */
+    string groupId = 1 ;
+    /*
+    proxy nodeId
+    */
+    string nodeId = 2 ;
+}
+
+/*
+ProxyHeartbeat返回
+*/
+message ProxyHeartbeatResponse {
+    /*
+    proxy nodeId
+    */
+    string groupId = 1 ;
+    /*
+    proxy nodeId
+    */
+    string nodeId = 2 ;
+}
+
+/*
+ProxyHeartbeatApi返回
+*/
+message ProxyHeartbeatResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    jobs.ProxyHeartbeatResponse data = 4 ;
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteProduct请求
+*/
+message DeleteProductRequest {
+    /*
+    产品Id
+    */
+    string productID = 1 ;
+}
+
+/*
+DeleteProductApi返回
+*/
+message DeleteProductResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

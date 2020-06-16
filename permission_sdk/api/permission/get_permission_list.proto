@@ -4,7 +4,7 @@ package permission;
 
 
 
-import "model/permission/permission.proto";
+import "permission_sdk/model/permission/permission.proto";
 
 /*
 GetPermissionList请求
@@ -23,9 +23,13 @@ message GetPermissionListRequest {
     */
     int32 page_size = 3 ;
     /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 4 ;
+    /*
     需要鉴权的动作, 全局唯一
     */
-    string action = 4 ;
+    string action = 5 ;
 }
 
 /*
@@ -37,17 +41,21 @@ message GetPermissionListResponse {
     */
     int32 code = 1 ;
     /*
+    总数
+    */
+    int32 total = 2 ;
+    /*
     页码
     */
-    int32 page = 2 ;
+    int32 page = 3 ;
     /*
     分页大小
     */
-    int32 page_size = 3 ;
+    int32 page_size = 4 ;
     /*
     数据
     */
-    repeated permission.Permission data = 4 ;
+    repeated permission.Permission data = 5 ;
 }
 
 /*

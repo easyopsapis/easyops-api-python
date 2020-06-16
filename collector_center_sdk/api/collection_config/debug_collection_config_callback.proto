@@ -1,0 +1,81 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+
+/*
+DebugCollectionConfigCallback请求
+*/
+message DebugCollectionConfigCallbackRequest {
+message TargetsLog {
+    /*
+    调试状态码
+    */
+    int32 code = 1 ;
+    /*
+    目标条调试返回结果
+    */
+    string msg = 2 ;
+    /*
+    调试状态
+    */
+    string status = 3 ;
+}
+        
+    
+    /*
+    调试状态码
+    */
+    int32 code = 1 ;
+    /*
+    回调信息
+    */
+    string message = 2 ;
+    /*
+    错误信息
+    */
+    string error = 3 ;
+    /*
+    调试任务ID
+    */
+    string taskId = 4 ;
+    /*
+    目标执行记录
+    */
+    repeated TargetsLog targetsLog = 5 ;
+}
+
+/*
+DebugCollectionConfigCallback返回
+*/
+message DebugCollectionConfigCallbackResponse {
+    /*
+    接收回调响应ID
+    */
+    string status = 1 ;
+}
+
+/*
+DebugCollectionConfigCallbackApi返回
+*/
+message DebugCollectionConfigCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.DebugCollectionConfigCallbackResponse data = 4 ;
+}
+

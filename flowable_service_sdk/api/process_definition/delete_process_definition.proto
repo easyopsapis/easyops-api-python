@@ -1,0 +1,49 @@
+syntax = "proto3";
+package process_definition;
+
+
+
+
+
+/*
+DeleteProcessDefinition请求
+*/
+message DeleteProcessDefinitionRequest {
+    /*
+    流程定义ID
+    */
+    string definitionId = 1 ;
+}
+
+/*
+DeleteProcessDefinition返回
+*/
+message DeleteProcessDefinitionResponse {
+    /*
+    删除的流程定义ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteProcessDefinitionApi返回
+*/
+message DeleteProcessDefinitionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_definition.DeleteProcessDefinitionResponse data = 4 ;
+}
+

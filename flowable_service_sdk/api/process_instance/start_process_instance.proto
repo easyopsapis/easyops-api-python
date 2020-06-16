@@ -1,0 +1,160 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+
+/*
+StartProcessInstance请求
+*/
+message StartProcessInstanceRequest {
+message FormData {
+    /*
+    流程实例表单基础信息,json字典
+    */
+    string header = 1 ;
+    /*
+    流程实例表单业务信息,json数组
+    */
+    string body = 2 ;
+}
+        
+    
+    /*
+    流程定义ID
+    */
+    string processVersionId = 1 ;
+    /*
+    流程实例名称
+    */
+    string name = 2 ;
+    /*
+    流程实例数据
+    */
+    FormData formData = 3 ;
+}
+
+/*
+StartProcessInstance返回
+*/
+message StartProcessInstanceResponse {
+message UserTaskList {
+    /*
+    用户任务ID
+    */
+    string id = 1 ;
+    /*
+    用户任务名称
+    */
+    string name = 2 ;
+    /*
+    表单定义json
+    */
+    string formDefinition = 3 ;
+}
+        
+message StepList {
+message FormData {
+    /*
+    基础信息json
+    */
+    string header = 1 ;
+    /*
+    业务信息json
+    */
+    string body = 2 ;
+}
+        
+    
+    /*
+    用户任务ID
+    */
+    string userTaskId = 1 ;
+    /*
+    流程负责人
+    */
+    string assignee = 2 ;
+    /*
+    表单信息
+    */
+    FormData formData = 3 ;
+}
+        
+    
+    /*
+    用户任务列表
+    */
+    repeated UserTaskList userTaskList = 1 ;
+    /*
+    流程子步骤列表
+    */
+    repeated StepList stepList = 2 ;
+    /*
+    ID
+    */
+    string instanceId = 3 ;
+    /*
+    flowable的实例ID
+    */
+    string flowableInstanceId = 4 ;
+    /*
+    名称
+    */
+    string name = 5 ;
+    /*
+    创建人
+    */
+    string creator = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+    /*
+    结束时间
+    */
+    string etime = 8 ;
+    /*
+    流程实例状态(running, done, abandoned, suspended)
+    */
+    string status = 9 ;
+    /*
+    流程实例（子任务）步骤列表
+    */
+    repeated string stepIdList = 10 ;
+    /*
+    当前流程所处结点（这里通常是一个用户任务的ID）
+    */
+    string stopAt = 11 ;
+    /*
+    是否挂起
+    */
+    bool isSuspended = 12 ;
+    /*
+    是否作废
+    */
+    bool isCancelled = 13 ;
+}
+
+/*
+StartProcessInstanceApi返回
+*/
+message StartProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_instance.StartProcessInstanceResponse data = 4 ;
+}
+

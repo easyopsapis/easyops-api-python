@@ -1,0 +1,88 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "dc_console_sdk/model/easy_flow/package_info.proto";
+
+/*
+部署包结果
+*/
+message DeployPackageResult {
+message Progress {
+    /*
+    消息
+    */
+    string msg = 1 ;
+    /*
+    修改时间
+    */
+    string mtime = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    百分比
+    */
+    string percent = 4 ;
+    /*
+    状态
+    */
+    string status = 5 ;
+    /*
+    值
+    */
+    string values = 6 ;
+}
+        
+    
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    版本Id
+    */
+    string versionId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+    /*
+    使用次数
+    */
+    int32 usedTime = 4 ;
+    /*
+    开始时间
+    */
+    string startTime = 5 ;
+    /*
+    结束时间
+    */
+    string endTime = 6 ;
+    /*
+    进度信息列表
+    */
+    repeated Progress progress = 7 ;
+    /*
+    消息
+    */
+    string msg = 8 ;
+    /*
+    状态
+    */
+    string status = 9 ;
+    /*
+    错误码
+    */
+    int32 code = 10 ;
+    /*
+    参数
+    */
+    easy_flow.PackageInfo param = 11 ;
+}
+

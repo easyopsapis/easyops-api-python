@@ -1,0 +1,45 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+import "data_ops_analysis_sdk/model/topboard/issue_basic.proto";
+import "data_ops_analysis_sdk/model/cmdb/user.proto";
+
+/*
+评论
+*/
+message Comment {
+    /*
+    评论id
+    */
+    string name = 1 ;
+    /*
+    评论实例id
+    */
+    string instanceId = 2 ;
+    /*
+    问题
+    */
+    repeated topboard.IssueBasic issue = 3 ;
+    /*
+    创建时间
+    */
+    string ctime = 4 ;
+    /*
+    内容
+    */
+    string body = 5 ;
+    /*
+    父问题
+    */
+    string parentId = 6 ;
+    /*
+    作者
+    */
+    repeated cmdb.User author = 7 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "flowable_service_sdk/model/container/service_port.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ServiceSpec 定义
+*/
+message ServiceSpec {
+    /*
+    Service 类型
+    */
+    string type = 1 ;
+    /*
+    虚拟服务 IP 地址
+    */
+    string clusterIP = 2 ;
+    /*
+    负载均衡 IP
+    */
+    string loadBalancerIP = 3 ;
+    /*
+    外部 IP 列表
+    */
+    repeated string externalIPs = 4 ;
+    /*
+    外部域名
+    */
+    string externalName = 5 ;
+    /*
+    是否支持 Session
+    */
+    string sessionAffinity = 6 ;
+    /*
+    Pod 筛选器
+    */
+    google.protobuf.Struct selector = 7 ;
+    /*
+    Service 需要暴露的端口列表
+    */
+    repeated container.ServicePort ports = 8 ;
+}
+

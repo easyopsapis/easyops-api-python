@@ -18,6 +18,10 @@ message CreateInstanceRequest {
     创建实例
     */
     google.protobuf.Struct instance = 2 ;
+    /*
+    是否只返回实例id
+    */
+    bool only_instance_id = 3 ;
 }
 
 /*

@@ -1,0 +1,138 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+import "patch_manager_sdk/model/patch_manager/win_patch.proto";
+
+/*
+SearchWinPatch请求
+*/
+message SearchWinPatchRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    模糊搜索内容(补丁编号,适用系统版本,MSRC编号,备注)
+    */
+    string keyword = 3 ;
+}
+
+/*
+SearchWinPatch返回
+*/
+message SearchWinPatchResponse {
+message List {
+    /*
+    依赖补丁列表
+    */
+    repeated patch_manager.WinPatch PRE_PATCH = 1 ;
+    /*
+    已安装该补丁的主机实例 ID 列表
+    */
+    repeated string hostsWithPatchInstalled = 2 ;
+    /*
+    未安装该补丁的主机实例 ID 列表
+    */
+    repeated string hostsWithoutPatchInstalled = 3 ;
+    /*
+    未重启的主机实例 ID 列表
+    */
+    repeated string hostsNotRebooted = 4 ;
+    /*
+    实例ID
+    */
+    string instanceId = 5 ;
+    /*
+    名称
+    */
+    string name = 6 ;
+    /*
+    补丁编号
+    */
+    string articleId = 7 ;
+    /*
+    发布时间
+    */
+    string releaseTime = 8 ;
+    /*
+    适用系统类型(如:Windows, linux)
+    */
+    string osSystem = 9 ;
+    /*
+    适用系统版本(如:Windows Server 2012 R2)
+    */
+    repeated string osVersion = 10 ;
+    /*
+    操作系统架构
+    */
+    repeated string osArchitecture = 11 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 12 ;
+    /*
+    MSRC编号
+    */
+    string msrc = 13 ;
+    /*
+    补丁大小(单位为KB)
+    */
+    int32 size = 14 ;
+    /*
+    备注
+    */
+    string memo = 15 ;
+    /*
+    补丁下载链接
+    */
+    string url = 16 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+SearchWinPatchApi返回
+*/
+message SearchWinPatchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.SearchWinPatchResponse data = 4 ;
+}
+

@@ -1,0 +1,55 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "pipeline_sdk/model/pipeline/template.proto";
+import "pipeline_sdk/model/pipeline/pipeline.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    模板id
+    */
+    string id = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+    /*
+    模板
+    */
+    pipeline.Template template = 1 ;
+    /*
+    template关联的pipeline信息
+    */
+    repeated pipeline.Pipeline pipeline = 2 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.GetResponse data = 4 ;
+}
+

@@ -1,0 +1,106 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+AutoDiscovery请求
+*/
+message AutoDiscoveryRequest {
+message Body {
+    /*
+    筛选器
+    */
+    google.protobuf.Struct filter = 1 ;
+    /*
+    更新数据
+    */
+    google.protobuf.Struct update = 2 ;
+    /*
+    存在即更新
+    */
+    bool upsert = 3 ;
+}
+        
+    
+    /*
+    资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    请求体
+    */
+    repeated Body body = 2 ;
+}
+
+/*
+AutoDiscovery返回
+*/
+message AutoDiscoveryResponse {
+message Data {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    状态码
+    */
+    int32 code = 2 ;
+    /*
+    是否匹配到数据
+    */
+    bool matched = 3 ;
+    /*
+    是否有效
+    */
+    bool effected = 4 ;
+    /*
+    错误信息
+    */
+    string message = 5 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    data
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+AutoDiscoveryApi返回
+*/
+message AutoDiscoveryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.AutoDiscoveryResponse data = 4 ;
+}
+

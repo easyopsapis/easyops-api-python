@@ -1,0 +1,63 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+
+/*
+采集历史
+*/
+message CollectorHistory {
+    /*
+    agent上报采集时间
+    */
+    int32 reportTime = 1 ;
+    /*
+    数据入库时间
+    */
+    int32 ctime = 2 ;
+    /*
+    任务实例ID
+    */
+    string jobId = 3 ;
+    /*
+    任务配置ID
+    */
+    string configId = 4 ;
+    /*
+    agent IP
+    */
+    string agentIp = 5 ;
+    /*
+    录入具体结果
+    */
+    string message = 6 ;
+    /*
+    采集状态
+    */
+    int32 code = 7 ;
+    /*
+    任务唯一标识
+    */
+    string id = 8 ;
+    /*
+    入库批次
+    */
+    string batchId = 9 ;
+    /*
+    datas长度
+    */
+    int32 total = 10 ;
+    /*
+    message格式化成功标识
+    */
+    bool isSuccess = 11 ;
+    /*
+    message格式化结果
+    */
+    string formatResult = 12 ;
+}
+

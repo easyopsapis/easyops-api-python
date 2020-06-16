@@ -4,9 +4,9 @@ package task;
 
 
 
-import "model/easy_command/task_callback.proto";
-import "model/easy_command/target_log.proto";
-import "model/easy_command/task_detail.proto";
+import "easy_command_sdk/model/easy_command/task_callback.proto";
+import "easy_command_sdk/model/easy_command/target_log.proto";
+import "easy_command_sdk/model/easy_command/task_detail.proto";
 
 /*
 GetTaskDetail请求

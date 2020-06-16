@@ -4,9 +4,9 @@ package build;
 
 
 
-import "model/pipeline/build_status.proto";
-import "model/pipeline/git_meta.proto";
-import "model/pipeline/build.proto";
+import "pipeline_sdk/model/pipeline/build_status.proto";
+import "pipeline_sdk/model/pipeline/git_meta.proto";
+import "pipeline_sdk/model/pipeline/build.proto";
 
 /*
 UpdateBuildStatus请求

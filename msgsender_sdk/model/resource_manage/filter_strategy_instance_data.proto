@@ -1,0 +1,33 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+import "msgsender_sdk/model/resource_manage/filter_condition_group.proto";
+import "google/protobuf/struct.proto";
+
+/*
+策略执行不合规数据
+*/
+message FilterStrategyInstanceData {
+    /*
+    数据Id
+    */
+    string id = 1 ;
+    /*
+    执行记录Id
+    */
+    string strategyInstanceId = 2 ;
+    /*
+    不合规实例
+    */
+    google.protobuf.Struct data = 3 ;
+    /*
+    筛选规则
+    */
+    repeated resource_manage.FilterConditionGroup filter = 4 ;
+}
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package toolkit;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteToolkit请求
+*/
+message DeleteToolkitRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    任意门Id
+    */
+    string toolkitId = 2 ;
+}
+
+/*
+DeleteToolkitApi返回
+*/
+message DeleteToolkitResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

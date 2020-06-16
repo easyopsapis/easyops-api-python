@@ -1,0 +1,150 @@
+syntax = "proto3";
+package cmdb_approve;
+
+
+
+
+import "resource_manage_sdk/model/cmdb/instance_relation_pair.proto";
+import "google/protobuf/struct.proto";
+
+/*
+RelationDiscoveryV2请求
+*/
+message RelationDiscoveryV2Request {
+message Match {
+    /*
+    左侧实例匹配字段列表
+    */
+    repeated string left_match = 1 ;
+    /*
+    右侧实例匹配字段列表
+    */
+    repeated string right_match = 2 ;
+}
+        
+message Data {
+    /*
+    左侧匹配的实例数据
+    */
+    google.protobuf.Struct left_instance = 1 ;
+    /*
+    右侧匹配的实例数据
+    */
+    google.protobuf.Struct right_instance = 2 ;
+}
+        
+    
+    /*
+    关系Id
+    */
+    string relationId = 1 ;
+    /*
+    发现实例的字段列表
+    */
+    Match match = 2 ;
+    /*
+    发现实例的数据列表
+    */
+    repeated Data data = 3 ;
+    /*
+    精确匹配（true: 只允许1:1关系，false: 允许1:n关系，默认true）
+    */
+    bool strict = 4 ;
+    /*
+    操作类型
+    */
+    string operation = 5 ;
+    /*
+    调用来源
+    */
+    string source = 6 ;
+    /*
+    采集关系主sideId，operation为set时必填，根据关系此边来设置关系
+    */
+    string mainSideId = 7 ;
+}
+
+/*
+RelationDiscoveryV2返回
+*/
+message RelationDiscoveryV2Response {
+message Data {
+    /*
+    状态码（0：成功，非0：失败）
+    */
+    int32 code = 1 ;
+    /*
+    状态描述
+    */
+    string message = 2 ;
+    /*
+    关系左端模型ID
+    */
+    string left_object_id = 3 ;
+    /*
+    关系右端模型ID
+    */
+    string right_object_id = 4 ;
+    /*
+    创建实例关系成功列表
+    */
+    repeated cmdb.InstanceRelationPair connect_success = 5 ;
+    /*
+    创建实例关系失败列表
+    */
+    repeated cmdb.InstanceRelationPair connect_fail = 6 ;
+    /*
+    删除实例关系成功列表
+    */
+    repeated cmdb.InstanceRelationPair disconnect_success = 7 ;
+    /*
+    删除实例关系失败列表
+    */
+    repeated cmdb.InstanceRelationPair disconnect_fail = 8 ;
+    /*
+    待审批实例关系列表
+    */
+    repeated cmdb.InstanceRelationPair approve_list = 9 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    数据
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+RelationDiscoveryV2Api返回
+*/
+message RelationDiscoveryV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_approve.RelationDiscoveryV2Response data = 4 ;
+}
+

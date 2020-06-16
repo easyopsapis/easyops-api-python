@@ -4,7 +4,7 @@ package project;
 
 
 
-import "model/pipeline/project.proto";
+import "pipeline_sdk/model/pipeline/project.proto";
 
 /*
 Update请求

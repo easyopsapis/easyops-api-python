@@ -1,0 +1,51 @@
+syntax = "proto3";
+package agent;
+
+
+
+
+
+/*
+GetInstallKey返回
+*/
+message GetInstallKeyResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    密钥数据
+    */
+    string data = 4 ;
+}
+
+/*
+GetInstallKeyApi返回
+*/
+message GetInstallKeyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent.GetInstallKeyResponse data = 4 ;
+}
+

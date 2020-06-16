@@ -4,9 +4,8 @@ package basic;
 
 
 
-import "model/flow/flow_step.proto";
-import "model/tool/input_param.proto";
-import "model/flow/flow.proto";
+import "flow_sdk/model/flow/flow_step.proto";
+import "flow_sdk/model/flow/flow.proto";
 import "google/protobuf/struct.proto";
 
 /*

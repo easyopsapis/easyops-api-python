@@ -4,12 +4,12 @@ package instance;
 
 
 
-import "model/easy_flow/instance_info.proto";
+import "easy_flow_sdk/model/easy_flow/instance_info.proto";
 
 /*
-PostSearch请求
+GetSearch请求
 */
-message PostSearchRequest {
+message GetSearchRequest {
     /*
     多个包ID，以`,`分隔
     */
@@ -57,9 +57,9 @@ message PostSearchRequest {
 }
 
 /*
-PostSearch返回
+GetSearch返回
 */
-message PostSearchResponse {
+message GetSearchResponse {
     /*
     页数
     */
@@ -79,9 +79,9 @@ message PostSearchResponse {
 }
 
 /*
-PostSearchApi返回
+GetSearchApi返回
 */
-message PostSearchResponseWrapper {
+message GetSearchResponseWrapper {
     /*
     返回码
     */
@@ -97,6 +97,6 @@ message PostSearchResponseWrapper {
     /*
     返回数据
     */
-    instance.PostSearchResponse data = 4 ;
+    instance.GetSearchResponse data = 4 ;
 }
 

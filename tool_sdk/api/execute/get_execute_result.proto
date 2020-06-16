@@ -4,9 +4,9 @@ package execute;
 
 
 
-import "model/tool/callback.proto";
-import "model/tool/tool.proto";
-import "model/tool/tool_task.proto";
+import "tool_sdk/model/tool/callback.proto";
+import "tool_sdk/model/tool/tool.proto";
+import "tool_sdk/model/tool/tool_task.proto";
 import "google/protobuf/struct.proto";
 
 /*

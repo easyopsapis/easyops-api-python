@@ -1,0 +1,61 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+展示字段用户设置
+*/
+message UserSetting {
+message DetailDisplayList {
+    /*
+    字段名
+    */
+    string key = 1 ;
+    /*
+    字段中文名
+    */
+    string value = 2 ;
+    /*
+    是否展示(true 展示, 默认为 true)
+    */
+    bool show = 3 ;
+}
+        
+    
+    /*
+    用户设置名称(user_name + type)
+    */
+    string name = 1 ;
+    /*
+    用户名
+    */
+    string user_name = 2 ;
+    /*
+    设备类型
+    */
+    string type = 3 ;
+    /*
+    名称展示字段列表,默认["name"]
+    */
+    repeated string name_display_list = 4 ;
+    /*
+    详情展示字段列表,默认:名称、起始U位、占用U位、管理IP、状态、资产编号、用途,示例:
+"detail_display_list": [
+  {"key":"name", "value":"名称", "show":true},
+  {"key":"_startU", "value":"起始U位", "show":true},
+  {"key":"_occupiedU", "value":"占用U位", "show":true},
+  {"key":"ip", "value":"管理IP", "show":true},
+  {"key":"status", "value":"状态", "show":true},
+  {"key":"propertyid", "value":"资产编号", "show":true},
+  {"key":"use", "value":"用途", "show":true}
+]
+
+    */
+    repeated DetailDisplayList detail_display_list = 5 ;
+}
+

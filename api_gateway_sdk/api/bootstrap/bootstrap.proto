@@ -1,0 +1,73 @@
+syntax = "proto3";
+package bootstrap;
+
+
+
+
+import "api_gateway_sdk/model/api_gateway/storyboard.proto";
+import "api_gateway_sdk/model/api_gateway/settings.proto";
+import "api_gateway_sdk/model/api_gateway/desktop.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Bootstrap请求
+*/
+message BootstrapRequest {
+    /*
+    是否需要检查登录态
+    */
+    bool check_login = 1 ;
+}
+
+/*
+Bootstrap返回
+*/
+message BootstrapResponse {
+    /*
+    ${BRICK_NEXT}/packages/brick-container/conf/navbar.json 的内容
+    */
+    google.protobuf.Struct navbar = 1 ;
+    /*
+    ${BRICK_NEXT}/packages/brick-container/conf/storyboards/ *.json 的内容列表
+    */
+    repeated api_gateway.StoryBoard storyboards = 2 ;
+    /*
+    ${BRICK_NEXT}/bricks/ * /dist/ 的内容
+    */
+    repeated google.protobuf.Struct brickPackages = 3 ;
+    /*
+    ${BRICK_NEXT}/templates/ * /dist/ 的内容
+    */
+    repeated google.protobuf.Struct templatePackages = 4 ;
+    /*
+    console特性配置
+    */
+    api_gateway.Settings settings = 5 ;
+    /*
+    桌面列表
+    */
+    repeated api_gateway.Desktop desktops = 6 ;
+}
+
+/*
+BootstrapApi返回
+*/
+message BootstrapResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    bootstrap.BootstrapResponse data = 4 ;
+}
+

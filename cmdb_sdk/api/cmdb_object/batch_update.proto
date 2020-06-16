@@ -1,0 +1,122 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_view.proto";
+
+/*
+BatchUpdate请求
+*/
+message BatchUpdateRequest {
+message Data {
+message Info {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    模型图标
+    */
+    string icon = 2 ;
+    /*
+    分类
+    */
+    string category = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    视图设置
+    */
+    cmdb.ObjectView view = 5 ;
+    /*
+    编辑权限白名单
+    */
+    repeated string updateAuthorizers = 6 ;
+    /*
+    删除权限白名单
+    */
+    repeated string deleteAuthorizers = 7 ;
+}
+        
+    
+    /*
+    资源模型ID
+    */
+    string objectId = 1 ;
+    /*
+    模型信息
+    */
+    Info info = 2 ;
+}
+        
+    
+    /*
+    body
+    */
+    repeated Data data = 1 ;
+}
+
+/*
+BatchUpdate返回
+*/
+message BatchUpdateResponse {
+message Data {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    错误码
+    */
+    int32 code = 2 ;
+    /*
+    错误信息
+    */
+    string message = 3 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+BatchUpdateApi返回
+*/
+message BatchUpdateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.BatchUpdateResponse data = 4 ;
+}
+

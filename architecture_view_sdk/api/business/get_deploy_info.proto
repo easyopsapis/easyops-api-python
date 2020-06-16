@@ -1,0 +1,112 @@
+syntax = "proto3";
+package business;
+
+
+
+
+
+/*
+GetAppDeployInfo请求
+*/
+message GetAppDeployInfoRequest {
+    /*
+    业务架构视图ID
+    */
+    string businessId = 1 ;
+}
+
+/*
+GetAppDeployInfo返回
+*/
+message GetAppDeployInfoResponse {
+message List {
+message Hosts {
+    /*
+    防火墙ID
+    */
+    string instanceId = 1 ;
+    /*
+    管理IP
+    */
+    string ip = 2 ;
+    /*
+    防火墙名称
+    */
+    string name = 3 ;
+}
+        
+message ManualHosts {
+    /*
+    防火墙ID
+    */
+    string instanceId = 1 ;
+    /*
+    管理IP
+    */
+    string ip = 2 ;
+    /*
+    防火墙名称
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+    /*
+    应用名称
+    */
+    string appName = 2 ;
+    /*
+    应用实际部署的主机列表
+    */
+    repeated Hosts hosts = 3 ;
+    /*
+    架构设计指定应用应该部署的主机列表
+    */
+    repeated ManualHosts manualHosts = 4 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+GetAppDeployInfoApi返回
+*/
+message GetAppDeployInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    business.GetAppDeployInfoResponse data = 4 ;
+}
+

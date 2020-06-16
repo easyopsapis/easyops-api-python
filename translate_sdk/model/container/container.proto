@@ -1,0 +1,72 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "translate_sdk/model/container/container_port.proto";
+import "translate_sdk/model/container/volume_mount.proto";
+import "translate_sdk/model/container/env_var.proto";
+import "translate_sdk/model/container/resource_requirements.proto";
+import "translate_sdk/model/container/probe.proto";
+
+/*
+容器配置
+*/
+message ContainerConfig {
+    /*
+    容器名称, 需符合RFC 1035规范
+    */
+    string name = 1 ;
+    /*
+    镜像
+    */
+    string image = 2 ;
+    /*
+    工作目录
+    */
+    string workingDir = 3 ;
+    /*
+    镜像拉取策略，默认为 IfNotPresent
+    */
+    string imagePullPolicy = 4 ;
+    /*
+    容器启动命令
+    */
+    repeated string command = 5 ;
+    /*
+    容器启动命令参数
+    */
+    repeated string args = 6 ;
+    /*
+    容器端口设置
+    */
+    repeated container.ContainerPort ports = 7 ;
+    /*
+    挂载到容器内部的存储卷配置
+    */
+    repeated container.VolumeMount volumeMounts = 8 ;
+    /*
+    容器运行前需设置的环境变量
+    */
+    repeated container.EnvVar env = 9 ;
+    /*
+    最大资源限制和初始资源请求
+    */
+    container.ResourceRequirements resources = 10 ;
+    /*
+    判断容器是否启动完成(running状态)
+    */
+    container.Probe readinessProbe = 11 ;
+    /*
+    判断容器是否存活(running状态), 一般复用 readinessProbe
+    */
+    container.Probe livenessProbe = 12 ;
+    /*
+    制品版本 ID
+    */
+    string artifactVersion = 13 ;
+}
+

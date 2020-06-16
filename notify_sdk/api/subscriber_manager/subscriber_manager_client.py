@@ -2,23 +2,18 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import notify_sdk.api.subscriber_manager.create_pb2
 
-import create_pb2
-
-import delete_pb2
+import notify_sdk.api.subscriber_manager.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import list_pb2
+import notify_sdk.api.subscriber_manager.list_pb2
 
-import update_pb2
+import notify_sdk.api.subscriber_manager.update_pb2
 
-import utils.http_util
+import notify_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -40,14 +35,14 @@ class SubscriberManagerClient(object):
 
     
     def pub_subscriber_create(self, request, org, user, timeout=10):
-        # type: (create_pb2.PubSubscriberCreateRequest, int, str, int) -> create_pb2.PubSubscriberCreateResponse
+        # type: (notify_sdk.api.subscriber_manager.create_pb2.PubSubscriberCreateRequest, int, str, int) -> notify_sdk.api.subscriber_manager.create_pb2.PubSubscriberCreateResponse
         """
         添加订阅
         :param request: pub_subscriber_create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.PubSubscriberCreateResponse
+        :return: notify_sdk.api.subscriber_manager.create_pb2.PubSubscriberCreateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -60,7 +55,7 @@ class SubscriberManagerClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -73,14 +68,14 @@ class SubscriberManagerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.PubSubscriberCreateResponse()
+        rsp = notify_sdk.api.subscriber_manager.create_pb2.PubSubscriberCreateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def pub_subscriber_delete(self, request, org, user, timeout=10):
-        # type: (delete_pb2.PubSubscriberDeleteRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (notify_sdk.api.subscriber_manager.delete_pb2.PubSubscriberDeleteRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除订阅
         :param request: pub_subscriber_delete请求
@@ -101,7 +96,7 @@ class SubscriberManagerClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -121,14 +116,14 @@ class SubscriberManagerClient(object):
         return rsp
     
     def pub_subscriber_list(self, request, org, user, timeout=10):
-        # type: (list_pb2.PubSubscriberListRequest, int, str, int) -> list_pb2.PubSubscriberListResponse
+        # type: (notify_sdk.api.subscriber_manager.list_pb2.PubSubscriberListRequest, int, str, int) -> notify_sdk.api.subscriber_manager.list_pb2.PubSubscriberListResponse
         """
         获取订阅列表
         :param request: pub_subscriber_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.PubSubscriberListResponse
+        :return: notify_sdk.api.subscriber_manager.list_pb2.PubSubscriberListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -141,7 +136,7 @@ class SubscriberManagerClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -154,21 +149,21 @@ class SubscriberManagerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.PubSubscriberListResponse()
+        rsp = notify_sdk.api.subscriber_manager.list_pb2.PubSubscriberListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def pub_subscriber_update(self, request, org, user, timeout=10):
-        # type: (update_pb2.PubSubscriberUpdateRequest, int, str, int) -> update_pb2.PubSubscriberUpdateResponse
+        # type: (notify_sdk.api.subscriber_manager.update_pb2.PubSubscriberUpdateRequest, int, str, int) -> notify_sdk.api.subscriber_manager.update_pb2.PubSubscriberUpdateResponse
         """
         更新订阅
         :param request: pub_subscriber_update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_pb2.PubSubscriberUpdateResponse
+        :return: notify_sdk.api.subscriber_manager.update_pb2.PubSubscriberUpdateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -182,7 +177,7 @@ class SubscriberManagerClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -195,7 +190,7 @@ class SubscriberManagerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_pb2.PubSubscriberUpdateResponse()
+        rsp = notify_sdk.api.subscriber_manager.update_pb2.PubSubscriberUpdateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

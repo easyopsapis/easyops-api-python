@@ -1,0 +1,121 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "assets_inventory_sdk/model/cmdb/cluster_info.proto";
+import "assets_inventory_sdk/model/easy_flow/version_info.proto";
+
+/*
+包信息
+*/
+message PackageInfo {
+    /*
+    包名称
+    */
+    string packageName = 1 ;
+    /*
+    版本名称
+    */
+    string versionName = 2 ;
+    /*
+    集群
+    */
+    cmdb.ClusterInfo cluster = 3 ;
+    /*
+    前一个版本Id
+    */
+    string preVersionId = 4 ;
+    /*
+    前一个版本名称
+    */
+    string preVersionName = 5 ;
+    /*
+    前一个版本环境类型
+    */
+    int32 preVersionEnvType = 6 ;
+    /*
+    目标版本
+    */
+    string targetVersion = 7 ;
+    /*
+    是否升级前停止
+    */
+    bool preStop = 8 ;
+    /*
+    发布后启动
+    */
+    bool postStart = 9 ;
+    /*
+    发布后重启
+    */
+    bool postRestart = 10 ;
+    /*
+    安装后启动
+    */
+    bool autoStart = 11 ;
+    /*
+    是否需要用户检查
+    */
+    bool userCheck = 12 ;
+    /*
+    是否完全更新
+    */
+    bool fullUpdate = 13 ;
+    /*
+    是否强制更新
+    */
+    bool forceUpdate = 14 ;
+    /*
+    是否强制更新
+    */
+    bool force = 15 ;
+    /*
+    是否强制安装
+    */
+    bool forceInstall = 16 ;
+    /*
+    是否模拟安装
+    */
+    bool simulateInstall = 17 ;
+    /*
+    版本信息
+    */
+    easy_flow.VersionInfo versionInfo = 18 ;
+    /*
+    部署动作
+    */
+    string specialOp = 19 ;
+    /*
+    是否只更新文件
+    */
+    bool fileOnly = 20 ;
+    /*
+    是否只更新脚本
+    */
+    bool scriptOnly = 21 ;
+    /*
+    版本Id
+    */
+    string versionId = 22 ;
+    /*
+    包Id
+    */
+    string packageId = 23 ;
+    /*
+    安装路径
+    */
+    string installPath = 24 ;
+    /*
+    版本类型 1 程序包,  2 配置包,  4 文件包
+    */
+    int32 type = 25 ;
+    /*
+    平台
+    */
+    string platform = 26 ;
+}
+

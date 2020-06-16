@@ -4,7 +4,7 @@ package template;
 
 
 
-import "model/inspection/template.proto";
+import "inspection_sdk/model/inspection/template.proto";
 
 /*
 ListTemplate请求

@@ -4,8 +4,8 @@ package history;
 
 
 
-import "model/inspection/target.proto";
-import "model/inspection/history.proto";
+import "inspection_sdk/model/inspection/target.proto";
+import "inspection_sdk/model/inspection/history.proto";
 
 /*
 GetSourceData请求
@@ -71,7 +71,7 @@ message ValList {
     */
     string jobId = 2 ;
     /*
-    主机实例ID
+    巡检对象实例ID
     */
     string instanceId = 3 ;
     /*

@@ -4,7 +4,7 @@ package instance;
 
 
 
-import "model/cmdb/fail_instance.proto";
+import "cmdb_sdk/model/cmdb/fail_instance.proto";
 
 /*
 DeleteInstanceBatch请求

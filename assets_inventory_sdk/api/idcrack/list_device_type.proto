@@ -1,0 +1,39 @@
+syntax = "proto3";
+package idcrack;
+
+
+
+
+
+/*
+ListDeviceType返回
+*/
+message ListDeviceTypeResponse {
+    /*
+    机柜上所有的设备类型列表，形如["HOST", "_SWITCH"]
+    */
+    repeated string deviceTypes = 1 ;
+}
+
+/*
+ListDeviceTypeApi返回
+*/
+message ListDeviceTypeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    idcrack.ListDeviceTypeResponse data = 4 ;
+}
+

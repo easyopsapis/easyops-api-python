@@ -1,0 +1,24 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+import "assets_inventory_sdk/model/resource_manage/filter_condition.proto";
+
+/*
+过滤条件组
+*/
+message FilterConditionGroup {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    过滤条件列表, and 逻辑
+    */
+    repeated resource_manage.FilterCondition conditionList = 2 ;
+}
+

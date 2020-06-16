@@ -1,0 +1,40 @@
+syntax = "proto3";
+package object_micro_app;
+
+
+
+
+import "micro_app_sdk/model/micro_app/object_micro_app.proto";
+
+/*
+GetObjectByMicroApp请求
+*/
+message GetObjectByMicroAppRequest {
+    /*
+    小产品id
+    */
+    string appId = 1 ;
+}
+
+/*
+GetObjectByMicroAppApi返回
+*/
+message GetObjectByMicroAppResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    micro_app.ObjectMicroApp data = 4 ;
+}
+

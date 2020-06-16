@@ -1,0 +1,171 @@
+syntax = "proto3";
+package template;
+
+
+
+
+
+/*
+ValidTemplateYaml请求
+*/
+message ValidTemplateYamlRequest {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    采集模型id
+    */
+    string objectId = 2 ;
+    /*
+    模版配置yaml
+    */
+    string configYaml = 3 ;
+}
+
+/*
+ValidTemplateYaml返回
+*/
+message ValidTemplateYamlResponse {
+message CollectorMetrics {
+message TagDefine {
+    /*
+    名字
+    */
+    string name = 1 ;
+    /*
+    默认值
+    */
+    string default = 2 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+    /*
+    值类型
+    */
+    string valueType = 5 ;
+}
+        
+    
+    /*
+    指标名
+    */
+    string name = 1 ;
+    /*
+    单位
+    */
+    string unit = 2 ;
+    /*
+    指标数据类型
+    */
+    string dataType = 3 ;
+    /*
+    指标类型
+    */
+    string metricType = 4 ;
+    /*
+    帮助
+    */
+    string help = 5 ;
+    /*
+    指标key
+    */
+    string key = 6 ;
+    /*
+    维度定义
+    */
+    repeated TagDefine tagDefine = 7 ;
+}
+        
+message MetricNames {
+    /*
+    指标id
+    */
+    string metricId = 1 ;
+    /*
+    指标名
+    */
+    string metricName = 2 ;
+    /*
+    指标是否只用于中间计算，不上报，默认为false
+    */
+    bool calculateOnly = 3 ;
+}
+        
+message Params {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+    /*
+    参数类型
+    */
+    string paramType = 3 ;
+}
+        
+    
+    /*
+    关联指标
+    */
+    repeated CollectorMetrics collectorMetrics = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    采集模型id
+    */
+    string objectId = 3 ;
+    /*
+    指标名映射列表(deprecated)
+    */
+    repeated MetricNames metricNames = 4 ;
+    /*
+    采集参数
+    */
+    repeated Params params = 5 ;
+    /*
+    结构体数组/关系展开字段
+    */
+    string expand = 6 ;
+    /*
+    所属Agent
+    */
+    string agentType = 7 ;
+    /*
+    模版配置yaml
+    */
+    string configYaml = 8 ;
+}
+
+/*
+ValidTemplateYamlApi返回
+*/
+message ValidTemplateYamlResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.ValidTemplateYamlResponse data = 4 ;
+}
+

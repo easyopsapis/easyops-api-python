@@ -1,0 +1,251 @@
+syntax = "proto3";
+package flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flow";
+
+
+
+
+import "resource_package_tools_sdk/model/flow/flow_step.proto";
+import "google/protobuf/struct.proto";
+
+/*
+流程信息
+*/
+message Flow {
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+message Metadata {
+    /*
+    环境
+    */
+    string type = 1 ;
+    /*
+    描述
+    */
+    string desc = 2 ;
+}
+        
+message FlowOutputs {
+message Columns {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    流程输出参数设置
+    */
+    repeated Columns columns = 1 ;
+}
+        
+message OutputDefs {
+    /*
+    参数类型
+    */
+    string type = 1 ;
+    /*
+    参数ID
+    */
+    string id = 2 ;
+    /*
+    参数标题
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    流程ID
+    */
+    string flowId = 1 ;
+    /*
+    流程名称
+    */
+    string name = 2 ;
+    /*
+    流程自定义分类
+    */
+    string type = 3 ;
+    /*
+    流程类别如流水线、流程、流水线模板等
+    */
+    string category = 4 ;
+    /*
+    流程版本名
+    */
+    string vName = 5 ;
+    /*
+    是否可循环
+    */
+    bool enableLoop = 6 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 7 ;
+    /*
+    org
+    */
+    int32 org = 8 ;
+    /*
+    创建时间
+    */
+    string createTime = 9 ;
+    /*
+    流程创建者
+    */
+    string creator = 10 ;
+    /*
+    版本创建者
+    */
+    string vCreator = 11 ;
+    /*
+    修改时间
+    */
+    string updateTime = 12 ;
+    /*
+    版本号(时间戳-秒)
+    */
+    int32 version = 13 ;
+    /*
+    版本说明
+    */
+    string vDesc = 14 ;
+    /*
+    流程查询权限列表["username",":user_group_id"]
+    */
+    repeated string readAuthorizers = 15 ;
+    /*
+    流程更新权限列表["username",":user_group_id"]
+    */
+    repeated string updateAuthorizers = 16 ;
+    /*
+    流程删除权限列表["username",":user_group_id"]
+    */
+    repeated string deleteAuthorizers = 17 ;
+    /*
+    流程执行权限列表["username",":user_group_id"]
+    */
+    repeated string executeAuthorizers = 18 ;
+    /*
+    流程备注
+    */
+    string memo = 19 ;
+    /*
+    通知订阅者，英文逗号分开
+    */
+    repeated string subscribers = 20 ;
+    /*
+    通知事件
+    */
+    string subscribedChannel = 21 ;
+    /*
+    是否系统ORG
+    */
+    bool is_system_org = 22 ;
+    /*
+    流程步骤
+    */
+    repeated flow.FlowStep stepList = 23 ;
+    /*
+    表格输出定义
+    */
+    repeated TableDefs tableDefs = 24 ;
+    /*
+    流程环境变量 { "youcash":"1234",
+}
+    */
+    google.protobuf.Value flowEnv = 25 ;
+    /*
+    流程标签
+    */
+    repeated string tags = 26 ;
+    /*
+    流程环境类型
+    */
+    Metadata metadata = 27 ;
+    /*
+    流程输入
+    {
+      "flowInputs": {
+        "@agents": [
+        {
+          "instanceId": "5c6f6cf0d8079",
+          "ip": "192.168.100.162"
+        },
+        {
+          "instanceId": "5c6f6cf0d8075",
+          "ip": "192.168.100.163"
+        }
+        ],
+        "must_input": "1",
+        "option_input": "000"
+      }
+    }
+
+    */
+    google.protobuf.Value flowInputs = 28 ;
+    /*
+    流程输出设置
+    */
+    repeated FlowOutputs flowOutputs = 29 ;
+    /*
+    输出定义
+    */
+    repeated OutputDefs outputDefs = 30 ;
+    /*
+    流程执行历史
+    */
+    repeated google.protobuf.Struct histories = 31 ;
+}
+

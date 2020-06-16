@@ -1,0 +1,143 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+
+/*
+采集指标配置
+*/
+message Metrics {
+message Formats {
+message Fields {
+    /*
+    字段类型
+    */
+    string field_type = 1 ;
+    /*
+    字段描述
+    */
+    string description = 2 ;
+    /*
+    字段名称
+    */
+    string field_name = 3 ;
+    /*
+    字段值类型
+    */
+    string field_value_type = 4 ;
+    /*
+    状态百分比
+    */
+    int32 stat_period = 5 ;
+    /*
+    状态类型
+    */
+    string stat_type = 6 ;
+    /*
+    单位
+    */
+    string unit = 7 ;
+    /*
+    列名
+    */
+    string column_name = 8 ;
+}
+        
+    
+    /*
+    配置ID
+    */
+    string config_id = 1 ;
+    /*
+    最大int
+    */
+    int32 max_int_col = 2 ;
+    /*
+    最大string
+    */
+    int32 max_string_col = 3 ;
+    /*
+    最大int
+    */
+    int32 max_text_col = 4 ;
+    /*
+    最大double
+    */
+    int32 max_double_col = 5 ;
+    /*
+    最大dim
+    */
+    int32 max_dim_col = 6 ;
+    /*
+    table
+    */
+    string table = 7 ;
+    /*
+    aggregation
+    */
+    bool aggregation = 8 ;
+    /*
+    字段
+    */
+    repeated Fields fields = 9 ;
+}
+        
+    
+    /*
+    保持策略
+    */
+    string retention_policy = 1 ;
+    /*
+    指标描述
+    */
+    string description = 2 ;
+    /*
+    数据类型
+    */
+    string data_type = 3 ;
+    /*
+    数据名称
+    */
+    string data_name = 4 ;
+    /*
+    CUSTOM
+    */
+    bool custom = 5 ;
+    /*
+    指标配置版本
+    */
+    float version = 6 ;
+    /*
+    格式
+    */
+    repeated Formats formats = 7 ;
+    /*
+    ORG
+    */
+    int32 org = 8 ;
+    /*
+    ID
+    */
+    string _id = 9 ;
+    /*
+    创建者
+    */
+    string creator = 10 ;
+    /*
+    修改者
+    */
+    string modifier = 11 ;
+    /*
+    创建时间
+    */
+    string ctime = 12 ;
+    /*
+    修改时间
+    */
+    string mtime = 13 ;
+}
+

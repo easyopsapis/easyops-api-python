@@ -27,9 +27,13 @@ message ListInstanceRequest {
     */
     bool only_relation_view = 4 ;
     /*
-    需要返回的关系，多个用逗号分隔
+    需要返回的关系，多个用逗号分隔如`owner,tester.name,tester.instanceId`，如果只需要属性字段传`*`就好，注意：建议都指定fields，按需拉取字段，不然有可能返回数据量太大而导致接口慢系统不稳定
     */
     string select_relations = 5 ;
+    /*
+    限制fields所带出的关系的数量， 0为不限制
+    */
+    int32 relation_limit = 6 ;
 }
 
 /*

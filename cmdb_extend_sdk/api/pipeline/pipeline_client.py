@@ -2,25 +2,20 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import cmdb_extend_sdk.api.pipeline.bind_pipeline_pb2
 
-import bind_pipeline_pb2
+import cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2
 
-import model.cmdb_extend.app_pipeline_pb2
+import cmdb_extend_sdk.api.pipeline.get_pipeline_pb2
 
-import get_pipeline_pb2
+import cmdb_extend_sdk.api.pipeline.get_pipelines_pb2
 
-import get_pipelines_pb2
+import cmdb_extend_sdk.api.pipeline.modify_pipeline_pb2
 
-import modify_pipeline_pb2
+import cmdb_extend_sdk.api.pipeline.unbind_pipeline_pb2
 
-import unbind_pipeline_pb2
-
-import utils.http_util
+import cmdb_extend_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,14 +37,14 @@ class PipelineClient(object):
 
     
     def bind_pipeline(self, request, org, user, timeout=10):
-        # type: (bind_pipeline_pb2.BindPipelineRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        # type: (cmdb_extend_sdk.api.pipeline.bind_pipeline_pb2.BindPipelineRequest, int, str, int) -> cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         绑定流水线
         :param request: bind_pipeline请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        :return: cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -63,7 +58,7 @@ class PipelineClient(object):
         )
         requestParam = request.pipeline
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -76,21 +71,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb_extend.app_pipeline_pb2.AppPipeline()
+        rsp = cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_pipeline(self, request, org, user, timeout=10):
-        # type: (get_pipeline_pb2.GetPipelineRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        # type: (cmdb_extend_sdk.api.pipeline.get_pipeline_pb2.GetPipelineRequest, int, str, int) -> cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         获取指定流水线
         :param request: get_pipeline请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        :return: cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -105,7 +100,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -118,21 +113,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb_extend.app_pipeline_pb2.AppPipeline()
+        rsp = cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_pipelines(self, request, org, user, timeout=10):
-        # type: (get_pipelines_pb2.GetPipelinesRequest, int, str, int) -> get_pipelines_pb2.GetPipelinesResponse
+        # type: (cmdb_extend_sdk.api.pipeline.get_pipelines_pb2.GetPipelinesRequest, int, str, int) -> cmdb_extend_sdk.api.pipeline.get_pipelines_pb2.GetPipelinesResponse
         """
         获取流水线列表
         :param request: get_pipelines请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pipelines_pb2.GetPipelinesResponse
+        :return: cmdb_extend_sdk.api.pipeline.get_pipelines_pb2.GetPipelinesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -146,7 +141,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -159,21 +154,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pipelines_pb2.GetPipelinesResponse()
+        rsp = cmdb_extend_sdk.api.pipeline.get_pipelines_pb2.GetPipelinesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def modify_pipeline(self, request, org, user, timeout=10):
-        # type: (modify_pipeline_pb2.ModifyPipelineRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        # type: (cmdb_extend_sdk.api.pipeline.modify_pipeline_pb2.ModifyPipelineRequest, int, str, int) -> cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         修改流水线
         :param request: modify_pipeline请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        :return: cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -188,7 +183,7 @@ class PipelineClient(object):
         )
         requestParam = request.pipeline
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -201,21 +196,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb_extend.app_pipeline_pb2.AppPipeline()
+        rsp = cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def un_bind_pipeline(self, request, org, user, timeout=10):
-        # type: (unbind_pipeline_pb2.UnBindPipelineRequest, int, str, int) -> model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        # type: (cmdb_extend_sdk.api.pipeline.unbind_pipeline_pb2.UnBindPipelineRequest, int, str, int) -> cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         解绑流水线
         :param request: un_bind_pipeline请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.cmdb_extend.app_pipeline_pb2.AppPipeline
+        :return: cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -230,7 +225,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -243,7 +238,7 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.cmdb_extend.app_pipeline_pb2.AppPipeline()
+        rsp = cmdb_extend_sdk.model.cmdb_extend.app_pipeline_pb2.AppPipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

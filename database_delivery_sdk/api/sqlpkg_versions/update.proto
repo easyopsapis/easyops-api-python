@@ -15,9 +15,9 @@ message UpdateSqlPkgVersion {
     */
     string memo = 1 ;
     /*
-    程序包版本ID
+    版本类型, [开发,测试,预发布,生产]
     */
-    string appVersionId = 2 ;
+    string versionType = 2 ;
 }
         
     
@@ -84,29 +84,29 @@ message SqlPackage {
     */
     string repoVersionId = 4 ;
     /*
-    程序包版本ID
-    */
-    string appVersionId = 5 ;
-    /*
     版本名称
     */
-    string versionName = 6 ;
+    string versionName = 5 ;
     /*
     备注
     */
-    string memo = 7 ;
+    string memo = 6 ;
     /*
     创建者
     */
-    string creator = 8 ;
+    string creator = 7 ;
     /*
     创建时间
     */
-    int64 ctime = 9 ;
+    int64 ctime = 8 ;
     /*
     修改时间
     */
-    int64 mtime = 10 ;
+    int64 mtime = 9 ;
+    /*
+    版本类型, [开发,测试,预发布,生产]
+    */
+    string versionType = 10 ;
 }
 
 /*

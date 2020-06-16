@@ -36,5 +36,9 @@ message ObjectView {
     模型属性列表，用来组成显示实例别名
     */
     repeated string show_key = 6 ;
+    /*
+    属性/关系可见用户(组)，e.g:{business: {'authorizers':[user]}}
+    */
+    google.protobuf.Struct attr_authorizers = 7 ;
 }
 

@@ -1,0 +1,83 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+
+/*
+指标聚合规则
+*/
+message StreamAggregateRule {
+message AggregateVars {
+    /*
+    聚合变量名
+    */
+    string name = 1 ;
+    /*
+    关联指标名
+    */
+    string metric = 2 ;
+    /*
+    关联指标模型
+    */
+    string objectId = 3 ;
+    /*
+    关联指标实例列表
+    */
+    repeated string instances = 4 ;
+}
+        
+    
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    聚合规则id
+    */
+    string id = 2 ;
+    /*
+    聚合规则原实例id
+    */
+    string ruleId = 3 ;
+    /*
+    聚合规则版本
+    */
+    int32 version = 4 ;
+    /*
+    聚合指标所属模型id
+    */
+    string objectId = 5 ;
+    /*
+    聚合指标所属实例id
+    */
+    string instanceId = 6 ;
+    /*
+    聚合指标名
+    */
+    string metricName = 7 ;
+    /*
+    聚合函数
+    */
+    string aggregateFunc = 8 ;
+    /*
+    聚合表达式
+    */
+    string aggregateExpr = 9 ;
+    /*
+    聚合变量
+    */
+    repeated AggregateVars aggregateVars = 10 ;
+    /*
+    聚合粒度
+    */
+    int32 granularity = 11 ;
+    /*
+    分组字段
+    */
+    repeated string groupBy = 12 ;
+}
+

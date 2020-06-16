@@ -1,0 +1,106 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+import "ucpro_sdk/model/collector_center/script.proto";
+import "ucpro_sdk/model/collector_center/target_range.proto";
+import "google/protobuf/struct.proto";
+
+/*
+采集配置
+*/
+message Configuration {
+    /*
+    ORG
+    */
+    int32 org = 1 ;
+    /*
+    ID
+    */
+    string id = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    参数
+    */
+    google.protobuf.Value kwargs = 4 ;
+    /*
+    超时时间
+    */
+    int32 timeout = 5 ;
+    /*
+    环境变量
+    */
+    google.protobuf.Value env = 6 ;
+    /*
+    是否禁用
+    */
+    bool disabled = 7 ;
+    /*
+    标签
+    */
+    repeated string labels = 8 ;
+    /*
+    是否忽略不符合要求数据
+    */
+    bool ignoreInvalid = 9 ;
+    /*
+    脚本
+    */
+    collector_center.Script script = 10 ;
+    /*
+    目标动态范围
+    */
+    collector_center.TargetRange targetRange = 11 ;
+    /*
+    采集间隔
+    */
+    int32 interval = 12 ;
+    /*
+    缓存过期次数（时间）
+    */
+    int32 cacheTtl = 13 ;
+    /*
+    执行时间范围（24小时）
+    */
+    string timeRange = 14 ;
+    /*
+    采集类型ID
+    */
+    string clazzId = 15 ;
+    /*
+    采集类型名称
+    */
+    string clazzName = 16 ;
+    /*
+    创建者
+    */
+    string creator = 17 ;
+    /*
+    修改者
+    */
+    string modifier = 18 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 19 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 20 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 21 ;
+    /*
+    关联模型实例ID宏
+    */
+    string instanceIdMacro = 22 ;
+}
+

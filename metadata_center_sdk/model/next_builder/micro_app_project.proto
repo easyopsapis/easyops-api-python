@@ -1,0 +1,70 @@
+syntax = "proto3";
+package next_builder;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/next_builder";
+
+
+
+
+
+/*
+小产品项目
+*/
+message MicroAppProject {
+message DevelopmentEnv {
+    /*
+    open api gateway ip
+    */
+    string openApiIP = 1 ;
+    /*
+    open api access key
+    */
+    string accessKey = 2 ;
+    /*
+    open api secret key
+    */
+    string secretKey = 3 ;
+}
+        
+message AppSetting {
+    /*
+    name
+    */
+    string name = 1 ;
+    /*
+    homepage
+    */
+    string homepage = 2 ;
+}
+        
+    
+    /*
+    projectId
+    */
+    string projectId = 1 ;
+    /*
+    name
+    */
+    string name = 2 ;
+    /*
+    appId
+    */
+    string appId = 3 ;
+    /*
+    model列表
+    */
+    repeated string models = 4 ;
+    /*
+    开发环境
+    */
+    DevelopmentEnv developmentEnv = 5 ;
+    /*
+    app配置
+    */
+    AppSetting appSetting = 6 ;
+    /*
+    type
+    */
+    string type = 7 ;
+}
+

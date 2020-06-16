@@ -4,7 +4,7 @@ package admin_task;
 
 
 
-import "model/easy_command/target_log.proto";
+import "agent_admin_sdk/model/easy_command/target_log.proto";
 
 /*
 CallbackAdminTask请求

@@ -1,0 +1,23 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+
+/*
+标签
+*/
+message DeployLabel {
+    /*
+    来源
+    */
+    string from = 1 ;
+    /*
+    策略名称
+    */
+    string strategyName = 2 ;
+}
+

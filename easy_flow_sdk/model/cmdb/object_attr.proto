@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/c
 
 
 
-import "model/cmdb/object_attr_value.proto";
+import "easy_flow_sdk/model/cmdb/object_attr_value.proto";
 
 /*
 模型属性
@@ -60,5 +60,9 @@ message ObjectAttr {
     属性的提示
     */
     string tips = 12 ;
+    /*
+    是否继承自父模型
+    */
+    bool isInherit = 13 ;
 }
 

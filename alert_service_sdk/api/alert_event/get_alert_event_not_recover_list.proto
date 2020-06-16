@@ -1,0 +1,106 @@
+syntax = "proto3";
+package alert_event;
+
+
+
+
+import "alert_service_sdk/model/monitor/alert_event.proto";
+
+/*
+GetAlertEventNotRecoverList请求
+*/
+message GetAlertEventNotRecoverListRequest {
+    /*
+    选择返回的字段，以逗号分隔
+    */
+    string __select__ = 1 ;
+    /*
+    排序
+    */
+    string __sortby__ = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 4 ;
+    /*
+    告警模型id
+    */
+    string objectId = 5 ;
+    /*
+    告警实例id
+    */
+    string instanceId = 6 ;
+    /*
+    告警对象, 模糊搜索
+    */
+    string target = 7 ;
+    /*
+    指标名
+    */
+    string metric_name = 8 ;
+    /*
+    告警等级
+    */
+    string level = 9 ;
+    /*
+    开始时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳
+    */
+    string st = 10 ;
+    /*
+    结束时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳
+    */
+    string et = 11 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 12 ;
+}
+
+/*
+GetAlertEventNotRecoverList返回
+*/
+message GetAlertEventNotRecoverListResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    告警事件列表
+    */
+    repeated monitor.AlertEvent list = 4 ;
+}
+
+/*
+GetAlertEventNotRecoverListApi返回
+*/
+message GetAlertEventNotRecoverListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_event.GetAlertEventNotRecoverListResponse data = 4 ;
+}
+

@@ -1,0 +1,107 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+主机
+*/
+message Host {
+    /*
+    主机ID
+    */
+    string instanceId = 1 ;
+    /*
+    主机名称
+    */
+    string hostname = 2 ;
+    /*
+    主机IP
+    */
+    string ip = 3 ;
+    /*
+    agent版本
+    */
+    string agentVersion = 4 ;
+    /*
+    agent状态
+    */
+    string _agentStatus = 5 ;
+    /*
+    agent心跳
+    */
+    int32 _agentHeartBeat = 6 ;
+    /*
+    物理地址
+    */
+    string _mac = 7 ;
+    /*
+    主机环境
+    */
+    string _environment = 8 ;
+    /*
+    起始U位
+    */
+    int32 _startU = 9 ;
+    /*
+    占用U位
+    */
+    int32 _occupiedU = 10 ;
+    /*
+    供应商
+    */
+    string provider = 11 ;
+    /*
+    备注
+    */
+    string memo = 12 ;
+    /*
+    内存大小
+    */
+    int32 memSize = 13 ;
+    /*
+    磁盘大小
+    */
+    int32 diskSize = 14 ;
+    /*
+    操作系统类型
+    */
+    string osSystem = 15 ;
+    /*
+    操作系统架构
+    */
+    string osArchitecture = 16 ;
+    /*
+    操作系统
+    */
+    string osVersion = 17 ;
+    /*
+    操作系统内核发行版本
+    */
+    string osRelease = 18 ;
+    /*
+    创建时间
+    */
+    string ctime = 19 ;
+    /*
+    创建人
+    */
+    string creator = 20 ;
+    /*
+    产品线
+    */
+    string product = 21 ;
+    /*
+    客户
+    */
+    string customer = 22 ;
+    /*
+    是否单电源
+    */
+    bool isSinglePower = 23 ;
+}
+

@@ -1,0 +1,107 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+import "patch_manager_sdk/model/patch_manager/win_patch.proto";
+import "patch_manager_sdk/model/patch_manager/patch_manager_host.proto";
+
+/*
+GetWinPatch请求
+*/
+message GetWinPatchRequest {
+    /*
+    补丁ID
+    */
+    string patchId = 1 ;
+}
+
+/*
+GetWinPatch返回
+*/
+message GetWinPatchResponse {
+    /*
+    依赖补丁列表
+    */
+    repeated patch_manager.WinPatch PRE_PATCH = 1 ;
+    /*
+    已安装该补丁的主机列表
+    */
+    repeated patch_manager.PatchManagerHost hostsWithPatchInstalled = 2 ;
+    /*
+    未安装该补丁的主机列表
+    */
+    repeated patch_manager.PatchManagerHost hostsWithoutPatchInstalled = 3 ;
+    /*
+    实例ID
+    */
+    string instanceId = 4 ;
+    /*
+    名称
+    */
+    string name = 5 ;
+    /*
+    补丁编号
+    */
+    string articleId = 6 ;
+    /*
+    发布时间
+    */
+    string releaseTime = 7 ;
+    /*
+    适用系统类型(如:Windows, linux)
+    */
+    string osSystem = 8 ;
+    /*
+    适用系统版本(如:Windows Server 2012 R2)
+    */
+    repeated string osVersion = 9 ;
+    /*
+    操作系统架构
+    */
+    repeated string osArchitecture = 10 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 11 ;
+    /*
+    MSRC编号
+    */
+    string msrc = 12 ;
+    /*
+    补丁大小(单位为KB)
+    */
+    int32 size = 13 ;
+    /*
+    备注
+    */
+    string memo = 14 ;
+    /*
+    补丁下载链接
+    */
+    string url = 15 ;
+}
+
+/*
+GetWinPatchApi返回
+*/
+message GetWinPatchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.GetWinPatchResponse data = 4 ;
+}
+

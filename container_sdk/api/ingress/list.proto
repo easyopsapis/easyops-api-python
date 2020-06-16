@@ -1,0 +1,79 @@
+syntax = "proto3";
+package ingress;
+
+
+
+
+import "container_sdk/model/container/ingress.proto";
+import "container_sdk/model/container/namespace.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    命名空间 id
+    */
+    string namespaceId = 1 ;
+    /*
+    工作空间 id
+    */
+    string workspaceId = 2 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+message List {
+    /*
+    Ingress
+    */
+    container.Ingress ingress = 1 ;
+    /*
+    Namespace
+    */
+    container.Namespace namespace = 2 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    ingress.ListResponse data = 4 ;
+}
+

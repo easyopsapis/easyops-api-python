@@ -20,32 +20,24 @@ message SQLPackage {
     */
     string name = 2 ;
     /*
-    SQL包的数据库类型
-    */
-    string dbType = 3 ;
-    /*
     描述
     */
-    string memo = 4 ;
+    string memo = 3 ;
     /*
     创建者
     */
-    string creator = 5 ;
+    string creator = 4 ;
     /*
     ctime
     */
-    int64 ctime = 6 ;
+    int64 ctime = 5 ;
     /*
     mtime
     */
-    int64 mtime = 7 ;
-    /*
-    程序包Id
-    */
-    string appPackageId = 8 ;
+    int64 mtime = 6 ;
     /*
     文件仓库包ID
     */
-    string repoPackageId = 9 ;
+    string repoPackageId = 7 ;
 }
 

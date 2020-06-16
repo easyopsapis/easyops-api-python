@@ -1,0 +1,31 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+容器挂载目录
+*/
+message VolumeMount {
+    /*
+    引用pod定义的共享存储卷名称, 需要 volumes[]部分定义的卷名
+    */
+    string name = 1 ;
+    /*
+    存储卷内 mount 的绝对路径
+    */
+    string mountPath = 2 ;
+    /*
+    子路径
+    */
+    string subPath = 3 ;
+    /*
+    是否为只读模式
+    */
+    bool readOnly = 4 ;
+}
+

@@ -12,16 +12,20 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/m
 */
 message MessageReceiver {
     /*
-    用户名
+    用户名(带:前缀则按实例ID处理)
     */
     string user = 1 ;
     /*
-    用户组名
+    用户组名(带:前缀则按实例ID处理)
     */
     string user_group = 2 ;
     /*
+    邮箱地址
+    */
+    string email_addr = 3 ;
+    /*
     通知方式
     */
-    string method = 3 ;
+    string method = 4 ;
 }
 

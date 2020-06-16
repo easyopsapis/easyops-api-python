@@ -1,0 +1,129 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+
+/*
+采集指标（原始指标, 这个模型存储的是从zabbix, prometheus导入的原始指标。平台管理的是映射后的指标见CollectorAliasMetric模型）
+*/
+message CollectorMetric {
+message TagDefine {
+    /*
+    名字
+    */
+    string name = 1 ;
+    /*
+    默认值
+    */
+    string default = 2 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+    /*
+    值类型
+    */
+    string valueType = 5 ;
+}
+        
+message ParamDefine {
+    /*
+    名字
+    */
+    string name = 1 ;
+    /*
+    值类型
+    */
+    string valueType = 2 ;
+    /*
+    默认值
+    */
+    string default = 3 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 4 ;
+}
+        
+message Plugin {
+    /*
+    插件名称
+    */
+    string name = 1 ;
+    /*
+    插件路径
+    */
+    string path = 2 ;
+}
+        
+    
+    /*
+    指标名
+    */
+    string name = 1 ;
+    /*
+    指标名
+    */
+    string keyName = 2 ;
+    /*
+    标签
+    */
+    repeated string labels = 3 ;
+    /*
+    指标id
+    */
+    string metricId = 4 ;
+    /*
+    指标版本
+    */
+    int32 version = 5 ;
+    /*
+    指标key
+    */
+    string key = 6 ;
+    /*
+    指标类型
+    */
+    string metricType = 7 ;
+    /*
+    指标数据类型
+    */
+    string dataType = 8 ;
+    /*
+    所属Agent
+    */
+    string agentType = 9 ;
+    /*
+    维度定义
+    */
+    repeated TagDefine tagDefine = 10 ;
+    /*
+    参数定义
+    */
+    repeated ParamDefine paramDefine = 11 ;
+    /*
+    帮助
+    */
+    string help = 12 ;
+    /*
+    单位
+    */
+    string unit = 13 ;
+    /*
+    采集指标实例版本号
+    */
+    int32 metricVersion = 14 ;
+    /*
+    采集插件
+    */
+    Plugin plugin = 15 ;
+}
+

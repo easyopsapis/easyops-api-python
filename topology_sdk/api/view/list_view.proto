@@ -4,7 +4,7 @@ package view;
 
 
 
-import "model/topology/view.proto";
+import "topology_sdk/model/topology/view.proto";
 
 /*
 ListView请求

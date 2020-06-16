@@ -1,0 +1,47 @@
+syntax = "proto3";
+package service;
+
+
+
+
+import "container_sdk/model/container/service_spec.proto";
+import "container_sdk/model/container/loadbalancer_status.proto";
+import "container_sdk/model/container/service.proto";
+import "google/protobuf/struct.proto";
+
+/*
+UpdateResourceSpec请求
+*/
+message UpdateResourceSpecRequest {
+    /*
+    Service id
+    */
+    string instanceId = 1 ;
+    /*
+    资源原生 yaml 文件定义
+    */
+    string resourceSpec = 2 ;
+}
+
+/*
+UpdateResourceSpecApi返回
+*/
+message UpdateResourceSpecResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.Service data = 4 ;
+}
+

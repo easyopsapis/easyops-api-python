@@ -4,8 +4,8 @@ package dbclient;
 
 
 
-import "model/easy_command/task_callback.proto";
-import "model/easy_command/target_log.proto";
+import "database_delivery_sdk/model/easy_command/task_callback.proto";
+import "database_delivery_sdk/model/easy_command/target_log.proto";
 
 /*
 CreateClientCallback返回

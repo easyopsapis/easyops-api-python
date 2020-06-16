@@ -4,7 +4,7 @@ package basic;
 
 
 
-import "model/tool/tool.proto";
+import "tool_sdk/model/tool/tool.proto";
 
 /*
 ListTool请求
@@ -13,11 +13,11 @@ message ListToolRequest {
     /*
     是否显示具体信息
     */
-    string detail = 1 ;
+    bool detail = 1 ;
     /*
     是否显示插件
     */
-    string plugin = 2 ;
+    bool plugin = 2 ;
     /*
     工具的分类
     */
@@ -29,11 +29,11 @@ message ListToolRequest {
     /*
     仅选择有生产版本的工具 true | false. 默认是false
     */
-    string onlyProduction = 5 ;
+    bool onlyProduction = 5 ;
     /*
     显示listVisible=false的工具; true=显示 | false=不显示. 默认是false
     */
-    string showInvisible = 6 ;
+    bool showInvisible = 6 ;
     /*
     标签，用","分隔，标签只支持字符串
     */

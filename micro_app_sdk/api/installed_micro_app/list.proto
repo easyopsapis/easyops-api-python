@@ -4,7 +4,8 @@ package installed_micro_app;
 
 
 
-import "model/micro_app/installed_micro_app.proto";
+import "micro_app_sdk/model/micro_app/micro_app_container.proto";
+import "google/protobuf/struct.proto";
 
 /*
 ListMicroApp请求
@@ -24,6 +25,156 @@ message ListMicroAppRequest {
 ListMicroApp返回
 */
 message ListMicroAppResponse {
+message List {
+message Icons {
+    /*
+    图标url
+    */
+    string large = 1 ;
+}
+        
+message ClonedFrom {
+    /*
+    克隆的appId
+    */
+    string appId = 1 ;
+    /*
+    克隆的版本号
+    */
+    string version = 2 ;
+    /*
+    克隆的app名称
+    */
+    string name = 3 ;
+}
+        
+message MenuIcon {
+    /*
+    图标库
+    */
+    string lib = 1 ;
+    /*
+    Antd 图标类型
+    */
+    string type = 2 ;
+    /*
+    Antd 图标主题
+    */
+    string theme = 3 ;
+    /*
+    FA 或 EasyOps 图标
+    */
+    string icon = 4 ;
+    /*
+    FA 图标前缀
+    */
+    string prefix = 5 ;
+    /*
+    EasyOps 图标分类
+    */
+    string category = 6 ;
+}
+        
+    
+    /*
+    小产品关联的桌面信息
+    */
+    micro_app.MicroAppContainer container = 1 ;
+    /*
+    cmdb唯一标识, 业务逻辑请使用appId作为唯一标识
+    */
+    string instanceId = 2 ;
+    /*
+    小产品名称
+    */
+    string name = 3 ;
+    /*
+    小产品id
+    */
+    string appId = 4 ;
+    /*
+    图标url
+    */
+    Icons icons = 5 ;
+    /*
+    小产品配置
+    */
+    string storyboardJson = 6 ;
+    /*
+    标签
+    */
+    repeated string tags = 7 ;
+    /*
+    NA程序包当前版本
+    */
+    string currentVersion = 8 ;
+    /*
+    小产品在应用商店的版本号
+    */
+    string appVersion = 9 ;
+    /*
+    安装状态， ok-成功, running-正在安装
+    */
+    string installStatus = 10 ;
+    /*
+    小产品首页
+    */
+    string homepage = 11 ;
+    /*
+    表示该应用是内部的，不出现在 launchpad 和 app store 中
+    */
+    string internal = 12 ;
+    /*
+    私有安装应用, true or false
+    */
+    string private = 13 ;
+    /*
+    克隆对象
+    */
+    ClonedFrom clonedFrom = 14 ;
+    /*
+    作者
+    */
+    string owner = 15 ;
+    /*
+    readme
+    */
+    string readme = 16 ;
+    /*
+    状态
+    */
+    string status = 17 ;
+    /*
+    创建时间
+    */
+    string ctime = 18 ;
+    /*
+    修改时间
+    */
+    string mtime = 19 ;
+    /*
+    关联程序包名称
+    */
+    string pkgName = 20 ;
+    /*
+    图标背景
+    */
+    string iconBackground = 21 ;
+    /*
+    菜单中显示的图标
+    */
+    MenuIcon menuIcon = 22 ;
+    /*
+    默认配置
+    */
+    google.protobuf.Struct defaultConfig = 23 ;
+    /*
+    用户配置
+    */
+    google.protobuf.Struct userConfig = 24 ;
+}
+        
+    
     /*
     页数
     */
@@ -39,7 +190,7 @@ message ListMicroAppResponse {
     /*
     数据列表
     */
-    repeated micro_app.InstalledMicroApp list = 4 ;
+    repeated List list = 4 ;
 }
 
 /*

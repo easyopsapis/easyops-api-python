@@ -13,13 +13,32 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/p
 message Pipeline {
 message Variables {
     /*
-    key
+    name
     */
-    string key = 1 ;
+    string name = 1 ;
     /*
     value
     */
     string value = 2 ;
+}
+        
+message Notify {
+    /*
+    通知时间点，构建开始时/构建成功时/构建失败时
+    */
+    repeated string mode = 1 ;
+    /*
+    通知方式
+    */
+    repeated string methods = 2 ;
+    /*
+    通知用户列表
+    */
+    repeated string users = 3 ;
+    /*
+    通知用户组列表
+    */
+    repeated string user_groups = 4 ;
 }
         
     
@@ -48,20 +67,28 @@ message Variables {
     */
     string yaml_url = 6 ;
     /*
+    timeout Minute
+    */
+    int32 step_timeout = 7 ;
+    /*
     流水线全局变量
     */
-    repeated Variables variables = 7 ;
+    repeated Variables variables = 8 ;
+    /*
+    通知
+    */
+    Notify notify = 9 ;
     /*
     创建者, 服务端自动生成
     */
-    string creator = 8 ;
+    string creator = 10 ;
     /*
     创建时间, 服务端自动生成
     */
-    string ctime = 9 ;
+    string ctime = 11 ;
     /*
     修改时间, 服务端自动生成
     */
-    string mtime = 10 ;
+    string mtime = 12 ;
 }
 

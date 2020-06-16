@@ -1,0 +1,70 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "collector_center_sdk/model/collector_center/configuration_template.proto";
+
+/*
+ListConfigurationTemplate请求
+*/
+message ListConfigurationTemplateRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    是否全部
+    */
+    bool isAll = 3 ;
+}
+
+/*
+ListConfigurationTemplate返回
+*/
+message ListConfigurationTemplateResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated collector_center.ConfigurationTemplate list = 4 ;
+}
+
+/*
+ListConfigurationTemplateApi返回
+*/
+message ListConfigurationTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.ListConfigurationTemplateResponse data = 4 ;
+}
+

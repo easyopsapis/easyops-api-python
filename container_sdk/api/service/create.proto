@@ -1,0 +1,55 @@
+syntax = "proto3";
+package service;
+
+
+
+
+import "container_sdk/model/container/service.proto";
+import "container_sdk/model/container/service_spec.proto";
+import "container_sdk/model/container/loadbalancer_status.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    部署资源组 (resource group) id
+    */
+    string rgId = 1 ;
+    /*
+    命名空间 id
+    */
+    string namespaceId = 2 ;
+    /*
+    关联的 workload id
+    */
+    string workloadId = 3 ;
+    /*
+    Service 信息
+    */
+    container.Service service = 4 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.Service data = 4 ;
+}
+

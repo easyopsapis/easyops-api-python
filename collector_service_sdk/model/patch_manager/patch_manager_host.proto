@@ -1,0 +1,79 @@
+syntax = "proto3";
+package patch_manager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/patch_manager";
+
+
+
+
+
+/*
+主机详情
+*/
+message PatchManagerHost {
+message InstalledPatch {
+    /*
+    补丁编号
+    */
+    string articleId = 1 ;
+    /*
+    补丁安装时间
+    */
+    string installedTime = 2 ;
+}
+        
+    
+    /*
+    实例 ID
+    */
+    string instanceId = 1 ;
+    /*
+    主机名
+    */
+    string hostname = 2 ;
+    /*
+    主机 IP
+    */
+    string ip = 3 ;
+    /*
+    agent 状态
+    */
+    string _agentStatus = 4 ;
+    /*
+    主机环境
+    */
+    string _environment = 5 ;
+    /*
+    操作系统类型（如:Windows）
+    */
+    string osSystem = 6 ;
+    /*
+    操作系统架构
+    */
+    string osArchitecture = 7 ;
+    /*
+    操作系统版本（如:Windows 10）
+    */
+    string osVersion = 8 ;
+    /*
+    操作系统内核发行版本
+    */
+    string osRelease = 9 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 10 ;
+    /*
+    最近一次启动时间
+    */
+    int32 lastStartTime = 11 ;
+    /*
+    最近一次安装补丁时间
+    */
+    int32 lastInstallPatchTime = 12 ;
+    /*
+    已安装的补丁信息
+    */
+    repeated InstalledPatch installedPatch = 13 ;
+}
+

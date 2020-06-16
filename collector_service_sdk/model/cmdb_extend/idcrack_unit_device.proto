@@ -1,0 +1,39 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+
+/*
+机柜U位设备
+*/
+message IdcrackUnitDevice {
+message Device {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    模型ID
+    */
+    string objectId = 2 ;
+    /*
+    开始U位
+    */
+    int32 _startU = 3 ;
+}
+        
+    
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备
+    */
+    Device device = 2 ;
+}
+

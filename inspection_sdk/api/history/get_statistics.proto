@@ -4,6 +4,7 @@ package history;
 
 
 
+import "inspection_sdk/model/inspection/host.proto";
 
 /*
 GetStatistics请求
@@ -24,49 +25,45 @@ GetStatistics返回
 */
 message GetStatisticsResponse {
     /*
+    关联的主机
+    */
+    inspection.InspectionHost host = 1 ;
+    /*
     日志
     */
-    string log = 1 ;
+    string log = 2 ;
     /*
     巡检总项数
     */
-    int32 totalNum = 2 ;
+    int32 totalNum = 3 ;
     /*
     通知项数
     */
-    int32 noticeNum = 3 ;
+    int32 noticeNum = 4 ;
     /*
     警告项数
     */
-    int32 warningNum = 4 ;
+    int32 warningNum = 5 ;
     /*
     紧急项数
     */
-    int32 emergencyNum = 5 ;
+    int32 emergencyNum = 6 ;
     /*
     合格项数
     */
-    int32 passedNum = 6 ;
+    int32 passedNum = 7 ;
     /*
-    主机实例Id
+    巡检对象实例ID
     */
-    string instanceId = 7 ;
-    /*
-    主机名称
-    */
-    string hostname = 8 ;
-    /*
-    主机IP
-    */
-    string ip = 9 ;
+    string instanceId = 8 ;
     /*
     评分(精确到小数点后2位)
     */
-    float score = 10 ;
+    float score = 9 ;
     /*
     unexecuted:脚本未执行; failed:返回码大于0; normal:返回码等于0,没有异常指标; abnormal:返回码等于0,有异常指标
     */
-    string status = 11 ;
+    string status = 10 ;
 }
 
 /*

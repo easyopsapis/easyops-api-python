@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import inspection_sdk.api.template.create_pb2
 
-import create_pb2
+import inspection_sdk.model.inspection.template_pb2
 
-import model.inspection.template_pb2
-
-import delete_pb2
+import inspection_sdk.api.template.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import inspection_sdk.api.template.get_pb2
 
-import list_pb2
+import inspection_sdk.api.template.list_pb2
 
-import update_pb2
+import inspection_sdk.api.template.update_pb2
 
-import utils.http_util
+import inspection_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class TemplateClient(object):
 
     
     def create_template(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateTemplateRequest, int, str, int) -> model.inspection.template_pb2.InspectionTemplate
+        # type: (inspection_sdk.api.template.create_pb2.CreateTemplateRequest, int, str, int) -> inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         创建报告模板
         :param request: create_template请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.template_pb2.InspectionTemplate
+        :return: inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -65,7 +60,7 @@ class TemplateClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -78,14 +73,14 @@ class TemplateClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.template_pb2.InspectionTemplate()
+        rsp = inspection_sdk.model.inspection.template_pb2.InspectionTemplate()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_template(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteTemplateRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (inspection_sdk.api.template.delete_pb2.DeleteTemplateRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除报告模板
         :param request: delete_template请求
@@ -107,7 +102,7 @@ class TemplateClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -127,14 +122,14 @@ class TemplateClient(object):
         return rsp
     
     def get_template(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetTemplateRequest, int, str, int) -> model.inspection.template_pb2.InspectionTemplate
+        # type: (inspection_sdk.api.template.get_pb2.GetTemplateRequest, int, str, int) -> inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         获取报告模板
         :param request: get_template请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.template_pb2.InspectionTemplate
+        :return: inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class TemplateClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class TemplateClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.template_pb2.InspectionTemplate()
+        rsp = inspection_sdk.model.inspection.template_pb2.InspectionTemplate()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_template(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListTemplateRequest, int, str, int) -> list_pb2.ListTemplateResponse
+        # type: (inspection_sdk.api.template.list_pb2.ListTemplateRequest, int, str, int) -> inspection_sdk.api.template.list_pb2.ListTemplateResponse
         """
         获取报告模板列表
         :param request: list_template请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListTemplateResponse
+        :return: inspection_sdk.api.template.list_pb2.ListTemplateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class TemplateClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -203,21 +198,21 @@ class TemplateClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListTemplateResponse()
+        rsp = inspection_sdk.api.template.list_pb2.ListTemplateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_template(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateTemplateRequest, int, str, int) -> model.inspection.template_pb2.InspectionTemplate
+        # type: (inspection_sdk.api.template.update_pb2.UpdateTemplateRequest, int, str, int) -> inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         更新报告模板
         :param request: update_template请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.template_pb2.InspectionTemplate
+        :return: inspection_sdk.model.inspection.template_pb2.InspectionTemplate
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -232,7 +227,7 @@ class TemplateClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -245,7 +240,7 @@ class TemplateClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.template_pb2.InspectionTemplate()
+        rsp = inspection_sdk.model.inspection.template_pb2.InspectionTemplate()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

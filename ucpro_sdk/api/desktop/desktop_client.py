@@ -2,23 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import ucpro_sdk.api.desktop.clone_pb2
 
-import get_task_status_pb2
+import ucpro_sdk.model.micro_app.installed_micro_app_pb2
 
-import install_app_pb2
+import ucpro_sdk.api.desktop.get_app_dependencies_pb2
+
+import ucpro_sdk.api.desktop.get_task_status_pb2
+
+import ucpro_sdk.api.desktop.install_app_pb2
 
 import google.protobuf.empty_pb2
 
-import running_tasks_pb2
+import ucpro_sdk.api.desktop.running_tasks_pb2
 
-import uninstall_app_pb2
+import ucpro_sdk.api.desktop.uninstall_app_pb2
 
-import utils.http_util
+import ucpro_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -39,15 +40,95 @@ class DesktopClient(object):
         self._host = host
 
     
+    def clone(self, request, org, user, timeout=10):
+        # type: (ucpro_sdk.api.desktop.clone_pb2.CloneRequest, int, str, int) -> ucpro_sdk.model.micro_app.installed_micro_app_pb2.InstalledMicroApp
+        """
+        克隆小产品
+        :param request: clone请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: ucpro_sdk.model.micro_app.installed_micro_app_pb2.InstalledMicroApp
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ucpro.desktop.Clone"
+        uri = "/api/micro_app/v1/installed_micro_app/clone"
+        
+        requestParam = request
+        
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.ucpro_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = ucpro_sdk.model.micro_app.installed_micro_app_pb2.InstalledMicroApp()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_app_dependencies(self, request, org, user, timeout=10):
+        # type: (ucpro_sdk.api.desktop.get_app_dependencies_pb2.GetAppDependenciesRequest, int, str, int) -> ucpro_sdk.api.desktop.get_app_dependencies_pb2.GetAppDependenciesResponse
+        """
+        获取在线商店应用当前版本的依赖信息
+        :param request: get_app_dependencies请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: ucpro_sdk.api.desktop.get_app_dependencies_pb2.GetAppDependenciesResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ucpro.desktop.GetAppDependencies"
+        uri = "/api/v1/desktop/app-dependencies"
+        
+        requestParam = request
+        
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.ucpro_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = ucpro_sdk.api.desktop.get_app_dependencies_pb2.GetAppDependenciesResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def get_task_status(self, request, org, user, timeout=10):
-        # type: (get_task_status_pb2.GetTaskStatusRequest, int, str, int) -> get_task_status_pb2.GetTaskStatusResponse
+        # type: (ucpro_sdk.api.desktop.get_task_status_pb2.GetTaskStatusRequest, int, str, int) -> ucpro_sdk.api.desktop.get_task_status_pb2.GetTaskStatusResponse
         """
         查询部署任务状态
         :param request: get_task_status请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_task_status_pb2.GetTaskStatusResponse
+        :return: ucpro_sdk.api.desktop.get_task_status_pb2.GetTaskStatusResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -61,7 +142,7 @@ class DesktopClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ucpro_sdk",
             dst_name=route_name,
@@ -74,21 +155,21 @@ class DesktopClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_task_status_pb2.GetTaskStatusResponse()
+        rsp = ucpro_sdk.api.desktop.get_task_status_pb2.GetTaskStatusResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def install_app(self, request, org, user, timeout=10):
-        # type: (install_app_pb2.InstallAppRequest, int, str, int) -> install_app_pb2.InstallAppResponse
+        # type: (ucpro_sdk.api.desktop.install_app_pb2.InstallAppRequest, int, str, int) -> ucpro_sdk.api.desktop.install_app_pb2.InstallAppResponse
         """
         安装小产品
         :param request: install_app请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: install_app_pb2.InstallAppResponse
+        :return: ucpro_sdk.api.desktop.install_app_pb2.InstallAppResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -101,7 +182,7 @@ class DesktopClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ucpro_sdk",
             dst_name=route_name,
@@ -114,21 +195,21 @@ class DesktopClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = install_app_pb2.InstallAppResponse()
+        rsp = ucpro_sdk.api.desktop.install_app_pb2.InstallAppResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def running_tasks(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> running_tasks_pb2.RunningTasksResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> ucpro_sdk.api.desktop.running_tasks_pb2.RunningTasksResponse
         """
         正在安装或卸载的小产品任务
         :param request: running_tasks请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: running_tasks_pb2.RunningTasksResponse
+        :return: ucpro_sdk.api.desktop.running_tasks_pb2.RunningTasksResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -141,7 +222,7 @@ class DesktopClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ucpro_sdk",
             dst_name=route_name,
@@ -154,21 +235,21 @@ class DesktopClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = running_tasks_pb2.RunningTasksResponse()
+        rsp = ucpro_sdk.api.desktop.running_tasks_pb2.RunningTasksResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def uninstall_app(self, request, org, user, timeout=10):
-        # type: (uninstall_app_pb2.UninstallAppRequest, int, str, int) -> uninstall_app_pb2.UninstallAppResponse
+        # type: (ucpro_sdk.api.desktop.uninstall_app_pb2.UninstallAppRequest, int, str, int) -> ucpro_sdk.api.desktop.uninstall_app_pb2.UninstallAppResponse
         """
         卸载小产品
         :param request: uninstall_app请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: uninstall_app_pb2.UninstallAppResponse
+        :return: ucpro_sdk.api.desktop.uninstall_app_pb2.UninstallAppResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -181,7 +262,7 @@ class DesktopClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ucpro_sdk",
             dst_name=route_name,
@@ -194,7 +275,7 @@ class DesktopClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = uninstall_app_pb2.UninstallAppResponse()
+        rsp = ucpro_sdk.api.desktop.uninstall_app_pb2.UninstallAppResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

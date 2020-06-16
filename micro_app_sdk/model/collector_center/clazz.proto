@@ -1,0 +1,63 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+
+/*
+采集类型
+*/
+message CollClazz {
+    /*
+    ORG
+    */
+    int32 org = 1 ;
+    /*
+    Id
+    */
+    string Id = 2 ;
+    /*
+    名称
+    */
+    string Name = 3 ;
+    /*
+    数据ID
+    */
+    string dataId = 4 ;
+    /*
+    启禁用
+    */
+    bool disabled = 5 ;
+    /*
+    执行方法
+    */
+    string fun = 6 ;
+    /*
+    是否要求脚本
+    */
+    bool requiredScript = 7 ;
+    /*
+    数据要求字段
+    */
+    repeated string requiredFields = 8 ;
+    /*
+    创建者
+    */
+    string creator = 9 ;
+    /*
+    修改者
+    */
+    string modifer = 10 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 11 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 12 ;
+}
+

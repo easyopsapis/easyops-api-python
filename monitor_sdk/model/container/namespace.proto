@@ -1,0 +1,59 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+Namespace 资源定义
+*/
+message Namespace {
+    /*
+    namespace id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    namespace 类型, 只能是 Namespace
+    */
+    string kind = 2 ;
+    /*
+    namespace 全称，命名规则 clusterId:kind:resourceName, 创建之后不能修改
+    */
+    string name = 3 ;
+    /*
+    名称
+    */
+    string resourceName = 4 ;
+    /*
+    显示名称
+    */
+    string displayName = 5 ;
+    /*
+    存放 namespace 资源定义
+    */
+    string resourceSpec = 6 ;
+    /*
+    存放 LimitRange 资源定义
+    */
+    string limitRangeSpec = 7 ;
+    /*
+    namespace 状态
+    */
+    string status = 8 ;
+    /*
+    namespace 描述
+    */
+    string description = 9 ;
+    /*
+    是否是系统命名空间
+    */
+    bool system = 10 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 11 ;
+}
+

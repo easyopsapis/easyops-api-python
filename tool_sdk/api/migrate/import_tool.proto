@@ -1,0 +1,32 @@
+syntax = "proto3";
+package migrate;
+
+
+
+
+import "tool_sdk/model/tool/tool_input.proto";
+import "tool_sdk/model/tool/tool.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ImportToolApi返回
+*/
+message ImportToolResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    tool.Tool data = 4 ;
+}
+

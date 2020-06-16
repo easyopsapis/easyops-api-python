@@ -1,0 +1,22 @@
+syntax = "proto3";
+package object_store;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetObject请求
+*/
+message GetObjectRequest {
+    /*
+    存储桶名称
+    */
+    string bucketName = 1 ;
+    /*
+    存储桶中对象名称
+    */
+    string objectName = 2 ;
+}
+

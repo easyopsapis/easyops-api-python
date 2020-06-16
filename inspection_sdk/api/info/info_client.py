@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import inspection_sdk.api.info.create_pb2
 
-import create_pb2
+import inspection_sdk.model.inspection.info_pb2
 
-import model.inspection.info_pb2
-
-import delete_pb2
+import inspection_sdk.api.info.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import inspection_sdk.api.info.get_pb2
 
-import list_pb2
+import inspection_sdk.api.info.list_pb2
 
-import update_pb2
+import inspection_sdk.api.info.update_pb2
 
-import utils.http_util
+import inspection_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class InfoClient(object):
 
     
     def create_inspection_info(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateInspectionInfoRequest, int, str, int) -> model.inspection.info_pb2.InspectionInfo
+        # type: (inspection_sdk.api.info.create_pb2.CreateInspectionInfoRequest, int, str, int) -> inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         创建巡检套件
         :param request: create_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.info_pb2.InspectionInfo
+        :return: inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -64,7 +59,7 @@ class InfoClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -77,14 +72,14 @@ class InfoClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.info_pb2.InspectionInfo()
+        rsp = inspection_sdk.model.inspection.info_pb2.InspectionInfo()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_inspection_info(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteInspectionInfoRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (inspection_sdk.api.info.delete_pb2.DeleteInspectionInfoRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         卸载巡检套件
         :param request: delete_inspection_info请求
@@ -105,7 +100,7 @@ class InfoClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -125,14 +120,14 @@ class InfoClient(object):
         return rsp
     
     def get_inspection_info(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetInspectionInfoRequest, int, str, int) -> model.inspection.info_pb2.InspectionInfo
+        # type: (inspection_sdk.api.info.get_pb2.GetInspectionInfoRequest, int, str, int) -> inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         获取巡检套件
         :param request: get_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.info_pb2.InspectionInfo
+        :return: inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -146,7 +141,7 @@ class InfoClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -159,21 +154,21 @@ class InfoClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.info_pb2.InspectionInfo()
+        rsp = inspection_sdk.model.inspection.info_pb2.InspectionInfo()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_inspection_info(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListInspectionInfoRequest, int, str, int) -> list_pb2.ListInspectionInfoResponse
+        # type: (inspection_sdk.api.info.list_pb2.ListInspectionInfoRequest, int, str, int) -> inspection_sdk.api.info.list_pb2.ListInspectionInfoResponse
         """
         获取巡检套件列表
         :param request: list_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListInspectionInfoResponse
+        :return: inspection_sdk.api.info.list_pb2.ListInspectionInfoResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -186,7 +181,7 @@ class InfoClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -199,17 +194,17 @@ class InfoClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListInspectionInfoResponse()
+        rsp = inspection_sdk.api.info.list_pb2.ListInspectionInfoResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
-    def register(self, request, org, user, timeout=10):
+    def listen_org_register(self, request, org, user, timeout=10):
         # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
-        注册(创建索引,安装套件)
-        :param request: register请求
+        监听ORG创建事件
+        :param request: listen_org_register请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
@@ -221,12 +216,12 @@ class InfoClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.inspection.info.Register"
+            route_name = "easyops.api.inspection.info.ListenOrgRegister"
         uri = "/api/v1/org/register"
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -246,14 +241,14 @@ class InfoClient(object):
         return rsp
     
     def update_inspection_info(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateInspectionInfoRequest, int, str, int) -> model.inspection.info_pb2.InspectionInfo
+        # type: (inspection_sdk.api.info.update_pb2.UpdateInspectionInfoRequest, int, str, int) -> inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         更新巡检套件
         :param request: update_inspection_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.info_pb2.InspectionInfo
+        :return: inspection_sdk.model.inspection.info_pb2.InspectionInfo
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -267,7 +262,7 @@ class InfoClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -280,7 +275,7 @@ class InfoClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.info_pb2.InspectionInfo()
+        rsp = inspection_sdk.model.inspection.info_pb2.InspectionInfo()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

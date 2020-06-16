@@ -2,25 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import append_pb2
+import cmdb_sdk.api.instance_relation.append_pb2
 
 import google.protobuf.empty_pb2
 
-import count_relation_instance_pb2
+import cmdb_sdk.api.instance_relation.count_relation_instance_pb2
 
-import discovery_pb2
+import cmdb_sdk.api.instance_relation.discovery_pb2
 
-import remove_pb2
+import cmdb_sdk.api.instance_relation.discovery_v2_pb2
 
-import set_pb2
+import cmdb_sdk.api.instance_relation.get_instance_relation_snapshot_pb2
 
-import utils.http_util
+import cmdb_sdk.api.instance_relation.remove_pb2
+
+import cmdb_sdk.api.instance_relation.set_pb2
+
+import cmdb_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,7 +41,7 @@ class InstanceRelationClient(object):
 
     
     def append(self, request, org, user, timeout=10):
-        # type: (append_pb2.AppendRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.instance_relation.append_pb2.AppendRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量添加关系
         :param request: append请求
@@ -64,7 +63,7 @@ class InstanceRelationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -84,14 +83,14 @@ class InstanceRelationClient(object):
         return rsp
     
     def count_relation_instance(self, request, org, user, timeout=10):
-        # type: (count_relation_instance_pb2.CountRelationInstanceRequest, int, str, int) -> count_relation_instance_pb2.CountRelationInstanceResponse
+        # type: (cmdb_sdk.api.instance_relation.count_relation_instance_pb2.CountRelationInstanceRequest, int, str, int) -> cmdb_sdk.api.instance_relation.count_relation_instance_pb2.CountRelationInstanceResponse
         """
         统计关系实例数量
         :param request: count_relation_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: count_relation_instance_pb2.CountRelationInstanceResponse
+        :return: cmdb_sdk.api.instance_relation.count_relation_instance_pb2.CountRelationInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -105,7 +104,7 @@ class InstanceRelationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -118,21 +117,21 @@ class InstanceRelationClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = count_relation_instance_pb2.CountRelationInstanceResponse()
+        rsp = cmdb_sdk.api.instance_relation.count_relation_instance_pb2.CountRelationInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def discovery(self, request, org, user, timeout=10):
-        # type: (discovery_pb2.DiscoveryRequest, int, str, int) -> discovery_pb2.DiscoveryResponse
+        # type: (cmdb_sdk.api.instance_relation.discovery_pb2.DiscoveryRequest, int, str, int) -> cmdb_sdk.api.instance_relation.discovery_pb2.DiscoveryResponse
         """
         实例关系发现
         :param request: discovery请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: discovery_pb2.DiscoveryResponse
+        :return: cmdb_sdk.api.instance_relation.discovery_pb2.DiscoveryResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -146,7 +145,7 @@ class InstanceRelationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -159,14 +158,97 @@ class InstanceRelationClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = discovery_pb2.DiscoveryResponse()
+        rsp = cmdb_sdk.api.instance_relation.discovery_pb2.DiscoveryResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def discovery_v_2(self, request, org, user, timeout=10):
+        # type: (cmdb_sdk.api.instance_relation.discovery_v2_pb2.DiscoveryV2Request, int, str, int) -> cmdb_sdk.api.instance_relation.discovery_v2_pb2.DiscoveryV2Response
+        """
+        实例关系发现V2(支持set关系)
+        :param request: discovery_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: cmdb_sdk.api.instance_relation.discovery_v2_pb2.DiscoveryV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance_relation.DiscoveryV2"
+        uri = "/v2/object_relation/{relationId}/_autodiscovery/multi".format(
+            relationId=request.relationId,
+        )
+        requestParam = request
+        
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = cmdb_sdk.api.instance_relation.discovery_v2_pb2.DiscoveryV2Response()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def instance_relation_snapshot(self, request, org, user, timeout=10):
+        # type: (cmdb_sdk.api.instance_relation.get_instance_relation_snapshot_pb2.InstanceRelationSnapshotRequest, int, str, int) -> cmdb_sdk.api.instance_relation.get_instance_relation_snapshot_pb2.InstanceRelationSnapshotResponse
+        """
+        查询历史实例关系快照
+        :param request: instance_relation_snapshot请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: cmdb_sdk.api.instance_relation.get_instance_relation_snapshot_pb2.InstanceRelationSnapshotResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance_relation.InstanceRelationSnapshot"
+        uri = "/history/object_relation/{relation_id}/relation_instance/{relation_instance_id}".format(
+            relation_id=request.relation_id,
+            relation_instance_id=request.relation_instance_id,
+        )
+        requestParam = request
+        
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = cmdb_sdk.api.instance_relation.get_instance_relation_snapshot_pb2.InstanceRelationSnapshotResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def remove(self, request, org, user, timeout=10):
-        # type: (remove_pb2.RemoveRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.instance_relation.remove_pb2.RemoveRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量移除关系
         :param request: remove请求
@@ -188,7 +270,7 @@ class InstanceRelationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -208,7 +290,7 @@ class InstanceRelationClient(object):
         return rsp
     
     def set(self, request, org, user, timeout=10):
-        # type: (set_pb2.SetRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_sdk.api.instance_relation.set_pb2.SetRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         批量设置关系
         :param request: set请求
@@ -230,7 +312,7 @@ class InstanceRelationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,

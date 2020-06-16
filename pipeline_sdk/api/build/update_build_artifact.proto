@@ -1,0 +1,105 @@
+syntax = "proto3";
+package build;
+
+
+
+
+
+/*
+UpdateArtifact请求
+*/
+message UpdateArtifactRequest {
+message Artifact {
+    /*
+    制品包名称
+    */
+    string packageName = 1 ;
+    /*
+    版本号
+    */
+    string versionName = 2 ;
+    /*
+    制品包上传时间
+    */
+    string ctime = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+    
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+    /*
+    制品包信息
+    */
+    Artifact artifact = 2 ;
+}
+
+/*
+UpdateArtifact返回
+*/
+message UpdateArtifactResponse {
+message Artifact {
+    /*
+    制品包名称
+    */
+    string packageName = 1 ;
+    /*
+    版本号
+    */
+    string versionName = 2 ;
+    /*
+    制品包上传时间
+    */
+    string ctime = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+    
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    制品包信息
+    */
+    Artifact artifact = 2 ;
+}
+
+/*
+UpdateArtifactApi返回
+*/
+message UpdateArtifactResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    build.UpdateArtifactResponse data = 4 ;
+}
+

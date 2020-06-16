@@ -4,8 +4,8 @@ package plugin_version;
 
 
 
-import "model/agent_admin/plugin.proto";
-import "model/agent_admin/plugin_version.proto";
+import "agent_admin_sdk/model/agent_admin/plugin.proto";
+import "agent_admin_sdk/model/agent_admin/plugin_version.proto";
 
 /*
 ListPluginVersionV1请求
@@ -43,37 +43,41 @@ message List {
     */
     agent_admin.PluginVersion baseVersion = 3 ;
     /*
+    版本部署实例数量
+    */
+    int32 deployedCount = 4 ;
+    /*
     ID
     */
-    string id = 4 ;
+    string id = 5 ;
     /*
     仓库版本ID
     */
-    string repoVersionId = 5 ;
+    string repoVersionId = 6 ;
     /*
     版本名称
     */
-    string name = 6 ;
+    string name = 7 ;
     /*
     备注
     */
-    string memo = 7 ;
+    string memo = 8 ;
     /*
     所属插件ID
     */
-    string pluginId = 8 ;
+    string pluginId = 9 ;
     /*
     创建者
     */
-    string creator = 9 ;
+    string creator = 10 ;
     /*
     创建时间
     */
-    int32 ctime = 10 ;
+    int32 ctime = 11 ;
     /*
     修改时间
     */
-    int32 mtime = 11 ;
+    int32 mtime = 12 ;
 }
         
     

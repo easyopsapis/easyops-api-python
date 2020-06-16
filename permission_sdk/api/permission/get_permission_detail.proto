@@ -1,0 +1,50 @@
+syntax = "proto3";
+package permission;
+
+
+
+
+import "permission_sdk/model/permission/permission.proto";
+
+/*
+GetPermissionDetail请求
+*/
+message GetPermissionDetailRequest {
+    /*
+    权限点id
+    */
+    string id = 1 ;
+}
+
+/*
+GetPermissionDetail返回
+*/
+message GetPermissionDetailResponse {
+    /*
+    数据
+    */
+    permission.Permission data = 1 ;
+}
+
+/*
+GetPermissionDetailApi返回
+*/
+message GetPermissionDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission.GetPermissionDetailResponse data = 4 ;
+}
+

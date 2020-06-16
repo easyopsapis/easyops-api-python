@@ -1,0 +1,22 @@
+syntax = "proto3";
+package process_definition_version;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ExportProcessDefinitionVersionXml请求
+*/
+message ExportProcessDefinitionVersionXmlRequest {
+    /*
+    流程定义实例Id
+    */
+    string definitionId = 1 ;
+    /*
+    数据定义版本实例ID(lastest表示最新版本)
+    */
+    string versionId = 2 ;
+}
+

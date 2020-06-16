@@ -1,0 +1,99 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+import "patch_manager_sdk/model/topology/node.proto";
+import "patch_manager_sdk/model/topology/link.proto";
+import "patch_manager_sdk/model/topology/area.proto";
+import "patch_manager_sdk/model/topology/note.proto";
+
+/*
+视图
+*/
+message View {
+message Diff {
+    /*
+    新增节点
+    */
+    repeated topology.Node addNodes = 1 ;
+    /*
+    已删除节点
+    */
+    repeated topology.Node removeNodes = 2 ;
+    /*
+    新增线
+    */
+    repeated topology.Link addLinks = 3 ;
+    /*
+    已删除线
+    */
+    repeated topology.Link removeLinks = 4 ;
+}
+        
+    
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    创建者
+    */
+    string creator = 3 ;
+    /*
+    修改者
+    */
+    string modifier = 4 ;
+    /*
+    允许可读用户
+    */
+    repeated string readAuthorizers = 5 ;
+    /*
+    允许可写用户
+    */
+    repeated string writeAuthorizers = 6 ;
+    /*
+    版本
+    */
+    string version = 7 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 8 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 9 ;
+    /*
+    根节点
+    */
+    topology.Node rootNode = 10 ;
+    /*
+    节点
+    */
+    repeated topology.Node nodes = 11 ;
+    /*
+    线
+    */
+    repeated topology.Link links = 12 ;
+    /*
+    区域
+    */
+    repeated topology.Area areas = 13 ;
+    /*
+    标注
+    */
+    repeated topology.Note notes = 14 ;
+    /*
+    差异
+    */
+    Diff diff = 15 ;
+}
+

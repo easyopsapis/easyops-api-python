@@ -2,17 +2,12 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import cmdb_sdk.api.instance_graph.traverse_graph_pb2
 
-import traverse_graph_pb2
+import cmdb_sdk.api.instance_graph.traverse_graph_count_pb2
 
-import traverse_graph_count_pb2
-
-import utils.http_util
+import cmdb_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -34,14 +29,14 @@ class InstanceGraphClient(object):
 
     
     def traverse_graph(self, request, org, user, timeout=10):
-        # type: (traverse_graph_pb2.TraverseGraphRequest, int, str, int) -> traverse_graph_pb2.TraverseGraphResponse
+        # type: (cmdb_sdk.api.instance_graph.traverse_graph_pb2.TraverseGraphRequest, int, str, int) -> cmdb_sdk.api.instance_graph.traverse_graph_pb2.TraverseGraphResponse
         """
         图遍历查询
         :param request: traverse_graph请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: traverse_graph_pb2.TraverseGraphResponse
+        :return: cmdb_sdk.api.instance_graph.traverse_graph_pb2.TraverseGraphResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -54,7 +49,7 @@ class InstanceGraphClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -67,21 +62,21 @@ class InstanceGraphClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = traverse_graph_pb2.TraverseGraphResponse()
+        rsp = cmdb_sdk.api.instance_graph.traverse_graph_pb2.TraverseGraphResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def traverse_graph_count(self, request, org, user, timeout=10):
-        # type: (traverse_graph_count_pb2.TraverseGraphCountRequest, int, str, int) -> traverse_graph_count_pb2.TraverseGraphCountResponse
+        # type: (cmdb_sdk.api.instance_graph.traverse_graph_count_pb2.TraverseGraphCountRequest, int, str, int) -> cmdb_sdk.api.instance_graph.traverse_graph_count_pb2.TraverseGraphCountResponse
         """
         图遍历查询叶子节点个数统计
         :param request: traverse_graph_count请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: traverse_graph_count_pb2.TraverseGraphCountResponse
+        :return: cmdb_sdk.api.instance_graph.traverse_graph_count_pb2.TraverseGraphCountResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -94,7 +89,7 @@ class InstanceGraphClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -107,7 +102,7 @@ class InstanceGraphClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = traverse_graph_count_pb2.TraverseGraphCountResponse()
+        rsp = cmdb_sdk.api.instance_graph.traverse_graph_count_pb2.TraverseGraphCountResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

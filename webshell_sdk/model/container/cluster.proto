@@ -1,0 +1,98 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+集群
+*/
+message Cluster {
+message AuthInfo {
+    /*
+    用户名
+    */
+    string username = 1 ;
+    /*
+    密码
+    */
+    string password = 2 ;
+}
+        
+message TlsConfig {
+    /*
+    客户端证书
+    */
+    string clientCertificate = 1 ;
+    /*
+    客户端Key
+    */
+    string clientKey = 2 ;
+    /*
+    集群证书
+    */
+    string clusterCA = 3 ;
+}
+        
+    
+    /*
+    cluster id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    集群名称
+    */
+    string name = 2 ;
+    /*
+    集群地址
+    */
+    string host = 3 ;
+    /*
+    环境类型
+    */
+    string environment = 4 ;
+    /*
+    授权模式
+    */
+    string authMode = 5 ;
+    /*
+    管理账号
+    */
+    AuthInfo authInfo = 6 ;
+    /*
+    证书信息
+    */
+    TlsConfig tlsConfig = 7 ;
+    /*
+    默认 StorageClass
+    */
+    string defaultStorageClass = 8 ;
+    /*
+    备注
+    */
+    string description = 9 ;
+    /*
+    来源
+    */
+    string provider = 10 ;
+    /*
+    区域
+    */
+    string zone = 11 ;
+    /*
+    区域ID
+    */
+    string zoneId = 12 ;
+    /*
+    云服务提供商
+    */
+    string cloudProvider = 13 ;
+    /*
+    创建时间,服务端自动生成
+    */
+    string ctime = 14 ;
+}
+

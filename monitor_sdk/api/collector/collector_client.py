@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import monitor_sdk.api.collector.get_list_pb2
 
-import get_list_pb2
-
-import utils.http_util
+import monitor_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -32,14 +27,14 @@ class CollectorClient(object):
 
     
     def get_list(self, request, org, user, timeout=10):
-        # type: (get_list_pb2.GetListRequest, int, str, int) -> get_list_pb2.GetListResponse
+        # type: (monitor_sdk.api.collector.get_list_pb2.GetListRequest, int, str, int) -> monitor_sdk.api.collector.get_list_pb2.GetListResponse
         """
         获取指标数据
         :param request: get_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_list_pb2.GetListResponse
+        :return: monitor_sdk.api.collector.get_list_pb2.GetListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -53,7 +48,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = monitor_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.monitor_sdk",
             dst_name=route_name,
@@ -66,7 +61,7 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_list_pb2.GetListResponse()
+        rsp = monitor_sdk.api.collector.get_list_pb2.GetListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

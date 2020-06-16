@@ -1,0 +1,66 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "alert_service_sdk/model/monitor/alert_rule.proto";
+
+/*
+ListAlertRuleAll请求
+*/
+message ListAlertRuleAllRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    若填写此字段则必须填写objectId字段
+    */
+    string instanceId = 2 ;
+    /*
+    告警规则名称, 模糊匹配
+    */
+    string rule_name = 3 ;
+    /*
+    指标名, 多个请使用逗号分隔
+    */
+    string metric_name = 4 ;
+    /*
+    是否禁用, true/false
+    */
+    string disabled = 5 ;
+}
+
+/*
+ListAlertRuleAll返回
+*/
+message ListAlertRuleAllResponse {
+    /*
+    list
+    */
+    repeated monitor.AlertRule list = 1 ;
+}
+
+/*
+ListAlertRuleAllApi返回
+*/
+message ListAlertRuleAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.ListAlertRuleAllResponse data = 4 ;
+}
+

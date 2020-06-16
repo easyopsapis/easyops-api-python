@@ -1,0 +1,39 @@
+syntax = "proto3";
+package architecture_view;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/architecture_view";
+
+
+
+
+
+/*
+架构图应用部署主机信息
+*/
+message ArchitectureHost {
+    /*
+    防火墙ID
+    */
+    string instanceId = 1 ;
+    /*
+    防火墙名称
+    */
+    string name = 2 ;
+    /*
+    管理IP
+    */
+    string ip = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    创建时间
+    */
+    string ctime = 5 ;
+    /*
+    创建人
+    */
+    string creator = 6 ;
+}
+

@@ -1,0 +1,31 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+历史版本
+*/
+message HistoryItem {
+    /*
+    版本
+    */
+    int32 revision = 1 ;
+    /*
+    镜像信息
+    */
+    repeated string images = 2 ;
+    /*
+    创建时间
+    */
+    string creationTimestamp = 3 ;
+    /*
+    yaml 定义
+    */
+    string resourceSpec = 4 ;
+}
+

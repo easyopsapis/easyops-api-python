@@ -1,0 +1,51 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+
+/*
+策略执行实例
+*/
+message FilterStrategyInstance {
+    /*
+    策略执行实例Id
+    */
+    string id = 1 ;
+    /*
+    所属策略instanceId
+    */
+    string strategyId = 2 ;
+    /*
+    所属策略模型Id
+    */
+    string strategyObjectId = 3 ;
+    /*
+    开始时间
+    */
+    string ctime = 4 ;
+    /*
+    结束时间
+    */
+    string etime = 5 ;
+    /*
+    实例总数
+    */
+    int32 total = 6 ;
+    /*
+    不合规实例数
+    */
+    int32 failCount = 7 ;
+    /*
+    状态
+    */
+    string status = 8 ;
+    /*
+    status为failed时有此信息
+    */
+    string message = 9 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package template;
+
+
+
+
+
+/*
+DeleteCollectorTemplate请求
+*/
+message DeleteCollectorTemplateRequest {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteCollectorTemplate返回
+*/
+message DeleteCollectorTemplateResponse {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteCollectorTemplateApi返回
+*/
+message DeleteCollectorTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.DeleteCollectorTemplateResponse data = 4 ;
+}
+

@@ -1,0 +1,55 @@
+syntax = "proto3";
+package micro_app;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/micro_app";
+
+
+
+
+
+/*
+模型关联小产品
+*/
+message ObjectMicroApp {
+    /*
+    关联关系唯一名称
+    */
+    string name = 1 ;
+    /*
+    模型id
+    */
+    string objectId = 2 ;
+    /*
+    小产品Id
+    */
+    string microAppId = 3 ;
+    /*
+    小产品名称
+    */
+    string microAppName = 4 ;
+    /*
+    小产品首页
+    */
+    string homepage = 5 ;
+    /*
+    子页面相对路径
+    */
+    string subPath = 6 ;
+    /*
+    排序序号
+    */
+    int32 order = 7 ;
+    /*
+    状态
+    */
+    string status = 8 ;
+    /*
+    是否是默认小产品
+    */
+    string default = 9 ;
+    /*
+    标签
+    */
+    repeated string tags = 10 ;
+}
+

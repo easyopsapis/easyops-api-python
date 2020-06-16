@@ -4,7 +4,7 @@ package task;
 
 
 
-import "model/scheduler/task.proto";
+import "scheduler_sdk/model/scheduler/task.proto";
 
 /*
 ListTask请求
@@ -38,6 +38,10 @@ message ListTaskRequest {
     调用方的名字服务
     */
     string assignner = 7 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 8 ;
 }
 
 /*

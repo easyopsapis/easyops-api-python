@@ -1,0 +1,31 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+
+/*
+服务信息
+*/
+message ServiceInfo {
+    /*
+    服务信息id
+    */
+    string serviceInfoId = 1 ;
+    /*
+    服务模型id
+    */
+    string objectId = 2 ;
+    /*
+    服务节点类型
+    */
+    string nodeType = 3 ;
+    /*
+    服务图标地址
+    */
+    string icon = 4 ;
+}
+

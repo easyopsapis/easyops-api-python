@@ -4,10 +4,10 @@ package metric_group;
 
 
 
-import "model/inspection/condition.proto";
-import "model/inspection/dim.proto";
-import "model/inspection/val.proto";
-import "model/inspection/metric_group.proto";
+import "inspection_sdk/model/inspection/condition.proto";
+import "inspection_sdk/model/inspection/dim.proto";
+import "inspection_sdk/model/inspection/val.proto";
+import "inspection_sdk/model/inspection/metric_group.proto";
 
 /*
 UpdateMetricGroup请求

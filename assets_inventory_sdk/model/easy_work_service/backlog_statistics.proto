@@ -1,0 +1,39 @@
+syntax = "proto3";
+package easy_work_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_work_service";
+
+
+
+
+
+/*
+某段时间内的事务统计数据
+*/
+message BacklogStatistics {
+    /*
+    总数
+    */
+    int32 all = 1 ;
+    /*
+    待办数量
+    */
+    int32 planned = 2 ;
+    /*
+    进行中的数量
+    */
+    int32 ongoing = 3 ;
+    /*
+    成功数量
+    */
+    int32 succeeded = 4 ;
+    /*
+    失败数量
+    */
+    int32 failed = 5 ;
+    /*
+    取消数量
+    */
+    int32 cancelled = 6 ;
+}
+

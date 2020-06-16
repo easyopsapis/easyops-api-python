@@ -1,0 +1,23 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+
+/*
+邮件通知配置详情
+*/
+message MailInfo {
+    /*
+    通知哪些人员
+    */
+    repeated string notifiers = 1 ;
+    /*
+    通知方式
+    */
+    string strategy = 2 ;
+}
+

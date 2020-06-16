@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import inspection_sdk.api.metric_group.create_pb2
 
-import create_pb2
+import inspection_sdk.model.inspection.metric_group_pb2
 
-import model.inspection.metric_group_pb2
-
-import delete_pb2
+import inspection_sdk.api.metric_group.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import inspection_sdk.api.metric_group.get_pb2
 
-import list_pb2
+import inspection_sdk.api.metric_group.list_pb2
 
-import update_pb2
+import inspection_sdk.api.metric_group.update_pb2
 
-import utils.http_util
+import inspection_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class MetricGroupClient(object):
 
     
     def create_metric_group(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateMetricGroupRequest, int, str, int) -> model.inspection.metric_group_pb2.InspectionMetricGroup
+        # type: (inspection_sdk.api.metric_group.create_pb2.CreateMetricGroupRequest, int, str, int) -> inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         创建指标组
         :param request: create_metric_group请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.metric_group_pb2.InspectionMetricGroup
+        :return: inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -65,7 +60,7 @@ class MetricGroupClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -78,14 +73,14 @@ class MetricGroupClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.metric_group_pb2.InspectionMetricGroup()
+        rsp = inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_metric_group(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteMetricGroupRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (inspection_sdk.api.metric_group.delete_pb2.DeleteMetricGroupRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除指标组
         :param request: delete_metric_group请求
@@ -107,7 +102,7 @@ class MetricGroupClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -127,14 +122,14 @@ class MetricGroupClient(object):
         return rsp
     
     def get_metric_group(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetMetricGroupRequest, int, str, int) -> model.inspection.metric_group_pb2.InspectionMetricGroup
+        # type: (inspection_sdk.api.metric_group.get_pb2.GetMetricGroupRequest, int, str, int) -> inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         获取指标组
         :param request: get_metric_group请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.metric_group_pb2.InspectionMetricGroup
+        :return: inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class MetricGroupClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class MetricGroupClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.metric_group_pb2.InspectionMetricGroup()
+        rsp = inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_metric_group(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListMetricGroupRequest, int, str, int) -> list_pb2.ListMetricGroupResponse
+        # type: (inspection_sdk.api.metric_group.list_pb2.ListMetricGroupRequest, int, str, int) -> inspection_sdk.api.metric_group.list_pb2.ListMetricGroupResponse
         """
         获取指标组列表
         :param request: list_metric_group请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListMetricGroupResponse
+        :return: inspection_sdk.api.metric_group.list_pb2.ListMetricGroupResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class MetricGroupClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -203,21 +198,21 @@ class MetricGroupClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListMetricGroupResponse()
+        rsp = inspection_sdk.api.metric_group.list_pb2.ListMetricGroupResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_metric_group(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateMetricGroupRequest, int, str, int) -> model.inspection.metric_group_pb2.InspectionMetricGroup
+        # type: (inspection_sdk.api.metric_group.update_pb2.UpdateMetricGroupRequest, int, str, int) -> inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         更新指标组
         :param request: update_metric_group请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.metric_group_pb2.InspectionMetricGroup
+        :return: inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -232,7 +227,7 @@ class MetricGroupClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -245,7 +240,7 @@ class MetricGroupClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.metric_group_pb2.InspectionMetricGroup()
+        rsp = inspection_sdk.model.inspection.metric_group_pb2.InspectionMetricGroup()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

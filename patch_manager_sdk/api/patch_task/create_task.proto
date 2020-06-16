@@ -1,0 +1,69 @@
+syntax = "proto3";
+package patch_task;
+
+
+
+
+
+/*
+CreatePatchTask请求
+*/
+message CreatePatchTaskRequest {
+message Request {
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机IP
+    */
+    string hostIp = 2 ;
+    /*
+    补丁ID列表
+    */
+    repeated string patchIdList = 3 ;
+}
+        
+    
+    /*
+    补丁安装的请求信息
+    */
+    repeated Request request = 1 ;
+    /*
+    分批大小
+    */
+    int32 groupSize = 2 ;
+}
+
+/*
+CreatePatchTask返回
+*/
+message CreatePatchTaskResponse {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+}
+
+/*
+CreatePatchTaskApi返回
+*/
+message CreatePatchTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch_task.CreatePatchTaskResponse data = 4 ;
+}
+

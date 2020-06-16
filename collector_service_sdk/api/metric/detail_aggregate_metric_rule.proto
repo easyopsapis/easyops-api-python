@@ -1,0 +1,40 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+import "collector_service_sdk/model/collector_service/aggregate_metric_rule.proto";
+
+/*
+DetailCollectorAggregateMetricRule请求
+*/
+message DetailCollectorAggregateMetricRuleRequest {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DetailCollectorAggregateMetricRuleApi返回
+*/
+message DetailCollectorAggregateMetricRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collector_service.CollectorAggregateMetricRule data = 4 ;
+}
+

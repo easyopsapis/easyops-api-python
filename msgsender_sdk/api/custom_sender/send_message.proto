@@ -4,7 +4,7 @@ package custom_sender;
 
 
 
-import "model/msgsender/send_message_request_data.proto";
+import "msgsender_sdk/model/msgsender/send_message_request_data.proto";
 import "google/protobuf/struct.proto";
 
 /*

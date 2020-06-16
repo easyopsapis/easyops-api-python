@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/topology/strategy.proto";
-import "model/topology/cmdb_instance.proto";
+import "msgsender_sdk/model/topology/strategy.proto";
+import "msgsender_sdk/model/topology/cmdb_instance.proto";
 
 /*
 属性

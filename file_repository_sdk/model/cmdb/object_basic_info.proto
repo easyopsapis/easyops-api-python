@@ -1,0 +1,96 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "file_repository_sdk/model/cmdb/object_view.proto";
+
+/*
+模型
+*/
+message ObjectBasicInfo {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    objectId
+    */
+    string objectId = 2 ;
+    /*
+    备注
+    */
+    string memo = 3 ;
+    /*
+    视图设置
+    */
+    cmdb.ObjectView view = 4 ;
+    /*
+    true 内置模型，false 用户自定义模型
+    */
+    bool protected = 5 ;
+    /*
+    当为 true 时，不纳入全文搜索
+    */
+    bool wordIndexDenied = 6 ;
+    /*
+    分类
+    */
+    string category = 7 ;
+    /*
+    模型图标
+    */
+    string icon = 8 ;
+    /*
+    模型所属小产品，有值则会在界面隐藏该模型
+    */
+    string system = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    修改时间
+    */
+    string mtime = 11 ;
+    /*
+    创建者
+    */
+    string creator = 12 ;
+    /*
+    修改者
+    */
+    string modifier = 13 ;
+    /*
+    创建时间的时间截
+    */
+    int32 _ts = 14 ;
+    /*
+    模型版本
+    */
+    int32 _version = 15 ;
+    /*
+    编辑权限白名单
+    */
+    repeated string updateAuthorizers = 16 ;
+    /*
+    删除权限白名单
+    */
+    repeated string deleteAuthorizers = 17 ;
+    /*
+    是否是抽象模型(父模型)
+    */
+    bool isAbstract = 18 ;
+    /*
+    所属父模型
+    */
+    string parentObjectId = 19 ;
+    /*
+    当为 true 时，将会忽略该模型的实例权限点校验
+    */
+    bool permissionDenied = 20 ;
+}
+

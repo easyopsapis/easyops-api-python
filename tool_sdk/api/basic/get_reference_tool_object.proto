@@ -1,0 +1,101 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+GetReferenceToolObject请求
+*/
+message GetReferenceToolObjectRequest {
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 1 ;
+}
+
+/*
+GetReferenceToolObject返回
+*/
+message GetReferenceToolObjectResponse {
+message Data {
+message Metadata {
+    /*
+    步骤id
+    */
+    int32 stepId = 1 ;
+    /*
+    步骤名
+    */
+    string stepName = 2 ;
+}
+        
+    
+    /*
+    object id
+    */
+    string id = 1 ;
+    /*
+    object name
+    */
+    string name = 2 ;
+    /*
+    object type
+    */
+    string type = 3 ;
+    /*
+    工具版本id
+    */
+    string toolVersionId = 4 ;
+    /*
+    工具版本名称
+    */
+    string toolVersionName = 5 ;
+    /*
+    元数据
+    */
+    Metadata metadata = 6 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    对象列表
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+GetReferenceToolObjectApi返回
+*/
+message GetReferenceToolObjectResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.GetReferenceToolObjectResponse data = 4 ;
+}
+

@@ -1,0 +1,31 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+负载均衡器状态
+*/
+message LoadBalancerStatus {
+message Ingress {
+    /*
+    ip地址
+    */
+    string ip = 1 ;
+    /*
+    hostname
+    */
+    string hostname = 2 ;
+}
+        
+    
+    /*
+    应用路由列表
+    */
+    repeated Ingress ingress = 1 ;
+}
+

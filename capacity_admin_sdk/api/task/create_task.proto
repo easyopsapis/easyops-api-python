@@ -1,0 +1,53 @@
+syntax = "proto3";
+package task;
+
+
+
+
+
+/*
+CreateTask请求
+*/
+message CreateTaskRequest {
+    /*
+    画像id
+    */
+    string portraitId = 1 ;
+    /*
+    主机 Id 列表
+    */
+    repeated string hosts = 2 ;
+}
+
+/*
+CreateTask返回
+*/
+message CreateTaskResponse {
+    /*
+    任务ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+CreateTaskApi返回
+*/
+message CreateTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task.CreateTaskResponse data = 4 ;
+}
+

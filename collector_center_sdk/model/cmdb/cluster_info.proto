@@ -1,0 +1,27 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+集群
+*/
+message ClusterInfo {
+    /*
+    集群Id
+    */
+    string clusterId = 1 ;
+    /*
+    类型
+    */
+    string type = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+}
+

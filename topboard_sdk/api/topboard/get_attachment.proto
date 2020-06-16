@@ -1,0 +1,18 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetAttachment请求
+*/
+message GetAttachmentRequest {
+    /*
+    附件id
+    */
+    string attachmentID = 1 ;
+}
+

@@ -1,0 +1,47 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+
+/*
+采集模版yaml定义，供模版校验时yaml解析使用
+*/
+message CollectorTemplateYamlDefine {
+message Params {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+    /*
+    参数类型
+    */
+    string paramType = 3 ;
+}
+        
+    
+    /*
+    关联指标名称
+    */
+    repeated string metrics = 1 ;
+    /*
+    采集参数
+    */
+    repeated Params params = 2 ;
+    /*
+    结构体数组/关系展开字段
+    */
+    string expand = 3 ;
+    /*
+    所属Agent
+    */
+    string agentType = 4 ;
+}
+

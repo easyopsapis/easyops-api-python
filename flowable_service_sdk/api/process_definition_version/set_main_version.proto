@@ -1,0 +1,44 @@
+syntax = "proto3";
+package process_definition_version;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+SetProcessDefinitionMainVersion请求
+*/
+message SetProcessDefinitionMainVersionRequest {
+    /*
+    流程定义实例ID
+    */
+    string definitionId = 1 ;
+    /*
+    流程定义版本实例ID
+    */
+    string versionId = 2 ;
+}
+
+/*
+SetProcessDefinitionMainVersionApi返回
+*/
+message SetProcessDefinitionMainVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

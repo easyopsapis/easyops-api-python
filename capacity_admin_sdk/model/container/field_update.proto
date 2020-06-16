@@ -1,0 +1,28 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+字段更新描述
+*/
+message FieldUpdate {
+    /*
+    操作 add, replace, remove
+    */
+    string op = 1 ;
+    /*
+    路径, 支持 / 分割字段 e.g. /spec/containers, RFC: https://tools.ietf.org/html/rfc6902
+    */
+    string path = 2 ;
+    /*
+    字段值
+    */
+    google.protobuf.Value value = 3 ;
+}
+

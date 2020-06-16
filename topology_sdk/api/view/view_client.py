@@ -2,29 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import topology_sdk.api.view.create_view_pb2
 
-import create_view_pb2
+import topology_sdk.api.view.delete_view_pb2
 
-import delete_view_pb2
+import topology_sdk.api.view.fetch_cmdb_business_view_pb2
 
-import fetch_cmdb_business_view_pb2
+import topology_sdk.model.topology.view_pb2
 
-import model.topology.view_pb2
+import topology_sdk.api.view.fetch_origin_view_pb2
 
-import fetch_origin_view_pb2
+import topology_sdk.api.view.get_view_pb2
 
-import get_view_pb2
+import topology_sdk.api.view.list_view_pb2
 
-import list_view_pb2
+import topology_sdk.api.view.update_view_pb2
 
-import update_view_pb2
-
-import utils.http_util
+import topology_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -46,14 +41,14 @@ class ViewClient(object):
 
     
     def create_view(self, request, org, user, timeout=10):
-        # type: (create_view_pb2.CreateViewRequest, int, str, int) -> create_view_pb2.CreateViewResponse
+        # type: (topology_sdk.api.view.create_view_pb2.CreateViewRequest, int, str, int) -> topology_sdk.api.view.create_view_pb2.CreateViewResponse
         """
         创建视图
         :param request: create_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_view_pb2.CreateViewResponse
+        :return: topology_sdk.api.view.create_view_pb2.CreateViewResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -66,7 +61,7 @@ class ViewClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -79,21 +74,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_view_pb2.CreateViewResponse()
+        rsp = topology_sdk.api.view.create_view_pb2.CreateViewResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_view(self, request, org, user, timeout=10):
-        # type: (delete_view_pb2.DeleteViewRequest, int, str, int) -> delete_view_pb2.DeleteViewResponse
+        # type: (topology_sdk.api.view.delete_view_pb2.DeleteViewRequest, int, str, int) -> topology_sdk.api.view.delete_view_pb2.DeleteViewResponse
         """
         删除视图
         :param request: delete_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_view_pb2.DeleteViewResponse
+        :return: topology_sdk.api.view.delete_view_pb2.DeleteViewResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -107,7 +102,7 @@ class ViewClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -120,21 +115,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_view_pb2.DeleteViewResponse()
+        rsp = topology_sdk.api.view.delete_view_pb2.DeleteViewResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def fetch_cmdb_business_view(self, request, org, user, timeout=10):
-        # type: (fetch_cmdb_business_view_pb2.FetchCmdbBusinessViewRequest, int, str, int) -> model.topology.view_pb2.View
+        # type: (topology_sdk.api.view.fetch_cmdb_business_view_pb2.FetchCmdbBusinessViewRequest, int, str, int) -> topology_sdk.model.topology.view_pb2.View
         """
         基于业务源点的特殊拓扑数据
         :param request: fetch_cmdb_business_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.view_pb2.View
+        :return: topology_sdk.model.topology.view_pb2.View
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -147,7 +142,7 @@ class ViewClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -160,21 +155,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.view_pb2.View()
+        rsp = topology_sdk.model.topology.view_pb2.View()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def fetch_origin_view(self, request, org, user, timeout=10):
-        # type: (fetch_origin_view_pb2.FetchOriginViewRequest, int, str, int) -> model.topology.view_pb2.View
+        # type: (topology_sdk.api.view.fetch_origin_view_pb2.FetchOriginViewRequest, int, str, int) -> topology_sdk.model.topology.view_pb2.View
         """
         基于源点的拓扑数据
         :param request: fetch_origin_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.view_pb2.View
+        :return: topology_sdk.model.topology.view_pb2.View
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -187,7 +182,7 @@ class ViewClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -200,21 +195,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.view_pb2.View()
+        rsp = topology_sdk.model.topology.view_pb2.View()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_view(self, request, org, user, timeout=10):
-        # type: (get_view_pb2.GetViewRequest, int, str, int) -> model.topology.view_pb2.View
+        # type: (topology_sdk.api.view.get_view_pb2.GetViewRequest, int, str, int) -> topology_sdk.model.topology.view_pb2.View
         """
         获取视图详细数据
         :param request: get_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.view_pb2.View
+        :return: topology_sdk.model.topology.view_pb2.View
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -228,7 +223,7 @@ class ViewClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -241,21 +236,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.view_pb2.View()
+        rsp = topology_sdk.model.topology.view_pb2.View()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_view(self, request, org, user, timeout=10):
-        # type: (list_view_pb2.ListViewRequest, int, str, int) -> list_view_pb2.ListViewResponse
+        # type: (topology_sdk.api.view.list_view_pb2.ListViewRequest, int, str, int) -> topology_sdk.api.view.list_view_pb2.ListViewResponse
         """
         获取视图列表
         :param request: list_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_view_pb2.ListViewResponse
+        :return: topology_sdk.api.view.list_view_pb2.ListViewResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -268,7 +263,7 @@ class ViewClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -281,21 +276,21 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_view_pb2.ListViewResponse()
+        rsp = topology_sdk.api.view.list_view_pb2.ListViewResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_view(self, request, org, user, timeout=10):
-        # type: (update_view_pb2.UpdateViewRequest, int, str, int) -> update_view_pb2.UpdateViewResponse
+        # type: (topology_sdk.api.view.update_view_pb2.UpdateViewRequest, int, str, int) -> topology_sdk.api.view.update_view_pb2.UpdateViewResponse
         """
         更新视图
         :param request: update_view请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_view_pb2.UpdateViewResponse
+        :return: topology_sdk.api.view.update_view_pb2.UpdateViewResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -309,7 +304,7 @@ class ViewClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -322,7 +317,7 @@ class ViewClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_view_pb2.UpdateViewResponse()
+        rsp = topology_sdk.api.view.update_view_pb2.UpdateViewResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

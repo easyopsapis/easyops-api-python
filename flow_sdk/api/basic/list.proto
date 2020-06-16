@@ -4,7 +4,7 @@ package basic;
 
 
 
-import "model/flow/flow.proto";
+import "flow_sdk/model/flow/flow.proto";
 
 /*
 GetFlowList请求
@@ -25,7 +25,7 @@ message GetFlowListRequest {
     /*
     没设类别的流程
     */
-    string notCategory = 4 ;
+    bool notCategory = 4 ;
     /*
     用户对流程具有的权限; 用","分割(read=查看, update=更新, delete=删除, execute=执行)
     */

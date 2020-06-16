@@ -1,0 +1,57 @@
+syntax = "proto3";
+package permission;
+
+
+
+
+
+/*
+UserRegister请求
+*/
+message UserRegisterRequest {
+    /*
+    name
+    */
+    string name = 1 ;
+    /*
+    is_admin
+    */
+    bool is_admin = 2 ;
+}
+
+/*
+UserRegister返回
+*/
+message UserRegisterResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    结果信息
+    */
+    string msg = 2 ;
+}
+
+/*
+UserRegisterApi返回
+*/
+message UserRegisterResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission.UserRegisterResponse data = 4 ;
+}
+

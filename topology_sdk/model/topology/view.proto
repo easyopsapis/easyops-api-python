@@ -6,10 +6,10 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/topology/node.proto";
-import "model/topology/link.proto";
-import "model/topology/area.proto";
-import "model/topology/note.proto";
+import "topology_sdk/model/topology/node.proto";
+import "topology_sdk/model/topology/link.proto";
+import "topology_sdk/model/topology/area.proto";
+import "topology_sdk/model/topology/note.proto";
 
 /*
 视图

@@ -1,0 +1,52 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+import "next_builder_sdk/model/flowable_service/bpmn_sequence_flow.proto";
+import "next_builder_sdk/model/flowable_service/bpmn_exclusive_gateway.proto";
+import "next_builder_sdk/model/flowable_service/bpmn_start_event.proto";
+import "next_builder_sdk/model/flowable_service/bpmn_end_event.proto";
+import "next_builder_sdk/model/flowable_service/bpmn_user_task.proto";
+
+/*
+bpmnXML流程
+*/
+message BPMNProcess {
+    /*
+    id
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    是否可执行
+    */
+    string isExecuteable = 3 ;
+    /*
+    流程列表
+    */
+    repeated flowable_service.BPMNSequenceFlow sequenceFlow = 4 ;
+    /*
+    分支网关
+    */
+    repeated flowable_service.BPMNExclusiveGateway exclusiveGateway = 5 ;
+    /*
+    起始事件
+    */
+    repeated flowable_service.BPMNStartEvent startEvent = 6 ;
+    /*
+    结束事件
+    */
+    repeated flowable_service.BPMNEndEvent endEvent = 7 ;
+    /*
+    用户任务
+    */
+    repeated flowable_service.BPMNUserTask userTask = 8 ;
+}
+

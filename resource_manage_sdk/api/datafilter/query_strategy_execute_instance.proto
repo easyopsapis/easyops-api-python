@@ -1,0 +1,75 @@
+syntax = "proto3";
+package datafilter;
+
+
+
+
+import "resource_manage_sdk/model/resource_manage/filter_strategy_instance.proto";
+import "google/protobuf/struct.proto";
+
+/*
+QueryStrategyExecuteInstance请求
+*/
+message QueryStrategyExecuteInstanceRequest {
+    /*
+    搜索条件
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 3 ;
+    /*
+    排序字段
+    */
+    repeated string sort = 4 ;
+}
+
+/*
+QueryStrategyExecuteInstance返回
+*/
+message QueryStrategyExecuteInstanceResponse {
+    /*
+    执行历史数据
+    */
+    repeated resource_manage.FilterStrategyInstance list = 1 ;
+    /*
+    结果总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 pageSize = 4 ;
+}
+
+/*
+QueryStrategyExecuteInstanceApi返回
+*/
+message QueryStrategyExecuteInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    datafilter.QueryStrategyExecuteInstanceResponse data = 4 ;
+}
+

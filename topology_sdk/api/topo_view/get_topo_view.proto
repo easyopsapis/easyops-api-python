@@ -1,0 +1,40 @@
+syntax = "proto3";
+package topo_view;
+
+
+
+
+import "topology_sdk/model/topology/topo_view.proto";
+
+/*
+GetTopoView请求
+*/
+message GetTopoViewRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+GetTopoViewApi返回
+*/
+message GetTopoViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topology.TopoView data = 4 ;
+}
+

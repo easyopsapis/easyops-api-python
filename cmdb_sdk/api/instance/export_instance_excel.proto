@@ -1,0 +1,43 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+/*
+ExportInstanceExcel请求
+*/
+message ExportInstanceExcelRequest {
+    /*
+    模型对象ID
+    */
+    string object_id = 1 ;
+    /*
+    e.g.: { name: { $like: '%q%' } }, { $or: [{ name: { $like: '%q%' }}] }
+    */
+    google.protobuf.Struct query = 2 ;
+    /*
+    e.g.: { instanceId: true, name: true }
+    */
+    google.protobuf.Struct fields = 3 ;
+    /*
+    当为 true 时，只搜索与我相关实例
+    */
+    bool only_my_instance = 4 ;
+    /*
+    对于关联的实例数据是否只获取 relation_view 中指定的属性, 这个字段为 true 时, 会覆盖 fields 字段中指定的二级字段设置
+    */
+    bool only_relation_view = 5 ;
+    /*
+    按字段排序, 留空默认按照实例ID降序排序(1表示升序, -1表示降序) e.g.: { instanceId: 1 }
+    */
+    google.protobuf.Struct sort = 6 ;
+    /*
+    按照权限过滤(通用实例都有 read, update, delete 权限控制, 主机实例在通用实例权限基础上有额外的 operate 权限, 应用实例在通用实例权限基础上有额外的 developClusterOperate, testClusterOperate, prereleaseClusterOperate, productionClusterOperate 权限) e.g.: [ "operate", "update" ]
+    */
+    repeated string permission = 7 ;
+}
+

@@ -1,0 +1,71 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+交换机
+*/
+message Switch {
+    /*
+    交换机ID
+    */
+    string instanceId = 1 ;
+    /*
+    交换机名称
+    */
+    string name = 2 ;
+    /*
+    管理IP
+    */
+    string ip = 3 ;
+    /*
+    交换机状态
+    */
+    string status = 4 ;
+    /*
+    交换机类型
+    */
+    string type = 5 ;
+    /*
+    起始U位
+    */
+    int32 _startU = 6 ;
+    /*
+    占用U位
+    */
+    int32 _occupiedU = 7 ;
+    /*
+    备注
+    */
+    string memo = 8 ;
+    /*
+    资产编号
+    */
+    string propertyid = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    创建者
+    */
+    string creator = 11 ;
+    /*
+    产品线
+    */
+    string product = 12 ;
+    /*
+    客户
+    */
+    string customer = 13 ;
+    /*
+    是否单电源
+    */
+    bool isSinglePower = 14 ;
+}
+

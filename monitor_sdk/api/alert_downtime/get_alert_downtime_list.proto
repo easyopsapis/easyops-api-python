@@ -1,0 +1,70 @@
+syntax = "proto3";
+package alert_downtime;
+
+
+
+
+import "monitor_sdk/model/monitor/alert_downtime.proto";
+
+/*
+GetAllAlertDowntime请求
+*/
+message GetAllAlertDowntimeRequest {
+    /*
+    规则id, 多个用逗号分隔符
+    */
+    string alert_rule_id__in = 1 ;
+}
+
+/*
+GetAllAlertDowntime返回
+*/
+message GetAllAlertDowntimeResponse {
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    页数
+    */
+    int32 page = 3 ;
+    /*
+    总数
+    */
+    int32 total = 4 ;
+    /*
+    msg
+    */
+    string msg = 5 ;
+    /*
+    data
+    */
+    repeated monitor.AlertDowntime data = 6 ;
+}
+
+/*
+GetAllAlertDowntimeApi返回
+*/
+message GetAllAlertDowntimeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_downtime.GetAllAlertDowntimeResponse data = 4 ;
+}
+

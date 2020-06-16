@@ -1,0 +1,46 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/container.proto";
+import "container_sdk/model/container/volume.proto";
+import "container_sdk/model/container/deployment_strategy.proto";
+import "container_sdk/model/container/local_object_reference.proto";
+import "container_sdk/model/container/deployment_status.proto";
+import "container_sdk/model/container/workload.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetStatus请求
+*/
+message GetStatusRequest {
+    /*
+    获取指定的 workload id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetStatusApi返回
+*/
+message GetStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.Workload data = 4 ;
+}
+

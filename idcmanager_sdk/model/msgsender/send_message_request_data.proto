@@ -1,0 +1,25 @@
+syntax = "proto3";
+package msgsender;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/msgsender";
+
+
+
+
+import "idcmanager_sdk/model/msgsender/message_receiver.proto";
+import "idcmanager_sdk/model/msgsender/messsage_data.proto";
+
+/*
+发送通知的请求body数据
+*/
+message SendMessageRequestData {
+    /*
+    消息接受者
+    */
+    repeated msgsender.MessageReceiver receivers = 1 ;
+    /*
+    发送消息的内容
+    */
+    msgsender.MessageData msg_data = 2 ;
+}
+

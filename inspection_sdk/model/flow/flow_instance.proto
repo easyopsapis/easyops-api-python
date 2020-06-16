@@ -6,8 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/f
 
 
 
-import "model/flow/flow_execute_step.proto";
-import "model/tool/input_param.proto";
+import "inspection_sdk/model/flow/flow_execute_step.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -117,31 +116,31 @@ message Columns {
     /*
     自动填充参数
     */
-    google.protobuf.Struct instanceMap = 3 ;
+    repeated google.protobuf.Struct instanceMap = 3 ;
     /*
     执行输出
     */
-    repeated google.protobuf.Struct outputs = 4 ;
+    google.protobuf.Value outputs = 4 ;
     /*
     执行中步骤,如: {2: {startTime: 1563958843992, status: "executing", name: 2}}
     */
-    google.protobuf.Struct runningSteps = 5 ;
+    google.protobuf.Value runningSteps = 5 ;
     /*
     是否发送notify通知
     */
-    string needNotify = 6 ;
+    bool needNotify = 6 ;
     /*
     开始时间戳毫秒
     */
-    int32 startTime = 7 ;
+    int64 startTime = 7 ;
     /*
     结束时间戳毫秒
     */
-    int32 endTime = 8 ;
+    int64 endTime = 8 ;
     /*
     当前时间戳毫秒
     */
-    int32 currentTime = 9 ;
+    int64 currentTime = 9 ;
     /*
     流程执行结果总状态("wait"-初始态等待执行, "executing"-执行中, "success"-成功, "failed"-失败, "paused"-人工确认, "interrupted"-暂停, "terminate"-终止)
     */
@@ -157,19 +156,19 @@ message Columns {
     /*
     流程输出数据
     */
-    google.protobuf.Struct flowOutputsData = 13 ;
+    google.protobuf.Value flowOutputsData = 13 ;
     /*
     表格数据
     */
-    google.protobuf.Struct tableData = 14 ;
+    google.protobuf.Value tableData = 14 ;
     /*
     标准输出
     */
-    google.protobuf.Struct standardOutputs = 15 ;
+    google.protobuf.Value standardOutputs = 15 ;
     /*
     agent数据
     */
-    google.protobuf.Struct agentData = 16 ;
+    google.protobuf.Value agentData = 16 ;
     /*
     流程ID
     */
@@ -180,12 +179,30 @@ message Columns {
     int32 version = 18 ;
     /*
     流程输入
+    {
+      "flowInputs": {
+        "@agents": [
+        {
+          "instanceId": "5c6f6cf0d8079",
+          "ip": "192.168.100.162"
+        },
+        {
+          "instanceId": "5c6f6cf0d8075",
+          "ip": "192.168.100.163"
+        }
+        ],
+        "must_input": "1",
+        "option_input": "000"
+      }
+    }
+
     */
-    repeated tool.input_param flowInputs = 19 ;
+    google.protobuf.Value flowInputs = 19 ;
     /*
-    流程环境变量
+    流程环境变量 { "youcash":"1234",
+}
     */
-    google.protobuf.Struct flowEnv = 20 ;
+    google.protobuf.Value flowEnv = 20 ;
     /*
     流程环境类型
     */
@@ -201,7 +218,7 @@ message Columns {
     /*
     流程输出设置
     */
-    FlowOutputs flowOutputs = 24 ;
+    repeated FlowOutputs flowOutputs = 24 ;
     /*
     输出定义
     */

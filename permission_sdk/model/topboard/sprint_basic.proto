@@ -1,0 +1,43 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+
+/*
+迭代基本信息
+*/
+message SprintBasic {
+    /*
+    迭代id
+    */
+    string name = 1 ;
+    /*
+    迭代实例id
+    */
+    string instanceId = 2 ;
+    /*
+    迭代名称
+    */
+    string title = 3 ;
+    /*
+    状态
+    */
+    string status = 4 ;
+    /*
+    迭代目标
+    */
+    string goal = 5 ;
+    /*
+    开始时间
+    */
+    string startTime = 6 ;
+    /*
+    结束时间
+    */
+    string endTime = 7 ;
+}
+

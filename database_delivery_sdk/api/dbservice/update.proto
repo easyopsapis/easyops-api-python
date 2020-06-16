@@ -4,7 +4,7 @@ package dbservice;
 
 
 
-import "model/database_delivery/dbinstance.proto";
+import "database_delivery_sdk/model/database_delivery/dbinstance.proto";
 
 /*
 UpdateDBService请求

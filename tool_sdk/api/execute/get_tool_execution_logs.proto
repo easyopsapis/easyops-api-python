@@ -1,0 +1,62 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListToolExecutionLogs请求
+*/
+message ListToolExecutionLogsRequest {
+    /*
+    批量输入的execId(用分号隔开，例：id1;id2;id3)
+    */
+    string execIds = 1 ;
+}
+
+/*
+ListToolExecutionLogs返回
+*/
+message ListToolExecutionLogsResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+
+/*
+ListToolExecutionLogsApi返回
+*/
+message ListToolExecutionLogsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    execute.ListToolExecutionLogsResponse data = 4 ;
+}
+

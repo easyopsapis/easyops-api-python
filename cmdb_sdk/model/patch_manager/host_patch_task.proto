@@ -1,0 +1,79 @@
+syntax = "proto3";
+package patch_manager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/patch_manager";
+
+
+
+
+
+/*
+主机的补丁安装任务
+*/
+message HostPatchTask {
+message Result {
+    /*
+    补丁ID
+    */
+    string patchId = 1 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 2 ;
+    /*
+    结束时间
+    */
+    int32 etime = 3 ;
+    /*
+    补丁状态
+    */
+    string status = 4 ;
+    /*
+    补丁安装返回码Windows Update Exit Code
+    */
+    int32 wuec = 5 ;
+    /*
+    补丁安装日志
+    */
+    string message = 6 ;
+}
+        
+    
+    /*
+    任务ID，easy_command的ID
+    */
+    string taskId = 1 ;
+    /*
+    汇总任务ID
+    */
+    string summaryTaskId = 2 ;
+    /*
+    主机ID
+    */
+    string hostId = 3 ;
+    /*
+    主机IP
+    */
+    string hostIp = 4 ;
+    /*
+    补丁ID列表
+    */
+    repeated string patchIdList = 5 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 6 ;
+    /*
+    结束时间
+    */
+    int32 etime = 7 ;
+    /*
+    任务状态
+    */
+    string status = 8 ;
+    /*
+    任务结果
+    */
+    repeated Result result = 9 ;
+}
+

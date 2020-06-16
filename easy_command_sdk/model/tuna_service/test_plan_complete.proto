@@ -1,0 +1,79 @@
+syntax = "proto3";
+package tuna_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tuna_service";
+
+
+
+
+
+/*
+完成_TESTPLAN所使用的数据结构
+*/
+message TestPlanComplete {
+    /*
+    项目实际完成日期
+    */
+    string projectActualCompleteDate = 1 ;
+    /*
+    功能未实现
+    */
+    int32 functionMissCount = 2 ;
+    /*
+    后台bug数
+    */
+    int32 backendBugCount = 3 ;
+    /*
+    总bug/用例占比(%)
+    */
+    string bugPercent = 4 ;
+    /*
+    总bug数
+    */
+    int32 bugTotal = 5 ;
+    /*
+    性能问题数
+    */
+    int32 capabilityCount = 6 ;
+    /*
+    编码错误数
+    */
+    int32 codingErrCount = 7 ;
+    /*
+    延期率(%)
+    */
+    string delayPercent = 8 ;
+    /*
+    环境问题数
+    */
+    int32 environmentCount = 9 ;
+    /*
+    前端bug数
+    */
+    int32 frontBugCount = 10 ;
+    /*
+    项目评分
+    */
+    string projectScore = 11 ;
+    /*
+    需求不明确数
+    */
+    int32 requirementBlurryCount = 12 ;
+    /*
+    测试用例数
+    */
+    int32 scenarioCount = 13 ;
+    /*
+    状态
+    */
+    string status = 14 ;
+    /*
+    合理化建议数
+    */
+    int32 suggestionCount = 15 ;
+    /*
+    无法复现数
+    */
+    int32 unableAppearCount = 16 ;
+}
+

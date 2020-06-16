@@ -4,10 +4,12 @@ package deploy;
 
 
 
-import "model/easy_flow/deploy_label.proto";
-import "model/easy_flow/deploy_batch_target.proto";
-import "model/cmdb/cluster_info.proto";
-import "model/file_repository/diff.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_label.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_target.proto";
+import "easy_flow_sdk/model/cmdb/cluster_info.proto";
+import "easy_flow_sdk/model/easy_flow/version_info.proto";
+import "easy_flow_sdk/model/easy_flow/target_info.proto";
+import "easy_flow_sdk/model/easy_flow/package_info.proto";
 
 /*
 Create请求
@@ -17,7 +19,7 @@ message Batches {
     /*
     批次主机列表
     */
-    repeated easy_flow.DeployBatchTarget targets = 1 ;
+    repeated easy_flow.DeployTarget targets = 1 ;
 }
         
 message InstanceInfo {
@@ -26,6 +28,108 @@ message InstanceInfo {
     */
     string versionName = 1 ;
     /*
+    版本信息
+    */
+    easy_flow.VersionInfo versionInfo = 2 ;
+    /*
+    包Id
+    */
+    string packageId = 3 ;
+    /*
+    安装路径
+    */
+    string installPath = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+message OperationInfo {
+    /*
+    操作信息
+    */
+    string operation = 1 ;
+    /*
+    当前版本信息
+    */
+    easy_flow.VersionInfo versionToInfo = 2 ;
+    /*
+    升级版本信息
+    */
+    easy_flow.VersionInfo versionFromInfo = 3 ;
+    /*
+    安装路径
+    */
+    string installPath = 4 ;
+    /*
+    包Id
+    */
+    string packageId = 5 ;
+}
+        
+message ConfigList {
+message Configs {
+message Items {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    路径
+    */
+    string path = 2 ;
+}
+        
+    
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    选项列表
+    */
+    repeated Items items = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    配置信息
+    */
+    repeated Configs configs = 2 ;
+}
+        
+message ConfigDiff {
+message Detail {
+message Items {
+    /*
+    路径
+    */
+    string path = 1 ;
+    /*
+    包新名称
+    */
+    string newName = 2 ;
+    /*
+    包原名称
+    */
+    string oldName = 3 ;
+}
+        
+    
+    /*
+    详情
+    */
+    repeated Items items = 1 ;
+    /*
     包Id
     */
     string packageId = 2 ;
@@ -33,163 +137,24 @@ message InstanceInfo {
     安装路径
     */
     string installPath = 3 ;
-    /*
-    版本Id
-    */
-    string versionId = 4 ;
-}
-        
-message VersionInfo {
-message SourceDecode {
-    /*
-    源服务名字
-    */
-    string ensName = 1 ;
-    /*
-    源域名
-    */
-    string host = 2 ;
-    /*
-    源类型
-    */
-    string type = 3 ;
-    /*
-    http源的ip
-    */
-    string ip = 4 ;
-    /*
-    http源的port
-    */
-    int32 port = 5 ;
 }
         
     
     /*
-    包存储源信息
+    主机列表
     */
-    SourceDecode sourceDecode = 1 ;
+    repeated string hosts = 1 ;
     /*
-    包存储源序列化信息
+    包配置变更信息
     */
-    string source = 2 ;
-    /*
-    包diff信息
-    */
-    repeated file_repository.Diff diff = 3 ;
-    /*
-    包名称
-    */
-    string name = 4 ;
-    /*
-    版本Id
-    */
-    string versionId = 5 ;
-    /*
-    包Id
-    */
-    string packageId = 6 ;
-    /*
-    组织id
-    */
-    int32 org = 7 ;
-    /*
-    创建者
-    */
-    string creator = 8 ;
-    /*
-    版本备注
-    */
-    string memo = 9 ;
-    /*
-    创建时间
-    */
-    string ctime = 10 ;
-    /*
-    修改时间
-    */
-    string mtime = 11 ;
-    /*
-    包文件的md5检验值
-    */
-    string sign = 12 ;
-    /*
-    包存储服务版本
-    */
-    string sourceType = 13 ;
-    /*
-    版本的进程及启停、安装、升级脚本, package.conf.yaml
-    */
-    string conf = 14 ;
-    /*
-    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
-    */
-    int32 env_type = 15 ;
-}
-        
-message PackageList {
-    /*
-    集群
-    */
-    cmdb.ClusterInfo cluster = 1 ;
-    /*
-    目标版本
-    */
-    string targetVersion = 2 ;
-    /*
-    是否提前暂停
-    */
-    string preStop = 3 ;
-    /*
-    是否发布重启
-    */
-    string postRestart = 4 ;
-    /*
-    是否自动运行
-    */
-    string autoStart = 5 ;
-    /*
-    是否需要用户检查
-    */
-    string userCheck = 6 ;
-    /*
-    是否完全更新
-    */
-    string fullUpdate = 7 ;
-    /*
-    强制更新
-    */
-    string force = 8 ;
-    /*
-    强制安装
-    */
-    string forceInstall = 9 ;
-    /*
-    包Id
-    */
-    string packageId = 10 ;
-    /*
-    包名称
-    */
-    string name = 11 ;
-    /*
-    安装路径
-    */
-    string installPath = 12 ;
-    /*
-    版本类型 1 程序包,  2 配置包,  4 文件包
-    */
-    int32 type = 13 ;
-    /*
-    平台
-    */
-    string platform = 14 ;
+    repeated Detail detail = 2 ;
 }
         
     
     /*
     是否需要通知
     */
-    string needNotify = 1 ;
+    bool needNotify = 1 ;
     /*
     标签
     */
@@ -225,7 +190,7 @@ message PackageList {
     /*
     是否失败暂停
     */
-    string failedStop = 10 ;
+    bool failedStop = 10 ;
     /*
     目标设备Id
     */
@@ -247,23 +212,55 @@ message PackageList {
     */
     repeated InstanceInfo instanceInfo = 15 ;
     /*
-    包版本信息
+    操作信息
     */
-    VersionInfo versionInfo = 16 ;
+    repeated OperationInfo operationInfo = 16 ;
     /*
-    部署包信息
+    部署主机信息列表
     */
-    PackageList packageList = 17 ;
+    repeated easy_flow.TargetInfo targetList = 17 ;
+    /*
+    部署包信息列表
+    */
+    repeated easy_flow.PackageInfo packageList = 18 ;
+    /*
+    配置列表
+    */
+    repeated ConfigList configList = 19 ;
+    /*
+    配置包Id
+    */
+    string configPackageId = 20 ;
+    /*
+    配置变更信息
+    */
+    repeated ConfigDiff configDiff = 21 ;
 }
 
 /*
 Create返回
 */
 message CreateResponse {
+message Data {
     /*
     任务Id
     */
     string taskId = 1 ;
+}
+        
+    
+    /*
+    错误码
+    */
+    int32 code = 1 ;
+    /*
+    消息
+    */
+    string msg = 2 ;
+    /*
+    返回数据
+    */
+    Data data = 3 ;
 }
 
 /*

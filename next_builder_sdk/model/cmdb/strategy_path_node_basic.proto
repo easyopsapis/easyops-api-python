@@ -1,0 +1,35 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+查询策略路径节点基本信息，路径为点-边-点结构，因此偶数节点objectId,object_name等数据为空，奇数点relation_id, relation_side_name等数据为空
+*/
+message StrategyPathNodeBasic {
+    /*
+    节点模型ID
+    */
+    string objectId = 1 ;
+    /*
+    节点模型名称
+    */
+    string object_name = 2 ;
+    /*
+    关系id
+    */
+    string relation_id = 3 ;
+    /*
+    关系对端id
+    */
+    string relation_side_id = 4 ;
+    /*
+    关系对端名称
+    */
+    string relation_side_name = 5 ;
+}
+

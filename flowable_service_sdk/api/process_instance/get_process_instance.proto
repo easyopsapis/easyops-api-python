@@ -1,0 +1,219 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "flowable_service_sdk/model/flowable_service/process_variable.proto";
+
+/*
+GetProcessInstance请求
+*/
+message GetProcessInstanceRequest {
+    /*
+    流程实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetProcessInstance返回
+*/
+message GetProcessInstanceResponse {
+message ProcessVersion {
+    /*
+    实例id
+    */
+    string instanceId = 1 ;
+    /*
+    版本名称
+    */
+    string versionName = 2 ;
+}
+        
+message Process {
+    /*
+    流程定义实例id
+    */
+    string instanceId = 1 ;
+    /*
+    流程定义名称
+    */
+    string name = 2 ;
+    /*
+    流程类别
+    */
+    string category = 3 ;
+}
+        
+message UserTaskList {
+message ProcessOp {
+    /*
+    操作名称(通过/驳回/xxx)
+    */
+    string name = 1 ;
+    /*
+    流程变量
+    */
+    flowable_service.ProcessVariable conditionExpression = 2 ;
+    /*
+    流转下一目标任务定义Id
+    */
+    string targetTaskId = 3 ;
+}
+        
+    
+    /*
+    用户任务ID
+    */
+    string id = 1 ;
+    /*
+    用户任务名称
+    */
+    string name = 2 ;
+    /*
+    表单定义json
+    */
+    string formDefinition = 3 ;
+    /*
+    是否为表格决定多分支流转,默认为字符串 "0"表示否, "1"表示由表格决定
+    */
+    string isFormDecision = 4 ;
+    /*
+    流程操作
+    */
+    repeated ProcessOp processOp = 5 ;
+}
+        
+message StepList {
+message FormData {
+    /*
+    基础信息json dict
+    */
+    string header = 1 ;
+    /*
+    业务信息json list
+    */
+    string body = 2 ;
+}
+        
+    
+    /*
+    用户任务ID
+    */
+    string userTaskId = 1 ;
+    /*
+    表单信息
+    */
+    FormData formData = 2 ;
+    /*
+    操作人
+    */
+    string operator = 3 ;
+    /*
+    操作时间
+    */
+    string otime = 4 ;
+    /*
+    操作
+    */
+    string action = 5 ;
+    /*
+    操作说明
+    */
+    string memo = 6 ;
+    /*
+    状态(ready当前正在流转步骤, done通过, rejected驳回)
+    */
+    string status = 7 ;
+}
+        
+    
+    /*
+    流程定义版本
+    */
+    ProcessVersion processVersion = 1 ;
+    /*
+    流程定义
+    */
+    Process process = 2 ;
+    /*
+    用户任务列表
+    */
+    repeated UserTaskList userTaskList = 3 ;
+    /*
+    流程子步骤列表
+    */
+    repeated StepList stepList = 4 ;
+    /*
+    显示当前步骤和之前流转步骤任务Id列表(例a->b-c->b,此时显示a->b)
+    */
+    repeated string finishedStepList = 5 ;
+    /*
+    ID
+    */
+    string instanceId = 6 ;
+    /*
+    flowable的实例ID
+    */
+    string flowableInstanceId = 7 ;
+    /*
+    名称
+    */
+    string name = 8 ;
+    /*
+    创建人
+    */
+    string creator = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    结束时间
+    */
+    string etime = 11 ;
+    /*
+    流程实例状态(running, done, abandoned, suspended)
+    */
+    string status = 12 ;
+    /*
+    流程实例（子任务）步骤列表
+    */
+    repeated string stepIdList = 13 ;
+    /*
+    当前流程所处结点（这里通常是一个用户任务的ID）
+    */
+    string stopAt = 14 ;
+    /*
+    是否挂起
+    */
+    bool isSuspended = 15 ;
+    /*
+    是否作废
+    */
+    bool isCancelled = 16 ;
+}
+
+/*
+GetProcessInstanceApi返回
+*/
+message GetProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_instance.GetProcessInstanceResponse data = 4 ;
+}
+

@@ -1,0 +1,71 @@
+syntax = "proto3";
+package capacity_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/capacity_admin";
+
+
+
+
+
+/*
+容量管理-闲置资源任务
+*/
+message CapacityTask {
+    /*
+    任务ID
+    */
+    string instanceId = 1 ;
+    /*
+    任务名称
+    */
+    string name = 2 ;
+    /*
+    主机列表
+    */
+    repeated string hosts = 3 ;
+    /*
+    疑似闲置主机列表
+    */
+    repeated string suspectedIdleHosts = 4 ;
+    /*
+    闲置主机列表
+    */
+    repeated string idleHosts = 5 ;
+    /*
+    非闲置主机列表
+    */
+    repeated string nonIdleHosts = 6 ;
+    /*
+    任务状态, executing, confirmation, confirmed, failed
+    */
+    string status = 7 ;
+    /*
+    任务分析完成时间
+    */
+    string endTime = 8 ;
+    /*
+    命中率
+    */
+    float hitRate = 9 ;
+    /*
+    任务创建时间
+    */
+    string ctime = 10 ;
+    /*
+    任务创建者
+    */
+    string creator = 11 ;
+    /*
+    工具执行 Id
+    */
+    string execId = 12 ;
+    /*
+    分析正常主机列表
+    */
+    repeated string normalHosts = 13 ;
+    /*
+    分析异常主机列表
+    */
+    repeated string abnormalHosts = 14 ;
+}
+

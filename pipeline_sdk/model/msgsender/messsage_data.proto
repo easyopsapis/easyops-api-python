@@ -20,12 +20,28 @@ message MessageData {
     */
     string subject = 2 ;
     /*
+    抄送的邮箱地址
+    */
+    repeated string cc_addr = 3 ;
+    /*
+    抄送的用户列表(带:前缀则按实例ID处理)
+    */
+    repeated string cc_user = 4 ;
+    /*
+    抄送的用户组列表(带:前缀则按实例ID处理)
+    */
+    repeated string cc_group = 5 ;
+    /*
+    邮件发送者的名称
+    */
+    string from_name = 6 ;
+    /*
     邮件发送者的邮箱地址
     */
-    string cc_addr = 3 ;
+    string from_addr = 7 ;
     /*
     邮件内容类型
     */
-    string msg_type = 4 ;
+    string msg_type = 8 ;
 }
 

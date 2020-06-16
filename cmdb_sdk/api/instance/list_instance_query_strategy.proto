@@ -1,0 +1,66 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "cmdb_sdk/model/cmdb/instance_query_strategy.proto";
+
+/*
+ListInstanceQueryStrategy请求
+*/
+message ListInstanceQueryStrategyRequest {
+    /*
+    模型对象ID
+    */
+    string object_id = 1 ;
+    /*
+    策略类型
+    */
+    string type = 2 ;
+}
+
+/*
+ListInstanceQueryStrategy返回
+*/
+message ListInstanceQueryStrategyResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    页码
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    数据
+    */
+    repeated cmdb.InstanceQueryStrategy data = 4 ;
+}
+
+/*
+ListInstanceQueryStrategyApi返回
+*/
+message ListInstanceQueryStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.ListInstanceQueryStrategyResponse data = 4 ;
+}
+

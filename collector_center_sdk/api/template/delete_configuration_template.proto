@@ -1,0 +1,49 @@
+syntax = "proto3";
+package template;
+
+
+
+
+
+/*
+DeleteConfigurationTemplate请求
+*/
+message DeleteConfigurationTemplateRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteConfigurationTemplate返回
+*/
+message DeleteConfigurationTemplateResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteConfigurationTemplateApi返回
+*/
+message DeleteConfigurationTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    template.DeleteConfigurationTemplateResponse data = 4 ;
+}
+

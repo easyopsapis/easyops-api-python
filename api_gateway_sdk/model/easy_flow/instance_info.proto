@@ -1,0 +1,99 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+
+/*
+实例信息
+*/
+message InstanceInfo {
+    /*
+    实例Id
+    */
+    int32 instanceId = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    版本Id
+    */
+    string versionId = 3 ;
+    /*
+    设备Id
+    */
+    string deviceId = 4 ;
+    /*
+    安装路径
+    */
+    string installPath = 5 ;
+    /*
+    创建人
+    */
+    string creator = 6 ;
+    /*
+    包名
+    */
+    string packageName = 7 ;
+    /*
+    包类型
+    */
+    int32 packageType = 8 ;
+    /*
+    版本名称
+    */
+    string versionName = 9 ;
+    /*
+    设备Ip
+    */
+    string deviceIp = 10 ;
+    /*
+    组织名称
+    */
+    int32 org = 11 ;
+    /*
+    安装时间
+    */
+    string installTime = 12 ;
+    /*
+    更新时间
+    */
+    string updateTime = 13 ;
+    /*
+    创建时间
+    */
+    string ctime = 14 ;
+    /*
+    修改时间
+    */
+    string mtime = 15 ;
+    /*
+    应用Id
+    */
+    string appId = 16 ;
+    /*
+    集群Id
+    */
+    string clusterId = 17 ;
+    /*
+    最后操作信息
+    */
+    string lastOperation = 18 ;
+    /*
+    配置Id
+    */
+    string configId = 19 ;
+    /*
+    配置包Id
+    */
+    string configPackageId = 20 ;
+    /*
+    主机实例Id
+    */
+    string hostInstanceId = 21 ;
+}
+

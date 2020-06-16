@@ -1,0 +1,23 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+
+/*
+指标表字段
+*/
+message StreamMetricsSchemaField {
+    /*
+    字段名称
+    */
+    string name = 1 ;
+    /*
+    字段类型
+    */
+    string type = 2 ;
+}
+

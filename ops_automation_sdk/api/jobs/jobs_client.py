@@ -2,31 +2,26 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import ops_automation_sdk.api.jobs.creat_jobs_excution_pb2
 
-import creat_jobs_excution_pb2
+import ops_automation_sdk.model.ops_automation.jobs_pb2
 
-import model.ops_automation.jobs_pb2
+import ops_automation_sdk.api.jobs.create_jobs_pb2
 
-import create_jobs_pb2
+import ops_automation_sdk.api.jobs.delete_jobs_pb2
 
-import delete_jobs_pb2
+import ops_automation_sdk.api.jobs.get_job_pb2
 
-import get_job_pb2
+import ops_automation_sdk.model.ops_automation.job_details_pb2
 
-import model.ops_automation.job_details_pb2
+import ops_automation_sdk.api.jobs.get_job_change_log_pb2
 
-import get_job_change_log_pb2
+import ops_automation_sdk.api.jobs.list_jobs_pb2
 
-import list_jobs_pb2
+import ops_automation_sdk.api.jobs.update_jobs_pb2
 
-import update_jobs_pb2
-
-import utils.http_util
+import ops_automation_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -48,14 +43,14 @@ class JobsClient(object):
 
     
     def create_jobs_excution(self, request, org, user, timeout=10):
-        # type: (creat_jobs_excution_pb2.CreateJobsExcutionRequest, int, str, int) -> creat_jobs_excution_pb2.CreateJobsExcutionResponse
+        # type: (ops_automation_sdk.api.jobs.creat_jobs_excution_pb2.CreateJobsExcutionRequest, int, str, int) -> ops_automation_sdk.api.jobs.creat_jobs_excution_pb2.CreateJobsExcutionResponse
         """
         创建作业执行
         :param request: create_jobs_excution请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: creat_jobs_excution_pb2.CreateJobsExcutionResponse
+        :return: ops_automation_sdk.api.jobs.creat_jobs_excution_pb2.CreateJobsExcutionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -68,7 +63,7 @@ class JobsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -81,21 +76,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = creat_jobs_excution_pb2.CreateJobsExcutionResponse()
+        rsp = ops_automation_sdk.api.jobs.creat_jobs_excution_pb2.CreateJobsExcutionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_jobs(self, request, org, user, timeout=10):
-        # type: (model.ops_automation.jobs_pb2.Jobs, int, str, int) -> create_jobs_pb2.CreateJobsResponse
+        # type: (ops_automation_sdk.model.ops_automation.jobs_pb2.Jobs, int, str, int) -> ops_automation_sdk.api.jobs.create_jobs_pb2.CreateJobsResponse
         """
         创建作业
         :param request: create_jobs请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_jobs_pb2.CreateJobsResponse
+        :return: ops_automation_sdk.api.jobs.create_jobs_pb2.CreateJobsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -108,7 +103,7 @@ class JobsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -121,21 +116,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_jobs_pb2.CreateJobsResponse()
+        rsp = ops_automation_sdk.api.jobs.create_jobs_pb2.CreateJobsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_jobs(self, request, org, user, timeout=10):
-        # type: (delete_jobs_pb2.DeleteJobsRequest, int, str, int) -> delete_jobs_pb2.DeleteJobsResponse
+        # type: (ops_automation_sdk.api.jobs.delete_jobs_pb2.DeleteJobsRequest, int, str, int) -> ops_automation_sdk.api.jobs.delete_jobs_pb2.DeleteJobsResponse
         """
         删除作业
         :param request: delete_jobs请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_jobs_pb2.DeleteJobsResponse
+        :return: ops_automation_sdk.api.jobs.delete_jobs_pb2.DeleteJobsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class JobsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_jobs_pb2.DeleteJobsResponse()
+        rsp = ops_automation_sdk.api.jobs.delete_jobs_pb2.DeleteJobsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_jobs(self, request, org, user, timeout=10):
-        # type: (get_job_pb2.GetJobsRequest, int, str, int) -> model.ops_automation.job_details_pb2.JobDetails
+        # type: (ops_automation_sdk.api.jobs.get_job_pb2.GetJobsRequest, int, str, int) -> ops_automation_sdk.model.ops_automation.job_details_pb2.JobDetails
         """
         获取作业详情
         :param request: get_jobs请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.ops_automation.job_details_pb2.JobDetails
+        :return: ops_automation_sdk.model.ops_automation.job_details_pb2.JobDetails
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class JobsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -203,21 +198,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.ops_automation.job_details_pb2.JobDetails()
+        rsp = ops_automation_sdk.model.ops_automation.job_details_pb2.JobDetails()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_job_change_log(self, request, org, user, timeout=10):
-        # type: (get_job_change_log_pb2.GetJobChangeLogRequest, int, str, int) -> get_job_change_log_pb2.GetJobChangeLogResponse
+        # type: (ops_automation_sdk.api.jobs.get_job_change_log_pb2.GetJobChangeLogRequest, int, str, int) -> ops_automation_sdk.api.jobs.get_job_change_log_pb2.GetJobChangeLogResponse
         """
         获取作业变更历史
         :param request: get_job_change_log请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_job_change_log_pb2.GetJobChangeLogResponse
+        :return: ops_automation_sdk.api.jobs.get_job_change_log_pb2.GetJobChangeLogResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -231,7 +226,7 @@ class JobsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -244,21 +239,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_job_change_log_pb2.GetJobChangeLogResponse()
+        rsp = ops_automation_sdk.api.jobs.get_job_change_log_pb2.GetJobChangeLogResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_jobs(self, request, org, user, timeout=10):
-        # type: (list_jobs_pb2.ListJobsRequest, int, str, int) -> list_jobs_pb2.ListJobsResponse
+        # type: (ops_automation_sdk.api.jobs.list_jobs_pb2.ListJobsRequest, int, str, int) -> ops_automation_sdk.api.jobs.list_jobs_pb2.ListJobsResponse
         """
         获取作业列表
         :param request: list_jobs请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_jobs_pb2.ListJobsResponse
+        :return: ops_automation_sdk.api.jobs.list_jobs_pb2.ListJobsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -271,7 +266,7 @@ class JobsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -284,21 +279,21 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_jobs_pb2.ListJobsResponse()
+        rsp = ops_automation_sdk.api.jobs.list_jobs_pb2.ListJobsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_jobs(self, request, org, user, timeout=10):
-        # type: (update_jobs_pb2.UpdateJobsRequest, int, str, int) -> update_jobs_pb2.UpdateJobsResponse
+        # type: (ops_automation_sdk.model.ops_automation.jobs_pb2.Jobs, int, str, int) -> ops_automation_sdk.api.jobs.update_jobs_pb2.UpdateJobsResponse
         """
         更新作业
         :param request: update_jobs请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_jobs_pb2.UpdateJobsResponse
+        :return: ops_automation_sdk.api.jobs.update_jobs_pb2.UpdateJobsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -307,12 +302,12 @@ class JobsClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.jobs.UpdateJobs"
-        uri = "/api/ops_automation/v1/jobs/{jobId}".format(
-            jobId=request.jobId,
+        uri = "/api/ops_automation/v1/jobs/{id}".format(
+            id=request.id,
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -325,7 +320,7 @@ class JobsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_jobs_pb2.UpdateJobsResponse()
+        rsp = ops_automation_sdk.api.jobs.update_jobs_pb2.UpdateJobsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

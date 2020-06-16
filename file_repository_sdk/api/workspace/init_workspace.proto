@@ -10,13 +10,17 @@ Init请求
 */
 message InitRequest {
     /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 1 ;
+    /*
     程序包Id
     */
-    string packageId = 1 ;
+    string packageId = 2 ;
     /*
     版本Id
     */
-    string versionId = 2 ;
+    string versionId = 3 ;
 }
 
 /*

@@ -1,0 +1,66 @@
+syntax = "proto3";
+package persistentvolumeclaim;
+
+
+
+
+import "container_sdk/model/container/persistent_volume_claim.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    命名空间 id
+    */
+    string namespaceId = 1 ;
+    /*
+    存储类 id
+    */
+    string storageClassId = 2 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated container.PersistentVolumeClaim list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    persistentvolumeclaim.ListResponse data = 4 ;
+}
+

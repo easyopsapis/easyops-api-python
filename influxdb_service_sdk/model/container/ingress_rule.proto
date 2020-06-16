@@ -1,0 +1,32 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "influxdb_service_sdk/model/container/http_ingress_path.proto";
+
+/*
+IngressRule
+*/
+message IngressRule {
+message Http {
+    /*
+    路径
+    */
+    repeated container.HTTPIngressPath paths = 1 ;
+}
+        
+    
+    /*
+    域名
+    */
+    string host = 1 ;
+    /*
+    http
+    */
+    Http http = 2 ;
+}
+

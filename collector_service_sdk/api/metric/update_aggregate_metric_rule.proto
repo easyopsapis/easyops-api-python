@@ -1,0 +1,88 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UpdateCollectorAggregateMetricRule请求
+*/
+message UpdateCollectorAggregateMetricRuleRequest {
+message AggregateVars {
+    /*
+    变量名
+    */
+    string name = 1 ;
+    /*
+    指标名
+    */
+    string metric = 2 ;
+}
+        
+    
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    聚合规则名称
+    */
+    string name = 2 ;
+    /*
+    聚合指标描述
+    */
+    string metricDesc = 3 ;
+    /*
+    关系路径id
+    */
+    string pathId = 4 ;
+    /*
+    关系路径查询
+    */
+    string path = 5 ;
+    /*
+    指标数据类型
+    */
+    string aggregateFunc = 6 ;
+    /*
+    聚合表达式
+    */
+    string aggregateExpr = 7 ;
+    /*
+    聚合变量
+    */
+    repeated AggregateVars aggregateVars = 8 ;
+    /*
+    聚合粒度
+    */
+    int32 granularity = 9 ;
+    /*
+    分组字段
+    */
+    repeated string groupBy = 10 ;
+}
+
+/*
+UpdateCollectorAggregateMetricRuleApi返回
+*/
+message UpdateCollectorAggregateMetricRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+package object_relation;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteRelation请求
+*/
+message DeleteRelationRequest {
+    /*
+    关系ID
+    */
+    string relation_id = 1 ;
+}
+
+/*
+DeleteRelationApi返回
+*/
+message DeleteRelationResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,72 @@
+syntax = "proto3";
+package easy_work_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_work_service";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+统一门户事务
+*/
+message Backlog {
+    /*
+    事务id(同一分类下的事务id需唯一)
+    */
+    string id = 1 ;
+    /*
+    分类
+    */
+    string category = 2 ;
+    /*
+    标题
+    */
+    string title = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+    /*
+    详情链接
+    */
+    string url = 5 ;
+    /*
+    创建时间
+    */
+    string ctime = 6 ;
+    /*
+    事务状态
+    */
+    string status = 7 ;
+    /*
+    计划开始时间
+    */
+    string scheduledStartTime = 8 ;
+    /*
+    截止时间
+    */
+    string deadline = 9 ;
+    /*
+    实际开始时间
+    */
+    string startTime = 10 ;
+    /*
+    实际完成时间
+    */
+    string endTime = 11 ;
+    /*
+    指派人
+    */
+    string assigner = 12 ;
+    /*
+    受理人列表(暂时只支持一个人)
+    */
+    repeated string assignee = 13 ;
+    /*
+    事务数据
+    */
+    google.protobuf.Struct extFields = 14 ;
+}
+

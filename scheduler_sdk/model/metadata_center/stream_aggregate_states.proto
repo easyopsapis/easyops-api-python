@@ -1,0 +1,32 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+import "scheduler_sdk/model/metadata_center/stream_aggregate_rule.proto";
+
+/*
+指标聚合规则状态数据
+*/
+message StreamAggregateStates {
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    状态数据变更命令
+upsert：插入/更新指定的状态数据
+delete：删除指定的状态数据
+retain：仅保留指定的状态数据
+
+    */
+    string command = 2 ;
+    /*
+    状态数据列表
+    */
+    repeated metadata_center.StreamAggregateRule payload = 3 ;
+}
+

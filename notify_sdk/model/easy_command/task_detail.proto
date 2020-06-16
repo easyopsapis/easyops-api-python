@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/easy_command/task_callback.proto";
-import "model/easy_command/target_log.proto";
+import "notify_sdk/model/easy_command/task_callback.proto";
+import "notify_sdk/model/easy_command/target_log.proto";
 
 /*
 任务详情

@@ -1,0 +1,23 @@
+syntax = "proto3";
+package health_assessment;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/health_assessment";
+
+
+
+
+
+/*
+健康评分策略事件评分配置项
+*/
+message HealthAssessmentEventScoreConfigItem {
+    /*
+    事件等级
+    */
+    string eventLevel = 1 ;
+    /*
+    扣分数
+    */
+    int32 deductionScore = 2 ;
+}
+

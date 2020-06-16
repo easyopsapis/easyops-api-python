@@ -2,29 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import inspection_sdk.api.collector.create_pb2
 
-import create_pb2
+import inspection_sdk.api.collector.debug_pb2
 
-import debug_pb2
-
-import delete_pb2
+import inspection_sdk.api.collector.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import inspection_sdk.api.collector.get_pb2
 
-import model.inspection.collector_pb2
+import inspection_sdk.model.inspection.collector_pb2
 
-import list_pb2
+import inspection_sdk.api.collector.list_pb2
 
-import update_pb2
+import inspection_sdk.api.collector.update_pb2
 
-import utils.http_util
+import inspection_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -46,14 +41,14 @@ class CollectorClient(object):
 
     
     def create_collector(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateCollectorRequest, int, str, int) -> create_pb2.CreateCollectorResponse
+        # type: (inspection_sdk.api.collector.create_pb2.CreateCollectorRequest, int, str, int) -> inspection_sdk.api.collector.create_pb2.CreateCollectorResponse
         """
         创建采集脚本
         :param request: create_collector请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateCollectorResponse
+        :return: inspection_sdk.api.collector.create_pb2.CreateCollectorResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -67,7 +62,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -80,21 +75,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateCollectorResponse()
+        rsp = inspection_sdk.api.collector.create_pb2.CreateCollectorResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def debug_collector(self, request, org, user, timeout=10):
-        # type: (debug_pb2.DebugCollectorRequest, int, str, int) -> debug_pb2.DebugCollectorResponse
+        # type: (inspection_sdk.api.collector.debug_pb2.DebugCollectorRequest, int, str, int) -> inspection_sdk.api.collector.debug_pb2.DebugCollectorResponse
         """
         调试采集脚本
         :param request: debug_collector请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: debug_pb2.DebugCollectorResponse
+        :return: inspection_sdk.api.collector.debug_pb2.DebugCollectorResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -108,7 +103,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -121,14 +116,14 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = debug_pb2.DebugCollectorResponse()
+        rsp = inspection_sdk.api.collector.debug_pb2.DebugCollectorResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_collector(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteCollectorRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (inspection_sdk.api.collector.delete_pb2.DeleteCollectorRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除采集脚本
         :param request: delete_collector请求
@@ -150,7 +145,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -170,14 +165,14 @@ class CollectorClient(object):
         return rsp
     
     def get_collector(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+        # type: (inspection_sdk.api.collector.get_pb2.GetCollectorRequest, int, str, int) -> inspection_sdk.model.inspection.collector_pb2.InspectionCollector
         """
         获取采集脚本
         :param request: get_collector请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: inspection_sdk.model.inspection.collector_pb2.InspectionCollector
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -192,7 +187,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -205,21 +200,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = inspection_sdk.model.inspection.collector_pb2.InspectionCollector()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_collector(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListCollectorRequest, int, str, int) -> list_pb2.ListCollectorResponse
+        # type: (inspection_sdk.api.collector.list_pb2.ListCollectorRequest, int, str, int) -> inspection_sdk.api.collector.list_pb2.ListCollectorResponse
         """
         获取采集脚本列表
         :param request: list_collector请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListCollectorResponse
+        :return: inspection_sdk.api.collector.list_pb2.ListCollectorResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -233,7 +228,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -246,21 +241,21 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListCollectorResponse()
+        rsp = inspection_sdk.api.collector.list_pb2.ListCollectorResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_collector(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateCollectorRequest, int, str, int) -> model.inspection.collector_pb2.InspectionCollector
+        # type: (inspection_sdk.api.collector.update_pb2.UpdateCollectorRequest, int, str, int) -> inspection_sdk.model.inspection.collector_pb2.InspectionCollector
         """
         更新采集脚本
         :param request: update_collector请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.inspection.collector_pb2.InspectionCollector
+        :return: inspection_sdk.model.inspection.collector_pb2.InspectionCollector
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -275,7 +270,7 @@ class CollectorClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = inspection_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.inspection_sdk",
             dst_name=route_name,
@@ -288,7 +283,7 @@ class CollectorClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.inspection.collector_pb2.InspectionCollector()
+        rsp = inspection_sdk.model.inspection.collector_pb2.InspectionCollector()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

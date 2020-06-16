@@ -1,0 +1,30 @@
+syntax = "proto3";
+package cmdb_service_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetObjectUploadDataApi返回
+*/
+message GetObjectUploadDataResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/topology/property.proto";
+import "agent_admin_sdk/model/topology/property.proto";
 
 /*
 容器

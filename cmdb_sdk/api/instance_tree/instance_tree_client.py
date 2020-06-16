@@ -2,23 +2,20 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import instance_tree_pb2
+import cmdb_sdk.api.instance_tree.instance_tree_pb2
 
 import google.protobuf.struct_pb2
 
-import instance_tree_anchor_pb2
+import cmdb_sdk.api.instance_tree.instance_tree_anchor_pb2
 
-import instance_tree_expand_pb2
+import cmdb_sdk.api.instance_tree.instance_tree_anchor_v2_pb2
 
-import instance_tree_search_pb2
+import cmdb_sdk.api.instance_tree.instance_tree_expand_pb2
 
-import utils.http_util
+import cmdb_sdk.api.instance_tree.instance_tree_search_pb2
+
+import cmdb_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -40,7 +37,7 @@ class InstanceTreeClient(object):
 
     
     def instance_tree(self, request, org, user, timeout=10):
-        # type: (instance_tree_pb2.InstanceTreeRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (cmdb_sdk.api.instance_tree.instance_tree_pb2.InstanceTreeRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取实例树完整数据
         :param request: instance_tree请求
@@ -60,7 +57,7 @@ class InstanceTreeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -80,7 +77,7 @@ class InstanceTreeClient(object):
         return rsp
     
     def instance_tree_anchor(self, request, org, user, timeout=10):
-        # type: (instance_tree_anchor_pb2.InstanceTreeAnchorRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (cmdb_sdk.api.instance_tree.instance_tree_anchor_pb2.InstanceTreeAnchorRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         实例树定位
         :param request: instance_tree_anchor请求
@@ -100,7 +97,47 @@ class InstanceTreeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.cmdb_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.struct_pb2.Struct()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def instance_tree_anchor_v_2(self, request, org, user, timeout=10):
+        # type: (cmdb_sdk.api.instance_tree.instance_tree_anchor_v2_pb2.InstanceTreeAnchorV2Request, int, str, int) -> google.protobuf.struct_pb2.Struct
+        """
+        实例树定位V2
+        :param request: instance_tree_anchor_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.struct_pb2.Struct
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.cmdb.instance_tree.InstanceTreeAnchorV2"
+        uri = "/v2/instance_tree/anchor"
+        
+        requestParam = request
+        
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -120,7 +157,7 @@ class InstanceTreeClient(object):
         return rsp
     
     def instance_tree_expand(self, request, org, user, timeout=10):
-        # type: (instance_tree_expand_pb2.InstanceTreeExpandRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (cmdb_sdk.api.instance_tree.instance_tree_expand_pb2.InstanceTreeExpandRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         展开实例树某一级
         :param request: instance_tree_expand请求
@@ -140,7 +177,7 @@ class InstanceTreeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,
@@ -160,7 +197,7 @@ class InstanceTreeClient(object):
         return rsp
     
     def instance_tree_search(self, request, org, user, timeout=10):
-        # type: (instance_tree_search_pb2.InstanceTreeSearchRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (cmdb_sdk.api.instance_tree.instance_tree_search_pb2.InstanceTreeSearchRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         整树搜索
         :param request: instance_tree_search请求
@@ -180,7 +217,7 @@ class InstanceTreeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_sdk",
             dst_name=route_name,

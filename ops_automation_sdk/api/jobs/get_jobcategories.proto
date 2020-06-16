@@ -7,6 +7,16 @@ package jobs;
 import "google/protobuf/empty.proto";
 
 /*
+GetJobCategories请求
+*/
+message GetJobCategoriesRequest {
+    /*
+    menuId过虑
+    */
+    string menuId = 1 ;
+}
+
+/*
 GetJobCategoriesApi返回
 */
 message GetJobCategoriesResponseWrapper {

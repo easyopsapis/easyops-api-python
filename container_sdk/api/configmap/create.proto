@@ -1,0 +1,45 @@
+syntax = "proto3";
+package configmap;
+
+
+
+
+import "container_sdk/model/container/configmap.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    命名空间 id
+    */
+    string namespaceId = 1 ;
+    /*
+    ConfigMap
+    */
+    container.ConfigMap configmap = 2 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.ConfigMap data = 4 ;
+}
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package users;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+AddUserFromDingTalk请求
+*/
+message AddUserFromDingTalkRequest {
+    /*
+    userId,非必填
+    */
+    string userId = 1 ;
+    /*
+    手机号,非必填 userId和mobile必须填一项
+    */
+    string mobile = 2 ;
+}
+
+/*
+AddUserFromDingTalkApi返回
+*/
+message AddUserFromDingTalkResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package collector_job;
+
+
+
+
+
+/*
+DeleteCollectorJob请求
+*/
+message DeleteCollectorJobRequest {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteCollectorJob返回
+*/
+message DeleteCollectorJobResponse {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteCollectorJobApi返回
+*/
+message DeleteCollectorJobResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collector_job.DeleteCollectorJobResponse data = 4 ;
+}
+

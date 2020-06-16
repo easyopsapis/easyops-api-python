@@ -1,0 +1,45 @@
+syntax = "proto3";
+package process_definition;
+
+
+
+
+import "flowable_service_sdk/model/flowable_service/bpmn_sequence_flow.proto";
+import "flowable_service_sdk/model/flowable_service/bpmn_exclusive_gateway.proto";
+import "flowable_service_sdk/model/flowable_service/bpmn_start_event.proto";
+import "flowable_service_sdk/model/flowable_service/bpmn_end_event.proto";
+import "flowable_service_sdk/model/flowable_service/bpmn_user_task.proto";
+import "flowable_service_sdk/model/flowable_service/bpmn_process.proto";
+
+/*
+ParseBPMNXML请求
+*/
+message ParseBPMNXMLRequest {
+    /*
+    流程定义的xml字符串
+    */
+    string bpmnXML = 1 ;
+}
+
+/*
+ParseBPMNXMLApi返回
+*/
+message ParseBPMNXMLResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    flowable_service.BPMNProcess data = 4 ;
+}
+

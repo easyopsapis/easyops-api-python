@@ -1,0 +1,44 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+CarbonCopyProcessInstance请求
+*/
+message CarbonCopyProcessInstanceRequest {
+    /*
+    流程实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    分阅用户列表(待定，看是否要跟平台的用户组集成)
+    */
+    repeated string userList = 2 ;
+}
+
+/*
+CarbonCopyProcessInstanceApi返回
+*/
+message CarbonCopyProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

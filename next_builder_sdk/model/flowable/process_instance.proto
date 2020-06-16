@@ -1,0 +1,88 @@
+syntax = "proto3";
+package flowable;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable";
+
+
+
+
+import "next_builder_sdk/model/flowable/process_variable.proto";
+
+/*
+Flowable流程实例
+*/
+message FlowableProcessInstance {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+    /*
+    实例名称
+    */
+    string name = 2 ;
+    /*
+    业务Key
+    */
+    string businessKey = 3 ;
+    /*
+    是否挂起
+    */
+    bool suspended = 4 ;
+    /*
+    是否结束
+    */
+    bool ended = 5 ;
+    /*
+    流程定义ID
+    */
+    string processDefinitionId = 6 ;
+    /*
+    流程定义名称
+    */
+    string processDefinitionName = 7 ;
+    /*
+    流程描述
+    */
+    string processDefinitionDescription = 8 ;
+    /*
+    活动ID
+    */
+    string activityId = 9 ;
+    /*
+    发起用户ID(flowable自己的用户，该字段待调整)
+    */
+    string startUserId = 10 ;
+    /*
+    回调ID
+    */
+    string callbackId = 11 ;
+    /*
+    回调类型
+    */
+    string callbackType = 12 ;
+    /*
+    引用ID
+    */
+    string referenceId = 13 ;
+    /*
+    引用类型
+    */
+    string referenceType = 14 ;
+    /*
+    tenant ID
+    */
+    string tenantId = 15 ;
+    /*
+    是否完成
+    */
+    bool completed = 16 ;
+    /*
+    发起时间
+    */
+    string startTime = 17 ;
+    /*
+    变量列表
+    */
+    repeated flowable.FlowableProcessVariable variables = 18 ;
+}
+

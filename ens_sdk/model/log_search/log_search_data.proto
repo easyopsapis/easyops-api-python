@@ -1,0 +1,63 @@
+syntax = "proto3";
+package log_search;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/log_search";
+
+
+
+
+
+/*
+日志搜索返回数据
+*/
+message LogSearchData {
+message Data {
+message Content {
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    日志路径
+    */
+    string file_path = 2 ;
+    /*
+    日志内容
+    */
+    string text = 3 ;
+}
+        
+    
+    /*
+    最大查询行数
+    */
+    int32 max_query_lines = 1 ;
+    /*
+    最大返回行数
+    */
+    int32 max_return_lines = 2 ;
+    /*
+    日志返回（可同时搜索多个日志路径，所以这里是个列表）
+    */
+    repeated Content content = 3 ;
+}
+        
+    
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    搜索主机的ip
+    */
+    string ip = 2 ;
+    /*
+    错误提示
+    */
+    string msg = 3 ;
+    /*
+    搜索结果
+    */
+    Data data = 4 ;
+}
+

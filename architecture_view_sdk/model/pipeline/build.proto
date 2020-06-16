@@ -1,0 +1,77 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+import "architecture_view_sdk/model/pipeline/git_meta.proto";
+import "architecture_view_sdk/model/pipeline/build_status.proto";
+
+/*
+流水线任务
+*/
+message Build {
+message Artifact {
+    /*
+    制品包名称
+    */
+    string packageName = 1 ;
+    /*
+    版本号
+    */
+    string versionName = 2 ;
+    /*
+    制品包上传时间
+    */
+    string ctime = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+    
+    /*
+    任务id, 服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    git信息, 创建的时候传入，不能修改
+    */
+    pipeline.GitMeta git_meta = 2 ;
+    /*
+    触发者，创建的时候传入，不能修改
+    */
+    string sender = 3 ;
+    /*
+    制品包信息
+    */
+    Artifact artifact = 4 ;
+    /*
+    创建时间，创建的时候传入，不能修改
+    */
+    int32 created = 5 ;
+    /*
+    workflow定义
+    */
+    string yaml_string = 6 ;
+    /*
+    执行状态
+    */
+    pipeline.BuildStatus status = 7 ;
+    /*
+    编号
+    */
+    string number = 8 ;
+    /*
+    事件列表
+    */
+    repeated string events = 9 ;
+}
+

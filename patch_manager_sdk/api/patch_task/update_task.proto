@@ -1,0 +1,41 @@
+syntax = "proto3";
+package patch_task;
+
+
+
+
+import "patch_manager_sdk/model/easy_command/task_callback.proto";
+import "patch_manager_sdk/model/easy_command/target_log.proto";
+
+/*
+HostPatchTaskCallback返回
+*/
+message HostPatchTaskCallbackResponse {
+    /*
+    回调处理结果
+    */
+    string status = 1 ;
+}
+
+/*
+HostPatchTaskCallbackApi返回
+*/
+message HostPatchTaskCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch_task.HostPatchTaskCallbackResponse data = 4 ;
+}
+

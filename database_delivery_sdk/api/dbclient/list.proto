@@ -4,7 +4,7 @@ package dbclient;
 
 
 
-import "model/database_delivery/dbclient.proto";
+import "database_delivery_sdk/model/database_delivery/dbclient.proto";
 
 /*
 ListClient请求

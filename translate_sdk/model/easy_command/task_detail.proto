@@ -1,0 +1,109 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+import "translate_sdk/model/easy_command/task_callback.proto";
+import "translate_sdk/model/easy_command/target_log.proto";
+
+/*
+任务详情
+*/
+message TaskDetail {
+    /*
+    任务ID
+    */
+    string taskId = 1 ;
+    /*
+    任务名称
+    */
+    string name = 2 ;
+    /*
+    任务类型。例如 agent_admin cmd command database_deliver deploy test tool
+    */
+    string type = 3 ;
+    /*
+    操作。例如 database.check deployPreCheck instance.checkPackage instance.deploy instance.deployStrategy instance.fileDelivery instance.fileUninstall instance.restart instance.start instance.stop instance.uninstall plugin.deploy plugin.report task.run test
+    */
+    string operation = 4 ;
+    /*
+    任务分组id。作用不明
+    */
+    string groupId = 5 ;
+    /*
+    关联的appId
+    */
+    string appId = 6 ;
+    /*
+    关联的clusterId
+    */
+    string clusterId = 7 ;
+    /*
+    关联的packageId
+    */
+    string packageId = 8 ;
+    /*
+    关联的versionId
+    */
+    string versionId = 9 ;
+    /*
+    是否需要发送状态变更通知到 logic.notify
+    */
+    bool needNotify = 10 ;
+    /*
+    设置的任务回调接口
+    */
+    easy_command.TaskCallback callback = 11 ;
+    /*
+    设置的目标机器分批执行的每批数量
+    */
+    int32 batchNum = 12 ;
+    /*
+    设置的目标机器分批执行的每批之间的间隔秒数
+    */
+    int32 batchInterval = 13 ;
+    /*
+    如果某个目标机器的action执行失败，是否停止整个task
+    */
+    bool failedStop = 14 ;
+    /*
+    租户org
+    */
+    int32 org = 15 ;
+    /*
+    创建任务的操作用户
+    */
+    string operator = 16 ;
+    /*
+    任务执行状态
+    */
+    string status = 17 ;
+    /*
+    最后一个出错的目标机器action的退出码
+    */
+    int32 code = 18 ;
+    /*
+    整个任务当前的用时，单位为秒
+    */
+    int32 usedTime = 19 ;
+    /*
+    任务开始时间
+    */
+    string startTime = 20 ;
+    /*
+    任务状态更新时间
+    */
+    string updateTime = 21 ;
+    /*
+    任务结束时间
+    */
+    string endTime = 22 ;
+    /*
+    任务的各个目标机器的执行结果详情
+    */
+    repeated easy_command.TargetLog targetsLog = 23 ;
+}
+

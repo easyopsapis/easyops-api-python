@@ -13,9 +13,9 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/p
 message Project {
 message Variables {
     /*
-    key
+    name
     */
-    string key = 1 ;
+    string name = 1 ;
     /*
     value
     */
@@ -34,7 +34,7 @@ message Variables {
     /*
     是否收藏
     */
-    string favorite = 3 ;
+    bool favorite = 3 ;
     /*
     标签
     */

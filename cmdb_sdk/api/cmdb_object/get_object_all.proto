@@ -1,0 +1,78 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
+
+/*
+GetObjectAll请求
+*/
+message GetObjectAllRequest {
+    /*
+    模型Id, 使用,分隔
+    */
+    string objectIds = 1 ;
+    /*
+    system
+    */
+    string system = 2 ;
+    /*
+    分类
+    */
+    string category = 3 ;
+    /*
+    忽略模型字段权限校验
+    */
+    bool ignoreAttrPermission = 4 ;
+    /*
+    system是否为空，为true时会忽略参数system
+    */
+    bool emptySystem = 5 ;
+}
+
+/*
+GetObjectAll返回
+*/
+message GetObjectAllResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    模型列表
+    */
+    repeated cmdb.CmdbObject data = 4 ;
+}
+
+/*
+GetObjectAllApi返回
+*/
+message GetObjectAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.GetObjectAllResponse data = 4 ;
+}
+

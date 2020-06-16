@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/i
 
 
 
-import "model/inspection/condition.proto";
+import "tool_sdk/model/inspection/condition.proto";
 
 /*
 指标信息

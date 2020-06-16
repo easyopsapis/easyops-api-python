@@ -4,20 +4,25 @@ package cmdb_object;
 
 
 
-import "model/cmdb/object_attr.proto";
-import "model/cmdb/object_relation.proto";
-import "model/cmdb/object_relation_group.proto";
-import "model/cmdb/object_view.proto";
-import "model/cmdb/cmdb_object.proto";
+import "cmdb_sdk/model/cmdb/object_attr.proto";
+import "cmdb_sdk/model/cmdb/object_relation.proto";
+import "cmdb_sdk/model/cmdb/object_relation_group.proto";
+import "cmdb_sdk/model/cmdb/object_index.proto";
+import "cmdb_sdk/model/cmdb/object_view.proto";
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
 
 /*
 GetDetail请求
 */
 message GetDetailRequest {
     /*
+    忽略模型字段权限校验
+    */
+    bool ignoreAttrPermission = 1 ;
+    /*
     objectId
     */
-    string objectId = 1 ;
+    string objectId = 2 ;
 }
 
 /*

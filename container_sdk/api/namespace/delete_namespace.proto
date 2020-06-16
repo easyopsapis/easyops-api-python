@@ -1,0 +1,40 @@
+syntax = "proto3";
+package namespace;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteNamespace请求
+*/
+message DeleteNamespaceRequest {
+    /*
+    要删除的实例 id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteNamespaceApi返回
+*/
+message DeleteNamespaceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

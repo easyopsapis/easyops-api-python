@@ -1,0 +1,104 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "assets_inventory_sdk/model/file_repository/diff.proto";
+
+/*
+包版本信息
+*/
+message VersionInfo {
+message SourceDecode {
+    /*
+    源服务名字
+    */
+    string ensName = 1 ;
+    /*
+    源域名
+    */
+    string host = 2 ;
+    /*
+    源类型
+    */
+    string type = 3 ;
+    /*
+    http源的ip
+    */
+    string ip = 4 ;
+    /*
+    http源的port
+    */
+    int32 port = 5 ;
+}
+        
+    
+    /*
+    仓库版本
+    */
+    string repoVersion = 1 ;
+    /*
+    包存储源序列化信息
+    */
+    string source = 2 ;
+    /*
+    包存储源信息
+    */
+    SourceDecode sourceDecode = 3 ;
+    /*
+    包diff信息
+    */
+    repeated file_repository.Diff diff = 4 ;
+    /*
+    包Id
+    */
+    string packageId = 5 ;
+    /*
+    版本Id
+    */
+    string versionId = 6 ;
+    /*
+    包名称
+    */
+    string name = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    组织id
+    */
+    int32 org = 9 ;
+    /*
+    版本备注
+    */
+    string memo = 10 ;
+    /*
+    创建时间
+    */
+    string ctime = 11 ;
+    /*
+    修改时间
+    */
+    string mtime = 12 ;
+    /*
+    包文件的md5检验值
+    */
+    string sign = 13 ;
+    /*
+    包存储服务版本
+    */
+    string sourceType = 14 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 15 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 16 ;
+}
+

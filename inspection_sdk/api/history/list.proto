@@ -4,7 +4,7 @@ package history;
 
 
 
-import "model/inspection/history.proto";
+import "inspection_sdk/model/inspection/history.proto";
 
 /*
 ListHistory请求

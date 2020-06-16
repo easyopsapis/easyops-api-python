@@ -1,0 +1,50 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+import "patch_manager_sdk/model/patch_manager/win_patch.proto";
+
+/*
+ListWinPatch请求
+*/
+message ListWinPatchRequest {
+    /*
+    实例ID列表
+    */
+    repeated string instanceIds = 1 ;
+}
+
+/*
+ListWinPatch返回
+*/
+message ListWinPatchResponse {
+    /*
+    补丁列表
+    */
+    repeated patch_manager.WinPatch patches = 1 ;
+}
+
+/*
+ListWinPatchApi返回
+*/
+message ListWinPatchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.ListWinPatchResponse data = 4 ;
+}
+

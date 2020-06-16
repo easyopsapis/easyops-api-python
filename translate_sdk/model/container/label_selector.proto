@@ -1,0 +1,40 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+labels 筛选器
+*/
+message LabelSelector {
+message MatchExpressions {
+    /*
+    匹配对象
+    */
+    string key = 1 ;
+    /*
+    操作符
+    */
+    string operator = 2 ;
+    /*
+    要匹配的值
+    */
+    repeated string values = 3 ;
+}
+        
+    
+    /*
+    匹配标签
+    */
+    google.protobuf.Struct matchLabels = 1 ;
+    /*
+    匹配表达式
+    */
+    repeated MatchExpressions matchExpressions = 2 ;
+}
+

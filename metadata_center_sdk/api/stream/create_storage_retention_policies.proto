@@ -1,0 +1,51 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+
+/*
+CreateStorageRetentionPolicies返回
+*/
+message CreateStorageRetentionPoliciesResponse {
+message List {
+    /*
+    RetentionPolicyId
+    */
+    string id = 1 ;
+    /*
+    RetentionPolicy版本
+    */
+    int32 version = 2 ;
+}
+        
+    
+    /*
+    更新的RetentionPolicy列表
+    */
+    repeated List list = 1 ;
+}
+
+/*
+CreateStorageRetentionPoliciesApi返回
+*/
+message CreateStorageRetentionPoliciesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.CreateStorageRetentionPoliciesResponse data = 4 ;
+}
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+package state_workflow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/state_workflow";
+
+
+
+
+
+/*
+工作流状态
+*/
+message State {
+    /*
+    状态标识
+    */
+    string id = 1 ;
+    /*
+    状态名
+    */
+    string name = 2 ;
+    /*
+    状态类型
+    */
+    string type = 3 ;
+}
+

@@ -1,0 +1,51 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
+import "cmdb_sdk/model/cmdb/import_result.proto";
+
+/*
+ImportV2请求
+*/
+message ImportV2Request {
+    /*
+    模型列表
+    */
+    repeated cmdb.CmdbObject object_list = 1 ;
+}
+
+/*
+ImportV2返回
+*/
+message ImportV2Response {
+    /*
+    导入结果列表
+    */
+    repeated cmdb.ImportResult import_result = 1 ;
+}
+
+/*
+ImportV2Api返回
+*/
+message ImportV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ImportV2Response data = 4 ;
+}
+

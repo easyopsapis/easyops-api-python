@@ -1,0 +1,101 @@
+syntax = "proto3";
+package version;
+
+
+
+
+
+/*
+GetVersionPermissionByIds请求
+*/
+message GetVersionPermissionByIdsRequest {
+    /*
+    包id
+    */
+    string packageId = 1 ;
+    /*
+    包版本id
+    */
+    repeated string versionIds = 2 ;
+    /*
+    查询的权限；非必填，不填返回全部权限信息
+    */
+    string permissionType = 3 ;
+}
+
+/*
+GetVersionPermissionByIds返回
+*/
+message GetVersionPermissionByIdsResponse {
+message Data {
+message List {
+message Permission {
+    /*
+    拥有更新权限用户
+    */
+    repeated string updateAuthorizers = 1 ;
+    /*
+    拥有删除权限用户
+    */
+    repeated string deleteAuthorizers = 2 ;
+}
+        
+    
+    /*
+    版本id
+    */
+    string versionId = 1 ;
+    /*
+    权限信息
+    */
+    Permission permission = 2 ;
+}
+        
+    
+    /*
+    版本对应白名单信息
+    */
+    repeated List list = 1 ;
+}
+        
+    
+    /*
+    返回状态码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    返回数据
+    */
+    Data data = 4 ;
+}
+
+/*
+GetVersionPermissionByIdsApi返回
+*/
+message GetVersionPermissionByIdsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    version.GetVersionPermissionByIdsResponse data = 4 ;
+}
+

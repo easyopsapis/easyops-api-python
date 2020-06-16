@@ -1,0 +1,78 @@
+syntax = "proto3";
+package permission_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetRoleDetail请求
+*/
+message GetRoleDetailRequest {
+    /*
+    角色Id
+    */
+    string id = 1 ;
+}
+
+/*
+GetRoleDetail返回
+*/
+message GetRoleDetailResponse {
+    /*
+    权限点信息
+    */
+    google.protobuf.Struct permissionIdMap = 1 ;
+    /*
+    角色禁用菜单列表
+    */
+    repeated string forbidden_menu = 2 ;
+    /*
+    角色id
+    */
+    string id = 3 ;
+    /*
+    角色所在org
+    */
+    int32 org = 4 ;
+    /*
+    角色名称
+    */
+    string role = 5 ;
+    /*
+    角色下用户列表
+    */
+    repeated string user = 6 ;
+    /*
+    角色下权限id列表
+    */
+    repeated string permission = 7 ;
+    /*
+    角色下用户组列表
+    */
+    repeated string user_group = 8 ;
+}
+
+/*
+GetRoleDetailApi返回
+*/
+message GetRoleDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission_ctrl.GetRoleDetailResponse data = 4 ;
+}
+

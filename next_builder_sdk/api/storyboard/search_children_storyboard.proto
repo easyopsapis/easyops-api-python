@@ -1,0 +1,81 @@
+syntax = "proto3";
+package storyboard;
+
+
+
+
+
+/*
+SearchStoryboardChildNodes请求
+*/
+message SearchStoryboardChildNodesRequest {
+    /*
+    节点id
+    */
+    string nodeId = 1 ;
+    /*
+    节点类型
+    */
+    string type = 2 ;
+}
+
+/*
+SearchStoryboardChildNodes返回
+*/
+message SearchStoryboardChildNodesResponse {
+message Children {
+    /*
+    实例标识
+    */
+    string instanceId = 1 ;
+    /*
+    节点标识
+    */
+    string id = 2 ;
+    /*
+    类型
+    */
+    string type = 3 ;
+}
+        
+    
+    /*
+    子节点
+    */
+    repeated Children children = 1 ;
+    /*
+    实例标识
+    */
+    string instanceId = 2 ;
+    /*
+    类型
+    */
+    string type = 3 ;
+    /*
+    节点标识
+    */
+    string id = 4 ;
+}
+
+/*
+SearchStoryboardChildNodesApi返回
+*/
+message SearchStoryboardChildNodesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    storyboard.SearchStoryboardChildNodesResponse data = 4 ;
+}
+

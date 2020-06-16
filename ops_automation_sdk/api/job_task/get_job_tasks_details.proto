@@ -4,8 +4,8 @@ package job_task;
 
 
 
-import "model/ops_automation/mail_info.proto";
-import "model/ops_automation/job_tasks.proto";
+import "ops_automation_sdk/model/ops_automation/mail_info.proto";
+import "ops_automation_sdk/model/ops_automation/job_tasks.proto";
 
 /*
 GetJobTasksDetail请求

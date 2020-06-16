@@ -1,0 +1,124 @@
+syntax = "proto3";
+package flowable;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable";
+
+
+
+
+import "topboard_sdk/model/flowable/process_variable.proto";
+
+/*
+Flowable流程实例任务
+*/
+message FlowableTask {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    链接
+    */
+    string url = 2 ;
+    /*
+    所有者
+    */
+    string owner = 3 ;
+    /*
+    受理人
+    */
+    string assignee = 4 ;
+    /*
+    代理状态
+    */
+    string delegationState = 5 ;
+    /*
+    名称
+    */
+    string name = 6 ;
+    /*
+    描述
+    */
+    string description = 7 ;
+    /*
+    创建时间
+    */
+    string createTime = 8 ;
+    /*
+    到期时间
+    */
+    string dueDate = 9 ;
+    /*
+    优先级
+    */
+    int32 priority = 10 ;
+    /*
+    是否挂起
+    */
+    bool suspended = 11 ;
+    /*
+    声明时间
+    */
+    string claimTime = 12 ;
+    /*
+    任务定义Key
+    */
+    string taskDefinitionKey = 13 ;
+    /*
+    scope定义ID
+    */
+    string scopeDefinitionId = 14 ;
+    /*
+    scope ID
+    */
+    string scopeId = 15 ;
+    /*
+    scope类型
+    */
+    string scopeType = 16 ;
+    /*
+    tenant ID
+    */
+    string tenantId = 17 ;
+    /*
+    分类
+    */
+    string category = 18 ;
+    /*
+    表单key
+    */
+    string formKey = 19 ;
+    /*
+    父任务ID
+    */
+    string parentTaskId = 20 ;
+    /*
+    执行ID
+    */
+    string executionId = 21 ;
+    /*
+    执行URL
+    */
+    string executionUrl = 22 ;
+    /*
+    流程实例ID
+    */
+    string processInstanceId = 23 ;
+    /*
+    流程实例URL
+    */
+    string processInstanceUrl = 24 ;
+    /*
+    流程定义ID
+    */
+    string processDefinitionId = 25 ;
+    /*
+    流程定义URL
+    */
+    string processDefinitionUrl = 26 ;
+    /*
+    变量列表
+    */
+    repeated flowable.FlowableProcessVariable variables = 27 ;
+}
+

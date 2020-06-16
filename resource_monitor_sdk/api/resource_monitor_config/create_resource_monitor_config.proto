@@ -1,0 +1,61 @@
+syntax = "proto3";
+package resource_monitor_config;
+
+
+
+
+
+/*
+CreateResourceMonitorConfig请求
+*/
+message CreateResourceMonitorConfigRequest {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+    /*
+    enabled
+    */
+    bool enabled = 2 ;
+    /*
+    资源ID
+    */
+    string objectId = 3 ;
+    /*
+    资源名称
+    */
+    string objectName = 4 ;
+}
+
+/*
+CreateResourceMonitorConfig返回
+*/
+message CreateResourceMonitorConfigResponse {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+}
+
+/*
+CreateResourceMonitorConfigApi返回
+*/
+message CreateResourceMonitorConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    resource_monitor_config.CreateResourceMonitorConfigResponse data = 4 ;
+}
+

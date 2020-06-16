@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/easy_command/action_param_custom.proto";
+import "artifact_sdk/model/easy_command/action_param_custom.proto";
 
 /*
 任务目标机器

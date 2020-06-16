@@ -1,0 +1,105 @@
+syntax = "proto3";
+package legacy;
+
+
+
+
+
+/*
+NameServiceConfig请求
+*/
+message NameServiceConfigRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
+NameServiceConfig返回
+*/
+message NameServiceConfigResponse {
+message Data {
+message Hosts {
+    /*
+    ip
+    */
+    string ip = 1 ;
+    /*
+    tag
+    */
+    repeated string tag = 2 ;
+    /*
+    port
+    */
+    int32 port = 3 ;
+    /*
+    weight
+    */
+    int32 weight = 4 ;
+}
+        
+    
+    /*
+    服务名
+    */
+    string service_name = 1 ;
+    /*
+    服务节点列表
+    */
+    repeated Hosts hosts = 2 ;
+}
+        
+    
+    /*
+    名字列表
+    */
+    repeated Data data = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+    /*
+    code
+    */
+    int32 code = 5 ;
+    /*
+    msg
+    */
+    string msg = 6 ;
+}
+
+/*
+NameServiceConfigApi返回
+*/
+message NameServiceConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    legacy.NameServiceConfigResponse data = 4 ;
+}
+

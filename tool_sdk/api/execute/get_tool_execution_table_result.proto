@@ -1,0 +1,109 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetToolExecutionTableResult请求
+*/
+message GetToolExecutionTableResultRequest {
+    /*
+    执行id
+    */
+    string execId = 1 ;
+}
+
+/*
+GetToolExecutionTableResult返回
+*/
+message GetToolExecutionTableResultResponse {
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 1 ;
+    /*
+    执行状态
+    */
+    string totalStatus = 2 ;
+    /*
+    执行id
+    */
+    string execId = 3 ;
+    /*
+    表格数据
+    */
+    google.protobuf.Struct tableData = 4 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 5 ;
+}
+
+/*
+GetToolExecutionTableResultApi返回
+*/
+message GetToolExecutionTableResultResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    execute.GetToolExecutionTableResultResponse data = 4 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package health_assessment_rule;
+
+
+
+
+
+/*
+UpdateHealthAssessmentRuleByRelatedResource请求
+*/
+message UpdateHealthAssessmentRuleByRelatedResourceRequest {
+    /*
+    所属模型id
+    */
+    string objectId = 1 ;
+}
+
+/*
+UpdateHealthAssessmentRuleByRelatedResource返回
+*/
+message UpdateHealthAssessmentRuleByRelatedResourceResponse {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+}
+
+/*
+UpdateHealthAssessmentRuleByRelatedResourceApi返回
+*/
+message UpdateHealthAssessmentRuleByRelatedResourceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    health_assessment_rule.UpdateHealthAssessmentRuleByRelatedResourceResponse data = 4 ;
+}
+

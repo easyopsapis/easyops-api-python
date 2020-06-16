@@ -2,25 +2,20 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import user_service_sdk.api.organization.create_org_pb2
 
-import create_org_pb2
-
-import disable_org_pb2
+import user_service_sdk.api.organization.disable_org_pb2
 
 import google.protobuf.empty_pb2
 
-import enable_org_pb2
+import user_service_sdk.api.organization.enable_org_pb2
 
-import list_org_pb2
+import user_service_sdk.api.organization.list_org_pb2
 
-import set_org_expires_pb2
+import user_service_sdk.api.organization.set_org_expires_pb2
 
-import utils.http_util
+import user_service_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,14 +37,14 @@ class OrganizationClient(object):
 
     
     def create_org(self, request, org, user, timeout=10):
-        # type: (create_org_pb2.CreateOrgRequest, int, str, int) -> create_org_pb2.CreateOrgResponse
+        # type: (user_service_sdk.api.organization.create_org_pb2.CreateOrgRequest, int, str, int) -> user_service_sdk.api.organization.create_org_pb2.CreateOrgResponse
         """
         创建Org[内部]
         :param request: create_org请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_org_pb2.CreateOrgResponse
+        :return: user_service_sdk.api.organization.create_org_pb2.CreateOrgResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -62,7 +57,7 @@ class OrganizationClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -75,14 +70,14 @@ class OrganizationClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_org_pb2.CreateOrgResponse()
+        rsp = user_service_sdk.api.organization.create_org_pb2.CreateOrgResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def disable_org(self, request, org, user, timeout=10):
-        # type: (disable_org_pb2.DisableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (user_service_sdk.api.organization.disable_org_pb2.DisableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         禁用Org[内部]
         :param request: disable_org请求
@@ -103,7 +98,7 @@ class OrganizationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -123,7 +118,7 @@ class OrganizationClient(object):
         return rsp
     
     def enable_org(self, request, org, user, timeout=10):
-        # type: (enable_org_pb2.EnableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (user_service_sdk.api.organization.enable_org_pb2.EnableOrgRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         启用Org[内部]
         :param request: enable_org请求
@@ -144,7 +139,7 @@ class OrganizationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -164,14 +159,14 @@ class OrganizationClient(object):
         return rsp
     
     def list_org(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> list_org_pb2.ListOrgResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> user_service_sdk.api.organization.list_org_pb2.ListOrgResponse
         """
         获取所有Org[内部]
         :param request: list_org请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_org_pb2.ListOrgResponse
+        :return: user_service_sdk.api.organization.list_org_pb2.ListOrgResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -184,7 +179,7 @@ class OrganizationClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -197,14 +192,14 @@ class OrganizationClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_org_pb2.ListOrgResponse()
+        rsp = user_service_sdk.api.organization.list_org_pb2.ListOrgResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def set_org_expired_date(self, request, org, user, timeout=10):
-        # type: (set_org_expires_pb2.SetOrgExpiredDateRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (user_service_sdk.api.organization.set_org_expires_pb2.SetOrgExpiredDateRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         设置Org过期日期[内部]
         :param request: set_org_expired_date请求
@@ -225,7 +220,7 @@ class OrganizationClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.user_service_sdk",
             dst_name=route_name,

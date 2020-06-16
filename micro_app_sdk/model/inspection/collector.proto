@@ -6,31 +6,12 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/i
 
 
 
+import "micro_app_sdk/model/inspection/arg.proto";
 
 /*
 采集脚本
 */
 message InspectionCollector {
-message Args {
-    /*
-    脚本入参key
-    */
-    string key = 1 ;
-    /*
-    别名
-    */
-    string alias = 2 ;
-    /*
-    输入框类型
-    */
-    string type = 3 ;
-    /*
-    是否必填
-    */
-    bool require = 4 ;
-}
-        
-    
     /*
     脚本id
     */
@@ -50,6 +31,6 @@ message Args {
     /*
     脚本入参
     */
-    repeated Args args = 5 ;
+    repeated inspection.InspectionArg args = 5 ;
 }
 

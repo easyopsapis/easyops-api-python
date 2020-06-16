@@ -1,0 +1,90 @@
+syntax = "proto3";
+package excel;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetIDCRackExcel请求
+*/
+message GetIDCRackExcelRequest {
+message Data {
+    /*
+    所属机房
+    */
+    string idcName = 1 ;
+    /*
+    状态
+    */
+    string status = 2 ;
+    /*
+    机柜类型
+    */
+    string type = 3 ;
+    /*
+    已使用U数
+    */
+    int32 occupiedU = 4 ;
+    /*
+    占用率(如：98.1%)
+    */
+    string occupiedUPercentage = 5 ;
+    /*
+    最大连续可用U数
+    */
+    int32 maxuSize = 6 ;
+    /*
+    关联产品线
+    */
+    string products = 7 ;
+    /*
+    关联的客户
+    */
+    string customers = 8 ;
+    /*
+    是否包含单电源设备
+    */
+    bool hasSinglePowerDevice = 9 ;
+    /*
+    备注
+    */
+    string memo = 10 ;
+    /*
+    机柜ID
+    */
+    string instanceId = 11 ;
+    /*
+    机柜名称
+    */
+    string name = 12 ;
+    /*
+    机柜编号
+    */
+    string code = 13 ;
+    /*
+    机柜U数
+    */
+    int32 unum = 14 ;
+    /*
+    空闲U位数
+    */
+    int32 freeUnum = 15 ;
+}
+        
+    
+    /*
+    机房ID
+    */
+    string idcId = 1 ;
+    /*
+    文件名
+    */
+    string fileName = 2 ;
+    /*
+    机柜信息
+    */
+    repeated Data data = 3 ;
+}
+

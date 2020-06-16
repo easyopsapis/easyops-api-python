@@ -2,31 +2,26 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import ops_automation_sdk.model.ops_automation.menu_pb2
 
-import model.ops_automation.menu_pb2
+import ops_automation_sdk.api.menu.create_menu_pb2
 
-import create_menu_pb2
+import ops_automation_sdk.api.menu.create_menu_tree_pb2
 
-import create_menu_tree_pb2
+import ops_automation_sdk.api.menu.delete_menu_pb2
 
-import delete_menu_pb2
-
-import get_menu_pb2
+import ops_automation_sdk.api.menu.get_menu_pb2
 
 import google.protobuf.empty_pb2
 
 import google.protobuf.struct_pb2
 
-import list_menus_pb2
+import ops_automation_sdk.api.menu.list_menus_pb2
 
-import update_menu_pb2
+import ops_automation_sdk.api.menu.update_menu_pb2
 
-import utils.http_util
+import ops_automation_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -48,14 +43,14 @@ class MenuClient(object):
 
     
     def create_menu(self, request, org, user, timeout=10):
-        # type: (model.ops_automation.menu_pb2.Menu, int, str, int) -> create_menu_pb2.CreateMenuResponse
+        # type: (ops_automation_sdk.model.ops_automation.menu_pb2.Menu, int, str, int) -> ops_automation_sdk.api.menu.create_menu_pb2.CreateMenuResponse
         """
         创建菜单
         :param request: create_menu请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_menu_pb2.CreateMenuResponse
+        :return: ops_automation_sdk.api.menu.create_menu_pb2.CreateMenuResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -68,7 +63,7 @@ class MenuClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -81,21 +76,21 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_menu_pb2.CreateMenuResponse()
+        rsp = ops_automation_sdk.api.menu.create_menu_pb2.CreateMenuResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_menu_tree(self, request, org, user, timeout=10):
-        # type: (create_menu_tree_pb2.CreateMenuTreeRequest, int, str, int) -> create_menu_tree_pb2.CreateMenuTreeResponse
+        # type: (ops_automation_sdk.api.menu.create_menu_tree_pb2.CreateMenuTreeRequest, int, str, int) -> ops_automation_sdk.api.menu.create_menu_tree_pb2.CreateMenuTreeResponse
         """
         创建菜单树
         :param request: create_menu_tree请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_menu_tree_pb2.CreateMenuTreeResponse
+        :return: ops_automation_sdk.api.menu.create_menu_tree_pb2.CreateMenuTreeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -108,7 +103,7 @@ class MenuClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -121,21 +116,21 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_menu_tree_pb2.CreateMenuTreeResponse()
+        rsp = ops_automation_sdk.api.menu.create_menu_tree_pb2.CreateMenuTreeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_menu(self, request, org, user, timeout=10):
-        # type: (delete_menu_pb2.DeleteMenuRequest, int, str, int) -> delete_menu_pb2.DeleteMenuResponse
+        # type: (ops_automation_sdk.api.menu.delete_menu_pb2.DeleteMenuRequest, int, str, int) -> ops_automation_sdk.api.menu.delete_menu_pb2.DeleteMenuResponse
         """
         删除菜单
         :param request: delete_menu请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_menu_pb2.DeleteMenuResponse
+        :return: ops_automation_sdk.api.menu.delete_menu_pb2.DeleteMenuResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class MenuClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_menu_pb2.DeleteMenuResponse()
+        rsp = ops_automation_sdk.api.menu.delete_menu_pb2.DeleteMenuResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_menu(self, request, org, user, timeout=10):
-        # type: (get_menu_pb2.GetMenuRequest, int, str, int) -> get_menu_pb2.GetMenuResponse
+        # type: (ops_automation_sdk.api.menu.get_menu_pb2.GetMenuRequest, int, str, int) -> ops_automation_sdk.api.menu.get_menu_pb2.GetMenuResponse
         """
         获取菜单详情
         :param request: get_menu请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_menu_pb2.GetMenuResponse
+        :return: ops_automation_sdk.api.menu.get_menu_pb2.GetMenuResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class MenuClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -203,7 +198,7 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_menu_pb2.GetMenuResponse()
+        rsp = ops_automation_sdk.api.menu.get_menu_pb2.GetMenuResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -230,7 +225,7 @@ class MenuClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -250,14 +245,14 @@ class MenuClient(object):
         return rsp
     
     def list_menus(self, request, org, user, timeout=10):
-        # type: (list_menus_pb2.ListMenusRequest, int, str, int) -> list_menus_pb2.ListMenusResponse
+        # type: (ops_automation_sdk.api.menu.list_menus_pb2.ListMenusRequest, int, str, int) -> ops_automation_sdk.api.menu.list_menus_pb2.ListMenusResponse
         """
         获取菜单列表
         :param request: list_menus请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_menus_pb2.ListMenusResponse
+        :return: ops_automation_sdk.api.menu.list_menus_pb2.ListMenusResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -270,7 +265,7 @@ class MenuClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -283,21 +278,21 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_menus_pb2.ListMenusResponse()
+        rsp = ops_automation_sdk.api.menu.list_menus_pb2.ListMenusResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_menu(self, request, org, user, timeout=10):
-        # type: (update_menu_pb2.UpdateMenuRequest, int, str, int) -> update_menu_pb2.UpdateMenuResponse
+        # type: (ops_automation_sdk.model.ops_automation.menu_pb2.Menu, int, str, int) -> ops_automation_sdk.api.menu.update_menu_pb2.UpdateMenuResponse
         """
         更新菜单
         :param request: update_menu请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_menu_pb2.UpdateMenuResponse
+        :return: ops_automation_sdk.api.menu.update_menu_pb2.UpdateMenuResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -306,12 +301,12 @@ class MenuClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.ops_automation.menu.UpdateMenu"
-        uri = "/api/ops_automation/v1/menus/{menusId}".format(
-            menusId=request.menusId,
+        uri = "/api/ops_automation/v1/menus/{id}".format(
+            id=request.id,
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,
@@ -324,7 +319,7 @@ class MenuClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_menu_pb2.UpdateMenuResponse()
+        rsp = ops_automation_sdk.api.menu.update_menu_pb2.UpdateMenuResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

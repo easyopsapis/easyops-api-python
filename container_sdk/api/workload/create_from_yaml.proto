@@ -1,0 +1,50 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/container.proto";
+import "container_sdk/model/container/volume.proto";
+import "container_sdk/model/container/deployment_strategy.proto";
+import "container_sdk/model/container/local_object_reference.proto";
+import "container_sdk/model/container/deployment_status.proto";
+import "container_sdk/model/container/workload.proto";
+import "google/protobuf/struct.proto";
+
+/*
+CreateFromYaml请求
+*/
+message CreateFromYamlRequest {
+    /*
+    部署资源组 (resource group) id
+    */
+    string rgId = 1 ;
+    /*
+    资源原生 yaml 文件定义
+    */
+    string resourceSpec = 2 ;
+}
+
+/*
+CreateFromYamlApi返回
+*/
+message CreateFromYamlResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    container.Workload data = 4 ;
+}
+

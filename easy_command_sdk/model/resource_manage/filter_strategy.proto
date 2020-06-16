@@ -1,0 +1,89 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+import "easy_command_sdk/model/console/cmdb_query_strategy.proto";
+import "easy_command_sdk/model/resource_manage/filter_condition_group.proto";
+
+/*
+过滤策略
+*/
+message FilterStrategy {
+    /*
+    策略Id
+    */
+    string instanceId = 1 ;
+    /*
+    策略名称
+    */
+    string strategyName = 2 ;
+    /*
+    所属模型Id
+    */
+    string strategyObjectId = 3 ;
+    /*
+    实例查询策略
+    */
+    console.CmdbQueryStrategy query = 4 ;
+    /*
+    筛选规则, or 逻辑
+    */
+    repeated resource_manage.FilterConditionGroup filter = 5 ;
+    /*
+    定时策略
+    */
+    string crontab = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+    /*
+    修改时间
+    */
+    string mtime = 8 ;
+    /*
+    创建者
+    */
+    string creator = 9 ;
+    /*
+    修改者
+    */
+    string modifier = 10 ;
+    /*
+    下次执行时间
+    */
+    string nextExecTime = 11 ;
+    /*
+    定时策略
+    */
+    bool enable = 12 ;
+    /*
+    更新白名单
+    */
+    repeated string updateAuthorizers = 13 ;
+    /*
+    读取白名单
+    */
+    repeated string readAuthorizers = 14 ;
+    /*
+    删除白名单
+    */
+    repeated string deleteAuthorizers = 15 ;
+    /*
+    通知人/组
+    */
+    repeated string notifyUsers = 16 ;
+    /*
+    通知方式
+    */
+    repeated string notifyMethods = 17 ;
+    /*
+    org
+    */
+    int32 org = 18 ;
+}
+

@@ -4,7 +4,6 @@ package plugin;
 
 
 
-import "model/agent_admin/plugin_version.proto";
 
 /*
 ListPluginV1请求
@@ -25,10 +24,46 @@ ListPluginV1返回
 */
 message ListPluginV1Response {
 message List {
+message LastestVersion {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    仓库版本ID
+    */
+    string repoVersionId = 2 ;
+    /*
+    版本名称
+    */
+    string versionName = 3 ;
+    /*
+    备注
+    */
+    string memo = 4 ;
+    /*
+    所属插件ID
+    */
+    string pluginId = 5 ;
+    /*
+    创建者
+    */
+    string creator = 6 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 7 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 8 ;
+}
+        
+    
     /*
     插件包的最新版本信息
     */
-    repeated agent_admin.PluginVersion lastestVersion = 1 ;
+    LastestVersion lastestVersion = 1 ;
     /*
     部署的实例个数
     */

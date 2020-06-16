@@ -1,0 +1,28 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+import "assets_inventory_sdk/model/notify/operation_log.proto";
+
+/*
+带有系统名称和topic的operation log
+*/
+message OperationLogWithMeta {
+    /*
+    系统名称
+    */
+    string system = 1 ;
+    /*
+    topic
+    */
+    string topic = 2 ;
+    /*
+    OperationLog
+    */
+    notify.OperationLog data = 3 ;
+}
+

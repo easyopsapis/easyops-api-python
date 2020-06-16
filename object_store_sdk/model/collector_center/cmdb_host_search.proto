@@ -1,0 +1,48 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+cmdb主机搜索
+*/
+message CmdbHostSearch {
+message Conditions {
+    /*
+    键
+    */
+    string key = 1 ;
+    /*
+    操作符
+    */
+    string op = 2 ;
+    /*
+    值
+    */
+    google.protobuf.Value value = 3 ;
+}
+        
+    
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    查询者
+    */
+    string querier = 2 ;
+    /*
+    获取主机Key路径
+    */
+    string hostKey = 3 ;
+    /*
+    查询条件
+    */
+    repeated Conditions conditions = 4 ;
+}
+

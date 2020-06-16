@@ -6,6 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/p
 
 
 
+import "msgsender_sdk/model/pipeline/condition.proto";
 
 /*
 阶段状态
@@ -66,22 +67,26 @@ message Steps {
     /*
     step是否并行
     */
-    string parallel = 4 ;
+    bool parallel = 4 ;
     /*
     stage状态
     */
     string state = 5 ;
     /*
+    特殊状态
+    */
+    repeated pipeline.Condition conditions = 6 ;
+    /*
     steps状态
     */
-    repeated Steps steps = 6 ;
+    repeated Steps steps = 7 ;
     /*
     创建时间
     */
-    int32 created = 7 ;
+    int32 created = 8 ;
     /*
     更新时间
     */
-    int32 updated = 8 ;
+    int32 updated = 9 ;
 }
 

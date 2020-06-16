@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/n
 
 
 
-import "model/notify/subscribe_info.proto";
+import "easy_flow_sdk/model/notify/subscribe_info.proto";
 
 /*
 订阅者

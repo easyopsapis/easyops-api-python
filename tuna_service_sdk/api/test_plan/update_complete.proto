@@ -1,0 +1,50 @@
+syntax = "proto3";
+package test_plan;
+
+
+
+
+import "tuna_service_sdk/model/tuna_service/test_plan.proto";
+
+/*
+CompleteAndUpdatePlan请求
+*/
+message CompleteAndUpdatePlanRequest {
+    /*
+    _TESTPLAN的实例ID
+    */
+    string testPlanId = 1 ;
+}
+
+/*
+CompleteAndUpdatePlan返回
+*/
+message CompleteAndUpdatePlanResponse {
+    /*
+    更新后的测试计划数据
+    */
+    tuna_service.TestPlan testPlan = 1 ;
+}
+
+/*
+CompleteAndUpdatePlanApi返回
+*/
+message CompleteAndUpdatePlanResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    test_plan.CompleteAndUpdatePlanResponse data = 4 ;
+}
+

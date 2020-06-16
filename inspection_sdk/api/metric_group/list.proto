@@ -4,7 +4,7 @@ package metric_group;
 
 
 
-import "model/inspection/metric_group.proto";
+import "inspection_sdk/model/inspection/metric_group.proto";
 
 /*
 ListMetricGroup请求

@@ -1,0 +1,45 @@
+syntax = "proto3";
+package datafilter;
+
+
+
+
+import "resource_manage_sdk/model/resource_manage/filter_strategy.proto";
+import "google/protobuf/empty.proto";
+
+/*
+UpdateStrategy请求
+*/
+message UpdateStrategyRequest {
+    /*
+    规则实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    规则详情, 此接口为全量更新,所有字段都须填写
+    */
+    resource_manage.FilterStrategy strategy = 2 ;
+}
+
+/*
+UpdateStrategyApi返回
+*/
+message UpdateStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

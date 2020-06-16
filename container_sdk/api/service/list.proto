@@ -1,0 +1,66 @@
+syntax = "proto3";
+package service;
+
+
+
+
+import "container_sdk/model/container/service.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    部署资源组 instace id
+    */
+    string rgId = 1 ;
+    /*
+    命名空间 id
+    */
+    string namespaceId = 2 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated container.Service list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    service.ListResponse data = 4 ;
+}
+

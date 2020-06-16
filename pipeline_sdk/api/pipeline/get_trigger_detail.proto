@@ -4,10 +4,10 @@ package pipeline;
 
 
 
-import "model/pipeline/trigger.proto";
-import "model/pipeline/project.proto";
-import "model/pipeline/provider.proto";
-import "model/pipeline/pipeline.proto";
+import "pipeline_sdk/model/pipeline/trigger.proto";
+import "pipeline_sdk/model/pipeline/project.proto";
+import "pipeline_sdk/model/pipeline/provider.proto";
+import "pipeline_sdk/model/pipeline/pipeline.proto";
 
 /*
 GetTriggerDetail请求

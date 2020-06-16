@@ -1,0 +1,71 @@
+syntax = "proto3";
+package topo_view;
+
+
+
+
+import "topology_sdk/model/topology/topo_view.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ListTopoView请求
+*/
+message ListTopoViewRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页数据量
+    */
+    int32 page_size = 2 ;
+    /*
+    查询条件
+    */
+    google.protobuf.Struct query = 3 ;
+}
+
+/*
+ListTopoView返回
+*/
+message ListTopoViewResponse {
+    /*
+    视图列表
+    */
+    repeated topology.TopoView list = 1 ;
+    /*
+    视图总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+ListTopoViewApi返回
+*/
+message ListTopoViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topo_view.ListTopoViewResponse data = 4 ;
+}
+

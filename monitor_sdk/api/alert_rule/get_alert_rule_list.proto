@@ -1,0 +1,90 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "monitor_sdk/model/monitor/alert_rule.proto";
+
+/*
+GetAlertRuleList请求
+*/
+message GetAlertRuleListRequest {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    如果指定此参数为monitor_v2,则查询的为新告警策略,否则为旧告警策略
+    */
+    string system = 3 ;
+    /*
+    规则id, 多个用逗号分隔符
+    */
+    string _id__in = 4 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 5 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 6 ;
+}
+
+/*
+GetAlertRuleList返回
+*/
+message GetAlertRuleListResponse {
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    页数
+    */
+    int32 page = 3 ;
+    /*
+    总数
+    */
+    int32 total = 4 ;
+    /*
+    msg
+    */
+    string msg = 5 ;
+    /*
+    data
+    */
+    repeated monitor.AlertRule data = 6 ;
+}
+
+/*
+GetAlertRuleListApi返回
+*/
+message GetAlertRuleListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.GetAlertRuleListResponse data = 4 ;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+表单模式
+*/
+message FormSchema {
+    /*
+    表单实例id
+    */
+    string instanceId = 1 ;
+    /*
+    表单名称
+    */
+    string name = 2 ;
+    /*
+    表单类别
+    */
+    string category = 3 ;
+    /*
+    表单作者
+    */
+    string creator = 4 ;
+    /*
+    表单说明
+    */
+    string memo = 5 ;
+    /*
+    创建时间
+    */
+    string ctime = 6 ;
+}
+

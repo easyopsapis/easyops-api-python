@@ -4,7 +4,7 @@ package jobs;
 
 
 
-import "model/ops_automation/scheduler.proto";
+import "ops_automation_sdk/model/ops_automation/scheduler.proto";
 
 /*
 ListJobs请求
@@ -22,6 +22,18 @@ message ListJobsRequest {
     menu Id
     */
     string menuId = 3 ;
+    /*
+    category
+    */
+    string category = 4 ;
+    /*
+    name
+    */
+    string name = 5 ;
+    /*
+    keyword
+    */
+    string keyword = 6 ;
 }
 
 /*
@@ -34,7 +46,7 @@ message List {
     */
     ops_automation.Scheduler scheduler = 1 ;
     /*
-    任务ID
+    作业ID
     */
     string id = 2 ;
     /*

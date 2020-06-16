@@ -1,0 +1,49 @@
+syntax = "proto3";
+package toolkit;
+
+
+
+
+
+/*
+GetToolkitStatus请求
+*/
+message GetToolkitStatusRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+}
+
+/*
+GetToolkitStatus返回
+*/
+message GetToolkitStatusResponse {
+    /*
+    状态
+    */
+    bool enabled = 1 ;
+}
+
+/*
+GetToolkitStatusApi返回
+*/
+message GetToolkitStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    toolkit.GetToolkitStatusResponse data = 4 ;
+}
+

@@ -2,31 +2,26 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import batch_update_permission_pb2
+import flow_sdk.api.basic.batch_update_permission_pb2
 
 import google.protobuf.struct_pb2
 
-import model.flow.flow_pb2
+import flow_sdk.model.flow.flow_pb2
 
-import delete_pb2
+import flow_sdk.api.basic.delete_pb2
 
-import get_pb2
+import flow_sdk.api.basic.get_pb2
 
 import google.protobuf.empty_pb2
 
-import get_categories_pb2
+import flow_sdk.api.basic.get_categories_pb2
 
-import get_version_list_pb2
+import flow_sdk.api.basic.get_version_list_pb2
 
-import list_pb2
+import flow_sdk.api.basic.list_pb2
 
-import utils.http_util
+import flow_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -48,7 +43,7 @@ class BasicClient(object):
 
     
     def update_batch_permission(self, request, org, user, timeout=10):
-        # type: (batch_update_permission_pb2.UpdateBatchPermissionRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (flow_sdk.api.basic.batch_update_permission_pb2.UpdateBatchPermissionRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         批量更新流程权限
         :param request: update_batch_permission请求
@@ -68,7 +63,7 @@ class BasicClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -88,14 +83,14 @@ class BasicClient(object):
         return rsp
     
     def create_flow(self, request, org, user, timeout=10):
-        # type: (model.flow.flow_pb2.Flow, int, str, int) -> model.flow.flow_pb2.Flow
+        # type: (flow_sdk.model.flow.flow_pb2.Flow, int, str, int) -> flow_sdk.model.flow.flow_pb2.Flow
         """
         创建流程
         :param request: create_flow请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.flow.flow_pb2.Flow
+        :return: flow_sdk.model.flow.flow_pb2.Flow
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -108,7 +103,7 @@ class BasicClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -121,21 +116,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.flow.flow_pb2.Flow()
+        rsp = flow_sdk.model.flow.flow_pb2.Flow()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_flow(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteFlowRequest, int, str, int) -> delete_pb2.DeleteFlowResponse
+        # type: (flow_sdk.api.basic.delete_pb2.DeleteFlowRequest, int, str, int) -> flow_sdk.api.basic.delete_pb2.DeleteFlowResponse
         """
         删除流程
         :param request: delete_flow请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_pb2.DeleteFlowResponse
+        :return: flow_sdk.api.basic.delete_pb2.DeleteFlowResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class BasicClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_pb2.DeleteFlowResponse()
+        rsp = flow_sdk.api.basic.delete_pb2.DeleteFlowResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_flow_info(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetFlowInfoRequest, int, str, int) -> model.flow.flow_pb2.Flow
+        # type: (flow_sdk.api.basic.get_pb2.GetFlowInfoRequest, int, str, int) -> flow_sdk.model.flow.flow_pb2.Flow
         """
         获取流程信息
         :param request: get_flow_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.flow.flow_pb2.Flow
+        :return: flow_sdk.model.flow.flow_pb2.Flow
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class BasicClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -203,21 +198,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.flow.flow_pb2.Flow()
+        rsp = flow_sdk.model.flow.flow_pb2.Flow()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_flow_categories(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_categories_pb2.GetFlowCategoriesResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> flow_sdk.api.basic.get_categories_pb2.GetFlowCategoriesResponse
         """
         查询流程分类
         :param request: get_flow_categories请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_categories_pb2.GetFlowCategoriesResponse
+        :return: flow_sdk.api.basic.get_categories_pb2.GetFlowCategoriesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -230,7 +225,7 @@ class BasicClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -243,21 +238,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_categories_pb2.GetFlowCategoriesResponse()
+        rsp = flow_sdk.api.basic.get_categories_pb2.GetFlowCategoriesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_version_list(self, request, org, user, timeout=10):
-        # type: (get_version_list_pb2.GetVersionListRequest, int, str, int) -> get_version_list_pb2.GetVersionListResponse
+        # type: (flow_sdk.api.basic.get_version_list_pb2.GetVersionListRequest, int, str, int) -> flow_sdk.api.basic.get_version_list_pb2.GetVersionListResponse
         """
         获取流程版本列表
         :param request: get_version_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_version_list_pb2.GetVersionListResponse
+        :return: flow_sdk.api.basic.get_version_list_pb2.GetVersionListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -271,7 +266,7 @@ class BasicClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -284,21 +279,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_version_list_pb2.GetVersionListResponse()
+        rsp = flow_sdk.api.basic.get_version_list_pb2.GetVersionListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_flow_list(self, request, org, user, timeout=10):
-        # type: (list_pb2.GetFlowListRequest, int, str, int) -> list_pb2.GetFlowListResponse
+        # type: (flow_sdk.api.basic.list_pb2.GetFlowListRequest, int, str, int) -> flow_sdk.api.basic.list_pb2.GetFlowListResponse
         """
         获取流程列表
         :param request: get_flow_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.GetFlowListResponse
+        :return: flow_sdk.api.basic.list_pb2.GetFlowListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -311,7 +306,7 @@ class BasicClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -324,21 +319,21 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.GetFlowListResponse()
+        rsp = flow_sdk.api.basic.list_pb2.GetFlowListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_flow(self, request, org, user, timeout=10):
-        # type: (model.flow.flow_pb2.Flow, int, str, int) -> model.flow.flow_pb2.Flow
+        # type: (flow_sdk.model.flow.flow_pb2.Flow, int, str, int) -> flow_sdk.model.flow.flow_pb2.Flow
         """
         更新流程
         :param request: update_flow请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.flow.flow_pb2.Flow
+        :return: flow_sdk.model.flow.flow_pb2.Flow
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -352,7 +347,7 @@ class BasicClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = flow_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.flow_sdk",
             dst_name=route_name,
@@ -365,7 +360,7 @@ class BasicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.flow.flow_pb2.Flow()
+        rsp = flow_sdk.model.flow.flow_pb2.Flow()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -1,0 +1,53 @@
+syntax = "proto3";
+package auth;
+
+
+
+
+
+/*
+AuthLogin请求
+*/
+message AuthLoginRequest {
+    /*
+    user
+    */
+    string user = 1 ;
+    /*
+    password
+    */
+    string password = 2 ;
+}
+
+/*
+AuthLogin返回
+*/
+message AuthLoginResponse {
+    /*
+    电话
+    */
+    string phone = 1 ;
+}
+
+/*
+AuthLoginApi返回
+*/
+message AuthLoginResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    auth.AuthLoginResponse data = 4 ;
+}
+

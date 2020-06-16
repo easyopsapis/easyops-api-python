@@ -4,7 +4,9 @@ package sqlpkgs;
 
 
 
-import "model/database_delivery/sql_package_version.proto";
+import "database_delivery_sdk/model/database_delivery/sql_package_version.proto";
+import "database_delivery_sdk/model/database_delivery/app.proto";
+import "database_delivery_sdk/model/database_delivery/dbservice.proto";
 
 /*
 GetSQLPackage请求
@@ -25,37 +27,37 @@ message GetSQLPackageResponse {
     */
     repeated database_delivery.SQLPackageVersion versionList = 1 ;
     /*
+    SQL包关联的应用列表
+    */
+    repeated database_delivery.Application APP = 2 ;
+    /*
+    SQL包关联的数据库服务列表
+    */
+    repeated database_delivery.DBService DBSERVICE = 3 ;
+    /*
     SQL包ID
     */
-    string id = 2 ;
+    string id = 4 ;
     /*
     名称
     */
-    string name = 3 ;
-    /*
-    SQL包的数据库类型
-    */
-    string dbType = 4 ;
+    string name = 5 ;
     /*
     描述
     */
-    string memo = 5 ;
+    string memo = 6 ;
     /*
     创建者
     */
-    string creator = 6 ;
+    string creator = 7 ;
     /*
     ctime
     */
-    int64 ctime = 7 ;
+    int64 ctime = 8 ;
     /*
     mtime
     */
-    int64 mtime = 8 ;
-    /*
-    程序包Id
-    */
-    string appPackageId = 9 ;
+    int64 mtime = 9 ;
     /*
     文件仓库包ID
     */

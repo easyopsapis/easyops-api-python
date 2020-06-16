@@ -1,0 +1,65 @@
+syntax = "proto3";
+package namespace;
+
+
+
+
+import "container_sdk/model/container/namespace.proto";
+import "container_sdk/model/container/cluster.proto";
+import "container_sdk/model/container/resource_quota.proto";
+import "container_sdk/model/container/resource_requirements.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    获取指定的 namespace id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+    /*
+    namespace 信息
+    */
+    container.Namespace namespace = 1 ;
+    /*
+    cluster
+    */
+    container.Cluster cluster = 2 ;
+    /*
+    资源限制
+    */
+    container.ResourceQuota namespaceQuota = 3 ;
+    /*
+    最大资源限制和初始资源请求
+    */
+    container.ResourceRequirements containerDefaultLimit = 4 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    namespace.GetResponse data = 4 ;
+}
+

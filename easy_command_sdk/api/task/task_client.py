@@ -2,19 +2,16 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import easy_command_sdk.model.easy_command.task_spec_pb2
 
-import model.easy_command.task_spec_pb2
+import easy_command_sdk.api.task.create_async_pb2
 
-import model.easy_command.task_detail_pb2
+import easy_command_sdk.model.easy_command.task_detail_pb2
 
-import get_detail_pb2
+import easy_command_sdk.api.task.get_detail_pb2
 
-import utils.http_util
+import easy_command_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -35,15 +32,15 @@ class TaskClient(object):
         self._host = host
 
     
-    def create_sync_task(self, request, org, user, timeout=10):
-        # type: (model.easy_command.task_spec_pb2.TaskSpec, int, str, int) -> model.easy_command.task_detail_pb2.TaskDetail
+    def create_async_task(self, request, org, user, timeout=10):
+        # type: (easy_command_sdk.model.easy_command.task_spec_pb2.TaskSpec, int, str, int) -> easy_command_sdk.api.task.create_async_pb2.CreateAsyncTaskResponse
         """
-        创建同步任务
-        :param request: create_sync_task请求
+        创建异步任务
+        :param request: create_async_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.easy_command.task_detail_pb2.TaskDetail
+        :return: easy_command_sdk.api.task.create_async_pb2.CreateAsyncTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -51,12 +48,12 @@ class TaskClient(object):
         if self._service_name != "":
             route_name = self._service_name
         elif self._server_ip != "":
-            route_name = "easyops.api.easy_command.task.CreateSyncTask"
-        uri = "/cmd/sync"
+            route_name = "easyops.api.easy_command.task.CreateAsyncTask"
+        uri = "/cmd"
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_command_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.easy_command_sdk",
             dst_name=route_name,
@@ -69,21 +66,101 @@ class TaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.easy_command.task_detail_pb2.TaskDetail()
+        rsp = easy_command_sdk.api.task.create_async_pb2.CreateAsyncTaskResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def create_sync_task(self, request, org, user, timeout=10):
+        # type: (easy_command_sdk.model.easy_command.task_spec_pb2.TaskSpec, int, str, int) -> easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
+        """
+        创建同步任务
+        :param request: create_sync_task请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.easy_command.task.CreateSyncTask"
+        uri = "/cmd/sync"
+        
+        requestParam = request
+        
+        rsp_obj = easy_command_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.easy_command_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def create_transient_task(self, request, org, user, timeout=10):
+        # type: (easy_command_sdk.model.easy_command.task_spec_pb2.TaskSpec, int, str, int) -> easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
+        """
+        创建短暂任务。无数据库日志，执行后也不可查。最大目标数默认为10。依赖 easy_command ^3.6.2
+        :param request: create_transient_task请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.easy_command.task.CreateTransientTask"
+        uri = "/cmd/transient"
+        
+        requestParam = request
+        
+        rsp_obj = easy_command_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.easy_command_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_task_detail(self, request, org, user, timeout=10):
-        # type: (get_detail_pb2.GetTaskDetailRequest, int, str, int) -> model.easy_command.task_detail_pb2.TaskDetail
+        # type: (easy_command_sdk.api.task.get_detail_pb2.GetTaskDetailRequest, int, str, int) -> easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
         """
         获取任务详情
         :param request: get_task_detail请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.easy_command.task_detail_pb2.TaskDetail
+        :return: easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -97,7 +174,7 @@ class TaskClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_command_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.easy_command_sdk",
             dst_name=route_name,
@@ -110,7 +187,7 @@ class TaskClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.easy_command.task_detail_pb2.TaskDetail()
+        rsp = easy_command_sdk.model.easy_command.task_detail_pb2.TaskDetail()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -6,13 +6,37 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/p
 
 
 
-import "model/pipeline/git_meta.proto";
-import "model/pipeline/build_status.proto";
+import "user_service_sdk/model/pipeline/git_meta.proto";
+import "user_service_sdk/model/pipeline/build_status.proto";
 
 /*
 流水线任务
 */
 message Build {
+message Artifact {
+    /*
+    制品包名称
+    */
+    string packageName = 1 ;
+    /*
+    版本号
+    */
+    string versionName = 2 ;
+    /*
+    制品包上传时间
+    */
+    string ctime = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+    
     /*
     任务id, 服务端自动生成
     */
@@ -26,20 +50,28 @@ message Build {
     */
     string sender = 3 ;
     /*
+    制品包信息
+    */
+    Artifact artifact = 4 ;
+    /*
     创建时间，创建的时候传入，不能修改
     */
-    int32 created = 4 ;
+    int32 created = 5 ;
     /*
     workflow定义
     */
-    string yaml_string = 5 ;
+    string yaml_string = 6 ;
     /*
     执行状态
     */
-    pipeline.BuildStatus status = 6 ;
+    pipeline.BuildStatus status = 7 ;
     /*
     编号
     */
-    string number = 7 ;
+    string number = 8 ;
+    /*
+    事件列表
+    */
+    repeated string events = 9 ;
 }
 

@@ -2,21 +2,16 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import check_invitation_code_pb2
+import user_service_sdk.api.invitation_code.check_invitation_code_pb2
 
 import google.protobuf.empty_pb2
 
-import get_invitation_code_pb2
+import user_service_sdk.api.invitation_code.get_invitation_code_pb2
 
-import reset_invitation_code_pb2
+import user_service_sdk.api.invitation_code.reset_invitation_code_pb2
 
-import utils.http_util
+import user_service_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -38,14 +33,14 @@ class InvitationCodeClient(object):
 
     
     def check_invitation_code(self, request, org, user, timeout=10):
-        # type: (check_invitation_code_pb2.CheckInvitationCodeRequest, int, str, int) -> check_invitation_code_pb2.CheckInvitationCodeResponse
+        # type: (user_service_sdk.api.invitation_code.check_invitation_code_pb2.CheckInvitationCodeRequest, int, str, int) -> user_service_sdk.api.invitation_code.check_invitation_code_pb2.CheckInvitationCodeResponse
         """
         邀请码检查[内部]
         :param request: check_invitation_code请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: check_invitation_code_pb2.CheckInvitationCodeResponse
+        :return: user_service_sdk.api.invitation_code.check_invitation_code_pb2.CheckInvitationCodeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -59,7 +54,7 @@ class InvitationCodeClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -72,21 +67,21 @@ class InvitationCodeClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = check_invitation_code_pb2.CheckInvitationCodeResponse()
+        rsp = user_service_sdk.api.invitation_code.check_invitation_code_pb2.CheckInvitationCodeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_invitation_code(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_invitation_code_pb2.GetInvitationCodeResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> user_service_sdk.api.invitation_code.get_invitation_code_pb2.GetInvitationCodeResponse
         """
         邀请码获取[内部]
         :param request: get_invitation_code请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_invitation_code_pb2.GetInvitationCodeResponse
+        :return: user_service_sdk.api.invitation_code.get_invitation_code_pb2.GetInvitationCodeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -99,7 +94,7 @@ class InvitationCodeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -112,21 +107,21 @@ class InvitationCodeClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_invitation_code_pb2.GetInvitationCodeResponse()
+        rsp = user_service_sdk.api.invitation_code.get_invitation_code_pb2.GetInvitationCodeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def reset_invitation_code(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> reset_invitation_code_pb2.ResetInvitationCodeResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> user_service_sdk.api.invitation_code.reset_invitation_code_pb2.ResetInvitationCodeResponse
         """
-        邀请码获取[内部]
+        重置邀请码[内部]
         :param request: reset_invitation_code请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: reset_invitation_code_pb2.ResetInvitationCodeResponse
+        :return: user_service_sdk.api.invitation_code.reset_invitation_code_pb2.ResetInvitationCodeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -139,7 +134,7 @@ class InvitationCodeClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = user_service_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.user_service_sdk",
             dst_name=route_name,
@@ -152,7 +147,7 @@ class InvitationCodeClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = reset_invitation_code_pb2.ResetInvitationCodeResponse()
+        rsp = user_service_sdk.api.invitation_code.reset_invitation_code_pb2.ResetInvitationCodeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

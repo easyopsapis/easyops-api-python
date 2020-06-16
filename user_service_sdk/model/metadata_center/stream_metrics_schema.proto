@@ -1,0 +1,40 @@
+syntax = "proto3";
+package metadata_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/metadata_center";
+
+
+
+
+import "user_service_sdk/model/metadata_center/stream_metrics_schema_field.proto";
+
+/*
+指标表
+*/
+message StreamMetricsSchema {
+    /*
+    id
+    */
+    string id = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+    /*
+    指标表版本
+    */
+    int32 version = 3 ;
+    /*
+    指标表名称
+    */
+    string name = 4 ;
+    /*
+    维度列表
+    */
+    repeated metadata_center.StreamMetricsSchemaField dimensions = 5 ;
+    /*
+    指标列表
+    */
+    repeated metadata_center.StreamMetricsSchemaField metrics = 6 ;
+}
+

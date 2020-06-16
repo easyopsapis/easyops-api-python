@@ -1,0 +1,55 @@
+syntax = "proto3";
+package persistentvolumeclaim;
+
+
+
+
+import "container_sdk/model/container/storage_class.proto";
+import "container_sdk/model/container/persistent_volume_claim.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    获取指定的 PVC id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+    /*
+    关联的 存储类
+    */
+    container.StorageClass storageClass = 1 ;
+    /*
+    PVC 信息
+    */
+    container.PersistentVolumeClaim persistentVolumeClaim = 2 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    persistentvolumeclaim.GetResponse data = 4 ;
+}
+

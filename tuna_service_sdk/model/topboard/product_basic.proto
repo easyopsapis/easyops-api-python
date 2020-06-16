@@ -1,0 +1,31 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+
+/*
+产品基本信息
+*/
+message ProductBasic {
+    /*
+    产品id
+    */
+    string name = 1 ;
+    /*
+    产品实例id
+    */
+    string instanceId = 2 ;
+    /*
+    产品名称
+    */
+    string title = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+}
+

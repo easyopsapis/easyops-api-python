@@ -1,0 +1,67 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+
+/*
+ImportInstanceWithExcel返回
+*/
+message ImportInstanceWithExcelResponse {
+message Data {
+    /*
+    错误码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    错误实例所在excel行数
+    */
+    int32 line = 3 ;
+}
+        
+    
+    /*
+    成功插入数量
+    */
+    int32 insert_count = 1 ;
+    /*
+    成功更新数量
+    */
+    int32 update_count = 2 ;
+    /*
+    失败数量
+    */
+    int32 failed_count = 3 ;
+    /*
+    失败数据
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+ImportInstanceWithExcelApi返回
+*/
+message ImportInstanceWithExcelResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.ImportInstanceWithExcelResponse data = 4 ;
+}
+

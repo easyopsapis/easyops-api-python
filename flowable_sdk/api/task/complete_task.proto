@@ -1,0 +1,69 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "flowable_sdk/model/flowable/process_variable.proto";
+import "google/protobuf/empty.proto";
+
+/*
+CompleteTask请求
+*/
+message CompleteTaskRequest {
+    /*
+    名称
+    */
+    string taskId = 1 ;
+    /*
+    动作
+    */
+    string action = 2 ;
+    /*
+    受理人
+    */
+    string assignee = 3 ;
+    /*
+    是否挂起
+    */
+    string formDefinitionId = 4 ;
+    /*
+    结果
+    */
+    string outcome = 5 ;
+    /*
+    变量
+    */
+    repeated flowable.FlowableProcessVariable variables = 6 ;
+    /*
+    transient变量
+    */
+    repeated flowable.FlowableProcessVariable transientVariables = 7 ;
+    /*
+    body(json)只传递的字段的fieldmask
+    */
+    repeated string XXX_RestFieldMask = 8 ;
+}
+
+/*
+CompleteTaskApi返回
+*/
+message CompleteTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

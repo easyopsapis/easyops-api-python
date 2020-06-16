@@ -1,0 +1,71 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+
+/*
+资源监控采集任务
+*/
+message CollectorJob {
+message CollectTime {
+    /*
+    采集开始时间
+    */
+    string startTime = 1 ;
+    /*
+    采集结束时间
+    */
+    string endTime = 2 ;
+}
+        
+    
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    模型id
+    */
+    string objectId = 3 ;
+    /*
+    任务名称
+    */
+    string jobName = 4 ;
+    /*
+    过滤条件
+    */
+    string filter = 5 ;
+    /*
+    采集时段
+    */
+    CollectTime collectTime = 6 ;
+    /*
+    执行超时
+    */
+    int32 timeout = 7 ;
+    /*
+    是否启用
+    */
+    bool enabled = 8 ;
+    /*
+    采集间隔
+    */
+    int32 interval = 9 ;
+    /*
+    关系查询路径
+    */
+    string path = 10 ;
+    /*
+    关系查询路径ID
+    */
+    string pathId = 11 ;
+}
+

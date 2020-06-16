@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/topology/property.proto";
-import "model/topology/nodeStyle.proto";
+import "file_repository_sdk/model/topology/property.proto";
+import "file_repository_sdk/model/topology/nodeStyle.proto";
 
 /*
 节点

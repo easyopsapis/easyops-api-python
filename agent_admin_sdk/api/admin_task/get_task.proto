@@ -4,7 +4,7 @@ package admin_task;
 
 
 
-import "model/agent_admin/admin_task.proto";
+import "agent_admin_sdk/model/agent_admin/admin_task.proto";
 
 /*
 GetTask请求

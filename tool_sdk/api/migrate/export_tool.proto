@@ -1,0 +1,26 @@
+syntax = "proto3";
+package migrate;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ExportTool请求
+*/
+message ExportToolRequest {
+    /*
+    版本Id
+    */
+    string versionId = 1 ;
+    /*
+    兼容版本策略 latest=最新; 2.32=兼容2.32的版本
+    */
+    string compatibility = 2 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 3 ;
+}
+

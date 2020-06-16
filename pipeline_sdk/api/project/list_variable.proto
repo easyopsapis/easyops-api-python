@@ -1,0 +1,59 @@
+syntax = "proto3";
+package project;
+
+
+
+
+
+/*
+ListVariable返回
+*/
+message ListVariableResponse {
+message List {
+    /*
+    name
+    */
+    string name = 1 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListVariableApi返回
+*/
+message ListVariableResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    project.ListVariableResponse data = 4 ;
+}
+

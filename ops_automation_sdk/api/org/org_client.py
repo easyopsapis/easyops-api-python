@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
-
 
 import google.protobuf.empty_pb2
 
-import utils.http_util
+import ops_automation_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -52,7 +47,7 @@ class OrgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ops_automation_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ops_automation_sdk",
             dst_name=route_name,

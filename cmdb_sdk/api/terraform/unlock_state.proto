@@ -1,0 +1,57 @@
+syntax = "proto3";
+package terraform;
+
+
+
+
+import "cmdb_sdk/model/cmdb/tf_lock_info.proto";
+import "google/protobuf/empty.proto";
+
+/*
+UnLockState请求
+*/
+message UnLockStateRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    实例Id
+    */
+    string instanceId = 2 ;
+    /*
+    ORG
+    */
+    int32 org = 3 ;
+    /*
+    操作用户,默认defaultUser
+    */
+    string user = 4 ;
+    /*
+    锁信息
+    */
+    cmdb.TFLockInfo body = 5 ;
+}
+
+/*
+UnLockStateApi返回
+*/
+message UnLockStateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

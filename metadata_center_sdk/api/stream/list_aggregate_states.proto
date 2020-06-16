@@ -1,0 +1,40 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+import "metadata_center_sdk/model/metadata_center/stream_aggregate_rule.proto";
+
+/*
+ListAggregateStates返回
+*/
+message ListAggregateStatesResponse {
+    /*
+    聚合规则列表
+    */
+    repeated metadata_center.StreamAggregateRule list = 1 ;
+}
+
+/*
+ListAggregateStatesApi返回
+*/
+message ListAggregateStatesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ListAggregateStatesResponse data = 4 ;
+}
+

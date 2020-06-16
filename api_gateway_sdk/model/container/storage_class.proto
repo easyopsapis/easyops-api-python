@@ -1,0 +1,60 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+StorageClass 资源定义, 用于 CMDB 存储
+*/
+message StorageClass {
+    /*
+    storageclass id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    类型
+    */
+    string kind = 2 ;
+    /*
+    storageclass 全称，命名规则 clusterId:kind:namespace:name, 创建之后不能修改
+    */
+    string name = 3 ;
+    /*
+    名称
+    */
+    string resourceName = 4 ;
+    /*
+    StorageClass 定义
+    */
+    string resourceSpec = 5 ;
+    /*
+    描述
+    */
+    string description = 6 ;
+    /*
+    annotations
+    */
+    google.protobuf.Struct annotations = 7 ;
+    /*
+    provisioner
+    */
+    string provisioner = 8 ;
+    /*
+    参数
+    */
+    google.protobuf.Struct parameters = 9 ;
+    /*
+    回收策略, "Recycle", "Delete", "Retain", 默认 Delete
+    */
+    string reclaimPolicy = 10 ;
+    /*
+    cmdb 创建时间
+    */
+    string ctime = 11 ;
+}
+

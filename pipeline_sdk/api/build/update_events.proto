@@ -1,0 +1,46 @@
+syntax = "proto3";
+package build;
+
+
+
+
+import "pipeline_sdk/model/pipeline/git_meta.proto";
+import "pipeline_sdk/model/pipeline/build_status.proto";
+import "pipeline_sdk/model/pipeline/build.proto";
+
+/*
+UpdateEvents请求
+*/
+message UpdateEventsRequest {
+    /*
+    构建任务id
+    */
+    string build_id = 1 ;
+    /*
+    事件列表
+    */
+    repeated string events = 2 ;
+}
+
+/*
+UpdateEventsApi返回
+*/
+message UpdateEventsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.Build data = 4 ;
+}
+

@@ -1,0 +1,51 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+
+/*
+UploadTempFile返回
+*/
+message UploadTempFileResponse {
+message File {
+    /*
+    文件id
+    */
+    string id = 1 ;
+    /*
+    文件名称
+    */
+    string filename = 2 ;
+}
+        
+    
+    /*
+    文件信息
+    */
+    File file = 1 ;
+}
+
+/*
+UploadTempFileApi返回
+*/
+message UploadTempFileResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.UploadTempFileResponse data = 4 ;
+}
+

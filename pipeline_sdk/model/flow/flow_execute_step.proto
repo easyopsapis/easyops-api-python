@@ -16,30 +16,34 @@ message Times {
     /*
     步骤开始执行毫秒时间戳，如1563949106082
     */
-    int32 stepStartTime = 1 ;
+    int64 stepStartTime = 1 ;
     /*
     工具开始执行毫秒时间戳，如1563949106082
     */
-    int32 toolStartTime = 2 ;
+    int64 toolStartTime = 2 ;
     /*
     工具结束执行毫秒时间戳，如1563949106082
     */
-    int32 toolEndTime = 3 ;
+    int64 toolEndTime = 3 ;
     /*
     步骤结束执行毫秒时间戳，如1563949106082
     */
-    int32 stepEndTime = 4 ;
+    int64 stepEndTime = 4 ;
 }
         
-message Agents {
+message Actions {
     /*
-    ip
+    标题
     */
-    string ip = 1 ;
+    string label = 1 ;
     /*
-    主机instanceId
+    值
     */
-    string instanceId = 2 ;
+    string value = 2 ;
+    /*
+    是否中断
+    */
+    bool terminate = 3 ;
 }
         
 message Styles {
@@ -90,33 +94,29 @@ message Parents {
     */
     int32 org = 5 ;
     /*
-    执行输入定义
+    执行输入定义, 当输入为空时是数组,非空时为map
     */
-    google.protobuf.Struct inputsDefinition = 6 ;
+    google.protobuf.Value inputsDefinition = 6 ;
     /*
-    执行输出定义
+    执行输出定义,当输出定义为空时是数组，非空时是map
     */
-    google.protobuf.Struct outputsDefinition = 7 ;
-    /*
-    执行目标
-    */
-    repeated Agents agents = 8 ;
+    google.protobuf.Value outputsDefinition = 7 ;
     /*
     步骤执行的taskId
     */
-    string execId = 9 ;
+    string execId = 8 ;
     /*
     步骤执行退出码
     */
-    int32 exitStatus = 10 ;
+    int32 exitStatus = 9 ;
     /*
     agent执行状态如: {"192.168.100.163": "success"}
     */
-    google.protobuf.Struct agentStatus = 11 ;
+    google.protobuf.Struct agentStatus = 10 ;
     /*
     agent执行输出如 {"192.168.100.163": null}
     */
-    google.protobuf.Struct agentOutputs = 12 ;
+    google.protobuf.Struct agentOutputs = 11 ;
     /*
     agent执行详细信息
 {
@@ -139,78 +139,120 @@ message Parents {
 }
 
     */
-    google.protobuf.Struct agentData = 13 ;
+    google.protobuf.Struct agentData = 12 ;
     /*
     步骤ID
     */
-    int32 stepId = 14 ;
+    int32 stepId = 13 ;
     /*
     引用步骤ID(工具ID或者流程ID，当为人工审批节点是为空)
     */
-    string toolId = 15 ;
+    string toolId = 14 ;
+    /*
+    流程审核示例
+"actions":[
+    {
+    "label":"继续",
+    "value":"yes",
+    "terminate":false
+    },
+    {
+    "label":"停止",
+    "value":"no",
+    "terminate":true
+    },
+]
+
+    */
+    repeated Actions actions = 15 ;
+    /*
+    审批用户或者用户组
+    */
+    repeated string approvers = 16 ;
+    /*
+    邮件通知
+    */
+    bool mailToApprovers = 17 ;
     /*
     步骤名
     */
-    string stepName = 16 ;
+    string stepName = 18 ;
     /*
     使用工具版本
     */
-    string vId = 17 ;
+    string vId = 19 ;
     /*
     执行用户
     */
-    string execUser = 18 ;
+    string execUser = 20 ;
     /*
     失败退出
     */
-    string failureExit = 19 ;
+    bool failureExit = 21 ;
     /*
     步骤类型(tool、flow、manual)
     */
-    string subType = 20 ;
+    string subType = 22 ;
     /*
     类型
     */
-    string type = 21 ;
+    string type = 23 ;
     /*
     在画布中X坐标
     */
-    float _x = 22 ;
+    float _x = 24 ;
     /*
     在画布中Y坐标
     */
-    float _y = 23 ;
+    float _y = 25 ;
     /*
     是否root执行
     */
-    string root = 24 ;
+    bool root = 26 ;
     /*
     相对流程起点X坐标
     */
-    float _dx = 25 ;
+    float _dx = 27 ;
     /*
     相对流程启动Y坐标
     */
-    float _dy = 26 ;
+    float _dy = 28 ;
     /*
     样式
     */
-    Styles styles = 27 ;
+    Styles styles = 29 ;
     /*
-    步骤输出
+    步骤输出, 有时候是{}, 有时候[]
     */
-    google.protobuf.Struct outputs = 28 ;
+    google.protobuf.Value outputs = 30 ;
     /*
     流程输入
+    {
+    "inputs": {
+    "must_input": "1",
+    "option_input": "000",
+    "@agents": [
+        {
+            "instanceId": "5c6f6cf0d8079",
+            "ip": "192.168.100.162"
+        },
+        {
+            "instanceId": "5c6f6cf0d8075",
+            "ip": "192.168.100.163"
+        }
+    ]
+    }
+    }
+
     */
-    google.protobuf.Struct inputs = 29 ;
+    google.protobuf.Value inputs = 31 ;
     /*
-    通知条件
+    通知条件 "OnSuccess", "OnFailure", "OnTimeout"
     */
-    string informCondition = 30 ;
+    repeated string informCondition = 32 ;
     /*
     前置节点信息
     */
-    repeated Parents parents = 31 ;
+    repeated Parents parents = 33 ;
 }
 

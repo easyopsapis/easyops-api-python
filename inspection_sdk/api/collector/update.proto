@@ -4,32 +4,13 @@ package collector;
 
 
 
-import "model/inspection/collector.proto";
+import "inspection_sdk/model/inspection/arg.proto";
+import "inspection_sdk/model/inspection/collector.proto";
 
 /*
 UpdateCollector请求
 */
 message UpdateCollectorRequest {
-message Args {
-    /*
-    脚本入参key
-    */
-    string key = 1 ;
-    /*
-    别名
-    */
-    string alias = 2 ;
-    /*
-    输入框类型
-    */
-    string type = 3 ;
-    /*
-    是否必填
-    */
-    bool require = 4 ;
-}
-        
-    
     /*
     套件id
     */
@@ -53,7 +34,7 @@ message Args {
     /*
     脚本入参
     */
-    repeated Args args = 6 ;
+    repeated inspection.InspectionArg args = 6 ;
 }
 
 /*

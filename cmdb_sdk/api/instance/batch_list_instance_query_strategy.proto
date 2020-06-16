@@ -1,0 +1,70 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "cmdb_sdk/model/cmdb/instance_query_strategy.proto";
+
+/*
+BatchListInstanceQueryStrategy请求
+*/
+message BatchListInstanceQueryStrategyRequest {
+    /*
+    多个模型ID，以逗号分隔
+    */
+    string object_ids = 1 ;
+    /*
+    策略类型
+    */
+    string type = 2 ;
+    /*
+    策略名称(模糊匹配)
+    */
+    string name = 3 ;
+}
+
+/*
+BatchListInstanceQueryStrategy返回
+*/
+message BatchListInstanceQueryStrategyResponse {
+message StrategyData {
+    /*
+    模型ID
+    */
+    string object_id = 1 ;
+    /*
+    策略列表
+    */
+    repeated cmdb.InstanceQueryStrategy strategy_list = 2 ;
+}
+        
+    
+    /*
+    各模型的实例查询策略数据
+    */
+    repeated StrategyData strategy_data = 1 ;
+}
+
+/*
+BatchListInstanceQueryStrategyApi返回
+*/
+message BatchListInstanceQueryStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.BatchListInstanceQueryStrategyResponse data = 4 ;
+}
+

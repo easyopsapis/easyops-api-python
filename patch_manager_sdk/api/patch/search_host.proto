@@ -1,0 +1,161 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+
+/*
+SearchHost请求
+*/
+message SearchHostRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    根据此字段排序
+    */
+    string sort = 3 ;
+    /*
+    descend 表示降序, ascend 表示升序,
+    */
+    string order = 4 ;
+    /*
+    模糊搜索内容(主机名,IP,操作系统,操作系统架构,应用系统名称)
+    */
+    string fuzzy_query = 5 ;
+}
+
+/*
+SearchHost返回
+*/
+message SearchHostResponse {
+message List {
+message InstalledPatch {
+    /*
+    补丁实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    补丁编号
+    */
+    string articleId = 2 ;
+    /*
+    补丁安装时间
+    */
+    string installedTime = 3 ;
+}
+        
+    
+    /*
+    主机所在的应用系统名称列表（应用系统 --- 组件 --- 集群 --- 主机）
+    */
+    repeated string businesses = 1 ;
+    /*
+    已安装的补丁实例ID列表
+    */
+    repeated string installedPatches = 2 ;
+    /*
+    未安装的补丁实例ID列表
+    */
+    repeated string notInstalledPatches = 3 ;
+    /*
+    已安装的补丁信息
+    */
+    repeated InstalledPatch installedPatch = 4 ;
+    /*
+    实例 ID
+    */
+    string instanceId = 5 ;
+    /*
+    主机名
+    */
+    string hostname = 6 ;
+    /*
+    主机 IP
+    */
+    string ip = 7 ;
+    /*
+    agent 状态
+    */
+    string _agentStatus = 8 ;
+    /*
+    主机环境
+    */
+    string _environment = 9 ;
+    /*
+    操作系统类型（如:Windows）
+    */
+    string osSystem = 10 ;
+    /*
+    操作系统架构
+    */
+    string osArchitecture = 11 ;
+    /*
+    操作系统版本（如:Windows 10）
+    */
+    string osVersion = 12 ;
+    /*
+    操作系统内核发行版本
+    */
+    string osRelease = 13 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 14 ;
+    /*
+    最近一次启动时间
+    */
+    int32 lastStartTime = 15 ;
+    /*
+    最近一次安装补丁时间
+    */
+    int32 lastInstallPatchTime = 16 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+SearchHostApi返回
+*/
+message SearchHostResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.SearchHostResponse data = 4 ;
+}
+

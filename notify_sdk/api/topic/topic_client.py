@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import notify_sdk.api.topic.list_pb2
 
-import list_pb2
-
-import utils.http_util
+import notify_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -32,14 +27,14 @@ class TopicClient(object):
 
     
     def topic_list(self, request, org, user, timeout=10):
-        # type: (list_pb2.TopicListRequest, int, str, int) -> list_pb2.TopicListResponse
+        # type: (notify_sdk.api.topic.list_pb2.TopicListRequest, int, str, int) -> notify_sdk.api.topic.list_pb2.TopicListResponse
         """
         获取topic列表
         :param request: topic_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.TopicListResponse
+        :return: notify_sdk.api.topic.list_pb2.TopicListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -52,7 +47,7 @@ class TopicClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.notify_sdk",
             dst_name=route_name,
@@ -65,7 +60,7 @@ class TopicClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.TopicListResponse()
+        rsp = notify_sdk.api.topic.list_pb2.TopicListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

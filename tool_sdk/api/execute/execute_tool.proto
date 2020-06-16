@@ -4,7 +4,7 @@ package execute;
 
 
 
-import "model/tool/callback.proto";
+import "tool_sdk/model/tool/callback.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -18,6 +18,17 @@ message Metadata {
     string origin = 1 ;
 }
         
+message Log {
+    /*
+    是否启用日志
+    */
+    bool enabled = 1 ;
+    /*
+    v,vv,vvv for more, vvvv to enable connection debugging
+    */
+    string level = 2 ;
+}
+        
     
     /*
     执行时输入参数
@@ -28,49 +39,54 @@ message Metadata {
       "instanceId": "5caee6c67d86a"
     }
     ],
-    "ddddd": "5caee6c67d86a",
-    "test1": "test params",
-    "test2": "develop_1"
+    "ansibleServer": {
+      "ip": "192.168.100.163",
+      "hostInstanceId": "5caee6c67d86a"
+    }
   },
 
     */
     google.protobuf.Struct inputs = 1 ;
     /*
-    执行工具的agents列表
-    */
-    repeated string agents = 2 ;
-    /*
     工具执行成功的回调信息
     */
-    tool.Callback callback = 3 ;
+    tool.Callback callback = 2 ;
     /*
     工具执行的通知信息
     */
-    string needNotify = 4 ;
+    string needNotify = 3 ;
     /*
     工具执行通知的用户
     */
-    string name = 5 ;
+    string name = 4 ;
     /*
     一些拓展字段 目前支持origin=页面访问地址
     */
-    Metadata metadata = 6 ;
+    Metadata metadata = 5 ;
     /*
     工具Id，服务端自动生成
     */
-    string toolId = 7 ;
+    string toolId = 6 ;
     /*
     工具版本
     */
-    string vId = 8 ;
+    string vId = 7 ;
     /*
     执行用户
     */
-    string execUser = 9 ;
+    string execUser = 8 ;
     /*
     工具执行的超时时间(0表示不超时，默认为86400秒)
     */
-    int32 timeout = 10 ;
+    int32 timeout = 9 ;
+    /*
+    ansible-playbook verbose mode
+    */
+    Log log = 10 ;
+    /*
+    Ansible Node机器执行用户
+    */
+    string ansibleNodeExecUser = 11 ;
 }
 
 /*

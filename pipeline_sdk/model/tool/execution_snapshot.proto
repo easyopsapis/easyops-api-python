@@ -1,0 +1,112 @@
+syntax = "proto3";
+package tool;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tool";
+
+
+
+
+import "pipeline_sdk/model/tool/callback.proto";
+import "pipeline_sdk/model/tool/extra_info.proto";
+
+/*
+执行快照信息
+*/
+message ExecutionSnapshot {
+message Targets {
+    /*
+    主机Ip地址
+    */
+    string targetId = 1 ;
+}
+        
+message Actions {
+message Param {
+    /*
+    执行命令
+    */
+    string cmd = 1 ;
+    /*
+    脚本类别
+    */
+    string scriptType = 2 ;
+    /*
+    解析器名称
+    */
+    string parser = 3 ;
+    /*
+    参数
+    */
+    string param = 4 ;
+    /*
+    执行用户
+    */
+    string execUser = 5 ;
+    /*
+    工具执行的超时时间(0表示不超时，默认为86400秒)
+    */
+    int32 timeout = 6 ;
+}
+        
+    
+    /*
+    工具名称
+    */
+    string name = 1 ;
+    /*
+    动作类别
+    */
+    string type = 2 ;
+    /*
+    动作名称
+    */
+    string action = 3 ;
+    /*
+    参数信息
+    */
+    Param param = 4 ;
+}
+        
+    
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    类别
+    */
+    string type = 2 ;
+    /*
+    操作信息
+    */
+    string operation = 3 ;
+    /*
+    工具的toolId
+    */
+    string packageId = 4 ;
+    /*
+    工具的版本id
+    */
+    string versionId = 5 ;
+    /*
+    目标主机
+    */
+    repeated Targets targets = 6 ;
+    /*
+    执行动作信息
+    */
+    repeated Actions actions = 7 ;
+    /*
+    执行结束后的回调信息
+    */
+    tool.Callback callback = 8 ;
+    /*
+    额外信息
+    */
+    tool.ExtraInfo extraInfo = 9 ;
+    /*
+    工具执行的通知信息
+    */
+    string needNotify = 10 ;
+}
+

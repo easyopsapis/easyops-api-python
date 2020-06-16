@@ -1,0 +1,69 @@
+syntax = "proto3";
+package tuna_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tuna_service";
+
+
+
+
+import "flowable_service_sdk/model/topboard/issue.proto";
+import "google/protobuf/struct.proto";
+
+/*
+实例化需求测试用例
+*/
+message RequirementInstance {
+    /*
+    模型requirement_instance的实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    场景名称
+    */
+    string name = 2 ;
+    /*
+    自增ID，唯一
+    */
+    string sequence = 3 ;
+    /*
+    GWT测试用例的Given描述
+    */
+    string given = 4 ;
+    /*
+    GWT测试用例的When描述
+    */
+    string when = 5 ;
+    /*
+    GWT测试用例的Then描述
+    */
+    string then = 6 ;
+    /*
+    测试用例类型
+    */
+    string type = 7 ;
+    /*
+    用例描述，备注
+    */
+    string dataDescription = 8 ;
+    /*
+    Markdown表格，描述测试用例数据
+    */
+    string data = 9 ;
+    /*
+    用例标签
+    */
+    string tag = 10 ;
+    /*
+    测试接口
+    */
+    string interfaceName = 11 ;
+    /*
+    依赖契约
+    */
+    repeated google.protobuf.Struct contracts = 12 ;
+    /*
+    关联的ISSUE实例列表
+    */
+    repeated topboard.Issue ISSUE = 13 ;
+}
+

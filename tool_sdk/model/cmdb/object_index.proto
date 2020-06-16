@@ -1,0 +1,27 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+模型索引
+*/
+message ObjectIndex {
+    /*
+    索引唯一名称,自动生成,创建时无须填写
+    */
+    string name = 1 ;
+    /*
+    属性Id列表
+    */
+    repeated string propertyIds = 2 ;
+    /*
+    是否唯一
+    */
+    bool unique = 3 ;
+}
+

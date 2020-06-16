@@ -1,0 +1,79 @@
+syntax = "proto3";
+package health_assessment_rule;
+
+
+
+
+import "resource_monitor_sdk/model/health_assessment/health_assessment_event_score_config_item.proto";
+import "resource_monitor_sdk/model/health_assessment/health_assessment_related_resource_score_config_item.proto";
+
+/*
+GetHealthAssessmentRuleByObjectId请求
+*/
+message GetHealthAssessmentRuleByObjectIdRequest {
+    /*
+    所属模型id
+    */
+    string objectId = 1 ;
+}
+
+/*
+GetHealthAssessmentRuleByObjectId返回
+*/
+message GetHealthAssessmentRuleByObjectIdResponse {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+    /*
+    所属模型id
+    */
+    string objectId = 2 ;
+    /*
+    关联名称
+    */
+    string name = 3 ;
+    /*
+    关联模型Id
+    */
+    string curVersionId = 4 ;
+    /*
+    事件评分设置
+    */
+    repeated health_assessment.HealthAssessmentEventScoreConfigItem eventScoreConfig = 5 ;
+    /*
+    关联资源评分设置
+    */
+    repeated health_assessment.HealthAssessmentRelatedResourceScoreConfigItem relatedResourceScoreConfig = 6 ;
+    /*
+    事件评分总权重
+    */
+    int32 eventScoreWeight = 7 ;
+    /*
+    关联资源总权重
+    */
+    int32 relatedResourceWeight = 8 ;
+}
+
+/*
+GetHealthAssessmentRuleByObjectIdApi返回
+*/
+message GetHealthAssessmentRuleByObjectIdResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    health_assessment_rule.GetHealthAssessmentRuleByObjectIdResponse data = 4 ;
+}
+

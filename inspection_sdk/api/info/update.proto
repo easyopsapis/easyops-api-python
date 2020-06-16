@@ -4,7 +4,7 @@ package info;
 
 
 
-import "model/inspection/info.proto";
+import "inspection_sdk/model/inspection/info.proto";
 
 /*
 UpdateInspectionInfo请求
@@ -19,9 +19,13 @@ message UpdateInspectionInfoRequest {
     */
     string name = 2 ;
     /*
+    备注
+    */
+    string memo = 3 ;
+    /*
     套件索引
     */
-    int32 index = 3 ;
+    int32 index = 4 ;
 }
 
 /*

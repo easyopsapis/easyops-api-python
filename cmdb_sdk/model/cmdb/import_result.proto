@@ -1,0 +1,96 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "cmdb_sdk/model/cmdb/import_status.proto";
+
+/*
+ImportResult
+*/
+message ImportResult {
+message IndexListResult {
+    /*
+    状态码
+    */
+    int32 code = 1 ;
+    /*
+    描述
+    */
+    string message = 2 ;
+    /*
+    索引唯一名称,自动生成,创建时无须填写
+    */
+    string name = 3 ;
+    /*
+    属性Id列表
+    */
+    repeated string propertyIds = 4 ;
+    /*
+    是否唯一
+    */
+    bool unique = 5 ;
+}
+        
+    
+    /*
+    模型的实例ID列表
+    */
+    string objectId = 1 ;
+    /*
+    模型名称
+    */
+    string name = 2 ;
+    /*
+    分类, 点分表示二级分类
+    */
+    string category = 3 ;
+    /*
+    说明
+    */
+    string memo = 4 ;
+    /*
+    true代表是核心模型，是受保护的模型，不允许被删除
+    */
+    bool protected = 5 ;
+    /*
+    模型所属小产品，有值则会在界面隐藏该模型
+    */
+    string system = 6 ;
+    /*
+    状态码
+    */
+    int32 code = 7 ;
+    /*
+    导入信息
+    */
+    string message = 8 ;
+    /*
+    基础信息导入结果
+    */
+    repeated cmdb.ImportStatus info_result = 9 ;
+    /*
+    关系分组导入结果
+    */
+    repeated cmdb.ImportStatus relation_group_result = 10 ;
+    /*
+    属性导入结果
+    */
+    repeated cmdb.ImportStatus attr_list_result = 11 ;
+    /*
+    关系导入结果
+    */
+    repeated cmdb.ImportStatus relation_list_result = 12 ;
+    /*
+    索引导入结果
+    */
+    repeated IndexListResult index_list_result = 13 ;
+    /*
+    是否新建模型
+    */
+    bool is_create = 14 ;
+}
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+import "collector_center_sdk/model/resource_manage/filter_data_source.proto";
+
+/*
+过滤条件
+*/
+message FilterCondition {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    比较符
+    */
+    string compare = 2 ;
+    /*
+    左边数据
+    */
+    resource_manage.FilterDataSource left = 3 ;
+    /*
+    右边数据, isEmpty/isNotEmpty/isDuplicate 无此属性
+    */
+    resource_manage.FilterDataSource right = 4 ;
+}
+

@@ -1,0 +1,138 @@
+syntax = "proto3";
+package resourcegroup;
+
+
+
+
+import "container_sdk/model/container/resource_group.proto";
+import "container_sdk/model/container/namespace.proto";
+import "container_sdk/model/container/workload.proto";
+import "container_sdk/model/container/hpa.proto";
+import "container_sdk/model/container/cluster.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    k8s 集群 id
+    */
+    string clusterId = 1 ;
+    /*
+    工作空间 id
+    */
+    string workspaceId = 2 ;
+    /*
+    资源池id
+    */
+    string namespaceId = 3 ;
+    /*
+    部署单元名称或者别名
+    */
+    string resourceGroupName = 4 ;
+    /*
+    workload状态, ""表示不过滤状态, stateless表示workload.state==""或者workload==None
+    */
+    string workloadState = 5 ;
+    /*
+    页码
+    */
+    int32 page = 6 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 7 ;
+    /*
+    根据此字段排序
+    */
+    string sort = 8 ;
+    /*
+    -1 表示降序, 1 表示升序,
+    */
+    int32 order = 9 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+message List {
+message App {
+    /*
+    app id
+    */
+    string instanceId = 1 ;
+    /*
+    app名称
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    资源组
+    */
+    container.ResourceGroup resourcegroup = 1 ;
+    /*
+    资源池 信息
+    */
+    container.Namespace namespace = 2 ;
+    /*
+    workload 信息
+    */
+    container.Workload workload = 3 ;
+    /*
+    自动扩缩容
+    */
+    container.HorizontalPodAutoscaler hpa = 4 ;
+    /*
+    k8s集群信息
+    */
+    container.Cluster cluster = 5 ;
+    /*
+    app信息
+    */
+    App app = 6 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    resourcegroup.ListResponse data = 4 ;
+}
+

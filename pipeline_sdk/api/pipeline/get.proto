@@ -4,7 +4,7 @@ package pipeline;
 
 
 
-import "model/pipeline/pipeline.proto";
+import "pipeline_sdk/model/pipeline/pipeline.proto";
 
 /*
 Get请求

@@ -1,0 +1,61 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+
+/*
+MaintainCollectionConfigJob请求
+*/
+message MaintainCollectionConfigJobRequest {
+    /*
+    配置IDs
+    */
+    repeated string jobConfigIds = 1 ;
+    /*
+    是否全部配置
+    */
+    bool isAll = 2 ;
+    /*
+    是否下发
+    */
+    bool toDeploy = 3 ;
+}
+
+/*
+MaintainCollectionConfigJob返回
+*/
+message MaintainCollectionConfigJobResponse {
+    /*
+    请求状态
+    */
+    string status = 1 ;
+    /*
+    采集配置数量
+    */
+    int32 count = 2 ;
+}
+
+/*
+MaintainCollectionConfigJobApi返回
+*/
+message MaintainCollectionConfigJobResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.MaintainCollectionConfigJobResponse data = 4 ;
+}
+

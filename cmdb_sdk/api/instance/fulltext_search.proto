@@ -1,0 +1,82 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+FulltextSearch请求
+*/
+message FulltextSearchRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    搜索关键字
+    */
+    string keyword = 3 ;
+    /*
+    资源模型Id
+    */
+    string object_id = 4 ;
+    /*
+    默认前缀搜索,true/false
+    */
+    string prefixSearch = 5 ;
+}
+
+/*
+FulltextSearch返回
+*/
+message FulltextSearchResponse {
+    /*
+    实例数据
+    */
+    repeated google.protobuf.Struct list = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+    /*
+    模型实例统计数据,如:{"HOST": 10, "APP": 5}
+    */
+    google.protobuf.Struct count = 5 ;
+}
+
+/*
+FulltextSearchApi返回
+*/
+message FulltextSearchResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    instance.FulltextSearchResponse data = 4 ;
+}
+

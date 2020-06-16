@@ -4,7 +4,6 @@ package version;
 
 
 
-import "model/artifact/version.proto";
 
 /*
 GetVersionDetail请求
@@ -14,6 +13,104 @@ message GetVersionDetailRequest {
     版本Id
     */
     string versionId = 1 ;
+}
+
+/*
+GetVersionDetail返回
+*/
+message GetVersionDetailResponse {
+message Source {
+    /*
+    host
+    */
+    string host = 1 ;
+    /*
+    ensName
+    */
+    string ensName = 2 ;
+    /*
+    请求类型如 HTTP
+    */
+    string type = 3 ;
+    /*
+    请求端口
+    */
+    int32 port = 4 ;
+    /*
+    请求IP
+    */
+    string ip = 5 ;
+}
+        
+    
+    /*
+    包存储源信息
+    */
+    Source source = 1 ;
+    /*
+    包名称
+    */
+    string name = 2 ;
+    /*
+    版本Id
+    */
+    string versionId = 3 ;
+    /*
+    程序包Id
+    */
+    string packageId = 4 ;
+    /*
+    组织id
+    */
+    int32 org = 5 ;
+    /*
+    基础Docker镜像Id
+    */
+    string baseImageId = 6 ;
+    /*
+    基线版本名
+    */
+    string baseVersionName = 7 ;
+    /*
+    创建者
+    */
+    string creator = 8 ;
+    /*
+    版本类型 1 开发, 3 测试, 7 预发布, 15 生产
+    */
+    int32 env_type = 9 ;
+    /*
+    版本备注
+    */
+    string memo = 10 ;
+    /*
+    创建时间
+    */
+    string ctime = 11 ;
+    /*
+    修改时间
+    */
+    string mtime = 12 ;
+    /*
+    包文件的md5检验值
+    */
+    string sign = 13 ;
+    /*
+    关联的svn库版本，已废弃
+    */
+    string repoVersion = 14 ;
+    /*
+    包存储服务版本
+    */
+    string sourceType = 15 ;
+    /*
+    工作区基础版本Id
+    */
+    string workspaceBaseId = 16 ;
+    /*
+    版本的进程及启停、安装、升级脚本, package.conf.yaml
+    */
+    string conf = 17 ;
 }
 
 /*
@@ -35,6 +132,6 @@ message GetVersionDetailResponseWrapper {
     /*
     返回数据
     */
-    artifact.Version data = 4 ;
+    version.GetVersionDetailResponse data = 4 ;
 }
 

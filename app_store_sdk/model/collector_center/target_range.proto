@@ -1,0 +1,34 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+import "app_store_sdk/model/collector_center/cmdb_relation_search.proto";
+import "app_store_sdk/model/collector_center/cmdb_host_search.proto";
+import "app_store_sdk/model/collector_center/cmdb_host_strategy.proto";
+
+/*
+目标动态范围
+*/
+message TargetRange {
+    /*
+    查询类型
+    */
+    string type = 1 ;
+    /*
+    关系查询策略
+    */
+    collector_center.CmdbRelationSearch cmdbRelationSearch = 2 ;
+    /*
+    主机搜索策略
+    */
+    collector_center.CmdbHostSearch cmdbHostSearch = 3 ;
+    /*
+    主机查询策略
+    */
+    collector_center.CmdbHostStrategy cmdbHostStrategy = 4 ;
+}
+

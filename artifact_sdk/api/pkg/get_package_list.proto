@@ -23,9 +23,13 @@ message LastVersionInfo {
     */
     string name = 3 ;
     /*
+    版本备注
+    */
+    string memo = 4 ;
+    /*
     版本Id
     */
-    string versionId = 4 ;
+    string versionId = 5 ;
 }
         
     

@@ -1,0 +1,76 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+import "easy_flow_sdk/model/flowable_service/bpmn_user_task.proto";
+
+/*
+流程定义版本
+*/
+message ProcessDefinitionVersion {
+    /*
+    实例id
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    版本名称
+    */
+    string versionName = 3 ;
+    /*
+    流程部署Id
+    */
+    string deploymentId = 4 ;
+    /*
+    流程定义id
+    */
+    string flowableDefinitionId = 5 ;
+    /*
+    流程定义key
+    */
+    string flowableDefinitionKey = 6 ;
+    /*
+    是否为主版本(true 为主版本,false为非主版本)
+    */
+    bool isMain = 7 ;
+    /*
+    流程状态(unfinished 未完成, done已完成)
+    */
+    string state = 8 ;
+    /*
+    流程部署时间
+    */
+    string deploymentTime = 9 ;
+    /*
+    父部署Id
+    */
+    string parentDeploymentId = 10 ;
+    /*
+    流程BPMN信息(流程详情需要返回,除此之外可以不返回或返回空字符串)
+    */
+    string bpmnXML = 11 ;
+    /*
+    流程版本作者
+    */
+    string creator = 12 ;
+    /*
+    创建时间
+    */
+    string ctime = 13 ;
+    /*
+    流程定义版本说明
+    */
+    string memo = 14 ;
+    /*
+    用户任务定义
+    */
+    repeated flowable_service.BPMNUserTask userTaskList = 15 ;
+}
+

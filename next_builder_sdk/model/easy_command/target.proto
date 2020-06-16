@@ -1,0 +1,28 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+import "next_builder_sdk/model/easy_command/action_param_custom.proto";
+
+/*
+任务目标机器
+*/
+message Target {
+    /*
+    目标机器ID (cmdb系统的instanceId)
+    */
+    string targetId = 1 ;
+    /*
+    目标机器名称
+    */
+    string targetName = 2 ;
+    /*
+    任务的各个action在本target上的差异化参数信息。如果传了，则列表长度必须跟该任务的 actions 列表长度一致
+    */
+    repeated easy_command.ActionParamCustom actionParams = 3 ;
+}
+

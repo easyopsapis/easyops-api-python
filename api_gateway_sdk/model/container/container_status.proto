@@ -1,0 +1,32 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "api_gateway_sdk/model/container/container_state.proto";
+
+/*
+Container 状态
+*/
+message ContainerStatus {
+    /*
+    container 名称
+    */
+    string name = 1 ;
+    /*
+    重启次数
+    */
+    int32 restartCount = 2 ;
+    /*
+    状态
+    */
+    container.ContainerState state = 3 ;
+    /*
+    镜像
+    */
+    string image = 4 ;
+}
+

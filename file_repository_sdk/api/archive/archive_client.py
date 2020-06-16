@@ -2,37 +2,32 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import file_repository_sdk.api.archive.create_pb2
 
-import create_pb2
+import file_repository_sdk.api.archive.create_and_register_pb2
 
-import create_and_register_pb2
+import file_repository_sdk.api.archive.delete_archive_pb2
 
-import delete_archive_pb2
+import file_repository_sdk.api.archive.delete_archive_v2_pb2
 
-import delete_archive_v2_pb2
+import file_repository_sdk.api.archive.get_archive_diff_size_pb2
 
-import get_archive_diff_size_pb2
+import file_repository_sdk.api.archive.get_archive_file_info_pb2
 
-import get_archive_file_info_pb2
+import file_repository_sdk.api.archive.get_archive_list_pb2
 
-import get_archive_list_pb2
+import file_repository_sdk.api.archive.get_archive_sign_info_pb2
 
-import get_archive_sign_info_pb2
+import file_repository_sdk.api.archive.get_archive_size_pb2
 
-import get_archive_size_pb2
+import file_repository_sdk.api.archive.get_difference_pb2
 
-import get_difference_pb2
+import file_repository_sdk.model.file_repository.diff_pb2
 
-import model.file_repository.diff_pb2
+import file_repository_sdk.api.archive.get_package_difference_pb2
 
-import get_package_difference_pb2
-
-import utils.http_util
+import file_repository_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -54,14 +49,14 @@ class ArchiveClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
+        # type: (file_repository_sdk.api.archive.create_pb2.CreateRequest, int, str, int) -> file_repository_sdk.api.archive.create_pb2.CreateResponse
         """
         创建归档
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateResponse
+        :return: file_repository_sdk.api.archive.create_pb2.CreateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -74,7 +69,7 @@ class ArchiveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -87,21 +82,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateResponse()
+        rsp = file_repository_sdk.api.archive.create_pb2.CreateResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_and_register(self, request, org, user, timeout=10):
-        # type: (create_and_register_pb2.CreateAndRegisterRequest, int, str, int) -> create_and_register_pb2.CreateAndRegisterResponse
+        # type: (file_repository_sdk.api.archive.create_and_register_pb2.CreateAndRegisterRequest, int, str, int) -> file_repository_sdk.api.archive.create_and_register_pb2.CreateAndRegisterResponse
         """
         创建归档并注册版本
         :param request: create_and_register请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_and_register_pb2.CreateAndRegisterResponse
+        :return: file_repository_sdk.api.archive.create_and_register_pb2.CreateAndRegisterResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -114,7 +109,7 @@ class ArchiveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -127,21 +122,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_and_register_pb2.CreateAndRegisterResponse()
+        rsp = file_repository_sdk.api.archive.create_and_register_pb2.CreateAndRegisterResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_archive(self, request, org, user, timeout=10):
-        # type: (delete_archive_pb2.DeleteArchiveRequest, int, str, int) -> delete_archive_pb2.DeleteArchiveResponse
+        # type: (file_repository_sdk.api.archive.delete_archive_pb2.DeleteArchiveRequest, int, str, int) -> file_repository_sdk.api.archive.delete_archive_pb2.DeleteArchiveResponse
         """
         删除归档版本
         :param request: delete_archive请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_archive_pb2.DeleteArchiveResponse
+        :return: file_repository_sdk.api.archive.delete_archive_pb2.DeleteArchiveResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -156,7 +151,7 @@ class ArchiveClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -169,21 +164,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_archive_pb2.DeleteArchiveResponse()
+        rsp = file_repository_sdk.api.archive.delete_archive_pb2.DeleteArchiveResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_archive_v_2(self, request, org, user, timeout=10):
-        # type: (delete_archive_v2_pb2.DeleteArchiveV2Request, int, str, int) -> delete_archive_v2_pb2.DeleteArchiveV2Response
+        # type: (file_repository_sdk.api.archive.delete_archive_v2_pb2.DeleteArchiveV2Request, int, str, int) -> file_repository_sdk.api.archive.delete_archive_v2_pb2.DeleteArchiveV2Response
         """
         删除归档版本，并且删除版本元数据
         :param request: delete_archive_v_2请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_archive_v2_pb2.DeleteArchiveV2Response
+        :return: file_repository_sdk.api.archive.delete_archive_v2_pb2.DeleteArchiveV2Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -198,7 +193,7 @@ class ArchiveClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -211,21 +206,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_archive_v2_pb2.DeleteArchiveV2Response()
+        rsp = file_repository_sdk.api.archive.delete_archive_v2_pb2.DeleteArchiveV2Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_diff_size(self, request, org, user, timeout=10):
-        # type: (get_archive_diff_size_pb2.GetDiffSizeRequest, int, str, int) -> get_archive_diff_size_pb2.GetDiffSizeResponse
+        # type: (file_repository_sdk.api.archive.get_archive_diff_size_pb2.GetDiffSizeRequest, int, str, int) -> file_repository_sdk.api.archive.get_archive_diff_size_pb2.GetDiffSizeResponse
         """
         获取版本差异大小
         :param request: get_diff_size请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_archive_diff_size_pb2.GetDiffSizeResponse
+        :return: file_repository_sdk.api.archive.get_archive_diff_size_pb2.GetDiffSizeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -234,11 +229,12 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.GetDiffSize"
-        uri = "/archive/diff/size/@packageId"
-        
+        uri = "/archive/diff/size/{packageId}".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -251,21 +247,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_archive_diff_size_pb2.GetDiffSizeResponse()
+        rsp = file_repository_sdk.api.archive.get_archive_diff_size_pb2.GetDiffSizeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_file_info(self, request, org, user, timeout=10):
-        # type: (get_archive_file_info_pb2.GetFileInfoRequest, int, str, int) -> get_archive_file_info_pb2.GetFileInfoResponse
+        # type: (file_repository_sdk.api.archive.get_archive_file_info_pb2.GetFileInfoRequest, int, str, int) -> file_repository_sdk.api.archive.get_archive_file_info_pb2.GetFileInfoResponse
         """
         获取归档版本文件信息
         :param request: get_file_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_archive_file_info_pb2.GetFileInfoResponse
+        :return: file_repository_sdk.api.archive.get_archive_file_info_pb2.GetFileInfoResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -274,11 +270,13 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.GetFileInfo"
-        uri = "/archive/info/@packageId/@versionId"
-        
+        uri = "/archive/info/{packageId}/{versionId}".format(
+            packageId=request.packageId,
+            versionId=request.versionId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -291,21 +289,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_archive_file_info_pb2.GetFileInfoResponse()
+        rsp = file_repository_sdk.api.archive.get_archive_file_info_pb2.GetFileInfoResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def listdir(self, request, org, user, timeout=10):
-        # type: (get_archive_list_pb2.ListdirRequest, int, str, int) -> get_archive_list_pb2.ListdirResponse
+        # type: (file_repository_sdk.api.archive.get_archive_list_pb2.ListdirRequest, int, str, int) -> file_repository_sdk.api.archive.get_archive_list_pb2.ListdirResponse
         """
         获取文件列表
         :param request: listdir请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_archive_list_pb2.ListdirResponse
+        :return: file_repository_sdk.api.archive.get_archive_list_pb2.ListdirResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -314,11 +312,13 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.Listdir"
-        uri = "/archive/list/@packageId/@versionId"
-        
+        uri = "/archive/list/{packageId}/{versionId}".format(
+            packageId=request.packageId,
+            versionId=request.versionId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -331,21 +331,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_archive_list_pb2.ListdirResponse()
+        rsp = file_repository_sdk.api.archive.get_archive_list_pb2.ListdirResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_sign(self, request, org, user, timeout=10):
-        # type: (get_archive_sign_info_pb2.GetSignRequest, int, str, int) -> get_archive_sign_info_pb2.GetSignResponse
+        # type: (file_repository_sdk.api.archive.get_archive_sign_info_pb2.GetSignRequest, int, str, int) -> file_repository_sdk.api.archive.get_archive_sign_info_pb2.GetSignResponse
         """
         获取归档版本签名信息
         :param request: get_sign请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_archive_sign_info_pb2.GetSignResponse
+        :return: file_repository_sdk.api.archive.get_archive_sign_info_pb2.GetSignResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -354,11 +354,13 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.GetSign"
-        uri = "/archive/sign/@packageId/@versionId"
-        
+        uri = "/archive/sign/{packageId}/{versionId}".format(
+            packageId=request.packageId,
+            versionId=request.versionId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -371,21 +373,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_archive_sign_info_pb2.GetSignResponse()
+        rsp = file_repository_sdk.api.archive.get_archive_sign_info_pb2.GetSignResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_size(self, request, org, user, timeout=10):
-        # type: (get_archive_size_pb2.GetSizeRequest, int, str, int) -> get_archive_size_pb2.GetSizeResponse
+        # type: (file_repository_sdk.api.archive.get_archive_size_pb2.GetSizeRequest, int, str, int) -> file_repository_sdk.api.archive.get_archive_size_pb2.GetSizeResponse
         """
         获取版本大小
         :param request: get_size请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_archive_size_pb2.GetSizeResponse
+        :return: file_repository_sdk.api.archive.get_archive_size_pb2.GetSizeResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -394,11 +396,13 @@ class ArchiveClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.archive.GetSize"
-        uri = "/archive/size/@packageId/@versionId"
-        
+        uri = "/archive/size/{packageId}/{versionId}".format(
+            packageId=request.packageId,
+            versionId=request.versionId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -411,21 +415,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_archive_size_pb2.GetSizeResponse()
+        rsp = file_repository_sdk.api.archive.get_archive_size_pb2.GetSizeResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_difference(self, request, org, user, timeout=10):
-        # type: (get_difference_pb2.GetDifferenceRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (file_repository_sdk.api.archive.get_difference_pb2.GetDifferenceRequest, int, str, int) -> file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         获取版本差异列表
         :param request: get_difference请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.file_repository.diff_pb2.Diff
+        :return: file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -439,7 +443,7 @@ class ArchiveClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -452,21 +456,21 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.file_repository.diff_pb2.Diff()
+        rsp = file_repository_sdk.model.file_repository.diff_pb2.Diff()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_package_difference(self, request, org, user, timeout=10):
-        # type: (get_package_difference_pb2.GetPackageDifferenceRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (file_repository_sdk.api.archive.get_package_difference_pb2.GetPackageDifferenceRequest, int, str, int) -> file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         获取不同包的版本差异列表
         :param request: get_package_difference请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.file_repository.diff_pb2.Diff
+        :return: file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -479,7 +483,7 @@ class ArchiveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -492,7 +496,7 @@ class ArchiveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.file_repository.diff_pb2.Diff()
+        rsp = file_repository_sdk.model.file_repository.diff_pb2.Diff()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

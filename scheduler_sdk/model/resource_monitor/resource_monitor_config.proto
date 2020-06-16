@@ -1,0 +1,31 @@
+syntax = "proto3";
+package resource_monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_monitor";
+
+
+
+
+
+/*
+关联资源
+*/
+message ResourceMonitorConfig {
+    /*
+    实例ID
+    */
+    string id = 1 ;
+    /*
+    enabled
+    */
+    bool enabled = 2 ;
+    /*
+    资源ID
+    */
+    string objectId = 3 ;
+    /*
+    资源名称
+    */
+    string objectName = 4 ;
+}
+

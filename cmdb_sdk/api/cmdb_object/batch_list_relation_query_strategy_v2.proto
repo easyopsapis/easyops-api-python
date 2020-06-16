@@ -1,0 +1,70 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/relation_query_strategy_v2.proto";
+
+/*
+BatchListRelationQueryStrategyV2Request请求
+*/
+message BatchListRelationQueryStrategyV2RequestRequest {
+    /*
+    多个模型ID，以逗号分隔
+    */
+    string object_ids = 1 ;
+    /*
+    策略类型
+    */
+    string type = 2 ;
+    /*
+    策略名称(模糊匹配)
+    */
+    string name = 3 ;
+}
+
+/*
+BatchListRelationQueryStrategyV2Request返回
+*/
+message BatchListRelationQueryStrategyV2RequestResponse {
+message StrategyData {
+    /*
+    模型ID
+    */
+    string object_id = 1 ;
+    /*
+    策略列表
+    */
+    repeated cmdb.RelationQueryStrategyV2 strategy_list = 2 ;
+}
+        
+    
+    /*
+    各模型策略数据
+    */
+    repeated StrategyData strategy_data = 1 ;
+}
+
+/*
+BatchListRelationQueryStrategyV2RequestApi返回
+*/
+message BatchListRelationQueryStrategyV2RequestResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.BatchListRelationQueryStrategyV2RequestResponse data = 4 ;
+}
+

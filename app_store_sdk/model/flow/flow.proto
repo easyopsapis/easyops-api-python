@@ -6,8 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/f
 
 
 
-import "model/flow/flow_step.proto";
-import "model/tool/input_param.proto";
+import "app_store_sdk/model/flow/flow_step.proto";
 import "google/protobuf/struct.proto";
 
 /*
@@ -129,11 +128,11 @@ message OutputDefs {
     /*
     是否可循环
     */
-    string enableLoop = 6 ;
+    bool enableLoop = 6 ;
     /*
     是否只读
     */
-    string readOnly = 7 ;
+    bool readOnly = 7 ;
     /*
     org
     */
@@ -193,7 +192,7 @@ message OutputDefs {
     /*
     是否系统ORG
     */
-    string is_system_org = 22 ;
+    bool is_system_org = 22 ;
     /*
     流程步骤
     */
@@ -203,9 +202,10 @@ message OutputDefs {
     */
     repeated TableDefs tableDefs = 24 ;
     /*
-    流程环境变量
+    流程环境变量 { "youcash":"1234",
+}
     */
-    google.protobuf.Struct flowEnv = 25 ;
+    google.protobuf.Value flowEnv = 25 ;
     /*
     流程标签
     */
@@ -216,12 +216,29 @@ message OutputDefs {
     Metadata metadata = 27 ;
     /*
     流程输入
+    {
+      "flowInputs": {
+        "@agents": [
+        {
+          "instanceId": "5c6f6cf0d8079",
+          "ip": "192.168.100.162"
+        },
+        {
+          "instanceId": "5c6f6cf0d8075",
+          "ip": "192.168.100.163"
+        }
+        ],
+        "must_input": "1",
+        "option_input": "000"
+      }
+    }
+
     */
-    repeated tool.input_param flowInputs = 28 ;
+    google.protobuf.Value flowInputs = 28 ;
     /*
     流程输出设置
     */
-    FlowOutputs flowOutputs = 29 ;
+    repeated FlowOutputs flowOutputs = 29 ;
     /*
     输出定义
     */
@@ -229,6 +246,6 @@ message OutputDefs {
     /*
     流程执行历史
     */
-    google.protobuf.Struct histories = 31 ;
+    repeated google.protobuf.Struct histories = 31 ;
 }
 

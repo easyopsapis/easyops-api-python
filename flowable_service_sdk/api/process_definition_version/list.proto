@@ -1,0 +1,149 @@
+syntax = "proto3";
+package process_definition_version;
+
+
+
+
+
+/*
+GetProcessDefinitionVersions请求
+*/
+message GetProcessDefinitionVersionsRequest {
+    /*
+    流程定义实例Id
+    */
+    string definitionId = 1 ;
+    /*
+    页码
+    */
+    int32 page = 2 ;
+    /*
+    每页数据量
+    */
+    int32 pageSize = 3 ;
+    /*
+    流程定义名称
+    */
+    string name = 4 ;
+    /*
+    流程状态(unfinished 未完成, done已完成)
+    */
+    string state = 5 ;
+}
+
+/*
+GetProcessDefinitionVersions返回
+*/
+message GetProcessDefinitionVersionsResponse {
+message List {
+    /*
+    流程版本实例Id
+    */
+    string vInstanceId = 1 ;
+    /*
+    流程版本作者
+    */
+    string vCreator = 2 ;
+    /*
+    流程版本说明
+    */
+    string vMemo = 3 ;
+    /*
+    流程定义实例id
+    */
+    string instanceId = 4 ;
+    /*
+    流程定义名称
+    */
+    string name = 5 ;
+    /*
+    流程类别
+    */
+    string category = 6 ;
+    /*
+    流程作者
+    */
+    string creator = 7 ;
+    /*
+    流程说明
+    */
+    string memo = 8 ;
+    /*
+    创建时间
+    */
+    string ctime = 9 ;
+    /*
+    流程部署Id
+    */
+    string deploymentId = 10 ;
+    /*
+    版本名称
+    */
+    string versionName = 11 ;
+    /*
+    流程定义id
+    */
+    string flowableDefinitionId = 12 ;
+    /*
+    流程定义key
+    */
+    string flowableDefinitionKey = 13 ;
+    /*
+    是否为主版本(true 为主版本,false为非主版本)
+    */
+    bool isMain = 14 ;
+    /*
+    流程状态(unfinished 未完成, done已完成)
+    */
+    string state = 15 ;
+    /*
+    流程部署时间
+    */
+    string deploymentTime = 16 ;
+    /*
+    父部署Id
+    */
+    string parentDeploymentId = 17 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+GetProcessDefinitionVersionsApi返回
+*/
+message GetProcessDefinitionVersionsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_definition_version.GetProcessDefinitionVersionsResponse data = 4 ;
+}
+

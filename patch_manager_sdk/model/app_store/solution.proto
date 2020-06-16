@@ -1,0 +1,51 @@
+syntax = "proto3";
+package app_store;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/app_store";
+
+
+
+
+
+/*
+解决方案
+*/
+message Solution {
+message Icon {
+    /*
+    图标库
+    */
+    string lib = 1 ;
+    /*
+    图标url
+    */
+    string icon = 2 ;
+}
+        
+    
+    /*
+    实例id
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    markdown格式的内容
+    */
+    string content = 3 ;
+    /*
+    轮播图片
+    */
+    string thumbnail = 4 ;
+    /*
+    简介
+    */
+    string brief = 5 ;
+    /*
+    图标
+    */
+    Icon icon = 6 ;
+}
+

@@ -31,5 +31,9 @@ message Menu {
     管理白名单 [easyops, test_uesr]
     */
     repeated string managers = 5 ;
+    /*
+    菜单Id
+    */
+    string id = 6 ;
 }
 

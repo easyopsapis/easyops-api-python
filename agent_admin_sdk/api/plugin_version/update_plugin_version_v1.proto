@@ -4,8 +4,8 @@ package plugin_version;
 
 
 
-import "model/agent_admin/plugin.proto";
-import "model/agent_admin/plugin_version.proto";
+import "agent_admin_sdk/model/agent_admin/plugin.proto";
+import "agent_admin_sdk/model/agent_admin/plugin_version.proto";
 
 /*
 UpdatePluginVersionV1请求

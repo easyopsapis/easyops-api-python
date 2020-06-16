@@ -1,0 +1,108 @@
+syntax = "proto3";
+package translate;
+
+
+
+
+
+/*
+ListTranslateData请求
+*/
+message ListTranslateDataRequest {
+    /*
+    翻译规则id列表
+    */
+    repeated string rule_ids = 1 ;
+}
+
+/*
+ListTranslateData返回
+*/
+message ListTranslateDataResponse {
+message Data {
+message Resource {
+    /*
+    实例id列表
+    */
+    repeated string instances = 1 ;
+    /*
+    关联模型Id
+    */
+    string objectId = 2 ;
+}
+        
+message Tags {
+    /*
+    值
+    */
+    repeated string value = 1 ;
+    /*
+    键
+    */
+    string key = 2 ;
+}
+        
+    
+    /*
+    匹配key
+    */
+    string matchKey = 1 ;
+    /*
+    关联资源
+    */
+    Resource resource = 2 ;
+    /*
+    标签
+    */
+    repeated Tags tags = 3 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    分页参数
+    */
+    int32 page_size = 2 ;
+    /*
+    页数
+    */
+    int32 page = 3 ;
+    /*
+    返回信息
+    */
+    string msg = 4 ;
+    /*
+    总数
+    */
+    int32 total = 5 ;
+    /*
+    返回数据
+    */
+    repeated Data data = 6 ;
+}
+
+/*
+ListTranslateDataApi返回
+*/
+message ListTranslateDataResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    translate.ListTranslateDataResponse data = 4 ;
+}
+

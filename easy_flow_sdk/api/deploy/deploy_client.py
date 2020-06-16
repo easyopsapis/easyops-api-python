@@ -2,25 +2,18 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import easy_flow_sdk.model.easy_flow.task_ret_pb2
 
-import model.easy_flow.task_ret_pb2
+import easy_flow_sdk.api.deploy.callback_pb2
 
-import google.protobuf.empty_pb2
+import easy_flow_sdk.api.deploy.create_pb2
 
-import create_pb2
+import easy_flow_sdk.api.deploy.get_pb2
 
-import get_pb2
+import easy_flow_sdk.api.deploy.list_pb2
 
-import model.easy_flow.deploy_ret_pb2
-
-import list_pb2
-
-import utils.http_util
+import easy_flow_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,14 +35,14 @@ class DeployClient(object):
 
     
     def callback(self, request, org, user, timeout=10):
-        # type: (model.easy_flow.task_ret_pb2.TaskRet, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (easy_flow_sdk.model.easy_flow.task_ret_pb2.TaskRet, int, str, int) -> easy_flow_sdk.api.deploy.callback_pb2.CallbackResponse
         """
         部署任务回调
         :param request: callback请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: google.protobuf.empty_pb2.Empty
+        :return: easy_flow_sdk.api.deploy.callback_pb2.CallbackResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -62,7 +55,7 @@ class DeployClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.easy_flow_sdk",
             dst_name=route_name,
@@ -75,21 +68,21 @@ class DeployClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = google.protobuf.empty_pb2.Empty()
+        rsp = easy_flow_sdk.api.deploy.callback_pb2.CallbackResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateRequest, int, str, int) -> create_pb2.CreateResponse
+        # type: (easy_flow_sdk.api.deploy.create_pb2.CreateRequest, int, str, int) -> easy_flow_sdk.api.deploy.create_pb2.CreateResponse
         """
         启动装包任务
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateResponse
+        :return: easy_flow_sdk.api.deploy.create_pb2.CreateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -102,7 +95,7 @@ class DeployClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.easy_flow_sdk",
             dst_name=route_name,
@@ -115,21 +108,21 @@ class DeployClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateResponse()
+        rsp = easy_flow_sdk.api.deploy.create_pb2.CreateResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> model.easy_flow.deploy_ret_pb2.DeployRet
+        # type: (easy_flow_sdk.api.deploy.get_pb2.GetRequest, int, str, int) -> easy_flow_sdk.api.deploy.get_pb2.GetResponse
         """
         查询装包任务
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.easy_flow.deploy_ret_pb2.DeployRet
+        :return: easy_flow_sdk.api.deploy.get_pb2.GetResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -143,7 +136,7 @@ class DeployClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.easy_flow_sdk",
             dst_name=route_name,
@@ -156,21 +149,21 @@ class DeployClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.easy_flow.deploy_ret_pb2.DeployRet()
+        rsp = easy_flow_sdk.api.deploy.get_pb2.GetResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
+        # type: (easy_flow_sdk.api.deploy.list_pb2.ListRequest, int, str, int) -> easy_flow_sdk.api.deploy.list_pb2.ListResponse
         """
         批量查询装包任务
         :param request: list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListResponse
+        :return: easy_flow_sdk.api.deploy.list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -184,7 +177,7 @@ class DeployClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = easy_flow_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.easy_flow_sdk",
             dst_name=route_name,
@@ -197,7 +190,7 @@ class DeployClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListResponse()
+        rsp = easy_flow_sdk.api.deploy.list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

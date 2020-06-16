@@ -1,0 +1,332 @@
+syntax = "proto3";
+package tool;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tool";
+
+
+
+
+import "patch_manager_sdk/model/tool/callback.proto";
+import "patch_manager_sdk/model/tool/tool.proto";
+import "google/protobuf/struct.proto";
+
+/*
+工具执行任务
+*/
+message ToolTask {
+message ExtraDetail {
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+message OutputDefs {
+    /*
+    输出参数ID
+    */
+    string id = 1 ;
+    /*
+    输出参数标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    工具执行成功的回调信息
+    */
+    tool.Callback callback = 1 ;
+    /*
+    工具的Env
+    */
+    google.protobuf.Struct toolEnv = 2 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 3 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 4 ;
+    /*
+    工具的输出定义
+    */
+    repeated OutputDefs outputDefs = 5 ;
+}
+        
+message BatchStrategy {
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 1 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 2 ;
+    /*
+    是否失败暂停
+    */
+    bool failedStop = 3 ;
+}
+        
+message OutputDefs {
+    /*
+    输出参数ID
+    */
+    string id = 1 ;
+    /*
+    输出参数标题
+    */
+    string name = 2 ;
+}
+        
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    用户
+    */
+    string username = 1 ;
+    /*
+    工具输入参数
+    */
+    google.protobuf.Struct inputs = 2 ;
+    /*
+    额外详细信息
+    */
+    ExtraDetail extraDetail = 3 ;
+    /*
+    执行状态
+    */
+    string totalStatus = 4 ;
+    /*
+    错误信息
+    */
+    string error = 5 ;
+    /*
+    执行id
+    */
+    string execId = 6 ;
+    /*
+    工具的Env
+    */
+    google.protobuf.Struct toolEnv = 7 ;
+    /*
+    工具输出参数
+    */
+    google.protobuf.Struct outputs = 8 ;
+    /*
+    outViewData
+    */
+    google.protobuf.Struct outViewData = 9 ;
+    /*
+    agent数据
+    */
+    google.protobuf.Struct agentData = 10 ;
+    /*
+    agent列表
+    */
+    repeated string agents = 11 ;
+    /*
+    agents启动时间
+    */
+    google.protobuf.Struct startTime = 12 ;
+    /*
+    agents状态
+    */
+    google.protobuf.Struct status = 13 ;
+    /*
+    agents的msg
+    */
+    google.protobuf.Struct msg = 14 ;
+    /*
+    agents结束时间
+    */
+    google.protobuf.Struct endTime = 15 ;
+    /*
+    agents退出时间
+    */
+    google.protobuf.Struct exitStatus = 16 ;
+    /*
+    agents系统状态
+    */
+    google.protobuf.Struct sysStatus = 17 ;
+    /*
+    工具输出数据
+    */
+    repeated google.protobuf.Struct toolOutputsData = 18 ;
+    /*
+    表格数据
+    */
+    google.protobuf.Struct tableData = 19 ;
+    /*
+    工具信息
+    */
+    tool.Tool toolData = 20 ;
+    /*
+    分批策略
+    */
+    BatchStrategy batchStrategy = 21 ;
+    /*
+    工具执行的通知信息
+    */
+    string needNotify = 22 ;
+    /*
+    执行用户
+    */
+    string execUser = 23 ;
+    /*
+    工具版本
+    */
+    string vId = 24 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 25 ;
+    /*
+    工具的输出定义
+    */
+    repeated OutputDefs outputDefs = 26 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 27 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 28 ;
+}
+

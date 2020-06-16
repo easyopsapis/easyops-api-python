@@ -1,0 +1,53 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+import "alert_service_sdk/model/topboard/product_basic.proto";
+import "alert_service_sdk/model/topboard/issue_basic.proto";
+
+/*
+迭代
+*/
+message Sprint {
+    /*
+    产品
+    */
+    repeated topboard.ProductBasic product = 1 ;
+    /*
+    问题列表
+    */
+    repeated topboard.IssueBasic issues = 2 ;
+    /*
+    迭代id
+    */
+    string name = 3 ;
+    /*
+    迭代实例id
+    */
+    string instanceId = 4 ;
+    /*
+    迭代名称
+    */
+    string title = 5 ;
+    /*
+    状态
+    */
+    string status = 6 ;
+    /*
+    迭代目标
+    */
+    string goal = 7 ;
+    /*
+    开始时间
+    */
+    string startTime = 8 ;
+    /*
+    结束时间
+    */
+    string endTime = 9 ;
+}
+

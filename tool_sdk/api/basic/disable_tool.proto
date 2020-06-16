@@ -1,0 +1,53 @@
+syntax = "proto3";
+package basic;
+
+
+
+
+
+/*
+DisableTool请求
+*/
+message DisableToolRequest {
+    /*
+    禁用工具开关
+    */
+    string disable = 1 ;
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 2 ;
+}
+
+/*
+DisableTool返回
+*/
+message DisableToolResponse {
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 1 ;
+}
+
+/*
+DisableToolApi返回
+*/
+message DisableToolResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    basic.DisableToolResponse data = 4 ;
+}
+

@@ -8,32 +8,46 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/i
 
 
 /*
-目标设备信息
+巡检对象
 */
 message InspectionTarget {
+message Keys {
     /*
-    主机实例Id
+    唯一键的id
+    */
+    string id = 1 ;
+    /*
+    唯一键的值
+    */
+    string value = 2 ;
+    /*
+    唯一键的名字
+    */
+    string name = 3 ;
+}
+        
+    
+    /*
+    巡检对象实例ID
     */
     string instanceId = 1 ;
     /*
-    主机IP
+    由唯一键的值拼接得到的实例名
+如: sid(pid xxx)
+
     */
-    string ip = 2 ;
+    string name = 2 ;
     /*
-    主机名称
+    唯一键的值
     */
-    string hostname = 3 ;
-    /*
-    端口
-    */
-    int32 port = 4 ;
+    repeated Keys keys = 3 ;
     /*
     评分(精确到小数点后2位)
     */
-    float score = 5 ;
+    float score = 4 ;
     /*
     unexecuted:脚本未执行; failed:返回码大于0; normal:返回码等于0,没有异常指标; abnormal:返回码等于0,有异常指标
     */
-    string status = 6 ;
+    string status = 5 ;
 }
 

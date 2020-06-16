@@ -2,45 +2,46 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import pipeline_sdk.api.pipeline.create_pb2
 
-import create_pb2
+import pipeline_sdk.model.pipeline.pipeline_pb2
 
-import model.pipeline.pipeline_pb2
+import pipeline_sdk.api.pipeline.create_trigger_pb2
 
-import create_trigger_pb2
+import pipeline_sdk.model.pipeline.trigger_pb2
 
-import model.pipeline.trigger_pb2
-
-import delete_pb2
+import pipeline_sdk.api.pipeline.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import delete_trigger_pb2
+import pipeline_sdk.api.pipeline.delete_trigger_pb2
 
-import execute_pb2
+import pipeline_sdk.api.pipeline.delete_triggers_pb2
 
-import get_pb2
+import pipeline_sdk.api.pipeline.execute_pb2
 
-import get_trigger_pb2
+import pipeline_sdk.api.pipeline.get_pb2
 
-import get_trigger_detail_pb2
+import pipeline_sdk.api.pipeline.get_pipeline_v2_pb2
 
-import handle_hook_pb2
+import pipeline_sdk.api.pipeline.get_trigger_pb2
 
-import list_pb2
+import pipeline_sdk.api.pipeline.get_trigger_detail_pb2
 
-import list_trigger_pb2
+import pipeline_sdk.api.pipeline.handle_hook_pb2
 
-import update_pb2
+import pipeline_sdk.api.pipeline.list_pb2
 
-import update_trigger_pb2
+import pipeline_sdk.api.pipeline.list_trigger_pb2
 
-import utils.http_util
+import pipeline_sdk.api.pipeline.list_v2_pb2
+
+import pipeline_sdk.api.pipeline.update_pb2
+
+import pipeline_sdk.api.pipeline.update_trigger_pb2
+
+import pipeline_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -62,14 +63,14 @@ class PipelineClient(object):
 
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (pipeline_sdk.api.pipeline.create_pb2.CreateRequest, int, str, int) -> pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         创建流水线
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.pipeline_pb2.Pipeline
+        :return: pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -83,7 +84,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -96,21 +97,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.pipeline_pb2.Pipeline()
+        rsp = pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_trigger(self, request, org, user, timeout=10):
-        # type: (create_trigger_pb2.CreateTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        # type: (pipeline_sdk.api.pipeline.create_trigger_pb2.CreateTriggerRequest, int, str, int) -> pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         创建流水线钩子
         :param request: create_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.trigger_pb2.Trigger
+        :return: pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -123,7 +124,7 @@ class PipelineClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -136,14 +137,14 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.trigger_pb2.Trigger()
+        rsp = pipeline_sdk.model.pipeline.trigger_pb2.Trigger()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_pipeline(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeletePipelineRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (pipeline_sdk.api.pipeline.delete_pb2.DeletePipelineRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除流水线
         :param request: delete_pipeline请求
@@ -165,7 +166,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -185,7 +186,7 @@ class PipelineClient(object):
         return rsp
     
     def delete_trigger(self, request, org, user, timeout=10):
-        # type: (delete_trigger_pb2.DeleteTriggerRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (pipeline_sdk.api.pipeline.delete_trigger_pb2.DeleteTriggerRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除流水线钩子
         :param request: delete_trigger请求
@@ -206,7 +207,47 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
+            method="DELETE",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def delete_triggers(self, request, org, user, timeout=10):
+        # type: (pipeline_sdk.api.pipeline.delete_triggers_pb2.DeleteTriggersRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        删除流水线所有钩子
+        :param request: delete_triggers请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.DeleteTriggers"
+        uri = "/api/pipeline/v1/triggers"
+        
+        requestParam = request
+        
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -226,14 +267,14 @@ class PipelineClient(object):
         return rsp
     
     def execute(self, request, org, user, timeout=10):
-        # type: (execute_pb2.ExecuteRequest, int, str, int) -> execute_pb2.ExecuteResponse
+        # type: (pipeline_sdk.api.pipeline.execute_pb2.ExecuteRequest, int, str, int) -> pipeline_sdk.api.pipeline.execute_pb2.ExecuteResponse
         """
         手动触发执行流水线
         :param request: execute请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: execute_pb2.ExecuteResponse
+        :return: pipeline_sdk.api.pipeline.execute_pb2.ExecuteResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -248,7 +289,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -261,21 +302,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = execute_pb2.ExecuteResponse()
+        rsp = pipeline_sdk.api.pipeline.execute_pb2.ExecuteResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (pipeline_sdk.api.pipeline.get_pb2.GetRequest, int, str, int) -> pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         获取流水线详情
         :param request: get请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.pipeline_pb2.Pipeline
+        :return: pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -290,7 +331,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -303,21 +344,63 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.pipeline_pb2.Pipeline()
+        rsp = pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def get_v_2(self, request, org, user, timeout=10):
+        # type: (pipeline_sdk.api.pipeline.get_pipeline_v2_pb2.GetV2Request, int, str, int) -> pipeline_sdk.api.pipeline.get_pipeline_v2_pb2.GetV2Response
+        """
+        获取流水线详情
+        :param request: get_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: pipeline_sdk.api.pipeline.get_pipeline_v2_pb2.GetV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.GetV2"
+        uri = "/api/pipeline/v2/projects/{project_id}/pipelines/{pipeline_id}".format(
+            project_id=request.project_id,
+            pipeline_id=request.pipeline_id,
+        )
+        requestParam = request
+        
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = pipeline_sdk.api.pipeline.get_pipeline_v2_pb2.GetV2Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_trigger(self, request, org, user, timeout=10):
-        # type: (get_trigger_pb2.GetTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        # type: (pipeline_sdk.api.pipeline.get_trigger_pb2.GetTriggerRequest, int, str, int) -> pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         获取钩子详情
         :param request: get_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.trigger_pb2.Trigger
+        :return: pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -331,7 +414,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -344,21 +427,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.trigger_pb2.Trigger()
+        rsp = pipeline_sdk.model.pipeline.trigger_pb2.Trigger()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_trigger_detail(self, request, org, user, timeout=10):
-        # type: (get_trigger_detail_pb2.GetTriggerDetailRequest, int, str, int) -> get_trigger_detail_pb2.GetTriggerDetailResponse
+        # type: (pipeline_sdk.api.pipeline.get_trigger_detail_pb2.GetTriggerDetailRequest, int, str, int) -> pipeline_sdk.api.pipeline.get_trigger_detail_pb2.GetTriggerDetailResponse
         """
         获取钩子相关信息
         :param request: get_trigger_detail请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_trigger_detail_pb2.GetTriggerDetailResponse
+        :return: pipeline_sdk.api.pipeline.get_trigger_detail_pb2.GetTriggerDetailResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -372,7 +455,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -385,21 +468,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_trigger_detail_pb2.GetTriggerDetailResponse()
+        rsp = pipeline_sdk.api.pipeline.get_trigger_detail_pb2.GetTriggerDetailResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def handle_hook(self, request, org, user, timeout=10):
-        # type: (handle_hook_pb2.HandleHookRequest, int, str, int) -> handle_hook_pb2.HandleHookResponse
+        # type: (pipeline_sdk.api.pipeline.handle_hook_pb2.HandleHookRequest, int, str, int) -> pipeline_sdk.api.pipeline.handle_hook_pb2.HandleHookResponse
         """
         webhook触发执行流水线
         :param request: handle_hook请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: handle_hook_pb2.HandleHookResponse
+        :return: pipeline_sdk.api.pipeline.handle_hook_pb2.HandleHookResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -414,7 +497,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -427,21 +510,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = handle_hook_pb2.HandleHookResponse()
+        rsp = pipeline_sdk.api.pipeline.handle_hook_pb2.HandleHookResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListRequest, int, str, int) -> list_pb2.ListResponse
+        # type: (pipeline_sdk.api.pipeline.list_pb2.ListRequest, int, str, int) -> pipeline_sdk.api.pipeline.list_pb2.ListResponse
         """
         流水线列表
         :param request: list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListResponse
+        :return: pipeline_sdk.api.pipeline.list_pb2.ListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -455,7 +538,7 @@ class PipelineClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -468,21 +551,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListResponse()
+        rsp = pipeline_sdk.api.pipeline.list_pb2.ListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_trigger(self, request, org, user, timeout=10):
-        # type: (list_trigger_pb2.ListTriggerRequest, int, str, int) -> list_trigger_pb2.ListTriggerResponse
+        # type: (pipeline_sdk.api.pipeline.list_trigger_pb2.ListTriggerRequest, int, str, int) -> pipeline_sdk.api.pipeline.list_trigger_pb2.ListTriggerResponse
         """
         钩子列表
         :param request: list_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_trigger_pb2.ListTriggerResponse
+        :return: pipeline_sdk.api.pipeline.list_trigger_pb2.ListTriggerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -495,7 +578,7 @@ class PipelineClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -508,21 +591,62 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_trigger_pb2.ListTriggerResponse()
+        rsp = pipeline_sdk.api.pipeline.list_trigger_pb2.ListTriggerResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_v_2(self, request, org, user, timeout=10):
+        # type: (pipeline_sdk.api.pipeline.list_v2_pb2.ListV2Request, int, str, int) -> pipeline_sdk.api.pipeline.list_v2_pb2.ListV2Response
+        """
+        流水线列表
+        :param request: list_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: pipeline_sdk.api.pipeline.list_v2_pb2.ListV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.pipeline.pipeline.ListV2"
+        uri = "/api/pipeline/v2/projects/{project_id}/pipelines".format(
+            project_id=request.project_id,
+        )
+        requestParam = request
+        
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.pipeline_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = pipeline_sdk.api.pipeline.list_v2_pb2.ListV2Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateRequest, int, str, int) -> model.pipeline.pipeline_pb2.Pipeline
+        # type: (pipeline_sdk.api.pipeline.update_pb2.UpdateRequest, int, str, int) -> pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         修改流水线
         :param request: update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.pipeline_pb2.Pipeline
+        :return: pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -537,7 +661,7 @@ class PipelineClient(object):
         )
         requestParam = request.pipeline
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -550,21 +674,21 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.pipeline_pb2.Pipeline()
+        rsp = pipeline_sdk.model.pipeline.pipeline_pb2.Pipeline()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_trigger(self, request, org, user, timeout=10):
-        # type: (update_trigger_pb2.UpdateTriggerRequest, int, str, int) -> model.pipeline.trigger_pb2.Trigger
+        # type: (pipeline_sdk.api.pipeline.update_trigger_pb2.UpdateTriggerRequest, int, str, int) -> pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         更新流水线钩子
         :param request: update_trigger请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.pipeline.trigger_pb2.Trigger
+        :return: pipeline_sdk.model.pipeline.trigger_pb2.Trigger
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -578,7 +702,7 @@ class PipelineClient(object):
         )
         requestParam = request.trigger
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = pipeline_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.pipeline_sdk",
             dst_name=route_name,
@@ -591,7 +715,7 @@ class PipelineClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.pipeline.trigger_pb2.Trigger()
+        rsp = pipeline_sdk.model.pipeline.trigger_pb2.Trigger()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -1,0 +1,112 @@
+syntax = "proto3";
+package tuna_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tuna_service";
+
+
+
+
+import "collector_center_sdk/model/tuna_service/requirement_instance.proto";
+
+/*
+测试计划
+*/
+message TestPlan {
+    /*
+    由cmdb自动生成，cmdb的实例ID，实例唯一健
+    */
+    string instanceId = 1 ;
+    /*
+    测试计划名称
+    */
+    string name = 2 ;
+    /*
+    评审日期
+    */
+    string reviewDate = 3 ;
+    /*
+    开始测试日期
+    */
+    string startExcutePlanDate = 4 ;
+    /*
+    项目启动类型
+    */
+    string projectStartDate = 5 ;
+    /*
+    项目计划完成日期
+    */
+    string projectPlanCompleteDate = 6 ;
+    /*
+    项目实际完成日期
+    */
+    string projectActualCompleteDate = 7 ;
+    /*
+    功能未实现
+    */
+    int32 functionMissCount = 8 ;
+    /*
+    后台bug数
+    */
+    int32 backendBugCount = 9 ;
+    /*
+    总bug/用例占比(%)
+    */
+    string bugPercent = 10 ;
+    /*
+    总bug数
+    */
+    int32 bugTotal = 11 ;
+    /*
+    性能问题数
+    */
+    int32 capabilityCount = 12 ;
+    /*
+    编码错误数
+    */
+    int32 codingErrCount = 13 ;
+    /*
+    延期率(%)
+    */
+    string delayPercent = 14 ;
+    /*
+    环境问题数
+    */
+    int32 environmentCount = 15 ;
+    /*
+    前端bug数
+    */
+    int32 frontBugCount = 16 ;
+    /*
+    项目评分
+    */
+    string projectScore = 17 ;
+    /*
+    需求不明确数
+    */
+    int32 requirementBlurryCount = 18 ;
+    /*
+    用例发现bug数
+    */
+    int32 scenarioBugCount = 19 ;
+    /*
+    测试用例数
+    */
+    int32 scenarioCount = 20 ;
+    /*
+    状态
+    */
+    string status = 21 ;
+    /*
+    合理化建议数
+    */
+    int32 suggestionCount = 22 ;
+    /*
+    无法复现数
+    */
+    int32 unableAppearCount = 23 ;
+    /*
+    关联的实例化需求测试用例列表
+    */
+    repeated tuna_service.RequirementInstance requirement_instance = 24 ;
+}
+

@@ -4,8 +4,8 @@ package history;
 
 
 
-import "model/inspection/target.proto";
-import "model/inspection/history.proto";
+import "inspection_sdk/model/inspection/target.proto";
+import "inspection_sdk/model/inspection/history.proto";
 
 /*
 GetHistory请求

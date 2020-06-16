@@ -1,0 +1,141 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_import.proto";
+
+/*
+ImportObject请求
+*/
+message ImportObjectRequest {
+    /*
+    模型列表
+    */
+    repeated cmdb.ObjectImport body = 1 ;
+}
+
+/*
+ImportObject返回
+*/
+message ImportObjectResponse {
+message Data {
+message AttrList {
+    /*
+    属性Id
+    */
+    string id = 1 ;
+    /*
+    属性名字
+    */
+    string name = 2 ;
+    /*
+    错误码
+    */
+    int32 code = 3 ;
+    /*
+    错误信息
+    */
+    string error = 4 ;
+}
+        
+message RelationList {
+    /*
+    关系Id
+    */
+    string relation_id = 1 ;
+    /*
+    关系左端描述
+    */
+    string left_description = 2 ;
+    /*
+    关系右端描述
+    */
+    string right_description = 3 ;
+    /*
+    关系左端名称
+    */
+    string left_name = 4 ;
+    /*
+    关系右端名称
+    */
+    string right_name = 5 ;
+    /*
+    错误码
+    */
+    int32 code = 6 ;
+    /*
+    错误信息
+    */
+    string error = 7 ;
+}
+        
+    
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    模型名字
+    */
+    string name = 2 ;
+    /*
+    错误码
+    */
+    int32 code = 3 ;
+    /*
+    错误信息
+    */
+    string error = 4 ;
+    /*
+    属性列表
+    */
+    repeated AttrList attrList = 5 ;
+    /*
+    关系列表
+    */
+    repeated RelationList relation_list = 6 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    结果
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+ImportObjectApi返回
+*/
+message ImportObjectResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ImportObjectResponse data = 4 ;
+}
+

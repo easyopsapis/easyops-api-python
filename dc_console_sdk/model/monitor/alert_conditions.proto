@@ -1,0 +1,65 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+告警条件
+*/
+message AlertConditions {
+message Comparators {
+    /*
+    比较器类型:
+bigger_than: 大于
+smaller_than: 小于
+equal: 等于
+unequal: 不等于
+include: 包含（字符串指标用）
+exclude: 不包含（字符串指标用)
+dynamic: 动态阈值
+transition: 状态变更
+
+    */
+    string type = 1 ;
+    /*
+    阈值
+    */
+    google.protobuf.Value threshold = 2 ;
+    /*
+    告警等级
+    */
+    int32 level = 3 ;
+}
+        
+    
+    /*
+    告警类型
+    */
+    string alert_type = 1 ;
+    /*
+    告警子类
+    */
+    string alert_sub_type = 2 ;
+    /*
+    告警指标表
+    */
+    string alert_table = 3 ;
+    /*
+    告警指标
+    */
+    string attr_id = 4 ;
+    /*
+    告警单位
+    */
+    string unit = 5 ;
+    /*
+    比较器
+    */
+    repeated Comparators comparators = 6 ;
+}
+

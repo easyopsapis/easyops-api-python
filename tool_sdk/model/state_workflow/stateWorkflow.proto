@@ -1,0 +1,103 @@
+syntax = "proto3";
+package state_workflow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/state_workflow";
+
+
+
+
+import "tool_sdk/model/state_workflow/state.proto";
+import "tool_sdk/model/state_workflow/transition.proto";
+
+/*
+状态工作流
+*/
+message StateWorkflow {
+message ObjectInfo {
+    /*
+    cmdb模型标识
+    */
+    string objectId = 1 ;
+    /*
+    cmdb模型属性id
+    */
+    string attribute = 2 ;
+    /*
+    cmdb实例查询_search接口的query字段
+    */
+    string filter = 3 ;
+}
+        
+message StateTriggers {
+    /*
+    触发事件
+    */
+    string event = 1 ;
+    /*
+    状态标识
+    */
+    string id = 2 ;
+    /*
+    回调uri
+    */
+    string callbackUri = 3 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 4 ;
+}
+        
+message TransitionTriggers {
+    /*
+    触发事件
+    */
+    string event = 1 ;
+    /*
+    状态转换器标识
+    */
+    string id = 2 ;
+    /*
+    回调uri
+    */
+    string callbackUri = 3 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 4 ;
+}
+        
+    
+    /*
+    cmdb实例标识
+    */
+    string instanceId = 1 ;
+    /*
+    工作流名称
+    */
+    string name = 2 ;
+    /*
+    关联对象
+    */
+    ObjectInfo objectInfo = 3 ;
+    /*
+    状态
+    */
+    repeated state_workflow.State states = 4 ;
+    /*
+    状态
+    */
+    repeated StateTriggers stateTriggers = 5 ;
+    /*
+    状态转换器
+    */
+    repeated state_workflow.Transition transitions = 6 ;
+    /*
+    状态转换触发器
+    */
+    repeated TransitionTriggers transitionTriggers = 7 ;
+    /*
+    备注信息
+    */
+    string memo = 8 ;
+}
+

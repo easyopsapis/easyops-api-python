@@ -4,7 +4,7 @@ package oplog;
 
 
 
-import "model/notify/operation_log.proto";
+import "notify_sdk/model/notify/operation_log.proto";
 
 /*
 CreateOperationLog返回

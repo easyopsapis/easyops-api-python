@@ -1,0 +1,45 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "topboard_sdk/model/topboard/product.proto";
+import "topboard_sdk/model/topboard/sprint.proto";
+
+/*
+UpdateProduct请求
+*/
+message UpdateProductRequest {
+    /*
+    产品Id
+    */
+    string productID = 1 ;
+    /*
+    产品信息
+    */
+    topboard.Product product = 2 ;
+}
+
+/*
+UpdateProductApi返回
+*/
+message UpdateProductResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.Product data = 4 ;
+}
+

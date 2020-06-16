@@ -1,0 +1,58 @@
+syntax = "proto3";
+package inventory;
+
+
+
+
+import "assets_inventory_sdk/model/assets_inventory/assets_inventory_summary.proto";
+
+/*
+GetInventory请求
+*/
+message GetInventoryRequest {
+    /*
+    以逗号分割的id列表
+    */
+    string inventoryIds = 1 ;
+    /*
+    机房id列表，以逗号分割
+    */
+    string idcIds = 2 ;
+    /*
+    批次号列表，以逗号分割
+    */
+    string batchNos = 3 ;
+}
+
+/*
+GetInventory返回
+*/
+message GetInventoryResponse {
+    /*
+    盘点列表
+    */
+    repeated assets_inventory.AssetInventorySummary inventoryList = 1 ;
+}
+
+/*
+GetInventoryApi返回
+*/
+message GetInventoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    inventory.GetInventoryResponse data = 4 ;
+}
+

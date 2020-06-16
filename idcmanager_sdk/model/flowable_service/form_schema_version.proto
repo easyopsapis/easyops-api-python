@@ -1,0 +1,47 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+表单版本
+*/
+message FormSchemaVersion {
+    /*
+    实例id
+    */
+    string instanceId = 1 ;
+    /*
+    版本名称
+    */
+    string versionName = 2 ;
+    /*
+    是否为主版本(true 为主版本,false为非主版本)
+    */
+    bool isMain = 3 ;
+    /*
+    表单版本状态(unfinished 未完成, done已完成)
+    */
+    string state = 4 ;
+    /*
+    表单版本说明
+    */
+    string memo = 5 ;
+    /*
+    表单版本作者
+    */
+    string creator = 6 ;
+    /*
+    前台的表单控件属性(dyHeader和dyBody)
+    */
+    string formDefinition = 7 ;
+    /*
+    创建时间
+    */
+    string ctime = 8 ;
+}
+

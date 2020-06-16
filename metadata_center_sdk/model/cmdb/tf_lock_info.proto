@@ -1,0 +1,43 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+terrafrom锁信息
+*/
+message TFLockInfo {
+    /*
+    锁Id,随机生成
+    */
+    string ID = 1 ;
+    /*
+    Terraform operation, provided by the caller.
+    */
+    string Operation = 2 ;
+    /*
+    Extra information to store with the lock, provided by the caller.
+    */
+    string Info = 3 ;
+    /*
+    user@hostname when available
+    */
+    string Who = 4 ;
+    /*
+    Terraform version
+    */
+    string Version = 5 ;
+    /*
+    Time that the lock was taken.
+    */
+    string Created = 6 ;
+    /*
+    Path to the state file when applicable. Set by the Lock implementation.
+    */
+    string Path = 7 ;
+}
+

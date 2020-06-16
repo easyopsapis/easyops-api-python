@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/o
 
 
 
-import "model/ops_automation/mail_info.proto";
+import "cmdb_sdk/model/ops_automation/mail_info.proto";
 
 /*
 任务详情

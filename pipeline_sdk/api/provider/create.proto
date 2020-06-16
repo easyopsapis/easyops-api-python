@@ -4,7 +4,7 @@ package provider;
 
 
 
-import "model/pipeline/provider.proto";
+import "pipeline_sdk/model/pipeline/provider.proto";
 
 /*
 CreateApi返回

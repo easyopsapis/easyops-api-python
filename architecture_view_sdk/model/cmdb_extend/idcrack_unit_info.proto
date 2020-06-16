@@ -1,0 +1,32 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+机柜U位信息
+*/
+message IdcrackUnitInfo {
+    /*
+    实例ID
+    */
+    string instance_id = 1 ;
+    /*
+    u位数
+    */
+    int32 unum = 2 ;
+    /*
+    机柜名称
+    */
+    string name = 3 ;
+    /*
+    u位信息
+    */
+    google.protobuf.Struct unitInfo = 4 ;
+}
+

@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/n
 
 
 
-import "model/notify/operation_log.proto";
+import "pipeline_sdk/model/notify/operation_log.proto";
 
 /*
 带有系统名称和topic的operation log

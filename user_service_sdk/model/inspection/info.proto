@@ -28,12 +28,44 @@ message InspectionInfo {
     */
     int32 index = 4 ;
     /*
-    用于区分对象的维度列表
+    CMDB模型ID
     */
-    repeated string identifiers = 5 ;
+    string objectId = 5 ;
+    /*
+    CMDB模型名称
+    */
+    string objectName = 6 ;
+    /*
+    唯一键列表(CMDB模型的属性)
+    */
+    repeated string keys = 7 ;
+    /*
+    CMDB模型与主机的关系ID
+    */
+    string relationIdWithHost = 8 ;
+    /*
+    对端主机Id(不一定是Host)
+    */
+    string counterSideId = 9 ;
+    /*
+    套件的状态
+ok: 正常
+object_deleted: CMDB模型被删除
+keys_deleted: 唯一键被删除
+keys_not_unique: 唯一键不唯一
+object_relation_not_ok: CMDB模型与主机的关系ID不符合要求
+
+    */
+    string status = 10 ;
+    /*
+    执行巡检的方式
+agent: 通过agent执行
+
+    */
+    string method = 11 ;
     /*
     创建时间
     */
-    string ctime = 6 ;
+    string ctime = 12 ;
 }
 

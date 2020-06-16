@@ -31,7 +31,7 @@ message Auth {
     /*
     auth2是否可以访问私有仓库
     */
-    string acess_private_repos = 5 ;
+    bool access_private_repos = 5 ;
 }
         
     
@@ -58,7 +58,7 @@ message Auth {
     /*
     是否为默认provider
     */
-    string default = 6 ;
+    bool default = 6 ;
     /*
     创建者, 服务端自动生成
     */

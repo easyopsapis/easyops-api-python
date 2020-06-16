@@ -1,0 +1,46 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+采集脚本的参数
+*/
+message InspectionArg {
+    /*
+    脚本入参key
+    */
+    string key = 1 ;
+    /*
+    别名
+    */
+    string alias = 2 ;
+    /*
+    参数的来源
+attr_id: CMDB模型的属性
+custom: 自定义
+
+    */
+    string source = 3 ;
+    /*
+    输入框类型
+    */
+    string type = 4 ;
+    /*
+    是否必填
+    */
+    bool require = 5 ;
+    /*
+    默认值
+    */
+    string default = 6 ;
+    /*
+    辅助说明
+    */
+    string memo = 7 ;
+}
+

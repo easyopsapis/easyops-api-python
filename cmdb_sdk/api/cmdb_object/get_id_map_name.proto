@@ -1,0 +1,52 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetIdMapName请求
+*/
+message GetIdMapNameRequest {
+    /*
+    模型Id, 使用,分隔
+    */
+    string objectIds = 1 ;
+    /*
+    system
+    */
+    string system = 2 ;
+    /*
+    分类
+    */
+    string category = 3 ;
+    /*
+    system是否为空，为true时会忽略参数system
+    */
+    bool emptySystem = 4 ;
+}
+
+/*
+GetIdMapNameApi返回
+*/
+message GetIdMapNameResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

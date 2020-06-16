@@ -1,0 +1,46 @@
+syntax = "proto3";
+package state_workflow;
+
+
+
+
+import "state_workflow_sdk/model/state_workflow/state.proto";
+import "state_workflow_sdk/model/state_workflow/transition.proto";
+import "state_workflow_sdk/model/state_workflow/stateWorkflow.proto";
+
+/*
+SearchStateWorkflow请求
+*/
+message SearchStateWorkflowRequest {
+    /*
+    要更新的模型标识
+    */
+    string objectId = 1 ;
+    /*
+    要更新的属性名称
+    */
+    string attribute = 2 ;
+}
+
+/*
+SearchStateWorkflowApi返回
+*/
+message SearchStateWorkflowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    state_workflow.StateWorkflow data = 4 ;
+}
+

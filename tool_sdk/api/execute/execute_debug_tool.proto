@@ -1,0 +1,193 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "tool_sdk/model/tool/tool_input.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ExecuteDebugTool请求
+*/
+message ExecuteDebugToolRequest {
+message OutputDefs {
+    /*
+    输出参数ID
+    */
+    string id = 1 ;
+    /*
+    输出参数标题
+    */
+    string name = 2 ;
+}
+        
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+    
+    /*
+    工具输入参数信息
+    */
+    repeated tool.ToolInput inputs_info = 1 ;
+    /*
+    工具脚本的内容
+    */
+    string content = 2 ;
+    /*
+    工具脚本的类型(python, shell..)
+    */
+    string type = 3 ;
+    /*
+    工具输入参数
+    */
+    google.protobuf.Struct inputs = 4 ;
+    /*
+    工具输出参数
+    */
+    google.protobuf.Struct outputs = 5 ;
+    /*
+    执行用户
+    */
+    string execUser = 6 ;
+    /*
+    白名单
+    */
+    repeated string whiteList = 7 ;
+    /*
+    黑名单
+    */
+    repeated string blackList = 8 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 9 ;
+    /*
+    工具的输出定义
+    */
+    repeated OutputDefs outputDefs = 10 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 11 ;
+    /*
+    沙箱执行；默认执行的agents
+    */
+    bool sandboxRun = 12 ;
+    /*
+    是否使用windows会话用户
+    */
+    bool windowsSession = 13 ;
+    /*
+    邮件订阅用户
+    */
+    repeated string subscribers = 14 ;
+    /*
+    工具执行的通知信息
+    */
+    string needNotify = 15 ;
+    /*
+    工具的Env
+    */
+    google.protobuf.Struct toolEnv = 16 ;
+}
+
+/*
+ExecuteDebugTool返回
+*/
+message ExecuteDebugToolResponse {
+    /*
+    执行id
+    */
+    string execId = 1 ;
+}
+
+/*
+ExecuteDebugToolApi返回
+*/
+message ExecuteDebugToolResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    execute.ExecuteDebugToolResponse data = 4 ;
+}
+

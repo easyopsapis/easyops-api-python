@@ -4,7 +4,6 @@ package permission;
 
 
 
-import "google/protobuf/empty.proto";
 
 /*
 ValidateCmdbPermission请求
@@ -33,6 +32,16 @@ message ValidateCmdbPermissionRequest {
 }
 
 /*
+ValidateCmdbPermission返回
+*/
+message ValidateCmdbPermissionResponse {
+    /*
+    是否鉴权成功
+    */
+    bool accepted = 1 ;
+}
+
+/*
 ValidateCmdbPermissionApi返回
 */
 message ValidateCmdbPermissionResponseWrapper {
@@ -51,6 +60,6 @@ message ValidateCmdbPermissionResponseWrapper {
     /*
     返回数据
     */
-    google.protobuf.Empty data = 4 ;
+    permission.ValidateCmdbPermissionResponse data = 4 ;
 }
 

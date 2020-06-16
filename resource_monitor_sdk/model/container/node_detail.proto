@@ -1,0 +1,145 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "resource_monitor_sdk/model/container/metadata.proto";
+
+/*
+node 实例
+*/
+message NodeDetail {
+message Spec {
+    /*
+    pod ID
+    */
+    string podCIDR = 1 ;
+    /*
+    provider ID
+    */
+    string providerID = 2 ;
+    /*
+    是否可调度
+    */
+    bool unschedulable = 3 ;
+}
+        
+message Status {
+message Capacity {
+    /*
+    cpu
+    */
+    string cpu = 1 ;
+    /*
+    memory
+    */
+    string memory = 2 ;
+    /*
+    pod数
+    */
+    string pods = 3 ;
+    /*
+    临时存储
+    */
+    string ephemeralStorage = 4 ;
+}
+        
+message Allocatable {
+    /*
+    cpu
+    */
+    string cpu = 1 ;
+    /*
+    memory
+    */
+    string memory = 2 ;
+    /*
+    pod数
+    */
+    string pods = 3 ;
+}
+        
+message NodeInfo {
+    /*
+    机器ID
+    */
+    string machineID = 1 ;
+    /*
+    systemUUID, 专用于Red Hat
+    */
+    string systemUUID = 2 ;
+    /*
+    Boot ID reported by the node.
+    */
+    string bootID = 3 ;
+    /*
+    内核版本
+    */
+    string kernelVersion = 4 ;
+    /*
+    镜像
+    */
+    string osImage = 5 ;
+    /*
+    容器版本,如:docker://1.5.0
+    */
+    string containerRuntimeVersion = 6 ;
+    /*
+    kubeletVersion
+    */
+    string kubeletVersion = 7 ;
+    /*
+    kubeProxyVersion
+    */
+    string kubeProxyVersion = 8 ;
+    /*
+    操作系统
+    */
+    string operatingSystem = 9 ;
+    /*
+    系统架构
+    */
+    string architecture = 10 ;
+}
+        
+    
+    /*
+    容量
+    */
+    Capacity capacity = 1 ;
+    /*
+    可分配容量
+    */
+    Allocatable allocatable = 2 ;
+    /*
+    阶段
+    */
+    string phase = 3 ;
+    /*
+    节点信息
+    */
+    NodeInfo nodeInfo = 4 ;
+}
+        
+    
+    /*
+    元数据
+    */
+    container.Metadata metadata = 1 ;
+    /*
+    规格
+    */
+    Spec spec = 2 ;
+    /*
+    节点状态
+    */
+    Status status = 3 ;
+    /*
+    是否为worker节点
+    */
+    bool worker = 4 ;
+}
+

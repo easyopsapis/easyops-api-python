@@ -1,0 +1,57 @@
+syntax = "proto3";
+package cluster;
+
+
+
+
+
+/*
+ImportResources请求
+*/
+message ImportResourcesRequest {
+    /*
+    集群id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+ImportResources返回
+*/
+message ImportResourcesResponse {
+    /*
+    导入pvc数量
+    */
+    int32 pvc = 1 ;
+    /*
+    导入namespace数量
+    */
+    int32 namespace = 2 ;
+    /*
+    导入storageclass数量
+    */
+    int32 storageclass = 3 ;
+}
+
+/*
+ImportResourcesApi返回
+*/
+message ImportResourcesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cluster.ImportResourcesResponse data = 4 ;
+}
+

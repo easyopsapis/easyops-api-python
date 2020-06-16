@@ -1,0 +1,63 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_import.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ImportCheck请求
+*/
+message ImportCheckRequest {
+    /*
+    模型列表
+    */
+    repeated cmdb.ObjectImport body = 1 ;
+}
+
+/*
+ImportCheck返回
+*/
+message ImportCheckResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    '{ "APP": { "duplicated_relations": [ {"relation_id": "APP_cluster_CLUSTER", "left_id": "clusters", "right_id": "app"} ], "cannot_created_relations": [ {"relation_id": "APP_cluster_CLUSTER", "left_id": "clusters", "right_id": "app"} ], "cannot_created_references": [ {"id":"cpu","name":"CPU信息","value":{"type":"FK","external":[{"org_attr":"name","name":"名称"}],"rule":{"obj":"HOST_CPU","mode":"inner"}}} ], "id_is_duplicated": true, "name_is_duplicated": true } }'
+    */
+    google.protobuf.Struct data = 4 ;
+}
+
+/*
+ImportCheckApi返回
+*/
+message ImportCheckResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ImportCheckResponse data = 4 ;
+}
+

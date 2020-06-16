@@ -1,0 +1,45 @@
+syntax = "proto3";
+package host_resolved;
+
+
+
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+/*
+UpdateByQuery请求
+*/
+message UpdateByQueryRequest {
+    /*
+    更新条件
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    文档数据内容
+    */
+    google.protobuf.Struct update = 2 ;
+}
+
+/*
+UpdateByQueryApi返回
+*/
+message UpdateByQueryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

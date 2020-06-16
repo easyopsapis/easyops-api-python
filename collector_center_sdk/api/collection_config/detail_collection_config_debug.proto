@@ -1,0 +1,65 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+
+/*
+DetailCollectionConfigDebug请求
+*/
+message DetailCollectionConfigDebugRequest {
+    /*
+    调试任务ID
+    */
+    string id = 1 ;
+}
+
+/*
+DetailCollectionConfigDebug返回
+*/
+message DetailCollectionConfigDebugResponse {
+    /*
+    调试任务ID
+    */
+    string id = 1 ;
+    /*
+    调试任务结果
+    */
+    string data = 2 ;
+    /*
+    调试任务状态
+    */
+    int32 code = 3 ;
+    /*
+    ORG
+    */
+    int32 org = 4 ;
+    /*
+    调试任务信息
+    */
+    string message = 5 ;
+}
+
+/*
+DetailCollectionConfigDebugApi返回
+*/
+message DetailCollectionConfigDebugResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.DetailCollectionConfigDebugResponse data = 4 ;
+}
+

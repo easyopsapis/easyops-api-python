@@ -1,0 +1,157 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+import "easy_command_sdk/model/collector_center/script.proto";
+import "google/protobuf/struct.proto";
+
+/*
+采集任务
+*/
+message CollJobV2 {
+message Target {
+message AgentHost {
+    /*
+    主机
+    */
+    string instanceId = 1 ;
+    /*
+    IP
+    */
+    string ip = 2 ;
+    /*
+    Agent唯一标识
+    */
+    string uuid = 3 ;
+}
+        
+    
+    /*
+    主机
+    */
+    string id = 1 ;
+    /*
+    agent主机
+    */
+    AgentHost agentHost = 2 ;
+}
+        
+    
+    /*
+    采集作业ID
+    */
+    string id = 1 ;
+    /*
+    执行时间间隔
+    */
+    int32 interval = 2 ;
+    /*
+    超时间隔
+    */
+    int32 timeout = 3 ;
+    /*
+    执行时间段
+    */
+    string timeRange = 4 ;
+    /*
+    存放路径
+    */
+    repeated string jobFilePath = 5 ;
+    /*
+    版本
+    */
+    string version = 6 ;
+    /*
+    目标
+    */
+    Target target = 7 ;
+    /*
+    采集作业名称
+    */
+    string name = 8 ;
+    /*
+    脚本
+    */
+    collector_center.Script script = 9 ;
+    /*
+    数据ID
+    */
+    int32 dataId = 10 ;
+    /*
+    环境变量
+    */
+    google.protobuf.Value env = 11 ;
+    /*
+    参数
+    */
+    google.protobuf.Value kwargs = 12 ;
+    /*
+    执行方法
+    */
+    string fun = 13 ;
+    /*
+    采集类型ID
+    */
+    string clazzId = 14 ;
+    /*
+    采集类型名称
+    */
+    string clazzName = 15 ;
+    /*
+    采集任务ID
+    */
+    string configId = 16 ;
+    /*
+    数据要求字段
+    */
+    repeated string requiredFields = 17 ;
+    /*
+    缓存过期次数（时间）
+    */
+    int32 cacheTtl = 18 ;
+    /*
+    是否忽略不符合要求数据
+    */
+    bool ignoreInvalid = 19 ;
+    /*
+    标签
+    */
+    repeated string labels = 20 ;
+    /*
+    是否禁用
+    */
+    bool disabled = 21 ;
+    /*
+    ORG
+    */
+    int32 org = 22 ;
+    /*
+    创建者
+    */
+    string creator = 23 ;
+    /*
+    修改者
+    */
+    string modifier = 24 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 25 ;
+    /*
+    修改时间
+    */
+    int32 mtime = 26 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 27 ;
+    /*
+    关联模型实例ID
+    */
+    string instanceId = 28 ;
+}
+

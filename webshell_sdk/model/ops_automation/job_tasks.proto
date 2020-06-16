@@ -1,0 +1,96 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+import "webshell_sdk/model/ops_automation/mail_info.proto";
+
+/*
+任务详情
+*/
+message JobTasks {
+    /*
+    jobTask id
+    */
+    string id = 1 ;
+    /*
+    job id
+    */
+    string jobId = 2 ;
+    /*
+    任务名称
+    */
+    string jobName = 3 ;
+    /*
+    菜单名称
+    */
+    string menuName = 4 ;
+    /*
+    exec id/ task id
+    */
+    string execId = 5 ;
+    /*
+    工具类型
+    */
+    string resourceType = 6 ;
+    /*
+    tool/flow id
+    */
+    string resourceId = 7 ;
+    /*
+    工具版本ID
+    */
+    string resourceVId = 8 ;
+    /*
+    工具版本名称
+    */
+    string resourceVName = 9 ;
+    /*
+    执行触发器
+    */
+    string trigger = 10 ;
+    /*
+    工具执行用户
+    */
+    string execUser = 11 ;
+    /*
+    执行主机列表
+    */
+    repeated string hosts = 12 ;
+    /*
+    工具结果状态。成功、失败、执行中、初始态等待执行、人工确认、暂停、终止
+    */
+    string status = 13 ;
+    /*
+    通知邮件
+    */
+    ops_automation.MailInfo mail = 14 ;
+    /*
+    成功率。success agents / all agents
+    */
+    float successRate = 15 ;
+    /*
+    错误返回
+    */
+    string error = 16 ;
+    /*
+    作业创建时间 2019-07-02 11:38:59
+    */
+    string createTime = 17 ;
+    /*
+    作业创建时间 2019-07-02 11:38:59
+    */
+    string updateTime = 18 ;
+    /*
+    作业创建者
+    */
+    string creator = 19 ;
+    /*
+    org
+    */
+    int32 org = 20 ;
+}
+

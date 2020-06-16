@@ -1,0 +1,42 @@
+syntax = "proto3";
+package datafilter;
+
+
+
+
+import "resource_manage_sdk/model/console/cmdb_query_strategy.proto";
+import "resource_manage_sdk/model/resource_manage/filter_condition_group.proto";
+import "resource_manage_sdk/model/resource_manage/filter_strategy.proto";
+
+/*
+GetStrategy请求
+*/
+message GetStrategyRequest {
+    /*
+    规则实例Id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetStrategyApi返回
+*/
+message GetStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    resource_manage.FilterStrategy data = 4 ;
+}
+

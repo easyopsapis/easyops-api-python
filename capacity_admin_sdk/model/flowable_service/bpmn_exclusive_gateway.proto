@@ -1,0 +1,24 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+import "capacity_admin_sdk/model/flowable_service/bpmn_links.proto";
+
+/*
+bpmnXML分支
+*/
+message BPMNExclusiveGateway {
+    /*
+    id
+    */
+    string id = 1 ;
+    /*
+    指向链接
+    */
+    flowable_service.BPMNLinks links = 2 ;
+}
+

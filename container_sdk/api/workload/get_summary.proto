@@ -1,0 +1,55 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/workload.proto";
+import "container_sdk/model/container/pod_detail.proto";
+
+/*
+GetSummary请求
+*/
+message GetSummaryRequest {
+    /*
+    workload id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetSummary返回
+*/
+message GetSummaryResponse {
+    /*
+    workload 实例
+    */
+    container.Workload workload = 1 ;
+    /*
+    pod 列表
+    */
+    repeated container.PodDetail pods = 2 ;
+}
+
+/*
+GetSummaryApi返回
+*/
+message GetSummaryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workload.GetSummaryResponse data = 4 ;
+}
+

@@ -1,0 +1,202 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "metadata_center_sdk/model/easy_flow/deploy_target.proto";
+import "metadata_center_sdk/model/cmdb/cluster_info.proto";
+import "metadata_center_sdk/model/easy_flow/target_info.proto";
+
+/*
+部署策略信息
+*/
+message DeployStrategy {
+message App {
+    /*
+    应用名
+    */
+    string name = 1 ;
+    /*
+    应用Id
+    */
+    string appId = 2 ;
+}
+        
+message BatchStrategy {
+message AutoBatch {
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 1 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 2 ;
+    /*
+    是否失败暂停
+    */
+    bool failedStop = 3 ;
+}
+        
+message ManualBatch {
+message Batches {
+    /*
+    批次主机列表
+    */
+    repeated easy_flow.DeployTarget targets = 1 ;
+}
+        
+    
+    /*
+    分批详情
+    */
+    repeated Batches batches = 1 ;
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 2 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 3 ;
+    /*
+    是否失败暂停
+    */
+    bool failedStop = 4 ;
+}
+        
+    
+    /*
+    自动批量策略信息
+    */
+    AutoBatch autoBatch = 1 ;
+    /*
+    手动批量
+    */
+    ManualBatch manualBatch = 2 ;
+    /*
+    分批类型
+    */
+    string type = 3 ;
+}
+        
+message PackageList {
+    /*
+    包名称
+    */
+    string packageName = 1 ;
+    /*
+    集群
+    */
+    cmdb.ClusterInfo cluster = 2 ;
+    /*
+    目标版本
+    */
+    string targetVersion = 3 ;
+    /*
+    发布前停止
+    */
+    bool preStop = 4 ;
+    /*
+    发布后重启
+    */
+    bool postRestart = 5 ;
+    /*
+    安装后启动
+    */
+    bool autoStart = 6 ;
+    /*
+    是否需要用户检查
+    */
+    bool userCheck = 7 ;
+    /*
+    是否完全更新
+    */
+    bool fullUpdate = 8 ;
+    /*
+    包Id
+    */
+    string packageId = 9 ;
+    /*
+    安装路径
+    */
+    string installPath = 10 ;
+    /*
+    版本类型 1 程序包,  2 配置包,  4 文件包
+    */
+    int32 type = 11 ;
+    /*
+    平台
+    */
+    string platform = 12 ;
+}
+        
+message Status {
+    /*
+    是否过时
+    */
+    bool outOfDate = 1 ;
+}
+        
+    
+    /*
+    策略Id，策略Id自动生成
+    */
+    string id = 1 ;
+    /*
+    策略名称
+    */
+    string name = 2 ;
+    /*
+    api版本
+    */
+    string apiVersion = 3 ;
+    /*
+    组织
+    */
+    int32 org = 4 ;
+    /*
+    应用相关信息
+    */
+    App app = 5 ;
+    /*
+    策略类型
+    */
+    string type = 6 ;
+    /*
+    批量策略信息
+    */
+    BatchStrategy batchStrategy = 7 ;
+    /*
+    范围
+    */
+    string scope = 8 ;
+    /*
+    集群列表
+    */
+    repeated cmdb.ClusterInfo clusters = 9 ;
+    /*
+    目标设备列表
+    */
+    repeated easy_flow.TargetInfo targetList = 10 ;
+    /*
+    集群环境
+    */
+    string clusterEnvironment = 11 ;
+    /*
+    集群类型
+    */
+    string clusterType = 12 ;
+    /*
+    部署包信息
+    */
+    repeated PackageList packageList = 13 ;
+    /*
+    部署策略状态
+    */
+    Status status = 14 ;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package system_map;
+
+
+
+
+
+/*
+GetSystemCategories返回
+*/
+message GetSystemCategoriesResponse {
+    /*
+    应用系统类型列表
+    */
+    repeated string systemCategories = 1 ;
+}
+
+/*
+GetSystemCategoriesApi返回
+*/
+message GetSystemCategoriesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    system_map.GetSystemCategoriesResponse data = 4 ;
+}
+

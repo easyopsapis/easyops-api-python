@@ -4,7 +4,7 @@ package version;
 
 
 
-import "model/artifact/white_permission_user.proto";
+import "artifact_sdk/model/artifact/white_permission_user.proto";
 
 /*
 GetVersionPermissionInfo请求

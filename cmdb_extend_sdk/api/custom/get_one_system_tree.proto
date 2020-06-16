@@ -1,0 +1,41 @@
+syntax = "proto3";
+package custom;
+
+
+
+
+import "cmdb_extend_sdk/model/cmdb_extend/subsystem_dependency.proto";
+import "cmdb_extend_sdk/model/cmdb_extend/system_dependency.proto";
+
+/*
+GetOneSystemTree请求
+*/
+message GetOneSystemTreeRequest {
+    /*
+    系统简称
+    */
+    string abbreviation = 1 ;
+}
+
+/*
+GetOneSystemTreeApi返回
+*/
+message GetOneSystemTreeResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_extend.SystemDependency data = 4 ;
+}
+

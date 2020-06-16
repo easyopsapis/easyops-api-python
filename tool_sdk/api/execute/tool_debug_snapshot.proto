@@ -1,0 +1,111 @@
+syntax = "proto3";
+package execute;
+
+
+
+
+import "tool_sdk/model/tool/callback.proto";
+import "tool_sdk/model/tool/extra_info.proto";
+import "tool_sdk/model/tool/execution_snapshot.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ToolDebugSnapshot请求
+*/
+message ToolDebugSnapshotRequest {
+    /*
+    工具脚本的内容
+    */
+    string content = 1 ;
+    /*
+    工具脚本的类型(python, shell..)
+    */
+    string type = 2 ;
+    /*
+    执行用户
+    */
+    string execUser = 3 ;
+    /*
+    白名单
+    */
+    repeated string whiteList = 4 ;
+    /*
+    黑名单
+    */
+    repeated string blackList = 5 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 6 ;
+    /*
+    工具输入参数
+    */
+    google.protobuf.Struct inputs = 7 ;
+    /*
+    工具输出参数
+    */
+    google.protobuf.Struct outputs = 8 ;
+    /*
+    agent列表
+    */
+    repeated string agents = 9 ;
+    /*
+    工具的Env
+    */
+    google.protobuf.Struct toolEnv = 10 ;
+    /*
+    工具执行的通知信息
+    */
+    string needNotify = 11 ;
+}
+
+/*
+ToolDebugSnapshotApi返回
+*/
+message ToolDebugSnapshotResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    tool.ExecutionSnapshot data = 4 ;
+}
+

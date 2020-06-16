@@ -1,0 +1,24 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "container_sdk/model/container/resource_list.proto";
+
+/*
+ResourceRequirements 资源定义
+*/
+message ResourceRequirements {
+    /*
+    最大资源限制
+    */
+    container.ResourceList limits = 1 ;
+    /*
+    容器启动的初始资源请求
+    */
+    container.ResourceList requests = 2 ;
+}
+

@@ -1,0 +1,57 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "container_sdk/model/container/field_update.proto";
+import "google/protobuf/empty.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+message RgUpdates {
+    /*
+    资源组 id
+    */
+    string rgId = 1 ;
+    /*
+    更新字段
+    */
+    repeated container.FieldUpdate updates = 2 ;
+    /*
+    描述信息
+    */
+    string message = 3 ;
+}
+        
+    
+    /*
+    rg 自定义配置
+    */
+    repeated RgUpdates rgUpdates = 1 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

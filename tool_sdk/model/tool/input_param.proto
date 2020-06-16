@@ -42,7 +42,7 @@ message Path {
     /*
     是否级联(映射)
     */
-    string cascade = 5 ;
+    bool cascade = 5 ;
     /*
     参数标题
     */
@@ -50,11 +50,11 @@ message Path {
     /*
     多选
     */
-    string multiple = 7 ;
+    bool multiple = 7 ;
     /*
     必填
     */
-    string required = 8 ;
+    bool required = 8 ;
     /*
     输入参数类型
     */
@@ -66,7 +66,7 @@ message Path {
     /*
     是否为原始参数(第一个参数)
     */
-    string primitive = 11 ;
+    bool primitive = 11 ;
     /*
     辅助说明
     */

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "architecture_view_sdk/model/easy_flow/deploy_target.proto";
+
+/*
+部署分批
+*/
+message DeployBatch {
+message Batches {
+    /*
+    批次主机列表
+    */
+    repeated easy_flow.DeployTarget targets = 1 ;
+}
+        
+    
+    /*
+    分批类型
+    */
+    string type = 1 ;
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 2 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 3 ;
+    /*
+    分批详情
+    */
+    repeated Batches batches = 4 ;
+    /*
+    是否失败暂停
+    */
+    bool failedStop = 5 ;
+}
+

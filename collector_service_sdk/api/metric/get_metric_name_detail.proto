@@ -1,0 +1,77 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+
+/*
+DetailCollectorMetricName请求
+*/
+message DetailCollectorMetricNameRequest {
+    /*
+    目标模型ID
+    */
+    string objectId = 1 ;
+    /*
+    采集指标名
+    */
+    string metricName = 2 ;
+}
+
+/*
+DetailCollectorMetricName返回
+*/
+message DetailCollectorMetricNameResponse {
+    /*
+    指标实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    采集指标名
+    */
+    string metricName = 2 ;
+    /*
+    指标Key
+    */
+    string metricKey = 3 ;
+    /*
+    指标Key名
+    */
+    string metricKeyName = 4 ;
+    /*
+    指标详细说明
+    */
+    string description = 5 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 6 ;
+    /*
+    单位
+    */
+    string unit = 7 ;
+}
+
+/*
+DetailCollectorMetricNameApi返回
+*/
+message DetailCollectorMetricNameResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    metric.DetailCollectorMetricNameResponse data = 4 ;
+}
+

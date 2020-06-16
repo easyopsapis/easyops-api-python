@@ -1,0 +1,48 @@
+syntax = "proto3";
+package proxy;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+ListPod请求
+*/
+message ListPodRequest {
+    /*
+    集群 id
+    */
+    string clusterId = 1 ;
+    /*
+    名称空间
+    */
+    string namespace = 2 ;
+    /*
+    按标签筛选,如:label1=123,label2=234
+    */
+    string labelSelector = 3 ;
+}
+
+/*
+ListPodApi返回
+*/
+message ListPodResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

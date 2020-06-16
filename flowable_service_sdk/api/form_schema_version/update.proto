@@ -1,0 +1,110 @@
+syntax = "proto3";
+package form_schema_version;
+
+
+
+
+import "flowable_service_sdk/model/flowable_service/form_schema_version.proto";
+
+/*
+UpdateFormSchemaVersion请求
+*/
+message UpdateFormSchemaVersionRequest {
+    /*
+    表单实例Id
+    */
+    string formId = 1 ;
+    /*
+    表单版本实例Id
+    */
+    string versionId = 2 ;
+    /*
+    表单版本是否已完成(true表示已完成,false未完成)
+    */
+    bool isDone = 3 ;
+    /*
+    版本状态(unfinished 未完成, done已完成),存为草稿传unfinished,保存传done
+    */
+    string state = 4 ;
+    /*
+    版本名称
+    */
+    string versionName = 5 ;
+    /*
+    版本描述
+    */
+    string versionMemo = 6 ;
+    /*
+    前台的表单控件属性
+    */
+    string formDefinition = 7 ;
+    /*
+    表单名称
+    */
+    string name = 8 ;
+    /*
+    表单说明
+    */
+    string memo = 9 ;
+    /*
+    表单类别
+    */
+    string category = 10 ;
+}
+
+/*
+UpdateFormSchemaVersion返回
+*/
+message UpdateFormSchemaVersionResponse {
+    /*
+    最新版本
+    */
+    flowable_service.FormSchemaVersion lastestVersion = 1 ;
+    /*
+    表单实例id
+    */
+    string instanceId = 2 ;
+    /*
+    表单名称
+    */
+    string name = 3 ;
+    /*
+    表单类别
+    */
+    string category = 4 ;
+    /*
+    表单说明
+    */
+    string memo = 5 ;
+    /*
+    表单作者
+    */
+    string creator = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+}
+
+/*
+UpdateFormSchemaVersionApi返回
+*/
+message UpdateFormSchemaVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    form_schema_version.UpdateFormSchemaVersionResponse data = 4 ;
+}
+

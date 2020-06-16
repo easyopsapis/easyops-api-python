@@ -1,0 +1,50 @@
+syntax = "proto3";
+package node;
+
+
+
+
+import "container_sdk/model/container/node_detail.proto";
+
+/*
+List请求
+*/
+message ListRequest {
+    /*
+    k8s 集群 id
+    */
+    string clusterId = 1 ;
+}
+
+/*
+List返回
+*/
+message ListResponse {
+    /*
+    node list
+    */
+    repeated container.NodeDetail list = 1 ;
+}
+
+/*
+ListApi返回
+*/
+message ListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    node.ListResponse data = 4 ;
+}
+

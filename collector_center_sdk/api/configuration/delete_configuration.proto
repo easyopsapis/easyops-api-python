@@ -1,0 +1,49 @@
+syntax = "proto3";
+package configuration;
+
+
+
+
+
+/*
+DeleteConfiguration请求
+*/
+message DeleteConfigurationRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteConfiguration返回
+*/
+message DeleteConfigurationResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteConfigurationApi返回
+*/
+message DeleteConfigurationResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    configuration.DeleteConfigurationResponse data = 4 ;
+}
+

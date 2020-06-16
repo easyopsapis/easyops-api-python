@@ -1,0 +1,126 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "terraform_sdk/model/container/metadata.proto";
+
+/*
+event 实例
+*/
+message Event {
+message InvolvedObject {
+    /*
+    kind
+    */
+    string kind = 1 ;
+    /*
+    namespace
+    */
+    string namespace = 2 ;
+    /*
+    name
+    */
+    string name = 3 ;
+    /*
+    uid
+    */
+    string uid = 4 ;
+    /*
+    apiVersion
+    */
+    string apiVersion = 5 ;
+    /*
+    resourceVersion
+    */
+    string resourceVersion = 6 ;
+    /*
+    fieldPath
+    */
+    string fieldPath = 7 ;
+}
+        
+message Source {
+    /*
+    component
+    */
+    string component = 1 ;
+    /*
+    host
+    */
+    string host = 2 ;
+}
+        
+message Series {
+    /*
+    count
+    */
+    int32 count = 1 ;
+    /*
+    上次观察到时间
+    */
+    string lastObservedTime = 2 ;
+}
+        
+    
+    /*
+    元数据
+    */
+    container.Metadata metadata = 1 ;
+    /*
+    关联对象
+    */
+    InvolvedObject involvedObject = 2 ;
+    /*
+    简要原因
+    */
+    string reason = 3 ;
+    /*
+    描述
+    */
+    string message = 4 ;
+    /*
+    事件来源
+    */
+    Source source = 5 ;
+    /*
+    首次发生时间
+    */
+    string firstTimestamp = 6 ;
+    /*
+    最后发生时间
+    */
+    string lastTimestamp = 7 ;
+    /*
+    发生次数
+    */
+    int32 count = 8 ;
+    /*
+    类型
+    */
+    string type = 9 ;
+    /*
+    首次观察到时间
+    */
+    string eventTime = 10 ;
+    /*
+    series
+    */
+    Series series = 11 ;
+    /*
+    处理动作
+    */
+    string action = 12 ;
+    /*
+    发出此事件的控制器,例如:kubernetes.io/kubelet
+    */
+    string reportingComponent = 13 ;
+    /*
+    发出此事件的实例Id,例如:kubelet-xyzf
+    */
+    string reportingInstance = 14 ;
+}
+

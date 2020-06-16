@@ -1,0 +1,81 @@
+syntax = "proto3";
+package workspace;
+
+
+
+
+
+/*
+CommitWorkspaceV2请求
+*/
+message CommitWorkspaceV2Request {
+    /*
+    使用指定的版本ID，不提供则自动生成
+    */
+    string versionId = 1 ;
+    /*
+    版本备注信息
+    */
+    string message = 2 ;
+    /*
+    版本名称
+    */
+    string name = 3 ;
+    /*
+    文件源信息
+    */
+    string source = 4 ;
+    /*
+    版本类型
+    */
+    string env_type = 5 ;
+    /*
+    程序包Id
+    */
+    string packageId = 6 ;
+}
+
+/*
+CommitWorkspaceV2返回
+*/
+message CommitWorkspaceV2Response {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    返回数据,成功创建的新版本ID
+    */
+    string data = 4 ;
+}
+
+/*
+CommitWorkspaceV2Api返回
+*/
+message CommitWorkspaceV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workspace.CommitWorkspaceV2Response data = 4 ;
+}
+

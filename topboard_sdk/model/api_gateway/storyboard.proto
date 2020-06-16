@@ -1,0 +1,33 @@
+syntax = "proto3";
+package api_gateway;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/api_gateway";
+
+
+
+
+import "topboard_sdk/model/micro_app/installed_micro_app_bootstrap.proto";
+import "google/protobuf/struct.proto";
+
+/*
+初始化配置
+*/
+message StoryBoard {
+    /*
+    小产品基本信息
+    */
+    micro_app.InstalledMicroAppBootstrap app = 1 ;
+    /*
+    dependsAll
+    */
+    bool dependsAll = 2 ;
+    /*
+    路由配置
+    */
+    repeated google.protobuf.Struct routes = 3 ;
+    /*
+    元数据信息
+    */
+    google.protobuf.Struct meta = 4 ;
+}
+

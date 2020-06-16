@@ -1,0 +1,79 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+机柜
+*/
+message IDCRack {
+message Layout {
+    /*
+    设备ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备类型(host,switch,router,firewall,disable)
+    */
+    string type = 2 ;
+    /*
+    起始U位
+    */
+    int32 startU = 3 ;
+    /*
+    占用U位
+    */
+    int32 occupiedU = 4 ;
+}
+        
+    
+    /*
+    机柜ID
+    */
+    string instanceId = 1 ;
+    /*
+    机柜名称
+    */
+    string name = 2 ;
+    /*
+    机柜编号
+    */
+    string code = 3 ;
+    /*
+    机柜状态
+    */
+    string status = 4 ;
+    /*
+    机柜类型
+    */
+    string type = 5 ;
+    /*
+    机柜U数
+    */
+    int32 unum = 6 ;
+    /*
+    空闲U位数
+    */
+    int32 freeUnum = 7 ;
+    /*
+    备注
+    */
+    string memo = 8 ;
+    /*
+    机柜部局
+    */
+    repeated Layout layout = 9 ;
+    /*
+    创建时间
+    */
+    string ctime = 10 ;
+    /*
+    创建者
+    */
+    string creator = 11 ;
+}
+

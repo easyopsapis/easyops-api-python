@@ -1,0 +1,35 @@
+syntax = "proto3";
+package flowable;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable";
+
+
+
+
+
+/*
+部署资源
+*/
+message FlowableDeploymentResource {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    URL
+    */
+    string url = 2 ;
+    /*
+    内容地址
+    */
+    string contentUrl = 3 ;
+    /*
+    媒体类型
+    */
+    string mediaType = 4 ;
+    /*
+    类型
+    */
+    string type = 5 ;
+}
+

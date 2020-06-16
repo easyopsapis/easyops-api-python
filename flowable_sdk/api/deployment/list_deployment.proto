@@ -1,0 +1,122 @@
+syntax = "proto3";
+package deployment;
+
+
+
+
+import "flowable_sdk/model/flowable/deployment.proto";
+
+/*
+ListDeployment请求
+*/
+message ListDeploymentRequest {
+    /*
+    起始个数
+    */
+    int32 start = 1 ;
+    /*
+    页码大小
+    */
+    int32 size = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    名称模糊查询
+    */
+    string nameLike = 4 ;
+    /*
+    分类
+    */
+    string category = 5 ;
+    /*
+    分类不等于
+    */
+    string categoryNotEquals = 6 ;
+    /*
+    父部署ID
+    */
+    string parentDeploymentId = 7 ;
+    /*
+    父部署ID模型查询
+    */
+    string parentDeploymentIdLike = 8 ;
+    /*
+    tenantID
+    */
+    string tenantId = 9 ;
+    /*
+    tenantID Like
+    */
+    string tenantIdLike = 10 ;
+    /*
+    是否返回不带tenantID的部署
+    */
+    bool withoutTenantId = 11 ;
+    /*
+    排序字段
+    */
+    string sort = 12 ;
+    /*
+    排序顺序
+    */
+    string order = 13 ;
+    /*
+    querystring指定传的field
+    */
+    repeated string XXX_RestFieldMask = 14 ;
+}
+
+/*
+ListDeployment返回
+*/
+message ListDeploymentResponse {
+    /*
+    部署列表
+    */
+    repeated flowable.FlowableDeployment data = 1 ;
+    /*
+    总数
+    */
+    int32 total = 2 ;
+    /*
+    起始个数
+    */
+    int32 start = 3 ;
+    /*
+    排序字段
+    */
+    string sort = 4 ;
+    /*
+    排序顺序
+    */
+    string order = 5 ;
+    /*
+    一页大小
+    */
+    int32 size = 6 ;
+}
+
+/*
+ListDeploymentApi返回
+*/
+message ListDeploymentResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    deployment.ListDeploymentResponse data = 4 ;
+}
+

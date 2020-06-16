@@ -2,17 +2,14 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import resource_manage_sdk.api.service_manage.create_service_task_pb2
 
-import create_service_task_pb2
+import resource_manage_sdk.api.service_manage.create_service_topology_task_pb2
 
-import create_service_topology_task_pb2
+import resource_manage_sdk.api.service_manage.list_service_info_pb2
 
-import utils.http_util
+import resource_manage_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -34,14 +31,14 @@ class ServiceManageClient(object):
 
     
     def create_service_task(self, request, org, user, timeout=10):
-        # type: (create_service_task_pb2.CreateServiceTaskRequest, int, str, int) -> create_service_task_pb2.CreateServiceTaskResponse
+        # type: (resource_manage_sdk.api.service_manage.create_service_task_pb2.CreateServiceTaskRequest, int, str, int) -> resource_manage_sdk.api.service_manage.create_service_task_pb2.CreateServiceTaskResponse
         """
         执行服务管理相关任务
         :param request: create_service_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_service_task_pb2.CreateServiceTaskResponse
+        :return: resource_manage_sdk.api.service_manage.create_service_task_pb2.CreateServiceTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -54,7 +51,7 @@ class ServiceManageClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -67,21 +64,21 @@ class ServiceManageClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_service_task_pb2.CreateServiceTaskResponse()
+        rsp = resource_manage_sdk.api.service_manage.create_service_task_pb2.CreateServiceTaskResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_service_topology_task(self, request, org, user, timeout=10):
-        # type: (create_service_topology_task_pb2.CreateServiceTopologyTaskRequest, int, str, int) -> create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
+        # type: (resource_manage_sdk.api.service_manage.create_service_topology_task_pb2.CreateServiceTopologyTaskRequest, int, str, int) -> resource_manage_sdk.api.service_manage.create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
         """
         创建服务拓扑任务
         :param request: create_service_topology_task请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
+        :return: resource_manage_sdk.api.service_manage.create_service_topology_task_pb2.CreateServiceTopologyTaskResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -94,7 +91,7 @@ class ServiceManageClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -107,7 +104,47 @@ class ServiceManageClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_service_topology_task_pb2.CreateServiceTopologyTaskResponse()
+        rsp = resource_manage_sdk.api.service_manage.create_service_topology_task_pb2.CreateServiceTopologyTaskResponse()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def list_service_info(self, request, org, user, timeout=10):
+        # type: (resource_manage_sdk.api.service_manage.list_service_info_pb2.ListServiceInfoRequest, int, str, int) -> resource_manage_sdk.api.service_manage.list_service_info_pb2.ListServiceInfoResponse
+        """
+        查询所有服务信息
+        :param request: list_service_info请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: resource_manage_sdk.api.service_manage.list_service_info_pb2.ListServiceInfoResponse
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.service_manage.ListServiceInfo"
+        uri = "/api/v1/service/info"
+        
+        requestParam = request
+        
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
+            method="GET",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = resource_manage_sdk.api.service_manage.list_service_info_pb2.ListServiceInfoResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

@@ -1,0 +1,191 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+import "resource_monitor_sdk/model/monitor/alert_dims.proto";
+import "resource_monitor_sdk/model/monitor/alert_conditions.proto";
+import "google/protobuf/struct.proto";
+
+/*
+告警规则
+*/
+message AlertRule {
+message Actions {
+message Condition {
+    /*
+    告警持续时间多久后升级（单位：分钟）
+    */
+    int32 lasting_for = 1 ;
+    /*
+    告警等级大于多少升级
+    */
+    int32 level = 2 ;
+}
+        
+message ReceiverOwners {
+    /*
+    模型Id
+    */
+    string object_id = 1 ;
+    /*
+    关系Id
+    */
+    string object_attr_id = 2 ;
+    /*
+    标签
+    */
+    string translate = 3 ;
+}
+        
+    
+    /*
+    动作触发条件
+    */
+    Condition condition = 1 ;
+    /*
+    告警动作类型
+    */
+    string type = 2 ;
+    /*
+    是否告警升级的动作, false的时候为默认发送动作, 给前台识别用
+    */
+    bool upgrade = 3 ;
+    /*
+    通知方式
+    */
+    repeated string methods = 4 ;
+    /*
+    通知人
+    */
+    repeated string receivers = 5 ;
+    /*
+    通知用户组
+    */
+    repeated string receiver_user_groups = 6 ;
+    /*
+    通知负责人
+    */
+    repeated ReceiverOwners receiver_owners = 7 ;
+}
+        
+message Templates {
+    /*
+    内容模板
+    */
+    string content_template = 1 ;
+    /*
+    告警对象模板
+    */
+    string target_template = 2 ;
+    /*
+    恢复内容模板
+    */
+    string recovery_content_template = 3 ;
+}
+        
+message Instances {
+    /*
+    查询条件类型
+    */
+    string type = 1 ;
+    /*
+    instanceId列表
+    */
+    repeated string instanceIds = 2 ;
+    /*
+    关联实例查询条件
+    */
+    google.protobuf.Struct query = 3 ;
+}
+        
+    
+    /*
+    org
+    */
+    int32 org = 1 ;
+    /*
+    告警规则id
+    */
+    string id = 2 ;
+    /*
+    告警规则名
+    */
+    string rule_name = 3 ;
+    /*
+    告警规则版本
+    */
+    int32 version = 4 ;
+    /*
+    版本id，废弃
+    */
+    string version_id = 5 ;
+    /*
+    告警维度
+    */
+    repeated monitor.AlertDims alert_dims = 6 ;
+    /*
+    规则优先级
+    */
+    int32 rule_priority = 7 ;
+    /*
+    告警条件
+    */
+    monitor.AlertConditions alert_conditions = 8 ;
+    /*
+    detect_window个时间窗内， 如果有alert_count个点超出阈值范围，则告警
+    */
+    int32 detect_window = 9 ;
+    /*
+    detect_window个时间窗内， 如果有alert_count个点超出阈值范围，则告警
+    */
+    int32 alert_count = 10 ;
+    /*
+    告警间隔
+    */
+    int32 alert_interval = 11 ;
+    /*
+    告警恢复间隔
+    */
+    int32 recover_count = 12 ;
+    /*
+    告警动作（通知或者执行工具流程）
+    */
+    repeated Actions actions = 13 ;
+    /*
+    告警通知模板
+    */
+    Templates templates = 14 ;
+    /*
+    创建者
+    */
+    string creator = 15 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 16 ;
+    /*
+    最近一次改变时间
+    */
+    int32 mtime = 17 ;
+    /*
+    关联的模型实例
+    */
+    Instances instances = 18 ;
+    /*
+    关联的模型ID
+    */
+    string objectId = 19 ;
+    /*
+    是否禁用
+    */
+    bool disabled = 20 ;
+    /*
+    来源
+    */
+    string source = 21 ;
+}
+

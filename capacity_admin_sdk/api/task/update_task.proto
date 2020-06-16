@@ -1,0 +1,109 @@
+syntax = "proto3";
+package task;
+
+
+
+
+
+/*
+UpdateTask请求
+*/
+message UpdateTaskRequest {
+    /*
+    任务 Id
+    */
+    string taskId = 1 ;
+    /*
+    闲置主机列表
+    */
+    repeated string idleHosts = 2 ;
+    /*
+    非闲置主机列表
+    */
+    repeated string nonIdleHosts = 3 ;
+}
+
+/*
+UpdateTask返回
+*/
+message UpdateTaskResponse {
+    /*
+    任务ID
+    */
+    string instanceId = 1 ;
+    /*
+    任务名称
+    */
+    string name = 2 ;
+    /*
+    主机列表
+    */
+    repeated string hosts = 3 ;
+    /*
+    疑似闲置主机列表
+    */
+    repeated string suspectedIdleHosts = 4 ;
+    /*
+    闲置主机列表
+    */
+    repeated string idleHosts = 5 ;
+    /*
+    非闲置主机列表
+    */
+    repeated string nonIdleHosts = 6 ;
+    /*
+    任务状态, executing, confirmation, confirmed, failed
+    */
+    string status = 7 ;
+    /*
+    任务分析完成时间
+    */
+    string endTime = 8 ;
+    /*
+    命中率
+    */
+    float hitRate = 9 ;
+    /*
+    任务创建时间
+    */
+    string ctime = 10 ;
+    /*
+    任务创建者
+    */
+    string creator = 11 ;
+    /*
+    工具执行 Id
+    */
+    string execId = 12 ;
+    /*
+    分析正常主机列表
+    */
+    repeated string normalHosts = 13 ;
+    /*
+    分析异常主机列表
+    */
+    repeated string abnormalHosts = 14 ;
+}
+
+/*
+UpdateTaskApi返回
+*/
+message UpdateTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task.UpdateTaskResponse data = 4 ;
+}
+

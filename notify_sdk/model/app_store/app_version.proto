@@ -11,6 +11,18 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/a
 小产品版本
 */
 message AppVersion {
+message Dependencies {
+    /*
+    依赖组件
+    */
+    string packageName = 1 ;
+    /*
+    依赖版本semver约束
+    */
+    string constraint = 2 ;
+}
+        
+    
     /*
     版本实例id
     */
@@ -31,5 +43,9 @@ message AppVersion {
     版本发布时间
     */
     string releaseTime = 5 ;
+    /*
+    依赖包列表
+    */
+    repeated Dependencies dependencies = 6 ;
 }
 

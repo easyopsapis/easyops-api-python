@@ -1,0 +1,48 @@
+syntax = "proto3";
+package msgpub;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+Publish请求
+*/
+message PublishRequest {
+    /*
+    数据
+    */
+    google.protobuf.Struct data = 1 ;
+    /*
+    系统名称
+    */
+    string system = 2 ;
+    /*
+    topic
+    */
+    string topic = 3 ;
+}
+
+/*
+PublishApi返回
+*/
+message PublishResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Value data = 4 ;
+}
+

@@ -1,0 +1,63 @@
+syntax = "proto3";
+package state_workflow;
+
+
+
+
+import "state_workflow_sdk/model/state_workflow/stateWorkflow.proto";
+import "google/protobuf/struct.proto";
+
+/*
+CallbackStateWorkflow请求
+*/
+message CallbackStateWorkflowRequest {
+    /*
+    匹配的状态机
+    */
+    state_workflow.StateWorkflow stateWorkflow = 1 ;
+    /*
+    实例信息
+    */
+    google.protobuf.Struct instance = 2 ;
+    /*
+    目标状态（针对状态更新前调用的callback）
+    */
+    string targetState = 3 ;
+    /*
+    前置状态（针对状态更新后调用的callback）
+    */
+    string preposeState = 4 ;
+}
+
+/*
+CallbackStateWorkflow返回
+*/
+message CallbackStateWorkflowResponse {
+    /*
+    返回执行结果, 0 成功， 1 失败
+    */
+    int32 code = 1 ;
+}
+
+/*
+CallbackStateWorkflowApi返回
+*/
+message CallbackStateWorkflowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    state_workflow.CallbackStateWorkflowResponse data = 4 ;
+}
+

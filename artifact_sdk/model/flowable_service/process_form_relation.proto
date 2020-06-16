@@ -1,0 +1,31 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+流程表单关系(中间模型)
+*/
+message ProcessFromRelation {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    用户任务Id(bpmn中定义的任务Id)
+    */
+    string userTaskId = 2 ;
+    /*
+    标准工时
+    */
+    string taskWorkingTime = 3 ;
+    /*
+    审批时限(workingDay工作日,calendarDay日历日)
+    */
+    string approvalLimit = 4 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package menu;
+
+
+
+
+
+/*
+GetUserForbiddenMenu请求
+*/
+message GetUserForbiddenMenuRequest {
+    /*
+    用户名
+    */
+    string username = 1 ;
+}
+
+/*
+GetUserForbiddenMenu返回
+*/
+message GetUserForbiddenMenuResponse {
+    /*
+    不可见菜单列表
+    */
+    repeated string forbidden_menu = 1 ;
+}
+
+/*
+GetUserForbiddenMenuApi返回
+*/
+message GetUserForbiddenMenuResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    menu.GetUserForbiddenMenuResponse data = 4 ;
+}
+

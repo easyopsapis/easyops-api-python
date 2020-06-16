@@ -12,6 +12,21 @@ import "google/protobuf/struct.proto";
 流程步骤
 */
 message FlowStep {
+message Actions {
+    /*
+    标题
+    */
+    string label = 1 ;
+    /*
+    值
+    */
+    string value = 2 ;
+    /*
+    是否中断
+    */
+    bool terminate = 3 ;
+}
+        
 message Styles {
     /*
     宽
@@ -48,68 +63,110 @@ message Parents {
     */
     string toolId = 2 ;
     /*
+    流程审核示例
+"actions":[
+    {
+    "label":"继续",
+    "value":"yes",
+    "terminate":false
+    },
+    {
+    "label":"停止",
+    "value":"no",
+    "terminate":true
+    },
+]
+
+    */
+    repeated Actions actions = 3 ;
+    /*
+    审批用户或者用户组
+    */
+    repeated string approvers = 4 ;
+    /*
+    邮件通知
+    */
+    bool mailToApprovers = 5 ;
+    /*
     步骤名
     */
-    string stepName = 3 ;
+    string stepName = 6 ;
     /*
     使用工具版本
     */
-    string vId = 4 ;
+    string vId = 7 ;
     /*
     执行用户
     */
-    string execUser = 5 ;
+    string execUser = 8 ;
     /*
     失败退出
     */
-    string failureExit = 6 ;
+    bool failureExit = 9 ;
     /*
     步骤类型(tool、flow、manual)
     */
-    string subType = 7 ;
+    string subType = 10 ;
     /*
     类型
     */
-    string type = 8 ;
+    string type = 11 ;
     /*
     在画布中X坐标
     */
-    float _x = 9 ;
+    float _x = 12 ;
     /*
     在画布中Y坐标
     */
-    float _y = 10 ;
+    float _y = 13 ;
     /*
     是否root执行
     */
-    string root = 11 ;
+    bool root = 14 ;
     /*
     相对流程起点X坐标
     */
-    float _dx = 12 ;
+    float _dx = 15 ;
     /*
     相对流程启动Y坐标
     */
-    float _dy = 13 ;
+    float _dy = 16 ;
     /*
     样式
     */
-    Styles styles = 14 ;
+    Styles styles = 17 ;
     /*
-    步骤输出
+    步骤输出, 有时候是{}, 有时候[]
     */
-    google.protobuf.Struct outputs = 15 ;
+    google.protobuf.Value outputs = 18 ;
     /*
     流程输入
+    {
+    "inputs": {
+    "must_input": "1",
+    "option_input": "000",
+    "@agents": [
+        {
+            "instanceId": "5c6f6cf0d8079",
+            "ip": "192.168.100.162"
+        },
+        {
+            "instanceId": "5c6f6cf0d8075",
+            "ip": "192.168.100.163"
+        }
+    ]
+    }
+    }
+
     */
-    google.protobuf.Struct inputs = 16 ;
+    google.protobuf.Value inputs = 19 ;
     /*
-    通知条件
+    通知条件 "OnSuccess", "OnFailure", "OnTimeout"
     */
-    string informCondition = 17 ;
+    repeated string informCondition = 20 ;
     /*
     前置节点信息
     */
-    repeated Parents parents = 18 ;
+    repeated Parents parents = 21 ;
 }
 

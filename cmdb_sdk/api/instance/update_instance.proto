@@ -22,6 +22,10 @@ message UpdateInstanceRequest {
     要更新的实例
     */
     google.protobuf.Struct instance = 3 ;
+    /*
+    是否只返回实例id
+    */
+    bool only_instance_id = 4 ;
 }
 
 /*

@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/cmdb/cluster_info.proto";
+import "app_store_sdk/model/easy_flow/package_info.proto";
 
 /*
 部署包结果
@@ -37,73 +37,6 @@ message Progress {
     值
     */
     string values = 6 ;
-}
-        
-message Param {
-message PackageList {
-    /*
-    集群
-    */
-    cmdb.ClusterInfo cluster = 1 ;
-    /*
-    目标版本
-    */
-    string targetVersion = 2 ;
-    /*
-    是否提前暂停
-    */
-    string preStop = 3 ;
-    /*
-    是否发布重启
-    */
-    string postRestart = 4 ;
-    /*
-    是否自动运行
-    */
-    string autoStart = 5 ;
-    /*
-    是否需要用户检查
-    */
-    string userCheck = 6 ;
-    /*
-    是否完全更新
-    */
-    string fullUpdate = 7 ;
-    /*
-    强制更新
-    */
-    string force = 8 ;
-    /*
-    强制安装
-    */
-    string forceInstall = 9 ;
-    /*
-    包Id
-    */
-    string packageId = 10 ;
-    /*
-    包名称
-    */
-    string name = 11 ;
-    /*
-    安装路径
-    */
-    string installPath = 12 ;
-    /*
-    版本类型 1 程序包,  2 配置包,  4 文件包
-    */
-    int32 type = 13 ;
-    /*
-    平台
-    */
-    string platform = 14 ;
-}
-        
-    
-    /*
-    部署包信息
-    */
-    PackageList packageList = 1 ;
 }
         
     
@@ -150,6 +83,6 @@ message PackageList {
     /*
     参数
     */
-    Param param = 11 ;
+    easy_flow.PackageInfo param = 11 ;
 }
 

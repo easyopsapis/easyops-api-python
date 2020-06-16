@@ -1,0 +1,57 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+Container 状态
+*/
+message ContainerState {
+message Waiting {
+    /*
+    原因
+    */
+    string reason = 1 ;
+    /*
+    描述
+    */
+    string message = 2 ;
+}
+        
+message Running {
+    /*
+    开始时间
+    */
+    string startedAt = 1 ;
+}
+        
+message Terminated {
+    /*
+    原因
+    */
+    string reason = 1 ;
+    /*
+    描述
+    */
+    string message = 2 ;
+}
+        
+    
+    /*
+    等待中
+    */
+    Waiting waiting = 1 ;
+    /*
+    运行中
+    */
+    Running running = 2 ;
+    /*
+    停止
+    */
+    Terminated terminated = 3 ;
+}
+

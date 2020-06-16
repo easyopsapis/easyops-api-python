@@ -1,0 +1,65 @@
+syntax = "proto3";
+package health_assessment;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/health_assessment";
+
+
+
+
+import "micro_app_sdk/model/health_assessment/health_assessment_related_resource_event_score.proto";
+import "micro_app_sdk/model/health_assessment/health_assessment_event_score_config_item.proto";
+
+/*
+健康评分结果
+*/
+message HealthAssessmentResult {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    关联评分规则ID
+    */
+    string ruleId = 2 ;
+    /*
+    关联评分规则版本ID
+    */
+    string ruleVersionId = 3 ;
+    /*
+    所属模型id
+    */
+    string objectId = 4 ;
+    /*
+    事件评分
+    */
+    int32 eventScore = 5 ;
+    /*
+    关联资源评分
+    */
+    int32 relationScore = 6 ;
+    /*
+    健康评分
+    */
+    int32 healthScore = 7 ;
+    /*
+    具体关联资源事件评分（权重前）
+    */
+    repeated health_assessment.HealthAssessmentRelatedResourceEventScore relatedResourceEventScores = 8 ;
+    /*
+    事件评分权重
+    */
+    int32 eventScoreWeight = 9 ;
+    /*
+    关联资源权重
+    */
+    int32 relatedResourceWeight = 10 ;
+    /*
+    时间
+    */
+    int32 timestamp = 11 ;
+    /*
+    事件评分设置
+    */
+    repeated health_assessment.HealthAssessmentEventScoreConfigItem eventScoreConfig = 12 ;
+}
+

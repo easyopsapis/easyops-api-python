@@ -1,0 +1,64 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+import "tuna_service_sdk/model/collector_service/metric.proto";
+
+/*
+采集指标(只有一个原始指标），用于给collector_proxy接口用
+*/
+message CollectorAliasMetricWithOneOiriginalMetric {
+message Dims {
+    /*
+    维度名字
+    */
+    string dimName = 1 ;
+    /*
+    原始指标维度名字
+    */
+    string originDimName = 2 ;
+}
+        
+    
+    /*
+    指标是否只用于中间计算，不上报，默认为false
+    */
+    bool calculateOnly = 1 ;
+    /*
+    原始指标
+    */
+    collector_service.CollectorMetric collectorMetric = 2 ;
+    /*
+    依赖指标
+    */
+    repeated collector_service.CollectorAliasMetricWithOneOiriginalMetric dependMetrics = 3 ;
+    /*
+    指标id
+    */
+    string instanceId = 4 ;
+    /*
+    指标名
+    */
+    string name = 5 ;
+    /*
+    维度列表
+    */
+    repeated Dims dims = 6 ;
+    /*
+    指标版本
+    */
+    int32 version = 7 ;
+    /*
+    是否计算类型的指标
+    */
+    bool isCalculated = 8 ;
+    /*
+    计算表达式（calculated的指标用）
+    */
+    string expression = 9 ;
+}
+

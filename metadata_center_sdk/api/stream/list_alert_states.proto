@@ -1,0 +1,40 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+import "metadata_center_sdk/model/metadata_center/stream_alert_rule.proto";
+
+/*
+ListAlertStates返回
+*/
+message ListAlertStatesResponse {
+    /*
+    告警规则列表
+    */
+    repeated metadata_center.StreamAlertRule states = 1 ;
+}
+
+/*
+ListAlertStatesApi返回
+*/
+message ListAlertStatesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ListAlertStatesResponse data = 4 ;
+}
+

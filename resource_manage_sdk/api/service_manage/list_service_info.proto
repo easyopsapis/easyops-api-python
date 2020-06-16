@@ -1,0 +1,66 @@
+syntax = "proto3";
+package service_manage;
+
+
+
+
+import "resource_manage_sdk/model/resource_manage/service_info.proto";
+
+/*
+ListServiceInfo请求
+*/
+message ListServiceInfoRequest {
+    /*
+    模型ID
+    */
+    string objectId = 1 ;
+    /*
+    节点类型
+    */
+    string nodeType = 2 ;
+}
+
+/*
+ListServiceInfo返回
+*/
+message ListServiceInfoResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated resource_manage.ServiceInfo list = 4 ;
+}
+
+/*
+ListServiceInfoApi返回
+*/
+message ListServiceInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    service_manage.ListServiceInfoResponse data = 4 ;
+}
+

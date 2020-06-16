@@ -1,0 +1,52 @@
+syntax = "proto3";
+package topo_view;
+
+
+
+
+import "topology_sdk/model/topology/topo_view.proto";
+
+/*
+UpdateTopoView请求
+*/
+message UpdateTopoViewRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    类型
+    */
+    string type = 3 ;
+    /*
+    数据
+    */
+    string data = 4 ;
+}
+
+/*
+UpdateTopoViewApi返回
+*/
+message UpdateTopoViewResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topology.TopoView data = 4 ;
+}
+

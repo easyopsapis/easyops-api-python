@@ -1,0 +1,48 @@
+syntax = "proto3";
+package capacity_admin;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/capacity_admin";
+
+
+
+
+import "idcmanager_sdk/model/capacity_admin/portrait_config.proto";
+
+/*
+容量管理-闲置资源画像
+*/
+message Portrait {
+    /*
+    画像ID
+    */
+    string instanceId = 1 ;
+    /*
+    画像名称
+    */
+    string name = 2 ;
+    /*
+    画像编码
+    */
+    string charset = 3 ;
+    /*
+    画像负责人
+    */
+    string user = 4 ;
+    /*
+    画像描述
+    */
+    string memo = 5 ;
+    /*
+    画像配置
+    */
+    capacity_admin.PortraitConfig config = 6 ;
+    /*
+    任务创建时间
+    */
+    string ctime = 7 ;
+    /*
+    任务创建者
+    */
+    string creator = 8 ;
+}
+

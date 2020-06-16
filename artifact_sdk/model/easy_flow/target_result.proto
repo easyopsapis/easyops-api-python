@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/e
 
 
 
-import "model/cmdb/cluster_info.proto";
-import "model/easy_flow/deploy_package_result.proto";
+import "artifact_sdk/model/cmdb/cluster_info.proto";
+import "artifact_sdk/model/easy_flow/deploy_package_result.proto";
 
 /*
 目标设备信息

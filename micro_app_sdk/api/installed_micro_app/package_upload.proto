@@ -1,0 +1,65 @@
+syntax = "proto3";
+package installed_micro_app;
+
+
+
+
+
+/*
+PackageUpload请求
+*/
+message PackageUploadRequest {
+    /*
+    小产品版本号
+    */
+    string version = 1 ;
+    /*
+    版本描述信息
+    */
+    string description = 2 ;
+    /*
+    小产品关联的objectId列表
+    */
+    repeated string objectIds = 3 ;
+    /*
+    小产品id
+    */
+    string appId = 4 ;
+}
+
+/*
+PackageUpload返回
+*/
+message PackageUploadResponse {
+    /*
+    小产品版本号
+    */
+    string version = 1 ;
+    /*
+    小产品id
+    */
+    string appId = 2 ;
+}
+
+/*
+PackageUploadApi返回
+*/
+message PackageUploadResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    installed_micro_app.PackageUploadResponse data = 4 ;
+}
+

@@ -1,0 +1,25 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "staff_manage_sdk/model/container/metadata.proto";
+import "staff_manage_sdk/model/container/pod_status.proto";
+
+/*
+Pod 实例
+*/
+message PodDetail {
+    /*
+    元数据
+    */
+    container.Metadata metadata = 1 ;
+    /*
+    Pod 状态
+    */
+    container.PodStatus status = 2 ;
+}
+

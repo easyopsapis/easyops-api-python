@@ -1,0 +1,72 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+import "webshell_sdk/model/flowable_service/process_variable.proto";
+
+/*
+流程实例步骤
+*/
+message ProcessInstanceStep {
+    /*
+    ID
+    */
+    string instanceId = 1 ;
+    /*
+    用户任务ID
+    */
+    string userTaskId = 2 ;
+    /*
+    flowable的任务ID
+    */
+    string flowableTaskId = 3 ;
+    /*
+    创建人
+    */
+    string creator = 4 ;
+    /*
+    创建时间
+    */
+    string ctime = 5 ;
+    /*
+    结束时间
+    */
+    string etime = 6 ;
+    /*
+    操作人
+    */
+    string operator = 7 ;
+    /*
+    状态(ready当前正在流转步骤, done通过, rejected驳回)
+    */
+    string status = 8 ;
+    /*
+    操作时间
+    */
+    string otime = 9 ;
+    /*
+    操作
+    */
+    string action = 10 ;
+    /*
+    操作说明
+    */
+    string memo = 11 ;
+    /*
+    变量列表
+    */
+    repeated flowable_service.ProcessVariable variables = 12 ;
+    /*
+    表单header数据(json dict)
+    */
+    string formHeaderData = 13 ;
+    /*
+    表单body数据(json list)
+    */
+    string formBodyData = 14 ;
+}
+

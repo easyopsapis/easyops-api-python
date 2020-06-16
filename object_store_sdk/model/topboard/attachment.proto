@@ -1,0 +1,44 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+import "object_store_sdk/model/topboard/issue_basic.proto";
+
+/*
+附件
+*/
+message Attachment {
+    /*
+    问题id
+    */
+    string name = 1 ;
+    /*
+    附件实例id
+    */
+    string instanceId = 2 ;
+    /*
+    类型
+    */
+    string type = 3 ;
+    /*
+    文件名
+    */
+    string filename = 4 ;
+    /*
+    大小
+    */
+    string size = 5 ;
+    /*
+    文件标识
+    */
+    string fileToConvert = 6 ;
+    /*
+    所属问题
+    */
+    repeated topboard.IssueBasic issue = 7 ;
+}
+

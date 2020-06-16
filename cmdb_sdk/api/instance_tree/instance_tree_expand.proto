@@ -4,7 +4,7 @@ package instance_tree;
 
 
 
-import "model/cmdb/instance_tree_root_node.proto";
+import "cmdb_sdk/model/cmdb/instance_tree_root_node.proto";
 import "google/protobuf/struct.proto";
 
 /*

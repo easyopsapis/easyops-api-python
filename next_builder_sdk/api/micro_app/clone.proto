@@ -1,0 +1,52 @@
+syntax = "proto3";
+package micro_app;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+CloneBricks请求
+*/
+message CloneBricksRequest {
+    /*
+    源构件id
+    */
+    string sourceBrickId = 1 ;
+    /*
+    源应用id
+    */
+    string sourceAppId = 2 ;
+    /*
+    新的父构件id
+    */
+    string newParentBrickId = 3 ;
+    /*
+    新的应用id
+    */
+    string newAppId = 4 ;
+}
+
+/*
+CloneBricksApi返回
+*/
+message CloneBricksResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

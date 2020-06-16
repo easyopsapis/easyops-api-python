@@ -1,0 +1,117 @@
+syntax = "proto3";
+package task_history;
+
+
+
+
+
+/*
+CreateHistory请求
+*/
+message CreateHistoryRequest {
+message Annotations {
+    /*
+    应用ID
+    */
+    string appId = 1 ;
+}
+        
+    
+    /*
+    创建用户
+    */
+    string user = 1 ;
+    /*
+    org
+    */
+    int32 org = 2 ;
+    /*
+    任务名称
+    */
+    string name = 3 ;
+    /*
+    启动时间
+    */
+    string start_time = 4 ;
+    /*
+    结束时间
+    */
+    string end_time = 5 ;
+    /*
+    task id
+    */
+    string task_id = 6 ;
+    /*
+    执行返回码
+    */
+    int32 code = 7 ;
+    /*
+    调度结果信息
+    */
+    string msg = 8 ;
+    /*
+    发起定时任务的源 id
+    */
+    string src_id = 9 ;
+    /*
+    工具/流程/流水线/巡检 任务id
+    */
+    string tool_exec_id = 10 ;
+    /*
+    任务对象类型
+    */
+    string job_type = 11 ;
+    /*
+    相关参数
+    */
+    Annotations annotations = 12 ;
+}
+
+/*
+CreateHistory返回
+*/
+message CreateHistoryResponse {
+message Data {
+    /*
+    新建立的id
+    */
+    string id = 1 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    结果信息
+    */
+    string msg = 2 ;
+    /*
+    返回数据
+    */
+    Data data = 3 ;
+}
+
+/*
+CreateHistoryApi返回
+*/
+message CreateHistoryResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task_history.CreateHistoryResponse data = 4 ;
+}
+

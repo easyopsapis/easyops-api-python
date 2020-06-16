@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import database_delivery_sdk.api.dbinstance.create_pb2
 
-import create_pb2
-
-import delete_pb2
+import database_delivery_sdk.api.dbinstance.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import database_delivery_sdk.api.dbinstance.get_pb2
 
-import list_pb2
+import database_delivery_sdk.api.dbinstance.list_pb2
 
-import update_pb2
+import database_delivery_sdk.api.dbinstance.update_pb2
 
-import validate_dbinstance_conn_pb2
+import database_delivery_sdk.api.dbinstance.validate_dbinstance_conn_pb2
 
-import utils.http_util
+import database_delivery_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class DbinstanceClient(object):
 
     
     def create_db_instance(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateDBInstanceRequest, int, str, int) -> create_pb2.CreateDBInstanceResponse
+        # type: (database_delivery_sdk.api.dbinstance.create_pb2.CreateDBInstanceRequest, int, str, int) -> database_delivery_sdk.api.dbinstance.create_pb2.CreateDBInstanceResponse
         """
         创建数据库实例
         :param request: create_db_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateDBInstanceResponse
+        :return: database_delivery_sdk.api.dbinstance.create_pb2.CreateDBInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -65,7 +60,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -78,14 +73,14 @@ class DbinstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateDBInstanceResponse()
+        rsp = database_delivery_sdk.api.dbinstance.create_pb2.CreateDBInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_db_instance(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteDBInstanceRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbinstance.delete_pb2.DeleteDBInstanceRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除数据库实例
         :param request: delete_db_instance请求
@@ -107,7 +102,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -127,14 +122,14 @@ class DbinstanceClient(object):
         return rsp
     
     def get_db_instance(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetDBInstanceRequest, int, str, int) -> get_pb2.GetDBInstanceResponse
+        # type: (database_delivery_sdk.api.dbinstance.get_pb2.GetDBInstanceRequest, int, str, int) -> database_delivery_sdk.api.dbinstance.get_pb2.GetDBInstanceResponse
         """
         获取数据库实例详情
         :param request: get_db_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetDBInstanceResponse
+        :return: database_delivery_sdk.api.dbinstance.get_pb2.GetDBInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -149,7 +144,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -162,21 +157,21 @@ class DbinstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetDBInstanceResponse()
+        rsp = database_delivery_sdk.api.dbinstance.get_pb2.GetDBInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_db_instance(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListDBInstanceRequest, int, str, int) -> list_pb2.ListDBInstanceResponse
+        # type: (database_delivery_sdk.api.dbinstance.list_pb2.ListDBInstanceRequest, int, str, int) -> database_delivery_sdk.api.dbinstance.list_pb2.ListDBInstanceResponse
         """
         获取数据库实例列表
         :param request: list_db_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListDBInstanceResponse
+        :return: database_delivery_sdk.api.dbinstance.list_pb2.ListDBInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -190,7 +185,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -203,21 +198,21 @@ class DbinstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListDBInstanceResponse()
+        rsp = database_delivery_sdk.api.dbinstance.list_pb2.ListDBInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_db_instance(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateDBInstanceRequest, int, str, int) -> update_pb2.UpdateDBInstanceResponse
+        # type: (database_delivery_sdk.api.dbinstance.update_pb2.UpdateDBInstanceRequest, int, str, int) -> database_delivery_sdk.api.dbinstance.update_pb2.UpdateDBInstanceResponse
         """
         更新数据库实例详情
         :param request: update_db_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_pb2.UpdateDBInstanceResponse
+        :return: database_delivery_sdk.api.dbinstance.update_pb2.UpdateDBInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -232,7 +227,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -245,14 +240,14 @@ class DbinstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_pb2.UpdateDBInstanceResponse()
+        rsp = database_delivery_sdk.api.dbinstance.update_pb2.UpdateDBInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def validate_db_instance_conenction(self, request, org, user, timeout=10):
-        # type: (validate_dbinstance_conn_pb2.ValidateDBInstanceConenctionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.dbinstance.validate_dbinstance_conn_pb2.ValidateDBInstanceConenctionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         检测数据库实例连接
         :param request: validate_db_instance_conenction请求
@@ -273,7 +268,7 @@ class DbinstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,

@@ -1,0 +1,73 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_view.proto";
+import "cmdb_sdk/model/cmdb/object_attr.proto";
+import "cmdb_sdk/model/cmdb/object_relation.proto";
+import "cmdb_sdk/model/cmdb/object_relation_group.proto";
+import "cmdb_sdk/model/cmdb/object_index.proto";
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
+
+/*
+Create请求
+*/
+message CreateRequest {
+    /*
+    objectId
+    */
+    string objectId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    模型图标
+    */
+    string icon = 3 ;
+    /*
+    分类
+    */
+    string category = 4 ;
+    /*
+    备注
+    */
+    string memo = 5 ;
+    /*
+    视图设置
+    */
+    cmdb.ObjectView view = 6 ;
+    /*
+    是否是抽象模型(父模型)
+    */
+    bool isAbstract = 7 ;
+    /*
+    所属父模型
+    */
+    string parentObjectId = 8 ;
+}
+
+/*
+CreateApi返回
+*/
+message CreateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb.CmdbObject data = 4 ;
+}
+

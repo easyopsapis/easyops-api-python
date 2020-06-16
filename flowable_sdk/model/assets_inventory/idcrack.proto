@@ -1,0 +1,87 @@
+syntax = "proto3";
+package assets_inventory;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/assets_inventory";
+
+
+
+
+
+/*
+机柜
+*/
+message InventoryIDCRack {
+message Layout {
+    /*
+    设备ID
+    */
+    string instanceId = 1 ;
+    /*
+    设备类型(host,switch,router,firewall,disable)
+    */
+    string type = 2 ;
+    /*
+    起始U位
+    */
+    int32 startU = 3 ;
+    /*
+    占用U位
+    */
+    int32 occupiedU = 4 ;
+}
+        
+    
+    /*
+    机柜ID
+    */
+    string instanceId = 1 ;
+    /*
+    机柜名称
+    */
+    string name = 2 ;
+    /*
+    机柜编号
+    */
+    string code = 3 ;
+    /*
+    机柜状态
+    */
+    string status = 4 ;
+    /*
+    应用名称
+    */
+    string app = 5 ;
+    /*
+    业务类型
+    */
+    string business = 6 ;
+    /*
+    机柜类型
+    */
+    string type = 7 ;
+    /*
+    机柜U数
+    */
+    int32 unum = 8 ;
+    /*
+    空闲U位数
+    */
+    int32 freeUnum = 9 ;
+    /*
+    备注
+    */
+    string memo = 10 ;
+    /*
+    机柜部局
+    */
+    repeated Layout layout = 11 ;
+    /*
+    创建时间
+    */
+    string ctime = 12 ;
+    /*
+    创建者
+    */
+    string creator = 13 ;
+}
+

@@ -4,7 +4,7 @@ package job_task;
 
 
 
-import "model/ops_automation/job_tasks.proto";
+import "ops_automation_sdk/model/ops_automation/job_tasks.proto";
 
 /*
 ListJobTasks请求
@@ -23,9 +23,9 @@ message ListJobTasksRequest {
     */
     string taskId = 3 ;
     /*
-    任务执行用户
+    任务执行用户, 多个英文逗号分隔
     */
-    string execUser = 4 ;
+    string execUsers = 4 ;
     /*
     job id
     */
@@ -43,13 +43,17 @@ message ListJobTasksRequest {
     */
     string status = 8 ;
     /*
+    主机，多台英文逗号分隔
+    */
+    string agents = 9 ;
+    /*
     2019-07-21+00:00:00
     */
-    string startTime = 9 ;
+    string startTime = 10 ;
     /*
     2019-07-22+00:00:00
     */
-    string endTime = 10 ;
+    string endTime = 11 ;
 }
 
 /*

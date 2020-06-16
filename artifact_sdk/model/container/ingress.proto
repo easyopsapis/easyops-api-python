@@ -1,0 +1,71 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "artifact_sdk/model/container/ingress_backend.proto";
+import "artifact_sdk/model/container/ingress_rule.proto";
+import "artifact_sdk/model/container/ingress_tls.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Ingress 路由
+*/
+message Ingress {
+    /*
+    id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    类型
+    */
+    string kind = 2 ;
+    /*
+    命名空间, 创建之后不能修改
+    */
+    string namespace = 3 ;
+    /*
+    名称
+    */
+    string resourceName = 4 ;
+    /*
+    显示名称
+    */
+    string displayName = 5 ;
+    /*
+    描述
+    */
+    string description = 6 ;
+    /*
+    注解
+    */
+    google.protobuf.Struct annotations = 7 ;
+    /*
+    地址信息
+    */
+    repeated string address = 8 ;
+    /*
+    默认转发服务
+    */
+    container.IngressBackend backend = 9 ;
+    /*
+    规则
+    */
+    repeated container.IngressRule rules = 10 ;
+    /*
+    tls 认证信息
+    */
+    repeated container.IngressTLS tls = 11 ;
+    /*
+    创建时间
+    */
+    string ctime = 12 ;
+    /*
+    创建者
+    */
+    string creator = 13 ;
+}
+

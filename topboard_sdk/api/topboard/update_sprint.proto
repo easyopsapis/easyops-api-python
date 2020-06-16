@@ -1,0 +1,46 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "topboard_sdk/model/topboard/sprint.proto";
+import "topboard_sdk/model/topboard/product_basic.proto";
+import "topboard_sdk/model/topboard/issue_basic.proto";
+
+/*
+UpdateSprint请求
+*/
+message UpdateSprintRequest {
+    /*
+    迭代Id
+    */
+    string sprintID = 1 ;
+    /*
+    迭代信息
+    */
+    topboard.Sprint sprint = 2 ;
+}
+
+/*
+UpdateSprintApi返回
+*/
+message UpdateSprintResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.Sprint data = 4 ;
+}
+

@@ -1,0 +1,66 @@
+syntax = "proto3";
+package object_relation;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_relation.proto";
+
+/*
+GetRelationsByGroupId请求
+*/
+message GetRelationsByGroupIdRequest {
+    /*
+    模型ID
+    */
+    string object_id = 1 ;
+    /*
+    分组ID
+    */
+    string group_id = 2 ;
+}
+
+/*
+GetRelationsByGroupId返回
+*/
+message GetRelationsByGroupIdResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    页码
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    数据
+    */
+    repeated cmdb.ObjectRelation data = 4 ;
+}
+
+/*
+GetRelationsByGroupIdApi返回
+*/
+message GetRelationsByGroupIdResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    object_relation.GetRelationsByGroupIdResponse data = 4 ;
+}
+

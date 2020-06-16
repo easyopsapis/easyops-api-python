@@ -2,37 +2,32 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import artifact_sdk.api.pkg.batch_update_package_permission_pb2
 
-import batch_update_package_permission_pb2
+import artifact_sdk.api.pkg.create_pb2
 
-import create_pb2
+import artifact_sdk.model.artifact.package_pb2
 
-import model.artifact.package_pb2
+import artifact_sdk.api.pkg.delete_package_pb2
 
-import delete_package_pb2
+import artifact_sdk.api.pkg.get_package_detail_pb2
 
-import get_package_detail_pb2
-
-import get_package_permission_pb2
+import artifact_sdk.api.pkg.get_package_permission_pb2
 
 import google.protobuf.empty_pb2
 
-import get_user_variables_pb2
+import artifact_sdk.api.pkg.get_user_variables_pb2
 
-import search_pb2
+import artifact_sdk.api.pkg.search_pb2
 
-import up_insert_global_variables_pb2
+import artifact_sdk.api.pkg.up_insert_global_variables_pb2
 
-import update_pb2
+import artifact_sdk.api.pkg.update_pb2
 
-import update_package_permission_pb2
+import artifact_sdk.api.pkg.update_package_permission_pb2
 
-import utils.http_util
+import artifact_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -54,14 +49,14 @@ class PkgClient(object):
 
     
     def batch_update_package_permission(self, request, org, user, timeout=10):
-        # type: (batch_update_package_permission_pb2.BatchUpdatePackagePermissionRequest, int, str, int) -> batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
+        # type: (artifact_sdk.api.pkg.batch_update_package_permission_pb2.BatchUpdatePackagePermissionRequest, int, str, int) -> artifact_sdk.api.pkg.batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
         """
         批量修改包权限信息
         :param request: batch_update_package_permission请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
+        :return: artifact_sdk.api.pkg.batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -74,7 +69,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -87,21 +82,21 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse()
+        rsp = artifact_sdk.api.pkg.batch_update_package_permission_pb2.BatchUpdatePackagePermissionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateRequest, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (artifact_sdk.api.pkg.create_pb2.CreateRequest, int, str, int) -> artifact_sdk.model.artifact.package_pb2.Package
         """
         创建包
         :param request: create请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.artifact.package_pb2.Package
+        :return: artifact_sdk.model.artifact.package_pb2.Package
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -114,7 +109,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -127,21 +122,21 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.artifact.package_pb2.Package()
+        rsp = artifact_sdk.model.artifact.package_pb2.Package()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_package(self, request, org, user, timeout=10):
-        # type: (delete_package_pb2.DeletePackageRequest, int, str, int) -> delete_package_pb2.DeletePackageResponse
+        # type: (artifact_sdk.api.pkg.delete_package_pb2.DeletePackageRequest, int, str, int) -> artifact_sdk.api.pkg.delete_package_pb2.DeletePackageResponse
         """
         删除包
         :param request: delete_package请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_package_pb2.DeletePackageResponse
+        :return: artifact_sdk.api.pkg.delete_package_pb2.DeletePackageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -155,7 +150,7 @@ class PkgClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -168,21 +163,21 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_package_pb2.DeletePackageResponse()
+        rsp = artifact_sdk.api.pkg.delete_package_pb2.DeletePackageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_package_detail(self, request, org, user, timeout=10):
-        # type: (get_package_detail_pb2.GetPackageDetailRequest, int, str, int) -> get_package_detail_pb2.GetPackageDetailResponse
+        # type: (artifact_sdk.api.pkg.get_package_detail_pb2.GetPackageDetailRequest, int, str, int) -> artifact_sdk.model.artifact.package_pb2.Package
         """
         获取包详情信息
         :param request: get_package_detail请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_package_detail_pb2.GetPackageDetailResponse
+        :return: artifact_sdk.model.artifact.package_pb2.Package
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -196,7 +191,7 @@ class PkgClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -209,21 +204,21 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_package_detail_pb2.GetPackageDetailResponse()
+        rsp = artifact_sdk.model.artifact.package_pb2.Package()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_package_permission(self, request, org, user, timeout=10):
-        # type: (get_package_permission_pb2.GetPackagePermissionRequest, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (artifact_sdk.api.pkg.get_package_permission_pb2.GetPackagePermissionRequest, int, str, int) -> artifact_sdk.model.artifact.package_pb2.Package
         """
         获取包权限信息
         :param request: get_package_permission请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.artifact.package_pb2.Package
+        :return: artifact_sdk.model.artifact.package_pb2.Package
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -237,7 +232,7 @@ class PkgClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -250,21 +245,21 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.artifact.package_pb2.Package()
+        rsp = artifact_sdk.model.artifact.package_pb2.Package()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_user_variables(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_user_variables_pb2.GetUserVariablesResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> artifact_sdk.api.pkg.get_user_variables_pb2.GetUserVariablesResponse
         """
         获取程序包的用户变量
         :param request: get_user_variables请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_user_variables_pb2.GetUserVariablesResponse
+        :return: artifact_sdk.api.pkg.get_user_variables_pb2.GetUserVariablesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -277,7 +272,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -290,7 +285,7 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_user_variables_pb2.GetUserVariablesResponse()
+        rsp = artifact_sdk.api.pkg.get_user_variables_pb2.GetUserVariablesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
@@ -317,7 +312,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -337,14 +332,14 @@ class PkgClient(object):
         return rsp
     
     def search(self, request, org, user, timeout=10):
-        # type: (search_pb2.SearchRequest, int, str, int) -> search_pb2.SearchResponse
+        # type: (artifact_sdk.api.pkg.search_pb2.SearchRequest, int, str, int) -> artifact_sdk.api.pkg.search_pb2.SearchResponse
         """
         搜索包
         :param request: search请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: search_pb2.SearchResponse
+        :return: artifact_sdk.api.pkg.search_pb2.SearchResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -357,7 +352,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -370,14 +365,14 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = search_pb2.SearchResponse()
+        rsp = artifact_sdk.api.pkg.search_pb2.SearchResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def up_insert_global_variables(self, request, org, user, timeout=10):
-        # type: (up_insert_global_variables_pb2.UpInsertGlobalVariablesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (artifact_sdk.api.pkg.up_insert_global_variables_pb2.UpInsertGlobalVariablesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改全局变量
         :param request: up_insert_global_variables请求
@@ -397,7 +392,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -417,14 +412,14 @@ class PkgClient(object):
         return rsp
     
     def update(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateRequest, int, str, int) -> model.artifact.package_pb2.Package
+        # type: (artifact_sdk.api.pkg.update_pb2.UpdateRequest, int, str, int) -> artifact_sdk.api.pkg.update_pb2.UpdateResponse
         """
         更新包信息
         :param request: update请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.artifact.package_pb2.Package
+        :return: artifact_sdk.api.pkg.update_pb2.UpdateResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -438,7 +433,7 @@ class PkgClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.artifact_sdk",
             dst_name=route_name,
@@ -451,14 +446,14 @@ class PkgClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.artifact.package_pb2.Package()
+        rsp = artifact_sdk.api.pkg.update_pb2.UpdateResponse()
         
-        google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_package_permission(self, request, org, user, timeout=10):
-        # type: (update_package_permission_pb2.UpdatePackagePermissionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (artifact_sdk.api.pkg.update_package_permission_pb2.UpdatePackagePermissionRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改包权限信息
         :param request: update_package_permission请求
@@ -478,7 +473,7 @@ class PkgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = artifact_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.artifact_sdk",
             dst_name=route_name,

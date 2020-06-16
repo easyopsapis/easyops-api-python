@@ -1,0 +1,94 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "alert_service_sdk/model/monitor/alert_rule.proto";
+
+/*
+GetAlertRuleList请求
+*/
+message GetAlertRuleListRequest {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    关联模型ID
+    */
+    string objectId = 3 ;
+    /*
+    告警规则名称, 模糊匹配
+    */
+    string rule_name = 4 ;
+    /*
+    指标名, 多个请使用逗号分隔
+    */
+    string metric_name = 5 ;
+    /*
+    是否禁用, true/false
+    */
+    string disabled = 6 ;
+    /*
+    此参数已失效,该接口只会返回monitor_v2的告警策略
+    */
+    string system = 7 ;
+    /*
+    规则id, 多个用逗号分隔符
+    */
+    string _id__in = 8 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 9 ;
+}
+
+/*
+GetAlertRuleList返回
+*/
+message GetAlertRuleListResponse {
+    /*
+    分页大小
+    */
+    int32 page_size = 1 ;
+    /*
+    页数
+    */
+    int32 page = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    data
+    */
+    repeated monitor.AlertRule list = 4 ;
+}
+
+/*
+GetAlertRuleListApi返回
+*/
+message GetAlertRuleListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.GetAlertRuleListResponse data = 4 ;
+}
+

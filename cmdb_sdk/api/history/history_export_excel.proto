@@ -1,0 +1,58 @@
+syntax = "proto3";
+package history;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+HistoryExportExcel请求
+*/
+message HistoryExportExcelRequest {
+    /*
+    模型Id
+    */
+    string object_id = 1 ;
+    /*
+    实例ID
+    */
+    string instanceId = 2 ;
+    /*
+    操作人
+    */
+    string operator = 3 ;
+    /*
+    事件名称
+    */
+    string event = 4 ;
+    /*
+    排除事件名称
+    */
+    string exclude_event = 5 ;
+    /*
+    父事件id
+    */
+    string parent_event_id = 6 ;
+    /*
+    range
+    */
+    string range = 7 ;
+    /*
+    st
+    */
+    string st = 8 ;
+    /*
+    et
+    */
+    string et = 9 ;
+    /*
+    是否查询子事件（true查询子事件，false不查询子时间，默认false)
+    */
+    bool with_children = 10 ;
+    /*
+    是否新站点，用于导出详情链接
+    */
+    bool is_next = 11 ;
+}
+

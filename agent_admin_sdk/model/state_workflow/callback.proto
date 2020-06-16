@@ -1,0 +1,27 @@
+syntax = "proto3";
+package state_workflow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/state_workflow";
+
+
+
+
+
+/*
+工作流状态
+*/
+message StateCallback {
+    /*
+    回调uri
+    */
+    string callbackUri = 1 ;
+    /*
+    回调ENS
+    */
+    string callbackServiceName = 2 ;
+    /*
+    回调是否成功
+    */
+    bool result = 3 ;
+}
+

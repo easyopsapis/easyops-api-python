@@ -1,0 +1,212 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+
+/*
+AlertRuleInfo请求
+*/
+message AlertRuleInfoRequest {
+    /*
+    告警类型
+    */
+    string alert_type_id = 1 ;
+    /*
+    表名
+    */
+    string table = 2 ;
+    /*
+    告警子类型
+    */
+    string alert_sub_type_id = 3 ;
+}
+
+/*
+AlertRuleInfo返回
+*/
+message AlertRuleInfoResponse {
+message Data {
+message Macros {
+    /*
+    变量名称
+    */
+    string name = 1 ;
+    /*
+    描述
+    */
+    string description = 2 ;
+}
+        
+message Metrics {
+    /*
+    指标类型
+    */
+    string value_type = 1 ;
+    /*
+    指标名称
+    */
+    string name = 2 ;
+    /*
+    指标单位
+    */
+    string unit = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+}
+        
+message Dims {
+    /*
+    模型字段名称
+    */
+    string object_key = 1 ;
+    /*
+    指标名称
+    */
+    string name = 2 ;
+    /*
+    模型ID
+    */
+    string object_id = 3 ;
+    /*
+    描述
+    */
+    string description = 4 ;
+}
+        
+message ReceiverOwnerGroups {
+    /*
+    说明
+    */
+    string translate = 1 ;
+    /*
+    模型字段ID
+    */
+    string object_attr_id = 2 ;
+    /*
+    模型ID
+    */
+    string object_id = 3 ;
+}
+        
+message CustomFields {
+    /*
+    变量名称
+    */
+    string name = 1 ;
+    /*
+    原始字段名称
+    */
+    string field_name = 2 ;
+    /*
+    变量类型
+    */
+    string value_type = 3 ;
+    /*
+    单位
+    */
+    string unit = 4 ;
+    /*
+    描述
+    */
+    string description = 5 ;
+}
+        
+message Templates {
+    /*
+    内容模板
+    */
+    string content_template = 1 ;
+    /*
+    告警对象模板
+    */
+    string target_template = 2 ;
+    /*
+    恢复内容模板
+    */
+    string recovery_content_template = 3 ;
+}
+        
+    
+    /*
+    内置变量
+    */
+    repeated Macros macros = 1 ;
+    /*
+    关联指标列表
+    */
+    repeated Metrics metrics = 2 ;
+    /*
+    关联维度列表
+    */
+    repeated Dims dims = 3 ;
+    /*
+    通知用户组列表
+    */
+    repeated ReceiverOwnerGroups receiver_owner_groups = 4 ;
+    /*
+    自定义变量列表
+    */
+    repeated CustomFields custom_fields = 5 ;
+    /*
+    比较器列表
+    */
+    repeated string comparators = 6 ;
+    /*
+    告警通知模板
+    */
+    Templates templates = 7 ;
+}
+        
+    
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    页数
+    */
+    int32 page = 3 ;
+    /*
+    总数
+    */
+    int32 total = 4 ;
+    /*
+    msg
+    */
+    string msg = 5 ;
+    /*
+    data
+    */
+    Data data = 6 ;
+}
+
+/*
+AlertRuleInfoApi返回
+*/
+message AlertRuleInfoResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.AlertRuleInfoResponse data = 4 ;
+}
+

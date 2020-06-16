@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/i
 
 
 
-import "model/inspection/dim.proto";
-import "model/inspection/val.proto";
+import "app_store_sdk/model/inspection/dim.proto";
+import "app_store_sdk/model/inspection/val.proto";
 
 /*
 指标组

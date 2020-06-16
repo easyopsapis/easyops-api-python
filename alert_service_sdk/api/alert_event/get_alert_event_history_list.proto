@@ -1,0 +1,126 @@
+syntax = "proto3";
+package alert_event;
+
+
+
+
+import "alert_service_sdk/model/monitor/alert_event.proto";
+
+/*
+GetAlertEventHistoryList请求
+*/
+message GetAlertEventHistoryListRequest {
+    /*
+    选择返回的字段，以逗号分隔
+    */
+    string __select__ = 1 ;
+    /*
+    排序
+    */
+    string __sortby__ = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 4 ;
+    /*
+    告警模型id
+    */
+    string objectId = 5 ;
+    /*
+    告警实例id
+    */
+    string instanceId = 6 ;
+    /*
+    告警实例id列表,使用逗号分隔
+    */
+    string instanceIds = 7 ;
+    /*
+    告警对象, 模糊搜索
+    */
+    string target = 8 ;
+    /*
+    指标名
+    */
+    string metric_name = 9 ;
+    /*
+    告警等级
+    */
+    string level = 10 ;
+    /*
+    告警是否恢复
+    */
+    string is_recover = 11 ;
+    /*
+    告警状态: 0-告警已发送，3-告警被屏蔽, 2-告警已恢复(实际数据中没有2这个状态,is_recover=true代表告警已恢复)
+    */
+    string status = 12 ;
+    /*
+    开始时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳
+    */
+    string st = 13 ;
+    /*
+    结束时间, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟, 1490967693 unix 时间戳。默认为当前时间
+    */
+    string et = 14 ;
+    /*
+    时间范围, e.g.: -1h 过去1小时, -1d 过去1天, -30m 过去30分钟
+    */
+    string timerange = 15 ;
+    /*
+    告警策略ID
+    */
+    string rule_id = 16 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 17 ;
+}
+
+/*
+GetAlertEventHistoryList返回
+*/
+message GetAlertEventHistoryListResponse {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    分页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    告警事件列表
+    */
+    repeated monitor.AlertEvent list = 4 ;
+}
+
+/*
+GetAlertEventHistoryListApi返回
+*/
+message GetAlertEventHistoryListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_event.GetAlertEventHistoryListResponse data = 4 ;
+}
+

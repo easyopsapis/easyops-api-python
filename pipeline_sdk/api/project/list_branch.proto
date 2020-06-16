@@ -21,6 +21,10 @@ message ListBranchRequest {
     每页大小
     */
     int32 page_size = 3 ;
+    /*
+    过滤
+    */
+    string search = 4 ;
 }
 
 /*

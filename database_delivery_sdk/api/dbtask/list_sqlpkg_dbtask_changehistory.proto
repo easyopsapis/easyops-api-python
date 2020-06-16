@@ -4,7 +4,7 @@ package dbtask;
 
 
 
-import "model/database_delivery/sqlpkg_dbtask_history.proto";
+import "database_delivery_sdk/model/database_delivery/sqlpkg_dbtask_history.proto";
 
 /*
 ListSQLPackageDBTaskChangeHistory请求

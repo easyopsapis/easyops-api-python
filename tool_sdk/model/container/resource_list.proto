@@ -1,0 +1,23 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+资源限制
+*/
+message ResourceList {
+    /*
+    cpu限制, 单位为 milli CPUs
+    */
+    string cpu = 1 ;
+    /*
+    memory限制, 单位可以为MiB
+    */
+    string memory = 2 ;
+}
+

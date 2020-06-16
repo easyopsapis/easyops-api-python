@@ -1,0 +1,56 @@
+syntax = "proto3";
+package cmdb_extend;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb_extend";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+任意门
+*/
+message Toolkit {
+message Style {
+    /*
+    颜色
+    */
+    string color = 1 ;
+    /*
+    图标
+    */
+    string icon = 2 ;
+}
+        
+    
+    /*
+    任意门Id
+    */
+    string instanceId = 1 ;
+    /*
+    id,兼容老接口
+    */
+    google.protobuf.Struct _id = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    类型
+    */
+    string type = 4 ;
+    /*
+    样式
+    */
+    Style style = 5 ;
+    /*
+    流程/工具等信息, {"flowId": "xxx", "params": []}
+    */
+    google.protobuf.Struct metadata = 6 ;
+    /*
+    跳过参数二次确认
+    */
+    bool ignoreSecondCheck = 7 ;
+}
+

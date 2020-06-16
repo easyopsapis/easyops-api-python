@@ -1,0 +1,75 @@
+syntax = "proto3";
+package pipeline;
+
+
+
+
+import "pipeline_sdk/model/pipeline/pipeline.proto";
+import "pipeline_sdk/model/pipeline/template.proto";
+
+/*
+ListV2请求
+*/
+message ListV2Request {
+    /*
+    按project id过滤pipeline
+    */
+    string project_id = 1 ;
+}
+
+/*
+ListV2返回
+*/
+message ListV2Response {
+message List {
+    /*
+    流水线
+    */
+    pipeline.Pipeline pipeline = 1 ;
+    /*
+    关联模版详情
+    */
+    pipeline.Template template = 2 ;
+}
+        
+    
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated List list = 4 ;
+}
+
+/*
+ListV2Api返回
+*/
+message ListV2ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    pipeline.ListV2Response data = 4 ;
+}
+

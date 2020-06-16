@@ -4,7 +4,7 @@ package cmdb_approve;
 
 
 
-import "model/notify/operation_log.proto";
+import "resource_manage_sdk/model/notify/operation_log.proto";
 import "google/protobuf/empty.proto";
 
 /*

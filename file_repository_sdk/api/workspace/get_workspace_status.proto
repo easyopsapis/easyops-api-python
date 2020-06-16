@@ -4,7 +4,7 @@ package workspace;
 
 
 
-import "model/file_repository/diff.proto";
+import "file_repository_sdk/model/file_repository/diff.proto";
 
 /*
 Status请求

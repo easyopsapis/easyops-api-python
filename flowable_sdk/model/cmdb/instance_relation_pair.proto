@@ -1,0 +1,23 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+
+/*
+实例关系结联
+*/
+message InstanceRelationPair {
+    /*
+    左端实例ID
+    */
+    string left_instance_id = 1 ;
+    /*
+    右端实例ID
+    */
+    string right_instance_id = 2 ;
+}
+

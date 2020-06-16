@@ -1,0 +1,18 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+GetImportInstanceExcel请求
+*/
+message GetImportInstanceExcelRequest {
+    /*
+    模型对象ID
+    */
+    string object_id = 1 ;
+}
+

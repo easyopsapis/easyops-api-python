@@ -1,0 +1,23 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+环境变量
+*/
+message EnvVar {
+    /*
+    变量名
+    */
+    string name = 1 ;
+    /*
+    变量值
+    */
+    string value = 2 ;
+}
+

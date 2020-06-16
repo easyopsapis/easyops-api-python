@@ -1,0 +1,86 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+
+/*
+翻译规则
+*/
+message TransalteRule {
+message TranslateFields {
+    /*
+    输出名称
+    */
+    string stream_key = 1 ;
+    /*
+    资源字段
+    */
+    string object_key = 2 ;
+}
+        
+message MatchFields {
+    /*
+    上报维度
+    */
+    string stream_key = 1 ;
+    /*
+    资源字段
+    */
+    string object_key = 2 ;
+}
+        
+    
+    /*
+    类别
+    */
+    string category = 1 ;
+    /*
+    翻译规则名称
+    */
+    string name = 2 ;
+    /*
+    翻译字段
+    */
+    repeated TranslateFields translate_fields = 3 ;
+    /*
+    关联模型id
+    */
+    string object_id = 4 ;
+    /*
+    匹配规则
+    */
+    repeated MatchFields match_fields = 5 ;
+    /*
+    类型
+    */
+    string type = 6 ;
+    /*
+    数据源
+    */
+    repeated string data_names = 7 ;
+    /*
+    数据获取方法
+    */
+    string fetcher = 8 ;
+    /*
+    是否受保护
+    */
+    bool protected = 9 ;
+    /*
+    是否启用
+    */
+    bool disabled = 10 ;
+    /*
+    org
+    */
+    int32 org = 11 ;
+    /*
+    翻译规则ID
+    */
+    string _id = 12 ;
+}
+

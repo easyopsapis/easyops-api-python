@@ -1,0 +1,69 @@
+syntax = "proto3";
+package agent;
+
+
+
+
+
+/*
+AgentInstallProgress请求
+*/
+message AgentInstallProgressRequest {
+    /*
+    安装agent的目标ip
+    */
+    string ip = 1 ;
+    /*
+    安装agent的目标端口
+    */
+    int32 port = 2 ;
+    /*
+    机器用户名
+    */
+    string username = 3 ;
+    /*
+    机器密码
+    */
+    string password = 4 ;
+}
+
+/*
+AgentInstallProgress返回
+*/
+message AgentInstallProgressResponse {
+    /*
+    状态
+    */
+    string status = 1 ;
+    /*
+    状态码
+    */
+    int32 retCode = 2 ;
+    /*
+    详细信息
+    */
+    string detail = 3 ;
+}
+
+/*
+AgentInstallProgressApi返回
+*/
+message AgentInstallProgressResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    agent.AgentInstallProgressResponse data = 4 ;
+}
+

@@ -4,7 +4,9 @@ package micro_app;
 
 
 
-import "model/app_store/app_version.proto";
+import "app_store_sdk/model/app_store/app_version.proto";
+import "app_store_sdk/model/app_store/product_line.proto";
+import "app_store_sdk/model/app_store/solution.proto";
 
 /*
 GetAppStoreMicroApp请求
@@ -33,33 +35,49 @@ message Icons {
     */
     app_store.AppVersion currentVersion = 1 ;
     /*
+    关联产品线列表
+    */
+    repeated app_store.ProductLine productLines = 2 ;
+    /*
+    关联解决方案列表
+    */
+    repeated app_store.Solution solutions = 3 ;
+    /*
     小产品名称
     */
-    string name = 2 ;
+    string name = 4 ;
     /*
     小产品id
     */
-    string id = 3 ;
+    string id = 5 ;
     /*
     图标url
     */
-    Icons icons = 4 ;
+    Icons icons = 6 ;
     /*
     小产品概要介绍
     */
-    string intro = 5 ;
+    string intro = 7 ;
     /*
     功能预览
     */
-    repeated string preview = 6 ;
+    repeated string preview = 8 ;
     /*
     功能详细介绍
     */
-    string description = 7 ;
+    string description = 9 ;
     /*
     首页路径
     */
-    string homepage = 8 ;
+    string homepage = 10 ;
+    /*
+    小产品分类
+    */
+    string category = 11 ;
+    /*
+    所属桌面Id
+    */
+    string containerId = 12 ;
 }
 
 /*

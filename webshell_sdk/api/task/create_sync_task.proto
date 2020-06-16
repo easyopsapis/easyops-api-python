@@ -1,0 +1,121 @@
+syntax = "proto3";
+package task;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+CreateSyncTask请求
+*/
+message CreateSyncTaskRequest {
+message Kwargs {
+    /*
+    参数key
+    */
+    string key = 1 ;
+    /*
+    连接符,默认为=
+    */
+    string sep = 2 ;
+    /*
+    参数值
+    */
+    string value = 3 ;
+}
+        
+message Targets {
+    /*
+    执行目标主机instanceId
+    */
+    string instanceId = 1 ;
+}
+        
+    
+    /*
+    脚本Id
+    */
+    string id = 1 ;
+    /*
+    执行用户,默认为root
+    */
+    string execUser = 2 ;
+    /*
+    args参数
+    */
+    repeated string args = 3 ;
+    /*
+    键值对参数, 完整的参数将会拼接为:`args[0] args[1] key1+sep1+value1 key2+sep2+value2`
+    */
+    repeated Kwargs kwargs = 4 ;
+    /*
+    执行目标
+    */
+    repeated Targets targets = 5 ;
+    /*
+    设置的目标机器分批执行的每批数量
+    */
+    int32 batchNum = 6 ;
+    /*
+    设置的目标机器分批执行的每批之间的间隔秒数
+    */
+    int32 batchInterval = 7 ;
+    /*
+    输出是否转成json
+    */
+    bool jsonOutput = 8 ;
+}
+
+/*
+CreateSyncTask返回
+*/
+message CreateSyncTaskResponse {
+message TargetsLog {
+    /*
+    执行机器instanceId
+    */
+    string target = 1 ;
+    /*
+    错误码
+    */
+    int32 code = 2 ;
+    /*
+    执行输出
+    */
+    string output = 3 ;
+    /*
+    json格式化的执行输出
+    */
+    google.protobuf.Struct jsonOutput = 4 ;
+}
+        
+    
+    /*
+    执行结果
+    */
+    repeated TargetsLog targetsLog = 1 ;
+}
+
+/*
+CreateSyncTaskApi返回
+*/
+message CreateSyncTaskResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    task.CreateSyncTaskResponse data = 4 ;
+}
+

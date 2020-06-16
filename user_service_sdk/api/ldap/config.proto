@@ -1,0 +1,76 @@
+syntax = "proto3";
+package ldap;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+Config请求
+*/
+message ConfigRequest {
+message Conf {
+    /*
+    name
+    */
+    string name = 1 ;
+    /*
+    user_search_dn
+    */
+    string user_search_dn = 2 ;
+    /*
+    user_filter
+    */
+    string user_filter = 3 ;
+    /*
+    manager_dn
+    */
+    string manager_dn = 4 ;
+    /*
+    manager_password
+    */
+    string manager_password = 5 ;
+    /*
+    username
+    */
+    string username = 6 ;
+    /*
+    org
+    */
+    int32 org = 7 ;
+}
+        
+    
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    配置
+    */
+    Conf conf = 2 ;
+}
+
+/*
+ConfigApi返回
+*/
+message ConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

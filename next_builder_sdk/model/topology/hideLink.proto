@@ -1,0 +1,23 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+隐藏连接
+*/
+message HideLink {
+    /*
+    源模型ID
+    */
+    string srcObjectId = 1 ;
+    /*
+    目标模型ID
+    */
+    string dstObjectId = 2 ;
+}
+

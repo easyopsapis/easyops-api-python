@@ -1,0 +1,85 @@
+syntax = "proto3";
+package ops_automation;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/ops_automation";
+
+
+
+
+import "api_gateway_sdk/model/ops_automation/bind_resource.proto";
+import "api_gateway_sdk/model/ops_automation/mail_info.proto";
+
+/*
+创建巡检任务
+*/
+message JobDetails {
+message Scheduler {
+    /*
+    是否绑定
+    */
+    bool isBound = 1 ;
+    /*
+    是否启动
+    */
+    bool isActive = 2 ;
+}
+        
+    
+    /*
+    change log 历史版本, 例如： 1
+    */
+    int32 version = 1 ;
+    /*
+    创建时间 2019-01-11 10:35:10.19285900
+    */
+    string createTime = 2 ;
+    /*
+    更新时间 2019-01-11 10:35:10.19285900
+    */
+    string updateTime = 3 ;
+    /*
+    用户 easyops
+    */
+    string creator = 4 ;
+    /*
+    org
+    */
+    int32 org = 5 ;
+    /*
+    作业定时详情
+    */
+    Scheduler scheduler = 6 ;
+    /*
+    任务名称
+    */
+    string name = 7 ;
+    /*
+    菜单分类
+    */
+    string category = 8 ;
+    /*
+    菜单ID
+    */
+    string menuId = 9 ;
+    /*
+    绑定资源
+    */
+    ops_automation.BindResource bindResource = 10 ;
+    /*
+    作业描述
+    */
+    string desc = 11 ;
+    /*
+    执行时是否允许修改入参
+    */
+    bool allowModify = 12 ;
+    /*
+    邮件通知配置
+    */
+    ops_automation.MailInfo mail = 13 ;
+    /*
+    作业ID
+    */
+    string id = 14 ;
+}
+

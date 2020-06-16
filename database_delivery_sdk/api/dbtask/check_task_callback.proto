@@ -4,7 +4,7 @@ package dbtask;
 
 
 
-import "model/easy_command/task_detail.proto";
+import "database_delivery_sdk/model/easy_command/task_detail.proto";
 
 /*
 CheckTaskCallback请求

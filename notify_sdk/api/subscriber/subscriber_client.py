@@ -2,17 +2,12 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import model.notify.subscriber_pb2
+import notify_sdk.model.notify.subscriber_pb2
 
 import google.protobuf.empty_pb2
 
-import utils.http_util
+import notify_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -34,7 +29,7 @@ class SubscriberClient(object):
 
     
     def create_subscriber(self, request, org, user, timeout=10):
-        # type: (model.notify.subscriber_pb2.Subscriber, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (notify_sdk.model.notify.subscriber_pb2.Subscriber, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         添加订阅者
         :param request: create_subscriber请求
@@ -54,7 +49,7 @@ class SubscriberClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = notify_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.notify_sdk",
             dst_name=route_name,

@@ -4,9 +4,8 @@ package task;
 
 
 
-import "model/inspection/user_or_user_group.proto";
-import "model/easy_command/action_param_custom.proto";
-import "model/inspection/task.proto";
+import "inspection_sdk/model/inspection/user_or_user_group.proto";
+import "inspection_sdk/model/inspection/task.proto";
 
 /*
 GetTask请求
@@ -15,7 +14,7 @@ message GetTaskRequest {
     /*
     套件id
     */
-    string id = 1 ;
+    string pluginId = 1 ;
     /*
     巡检任务ID
     */

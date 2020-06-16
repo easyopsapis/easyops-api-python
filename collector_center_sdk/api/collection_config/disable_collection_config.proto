@@ -1,0 +1,53 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+
+/*
+DisableCollectionConfig请求
+*/
+message DisableCollectionConfigRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+    /*
+    是否禁用
+    */
+    bool disabled = 2 ;
+}
+
+/*
+DisableCollectionConfig返回
+*/
+message DisableCollectionConfigResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DisableCollectionConfigApi返回
+*/
+message DisableCollectionConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.DisableCollectionConfigResponse data = 4 ;
+}
+

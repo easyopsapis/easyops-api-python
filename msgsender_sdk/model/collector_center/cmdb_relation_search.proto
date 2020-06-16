@@ -1,0 +1,24 @@
+syntax = "proto3";
+package collector_center;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_center";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+cmdb关系查询
+*/
+message CmdbRelationSearch {
+    /*
+    查询者
+    */
+    string querier = 1 ;
+    /*
+    查询路径
+    */
+    repeated google.protobuf.Value path = 2 ;
+}
+

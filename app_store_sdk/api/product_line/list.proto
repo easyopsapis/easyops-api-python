@@ -1,0 +1,66 @@
+syntax = "proto3";
+package product_line;
+
+
+
+
+import "app_store_sdk/model/app_store/product_line.proto";
+
+/*
+ListProductLines请求
+*/
+message ListProductLinesRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 page_size = 2 ;
+}
+
+/*
+ListProductLines返回
+*/
+message ListProductLinesResponse {
+    /*
+    返回总数
+    */
+    int32 total = 1 ;
+    /*
+    页数
+    */
+    int32 page = 2 ;
+    /*
+    该页大小
+    */
+    int32 page_size = 3 ;
+    /*
+    产品线列表
+    */
+    repeated app_store.ProductLine list = 4 ;
+}
+
+/*
+ListProductLinesApi返回
+*/
+message ListProductLinesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    product_line.ListProductLinesResponse data = 4 ;
+}
+

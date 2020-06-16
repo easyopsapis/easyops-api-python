@@ -1,0 +1,218 @@
+syntax = "proto3";
+package monitor;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/monitor";
+
+
+
+
+import "collector_service_sdk/model/monitor/alert_conditions.proto";
+import "google/protobuf/struct.proto";
+
+/*
+告警事件 Model
+*/
+message AlertEvent {
+message AlertReceivers {
+    /*
+    接收人名称
+    */
+    string name = 1 ;
+    /*
+    通知方式, e.g.: email
+    */
+    string method = 2 ;
+}
+        
+message AlertDims {
+    /*
+    告警维度前台展示名字
+    */
+    string name = 1 ;
+    /*
+    告警维度值
+    */
+    google.protobuf.Value value = 2 ;
+}
+        
+message Actions {
+message Condition {
+    /*
+    告警持续时间多久后升级，单位：分钟
+    */
+    int32 lasting_for = 1 ;
+    /*
+    告警等级大于多少升级
+    */
+    int32 level = 2 ;
+}
+        
+message ReceiverOwners {
+    /*
+    描述
+    */
+    string translate = 1 ;
+    /*
+    模型 ID
+    */
+    string object_id = 2 ;
+    /*
+    模型属性 ID
+    */
+    string object_attr_id = 3 ;
+}
+        
+    
+    /*
+    动作触发条件
+    */
+    Condition condition = 1 ;
+    /*
+    动作类型
+    */
+    string type = 2 ;
+    /*
+    告警动作执行状态(0:未执行, 1:已执行)
+    */
+    int32 status = 3 ;
+    /*
+    告警动作是否升级
+    */
+    bool upgrade = 4 ;
+    /*
+    告警动作是否执行
+    */
+    bool run = 5 ;
+    /*
+    告警通知方法
+    */
+    repeated string methods = 6 ;
+    /*
+    告警通知人列表
+    */
+    repeated string receivers = 7 ;
+    /*
+    告警通知用户组列表
+    */
+    repeated string receiver_user_groups = 8 ;
+    /*
+    告警通知运维负责人列表
+    */
+    repeated ReceiverOwners receiver_owners = 9 ;
+}
+        
+    
+    /*
+    记录 ID
+    */
+    string id = 1 ;
+    /*
+    告警 ID
+    */
+    string alert_id = 2 ;
+    /*
+    告警规则 ID
+    */
+    string rule_id = 3 ;
+    /*
+    告警是否已恢复
+    */
+    bool is_recover = 4 ;
+    /*
+    告警是否发送成功
+    */
+    bool send_succ = 5 ;
+    /*
+    告警主题
+    */
+    string subject = 6 ;
+    /*
+    告警内容
+    */
+    string content = 7 ;
+    /*
+    告警来源（system：easyops平台）
+    */
+    string source = 8 ;
+    /*
+    告警状态: 0-告警已发送，3-告警被屏蔽
+    */
+    int32 status = 9 ;
+    /*
+    是否发送邮件成功（0：未发送/失败，1：成功）
+    */
+    int32 send_detail = 10 ;
+    /*
+    告警恢复类型（auto：自动恢复，manual：手动恢复）
+    */
+    string recover_type = 11 ;
+    /*
+    org
+    */
+    int32 org = 12 ;
+    /*
+    告警对象
+    */
+    string target = 13 ;
+    /*
+    告警等级
+    */
+    int32 level = 14 ;
+    /*
+    告警值
+    */
+    google.protobuf.Value value = 15 ;
+    /*
+    告警持续时间
+    */
+    float alert_duration = 16 ;
+    /*
+    告警开始时间
+    */
+    int32 alert_begin_time = 17 ;
+    /*
+    告警结束时间
+    */
+    int32 alert_end_time = 18 ;
+    /*
+    告警时间
+    */
+    int32 time = 19 ;
+    /*
+    告警开始时间
+    */
+    int32 start_time = 20 ;
+    /*
+    插入 mongodb 时间戳
+    */
+    int32 insert_time = 21 ;
+    /*
+    告警接收人
+    */
+    repeated AlertReceivers alert_receivers = 22 ;
+    /*
+    告警维度
+    */
+    repeated AlertDims alert_dims = 23 ;
+    /*
+    告警发生后的动作，可以是通知或者执行工具流程
+    */
+    repeated Actions actions = 24 ;
+    /*
+    告警条件
+    */
+    monitor.AlertConditions alert_conditions = 25 ;
+    /*
+    模型id
+    */
+    string objectId = 26 ;
+    /*
+    实例id
+    */
+    string instanceId = 27 ;
+    /*
+    版本标示
+    */
+    string system = 28 ;
+}
+

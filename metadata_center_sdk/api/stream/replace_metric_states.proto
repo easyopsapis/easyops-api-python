@@ -1,0 +1,51 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+
+/*
+ReplaceMetricStates返回
+*/
+message ReplaceMetricStatesResponse {
+message States {
+    /*
+    状态数据id
+    */
+    string id = 1 ;
+    /*
+    状态数据版本
+    */
+    int32 version = 2 ;
+}
+        
+    
+    /*
+    推送的状态数据列表
+    */
+    repeated States states = 1 ;
+}
+
+/*
+ReplaceMetricStatesApi返回
+*/
+message ReplaceMetricStatesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ReplaceMetricStatesResponse data = 4 ;
+}
+

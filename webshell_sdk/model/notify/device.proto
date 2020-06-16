@@ -1,0 +1,31 @@
+syntax = "proto3";
+package notify;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/notify";
+
+
+
+
+
+/*
+主机信息(ip,instanceId)
+*/
+message Device {
+    /*
+    ip
+    */
+    string ip = 1 ;
+    /*
+    实例id
+    */
+    string instanceId = 2 ;
+    /*
+    事件目标id
+    */
+    string targetId = 3 ;
+    /*
+    事件目标名称
+    */
+    string targetName = 4 ;
+}
+

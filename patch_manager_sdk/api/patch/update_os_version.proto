@@ -1,0 +1,49 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+
+/*
+UpdateOsVersions请求
+*/
+message UpdateOsVersionsRequest {
+    /*
+    Windows 补丁适用的操作系统版本
+    */
+    repeated string osVersions = 1 ;
+}
+
+/*
+UpdateOsVersions返回
+*/
+message UpdateOsVersionsResponse {
+    /*
+    Windows 补丁适用的操作系统版本
+    */
+    repeated string osVersions = 1 ;
+}
+
+/*
+UpdateOsVersionsApi返回
+*/
+message UpdateOsVersionsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.UpdateOsVersionsResponse data = 4 ;
+}
+

@@ -4,7 +4,7 @@ package cmdb_object;
 
 
 
-import "model/cmdb/cmdb_object.proto";
+import "cmdb_sdk/model/cmdb/cmdb_object.proto";
 
 /*
 List请求
@@ -18,6 +18,10 @@ message ListRequest {
     页大小
     */
     int32 page_size = 2 ;
+    /*
+    忽略模型字段权限校验
+    */
+    bool ignoreAttrPermission = 3 ;
 }
 
 /*

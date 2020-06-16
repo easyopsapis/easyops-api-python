@@ -1,0 +1,58 @@
+syntax = "proto3";
+package user_admin;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+SearchAllUserGroup请求
+*/
+message SearchAllUserGroupRequest {
+    /*
+    e.g.: { name: { $like: '%q%' } }, { $or: [{ name: { $like: '%q%' }}] }
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    e.g.: { instanceId: true, name: true }
+    */
+    google.protobuf.Struct fields = 2 ;
+    /*
+    按字段排序, 留空默认按照实例ID降序排序(1表示升序, -1表示降序) e.g.: { instanceId: 1 }
+    */
+    google.protobuf.Struct sort = 3 ;
+}
+
+/*
+SearchAllUserGroup返回
+*/
+message SearchAllUserGroupResponse {
+    /*
+    用户组列表
+    */
+    repeated google.protobuf.Struct list = 1 ;
+}
+
+/*
+SearchAllUserGroupApi返回
+*/
+message SearchAllUserGroupResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    user_admin.SearchAllUserGroupResponse data = 4 ;
+}
+

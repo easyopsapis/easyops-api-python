@@ -1,0 +1,60 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "container_sdk/model/container/resource_group.proto";
+import "container_sdk/model/container/workload.proto";
+import "container_sdk/model/container/hpa.proto";
+
+/*
+Get请求
+*/
+message GetRequest {
+    /*
+    获取指定的 workload id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+Get返回
+*/
+message GetResponse {
+    /*
+    关联的部署资源组 (resource group)
+    */
+    container.ResourceGroup resourceGroup = 1 ;
+    /*
+    workload 信息
+    */
+    container.Workload workload = 2 ;
+    /*
+    自动扩缩容
+    */
+    container.HorizontalPodAutoscaler hpa = 3 ;
+}
+
+/*
+GetApi返回
+*/
+message GetResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    workload.GetResponse data = 4 ;
+}
+

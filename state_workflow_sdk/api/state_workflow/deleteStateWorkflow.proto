@@ -1,0 +1,40 @@
+syntax = "proto3";
+package state_workflow;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteStateWorkflow请求
+*/
+message DeleteStateWorkflowRequest {
+    /*
+    状态工作流cmdb标识
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteStateWorkflowApi返回
+*/
+message DeleteStateWorkflowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

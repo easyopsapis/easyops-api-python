@@ -1,0 +1,356 @@
+syntax = "proto3";
+package tool;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/tool";
+
+
+
+
+import "flowable_service_sdk/model/tool/tool_input.proto";
+import "google/protobuf/struct.proto";
+
+/*
+工具
+*/
+message Tool {
+message OutputDefs {
+    /*
+    输出参数ID
+    */
+    string id = 1 ;
+    /*
+    输出参数标题
+    */
+    string name = 2 ;
+}
+        
+message TableDefs {
+message Dimensions {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+message Columns {
+    /*
+    列id
+    */
+    string id = 1 ;
+    /*
+    列标题
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    输出表格id
+    */
+    string id = 1 ;
+    /*
+    输出表格标题
+    */
+    string name = 2 ;
+    /*
+    维度列
+    */
+    repeated Dimensions dimensions = 3 ;
+    /*
+    输出列
+    */
+    repeated Columns columns = 4 ;
+}
+        
+message Log {
+    /*
+    是否启用日志
+    */
+    bool enabled = 1 ;
+    /*
+    v,vv,vvv for more, vvvv to enable connection debugging
+    */
+    string level = 2 ;
+}
+        
+    
+    /*
+    工具Id，服务端自动生成
+    */
+    string toolId = 1 ;
+    /*
+    工具版本
+    */
+    string vId = 2 ;
+    /*
+    工具名字
+    */
+    string name = 3 ;
+    /*
+    工具执行的超时时间(0表示不超时，默认为86400秒)
+    */
+    int32 timeout = 4 ;
+    /*
+    工具的分类
+    */
+    string category = 5 ;
+    /*
+    工具的页面显示图标
+    */
+    string icon = 6 ;
+    /*
+    图标风格
+    */
+    string style = 7 ;
+    /*
+    工具说明
+    */
+    string memo = 8 ;
+    /*
+    列表中是否显示
+    */
+    bool listVisible = 9 ;
+    /*
+    标签
+    */
+    repeated string tags = 10 ;
+    /*
+    禁用工具开关
+    */
+    bool disable = 11 ;
+    /*
+    工具创建时间
+    */
+    string createTime = 12 ;
+    /*
+    工具更新时间
+    */
+    string updateTime = 13 ;
+    /*
+    工具创建用户名
+    */
+    string creator = 14 ;
+    /*
+    客户id
+    */
+    int32 org = 15 ;
+    /*
+    工具输入参数信息
+    */
+    repeated tool.ToolInput inputs = 16 ;
+    /*
+    工具输出参数
+    */
+    string outputs = 17 ;
+    /*
+    工具脚本的类型(python, shell..)
+    */
+    string type = 18 ;
+    /*
+    工具脚本的内容
+    */
+    string content = 19 ;
+    /*
+    默认执行用户
+    */
+    string defaultExecUser = 20 ;
+    /*
+    执行用户
+    */
+    string execUser = 21 ;
+    /*
+    授权执行用户列表
+    */
+    repeated string authUsers = 22 ;
+    /*
+    默认执行的agents
+    */
+    repeated string defaultAgents = 23 ;
+    /*
+    系统插件
+    */
+    bool system_plugin = 24 ;
+    /*
+    系统工具
+    */
+    bool system_tool = 25 ;
+    /*
+    绑定的agents
+    */
+    string lockAgents = 26 ;
+    /*
+    沙箱执行；默认执行的agents
+    */
+    bool sandboxRun = 27 ;
+    /*
+    白名单
+    */
+    repeated string whiteList = 28 ;
+    /*
+    是否使用windows会话用户
+    */
+    bool windowsSession = 29 ;
+    /*
+    黑名单
+    */
+    repeated string blackList = 30 ;
+    /*
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
+    */
+    google.protobuf.Value toolOutputs = 31 ;
+    /*
+    工具的输出定义
+    */
+    repeated OutputDefs outputDefs = 32 ;
+    /*
+    工具的表格输出定义
+    */
+    repeated TableDefs tableDefs = 33 ;
+    /*
+    版本创建时间
+    */
+    string vCreateTime = 34 ;
+    /*
+    版本更新时间
+    */
+    string vUpdateTime = 35 ;
+    /*
+    版本名称
+    */
+    string vName = 36 ;
+    /*
+    版本作者
+    */
+    string vCreator = 37 ;
+    /*
+    查看详情授权用户
+    */
+    repeated string readAuthorizers = 38 ;
+    /*
+    更新授权用户
+    */
+    repeated string updateAuthorizers = 39 ;
+    /*
+    删除授权用户
+    */
+    repeated string deleteAuthorizers = 40 ;
+    /*
+    执行授权用户
+    */
+    repeated string executeAuthorizers = 41 ;
+    /*
+    执行结果查看授权用户
+    */
+    repeated string readExecutionResultAuthorizers = 42 ;
+    /*
+    root执行授权用户
+    */
+    repeated string rootExecuteAuthorizers = 43 ;
+    /*
+    版本说明
+    */
+    string vDesc = 44 ;
+    /*
+    工具来源
+    */
+    string sourceFrom = 45 ;
+    /*
+    版本类型
+    */
+    string envType = 46 ;
+    /*
+    工具审批结果(approving=待审批;approved=已审批;rejected=审批未通过)
+    */
+    string checkType = 47 ;
+    /*
+    审批人
+    */
+    string checkUser = 48 ;
+    /*
+    审批发起人
+    */
+    string checkSponsor = 49 ;
+    /*
+    工具审批结论意见
+    */
+    string checkComment = 50 ;
+    /*
+    当为空时是[],
+非空时为object如,分批策略{"batchNum":10,"batchInterval":3,"failedStop":true,"enabled":true}
+
+    */
+    google.protobuf.Value batchStrategy = 51 ;
+    /*
+    初始化后的工具为 SQL  HTTP  JAVA   normal(null)
+    */
+    string functionType = 52 ;
+    /*
+    系统ORG
+    */
+    bool is_system_org = 53 ;
+    /*
+    邮件订阅用户
+    */
+    repeated string subscribers = 54 ;
+    /*
+    邮件通知方式 ALL | WARNING
+    */
+    string subscribedChannel = 55 ;
+    /*
+    是否只读
+    */
+    bool readOnly = 56 ;
+    /*
+    模版类型
+    */
+    string templateType = 57 ;
+    /*
+    数据库删除标记
+    */
+    bool delete_me = 58 ;
+    /*
+    审批用户
+    */
+    repeated string approvers = 59 ;
+    /*
+    Ansible Node机器执行用户
+    */
+    string ansibleNodeExecUser = 60 ;
+    /*
+    ansible-playbook verbose mode
+    */
+    Log log = 61 ;
+}
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+package console;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/console";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+cmdb实例查询策略
+*/
+message CmdbQueryStrategy {
+message Instances {
+    /*
+    类型
+    */
+    string type = 1 ;
+    /*
+    实例Id列表, constant时填写
+    */
+    repeated string instanceIds = 2 ;
+    /*
+    查询query, search时填写
+    */
+    google.protobuf.Struct query = 3 ;
+}
+        
+    
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    策略
+    */
+    Instances instances = 2 ;
+    /*
+    fields
+    */
+    google.protobuf.Struct fields = 3 ;
+}
+

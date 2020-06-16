@@ -1,0 +1,19 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+LocalObjectReference
+*/
+message LocalObjectReference {
+    /*
+    名称
+    */
+    string name = 1 ;
+}
+

@@ -1,0 +1,64 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+terrafrom state信息 v4
+*/
+message TFStateV4 {
+message Resources {
+    /*
+    mode,eg:managed
+    */
+    string mode = 1 ;
+    /*
+    type,eg:kubernetes_namespace
+    */
+    string type = 2 ;
+    /*
+    name,eg:example
+    */
+    string name = 3 ;
+    /*
+    provider,eg:provider.kubernetes
+    */
+    string provider = 4 ;
+    /*
+    instances
+    */
+    repeated google.protobuf.Struct instances = 5 ;
+}
+        
+    
+    /*
+    version
+    */
+    int32 version = 1 ;
+    /*
+    terraform_version
+    */
+    string terraform_version = 2 ;
+    /*
+    serial
+    */
+    int32 serial = 3 ;
+    /*
+    lineage
+    */
+    string lineage = 4 ;
+    /*
+    outputs
+    */
+    google.protobuf.Struct outputs = 5 ;
+    /*
+    resources
+    */
+    repeated Resources resources = 6 ;
+}
+

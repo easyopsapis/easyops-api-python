@@ -4,7 +4,7 @@ package subscriber;
 
 
 
-import "model/notify/subscribe_info.proto";
+import "notify_sdk/model/notify/subscribe_info.proto";
 import "google/protobuf/empty.proto";
 
 /*

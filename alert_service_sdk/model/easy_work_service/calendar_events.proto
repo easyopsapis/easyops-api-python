@@ -1,0 +1,83 @@
+syntax = "proto3";
+package easy_work_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_work_service";
+
+
+
+
+
+/*
+日历事件
+*/
+message CalendarEvents {
+    /*
+    事件id
+    */
+    string id = 1 ;
+    /*
+    事件名称
+    */
+    string eventName = 2 ;
+    /*
+    日期ID
+    */
+    string calendar = 3 ;
+    /*
+    事件相关成员
+    */
+    repeated string members = 4 ;
+    /*
+    事件创建成员
+    */
+    string creator = 5 ;
+    /*
+    事件更新成员
+    */
+    string modifier = 6 ;
+    /*
+    事件类型
+    */
+    string type = 7 ;
+    /*
+    开始日期 2020-02-02
+    */
+    string startDay = 8 ;
+    /*
+    开始时间 09:30:00
+    */
+    string startTime = 9 ;
+    /*
+    结束日期 2020-02-02
+    */
+    string endDay = 10 ;
+    /*
+    结束时间 09:30:00
+    */
+    string endTime = 11 ;
+    /*
+    事件备注
+    */
+    string memo = 12 ;
+    /*
+    事件的等级
+    */
+    string level = 13 ;
+    /*
+    事件是否被删除
+    */
+    bool isDeleted = 14 ;
+    /*
+    org
+    */
+    int32 org = 15 ;
+    /*
+    创建时间 2019-01-11 10:35:10.19285900
+    */
+    string ctime = 16 ;
+    /*
+    更新时间 2019-01-11 10:35:10.19285900
+    */
+    string mtime = 17 ;
+}
+

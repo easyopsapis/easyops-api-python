@@ -1,0 +1,43 @@
+syntax = "proto3";
+package template;
+
+
+
+
+import "collector_center_sdk/model/collector_center/script.proto";
+import "collector_center_sdk/model/collector_center/target_range.proto";
+import "collector_center_sdk/model/collector_center/configuration_template.proto";
+import "google/protobuf/struct.proto";
+
+/*
+DetailConfigurationTemplate请求
+*/
+message DetailConfigurationTemplateRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DetailConfigurationTemplateApi返回
+*/
+message DetailConfigurationTemplateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collector_center.ConfigurationTemplate data = 4 ;
+}
+

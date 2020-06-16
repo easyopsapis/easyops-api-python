@@ -1,0 +1,79 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+Deployment 状态
+*/
+message DeploymentStatus {
+message Conditions {
+    /*
+    状态类型
+    */
+    string type = 1 ;
+    /*
+    状态的值
+    */
+    string status = 2 ;
+    /*
+    最后状态更新时间
+    */
+    string lastUpdateTime = 3 ;
+    /*
+    最后状态转换时间
+    */
+    string lastTransitionTime = 4 ;
+    /*
+    状态原因
+    */
+    string reason = 5 ;
+    /*
+    可读状态原因
+    */
+    string message = 6 ;
+}
+        
+    
+    /*
+    状态消息
+    */
+    string message = 1 ;
+    /*
+    状态
+    */
+    string status = 2 ;
+    /*
+    readyReplicas
+    */
+    int32 readyReplicas = 3 ;
+    /*
+    availableReplicas
+    */
+    int32 availableReplicas = 4 ;
+    /*
+    updatedReplicas
+    */
+    int32 updatedReplicas = 5 ;
+    /*
+    副本数
+    */
+    int32 replicas = 6 ;
+    /*
+    deployment controller 观察到的版本变化次数
+    */
+    int32 observedGeneration = 7 ;
+    /*
+    deployment hash 冲突次数
+    */
+    int32 collisionCount = 8 ;
+    /*
+    deployment 最近状态
+    */
+    repeated Conditions conditions = 9 ;
+}
+

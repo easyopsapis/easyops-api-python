@@ -1,0 +1,48 @@
+syntax = "proto3";
+package cmdb;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/cmdb";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+模型关系查询策略v2
+*/
+message RelationQueryStrategyV2 {
+    /*
+    策略ID(可以自定义, 不给定后台会默认生成)
+    */
+    string id = 1 ;
+    /*
+    v3(精确查询)或v4(全量查询字段)
+    */
+    string byPath = 2 ;
+    /*
+    策略名称
+    */
+    string name = 3 ;
+    /*
+    策略类型(org 或者 user)
+    */
+    string type = 4 ;
+    /*
+    策略内容(包含查询条件和返回的字段, 不指定返回的字段则默认返回name字段, alias ${objectId}.name)
+    */
+    repeated google.protobuf.Struct path_list = 5 ;
+    /*
+    策略所属模型id
+    */
+    string object_id = 6 ;
+    /*
+    创建时间
+    */
+    string ctime = 7 ;
+    /*
+    创建用户
+    */
+    string creator = 8 ;
+}
+

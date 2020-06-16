@@ -1,0 +1,54 @@
+syntax = "proto3";
+package state_workflow;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+FilterInstanceOfStateWorkflow请求
+*/
+message FilterInstanceOfStateWorkflowRequest {
+    /*
+    要更新的模型标识
+    */
+    string objectId = 1 ;
+    /*
+    stateWorkflow objectInfo filter
+    */
+    google.protobuf.Struct query = 2 ;
+}
+
+/*
+FilterInstanceOfStateWorkflow返回
+*/
+message FilterInstanceOfStateWorkflowResponse {
+    /*
+    匹配的实例id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+FilterInstanceOfStateWorkflowApi返回
+*/
+message FilterInstanceOfStateWorkflowResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    state_workflow.FilterInstanceOfStateWorkflowResponse data = 4 ;
+}
+

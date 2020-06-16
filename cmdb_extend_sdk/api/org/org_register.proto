@@ -1,0 +1,52 @@
+syntax = "proto3";
+package org;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ListenOrgRegister请求
+*/
+message ListenOrgRegisterRequest {
+message Params {
+    /*
+    消息来自系统
+    */
+    string system = 1 ;
+    /*
+    消息类别
+    */
+    string topic = 2 ;
+}
+        
+    
+    /*
+    推送的消息body
+    */
+    Params params = 1 ;
+}
+
+/*
+ListenOrgRegisterApi返回
+*/
+message ListenOrgRegisterResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

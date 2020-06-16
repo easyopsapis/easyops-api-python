@@ -123,7 +123,7 @@ message ActionsLog {
     /*
     是否暂停失败
     */
-    string failedStop = 7 ;
+    bool failedStop = 7 ;
     /*
     包Id
     */

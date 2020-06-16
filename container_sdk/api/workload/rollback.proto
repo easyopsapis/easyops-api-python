@@ -1,0 +1,44 @@
+syntax = "proto3";
+package workload;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+Rollback请求
+*/
+message RollbackRequest {
+    /*
+    workload ID
+    */
+    string instanceId = 1 ;
+    /*
+    回滚版本
+    */
+    int32 revision = 2 ;
+}
+
+/*
+RollbackApi返回
+*/
+message RollbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

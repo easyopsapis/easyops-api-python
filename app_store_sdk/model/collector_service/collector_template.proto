@@ -1,0 +1,128 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+
+/*
+资源监控采集模版
+*/
+message CollectorTemplate {
+message MetricNames {
+    /*
+    指标id
+    */
+    string metricId = 1 ;
+    /*
+    指标名
+    */
+    string metricName = 2 ;
+    /*
+    指标是否只用于中间计算，不上报，默认为false
+    */
+    bool calculateOnly = 3 ;
+}
+        
+message Params {
+    /*
+    key
+    */
+    string key = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+    /*
+    参数类型
+    */
+    string paramType = 3 ;
+}
+        
+message ProcessSteps {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    动作
+    */
+    string action = 2 ;
+    /*
+    参数,json格式字符串
+    */
+    string params = 3 ;
+    /*
+    上一级处理步骤名称列表
+    */
+    repeated string parents = 4 ;
+}
+        
+message MetricProperties {
+    /*
+    关联指标instanceId
+    */
+    string metricId = 1 ;
+    /*
+    指标是否只用于中间计算，不上报，默认为false
+    */
+    bool calculateOnly = 2 ;
+}
+        
+    
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    名称
+    */
+    string name = 2 ;
+    /*
+    采集间隔
+    */
+    int32 interval = 3 ;
+    /*
+    指标名映射列表(deprecated)
+    */
+    repeated MetricNames metricNames = 4 ;
+    /*
+    采集模型id
+    */
+    string objectId = 5 ;
+    /*
+    采集参数
+    */
+    repeated Params params = 6 ;
+    /*
+    结构体数组/关系展开字段
+    */
+    string expand = 7 ;
+    /*
+    采集类型
+    */
+    string type = 8 ;
+    /*
+    指标处理流程
+    */
+    repeated ProcessSteps processSteps = 9 ;
+    /*
+    所属Agent
+    */
+    string agentType = 10 ;
+    /*
+    模版配置yaml
+    */
+    string configYaml = 11 ;
+    /*
+    关联指标属性
+    */
+    repeated MetricProperties metricProperties = 12 ;
+    /*
+    关联日志id
+    */
+    string logId = 13 ;
+}
+

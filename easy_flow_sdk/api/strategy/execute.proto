@@ -1,0 +1,73 @@
+syntax = "proto3";
+package strategy;
+
+
+
+
+
+/*
+StrategyDeployment请求
+*/
+message StrategyDeploymentRequest {
+    /*
+    部署策略Id
+    */
+    string strategyID = 1 ;
+    /*
+    是否全部更新
+    */
+    bool full_update = 2 ;
+    /*
+    是否强制更新
+    */
+    bool force_update = 3 ;
+}
+
+/*
+StrategyDeployment返回
+*/
+message StrategyDeploymentResponse {
+message Data {
+    /*
+    任务id
+    */
+    string taskId = 1 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string msg = 2 ;
+    /*
+    返回数据
+    */
+    Data data = 3 ;
+}
+
+/*
+StrategyDeploymentApi返回
+*/
+message StrategyDeploymentResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    strategy.StrategyDeploymentResponse data = 4 ;
+}
+

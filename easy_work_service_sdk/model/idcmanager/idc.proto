@@ -1,0 +1,55 @@
+syntax = "proto3";
+package idcmanager;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/idcmanager";
+
+
+
+
+
+/*
+机房
+*/
+message IDC {
+    /*
+    机房ID
+    */
+    string instanceId = 1 ;
+    /*
+    机房名称
+    */
+    string name = 2 ;
+    /*
+    楼层号
+    */
+    string building = 3 ;
+    /*
+    简称
+    */
+    string shortname = 4 ;
+    /*
+    值班电话
+    */
+    string telphone = 5 ;
+    /*
+    区域，如1F01
+    */
+    string area = 6 ;
+    /*
+    机房地址，如华北机房
+    */
+    string address = 7 ;
+    /*
+    机房布局，用json保存二维数组[[{instanceId, type, code}]]
+    */
+    string layout = 8 ;
+    /*
+    机房创建时间
+    */
+    string ctime = 9 ;
+    /*
+    机房创建者
+    */
+    string creator = 10 ;
+}
+

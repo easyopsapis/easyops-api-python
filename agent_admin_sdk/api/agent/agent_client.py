@@ -2,29 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import agent_admin_sdk.api.agent.get_agent_pb2
 
-import get_agent_pb2
+import agent_admin_sdk.model.agent_admin.agent_pb2
 
-import model.agent_admin.agent_pb2
+import agent_admin_sdk.api.agent.list_agent_pb2
 
-import list_agent_pb2
+import agent_admin_sdk.api.agent.list_agent_plugins_pb2
 
-import list_agent_plugins_pb2
+import agent_admin_sdk.api.agent.list_agent_plugins_v1_pb2
 
-import list_agent_plugins_v1_pb2
+import agent_admin_sdk.api.agent.list_agent_status_old_pb2
 
-import list_agent_status_old_pb2
+import agent_admin_sdk.api.agent.upsert_agent_plugins_pb2
 
-import upsert_agent_plugins_pb2
+import agent_admin_sdk.api.agent.upsert_agent_plugins_v1_pb2
 
-import upsert_agent_plugins_v1_pb2
-
-import utils.http_util
+import agent_admin_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -46,14 +41,14 @@ class AgentClient(object):
 
     
     def get_agent(self, request, org, user, timeout=10):
-        # type: (get_agent_pb2.GetAgentRequest, int, str, int) -> model.agent_admin.agent_pb2.Agent
+        # type: (agent_admin_sdk.api.agent.get_agent_pb2.GetAgentRequest, int, str, int) -> agent_admin_sdk.model.agent_admin.agent_pb2.Agent
         """
         获取Agent详细数据
         :param request: get_agent请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.agent_admin.agent_pb2.Agent
+        :return: agent_admin_sdk.model.agent_admin.agent_pb2.Agent
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -67,7 +62,7 @@ class AgentClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -80,21 +75,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.agent_admin.agent_pb2.Agent()
+        rsp = agent_admin_sdk.model.agent_admin.agent_pb2.Agent()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_agent(self, request, org, user, timeout=10):
-        # type: (list_agent_pb2.ListAgentRequest, int, str, int) -> list_agent_pb2.ListAgentResponse
+        # type: (agent_admin_sdk.api.agent.list_agent_pb2.ListAgentRequest, int, str, int) -> agent_admin_sdk.api.agent.list_agent_pb2.ListAgentResponse
         """
         Agent列表
         :param request: list_agent请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_agent_pb2.ListAgentResponse
+        :return: agent_admin_sdk.api.agent.list_agent_pb2.ListAgentResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -107,7 +102,7 @@ class AgentClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -120,21 +115,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_agent_pb2.ListAgentResponse()
+        rsp = agent_admin_sdk.api.agent.list_agent_pb2.ListAgentResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_agent_plugins(self, request, org, user, timeout=10):
-        # type: (list_agent_plugins_pb2.ListAgentPluginsRequest, int, str, int) -> list_agent_plugins_pb2.ListAgentPluginsResponse
+        # type: (agent_admin_sdk.api.agent.list_agent_plugins_pb2.ListAgentPluginsRequest, int, str, int) -> agent_admin_sdk.api.agent.list_agent_plugins_pb2.ListAgentPluginsResponse
         """
         获取Agent插件列表
         :param request: list_agent_plugins请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_agent_plugins_pb2.ListAgentPluginsResponse
+        :return: agent_admin_sdk.api.agent.list_agent_plugins_pb2.ListAgentPluginsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -148,7 +143,7 @@ class AgentClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -161,21 +156,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_agent_plugins_pb2.ListAgentPluginsResponse()
+        rsp = agent_admin_sdk.api.agent.list_agent_plugins_pb2.ListAgentPluginsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_agent_plugins_v_1(self, request, org, user, timeout=10):
-        # type: (list_agent_plugins_v1_pb2.ListAgentPluginsV1Request, int, str, int) -> list_agent_plugins_v1_pb2.ListAgentPluginsV1Response
+        # type: (agent_admin_sdk.api.agent.list_agent_plugins_v1_pb2.ListAgentPluginsV1Request, int, str, int) -> agent_admin_sdk.api.agent.list_agent_plugins_v1_pb2.ListAgentPluginsV1Response
         """
         获取Agent插件列表
         :param request: list_agent_plugins_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_agent_plugins_v1_pb2.ListAgentPluginsV1Response
+        :return: agent_admin_sdk.api.agent.list_agent_plugins_v1_pb2.ListAgentPluginsV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -189,7 +184,7 @@ class AgentClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -202,21 +197,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_agent_plugins_v1_pb2.ListAgentPluginsV1Response()
+        rsp = agent_admin_sdk.api.agent.list_agent_plugins_v1_pb2.ListAgentPluginsV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_agent_status_old(self, request, org, user, timeout=10):
-        # type: (list_agent_status_old_pb2.ListAgentStatusOldRequest, int, str, int) -> list_agent_status_old_pb2.ListAgentStatusOldResponse
+        # type: (agent_admin_sdk.api.agent.list_agent_status_old_pb2.ListAgentStatusOldRequest, int, str, int) -> agent_admin_sdk.api.agent.list_agent_status_old_pb2.ListAgentStatusOldResponse
         """
         Agent列表
         :param request: list_agent_status_old请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_agent_status_old_pb2.ListAgentStatusOldResponse
+        :return: agent_admin_sdk.api.agent.list_agent_status_old_pb2.ListAgentStatusOldResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -229,7 +224,7 @@ class AgentClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -242,21 +237,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_agent_status_old_pb2.ListAgentStatusOldResponse()
+        rsp = agent_admin_sdk.api.agent.list_agent_status_old_pb2.ListAgentStatusOldResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def upsert_agent_plugins(self, request, org, user, timeout=10):
-        # type: (upsert_agent_plugins_pb2.UpsertAgentPluginsRequest, int, str, int) -> upsert_agent_plugins_pb2.UpsertAgentPluginsResponse
+        # type: (agent_admin_sdk.api.agent.upsert_agent_plugins_pb2.UpsertAgentPluginsRequest, int, str, int) -> agent_admin_sdk.api.agent.upsert_agent_plugins_pb2.UpsertAgentPluginsResponse
         """
         刷新Agent插件列表
         :param request: upsert_agent_plugins请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: upsert_agent_plugins_pb2.UpsertAgentPluginsResponse
+        :return: agent_admin_sdk.api.agent.upsert_agent_plugins_pb2.UpsertAgentPluginsResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -269,7 +264,7 @@ class AgentClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -282,21 +277,21 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = upsert_agent_plugins_pb2.UpsertAgentPluginsResponse()
+        rsp = agent_admin_sdk.api.agent.upsert_agent_plugins_pb2.UpsertAgentPluginsResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def upsert_agent_plugins_v_1(self, request, org, user, timeout=10):
-        # type: (upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Request, int, str, int) -> upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response
+        # type: (agent_admin_sdk.api.agent.upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Request, int, str, int) -> agent_admin_sdk.api.agent.upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response
         """
         刷新Agent插件列表
         :param request: upsert_agent_plugins_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response
+        :return: agent_admin_sdk.api.agent.upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -309,7 +304,7 @@ class AgentClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -322,7 +317,7 @@ class AgentClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response()
+        rsp = agent_admin_sdk.api.agent.upsert_agent_plugins_v1_pb2.UpsertAgentPluginsV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

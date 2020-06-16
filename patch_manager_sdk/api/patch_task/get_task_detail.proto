@@ -1,0 +1,184 @@
+syntax = "proto3";
+package patch_task;
+
+
+
+
+
+/*
+GetPatchTaskDetail请求
+*/
+message GetPatchTaskDetailRequest {
+    /*
+    页码
+    */
+    string taskId = 1 ;
+}
+
+/*
+GetPatchTaskDetail返回
+*/
+message GetPatchTaskDetailResponse {
+message TaskResult {
+message Result {
+    /*
+    补丁ID
+    */
+    string patchId = 1 ;
+    /*
+    补丁安装码
+    */
+    int32 wuec = 2 ;
+    /*
+    安装消息
+    */
+    string message = 3 ;
+    /*
+    补丁编号
+    */
+    string articleId = 4 ;
+    /*
+    发布时间
+    */
+    string releaseTime = 5 ;
+    /*
+    补丁大小(单位为KB)
+    */
+    int32 size = 6 ;
+    /*
+    备注
+    */
+    string memo = 7 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 8 ;
+    /*
+    任务状态
+    */
+    string status = 9 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 10 ;
+    /*
+    结束时间
+    */
+    int32 etime = 11 ;
+}
+        
+    
+    /*
+    补丁安装的具体状态
+    */
+    repeated Result result = 1 ;
+    /*
+    主机ID
+    */
+    string hostId = 2 ;
+    /*
+    主机IP
+    */
+    string hostIp = 3 ;
+    /*
+    补丁ID列表
+    */
+    repeated string patchIdList = 4 ;
+    /*
+    任务状态
+    */
+    string status = 5 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 6 ;
+    /*
+    结束时间
+    */
+    int32 etime = 7 ;
+    /*
+    主机名
+    */
+    string hostname = 8 ;
+    /*
+    操作系统版本（如:Windows 10）
+    */
+    string osVersion = 9 ;
+    /*
+    操作系统架构
+    */
+    string osArchitecture = 10 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 11 ;
+}
+        
+message Request {
+    /*
+    主机ID
+    */
+    string hostId = 1 ;
+    /*
+    主机ip
+    */
+    string hostIp = 2 ;
+    /*
+    安装的补丁实例ID列表
+    */
+    repeated string patchIdList = 3 ;
+}
+        
+    
+    /*
+    补丁安装结果详情列表
+    */
+    repeated TaskResult taskResult = 1 ;
+    /*
+    任务ID，objectId形式的
+    */
+    string taskId = 2 ;
+    /*
+    补丁安装请求
+    */
+    repeated Request request = 3 ;
+    /*
+    创建人
+    */
+    string creator = 4 ;
+    /*
+    创建时间
+    */
+    int32 ctime = 5 ;
+    /*
+    结束时间
+    */
+    int32 etime = 6 ;
+    /*
+    任务状态
+    */
+    string status = 7 ;
+}
+
+/*
+GetPatchTaskDetailApi返回
+*/
+message GetPatchTaskDetailResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch_task.GetPatchTaskDetailResponse data = 4 ;
+}
+

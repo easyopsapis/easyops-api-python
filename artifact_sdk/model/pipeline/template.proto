@@ -1,0 +1,59 @@
+syntax = "proto3";
+package pipeline;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/pipeline";
+
+
+
+
+
+/*
+流水线模版
+*/
+message Template {
+message Variables {
+    /*
+    name
+    */
+    string name = 1 ;
+    /*
+    value
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    模板id，服务端自动生成
+    */
+    string id = 1 ;
+    /*
+    模板名称
+    */
+    string name = 2 ;
+    /*
+    简介
+    */
+    string description = 3 ;
+    /*
+    yaml定义
+    */
+    string yaml_string = 4 ;
+    /*
+    模板变量列表
+    */
+    repeated Variables variables = 5 ;
+    /*
+    创建者，服务端自动生成
+    */
+    string creator = 6 ;
+    /*
+    创建时间, 服务端自动生成
+    */
+    string ctime = 7 ;
+    /*
+    修改时间, 服务端自动生成
+    */
+    string mtime = 8 ;
+}
+

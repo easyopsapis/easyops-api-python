@@ -1,0 +1,36 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+import "easy_flow_sdk/model/topboard/sprint.proto";
+
+/*
+产品
+*/
+message Product {
+    /*
+    迭代列表
+    */
+    repeated topboard.Sprint sprints = 1 ;
+    /*
+    产品id
+    */
+    string name = 2 ;
+    /*
+    产品实例id
+    */
+    string instanceId = 3 ;
+    /*
+    产品名称
+    */
+    string title = 4 ;
+    /*
+    描述
+    */
+    string description = 5 ;
+}
+

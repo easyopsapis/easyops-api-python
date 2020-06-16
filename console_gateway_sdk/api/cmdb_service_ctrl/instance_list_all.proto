@@ -1,0 +1,70 @@
+syntax = "proto3";
+package cmdb_service_ctrl;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+InstanceListAll请求
+*/
+message InstanceListAllRequest {
+    /*
+    实例所属的模型ID
+    */
+    string objectId = 1 ;
+    /*
+    对于关联的实例数据是否只获取relation_view中指定的属性
+    */
+    bool only_relation_view = 2 ;
+    /*
+    需要返回的关系，多个用逗号分隔
+    */
+    string select_relations = 3 ;
+}
+
+/*
+InstanceListAll返回
+*/
+message InstanceListAllResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    实例列表
+    */
+    repeated google.protobuf.Struct data = 4 ;
+}
+
+/*
+InstanceListAllApi返回
+*/
+message InstanceListAllResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_service_ctrl.InstanceListAllResponse data = 4 ;
+}
+

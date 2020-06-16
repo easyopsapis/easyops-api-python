@@ -1,0 +1,185 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "topboard_sdk/model/easy_flow/target_info.proto";
+import "topboard_sdk/model/easy_flow/package_info.proto";
+import "topboard_sdk/model/easy_flow/deploy_target.proto";
+import "google/protobuf/struct.proto";
+
+/*
+部署任务实例
+*/
+message Task {
+message ConfigList {
+message Configs {
+message Items {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    路径
+    */
+    string path = 2 ;
+}
+        
+    
+    /*
+    包Id
+    */
+    string packageId = 1 ;
+    /*
+    选项列表
+    */
+    repeated Items items = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    配置信息
+    */
+    repeated Configs configs = 2 ;
+}
+        
+message ConfigDiff {
+message Detail {
+message Items {
+    /*
+    路径
+    */
+    string path = 1 ;
+    /*
+    包新名称
+    */
+    string newName = 2 ;
+    /*
+    包原名称
+    */
+    string oldName = 3 ;
+}
+        
+    
+    /*
+    详情
+    */
+    repeated Items items = 1 ;
+    /*
+    包Id
+    */
+    string packageId = 2 ;
+    /*
+    安装路径
+    */
+    string installPath = 3 ;
+}
+        
+    
+    /*
+    主机列表
+    */
+    repeated string hosts = 1 ;
+    /*
+    包配置变更信息
+    */
+    repeated Detail detail = 2 ;
+}
+        
+message Batches {
+    /*
+    批次主机列表
+    */
+    repeated easy_flow.DeployTarget targets = 1 ;
+}
+        
+    
+    /*
+    应用Id
+    */
+    string appId = 1 ;
+    /*
+    应用名称
+    */
+    string appName = 2 ;
+    /*
+    集群Id
+    */
+    string clusterId = 3 ;
+    /*
+    集群类型
+    */
+    string clusterType = 4 ;
+    /*
+    操作人
+    */
+    string operator = 5 ;
+    /*
+    组织
+    */
+    int32 org = 6 ;
+    /*
+    部署主机信息列表
+    */
+    repeated easy_flow.TargetInfo targetList = 7 ;
+    /*
+    部署包信息列表
+    */
+    repeated easy_flow.PackageInfo packageList = 8 ;
+    /*
+    配置列表
+    */
+    repeated ConfigList configList = 9 ;
+    /*
+    任务时间戳
+    */
+    string taskTimeStamp = 10 ;
+    /*
+    配置版本
+    */
+    string configVersion = 11 ;
+    /*
+    配置包Id
+    */
+    string configPackageId = 12 ;
+    /*
+    标签
+    */
+    google.protobuf.Struct labels = 13 ;
+    /*
+    配置变更信息
+    */
+    repeated ConfigDiff configDiff = 14 ;
+    /*
+    是否需要发送通知
+    */
+    bool needNotify = 15 ;
+    /*
+    自动分批:每批次部署机器数;手动分批:部署总共批次
+    */
+    int32 batchNum = 16 ;
+    /*
+    部署间隔时长(s)
+    */
+    int32 batchInterval = 17 ;
+    /*
+    分批详情
+    */
+    repeated Batches batches = 18 ;
+    /*
+    是否失败暂停
+    */
+    bool failedStop = 19 ;
+}
+

@@ -1,0 +1,75 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "topboard_sdk/model/topboard/sprint.proto";
+import "google/protobuf/struct.proto";
+
+/*
+SearchSprint请求
+*/
+message SearchSprintRequest {
+    /*
+    搜索条件
+    */
+    google.protobuf.Struct query = 1 ;
+    /*
+    筛选字段
+    */
+    google.protobuf.Struct fields = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小, 为0时拉取所有数据
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+SearchSprint返回
+*/
+message SearchSprintResponse {
+    /*
+    迭代列表
+    */
+    repeated topboard.Sprint list = 1 ;
+    /*
+    实例总数
+    */
+    int32 total = 2 ;
+    /*
+    页码
+    */
+    int32 page = 3 ;
+    /*
+    页大小
+    */
+    int32 page_size = 4 ;
+}
+
+/*
+SearchSprintApi返回
+*/
+message SearchSprintResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.SearchSprintResponse data = 4 ;
+}
+

@@ -1,0 +1,62 @@
+syntax = "proto3";
+package permission_ctrl;
+
+
+
+
+import "console_gateway_sdk/model/permission/permission.proto";
+
+/*
+GetPermissionList请求
+*/
+message GetPermissionListRequest {
+    /*
+    action名称过滤，多个用,分隔
+    */
+    string action__in = 1 ;
+    /*
+    sdk限制字段使用
+    */
+    repeated string XXX_RestFieldMask = 2 ;
+    /*
+    需要鉴权的动作, 全局唯一
+    */
+    string action = 3 ;
+}
+
+/*
+GetPermissionList返回
+*/
+message GetPermissionListResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    数据
+    */
+    repeated permission.Permission data = 2 ;
+}
+
+/*
+GetPermissionListApi返回
+*/
+message GetPermissionListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission_ctrl.GetPermissionListResponse data = 4 ;
+}
+

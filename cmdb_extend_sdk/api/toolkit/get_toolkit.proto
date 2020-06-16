@@ -1,0 +1,45 @@
+syntax = "proto3";
+package toolkit;
+
+
+
+
+import "cmdb_extend_sdk/model/cmdb_extend/toolkit.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetToolkit请求
+*/
+message GetToolkitRequest {
+    /*
+    模型Id
+    */
+    string objectId = 1 ;
+    /*
+    任意门Id
+    */
+    string toolkitId = 2 ;
+}
+
+/*
+GetToolkitApi返回
+*/
+message GetToolkitResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_extend.Toolkit data = 4 ;
+}
+

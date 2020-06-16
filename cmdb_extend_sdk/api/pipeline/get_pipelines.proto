@@ -4,7 +4,7 @@ package pipeline;
 
 
 
-import "model/cmdb_extend/app_pipeline.proto";
+import "cmdb_extend_sdk/model/cmdb_extend/app_pipeline.proto";
 
 /*
 GetPipelines请求

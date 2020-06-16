@@ -1,0 +1,24 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "resource_monitor_sdk/model/container/metric_target.proto";
+
+/*
+ResourceMetricSource
+*/
+message ResourceMetricSource {
+    /*
+    资源名称, cpu, memory
+    */
+    string name = 1 ;
+    /*
+    目标值
+    */
+    container.MetricTarget target = 2 ;
+}
+

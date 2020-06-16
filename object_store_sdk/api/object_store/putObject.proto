@@ -1,0 +1,39 @@
+syntax = "proto3";
+package object_store;
+
+
+
+
+
+/*
+PutObject返回
+*/
+message PutObjectResponse {
+    /*
+    上传对象后，服务器返回的对象名称
+    */
+    string objectName = 1 ;
+}
+
+/*
+PutObjectApi返回
+*/
+message PutObjectResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    object_store.PutObjectResponse data = 4 ;
+}
+

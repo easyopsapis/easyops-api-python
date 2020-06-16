@@ -1,0 +1,41 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+import "tuna_service_sdk/model/inspection/dim.proto";
+import "tuna_service_sdk/model/inspection/val.proto";
+
+/*
+指标组
+*/
+message InspectionMetricGroup {
+    /*
+    指标组id
+    */
+    string id = 1 ;
+    /*
+    指标组名
+    */
+    string name = 2 ;
+    /*
+    两级分类，用.分割，(如：主机状态.基本配置 )
+    */
+    string category = 3 ;
+    /*
+    指标组维度信息
+    */
+    repeated inspection.InspectionDim dims = 4 ;
+    /*
+    指标组指标信息
+    */
+    repeated inspection.InspectionVal vals = 5 ;
+    /*
+    指标组说明
+    */
+    string memo = 6 ;
+}
+

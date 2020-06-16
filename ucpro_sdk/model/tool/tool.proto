@@ -6,54 +6,13 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/t
 
 
 
-import "model/tool/input_param.proto";
+import "ucpro_sdk/model/tool/tool_input.proto";
+import "google/protobuf/struct.proto";
 
 /*
 工具
 */
 message Tool {
-message ToolOutputs {
-message Dimensions {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-message Columns {
-    /*
-    列id
-    */
-    string id = 1 ;
-    /*
-    列标题
-    */
-    string name = 2 ;
-    /*
-    列类型
-    */
-    string type = 3 ;
-}
-        
-    
-    /*
-    维度列
-    */
-    repeated Dimensions dimensions = 1 ;
-    /*
-    输出列
-    */
-    repeated Columns columns = 2 ;
-}
-        
 message OutputDefs {
     /*
     输出参数ID
@@ -107,23 +66,15 @@ message Columns {
     repeated Columns columns = 4 ;
 }
         
-message BatchStrategy {
+message Log {
     /*
-    是否默认分批执行
+    是否启用日志
     */
-    string enabled = 1 ;
+    bool enabled = 1 ;
     /*
-    自动分批:每批次部署机器数;手动分批:部署总共批次
+    v,vv,vvv for more, vvvv to enable connection debugging
     */
-    int32 batchNum = 2 ;
-    /*
-    部署间隔时长(s)
-    */
-    int32 batchInterval = 3 ;
-    /*
-    是否失败暂停
-    */
-    string failedStop = 4 ;
+    string level = 2 ;
 }
         
     
@@ -162,7 +113,7 @@ message BatchStrategy {
     /*
     列表中是否显示
     */
-    string listVisible = 9 ;
+    bool listVisible = 9 ;
     /*
     标签
     */
@@ -170,7 +121,7 @@ message BatchStrategy {
     /*
     禁用工具开关
     */
-    string disable = 11 ;
+    bool disable = 11 ;
     /*
     工具创建时间
     */
@@ -188,9 +139,9 @@ message BatchStrategy {
     */
     int32 org = 15 ;
     /*
-    工具输入参数
+    工具输入参数信息
     */
-    repeated tool.input_param inputs = 16 ;
+    repeated tool.ToolInput inputs = 16 ;
     /*
     工具输出参数
     */
@@ -222,11 +173,11 @@ message BatchStrategy {
     /*
     系统插件
     */
-    string system_plugin = 24 ;
+    bool system_plugin = 24 ;
     /*
     系统工具
     */
-    string system_tool = 25 ;
+    bool system_tool = 25 ;
     /*
     绑定的agents
     */
@@ -234,7 +185,7 @@ message BatchStrategy {
     /*
     沙箱执行；默认执行的agents
     */
-    string sandboxRun = 27 ;
+    bool sandboxRun = 27 ;
     /*
     白名单
     */
@@ -242,15 +193,43 @@ message BatchStrategy {
     /*
     是否使用windows会话用户
     */
-    string windowsSession = 29 ;
+    bool windowsSession = 29 ;
     /*
     黑名单
     */
     repeated string blackList = 30 ;
     /*
-    工具的输出
+    工具的输出, 输出为空为[],非空时为object, 结构如下:
+fields:
+  - name: dimensions
+    type: object[]
+    description: 维度列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+  - name: columns
+    type: object[]
+    description: 输出列
+    fields:
+      - name: id
+        type: string
+        description: 列id
+      - name: name
+        type: string
+        description: 列标题
+      - name: type
+        type: string
+        description: 列类型
+
     */
-    ToolOutputs toolOutputs = 31 ;
+    google.protobuf.Value toolOutputs = 31 ;
     /*
     工具的输出定义
     */
@@ -310,7 +289,7 @@ message BatchStrategy {
     /*
     版本类型
     */
-    int32 envType = 46 ;
+    string envType = 46 ;
     /*
     工具审批结果(approving=待审批;approved=已审批;rejected=审批未通过)
     */
@@ -328,9 +307,11 @@ message BatchStrategy {
     */
     string checkComment = 50 ;
     /*
-    分批策略{"batchNum":10,"batchInterval":3,"failedStop":true,"enabled":true}
+    当为空时是[],
+非空时为object如,分批策略{"batchNum":10,"batchInterval":3,"failedStop":true,"enabled":true}
+
     */
-    BatchStrategy batchStrategy = 51 ;
+    google.protobuf.Value batchStrategy = 51 ;
     /*
     初始化后的工具为 SQL  HTTP  JAVA   normal(null)
     */
@@ -338,7 +319,7 @@ message BatchStrategy {
     /*
     系统ORG
     */
-    string is_system_org = 53 ;
+    bool is_system_org = 53 ;
     /*
     邮件订阅用户
     */
@@ -350,7 +331,7 @@ message BatchStrategy {
     /*
     是否只读
     */
-    string readOnly = 56 ;
+    bool readOnly = 56 ;
     /*
     模版类型
     */
@@ -358,10 +339,18 @@ message BatchStrategy {
     /*
     数据库删除标记
     */
-    string delete_me = 58 ;
+    bool delete_me = 58 ;
     /*
     审批用户
     */
     repeated string approvers = 59 ;
+    /*
+    Ansible Node机器执行用户
+    */
+    string ansibleNodeExecUser = 60 ;
+    /*
+    ansible-playbook verbose mode
+    */
+    Log log = 61 ;
 }
 

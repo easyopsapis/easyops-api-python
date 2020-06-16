@@ -1,0 +1,74 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "state_workflow_sdk/model/container/service_spec.proto";
+import "state_workflow_sdk/model/container/loadbalancer_status.proto";
+import "google/protobuf/struct.proto";
+
+/*
+Service 资源定义, 用于 CMDB 存储
+*/
+message Service {
+message Status {
+    /*
+    负载均衡器状态
+    */
+    container.LoadBalancerStatus loadBalancer = 1 ;
+}
+        
+    
+    /*
+    service id，服务端自动生成
+    */
+    string instanceId = 1 ;
+    /*
+    service 类型, 只能是 Service
+    */
+    string kind = 2 ;
+    /*
+    service 全称，命名规则 clusterId:kind:namespace:name, 创建之后不能修改
+    */
+    string name = 3 ;
+    /*
+    命名空间, 创建之后不能修改
+    */
+    string namespace = 4 ;
+    /*
+    名称
+    */
+    string resourceName = 5 ;
+    /*
+    注解
+    */
+    google.protobuf.Struct annotations = 6 ;
+    /*
+    标签
+    */
+    google.protobuf.Struct labels = 7 ;
+    /*
+    Service spec 信息
+    */
+    container.ServiceSpec spec = 8 ;
+    /*
+    service 定义
+    */
+    string resourceSpec = 9 ;
+    /*
+    状态
+    */
+    Status status = 10 ;
+    /*
+    创建时间
+    */
+    string creationTimestamp = 11 ;
+    /*
+    创建者, 服务端自动生成
+    */
+    string creator = 12 ;
+}
+

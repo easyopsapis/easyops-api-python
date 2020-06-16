@@ -1,0 +1,90 @@
+syntax = "proto3";
+package collector_history;
+
+
+
+
+import "resource_manage_sdk/model/resource_manage/collector_history.proto";
+
+/*
+GetCollectorHistoryStatus请求
+*/
+message GetCollectorHistoryStatusRequest {
+    /*
+    任务ID
+    */
+    string configId = 1 ;
+    /*
+    页数
+    */
+    int32 page = 2 ;
+    /*
+    页记录数
+    */
+    int32 pageSize = 3 ;
+    /*
+    限定显示字段
+    */
+    string fields = 4 ;
+    /*
+    查询的状态类型
+    */
+    string code = 5 ;
+    /*
+    IP搜索关键字
+    */
+    string ipRegEx = 6 ;
+    /*
+    起始时间戳
+    */
+    int32 st = 7 ;
+    /*
+    终止时间戳
+    */
+    int32 et = 8 ;
+}
+
+/*
+GetCollectorHistoryStatus返回
+*/
+message GetCollectorHistoryStatusResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated resource_manage.CollectorHistory list = 4 ;
+}
+
+/*
+GetCollectorHistoryStatusApi返回
+*/
+message GetCollectorHistoryStatusResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collector_history.GetCollectorHistoryStatusResponse data = 4 ;
+}
+

@@ -1,0 +1,149 @@
+syntax = "proto3";
+package process_definition;
+
+
+
+
+
+/*
+UpdateProcessDefinition请求
+*/
+message UpdateProcessDefinitionRequest {
+    /*
+    流程定义ID
+    */
+    string definitionId = 1 ;
+    /*
+    流程版本ID
+    */
+    string versionId = 2 ;
+    /*
+    流程版本是否已完成(true表示已完成,false未完成)
+    */
+    bool isDone = 3 ;
+    /*
+    版本状态(unfinished 未完成, done已完成),存为草稿传unfinished,保存传done
+    */
+    string state = 4 ;
+    /*
+    名称
+    */
+    string name = 5 ;
+    /*
+    分类
+    */
+    string category = 6 ;
+    /*
+    备注
+    */
+    string memo = 7 ;
+    /*
+    版本名称
+    */
+    string versionName = 8 ;
+    /*
+    版本备注
+    */
+    string vMemo = 9 ;
+    /*
+    流程定义的xml字符串
+    */
+    string bpmnXML = 10 ;
+}
+
+/*
+UpdateProcessDefinition返回
+*/
+message UpdateProcessDefinitionResponse {
+    /*
+    流程版本实例Id
+    */
+    string vInstanceId = 1 ;
+    /*
+    流程版本作者
+    */
+    string vCreator = 2 ;
+    /*
+    流程版本说明
+    */
+    string vMemo = 3 ;
+    /*
+    流程定义实例id
+    */
+    string instanceId = 4 ;
+    /*
+    流程定义名称
+    */
+    string name = 5 ;
+    /*
+    流程类别
+    */
+    string category = 6 ;
+    /*
+    流程作者
+    */
+    string creator = 7 ;
+    /*
+    流程说明
+    */
+    string memo = 8 ;
+    /*
+    创建时间
+    */
+    string ctime = 9 ;
+    /*
+    版本名称
+    */
+    string versionName = 10 ;
+    /*
+    流程部署Id
+    */
+    string deploymentId = 11 ;
+    /*
+    流程定义id
+    */
+    string flowableDefinitionId = 12 ;
+    /*
+    流程定义key
+    */
+    string flowableDefinitionKey = 13 ;
+    /*
+    是否为主版本(true 为主版本,false为非主版本)
+    */
+    bool isMain = 14 ;
+    /*
+    流程状态(unfinished 未完成, done已完成)
+    */
+    string state = 15 ;
+    /*
+    流程部署时间
+    */
+    string deploymentTime = 16 ;
+    /*
+    父部署Id
+    */
+    string parentDeploymentId = 17 ;
+}
+
+/*
+UpdateProcessDefinitionApi返回
+*/
+message UpdateProcessDefinitionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_definition.UpdateProcessDefinitionResponse data = 4 ;
+}
+

@@ -26,9 +26,9 @@ message CreateOrgRequest {
     */
     string memo = 4 ;
     /*
-    是否是社区版
+    版本类型
     */
-    bool is_community = 5 ;
+    string edition = 5 ;
 }
 
 /*

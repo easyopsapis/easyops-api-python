@@ -1,0 +1,45 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "topboard_sdk/model/topboard/product.proto";
+import "topboard_sdk/model/topboard/sprint.proto";
+import "topboard_sdk/model/cmdb/user.proto";
+import "topboard_sdk/model/topboard/attachment.proto";
+import "topboard_sdk/model/topboard/comment.proto";
+import "topboard_sdk/model/topboard/issue.proto";
+
+/*
+GetIssue请求
+*/
+message GetIssueRequest {
+    /*
+    问题id
+    */
+    string issueID = 1 ;
+}
+
+/*
+GetIssueApi返回
+*/
+message GetIssueResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    topboard.Issue data = 4 ;
+}
+

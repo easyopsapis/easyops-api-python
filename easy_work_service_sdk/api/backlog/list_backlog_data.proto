@@ -1,0 +1,78 @@
+syntax = "proto3";
+package backlog;
+
+
+
+
+import "easy_work_service_sdk/model/easy_work_service/backlog.proto";
+
+/*
+ListBacklogData请求
+*/
+message ListBacklogDataRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    事务分类
+    */
+    string category = 3 ;
+    /*
+    模糊搜索关键字
+    */
+    string keyword = 4 ;
+    /*
+    事务状态
+    */
+    string status = 5 ;
+}
+
+/*
+ListBacklogData返回
+*/
+message ListBacklogDataResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated easy_work_service.Backlog list = 4 ;
+}
+
+/*
+ListBacklogDataApi返回
+*/
+message ListBacklogDataResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    backlog.ListBacklogDataResponse data = 4 ;
+}
+

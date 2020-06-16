@@ -1,0 +1,66 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/relation_query_strategy_v2.proto";
+
+/*
+ListRelationQueryStrategyV2Request请求
+*/
+message ListRelationQueryStrategyV2RequestRequest {
+    /*
+    模型ID
+    */
+    string object_id = 1 ;
+    /*
+    策略类型
+    */
+    string type = 2 ;
+}
+
+/*
+ListRelationQueryStrategyV2Request返回
+*/
+message ListRelationQueryStrategyV2RequestResponse {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    页码
+    */
+    string error = 2 ;
+    /*
+    返回信息
+    */
+    string message = 3 ;
+    /*
+    数据
+    */
+    repeated cmdb.RelationQueryStrategyV2 data = 4 ;
+}
+
+/*
+ListRelationQueryStrategyV2RequestApi返回
+*/
+message ListRelationQueryStrategyV2RequestResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ListRelationQueryStrategyV2RequestResponse data = 4 ;
+}
+

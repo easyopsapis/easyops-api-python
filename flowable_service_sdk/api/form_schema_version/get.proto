@@ -1,0 +1,86 @@
+syntax = "proto3";
+package form_schema_version;
+
+
+
+
+import "flowable_service_sdk/model/flowable_service/form_schema.proto";
+
+/*
+GetFormSchemaVersion请求
+*/
+message GetFormSchemaVersionRequest {
+    /*
+    表单实例Id
+    */
+    string formId = 1 ;
+    /*
+    表单版本Id
+    */
+    string versionId = 2 ;
+}
+
+/*
+GetFormSchemaVersion返回
+*/
+message GetFormSchemaVersionResponse {
+    /*
+    表单信息
+    */
+    flowable_service.FormSchema formSchema = 1 ;
+    /*
+    实例id
+    */
+    string instanceId = 2 ;
+    /*
+    版本名称
+    */
+    string versionName = 3 ;
+    /*
+    是否为主版本(true 为主版本,false为非主版本)
+    */
+    bool isMain = 4 ;
+    /*
+    表单版本状态(unfinished 未完成, done已完成)
+    */
+    string state = 5 ;
+    /*
+    表单版本说明
+    */
+    string memo = 6 ;
+    /*
+    表单版本作者
+    */
+    string creator = 7 ;
+    /*
+    前台的表单控件属性(dyHeader和dyBody)
+    */
+    string formDefinition = 8 ;
+    /*
+    创建时间
+    */
+    string ctime = 9 ;
+}
+
+/*
+GetFormSchemaVersionApi返回
+*/
+message GetFormSchemaVersionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    form_schema_version.GetFormSchemaVersionResponse data = 4 ;
+}
+

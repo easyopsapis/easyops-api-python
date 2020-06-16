@@ -1,0 +1,53 @@
+syntax = "proto3";
+package datafilter;
+
+
+
+
+
+/*
+ExecuteStrategy请求
+*/
+message ExecuteStrategyRequest {
+    /*
+    规则实例Id
+    */
+    string instanceId = 1 ;
+    /*
+    是否发送消息
+    */
+    bool sendMsg = 2 ;
+}
+
+/*
+ExecuteStrategy返回
+*/
+message ExecuteStrategyResponse {
+    /*
+    执行id
+    */
+    string execId = 1 ;
+}
+
+/*
+ExecuteStrategyApi返回
+*/
+message ExecuteStrategyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    datafilter.ExecuteStrategyResponse data = 4 ;
+}
+

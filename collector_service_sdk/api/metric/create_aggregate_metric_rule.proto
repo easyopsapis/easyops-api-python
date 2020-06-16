@@ -1,0 +1,39 @@
+syntax = "proto3";
+package metric;
+
+
+
+
+
+/*
+CreateCollectorAggregateMetricRule返回
+*/
+message CreateCollectorAggregateMetricRuleResponse {
+    /*
+    实例Id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+CreateCollectorAggregateMetricRuleApi返回
+*/
+message CreateCollectorAggregateMetricRuleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    metric.CreateCollectorAggregateMetricRuleResponse data = 4 ;
+}
+

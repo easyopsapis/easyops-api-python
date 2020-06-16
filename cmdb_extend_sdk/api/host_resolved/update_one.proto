@@ -1,0 +1,44 @@
+syntax = "proto3";
+package host_resolved;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+UpdateOne请求
+*/
+message UpdateOneRequest {
+    /*
+    文档Id
+    */
+    string id = 1 ;
+    /*
+    文档数据内容
+    */
+    google.protobuf.Struct data = 2 ;
+}
+
+/*
+UpdateOneApi返回
+*/
+message UpdateOneResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

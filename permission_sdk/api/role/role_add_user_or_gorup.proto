@@ -1,0 +1,57 @@
+syntax = "proto3";
+package role;
+
+
+
+
+
+/*
+RoleAddUserOrGroup请求
+*/
+message RoleAddUserOrGroupRequest {
+    /*
+    用户名列表
+    */
+    repeated string operate_user = 1 ;
+    /*
+    用户组列表
+    */
+    repeated string operate_user_group = 2 ;
+    /*
+    角色id
+    */
+    string id = 3 ;
+}
+
+/*
+RoleAddUserOrGroup返回
+*/
+message RoleAddUserOrGroupResponse {
+    /*
+    新加用户(组)数量
+    */
+    int32 count = 1 ;
+}
+
+/*
+RoleAddUserOrGroupApi返回
+*/
+message RoleAddUserOrGroupResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    role.RoleAddUserOrGroupResponse data = 4 ;
+}
+

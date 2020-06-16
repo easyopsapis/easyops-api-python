@@ -6,8 +6,8 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/o
 
 
 
-import "model/ops_automation/bind_resource.proto";
-import "model/ops_automation/mail_info.proto";
+import "artifact_sdk/model/ops_automation/bind_resource.proto";
+import "artifact_sdk/model/ops_automation/mail_info.proto";
 
 /*
 创建巡检任务
@@ -41,5 +41,9 @@ message Jobs {
     邮件通知配置
     */
     ops_automation.MailInfo mail = 7 ;
+    /*
+    作业ID
+    */
+    string id = 8 ;
 }
 

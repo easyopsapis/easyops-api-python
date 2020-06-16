@@ -1,0 +1,40 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+import "metadata_center_sdk/model/metadata_center/stream_storage_retention_policies.proto";
+
+/*
+ListStorageRetentionPolicies返回
+*/
+message ListStorageRetentionPoliciesResponse {
+    /*
+    RetentionPolicy列表
+    */
+    repeated metadata_center.StreamStorageRetentionPolicy list = 1 ;
+}
+
+/*
+ListStorageRetentionPoliciesApi返回
+*/
+message ListStorageRetentionPoliciesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ListStorageRetentionPoliciesResponse data = 4 ;
+}
+

@@ -1,0 +1,88 @@
+syntax = "proto3";
+package easy_flow;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_flow";
+
+
+
+
+import "architecture_view_sdk/model/cmdb/cluster_info.proto";
+import "architecture_view_sdk/model/easy_flow/version_info.proto";
+
+/*
+目标设备信息
+*/
+message TargetInfo {
+message InstanceInfo {
+    /*
+    版本名
+    */
+    string versionName = 1 ;
+    /*
+    版本信息
+    */
+    easy_flow.VersionInfo versionInfo = 2 ;
+    /*
+    包Id
+    */
+    string packageId = 3 ;
+    /*
+    安装路径
+    */
+    string installPath = 4 ;
+    /*
+    版本Id
+    */
+    string versionId = 5 ;
+}
+        
+message OperationInfo {
+    /*
+    操作信息
+    */
+    string operation = 1 ;
+    /*
+    当前版本信息
+    */
+    easy_flow.VersionInfo versionToInfo = 2 ;
+    /*
+    升级版本信息
+    */
+    easy_flow.VersionInfo versionFromInfo = 3 ;
+    /*
+    安装路径
+    */
+    string installPath = 4 ;
+    /*
+    包Id
+    */
+    string packageId = 5 ;
+}
+        
+    
+    /*
+    目标设备Id
+    */
+    string targetId = 1 ;
+    /*
+    目标设备名称
+    */
+    string targetName = 2 ;
+    /*
+    实例Id
+    */
+    string instanceId = 3 ;
+    /*
+    集群列表
+    */
+    cmdb.ClusterInfo cluster = 4 ;
+    /*
+    目标设备上次成功部署的实例信息
+    */
+    repeated InstanceInfo instanceInfo = 5 ;
+    /*
+    操作信息
+    */
+    repeated OperationInfo operationInfo = 6 ;
+}
+

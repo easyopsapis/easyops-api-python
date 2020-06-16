@@ -1,0 +1,56 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+import "api_gateway_sdk/model/inspection/target.proto";
+
+/*
+巡检历史
+*/
+message InspectionHistory {
+    /*
+    巡检作业Id
+    */
+    string jobId = 1 ;
+    /*
+    巡检任务Id
+    */
+    string taskId = 2 ;
+    /*
+    巡检任务名
+    */
+    string taskName = 3 ;
+    /*
+    开始时间(unix时间戳)
+    */
+    int32 startTime = 4 ;
+    /*
+    结束时间(unix时间戳)
+    */
+    int32 endTime = 5 ;
+    /*
+    耗时(秒)
+    */
+    int32 usedTime = 6 ;
+    /*
+    状态
+    */
+    string status = 7 ;
+    /*
+    成功率(精确到小数点后2位)
+    */
+    float passingRate = 8 ;
+    /*
+    分数(精确到小数点后2位)
+    */
+    float score = 9 ;
+    /*
+    巡检对象列表
+    */
+    repeated inspection.InspectionTarget targets = 10 ;
+}
+

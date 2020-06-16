@@ -1,0 +1,154 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+import "cmdb_sdk/model/cmdb/object_attr.proto";
+import "cmdb_sdk/model/cmdb/object_relation.proto";
+import "cmdb_sdk/model/cmdb/object_relation_group.proto";
+import "cmdb_sdk/model/cmdb/object_index.proto";
+import "cmdb_sdk/model/cmdb/object_view.proto";
+
+/*
+ObjectSnapshot请求
+*/
+message ObjectSnapshotRequest {
+    /*
+    模型对象ID
+    */
+    string object_id = 1 ;
+    /*
+    版本号(-1表示查询最新版本)
+    */
+    int32 _version = 2 ;
+}
+
+/*
+ObjectSnapshot返回
+*/
+message ObjectSnapshotResponse {
+    /*
+    快照ID
+    */
+    string _id = 1 ;
+    /*
+    属性列表
+    */
+    repeated cmdb.ObjectAttr attrList = 2 ;
+    /*
+    关系列表
+    */
+    repeated cmdb.ObjectRelation relation_list = 3 ;
+    /*
+    关系分组
+    */
+    repeated cmdb.ObjectRelationGroup relation_groups = 4 ;
+    /*
+    索引列表
+    */
+    repeated cmdb.ObjectIndex indexList = 5 ;
+    /*
+    名称
+    */
+    string name = 6 ;
+    /*
+    objectId
+    */
+    string objectId = 7 ;
+    /*
+    备注
+    */
+    string memo = 8 ;
+    /*
+    视图设置
+    */
+    cmdb.ObjectView view = 9 ;
+    /*
+    true 内置模型，false 用户自定义模型
+    */
+    bool protected = 10 ;
+    /*
+    当为 true 时，不纳入全文搜索
+    */
+    bool wordIndexDenied = 11 ;
+    /*
+    分类
+    */
+    string category = 12 ;
+    /*
+    模型图标
+    */
+    string icon = 13 ;
+    /*
+    模型所属小产品，有值则会在界面隐藏该模型
+    */
+    string system = 14 ;
+    /*
+    创建时间
+    */
+    string ctime = 15 ;
+    /*
+    修改时间
+    */
+    string mtime = 16 ;
+    /*
+    创建者
+    */
+    string creator = 17 ;
+    /*
+    修改者
+    */
+    string modifier = 18 ;
+    /*
+    创建时间的时间截
+    */
+    int32 _ts = 19 ;
+    /*
+    模型版本
+    */
+    int32 _version = 20 ;
+    /*
+    编辑权限白名单
+    */
+    repeated string updateAuthorizers = 21 ;
+    /*
+    删除权限白名单
+    */
+    repeated string deleteAuthorizers = 22 ;
+    /*
+    是否是抽象模型(父模型)
+    */
+    bool isAbstract = 23 ;
+    /*
+    所属父模型
+    */
+    string parentObjectId = 24 ;
+    /*
+    当为 true 时，将会忽略该模型的实例权限点校验
+    */
+    bool permissionDenied = 25 ;
+}
+
+/*
+ObjectSnapshotApi返回
+*/
+message ObjectSnapshotResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.ObjectSnapshotResponse data = 4 ;
+}
+

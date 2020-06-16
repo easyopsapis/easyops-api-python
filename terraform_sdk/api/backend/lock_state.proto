@@ -1,0 +1,53 @@
+syntax = "proto3";
+package backend;
+
+
+
+
+import "terraform_sdk/model/cmdb/tf_lock_info.proto";
+import "google/protobuf/empty.proto";
+
+/*
+LockState请求
+*/
+message LockStateRequest {
+    /*
+    terraform id
+    */
+    string tfId = 1 ;
+    /*
+    ORG
+    */
+    string org = 2 ;
+    /*
+    操作用户,默认defaultUser
+    */
+    string user = 3 ;
+    /*
+    锁信息
+    */
+    cmdb.TFLockInfo body = 4 ;
+}
+
+/*
+LockStateApi返回
+*/
+message LockStateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

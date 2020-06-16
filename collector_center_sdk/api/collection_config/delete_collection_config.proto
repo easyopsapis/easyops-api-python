@@ -1,0 +1,49 @@
+syntax = "proto3";
+package collection_config;
+
+
+
+
+
+/*
+DeleteCollectionConfig请求
+*/
+message DeleteCollectionConfigRequest {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteCollectionConfig返回
+*/
+message DeleteCollectionConfigResponse {
+    /*
+    ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteCollectionConfigApi返回
+*/
+message DeleteCollectionConfigResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    collection_config.DeleteCollectionConfigResponse data = 4 ;
+}
+

@@ -1,0 +1,57 @@
+syntax = "proto3";
+package permission_ctrl;
+
+
+
+
+
+/*
+CreateRole请求
+*/
+message CreateRoleRequest {
+    /*
+    角色名
+    */
+    string name = 1 ;
+    /*
+    角色禁用菜单列表
+    */
+    repeated string forbidden_menu = 2 ;
+    /*
+    角色下权限id列表
+    */
+    repeated string permission = 3 ;
+}
+
+/*
+CreateRole返回
+*/
+message CreateRoleResponse {
+    /*
+    角色id
+    */
+    string id = 1 ;
+}
+
+/*
+CreateRoleApi返回
+*/
+message CreateRoleResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    permission_ctrl.CreateRoleResponse data = 4 ;
+}
+

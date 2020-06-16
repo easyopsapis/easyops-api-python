@@ -1,0 +1,27 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+
+/*
+边（线）样式
+*/
+message LinkStyle {
+    /*
+    线类型
+    */
+    string type = 1 ;
+    /*
+    是否显示箭头
+    */
+    bool showArrow = 2 ;
+    /*
+    样式类型
+    */
+    string className = 3 ;
+}
+

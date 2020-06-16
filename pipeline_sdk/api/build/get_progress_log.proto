@@ -4,7 +4,7 @@ package build;
 
 
 
-import "model/pipeline/progress_log.proto";
+import "pipeline_sdk/model/pipeline/progress_log.proto";
 
 /*
 GetProgressLog请求

@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/m
 
 
 
-import "model/msgsender/send_message_request_data.proto";
+import "ucpro_sdk/model/msgsender/send_message_request_data.proto";
 
 /*
 发送带附件的通知的请求body

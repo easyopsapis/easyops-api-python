@@ -1,0 +1,82 @@
+syntax = "proto3";
+package easy_command;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/easy_command";
+
+
+
+
+import "easy_work_service_sdk/model/easy_command/action.proto";
+import "easy_work_service_sdk/model/easy_command/target.proto";
+import "easy_work_service_sdk/model/easy_command/task_callback.proto";
+
+/*
+任务规格
+*/
+message TaskSpec {
+    /*
+    任务ID。如无特殊需求不用指定，让后台自动生成，生成的格式为 {当前年月}_task[0-9a-f]{16,20} ，见正则校验。如果调用方需要指定任务ID，传入的任务ID也必须是此种格式
+    */
+    string taskId = 1 ;
+    /*
+    任务名称
+    */
+    string name = 2 ;
+    /*
+    任务类型。例如 agent_admin cmd command database_deliver deploy test tool
+    */
+    string type = 3 ;
+    /*
+    操作。例如 database.check deployPreCheck instance.checkPackage instance.deploy instance.deployStrategy instance.fileDelivery instance.fileUninstall instance.restart instance.start instance.stop instance.uninstall plugin.deploy plugin.report task.run test
+    */
+    string operation = 4 ;
+    /*
+    任务分组id。作用不明
+    */
+    string groupId = 5 ;
+    /*
+    任务的具体action
+    */
+    repeated easy_command.Action actions = 6 ;
+    /*
+    任务的目标机器。
+    */
+    repeated easy_command.Target targets = 7 ;
+    /*
+    关联的appId
+    */
+    string appId = 8 ;
+    /*
+    关联的clusterId
+    */
+    string clusterId = 9 ;
+    /*
+    关联的packageId
+    */
+    string packageId = 10 ;
+    /*
+    关联的versionId
+    */
+    string versionId = 11 ;
+    /*
+    是否需要发送状态变更通知到 logic.notify
+    */
+    bool needNotify = 12 ;
+    /*
+    设置的任务回调接口
+    */
+    easy_command.TaskCallback callback = 13 ;
+    /*
+    设置的目标机器分批执行的每批数量
+    */
+    int32 batchNum = 14 ;
+    /*
+    设置的目标机器分批执行的每批之间的间隔秒数
+    */
+    int32 batchInterval = 15 ;
+    /*
+    如果某个目标机器的action执行失败，是否停止整个task
+    */
+    bool failedStop = 16 ;
+}
+

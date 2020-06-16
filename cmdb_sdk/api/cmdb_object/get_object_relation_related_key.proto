@@ -1,0 +1,101 @@
+syntax = "proto3";
+package cmdb_object;
+
+
+
+
+
+/*
+GetObjectRelationRelatedKey请求
+*/
+message GetObjectRelationRelatedKeyRequest {
+    /*
+    路径起始资源模型ID
+    */
+    string src_object_id = 1 ;
+    /*
+    路径结束资源模型ID
+    */
+    string dst_object_id = 2 ;
+    /*
+    搜索路径最大深度
+    */
+    int32 max_depth = 3 ;
+    /*
+    搜索最大模型数
+    */
+    int32 max_sub_node = 4 ;
+    /*
+    是否带环搜索，默认false
+    */
+    bool with_cycle = 5 ;
+    /*
+    必须按序经过的模型，多个以分号分隔， 如APP;HOST
+    */
+    string white_list = 6 ;
+    /*
+    屏蔽的模型，多个以分号分隔， 如APP;HOST
+    */
+    string black_list = 7 ;
+}
+
+/*
+GetObjectRelationRelatedKey返回
+*/
+message GetObjectRelationRelatedKeyResponse {
+message Data {
+    /*
+    自动生成哈希id
+    */
+    string id = 1 ;
+    /*
+    路径描述
+    */
+    string label = 2 ;
+    /*
+    query条件key
+    */
+    string reverseQueryKey = 3 ;
+}
+        
+    
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    错误信息
+    */
+    string error = 2 ;
+    /*
+    返回消息
+    */
+    string message = 3 ;
+    /*
+    路径列表
+    */
+    repeated Data data = 4 ;
+}
+
+/*
+GetObjectRelationRelatedKeyApi返回
+*/
+message GetObjectRelationRelatedKeyResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    cmdb_object.GetObjectRelationRelatedKeyResponse data = 4 ;
+}
+

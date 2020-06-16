@@ -1,0 +1,36 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+Service 需要暴露的端口列表
+*/
+message ServicePort {
+    /*
+    端口名称,
+    */
+    string name = 1 ;
+    /*
+    服务监听端口号
+    */
+    int32 port = 2 ;
+    /*
+    端口协议, 默认 TCP
+    */
+    string protocol = 3 ;
+    /*
+    需要转发到后端 Pod 的端口或者 Pod 名称, 类型为 int/string
+    */
+    google.protobuf.Value targetPort = 4 ;
+    /*
+    当 type=NodePort/LoadBalancer 时，指定映射到物理机的端口号
+    */
+    int32 nodePort = 5 ;
+}
+

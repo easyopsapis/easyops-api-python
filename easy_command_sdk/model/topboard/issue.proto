@@ -1,0 +1,162 @@
+syntax = "proto3";
+package topboard;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topboard";
+
+
+
+
+import "easy_command_sdk/model/topboard/product.proto";
+import "easy_command_sdk/model/topboard/sprint.proto";
+import "easy_command_sdk/model/cmdb/user.proto";
+import "easy_command_sdk/model/topboard/attachment.proto";
+import "easy_command_sdk/model/topboard/comment.proto";
+
+/*
+问题
+*/
+message Issue {
+message IssueFrom {
+    /*
+    客户名称
+    */
+    string name = 1 ;
+    /*
+    客户实例id
+    */
+    string instanceId = 2 ;
+}
+        
+message Links {
+    /*
+    标题
+    */
+    string title = 1 ;
+    /*
+    链接
+    */
+    string url = 2 ;
+}
+        
+message Images {
+    /*
+    名称
+    */
+    string name = 1 ;
+    /*
+    链接
+    */
+    string url = 2 ;
+}
+        
+    
+    /*
+    父问题
+    */
+    repeated topboard.Issue parent = 1 ;
+    /*
+    子任务
+    */
+    repeated topboard.Issue subtasks = 2 ;
+    /*
+    所属产品
+    */
+    repeated topboard.Product product = 3 ;
+    /*
+    所属迭代
+    */
+    repeated topboard.Sprint sprint = 4 ;
+    /*
+    关注人
+    */
+    repeated cmdb.User subscribers = 5 ;
+    /*
+    负责人
+    */
+    repeated cmdb.User assignee = 6 ;
+    /*
+    报告人
+    */
+    repeated cmdb.User reporter = 7 ;
+    /*
+    附件列表
+    */
+    repeated topboard.Attachment attachments = 8 ;
+    /*
+    评论列表
+    */
+    repeated topboard.Comment comments = 9 ;
+    /*
+    需求来源
+    */
+    repeated IssueFrom issueFrom = 10 ;
+    /*
+    测试人
+    */
+    repeated cmdb.User tester = 11 ;
+    /*
+    问题id
+    */
+    string name = 12 ;
+    /*
+    问题实例id
+    */
+    string instanceId = 13 ;
+    /*
+    创建者
+    */
+    string creator = 14 ;
+    /*
+    创建时间
+    */
+    string ctime = 15 ;
+    /*
+    问题标题
+    */
+    string title = 16 ;
+    /*
+    问题描述
+    */
+    string description = 17 ;
+    /*
+    优先级
+    */
+    string priority = 18 ;
+    /*
+    问题类型
+    */
+    string type = 19 ;
+    /*
+    步骤
+    */
+    string step = 20 ;
+    /*
+    外链
+    */
+    repeated Links links = 21 ;
+    /*
+    估点
+    */
+    string storyPoint = 22 ;
+    /*
+    解决结果
+    */
+    string resolution = 23 ;
+    /*
+    状态
+    */
+    string status = 24 ;
+    /*
+    截图
+    */
+    repeated Images images = 25 ;
+    /*
+    BUG分类
+    */
+    string bugType = 26 ;
+    /*
+    责任组织
+    */
+    string responsibility = 27 ;
+}
+

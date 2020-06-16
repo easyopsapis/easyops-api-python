@@ -1,0 +1,27 @@
+syntax = "proto3";
+package inspection;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/inspection";
+
+
+
+
+
+/*
+巡检对象关联的主机
+*/
+message InspectionHost {
+    /*
+    实例ID
+    */
+    string instanceId = 1 ;
+    /*
+    hostname
+    */
+    string hostname = 2 ;
+    /*
+    ip
+    */
+    string ip = 3 ;
+}
+

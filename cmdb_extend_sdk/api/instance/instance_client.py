@@ -2,43 +2,38 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import cmdb_extend_sdk.api.instance.add_cluster_device_pb2
 
-import add_cluster_device_pb2
-
-import app_add_packages_pb2
+import cmdb_extend_sdk.api.instance.app_add_packages_pb2
 
 import google.protobuf.empty_pb2
 
-import app_delete_package_pb2
+import cmdb_extend_sdk.api.instance.app_delete_package_pb2
 
-import app_sort_packages_pb2
+import cmdb_extend_sdk.api.instance.app_sort_packages_pb2
 
-import app_update_package_pb2
+import cmdb_extend_sdk.api.instance.app_update_package_pb2
 
-import cluster_add_packages_pb2
+import cmdb_extend_sdk.api.instance.cluster_add_packages_pb2
 
-import cluster_delete_package_pb2
+import cmdb_extend_sdk.api.instance.cluster_delete_package_pb2
 
-import cluster_update_package_pb2
+import cmdb_extend_sdk.api.instance.cluster_update_package_pb2
 
-import create_instances_pb2
+import cmdb_extend_sdk.api.instance.create_instances_pb2
 
-import delete_cluster_device_pb2
+import cmdb_extend_sdk.api.instance.delete_cluster_device_pb2
 
-import get_instance_pb2
+import cmdb_extend_sdk.api.instance.get_instance_pb2
 
 import google.protobuf.struct_pb2
 
-import get_instances_pb2
+import cmdb_extend_sdk.api.instance.get_instances_pb2
 
-import list_instance_pb2
+import cmdb_extend_sdk.api.instance.list_instance_pb2
 
-import utils.http_util
+import cmdb_extend_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -60,14 +55,14 @@ class InstanceClient(object):
 
     
     def add_cluster_device(self, request, org, user, timeout=10):
-        # type: (add_cluster_device_pb2.AddClusterDeviceRequest, int, str, int) -> add_cluster_device_pb2.AddClusterDeviceResponse
+        # type: (cmdb_extend_sdk.api.instance.add_cluster_device_pb2.AddClusterDeviceRequest, int, str, int) -> cmdb_extend_sdk.api.instance.add_cluster_device_pb2.AddClusterDeviceResponse
         """
         集群添加设备
         :param request: add_cluster_device请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: add_cluster_device_pb2.AddClusterDeviceResponse
+        :return: cmdb_extend_sdk.api.instance.add_cluster_device_pb2.AddClusterDeviceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -82,7 +77,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -95,14 +90,14 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = add_cluster_device_pb2.AddClusterDeviceResponse()
+        rsp = cmdb_extend_sdk.api.instance.add_cluster_device_pb2.AddClusterDeviceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def app_add_packages(self, request, org, user, timeout=10):
-        # type: (app_add_packages_pb2.AppAddPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.app_add_packages_pb2.AppAddPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         应用关联程序包
         :param request: app_add_packages请求
@@ -123,7 +118,7 @@ class InstanceClient(object):
         )
         requestParam = request.packages
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -143,7 +138,7 @@ class InstanceClient(object):
         return rsp
     
     def app_delete_package(self, request, org, user, timeout=10):
-        # type: (app_delete_package_pb2.AppDeletePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.app_delete_package_pb2.AppDeletePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         应用解除关联包
         :param request: app_delete_package请求
@@ -165,7 +160,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -185,7 +180,7 @@ class InstanceClient(object):
         return rsp
     
     def app_sort_packages(self, request, org, user, timeout=10):
-        # type: (app_sort_packages_pb2.AppSortPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.app_sort_packages_pb2.AppSortPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         应用关联程序包排序
         :param request: app_sort_packages请求
@@ -206,7 +201,7 @@ class InstanceClient(object):
         )
         requestParam = request.packages
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -226,7 +221,7 @@ class InstanceClient(object):
         return rsp
     
     def app_update_package(self, request, org, user, timeout=10):
-        # type: (app_update_package_pb2.AppUpdatePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.app_update_package_pb2.AppUpdatePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改应用关联包
         :param request: app_update_package请求
@@ -247,7 +242,7 @@ class InstanceClient(object):
         )
         requestParam = request.package
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -267,7 +262,7 @@ class InstanceClient(object):
         return rsp
     
     def cluster_add_packages(self, request, org, user, timeout=10):
-        # type: (cluster_add_packages_pb2.ClusterAddPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.cluster_add_packages_pb2.ClusterAddPackagesRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         集群添加程序包
         :param request: cluster_add_packages请求
@@ -288,7 +283,7 @@ class InstanceClient(object):
         )
         requestParam = request.packages
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -308,7 +303,7 @@ class InstanceClient(object):
         return rsp
     
     def cluster_delete_package(self, request, org, user, timeout=10):
-        # type: (cluster_delete_package_pb2.ClusterDeletePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.cluster_delete_package_pb2.ClusterDeletePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         集群解除关联包
         :param request: cluster_delete_package请求
@@ -330,7 +325,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -350,7 +345,7 @@ class InstanceClient(object):
         return rsp
     
     def cluster_update_package(self, request, org, user, timeout=10):
-        # type: (cluster_update_package_pb2.ClusterUpdatePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (cmdb_extend_sdk.api.instance.cluster_update_package_pb2.ClusterUpdatePackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         修改集群关联包
         :param request: cluster_update_package请求
@@ -371,7 +366,7 @@ class InstanceClient(object):
         )
         requestParam = request.package
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -391,14 +386,14 @@ class InstanceClient(object):
         return rsp
     
     def create_instances(self, request, org, user, timeout=10):
-        # type: (create_instances_pb2.CreateInstancesRequest, int, str, int) -> create_instances_pb2.CreateInstancesResponse
+        # type: (cmdb_extend_sdk.api.instance.create_instances_pb2.CreateInstancesRequest, int, str, int) -> cmdb_extend_sdk.api.instance.create_instances_pb2.CreateInstancesResponse
         """
         批量创建实例
         :param request: create_instances请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_instances_pb2.CreateInstancesResponse
+        :return: cmdb_extend_sdk.api.instance.create_instances_pb2.CreateInstancesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -412,7 +407,7 @@ class InstanceClient(object):
         )
         requestParam = request.instances
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -425,21 +420,21 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_instances_pb2.CreateInstancesResponse()
+        rsp = cmdb_extend_sdk.api.instance.create_instances_pb2.CreateInstancesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_cluster_device(self, request, org, user, timeout=10):
-        # type: (delete_cluster_device_pb2.DeleteClusterDeviceRequest, int, str, int) -> delete_cluster_device_pb2.DeleteClusterDeviceResponse
+        # type: (cmdb_extend_sdk.api.instance.delete_cluster_device_pb2.DeleteClusterDeviceRequest, int, str, int) -> cmdb_extend_sdk.api.instance.delete_cluster_device_pb2.DeleteClusterDeviceResponse
         """
         集群删除设备
         :param request: delete_cluster_device请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_cluster_device_pb2.DeleteClusterDeviceResponse
+        :return: cmdb_extend_sdk.api.instance.delete_cluster_device_pb2.DeleteClusterDeviceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -454,7 +449,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -467,14 +462,14 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_cluster_device_pb2.DeleteClusterDeviceResponse()
+        rsp = cmdb_extend_sdk.api.instance.delete_cluster_device_pb2.DeleteClusterDeviceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_instance(self, request, org, user, timeout=10):
-        # type: (get_instance_pb2.GetInstanceRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
+        # type: (cmdb_extend_sdk.api.instance.get_instance_pb2.GetInstanceRequest, int, str, int) -> google.protobuf.struct_pb2.Struct
         """
         获取实例
         :param request: get_instance请求
@@ -496,7 +491,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -516,14 +511,14 @@ class InstanceClient(object):
         return rsp
     
     def get_instances(self, request, org, user, timeout=10):
-        # type: (get_instances_pb2.GetInstancesRequest, int, str, int) -> get_instances_pb2.GetInstancesResponse
+        # type: (cmdb_extend_sdk.api.instance.get_instances_pb2.GetInstancesRequest, int, str, int) -> cmdb_extend_sdk.api.instance.get_instances_pb2.GetInstancesResponse
         """
         获取指定实例Id实例列表
         :param request: get_instances请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_instances_pb2.GetInstancesResponse
+        :return: cmdb_extend_sdk.api.instance.get_instances_pb2.GetInstancesResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -538,7 +533,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -551,21 +546,21 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_instances_pb2.GetInstancesResponse()
+        rsp = cmdb_extend_sdk.api.instance.get_instances_pb2.GetInstancesResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_instance(self, request, org, user, timeout=10):
-        # type: (list_instance_pb2.ListInstanceRequest, int, str, int) -> list_instance_pb2.ListInstanceResponse
+        # type: (cmdb_extend_sdk.api.instance.list_instance_pb2.ListInstanceRequest, int, str, int) -> cmdb_extend_sdk.api.instance.list_instance_pb2.ListInstanceResponse
         """
         获取实例列表
         :param request: list_instance请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_instance_pb2.ListInstanceResponse
+        :return: cmdb_extend_sdk.api.instance.list_instance_pb2.ListInstanceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -579,7 +574,7 @@ class InstanceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = cmdb_extend_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.cmdb_extend_sdk",
             dst_name=route_name,
@@ -592,7 +587,7 @@ class InstanceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_instance_pb2.ListInstanceResponse()
+        rsp = cmdb_extend_sdk.api.instance.list_instance_pb2.ListInstanceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

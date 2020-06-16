@@ -1,0 +1,93 @@
+syntax = "proto3";
+package resource_manage;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/resource_manage";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+数据来源
+*/
+message FilterDataSource {
+message Const {
+    /*
+    值类型
+    */
+    string type = 1 ;
+    /*
+    值
+    */
+    google.protobuf.Value value = 2 ;
+}
+        
+message Mapping {
+    /*
+    值路径, 点分法 owner.0.name
+    */
+    string key_path = 1 ;
+}
+        
+message Expression {
+    /*
+    运算符
+    */
+    string operator = 1 ;
+    /*
+    左边数据
+    */
+    resource_manage.FilterDataSource left = 2 ;
+    /*
+    右边数据
+    */
+    resource_manage.FilterDataSource right = 3 ;
+}
+        
+message Time {
+    /*
+    类型, static 指定时间, now 当前时间 today 当前日期
+    */
+    string type = 1 ;
+    /*
+    type 为 static时需要填此属性
+    */
+    string static = 2 ;
+    /*
+    时间偏移单位
+    */
+    string unit = 3 ;
+    /*
+    时间偏移量
+    */
+    int32 offset = 4 ;
+}
+        
+    
+    /*
+    类型
+    */
+    string type = 1 ;
+    /*
+    静态值
+    */
+    Const const = 2 ;
+    /*
+    映射,来源于实例的某个字段
+    */
+    Mapping mapping = 3 ;
+    /*
+    表达式, 返回值 number
+    */
+    Expression expression = 4 ;
+    /*
+    时间, 返回值 时间戳(秒)
+    */
+    Time time = 5 ;
+    /*
+    值格式化函数, len 对数组, 字典, 字符串求长度;timeStamp 为将cmdb时间格式字符串 转为时间戳秒
+    */
+    string format = 6 ;
+}
+

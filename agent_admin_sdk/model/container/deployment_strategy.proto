@@ -1,0 +1,36 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+deployment 更新策略, 目前只支持deployment, 扩展其它的就使用如 statefulStrategy, jobStrategy
+*/
+message DeploymentStrategy {
+message RollingUpdate {
+    /*
+    更新过程中 Pod 总数超过 Pod 期望副本个数的最大值， 使用个数，不使用百分比
+    */
+    google.protobuf.Value maxSurge = 1 ;
+    /*
+    更新过程中不可用状态 Pod 数量的上限, 使用个数，不使用百分比
+    */
+    google.protobuf.Value maxUnavailable = 2 ;
+}
+        
+    
+    /*
+    更新策略
+    */
+    string type = 1 ;
+    /*
+    rollingUpdate 参数
+    */
+    RollingUpdate rollingUpdate = 2 ;
+}
+

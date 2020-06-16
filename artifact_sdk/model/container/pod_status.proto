@@ -1,0 +1,40 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+import "artifact_sdk/model/container/container_status.proto";
+
+/*
+Pod 状态
+*/
+message PodStatus {
+    /*
+    状态
+    */
+    string phase = 1 ;
+    /*
+    状态消息
+    */
+    string message = 2 ;
+    /*
+    初始化容器状态
+    */
+    repeated container.ContainerStatus initContainerStatuses = 3 ;
+    /*
+    容器状态
+    */
+    repeated container.ContainerStatus containerStatuses = 4 ;
+    /*
+    节点IP
+    */
+    string hostIP = 5 ;
+    /*
+    实例IP
+    */
+    string podIP = 6 ;
+}
+

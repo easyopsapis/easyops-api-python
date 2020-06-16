@@ -1,0 +1,48 @@
+syntax = "proto3";
+package backend;
+
+
+
+
+import "google/protobuf/struct.proto";
+
+/*
+GetState请求
+*/
+message GetStateRequest {
+    /*
+    terraform id
+    */
+    string tfId = 1 ;
+    /*
+    ORG
+    */
+    string org = 2 ;
+    /*
+    操作用户,默认defaultUser
+    */
+    string user = 3 ;
+}
+
+/*
+GetStateApi返回
+*/
+message GetStateResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Struct data = 4 ;
+}
+

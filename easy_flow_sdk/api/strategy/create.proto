@@ -4,10 +4,10 @@ package strategy;
 
 
 
-import "model/easy_flow/deploy_batch_target.proto";
-import "model/cmdb/cluster_info.proto";
-import "model/easy_flow/target_info.proto";
-import "model/easy_flow/deploy_strategy.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_target.proto";
+import "easy_flow_sdk/model/cmdb/cluster_info.proto";
+import "easy_flow_sdk/model/easy_flow/target_info.proto";
+import "easy_flow_sdk/model/easy_flow/deploy_strategy.proto";
 
 /*
 Create请求
@@ -37,7 +37,7 @@ message AutoBatch {
     /*
     是否失败暂停
     */
-    string failedStop = 3 ;
+    bool failedStop = 3 ;
 }
         
 message ManualBatch {
@@ -45,7 +45,7 @@ message Batches {
     /*
     批次主机列表
     */
-    repeated easy_flow.DeployBatchTarget targets = 1 ;
+    repeated easy_flow.DeployTarget targets = 1 ;
 }
         
     
@@ -64,7 +64,7 @@ message Batches {
     /*
     是否失败暂停
     */
-    string failedStop = 4 ;
+    bool failedStop = 4 ;
 }
         
     
@@ -84,68 +84,60 @@ message Batches {
         
 message PackageList {
     /*
+    包名称
+    */
+    string packageName = 1 ;
+    /*
     集群
     */
-    cmdb.ClusterInfo cluster = 1 ;
+    cmdb.ClusterInfo cluster = 2 ;
     /*
     目标版本
     */
-    string targetVersion = 2 ;
+    string targetVersion = 3 ;
     /*
-    是否提前暂停
+    发布前停止
     */
-    string preStop = 3 ;
+    bool preStop = 4 ;
     /*
-    是否发布重启
+    发布后重启
     */
-    string postRestart = 4 ;
+    bool postRestart = 5 ;
     /*
-    是否自动运行
+    安装后启动
     */
-    string autoStart = 5 ;
+    bool autoStart = 6 ;
     /*
     是否需要用户检查
     */
-    string userCheck = 6 ;
+    bool userCheck = 7 ;
     /*
     是否完全更新
     */
-    string fullUpdate = 7 ;
-    /*
-    强制更新
-    */
-    string force = 8 ;
-    /*
-    强制安装
-    */
-    string forceInstall = 9 ;
+    bool fullUpdate = 8 ;
     /*
     包Id
     */
-    string packageId = 10 ;
-    /*
-    包名称
-    */
-    string name = 11 ;
+    string packageId = 9 ;
     /*
     安装路径
     */
-    string installPath = 12 ;
+    string installPath = 10 ;
     /*
     版本类型 1 程序包,  2 配置包,  4 文件包
     */
-    int32 type = 13 ;
+    int32 type = 11 ;
     /*
     平台
     */
-    string platform = 14 ;
+    string platform = 12 ;
 }
         
 message Status {
     /*
     是否过时
     */
-    string outOfDate = 1 ;
+    bool outOfDate = 1 ;
 }
         
     
@@ -200,11 +192,29 @@ message Status {
     /*
     部署包信息
     */
-    PackageList packageList = 13 ;
+    repeated PackageList packageList = 13 ;
     /*
     部署策略状态
     */
     Status status = 14 ;
+}
+
+/*
+Create返回
+*/
+message CreateResponse {
+    /*
+    错误码
+    */
+    int32 code = 1 ;
+    /*
+    消息
+    */
+    string msg = 2 ;
+    /*
+    返回数据
+    */
+    easy_flow.DeployStrategy data = 3 ;
 }
 
 /*
@@ -226,6 +236,6 @@ message CreateResponseWrapper {
     /*
     返回数据
     */
-    easy_flow.DeployStrategy data = 4 ;
+    strategy.CreateResponse data = 4 ;
 }
 

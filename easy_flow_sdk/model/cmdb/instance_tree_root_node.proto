@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/c
 
 
 
-import "model/cmdb/instance_tree_child_node.proto";
+import "easy_flow_sdk/model/cmdb/instance_tree_child_node.proto";
 import "google/protobuf/struct.proto";
 
 /*

@@ -1,0 +1,40 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteComment请求
+*/
+message DeleteCommentRequest {
+    /*
+    评论Id
+    */
+    string commentID = 1 ;
+}
+
+/*
+DeleteCommentApi返回
+*/
+message DeleteCommentResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

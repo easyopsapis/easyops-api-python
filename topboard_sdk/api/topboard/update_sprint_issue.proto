@@ -1,0 +1,48 @@
+syntax = "proto3";
+package topboard;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+UpdateSprintIssue请求
+*/
+message UpdateSprintIssueRequest {
+    /*
+    来源迭代id
+    */
+    string from = 1 ;
+    /*
+    目标迭代id
+    */
+    string to = 2 ;
+    /*
+    实例id列表
+    */
+    repeated string instanceIds = 3 ;
+}
+
+/*
+UpdateSprintIssueApi返回
+*/
+message UpdateSprintIssueResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

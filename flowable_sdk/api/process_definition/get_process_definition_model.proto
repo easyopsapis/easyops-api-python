@@ -1,0 +1,55 @@
+syntax = "proto3";
+package process_definition;
+
+
+
+
+import "flowable_sdk/model/flowable/process_model.proto";
+import "google/protobuf/struct.proto";
+
+/*
+GetProcessDefinitionModel请求
+*/
+message GetProcessDefinitionModelRequest {
+    /*
+    流程定义ID
+    */
+    string definitionId = 1 ;
+}
+
+/*
+GetProcessDefinitionModel返回
+*/
+message GetProcessDefinitionModelResponse {
+    /*
+    定义属性
+    */
+    google.protobuf.Struct definitionsAttributes = 1 ;
+    /*
+    流程定义列表
+    */
+    repeated flowable.FlowableProcessModel processes = 2 ;
+}
+
+/*
+GetProcessDefinitionModelApi返回
+*/
+message GetProcessDefinitionModelResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_definition.GetProcessDefinitionModelResponse data = 4 ;
+}
+

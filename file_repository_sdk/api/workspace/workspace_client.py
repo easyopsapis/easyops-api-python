@@ -2,41 +2,38 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import file_repository_sdk.api.workspace.check_workspace_base_pb2
 
-import check_workspace_base_pb2
-
-import clear_workspace_pb2
+import file_repository_sdk.api.workspace.clear_workspace_pb2
 
 import google.protobuf.empty_pb2
 
-import commit_worksapce_pb2
+import file_repository_sdk.api.workspace.commit_worksapce_pb2
 
-import compare_workspace_pb2
+import file_repository_sdk.api.workspace.commit_worksapce_v2_pb2
 
-import compare_workspace_with_version_pb2
+import file_repository_sdk.api.workspace.compare_workspace_pb2
 
-import get_file_info_pb2
+import file_repository_sdk.api.workspace.compare_workspace_with_version_pb2
 
-import get_file_list_pb2
+import file_repository_sdk.api.workspace.get_file_info_pb2
 
-import get_workspace_status_pb2
+import file_repository_sdk.api.workspace.get_file_list_pb2
 
-import model.file_repository.diff_pb2
+import file_repository_sdk.api.workspace.get_workspace_status_pb2
 
-import init_workspace_pb2
+import file_repository_sdk.model.file_repository.diff_pb2
 
-import safe_commit_workspace_pb2
+import file_repository_sdk.api.workspace.init_workspace_pb2
 
-import update_file_pb2
+import file_repository_sdk.api.workspace.safe_commit_workspace_pb2
 
-import upload_file_pb2
+import file_repository_sdk.api.workspace.update_file_pb2
 
-import utils.http_util
+import file_repository_sdk.api.workspace.upload_file_pb2
+
+import file_repository_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -58,14 +55,14 @@ class WorkspaceClient(object):
 
     
     def check_workspace_base(self, request, org, user, timeout=10):
-        # type: (check_workspace_base_pb2.CheckWorkspaceBaseRequest, int, str, int) -> check_workspace_base_pb2.CheckWorkspaceBaseResponse
+        # type: (file_repository_sdk.api.workspace.check_workspace_base_pb2.CheckWorkspaceBaseRequest, int, str, int) -> file_repository_sdk.api.workspace.check_workspace_base_pb2.CheckWorkspaceBaseResponse
         """
         检查工作区baseId
         :param request: check_workspace_base请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: check_workspace_base_pb2.CheckWorkspaceBaseResponse
+        :return: file_repository_sdk.api.workspace.check_workspace_base_pb2.CheckWorkspaceBaseResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -74,11 +71,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.CheckWorkspaceBase"
-        uri = "/workspace/check/@packageId"
-        
+        uri = "/workspace/check/{packageId}".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -91,14 +89,14 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = check_workspace_base_pb2.CheckWorkspaceBaseResponse()
+        rsp = file_repository_sdk.api.workspace.check_workspace_base_pb2.CheckWorkspaceBaseResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def clear(self, request, org, user, timeout=10):
-        # type: (clear_workspace_pb2.ClearRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (file_repository_sdk.api.workspace.clear_workspace_pb2.ClearRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         清空工作区
         :param request: clear请求
@@ -114,11 +112,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.Clear"
-        uri = "/workspace/@packageId"
-        
+        uri = "/workspace/{packageId}".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -138,14 +137,14 @@ class WorkspaceClient(object):
         return rsp
     
     def commit_workspace(self, request, org, user, timeout=10):
-        # type: (commit_worksapce_pb2.CommitWorkspaceRequest, int, str, int) -> commit_worksapce_pb2.CommitWorkspaceResponse
+        # type: (file_repository_sdk.api.workspace.commit_worksapce_pb2.CommitWorkspaceRequest, int, str, int) -> file_repository_sdk.api.workspace.commit_worksapce_pb2.CommitWorkspaceResponse
         """
         提交工作区创建新归档版本
         :param request: commit_workspace请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: commit_worksapce_pb2.CommitWorkspaceResponse
+        :return: file_repository_sdk.api.workspace.commit_worksapce_pb2.CommitWorkspaceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -159,7 +158,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -172,21 +171,62 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = commit_worksapce_pb2.CommitWorkspaceResponse()
+        rsp = file_repository_sdk.api.workspace.commit_worksapce_pb2.CommitWorkspaceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
+    def commit_workspace_v_2(self, request, org, user, timeout=10):
+        # type: (file_repository_sdk.api.workspace.commit_worksapce_v2_pb2.CommitWorkspaceV2Request, int, str, int) -> file_repository_sdk.api.workspace.commit_worksapce_v2_pb2.CommitWorkspaceV2Response
+        """
+        提交工作区创建新归档版本V2
+        :param request: commit_workspace_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: file_repository_sdk.api.workspace.commit_worksapce_v2_pb2.CommitWorkspaceV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.file_repository.workspace.CommitWorkspaceV2"
+        uri = "/v2/workspace/{packageId}".format(
+            packageId=request.packageId,
+        )
+        requestParam = request
+        
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.file_repository_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = file_repository_sdk.api.workspace.commit_worksapce_v2_pb2.CommitWorkspaceV2Response()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
     def file_compare(self, request, org, user, timeout=10):
-        # type: (compare_workspace_pb2.FileCompareRequest, int, str, int) -> compare_workspace_pb2.FileCompareResponse
+        # type: (file_repository_sdk.api.workspace.compare_workspace_pb2.FileCompareRequest, int, str, int) -> file_repository_sdk.api.workspace.compare_workspace_pb2.FileCompareResponse
         """
         比较工作区文件
         :param request: file_compare请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: compare_workspace_pb2.FileCompareResponse
+        :return: file_repository_sdk.api.workspace.compare_workspace_pb2.FileCompareResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -195,11 +235,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.FileCompare"
-        uri = "/workspace/@packageId/file/compare"
-        
+        uri = "/workspace/{packageId}/file/compare".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -212,21 +253,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = compare_workspace_pb2.FileCompareResponse()
+        rsp = file_repository_sdk.api.workspace.compare_workspace_pb2.FileCompareResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def compare_workspace_with_version(self, request, org, user, timeout=10):
-        # type: (compare_workspace_with_version_pb2.CompareWorkspaceWithVersionRequest, int, str, int) -> compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
+        # type: (file_repository_sdk.api.workspace.compare_workspace_with_version_pb2.CompareWorkspaceWithVersionRequest, int, str, int) -> file_repository_sdk.api.workspace.compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
         """
         工作区与版本比较
         :param request: compare_workspace_with_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
+        :return: file_repository_sdk.api.workspace.compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -235,11 +276,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.CompareWorkspaceWithVersion"
-        uri = "/workspace/@packageId/compareWithVersion"
-        
+        uri = "/workspace/{packageId}/compareWithVersion".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -252,21 +294,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse()
+        rsp = file_repository_sdk.api.workspace.compare_workspace_with_version_pb2.CompareWorkspaceWithVersionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_file_info(self, request, org, user, timeout=10):
-        # type: (get_file_info_pb2.GetFileInfoRequest, int, str, int) -> get_file_info_pb2.GetFileInfoResponse
+        # type: (file_repository_sdk.api.workspace.get_file_info_pb2.GetFileInfoRequest, int, str, int) -> file_repository_sdk.api.workspace.get_file_info_pb2.GetFileInfoResponse
         """
         获取工作区文件信息
         :param request: get_file_info请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_file_info_pb2.GetFileInfoResponse
+        :return: file_repository_sdk.api.workspace.get_file_info_pb2.GetFileInfoResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -280,7 +322,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -293,21 +335,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_file_info_pb2.GetFileInfoResponse()
+        rsp = file_repository_sdk.api.workspace.get_file_info_pb2.GetFileInfoResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_file_list(self, request, org, user, timeout=10):
-        # type: (get_file_list_pb2.GetFileListRequest, int, str, int) -> get_file_list_pb2.GetFileListResponse
+        # type: (file_repository_sdk.api.workspace.get_file_list_pb2.GetFileListRequest, int, str, int) -> file_repository_sdk.api.workspace.get_file_list_pb2.GetFileListResponse
         """
         获取工作区文件列表
         :param request: get_file_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_file_list_pb2.GetFileListResponse
+        :return: file_repository_sdk.api.workspace.get_file_list_pb2.GetFileListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -321,7 +363,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -334,21 +376,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_file_list_pb2.GetFileListResponse()
+        rsp = file_repository_sdk.api.workspace.get_file_list_pb2.GetFileListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def status(self, request, org, user, timeout=10):
-        # type: (get_workspace_status_pb2.StatusRequest, int, str, int) -> model.file_repository.diff_pb2.Diff
+        # type: (file_repository_sdk.api.workspace.get_workspace_status_pb2.StatusRequest, int, str, int) -> file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         查询工作区状态
         :param request: status请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.file_repository.diff_pb2.Diff
+        :return: file_repository_sdk.model.file_repository.diff_pb2.Diff
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -357,11 +399,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.Status"
-        uri = "/workspace/@packageId"
-        
+        uri = "/workspace/{packageId}".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -374,21 +417,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.file_repository.diff_pb2.Diff()
+        rsp = file_repository_sdk.model.file_repository.diff_pb2.Diff()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def init(self, request, org, user, timeout=10):
-        # type: (init_workspace_pb2.InitRequest, int, str, int) -> init_workspace_pb2.InitResponse
+        # type: (file_repository_sdk.api.workspace.init_workspace_pb2.InitRequest, int, str, int) -> file_repository_sdk.api.workspace.init_workspace_pb2.InitResponse
         """
         初始化工作区
         :param request: init请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: init_workspace_pb2.InitResponse
+        :return: file_repository_sdk.api.workspace.init_workspace_pb2.InitResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -397,11 +440,12 @@ class WorkspaceClient(object):
             route_name = self._service_name
         elif self._server_ip != "":
             route_name = "easyops.api.file_repository.workspace.Init"
-        uri = "/workspace/@packageId"
-        
+        uri = "/workspace/{packageId}".format(
+            packageId=request.packageId,
+        )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -414,21 +458,21 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = init_workspace_pb2.InitResponse()
+        rsp = file_repository_sdk.api.workspace.init_workspace_pb2.InitResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def safe_commit_workspace(self, request, org, user, timeout=10):
-        # type: (safe_commit_workspace_pb2.SafeCommitWorkspaceRequest, int, str, int) -> safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
+        # type: (file_repository_sdk.api.workspace.safe_commit_workspace_pb2.SafeCommitWorkspaceRequest, int, str, int) -> file_repository_sdk.api.workspace.safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
         """
         提交工作区创建新归档版本v2
         :param request: safe_commit_workspace请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
+        :return: file_repository_sdk.api.workspace.safe_commit_workspace_pb2.SafeCommitWorkspaceResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -442,7 +486,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -455,14 +499,14 @@ class WorkspaceClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = safe_commit_workspace_pb2.SafeCommitWorkspaceResponse()
+        rsp = file_repository_sdk.api.workspace.safe_commit_workspace_pb2.SafeCommitWorkspaceResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_file(self, request, org, user, timeout=10):
-        # type: (update_file_pb2.UpdateFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (file_repository_sdk.api.workspace.update_file_pb2.UpdateFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         工作区文件修改
         :param request: update_file请求
@@ -483,7 +527,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,
@@ -503,7 +547,7 @@ class WorkspaceClient(object):
         return rsp
     
     def upload_file(self, request, org, user, timeout=10):
-        # type: (upload_file_pb2.UploadFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (file_repository_sdk.api.workspace.upload_file_pb2.UploadFileRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         上传文件
         :param request: upload_file请求
@@ -524,7 +568,7 @@ class WorkspaceClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = file_repository_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.file_repository_sdk",
             dst_name=route_name,

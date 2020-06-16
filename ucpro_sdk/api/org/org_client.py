@@ -2,15 +2,10 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
-
 
 import google.protobuf.empty_pb2
 
-import utils.http_util
+import ucpro_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -30,6 +25,46 @@ class OrgClient(object):
         self._service_name = service_name
         self._host = host
 
+    
+    def import_models(self, request, org, user, timeout=10):
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
+        """
+        导入模型
+        :param request: import_models请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: google.protobuf.empty_pb2.Empty
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.ucpro.org.ImportModels"
+        uri = "/api/v1/org/import-models"
+        
+        requestParam = request
+        
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.ucpro_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
     
     def register_org(self, request, org, user, timeout=10):
         # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> google.protobuf.empty_pb2.Empty
@@ -52,7 +87,7 @@ class OrgClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = ucpro_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.ucpro_sdk",
             dst_name=route_name,

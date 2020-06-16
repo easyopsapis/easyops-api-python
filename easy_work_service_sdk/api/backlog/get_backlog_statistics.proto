@@ -1,0 +1,52 @@
+syntax = "proto3";
+package backlog;
+
+
+
+
+import "easy_work_service_sdk/model/easy_work_service/backlog_statistics.proto";
+
+/*
+GetBacklogStatistics请求
+*/
+message GetBacklogStatisticsRequest {
+    /*
+    事务创建起始时间
+    */
+    string ctimeFrom = 1 ;
+    /*
+    事务创建终止时间
+    */
+    string ctimeTo = 2 ;
+    /*
+    事务完成起始时间
+    */
+    string endTimeFrom = 3 ;
+    /*
+    事务完成终止时间
+    */
+    string endTimeTo = 4 ;
+}
+
+/*
+GetBacklogStatisticsApi返回
+*/
+message GetBacklogStatisticsResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    easy_work_service.BacklogStatistics data = 4 ;
+}
+

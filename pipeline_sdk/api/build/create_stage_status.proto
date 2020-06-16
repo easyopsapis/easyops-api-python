@@ -4,7 +4,8 @@ package build;
 
 
 
-import "model/pipeline/stage_status.proto";
+import "pipeline_sdk/model/pipeline/stage_status.proto";
+import "pipeline_sdk/model/pipeline/condition.proto";
 
 /*
 CreateStageStatus请求

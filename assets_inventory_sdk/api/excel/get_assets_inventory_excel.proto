@@ -1,0 +1,47 @@
+syntax = "proto3";
+package excel;
+
+
+
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+/*
+GetAssetsInventoryExcel请求
+*/
+message GetAssetsInventoryExcelRequest {
+message ShowKeys {
+    /*
+    字段ID
+    */
+    string id = 1 ;
+    /*
+    字段名
+    */
+    string name = 2 ;
+}
+        
+    
+    /*
+    服务器设备类型(服务器设备,存储设备,存储交换机,网络设备)
+    */
+    string deviceType = 1 ;
+    /*
+    资产盘点类型(设备总数,正常设备数,入库设备数,上线设备数,位置变更设备数,异常设备数,出库设备数,下线设备数)
+    */
+    string category = 2 ;
+    /*
+    资产盘点时间
+    */
+    string inventoryTime = 3 ;
+    /*
+    字段定义
+    */
+    repeated ShowKeys showKeys = 4 ;
+    /*
+    资产列表, 键为字段ID, 值为字段名
+    */
+    repeated google.protobuf.Struct data = 5 ;
+}
+

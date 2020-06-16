@@ -1,0 +1,105 @@
+syntax = "proto3";
+package container;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/container";
+
+
+
+
+
+/*
+Pod 健康检查
+*/
+message Probe {
+message Exec {
+    /*
+    exec 探测方式，检查命令
+    */
+    repeated string command = 1 ;
+}
+        
+message HttpGet {
+message HttpHeaders {
+    /*
+    变量名
+    */
+    string name = 1 ;
+    /*
+    变量值
+    */
+    string value = 2 ;
+}
+        
+    
+    /*
+    uri
+    */
+    string path = 1 ;
+    /*
+    端口
+    */
+    int32 port = 2 ;
+    /*
+    域名
+    */
+    string host = 3 ;
+    /*
+    http协议
+    */
+    string schema = 4 ;
+    /*
+    http 请求头
+    */
+    repeated HttpHeaders httpHeaders = 5 ;
+}
+        
+message TcpSocket {
+    /*
+    通过tcpSocket探测的端口
+    */
+    int32 port = 1 ;
+    /*
+    hostname, 默认 pod IP
+    */
+    string host = 2 ;
+}
+        
+    
+    /*
+    探测方式
+    */
+    string type = 1 ;
+    /*
+    exec
+    */
+    Exec exec = 2 ;
+    /*
+    httpGet 探测方式
+    */
+    HttpGet httpGet = 3 ;
+    /*
+    tcpSocket
+    */
+    TcpSocket tcpSocket = 4 ;
+    /*
+    容器启动完成后首次探测时间, 单位s
+    */
+    int32 initialDelaySeconds = 5 ;
+    /*
+    对容器进行健康检查探测等待响应时间, 默认1s
+    */
+    int32 timeoutSeconds = 6 ;
+    /*
+    对容器健康检查检查间隔，默认10s一次
+    */
+    int32 periodSeconds = 7 ;
+    /*
+    探测成功多少次后，认为成功
+    */
+    int32 successThreshold = 8 ;
+    /*
+    探测失败多少次后，认为失败
+    */
+    int32 failureThreshold = 9 ;
+}
+

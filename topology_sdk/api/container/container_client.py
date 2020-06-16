@@ -2,25 +2,20 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import topology_sdk.api.container.create_container_pb2
 
-import create_container_pb2
+import topology_sdk.api.container.delete_container_pb2
 
-import delete_container_pb2
+import topology_sdk.api.container.get_container_pb2
 
-import get_container_pb2
+import topology_sdk.model.topology.container_pb2
 
-import model.topology.container_pb2
+import topology_sdk.api.container.list_container_pb2
 
-import list_container_pb2
+import topology_sdk.api.container.update_container_pb2
 
-import update_container_pb2
-
-import utils.http_util
+import topology_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -42,14 +37,14 @@ class ContainerClient(object):
 
     
     def create_container(self, request, org, user, timeout=10):
-        # type: (create_container_pb2.CreateContainerRequest, int, str, int) -> create_container_pb2.CreateContainerResponse
+        # type: (topology_sdk.api.container.create_container_pb2.CreateContainerRequest, int, str, int) -> topology_sdk.api.container.create_container_pb2.CreateContainerResponse
         """
         创建容器
         :param request: create_container请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_container_pb2.CreateContainerResponse
+        :return: topology_sdk.api.container.create_container_pb2.CreateContainerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -62,7 +57,7 @@ class ContainerClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -75,21 +70,21 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_container_pb2.CreateContainerResponse()
+        rsp = topology_sdk.api.container.create_container_pb2.CreateContainerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_container(self, request, org, user, timeout=10):
-        # type: (delete_container_pb2.DeleteContainerRequest, int, str, int) -> delete_container_pb2.DeleteContainerResponse
+        # type: (topology_sdk.api.container.delete_container_pb2.DeleteContainerRequest, int, str, int) -> topology_sdk.api.container.delete_container_pb2.DeleteContainerResponse
         """
         删除容器
         :param request: delete_container请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_container_pb2.DeleteContainerResponse
+        :return: topology_sdk.api.container.delete_container_pb2.DeleteContainerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -103,7 +98,7 @@ class ContainerClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -116,21 +111,21 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_container_pb2.DeleteContainerResponse()
+        rsp = topology_sdk.api.container.delete_container_pb2.DeleteContainerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_container(self, request, org, user, timeout=10):
-        # type: (get_container_pb2.GetContainerRequest, int, str, int) -> model.topology.container_pb2.Container
+        # type: (topology_sdk.api.container.get_container_pb2.GetContainerRequest, int, str, int) -> topology_sdk.model.topology.container_pb2.Container
         """
         获取容器详细数据
         :param request: get_container请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.topology.container_pb2.Container
+        :return: topology_sdk.model.topology.container_pb2.Container
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -144,7 +139,7 @@ class ContainerClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -157,21 +152,21 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.topology.container_pb2.Container()
+        rsp = topology_sdk.model.topology.container_pb2.Container()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_container(self, request, org, user, timeout=10):
-        # type: (list_container_pb2.ListContainerRequest, int, str, int) -> list_container_pb2.ListContainerResponse
+        # type: (topology_sdk.api.container.list_container_pb2.ListContainerRequest, int, str, int) -> topology_sdk.api.container.list_container_pb2.ListContainerResponse
         """
         获取容器列表
         :param request: list_container请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_container_pb2.ListContainerResponse
+        :return: topology_sdk.api.container.list_container_pb2.ListContainerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -184,7 +179,7 @@ class ContainerClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -197,21 +192,21 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_container_pb2.ListContainerResponse()
+        rsp = topology_sdk.api.container.list_container_pb2.ListContainerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_container(self, request, org, user, timeout=10):
-        # type: (update_container_pb2.UpdateContainerRequest, int, str, int) -> update_container_pb2.UpdateContainerResponse
+        # type: (topology_sdk.api.container.update_container_pb2.UpdateContainerRequest, int, str, int) -> topology_sdk.api.container.update_container_pb2.UpdateContainerResponse
         """
         更新容器
         :param request: update_container请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_container_pb2.UpdateContainerResponse
+        :return: topology_sdk.api.container.update_container_pb2.UpdateContainerResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -225,7 +220,7 @@ class ContainerClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = topology_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.topology_sdk",
             dst_name=route_name,
@@ -238,7 +233,7 @@ class ContainerClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_container_pb2.UpdateContainerResponse()
+        rsp = topology_sdk.api.container.update_container_pb2.UpdateContainerResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

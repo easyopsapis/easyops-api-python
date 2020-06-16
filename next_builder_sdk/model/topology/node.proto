@@ -1,0 +1,45 @@
+syntax = "proto3";
+package topology;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/topology";
+
+
+
+
+import "next_builder_sdk/model/topology/property.proto";
+import "next_builder_sdk/model/topology/nodeStyle.proto";
+
+/*
+节点
+*/
+message Node {
+    /*
+    别称
+    */
+    repeated string label = 1 ;
+    /*
+    来源
+    */
+    string dataSource = 2 ;
+    /*
+    关联子节点
+    */
+    repeated string relateNodes = 3 ;
+    /*
+    ID
+    */
+    string id = 4 ;
+    /*
+    数据属性
+    */
+    topology.Property property = 5 ;
+    /*
+    是否允许展开
+    */
+    bool collapse = 6 ;
+    /*
+    节点样式
+    */
+    topology.NodeStyle style = 7 ;
+}
+

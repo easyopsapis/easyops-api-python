@@ -1,0 +1,118 @@
+syntax = "proto3";
+package patch;
+
+
+
+
+import "patch_manager_sdk/model/patch_manager/win_patch.proto";
+
+/*
+GetHost请求
+*/
+message GetHostRequest {
+    /*
+    主机实例 ID
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetHost返回
+*/
+message GetHostResponse {
+message InstalledPatch {
+    /*
+    补丁编号
+    */
+    string articleId = 1 ;
+    /*
+    补丁安装时间
+    */
+    string installedTime = 2 ;
+}
+        
+    
+    /*
+    已安装的补丁列表
+    */
+    repeated patch_manager.WinPatch installedPatches = 1 ;
+    /*
+    未安装的补丁列表
+    */
+    repeated patch_manager.WinPatch notInstalledPatches = 2 ;
+    /*
+    实例 ID
+    */
+    string instanceId = 3 ;
+    /*
+    主机名
+    */
+    string hostname = 4 ;
+    /*
+    主机 IP
+    */
+    string ip = 5 ;
+    /*
+    agent 状态
+    */
+    string _agentStatus = 6 ;
+    /*
+    主机环境
+    */
+    string _environment = 7 ;
+    /*
+    操作系统类型（如:Windows）
+    */
+    string osSystem = 8 ;
+    /*
+    操作系统架构
+    */
+    string osArchitecture = 9 ;
+    /*
+    操作系统版本（如:Windows 10）
+    */
+    string osVersion = 10 ;
+    /*
+    操作系统内核发行版本
+    */
+    string osRelease = 11 ;
+    /*
+    是否需要重启
+    */
+    bool requireReboot = 12 ;
+    /*
+    最近一次启动时间
+    */
+    int32 lastStartTime = 13 ;
+    /*
+    最近一次安装补丁时间
+    */
+    int32 lastInstallPatchTime = 14 ;
+    /*
+    已安装的补丁信息
+    */
+    repeated InstalledPatch installedPatch = 15 ;
+}
+
+/*
+GetHostApi返回
+*/
+message GetHostResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    patch.GetHostResponse data = 4 ;
+}
+

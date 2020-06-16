@@ -1,0 +1,72 @@
+syntax = "proto3";
+package collector_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/collector_service";
+
+
+
+
+import "file_repository_sdk/model/collector_service/metric.proto";
+
+/*
+采集指标
+*/
+message CollectorAliasMetric {
+message Dims {
+    /*
+    维度名字
+    */
+    string dimName = 1 ;
+    /*
+    原始指标维度名字
+    */
+    string originDimName = 2 ;
+}
+        
+    
+    /*
+    指标id
+    */
+    string instanceId = 1 ;
+    /*
+    指标名
+    */
+    string name = 2 ;
+    /*
+    维度列表
+    */
+    repeated Dims dims = 3 ;
+    /*
+    指标版本
+    */
+    int32 version = 4 ;
+    /*
+    是否为关键指标
+    */
+    bool isKeyMetric = 5 ;
+    /*
+    指标描述
+    */
+    string description = 6 ;
+    /*
+    关联资源id
+    */
+    string objectId = 7 ;
+    /*
+    原始指标列表
+    */
+    repeated collector_service.CollectorMetric originalMetrics = 8 ;
+    /*
+    依赖指标列表
+    */
+    repeated collector_service.CollectorAliasMetric dependMetrics = 9 ;
+    /*
+    是否计算类型的指标
+    */
+    bool isCalculated = 10 ;
+    /*
+    计算表达式（calculated的指标用）
+    */
+    string expression = 11 ;
+}
+

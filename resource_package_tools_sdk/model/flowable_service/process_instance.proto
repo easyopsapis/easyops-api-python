@@ -1,0 +1,59 @@
+syntax = "proto3";
+package flowable_service;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/flowable_service";
+
+
+
+
+
+/*
+流程实例
+*/
+message ProcessInstance {
+    /*
+    ID
+    */
+    string instanceId = 1 ;
+    /*
+    flowable的实例ID
+    */
+    string flowableInstanceId = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    创建人
+    */
+    string creator = 4 ;
+    /*
+    创建时间
+    */
+    string ctime = 5 ;
+    /*
+    结束时间
+    */
+    string etime = 6 ;
+    /*
+    流程实例状态(running, done, abandoned, suspended)
+    */
+    string status = 7 ;
+    /*
+    流程实例（子任务）步骤列表
+    */
+    repeated string stepIdList = 8 ;
+    /*
+    当前流程所处结点（这里通常是一个用户任务的ID）
+    */
+    string stopAt = 9 ;
+    /*
+    是否挂起
+    */
+    bool isSuspended = 10 ;
+    /*
+    是否作废
+    */
+    bool isCancelled = 11 ;
+}
+

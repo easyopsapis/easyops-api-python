@@ -1,0 +1,40 @@
+syntax = "proto3";
+package service;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+DeleteService请求
+*/
+message DeleteServiceRequest {
+    /*
+    要删除的实例 id
+    */
+    string instanceId = 1 ;
+}
+
+/*
+DeleteServiceApi返回
+*/
+message DeleteServiceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    google.protobuf.Empty data = 4 ;
+}
+

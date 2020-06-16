@@ -21,41 +21,65 @@ GetSQLPackageDBTaskDetail返回
 message GetSQLPackageDBTaskDetailResponse {
 message BackupTask {
 message Result {
+message Variables {
+    /*
+    参数键
+    */
+    string key = 1 ;
+    /*
+    参数值
+    */
+    string value = 2 ;
+}
+        
+    
     /*
     脚本路径
     */
     string scriptPath = 1 ;
     /*
+    脚本参数列表
+    */
+    repeated Variables variables = 2 ;
+    /*
     结果状态
     */
-    string status = 2 ;
+    string status = 3 ;
     /*
     结果日志
     */
-    string msg = 3 ;
+    string msg = 4 ;
     /*
     创建时间
     */
-    int64 ctime = 4 ;
+    int64 ctime = 5 ;
     /*
     结束时间
     */
-    int64 etime = 5 ;
+    int64 etime = 6 ;
 }
         
     
     /*
+    数据库实例ID
+    */
+    string dbInstanceId = 1 ;
+    /*
+    数据库实例名称
+    */
+    string dbInstanceName = 2 ;
+    /*
     主机ID
     */
-    string hostId = 1 ;
+    string hostId = 3 ;
     /*
     主机Ip
     */
-    string hostIp = 2 ;
+    string hostIp = 4 ;
     /*
     结果详情
     */
-    repeated Result result = 3 ;
+    repeated Result result = 5 ;
 }
         
 message ChangeTask {
@@ -204,7 +228,7 @@ message Result {
     /*
     备份任务详情
     */
-    BackupTask backupTask = 8 ;
+    repeated BackupTask backupTask = 8 ;
     /*
     变更任务列表
     */

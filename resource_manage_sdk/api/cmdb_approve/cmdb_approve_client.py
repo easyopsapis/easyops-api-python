@@ -2,27 +2,24 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
-
-import model.notify.operation_log_with_meta_pb2
+import resource_manage_sdk.model.notify.operation_log_with_meta_pb2
 
 import google.protobuf.empty_pb2
 
-import get_approve_count_pb2
+import resource_manage_sdk.api.cmdb_approve.get_approve_count_pb2
 
-import get_approve_object_list_pb2
+import resource_manage_sdk.api.cmdb_approve.get_approve_object_list_pb2
 
-import get_history_approver_list_pb2
+import resource_manage_sdk.api.cmdb_approve.get_history_approver_list_pb2
 
-import get_history_object_list_pb2
+import resource_manage_sdk.api.cmdb_approve.get_history_object_list_pb2
 
-import instance_relation_edit_pb2
+import resource_manage_sdk.api.cmdb_approve.instance_relation_edit_pb2
 
-import utils.http_util
+import resource_manage_sdk.api.cmdb_approve.relation_discovery_v2_pb2
+
+import resource_manage_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,7 +41,7 @@ class CmdbApproveClient(object):
 
     
     def create_instance_apply_permission(self, request, org, user, timeout=10):
-        # type: (model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (resource_manage_sdk.model.notify.operation_log_with_meta_pb2.OperationLogWithMeta, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         创建模型提交变更权限
         :param request: create_instance_apply_permission请求
@@ -64,7 +61,7 @@ class CmdbApproveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -84,14 +81,14 @@ class CmdbApproveClient(object):
         return rsp
     
     def get_approve_count(self, request, org, user, timeout=10):
-        # type: (get_approve_count_pb2.GetApproveCountRequest, int, str, int) -> get_approve_count_pb2.GetApproveCountResponse
+        # type: (resource_manage_sdk.api.cmdb_approve.get_approve_count_pb2.GetApproveCountRequest, int, str, int) -> resource_manage_sdk.api.cmdb_approve.get_approve_count_pb2.GetApproveCountResponse
         """
         获取待审批所有模型
         :param request: get_approve_count请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_approve_count_pb2.GetApproveCountResponse
+        :return: resource_manage_sdk.api.cmdb_approve.get_approve_count_pb2.GetApproveCountResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -104,7 +101,7 @@ class CmdbApproveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -117,21 +114,21 @@ class CmdbApproveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_approve_count_pb2.GetApproveCountResponse()
+        rsp = resource_manage_sdk.api.cmdb_approve.get_approve_count_pb2.GetApproveCountResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_approve_object_list(self, request, org, user, timeout=10):
-        # type: (get_approve_object_list_pb2.GetApproveObjectListRequest, int, str, int) -> get_approve_object_list_pb2.GetApproveObjectListResponse
+        # type: (resource_manage_sdk.api.cmdb_approve.get_approve_object_list_pb2.GetApproveObjectListRequest, int, str, int) -> resource_manage_sdk.api.cmdb_approve.get_approve_object_list_pb2.GetApproveObjectListResponse
         """
         获取待审批所有模型
         :param request: get_approve_object_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_approve_object_list_pb2.GetApproveObjectListResponse
+        :return: resource_manage_sdk.api.cmdb_approve.get_approve_object_list_pb2.GetApproveObjectListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -144,7 +141,7 @@ class CmdbApproveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -157,21 +154,21 @@ class CmdbApproveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_approve_object_list_pb2.GetApproveObjectListResponse()
+        rsp = resource_manage_sdk.api.cmdb_approve.get_approve_object_list_pb2.GetApproveObjectListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_history_approver_list(self, request, org, user, timeout=10):
-        # type: (get_history_approver_list_pb2.GetHistoryApproverListRequest, int, str, int) -> get_history_approver_list_pb2.GetHistoryApproverListResponse
+        # type: (resource_manage_sdk.api.cmdb_approve.get_history_approver_list_pb2.GetHistoryApproverListRequest, int, str, int) -> resource_manage_sdk.api.cmdb_approve.get_history_approver_list_pb2.GetHistoryApproverListResponse
         """
         获取审批历史所有审批人
         :param request: get_history_approver_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_history_approver_list_pb2.GetHistoryApproverListResponse
+        :return: resource_manage_sdk.api.cmdb_approve.get_history_approver_list_pb2.GetHistoryApproverListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -184,7 +181,7 @@ class CmdbApproveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -197,21 +194,21 @@ class CmdbApproveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_history_approver_list_pb2.GetHistoryApproverListResponse()
+        rsp = resource_manage_sdk.api.cmdb_approve.get_history_approver_list_pb2.GetHistoryApproverListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_history_object_list(self, request, org, user, timeout=10):
-        # type: (get_history_object_list_pb2.GetHistoryObjectListRequest, int, str, int) -> get_history_object_list_pb2.GetHistoryObjectListResponse
+        # type: (resource_manage_sdk.api.cmdb_approve.get_history_object_list_pb2.GetHistoryObjectListRequest, int, str, int) -> resource_manage_sdk.api.cmdb_approve.get_history_object_list_pb2.GetHistoryObjectListResponse
         """
         获取审批历史所有模型
         :param request: get_history_object_list请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_history_object_list_pb2.GetHistoryObjectListResponse
+        :return: resource_manage_sdk.api.cmdb_approve.get_history_object_list_pb2.GetHistoryObjectListResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -224,7 +221,7 @@ class CmdbApproveClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -237,14 +234,14 @@ class CmdbApproveClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_history_object_list_pb2.GetHistoryObjectListResponse()
+        rsp = resource_manage_sdk.api.cmdb_approve.get_history_object_list_pb2.GetHistoryObjectListResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def instance_relation_edit(self, request, org, user, timeout=10):
-        # type: (instance_relation_edit_pb2.InstanceRelationEditRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (resource_manage_sdk.api.cmdb_approve.instance_relation_edit_pb2.InstanceRelationEditRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         实例关系变更
         :param request: instance_relation_edit请求
@@ -267,7 +264,7 @@ class CmdbApproveClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.resource_manage_sdk",
             dst_name=route_name,
@@ -281,6 +278,47 @@ class CmdbApproveClient(object):
             timeout=timeout,
         )
         rsp = google.protobuf.empty_pb2.Empty()
+        
+        google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
+        
+        return rsp
+    
+    def relation_discovery_v_2(self, request, org, user, timeout=10):
+        # type: (resource_manage_sdk.api.cmdb_approve.relation_discovery_v2_pb2.RelationDiscoveryV2Request, int, str, int) -> resource_manage_sdk.api.cmdb_approve.relation_discovery_v2_pb2.RelationDiscoveryV2Response
+        """
+        实例关系提交变更接口V2(支持set关系)
+        :param request: relation_discovery_v_2请求
+        :param org: 客户的org编号，为数字
+        :param user: 调用api使用的用户名
+        :param timeout: 调用超时时间，单位秒
+        :return: resource_manage_sdk.api.cmdb_approve.relation_discovery_v2_pb2.RelationDiscoveryV2Response
+        """
+        headers = {"org": org, "user": user}
+        route_name = ""
+        server_ip = self._server_ip
+        if self._service_name != "":
+            route_name = self._service_name
+        elif self._server_ip != "":
+            route_name = "easyops.api.resource_manage.cmdb_approve.RelationDiscoveryV2"
+        uri = "/v2/object_relation/{relationId}/_autodiscovery/multi".format(
+            relationId=request.relationId,
+        )
+        requestParam = request
+        
+        rsp_obj = resource_manage_sdk.utils.http_util.do_api_request(
+            method="POST",
+            src_name="logic.resource_manage_sdk",
+            dst_name=route_name,
+            server_ip=server_ip,
+            server_port=self._server_port,
+            host=self._host,
+            uri=uri,
+            params=google.protobuf.json_format.MessageToDict(
+                requestParam, preserving_proto_field_name=True),
+            headers=headers,
+            timeout=timeout,
+        )
+        rsp = resource_manage_sdk.api.cmdb_approve.relation_discovery_v2_pb2.RelationDiscoveryV2Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj, rsp, ignore_unknown_fields=True)
         

@@ -6,7 +6,7 @@ option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/i
 
 
 
-import "model/inspection/target.proto";
+import "ucpro_sdk/model/inspection/target.proto";
 
 /*
 巡检历史
@@ -45,8 +45,12 @@ message InspectionHistory {
     */
     float passingRate = 8 ;
     /*
-    巡检主机列表
+    分数(精确到小数点后2位)
     */
-    repeated inspection.InspectionTarget targets = 9 ;
+    float score = 9 ;
+    /*
+    巡检对象列表
+    */
+    repeated inspection.InspectionTarget targets = 10 ;
 }
 

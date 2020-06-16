@@ -1,0 +1,62 @@
+syntax = "proto3";
+package alert_rule;
+
+
+
+
+import "monitor_sdk/model/monitor/alert_rule.proto";
+
+/*
+DetailAlertRuleV4请求
+*/
+message DetailAlertRuleV4Request {
+    /*
+    告警规则id
+    */
+    string id = 1 ;
+    /*
+    告警规则版本
+    */
+    int32 version = 2 ;
+}
+
+/*
+DetailAlertRuleV4返回
+*/
+message DetailAlertRuleV4Response {
+    /*
+    code
+    */
+    int32 code = 1 ;
+    /*
+    msg
+    */
+    string msg = 2 ;
+    /*
+    data
+    */
+    monitor.AlertRule data = 3 ;
+}
+
+/*
+DetailAlertRuleV4Api返回
+*/
+message DetailAlertRuleV4ResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    alert_rule.DetailAlertRuleV4Response data = 4 ;
+}
+

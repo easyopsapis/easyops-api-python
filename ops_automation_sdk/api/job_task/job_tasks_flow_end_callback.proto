@@ -1,0 +1,61 @@
+syntax = "proto3";
+package job_task;
+
+
+
+
+
+/*
+JobTasksFlowEndCallback请求
+*/
+message JobTasksFlowEndCallbackRequest {
+    /*
+    flow的endCallBack返回的是execId
+    */
+    string execId = 1 ;
+    /*
+    flow的endCallBack返回的是status
+    */
+    string status = 2 ;
+    /*
+    任务ID
+    */
+    string taskId = 3 ;
+    /*
+    流程执行结果总状态("wait"-初始态等待执行, "executing"-执行中, "success"-成功, "failed"-失败, "paused"-人工确认, "interrupted"-暂停, "terminate"-终止)
+    */
+    string totalStatus = 4 ;
+}
+
+/*
+JobTasksFlowEndCallback返回
+*/
+message JobTasksFlowEndCallbackResponse {
+    /*
+    作业任务Id
+    */
+    string jobTasksId = 1 ;
+}
+
+/*
+JobTasksFlowEndCallbackApi返回
+*/
+message JobTasksFlowEndCallbackResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    job_task.JobTasksFlowEndCallbackResponse data = 4 ;
+}
+

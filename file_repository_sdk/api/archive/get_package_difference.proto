@@ -4,7 +4,7 @@ package archive;
 
 
 
-import "model/file_repository/diff.proto";
+import "file_repository_sdk/model/file_repository/diff.proto";
 
 /*
 GetPackageDifference请求

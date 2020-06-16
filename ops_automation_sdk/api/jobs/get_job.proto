@@ -4,9 +4,9 @@ package jobs;
 
 
 
-import "model/ops_automation/bind_resource.proto";
-import "model/ops_automation/mail_info.proto";
-import "model/ops_automation/job_details.proto";
+import "ops_automation_sdk/model/ops_automation/bind_resource.proto";
+import "ops_automation_sdk/model/ops_automation/mail_info.proto";
+import "ops_automation_sdk/model/ops_automation/job_details.proto";
 
 /*
 GetJobs请求

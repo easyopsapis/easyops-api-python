@@ -4,7 +4,7 @@ package micro_app;
 
 
 
-import "model/app_store/micro_app.proto";
+import "app_store_sdk/model/app_store/micro_app.proto";
 
 /*
 CreateApi返回

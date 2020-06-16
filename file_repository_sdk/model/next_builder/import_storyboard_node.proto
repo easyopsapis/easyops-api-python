@@ -1,0 +1,72 @@
+syntax = "proto3";
+package next_builder;
+
+option go_package = "go.easyops.local/contracts/protorepo-models/easyops/model/next_builder";
+
+
+
+
+import "file_repository_sdk/model/next_builder/storyboard_brick.proto";
+import "file_repository_sdk/model/next_builder/storyboard_route.proto";
+
+/*
+Import reuqest model
+*/
+message ImportStoryboardNode {
+message Project {
+    /*
+    cmdb实例标识
+    */
+    string instanceId = 1 ;
+}
+        
+message Parent {
+    /*
+    节点标识
+    */
+    string id = 1 ;
+}
+        
+    
+    /*
+    MicroAppProject
+    */
+    Project project = 1 ;
+    /*
+    父节点
+    */
+    Parent parent = 2 ;
+    /*
+    节点标识
+    */
+    string id = 3 ;
+    /*
+    别名
+    */
+    string alias = 4 ;
+    /*
+    micro_app ID
+    */
+    string appId = 5 ;
+    /*
+    挂载点
+    */
+    string mountPoint = 6 ;
+    /*
+    排序
+    */
+    int32 sort = 7 ;
+    /*
+    类型
+    */
+    string type = 8 ;
+    /*
+    当type为brick时，填充该字段属性
+    */
+    next_builder.StoryboardBrick brick = 9 ;
+    /*
+    当type为route时，填充该字段属性
+    */
+    next_builder.StoryboardRoute route = 10 ;
+}
+

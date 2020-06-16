@@ -1,0 +1,22 @@
+syntax = "proto3";
+package instance;
+
+
+
+
+import "google/protobuf/empty.proto";
+
+/*
+ExportInstance请求
+*/
+message ExportInstanceRequest {
+    /*
+    模型ID
+    */
+    string object_id = 1 ;
+    /*
+    请求参数json序列化
+    */
+    string json = 2 ;
+}
+

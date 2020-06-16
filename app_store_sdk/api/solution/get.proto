@@ -1,0 +1,86 @@
+syntax = "proto3";
+package solution;
+
+
+
+
+import "app_store_sdk/model/app_store/micro_app.proto";
+
+/*
+GetSolution请求
+*/
+message GetSolutionRequest {
+    /*
+    solution的instanceId
+    */
+    string instanceId = 1 ;
+}
+
+/*
+GetSolution返回
+*/
+message GetSolutionResponse {
+message Icon {
+    /*
+    图标库
+    */
+    string lib = 1 ;
+    /*
+    图标url
+    */
+    string icon = 2 ;
+}
+        
+    
+    /*
+    关联的小产品
+    */
+    app_store.AppStoreMicroApp microApps = 1 ;
+    /*
+    实例id
+    */
+    string instanceId = 2 ;
+    /*
+    名称
+    */
+    string name = 3 ;
+    /*
+    markdown格式的内容
+    */
+    string content = 4 ;
+    /*
+    轮播图片
+    */
+    string thumbnail = 5 ;
+    /*
+    简介
+    */
+    string brief = 6 ;
+    /*
+    图标
+    */
+    Icon icon = 7 ;
+}
+
+/*
+GetSolutionApi返回
+*/
+message GetSolutionResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    solution.GetSolutionResponse data = 4 ;
+}
+

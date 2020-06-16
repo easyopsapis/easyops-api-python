@@ -1,0 +1,74 @@
+syntax = "proto3";
+package version;
+
+
+
+
+import "artifact_sdk/model/artifact/version.proto";
+
+/*
+GetCleanVersionList请求
+*/
+message GetCleanVersionListRequest {
+    /*
+    页码
+    */
+    int32 page = 1 ;
+    /*
+    每页大小
+    */
+    int32 pageSize = 2 ;
+    /*
+    程序包Id
+    */
+    string packageId = 3 ;
+    /*
+    包名称
+    */
+    string name = 4 ;
+}
+
+/*
+GetCleanVersionList返回
+*/
+message GetCleanVersionListResponse {
+    /*
+    页数
+    */
+    int32 page = 1 ;
+    /*
+    页大小
+    */
+    int32 page_size = 2 ;
+    /*
+    总数
+    */
+    int32 total = 3 ;
+    /*
+    数据列表
+    */
+    repeated artifact.Version list = 4 ;
+}
+
+/*
+GetCleanVersionListApi返回
+*/
+message GetCleanVersionListResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    version.GetCleanVersionListResponse data = 4 ;
+}
+

@@ -1,0 +1,49 @@
+syntax = "proto3";
+package calendar_events;
+
+
+
+
+
+/*
+DeleteEvent请求
+*/
+message DeleteEventRequest {
+    /*
+    日历事件ID
+    */
+    string eventId = 1 ;
+}
+
+/*
+DeleteEvent返回
+*/
+message DeleteEventResponse {
+    /*
+    日历事件ID
+    */
+    string id = 1 ;
+}
+
+/*
+DeleteEventApi返回
+*/
+message DeleteEventResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    calendar_events.DeleteEventResponse data = 4 ;
+}
+

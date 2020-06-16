@@ -1,0 +1,40 @@
+syntax = "proto3";
+package stream;
+
+
+
+
+import "metadata_center_sdk/model/metadata_center/stream_translate_package.proto";
+
+/*
+ListTranslateStates返回
+*/
+message ListTranslateStatesResponse {
+    /*
+    翻译规则列表
+    */
+    repeated metadata_center.StreamTranslatePackage states = 1 ;
+}
+
+/*
+ListTranslateStatesApi返回
+*/
+message ListTranslateStatesResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    stream.ListTranslateStatesResponse data = 4 ;
+}
+

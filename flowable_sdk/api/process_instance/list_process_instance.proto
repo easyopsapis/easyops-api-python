@@ -1,0 +1,98 @@
+syntax = "proto3";
+package process_instance;
+
+
+
+
+import "flowable_sdk/model/flowable/process_instance.proto";
+
+/*
+ListProcessInstance请求
+*/
+message ListProcessInstanceRequest {
+    /*
+    起始个数
+    */
+    int32 start = 1 ;
+    /*
+    页码大小
+    */
+    int32 size = 2 ;
+    /*
+    id
+    */
+    string id = 3 ;
+    /*
+    名称
+    */
+    string name = 4 ;
+    /*
+    业务key
+    */
+    string businessKey = 5 ;
+    /*
+    是否挂起
+    */
+    string suspended = 6 ;
+    /*
+    流程定义ID
+    */
+    string processDefinitionId = 7 ;
+    /*
+    querystring指定传的field
+    */
+    repeated string XXX_RestFieldMask = 8 ;
+}
+
+/*
+ListProcessInstance返回
+*/
+message ListProcessInstanceResponse {
+    /*
+    流程实例列表
+    */
+    repeated flowable.FlowableProcessInstance data = 1 ;
+    /*
+    总数
+    */
+    int32 total = 2 ;
+    /*
+    起始个数
+    */
+    int32 start = 3 ;
+    /*
+    排序字段
+    */
+    string sort = 4 ;
+    /*
+    排序顺序
+    */
+    string order = 5 ;
+    /*
+    一页大小
+    */
+    int32 size = 6 ;
+}
+
+/*
+ListProcessInstanceApi返回
+*/
+message ListProcessInstanceResponseWrapper {
+    /*
+    返回码
+    */
+    int32 code = 1 ;
+    /*
+    返回码解释
+    */
+    string codeExplain = 2 ;
+    /*
+    错误详情
+    */
+    string error = 3 ;
+    /*
+    返回数据
+    */
+    process_instance.ListProcessInstanceResponse data = 4 ;
+}
+

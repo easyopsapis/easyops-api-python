@@ -2,33 +2,28 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import agent_admin_sdk.api.plugin_version.create_plugin_version_pb2
 
-import create_plugin_version_pb2
+import agent_admin_sdk.api.plugin_version.create_plugin_version_v1_pb2
 
-import create_plugin_version_v1_pb2
+import agent_admin_sdk.api.plugin_version.delete_plugin_version_pb2
 
-import delete_plugin_version_pb2
+import agent_admin_sdk.api.plugin_version.get_plugin_version_pb2
 
-import get_plugin_version_pb2
+import agent_admin_sdk.model.agent_admin.plugin_version_pb2
 
-import model.agent_admin.plugin_version_pb2
+import agent_admin_sdk.api.plugin_version.get_plugin_version_v1_pb2
 
-import get_plugin_version_v1_pb2
+import agent_admin_sdk.api.plugin_version.list_plugin_version_pb2
 
-import list_plugin_version_pb2
+import agent_admin_sdk.api.plugin_version.list_plugin_version_v1_pb2
 
-import list_plugin_version_v1_pb2
+import agent_admin_sdk.api.plugin_version.update_plugin_version_pb2
 
-import update_plugin_version_pb2
+import agent_admin_sdk.api.plugin_version.update_plugin_version_v1_pb2
 
-import update_plugin_version_v1_pb2
-
-import utils.http_util
+import agent_admin_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -50,14 +45,14 @@ class PluginVersionClient(object):
 
     
     def create_plugin_version(self, request, org, user, timeout=10):
-        # type: (create_plugin_version_pb2.CreatePluginVersionRequest, int, str, int) -> create_plugin_version_pb2.CreatePluginVersionResponse
+        # type: (agent_admin_sdk.api.plugin_version.create_plugin_version_pb2.CreatePluginVersionRequest, int, str, int) -> agent_admin_sdk.api.plugin_version.create_plugin_version_pb2.CreatePluginVersionResponse
         """
         创建插件
         :param request: create_plugin_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_plugin_version_pb2.CreatePluginVersionResponse
+        :return: agent_admin_sdk.api.plugin_version.create_plugin_version_pb2.CreatePluginVersionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -71,7 +66,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -84,21 +79,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_plugin_version_pb2.CreatePluginVersionResponse()
+        rsp = agent_admin_sdk.api.plugin_version.create_plugin_version_pb2.CreatePluginVersionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def create_plugin_version_v_1(self, request, org, user, timeout=10):
-        # type: (create_plugin_version_v1_pb2.CreatePluginVersionV1Request, int, str, int) -> create_plugin_version_v1_pb2.CreatePluginVersionV1Response
+        # type: (agent_admin_sdk.api.plugin_version.create_plugin_version_v1_pb2.CreatePluginVersionV1Request, int, str, int) -> agent_admin_sdk.api.plugin_version.create_plugin_version_v1_pb2.CreatePluginVersionV1Response
         """
         创建插件
         :param request: create_plugin_version_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_plugin_version_v1_pb2.CreatePluginVersionV1Response
+        :return: agent_admin_sdk.api.plugin_version.create_plugin_version_v1_pb2.CreatePluginVersionV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -112,7 +107,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -125,21 +120,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_plugin_version_v1_pb2.CreatePluginVersionV1Response()
+        rsp = agent_admin_sdk.api.plugin_version.create_plugin_version_v1_pb2.CreatePluginVersionV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_plugin_version(self, request, org, user, timeout=10):
-        # type: (delete_plugin_version_pb2.DeletePluginVersionRequest, int, str, int) -> delete_plugin_version_pb2.DeletePluginVersionResponse
+        # type: (agent_admin_sdk.api.plugin_version.delete_plugin_version_pb2.DeletePluginVersionRequest, int, str, int) -> agent_admin_sdk.api.plugin_version.delete_plugin_version_pb2.DeletePluginVersionResponse
         """
         删除插件
         :param request: delete_plugin_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: delete_plugin_version_pb2.DeletePluginVersionResponse
+        :return: agent_admin_sdk.api.plugin_version.delete_plugin_version_pb2.DeletePluginVersionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -154,7 +149,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -167,21 +162,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = delete_plugin_version_pb2.DeletePluginVersionResponse()
+        rsp = agent_admin_sdk.api.plugin_version.delete_plugin_version_pb2.DeletePluginVersionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_plugin_version(self, request, org, user, timeout=10):
-        # type: (get_plugin_version_pb2.GetPluginVersionRequest, int, str, int) -> model.agent_admin.plugin_version_pb2.PluginVersion
+        # type: (agent_admin_sdk.api.plugin_version.get_plugin_version_pb2.GetPluginVersionRequest, int, str, int) -> agent_admin_sdk.model.agent_admin.plugin_version_pb2.PluginVersion
         """
         获取插件
         :param request: get_plugin_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: model.agent_admin.plugin_version_pb2.PluginVersion
+        :return: agent_admin_sdk.model.agent_admin.plugin_version_pb2.PluginVersion
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -196,7 +191,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -209,21 +204,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = model.agent_admin.plugin_version_pb2.PluginVersion()
+        rsp = agent_admin_sdk.model.agent_admin.plugin_version_pb2.PluginVersion()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_plugin_version_v_1(self, request, org, user, timeout=10):
-        # type: (get_plugin_version_v1_pb2.GetPluginVersionV1Request, int, str, int) -> get_plugin_version_v1_pb2.GetPluginVersionV1Response
+        # type: (agent_admin_sdk.api.plugin_version.get_plugin_version_v1_pb2.GetPluginVersionV1Request, int, str, int) -> agent_admin_sdk.api.plugin_version.get_plugin_version_v1_pb2.GetPluginVersionV1Response
         """
         获取插件
         :param request: get_plugin_version_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_plugin_version_v1_pb2.GetPluginVersionV1Response
+        :return: agent_admin_sdk.api.plugin_version.get_plugin_version_v1_pb2.GetPluginVersionV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -238,7 +233,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -251,21 +246,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_plugin_version_v1_pb2.GetPluginVersionV1Response()
+        rsp = agent_admin_sdk.api.plugin_version.get_plugin_version_v1_pb2.GetPluginVersionV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin_version(self, request, org, user, timeout=10):
-        # type: (list_plugin_version_pb2.ListPluginVersionRequest, int, str, int) -> list_plugin_version_pb2.ListPluginVersionResponse
+        # type: (agent_admin_sdk.api.plugin_version.list_plugin_version_pb2.ListPluginVersionRequest, int, str, int) -> agent_admin_sdk.api.plugin_version.list_plugin_version_pb2.ListPluginVersionResponse
         """
         插件列表
         :param request: list_plugin_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_version_pb2.ListPluginVersionResponse
+        :return: agent_admin_sdk.api.plugin_version.list_plugin_version_pb2.ListPluginVersionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -279,7 +274,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -292,21 +287,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_version_pb2.ListPluginVersionResponse()
+        rsp = agent_admin_sdk.api.plugin_version.list_plugin_version_pb2.ListPluginVersionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_plugin_version_v_1(self, request, org, user, timeout=10):
-        # type: (list_plugin_version_v1_pb2.ListPluginVersionV1Request, int, str, int) -> list_plugin_version_v1_pb2.ListPluginVersionV1Response
+        # type: (agent_admin_sdk.api.plugin_version.list_plugin_version_v1_pb2.ListPluginVersionV1Request, int, str, int) -> agent_admin_sdk.api.plugin_version.list_plugin_version_v1_pb2.ListPluginVersionV1Response
         """
         插件列表
         :param request: list_plugin_version_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_plugin_version_v1_pb2.ListPluginVersionV1Response
+        :return: agent_admin_sdk.api.plugin_version.list_plugin_version_v1_pb2.ListPluginVersionV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -320,7 +315,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -333,21 +328,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_plugin_version_v1_pb2.ListPluginVersionV1Response()
+        rsp = agent_admin_sdk.api.plugin_version.list_plugin_version_v1_pb2.ListPluginVersionV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_plugin_version(self, request, org, user, timeout=10):
-        # type: (update_plugin_version_pb2.UpdatePluginVersionRequest, int, str, int) -> update_plugin_version_pb2.UpdatePluginVersionResponse
+        # type: (agent_admin_sdk.api.plugin_version.update_plugin_version_pb2.UpdatePluginVersionRequest, int, str, int) -> agent_admin_sdk.api.plugin_version.update_plugin_version_pb2.UpdatePluginVersionResponse
         """
         更新插件
         :param request: update_plugin_version请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_plugin_version_pb2.UpdatePluginVersionResponse
+        :return: agent_admin_sdk.api.plugin_version.update_plugin_version_pb2.UpdatePluginVersionResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -362,7 +357,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -375,21 +370,21 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_plugin_version_pb2.UpdatePluginVersionResponse()
+        rsp = agent_admin_sdk.api.plugin_version.update_plugin_version_pb2.UpdatePluginVersionResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_plugin_version_v_1(self, request, org, user, timeout=10):
-        # type: (update_plugin_version_v1_pb2.UpdatePluginVersionV1Request, int, str, int) -> update_plugin_version_v1_pb2.UpdatePluginVersionV1Response
+        # type: (agent_admin_sdk.api.plugin_version.update_plugin_version_v1_pb2.UpdatePluginVersionV1Request, int, str, int) -> agent_admin_sdk.api.plugin_version.update_plugin_version_v1_pb2.UpdatePluginVersionV1Response
         """
         更新插件
         :param request: update_plugin_version_v_1请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_plugin_version_v1_pb2.UpdatePluginVersionV1Response
+        :return: agent_admin_sdk.api.plugin_version.update_plugin_version_v1_pb2.UpdatePluginVersionV1Response
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -404,7 +399,7 @@ class PluginVersionClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = agent_admin_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.agent_admin_sdk",
             dst_name=route_name,
@@ -417,7 +412,7 @@ class PluginVersionClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_plugin_version_v1_pb2.UpdatePluginVersionV1Response()
+        rsp = agent_admin_sdk.api.plugin_version.update_plugin_version_v1_pb2.UpdatePluginVersionV1Response()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         

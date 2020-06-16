@@ -2,27 +2,22 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(os.path.dirname(current_path))
-if PROJECT_PATH not in sys.path:
-    sys.path.append(PROJECT_PATH)
 
+import database_delivery_sdk.api.sqlpkgs.create_pb2
 
-import create_pb2
-
-import delete_pb2
+import database_delivery_sdk.api.sqlpkgs.delete_pb2
 
 import google.protobuf.empty_pb2
 
-import get_pb2
+import database_delivery_sdk.api.sqlpkgs.get_pb2
 
-import get_folder_name_pb2
+import database_delivery_sdk.api.sqlpkgs.get_folder_name_pb2
 
-import list_pb2
+import database_delivery_sdk.api.sqlpkgs.list_pb2
 
-import update_pb2
+import database_delivery_sdk.api.sqlpkgs.update_pb2
 
-import utils.http_util
+import database_delivery_sdk.utils.http_util
 import google.protobuf.json_format
 
 
@@ -44,14 +39,14 @@ class SqlpkgsClient(object):
 
     
     def create_sql_package(self, request, org, user, timeout=10):
-        # type: (create_pb2.CreateSQLPackageRequest, int, str, int) -> create_pb2.CreateSQLPackageResponse
+        # type: (database_delivery_sdk.api.sqlpkgs.create_pb2.CreateSQLPackageRequest, int, str, int) -> database_delivery_sdk.api.sqlpkgs.create_pb2.CreateSQLPackageResponse
         """
         创建SQL包
         :param request: create_sql_package请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: create_pb2.CreateSQLPackageResponse
+        :return: database_delivery_sdk.api.sqlpkgs.create_pb2.CreateSQLPackageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -64,7 +59,7 @@ class SqlpkgsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="POST",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -77,14 +72,14 @@ class SqlpkgsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = create_pb2.CreateSQLPackageResponse()
+        rsp = database_delivery_sdk.api.sqlpkgs.create_pb2.CreateSQLPackageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def delete_sql_package(self, request, org, user, timeout=10):
-        # type: (delete_pb2.DeleteSQLPackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
+        # type: (database_delivery_sdk.api.sqlpkgs.delete_pb2.DeleteSQLPackageRequest, int, str, int) -> google.protobuf.empty_pb2.Empty
         """
         删除SQL包
         :param request: delete_sql_package请求
@@ -105,7 +100,7 @@ class SqlpkgsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="DELETE",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -125,14 +120,14 @@ class SqlpkgsClient(object):
         return rsp
     
     def get_sql_package(self, request, org, user, timeout=10):
-        # type: (get_pb2.GetSQLPackageRequest, int, str, int) -> get_pb2.GetSQLPackageResponse
+        # type: (database_delivery_sdk.api.sqlpkgs.get_pb2.GetSQLPackageRequest, int, str, int) -> database_delivery_sdk.api.sqlpkgs.get_pb2.GetSQLPackageResponse
         """
         获取SQL包
         :param request: get_sql_package请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_pb2.GetSQLPackageResponse
+        :return: database_delivery_sdk.api.sqlpkgs.get_pb2.GetSQLPackageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -146,7 +141,7 @@ class SqlpkgsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -159,21 +154,21 @@ class SqlpkgsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_pb2.GetSQLPackageResponse()
+        rsp = database_delivery_sdk.api.sqlpkgs.get_pb2.GetSQLPackageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def get_folder_name(self, request, org, user, timeout=10):
-        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> get_folder_name_pb2.GetFolderNameResponse
+        # type: (google.protobuf.empty_pb2.Empty, int, str, int) -> database_delivery_sdk.api.sqlpkgs.get_folder_name_pb2.GetFolderNameResponse
         """
         获取SQL包文件夹模板
         :param request: get_folder_name请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: get_folder_name_pb2.GetFolderNameResponse
+        :return: database_delivery_sdk.api.sqlpkgs.get_folder_name_pb2.GetFolderNameResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -186,7 +181,7 @@ class SqlpkgsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -199,21 +194,21 @@ class SqlpkgsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = get_folder_name_pb2.GetFolderNameResponse()
+        rsp = database_delivery_sdk.api.sqlpkgs.get_folder_name_pb2.GetFolderNameResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def list_sql_package(self, request, org, user, timeout=10):
-        # type: (list_pb2.ListSQLPackageRequest, int, str, int) -> list_pb2.ListSQLPackageResponse
+        # type: (database_delivery_sdk.api.sqlpkgs.list_pb2.ListSQLPackageRequest, int, str, int) -> database_delivery_sdk.api.sqlpkgs.list_pb2.ListSQLPackageResponse
         """
         获取SQL包列表
         :param request: list_sql_package请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: list_pb2.ListSQLPackageResponse
+        :return: database_delivery_sdk.api.sqlpkgs.list_pb2.ListSQLPackageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -226,7 +221,7 @@ class SqlpkgsClient(object):
         
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="GET",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -239,21 +234,21 @@ class SqlpkgsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = list_pb2.ListSQLPackageResponse()
+        rsp = database_delivery_sdk.api.sqlpkgs.list_pb2.ListSQLPackageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
         return rsp
     
     def update_sql_package(self, request, org, user, timeout=10):
-        # type: (update_pb2.UpdateSQLPackageRequest, int, str, int) -> update_pb2.UpdateSQLPackageResponse
+        # type: (database_delivery_sdk.api.sqlpkgs.update_pb2.UpdateSQLPackageRequest, int, str, int) -> database_delivery_sdk.api.sqlpkgs.update_pb2.UpdateSQLPackageResponse
         """
         更新SQL包
         :param request: update_sql_package请求
         :param org: 客户的org编号，为数字
         :param user: 调用api使用的用户名
         :param timeout: 调用超时时间，单位秒
-        :return: update_pb2.UpdateSQLPackageResponse
+        :return: database_delivery_sdk.api.sqlpkgs.update_pb2.UpdateSQLPackageResponse
         """
         headers = {"org": org, "user": user}
         route_name = ""
@@ -267,7 +262,7 @@ class SqlpkgsClient(object):
         )
         requestParam = request
         
-        rsp_obj = utils.http_util.do_api_request(
+        rsp_obj = database_delivery_sdk.utils.http_util.do_api_request(
             method="PUT",
             src_name="logic.database_delivery_sdk",
             dst_name=route_name,
@@ -280,7 +275,7 @@ class SqlpkgsClient(object):
             headers=headers,
             timeout=timeout,
         )
-        rsp = update_pb2.UpdateSQLPackageResponse()
+        rsp = database_delivery_sdk.api.sqlpkgs.update_pb2.UpdateSQLPackageResponse()
         
         google.protobuf.json_format.ParseDict(rsp_obj["data"], rsp, ignore_unknown_fields=True)
         
